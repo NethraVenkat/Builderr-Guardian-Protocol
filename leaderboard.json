@@ -7,7 +7,7 @@
   "scoring": "forward-only",
   "start_cash": 100000.0,
   "round_status": "live",
-  "round_end": "2026-10-31",
+  "round_end": "2026-11-09",
   "prize_pool_usd": 1000,
   "prize_split": {
     "first": "$600",
@@ -652,5 +652,7 @@
       "since": "2026-07-07",
       "as_of": "2026-10-15"
     }
-  ]
+  ],
+  "submissions_close": "2026-10-31",
+  "results_by": "2026-11-10"
 }

@@ -123,8 +123,9 @@ START_CASH = 100_000.0
 ROUND_ID = "trading-v0-round-2"
 ROUND_NAME = "Round 2"
 ROUND_START = "2026-07-07"   # Round 2 starts at the Jul 7, 2026 US market open.
-ROUND_END = "2026-10-31"     # Round 2 ends at the Oct 31, 2026 US market close; later sessions never count.
-SUBMISSIONS_CLOSE = "2026-10-15"  # last date a new or revised agent can be admitted.
+ROUND_END = "2026-11-09"     # Round 2 ends at the Nov 9, 2026 US market close; later sessions never count.
+SUBMISSIONS_CLOSE = "2026-10-31"  # last date a new or revised agent can be admitted.
+RESULTS_BY = "2026-11-10"
 ROUND_END_CLOSE_ET = "16:00"
 
 
@@ -601,6 +602,8 @@ def main() -> int:
         "start_cash": START_CASH,
         "round_status": round_status(),
         "round_end": ROUND_END,
+        "submissions_close": SUBMISSIONS_CLOSE,
+        "results_by": RESULTS_BY,
         "prize_pool_usd": PRIZE_POOL_USD,
         "prize_split": {
             "first": PRIZE_SPLIT[0],

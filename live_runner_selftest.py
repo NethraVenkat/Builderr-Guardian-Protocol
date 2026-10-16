@@ -62,7 +62,7 @@ def test_every_board_row_has_an_explicit_start() -> None:
     assert live_runner.ENTRY["meet"] == "2026-09-28"  # v7 revision loaded Sep 26
     assert live_runner.ENTRY["elamaran"] == "2026-07-13"
     assert live_runner.ENTRY["ddrives"] == "2026-08-17"
-    assert live_runner.ENTRY["gugan"] == "2026-09-30"
+    assert live_runner.ENTRY["gugan"] == "2026-10-19"
 
 
 def test_session_aware_agent_receives_exact_fill_session() -> None:
@@ -115,7 +115,17 @@ def test_market_context_can_remain_full_buy_and_hold() -> None:
     assert holdings["QQQ"] * 110.0 > live_runner.START_CASH * live_runner.MAX_NAME_WEIGHT, result
 
 
+def test_pending_entries_are_forward_only() -> None:
+    pending = live_runner.pending_entries("2026-10-16")
+    assert len(pending) == 16, pending
+    assert all(r["since"] == "2026-10-19" for r in pending)
+    assert "gugan" in {r["name"] for r in pending}
+    assert "meet" not in {r["name"] for r in pending}
+    assert live_runner.pending_entries("2026-10-19") == []
+
+
 def run() -> None:
+    test_pending_entries_are_forward_only()
     test_same_day_entry_scores_opening_session()
     test_future_entry_does_not_backfill()
     test_every_board_row_has_an_explicit_start()

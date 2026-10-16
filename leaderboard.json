@@ -534,17 +534,6 @@
       "as_of": "2026-10-16"
     },
     {
-      "name": "gugan",
-      "label": "round 2 \u00b7 entrant",
-      "equity": 93852.93,
-      "pnl": -6147.07,
-      "ret": -0.0615,
-      "trades": 27,
-      "days": 13,
-      "since": "2026-09-30",
-      "as_of": "2026-10-16"
-    },
-    {
       "name": "arnav",
       "label": "benchmark \u00b7 Round 1 winner",
       "equity": 92799.95,
@@ -653,6 +642,88 @@
       "days": 73,
       "since": "2026-07-07",
       "as_of": "2026-10-16"
+    }
+  ],
+  "pending_entries": [
+    {
+      "name": "p1vs",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "shridhar",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "miroslav",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "tae_gul_kim",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "unfire_rotation",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "hardik_gautam",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "gugan",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "jaswanth",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "danyblitz",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "unfire_initial",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "manish",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "siri_nandan",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "avinash",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "hardik_hinduja",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "alex_cedar",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
+    },
+    {
+      "name": "raymond",
+      "since": "2026-10-19",
+      "status": "admitted_waiting_first_session"
     }
   ]
 }

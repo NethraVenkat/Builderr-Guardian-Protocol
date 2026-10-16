@@ -115,6 +115,21 @@ PRIVATE_FIELD = [
     ("ddrives_agent.py",             "ddrives",                 "round 2 · entrant · endpoint"),
     ("eduardo_agent.py",             "eduardo",                 "round 2 · entrant"),
     ("gugan_agent.py",               "gugan",                   "round 2 · entrant"),
+    ("raymond_agent.py", "raymond", "round 2 · entrant"),
+    ("alex_cedar_agent.py", "alex_cedar", "round 2 · entrant"),
+    ("hardik_hinduja_agent.py", "hardik_hinduja", "round 2 · entrant"),
+    ("avinash_agent.py", "avinash", "round 2 · entrant"),
+    ("siri_nandan_agent.py", "siri_nandan", "round 2 · entrant"),
+    ("manish_agent.py", "manish", "round 2 · entrant"),
+    ("unfire_initial_agent.py", "unfire_initial", "round 2 · entrant"),
+    ("danyblitz_agent.py", "danyblitz", "round 2 · entrant"),
+    ("jaswanth_agent.py", "jaswanth", "round 2 · entrant"),
+    ("hardik_gautam_agent.py", "hardik_gautam", "round 2 · entrant"),
+    ("unfire_rotation_agent.py", "unfire_rotation", "round 2 · entrant"),
+    ("tae_gul_kim_agent.py", "tae_gul_kim", "round 2 · entrant"),
+    ("miroslav_agent.py", "miroslav", "round 2 · entrant"),
+    ("shridhar_agent.py", "shridhar", "round 2 · entrant"),
+    ("p1vs_agent.py", "p1vs", "round 2 · entrant"),
 ]
 
 EVAL_DAYS = 60       # (history sizing only) trailing window used when fetching bars
@@ -127,6 +142,11 @@ ROUND_END = "2026-11-09"     # Round 2 ends at the Nov 9, 2026 US market close; 
 SUBMISSIONS_CLOSE = "2026-10-31"  # last date a new or revised agent can be admitted.
 RESULTS_BY = "2026-11-10"
 ROUND_END_CLOSE_ET = "16:00"
+
+
+def pending_entries(asof: str) -> list[dict]:
+    return [{"name": name, "since": ENTRY[name], "status": "admitted_waiting_first_session"}
+            for _, name, _ in PRIVATE_FIELD if ENTRY[name] > asof]
 
 
 def round_status() -> str:
@@ -210,7 +230,22 @@ ENTRY = {
     # Submission received before the Sep 8 US market open; score forward only.
     "eduardo": "2026-09-08",
     # Submission received before the Sep 30 US market open; score forward only.
-    "gugan": "2026-09-30",
+    "gugan": "2026-10-19",
+    "p1vs": "2026-10-19",
+    "shridhar": "2026-10-19",
+    "miroslav": "2026-10-19",
+    "tae_gul_kim": "2026-10-19",
+    "unfire_rotation": "2026-10-19",
+    "hardik_gautam": "2026-10-19",
+    "jaswanth": "2026-10-19",
+    "danyblitz": "2026-10-19",
+    "unfire_initial": "2026-10-19",
+    "manish": "2026-10-19",
+    "siri_nandan": "2026-10-19",
+    "avinash": "2026-10-19",
+    "hardik_hinduja": "2026-10-19",
+    "alex_cedar": "2026-10-19",
+    "raymond": "2026-10-19",
 }
 CHART_START = ROUND_START    # common x-axis for the illustrative race chart (Round 2 open)
 SLIP_EQUITY = 0.0005
@@ -602,6 +637,7 @@ def main() -> int:
         "start_cash": START_CASH,
         "round_status": round_status(),
         "round_end": ROUND_END,
+        "pending_entries": pending_entries(asof),
         "submissions_close": SUBMISSIONS_CLOSE,
         "results_by": RESULTS_BY,
         "prize_pool_usd": PRIZE_POOL_USD,

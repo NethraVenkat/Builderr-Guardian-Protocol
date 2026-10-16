@@ -13,12 +13,11 @@ What this DOES tell you, definitively:
   • It respects the live limits: gross leverage <= 1.5x, no single position >= 30%.
   • It doesn't blow up (>50% drawdown).
 Those three are exactly what admission checks — and they depend on YOUR logic, not on
-which window we use. So if you clear them here, you're very likely to be admitted.
+which window we use. Builderr repeats these checks on the submitted source before admission.
 
-What it does NOT tell you: your official numbers. Real admission runs centrally on
-hidden historical regimes so it's identical for everyone. The Sharpe/Calmar/return
-below are on sample windows — illustrative, not your score. The 60-day live forward
-test is what actually ranks you.
+What it does NOT tell you: your leaderboard return. Sample-window returns are
+safety diagnostics only. Forward paper trading from the first scored market
+session determines rank. No private evaluator package is required for admission.
 """
 from __future__ import annotations
 
@@ -264,14 +263,14 @@ def main() -> int:
         print("VERDICT: clears the safety bar — but your bot never traded. It would be ADMITTED,")
         print("         yet it's sitting in cash. Check your signals before you submit.")
     elif admitted:
-        print("VERDICT: ✓ You clear admission's safety bar — you're very likely to be ADMITTED.")
+        print("VERDICT: ✓ You clear admission's safety bar — ready for organizer source review.")
         print("         Push your repo + email submit@builderr.ai to lock in your official run.")
     else:
         print("VERDICT: ✗ Not yet. Fix the FAIL line(s) above — those are the same limits the real")
         print("         admission enforces, so this would be rejected. The numbers are easy to chase;")
         print("         the safety bar is the part that actually gates you.")
     print("\n(Numbers above are on SAMPLE public windows — illustrative, NOT your official score.")
-    print(" Real admission runs centrally on hidden regimes; the 60-day live test is what ranks you.)")
+    print(" Builderr repeats these published checks; forward paper trading determines rank.)")
     return 0 if admitted else 1
 
 

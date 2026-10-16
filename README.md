@@ -20,7 +20,7 @@ Fork this repo, implement `decide()` in `agent.py`, then send us the repo — **
 4. **Push to a GitHub repo** — public, or private with a read-only deploy key (your call; [«Submission»](#submission) explains the trade-offs).
 5. **Email the repo URL** to `submit@builderr.ai` (see [&laquo;Submission&raquo;](#submission)). We run admission and email you the score the same day (usually within a few hours). You can revise up to 4 times before the Round 2 cutoff — your first try is not your last.
 
-> **`preview.py` vs `selfcheck.py`:** `preview.py` is the one to run — it shows you clearing admission with real numbers. `selfcheck.py` is an even-quicker, data-free smoke test (synthetic bars, just checks `decide()` returns well-formed orders and doesn't crash). Neither is the official eval — we run admission centrally on hidden regimes so it's identical for everyone — but a clean `preview.py` is a strong predictor of admission.
+> **`preview.py` vs `selfcheck.py`:** `preview.py` is the one to run — it shows you clearing admission with real numbers. `selfcheck.py` is an even-quicker, data-free smoke test (synthetic bars, just checks `decide()` returns well-formed orders and doesn't crash). Neither is the official eval — we run admission centrally on published sample regimes so it's identical for everyone — but a clean `preview.py` is a strong predictor of admission.
 >
 > **Want proof it&apos;s fair?** Read `fairness_tests.py` — the actual tests from our engine that guarantee *same code → same score* and *same order → same fill, regardless of who sent it*. (`local_test.py` / `full_test.py` are reference only; they need the private engine.)
 
@@ -108,11 +108,7 @@ We don't gate on whether we like your strategy. Three stages:
 
 ### Stage 1 — Admission (immediate, runs on submission)
 
-We run your agent across 3 hidden 30-day historical regimes (shapes only — dates hidden):
-1. Fast sector-contagion crash with broader-market spillover
-2. Slow trend-down regime change from rate-hike repricing
-3. Vol spike + rapid snapback from leveraged-position unwind
-
+We run the submitted source with the published `preview.py` safety checks on the same three public sample-market windows: calm uptrend, moderate selloff, and volatility spike/snapback. No private evaluator package is required.
 **Admission is a smoke screen, NOT a skill gate. You're admitted if:**
 - No execution-constraint breach (leverage / concentration)
 - No catastrophic blow-up (>50% drawdown in any regime)

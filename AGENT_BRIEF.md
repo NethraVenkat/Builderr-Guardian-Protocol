@@ -54,7 +54,7 @@ Tickers outside the universe are ignored.
 
 ## How you're scored
 1. **Admission (instant, on submit).** A safety check, *not* a skill test. You're in if your bot
-   runs cleanly, respects the caps, and doesn't blow up (>50% drawdown) across 3 hidden past
+   runs cleanly, respects the caps, and doesn't blow up (>50% drawdown) across 3 published sample
    market periods. You get a "robustness profile" (how it behaved) back by email.
 2. **Round 2 — the ranking (July 7 – November 9, 2026).** Your bot trades live on the shared
    sandbox. Ranked by **forward return** over its live window. Arnav starts from the same Round 2

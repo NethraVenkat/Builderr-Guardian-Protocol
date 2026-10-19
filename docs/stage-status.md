@@ -24,3 +24,20 @@
 | **10** | **Comprehensive Verification** | **NOT_STARTED** | None. | None | TBD | Execute end-to-end multi-regime backtests, stress tests, secret scans, and deterministic replays. |
 | **11** | **Submission Readiness** | **NOT_STARTED** | Submission routes (public repo, private deploy key, endpoint) evaluated in Stage 1. | None | TBD | Package private repository, configure read-only deploy key, and prepare submission email. |
 | **12** | **Forward Monitoring and Revisions** | **NOT_STARTED** | Revision allowance (up to 4 revisions, score resets forward) documented in Stage 1. | None | TBD | Monitor live leaderboard P&L and evaluate necessity of forward revisions before cutoff. |
+
+---
+
+## Controlled Efficiency Optimization Audit (Post-Stage 2A)
+- **Status:** **PASS (Baseline Retained)**
+- **Audit Date:** 2026-10-19T23:15:00+05:30
+- **Base Certified Commit:** `27fe351a3c923dfde0973328b7d7c99b566b2d7b`
+- **Scope & Objectives:** Systematic multi-regime profiling, vol-spike attribution trace, hypothesis testing (H1-H8), CPU profiling, and strict gate evaluation.
+- **Findings:**
+  - Independent reproduction verified baseline metrics: `agent.py` (+14.65%, -3.36%, -15.77%), `baseline.py` (+12.36%, -3.72%, -8.21%).
+  - Detailed daily attribution trace isolated the underperformance in `vol_spike_snapback` to defensive rotation into collapsing `XLE` (Energy, -50% shock) and delayed recovery due to SMA50 risk-off lock.
+  - Competing hypotheses tested: H1 (min trade size), H2 (inverse vol sizing), H3 (faster 20d trend filter), H4 (staged snapback re-entry), H5 (purging XLE), H6 (rebalancing cadence 3d, 5d, 7d, 10d), H8 (CPU profiling).
+  - Cross-regime evaluation revealed severe regime fragility: purging XLE (H5) improved 2020 by +1.34% but degraded 2022 by -2.16% (where XLE was the sole positive sector); faster trend (H3) protected 2022 (+2.68%) but severely degraded 2021 uptrend (-4.47%, whipsawing).
+  - Rebalancing cadence analysis confirmed the default 5-day cadence is Pareto-optimal (7-day cadence suffered catastrophic -8.02% in selloff due to delayed exit).
+  - CPU profiling verified `decide()` executes in ~6.8 ms under full rebalance (well within the 5.0s hard cutoff, >700x safety factor).
+  - Per strict experimental gates (Section 8 & 9), no candidate passed cross-regime out-of-sample validation without negative side effects. Production `agent.py` was strictly preserved (`PRODUCTION AGENT MODIFIED: NO`).
+

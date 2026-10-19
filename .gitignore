@@ -9,6 +9,7 @@ local_test_output/
 data_cache/
 *.parquet
 .vercel
+scratch/*.json
 
 # private entrants' code — scored locally, never published
 private_agents/

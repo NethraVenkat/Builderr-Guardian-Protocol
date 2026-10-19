@@ -153,10 +153,10 @@ def decide(
 | **Execution Sequencing** | Sells executed before Buys | Sells execute first, replenishing cash. Buys execute second with available cash. | `live_runner.py#L449-L475`, `agent.py#L254` |
 | **Execution Price & Slippage** | Filled at day's OPEN with model slippage | Plain equities: 5 bps ($0.05\%$) slippage. Leveraged ETFs ($\beta > 1$): 10 bps ($0.10\%$) slippage. Buy fill: $\text{open} \cdot (1 + \text{slip})$. Sell fill: $\text{open} \cdot (1 - \text{slip})$. | `preview.py#L40-L41, L111-L133`, `live_runner.py#L251-L252, L451-L454` |
 | **Trading Universe** | Frozen snapshot of top ~1,000 liquid US names | Only tickers in `universe.json` are tradeable; outside orders silently ignored. | `universe.json`, `AGENT_BRIEF.md#L56-L61` |
-| **Decision Frequency** | Once per trading day | Daily cadence during regular market sessions. | `AGENT_BRIEF.md#L39` |
-| **Trade Rate Cap** | $\le 50$ trades per day | Max 50 trades executed per day. | `AGENT_BRIEF.md#L48` |
-| **Minimum Holding Period** | $\ge 60$ seconds | Documented operational limit. | `AGENT_BRIEF.md#L49` |
-| **Decision Timeout** | $\le 5.0$ seconds runtime | Each `decide()` call must return within 5 seconds. Timeout results in empty order execution for that session. | `AGENT_BRIEF.md#L50`, `README.md#L72` |
+| **Decision Frequency** | Once per trading day | Daily cadence during regular market sessions (ensures at most 1 `decide()` call per trading day). | `AGENT_BRIEF.md#L39` |
+| **Trade Rate Cap** | $\le 50$ trades per day | **Official Rule:** Max 50 trades executed per day (`AGENT_BRIEF.md#L48`).<br>**Engine Mechanism:** `live_runner.py#L255` imposes `MAX_ORDERS_PER_DECISION = 100`.<br>**Agent Cap:** `agent.py#L293` caps output to 45 proposed orders (`orders[:45]`).<br>**Orders vs Fills:** Proposed orders are converted to executed fills sequentially (sells first, then buys). Sells replenish cash; buys consume cash and available beta/concentration room. Fills $\le$ Orders $\le 45 < 50$. Under daily 1-decision cadence, 45 orders strictly guarantees $\le 50$ executed trades/day. | `AGENT_BRIEF.md#L48`, `live_runner.py#L255`, `agent.py#L293` |
+| **Minimum Holding Period** | $\ge 60$ seconds | Documented operational limit (`AGENT_BRIEF.md#L49`). In daily batch execution (preview harness and daily runner), decisions occur once per market day and fills execute at the open, holding positions for at least 1 day ($86,400\text{s} \gg 60\text{s}$). The local evaluator lacks intraday sub-minute timestamp resolution, so local intraday enforcement is `DOCUMENTED_ONLY` / inherently satisfied by daily rebalance cadence. | `AGENT_BRIEF.md#L49`, `README.md#L71` |
+| **Decision Timeout** | $\le 5.0$ seconds runtime | Each `decide()` call must return within 5 seconds. Timeout results in empty order execution for that session. Measured max runtime is $0.0037\text{s}$ (1350x safety margin). | `AGENT_BRIEF.md#L50`, `README.md#L72` |
 | **External Data & Lookahead** | Strict prohibition on lookahead bias | Querying future information or external APIs reflecting future regime data causes instant disqualification. | `README.md#L75-L86`, `builderr.ai/guidelines` |
 | **Catastrophic Drawdown Limit** | Drawdown $< 50\%$ across all admission regimes | $> 50\%$ drawdown in any admission regime causes immediate rejection. | `preview.py#L39, L248` |
 
@@ -238,3 +238,4 @@ Stage 2 focuses on environment reproduction, baseline verification, and determin
   $env:PYTHONUTF8=1; python strategy_selftest.py
   ```
 - **Preserved Starter Files:** `agent.py`, `baseline.py`, `preview.py`, `selfcheck.py`, `strategy_selftest.py`, `sample_regimes.json.gz`, `universe.json`, `requirements.txt`.
+

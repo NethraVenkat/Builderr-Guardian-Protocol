@@ -13,7 +13,8 @@ sys.modules['yfinance'] = dummy_yf
 # Now import live_runner without pulling real yfinance
 import importlib.util
 from pathlib import Path
-spec = importlib.util.spec_from_file_location('live_runner', Path('C:/Users/Manish/Downloads/New folder/Builderr-Trading-Agent/live_runner.py'))
+ROOT = Path(__file__).resolve().parent.parent
+spec = importlib.util.spec_from_file_location('live_runner', ROOT / 'live_runner.py')
 live = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(live)
 

@@ -1,7 +1,7 @@
 # Builderr Trading Agents — Competition Contract & Technical Specification
 
 **Round:** Builderr Trading Agents — Round 2  
-**Target:** 1st Place ($600 Prize + $100,000 Live Account Allocation)  
+**Target:** 1st Place ($600 Prize out of $1,000 Pool + Potential $100,000 Live Nasdaq Account Deployment)  
 **Specification Status:** Authoritative Audit (Stage 1 Completed)  
 **Audit Timestamp:** 2026-10-19T22:15:00+05:30  
 **Upstream Starter HEAD Commit:** `3ab0a0d5352c0289b5584300a6dfb09eff9184e6`  
@@ -54,7 +54,7 @@
 | **Benchmark Requirement** | Beat previous round's winning agent ("Arnav") | `https://builderr.ai/trading-v0`, `live_runner.py#L260` |
 | **Revision Allowance** | Up to 4 revisions before the October 31 cutoff | `https://builderr.ai/trading-v0`, `README.md#L133` |
 | **Revision Scoring Effect** | Revisions **reset** scoring forward from the first session after receipt; earlier results are dropped | `live_runner.py#L179-L181, L208-L210` |
-| **Real Capital Execution** | Winner (#1) may have their code run on a real $100,000 Nasdaq account with public weekly P&L tracking | `https://builderr.ai/trading-v0`, `README.md#L127` |
+| **Real Capital Execution** | Potential sponsor incentive: Winner (#1) may have their code run on a real $100,000 Nasdaq account with public weekly P&L tracking (subject to audit and mutual agreement; official competition scoring runs on the simulated paper account) | `https://builderr.ai/trading-v0`, `README.md#L127` |
 
 ---
 

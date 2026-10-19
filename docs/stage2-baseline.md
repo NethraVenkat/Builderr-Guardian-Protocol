@@ -4,7 +4,7 @@
 **Evaluation Date:** 2026-10-19  
 **Parent Upstream SHA:** `3ab0a0d5352c0289b5584300a6dfb09eff9184e6`  
 **Stage 1 Commit SHA:** `d1a36d06347e08ff351a47716e6f6d2fa8ffaad3`  
-**Target:** 1st Place ($600 Prize + $100,000 Real Account Allocation)  
+**Target:** 1st Place ($600 Prize out of $1,000 Pool + Potential $100,000 Live Account Deployment)  
 **Stage 2A Verdict:** **PASS** (Ready for Stage 3)
 
 ---

@@ -110,3 +110,11 @@ branch refs. Stop if the base or destination has changed unexpectedly. Publish
 only this isolated release branch with a normal non-force push to Guardian.
 Do not push research main, change remote visibility, or push to origin.
 Use the exact published commit and branch when requesting organizer review.
+
+
+## Stage 11 handoff
+
+See SUBMISSION.md for the current publication gates, organizer branch-selection
+questions and unsent email templates. Stage 11 preserves the exact Stage 10 agent
+and fixtures. Local verification passes; named-branch execution and organizer
+admission remain unverified. No external action is authorized by these documents.

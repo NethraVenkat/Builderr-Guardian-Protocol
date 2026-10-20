@@ -13,3 +13,4 @@ requirements-test.txt text eol=lf
 RELEASE.md text eol=lf
 release-manifest.sha256 text eol=lf
 .gitattributes text eol=lf
+SUBMISSION.md text eol=lf

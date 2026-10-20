@@ -11,8 +11,10 @@ No H6.1 overlay, strategy change, or evaluator change is included.
 
 ## Scope and dependencies
 
-The new commit changes only agent.py and adds this document, the release manifest,
-requirements-test.txt, tests/test_e0_release.py and tests/e0_expected.json.
+The release changes only agent.py and adds this document, the release manifest,
+requirements-test.txt, tests/test_e0_release.py, tests/e0_expected.json and
+.gitattributes. The latter pins LF checkout endings for the selected release files
+so byte hashes remain identical on Windows as well as other platforms.
 The agent requires only Python's standard library; requirements.txt is unchanged.
 Pytest is a test-only dependency, pinned separately in requirements-test.txt.
 Validation used Python 3.14.8; this is not a cross-version guarantee.
@@ -33,6 +35,12 @@ Official optional live-runner tooling has separate dependencies and is not part
 of the agent's runtime requirements.
 
 ## Reproduce checks
+
+Use a fresh checkout of the final release commit. Its Git attributes preserve
+canonical LF bytes even when global core.autocrlf is enabled. A preliminary
+Windows clone converted files to CRLF: 54 tests passed and the two strict hash
+checks correctly failed. Those outputs are preserved; no trading-source change
+was made to resolve the checkout issue.
 
 From the repository root, in a Python environment:
 

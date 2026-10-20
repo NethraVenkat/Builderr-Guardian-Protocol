@@ -1,0 +1,15 @@
+agent.py text eol=lf
+requirements.txt text eol=lf
+LICENSE text eol=lf
+README.md text eol=lf
+AGENT_BRIEF.md text eol=lf
+universe.json text eol=lf
+preview.py text eol=lf
+selfcheck.py text eol=lf
+strategy_selftest.py text eol=lf
+tests/test_e0_release.py text eol=lf
+tests/e0_expected.json text eol=lf
+requirements-test.txt text eol=lf
+RELEASE.md text eol=lf
+release-manifest.sha256 text eol=lf
+.gitattributes text eol=lf

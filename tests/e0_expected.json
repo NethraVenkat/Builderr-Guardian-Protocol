@@ -1,0 +1,50 @@
+{
+  "calm_uptrend": {
+    "metrics": {
+      "name": "calm_uptrend",
+      "ret": 0.1465046673310002,
+      "mdd": 0.03568218839390026,
+      "sharpe": 4.17669910983113,
+      "calmar": 19.98582249958841,
+      "trades": 38,
+      "peak_gross": 0.9363007561922854,
+      "peak_conc": 0.20929759427415925,
+      "max_conc_streak": 0,
+      "errors": 0,
+      "days": 64
+    },
+    "decision_and_portfolio_sha256": "79e09473aff5216d6be19c17d9a2a80bad08dfd66a44074e354b9dd0b657f886"
+  },
+  "moderate_selloff": {
+    "metrics": {
+      "name": "moderate_selloff",
+      "ret": -0.03364613610399969,
+      "mdd": 0.061329857409124035,
+      "sharpe": -2.530669024780128,
+      "calmar": -3.960029151613972,
+      "trades": 17,
+      "peak_gross": 0.916776292512091,
+      "peak_conc": 0.24109784348878,
+      "max_conc_streak": 0,
+      "errors": 0,
+      "days": 31
+    },
+    "decision_and_portfolio_sha256": "5424f4d8b2f824157c6787a8818234ee32f06238bc3260d89db0a1e0698a89b1"
+  },
+  "vol_spike_snapback": {
+    "metrics": {
+      "name": "vol_spike_snapback",
+      "ret": -0.15772962585399974,
+      "mdd": 0.3345765278674998,
+      "sharpe": -1.2952102022366103,
+      "calmar": -1.7305643537829312,
+      "trades": 21,
+      "peak_gross": 0.913744138208651,
+      "peak_conc": 0.26399988163630617,
+      "max_conc_streak": 0,
+      "errors": 0,
+      "days": 50
+    },
+    "decision_and_portfolio_sha256": "3c00e5d52f58fa3221257fdf2e932581019523307198d3451ba9711bb7085a7b"
+  }
+}

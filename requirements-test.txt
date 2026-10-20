@@ -1,0 +1,2 @@
+# Test-only dependency; agent.py itself uses only the standard library.
+pytest==9.1.1

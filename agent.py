@@ -13,7 +13,7 @@ Core idea:
 """
 from __future__ import annotations
 
-from math import sqrt
+from math import isfinite, sqrt
 from statistics import mean, pstdev
 from typing import Any
 
@@ -56,7 +56,7 @@ def closes(bars: list[dict[str, Any]] | None) -> list[float]:
             close = float(bar["close"])
         except (KeyError, TypeError, ValueError):
             return []
-        if close <= 0:
+        if not isfinite(close) or close <= 0:
             return []
         out.append(close)
     return out
@@ -307,6 +307,33 @@ def _has_position_drifted(portfolio_state: dict[str, Any], total_equity: float) 
     return False
 
 
+def _finite_inputs(market_state: dict, portfolio_state: dict, cash: float) -> bool:
+    """Fail closed on invalid numeric inputs without advancing rebalance state."""
+    try:
+        values = [float(cash), float(portfolio_state.get("cash", cash))]
+        last_prices = portfolio_state.get("last_prices", {}) or {}
+        for raw in portfolio_state.get("positions", []) or []:
+            ticker = str(raw.get("ticker", "")).upper()
+            qty = float(raw.get("quantity", 0.0))
+            cost = float(raw.get("avg_cost", 0.0))
+            price = float(last_prices.get(ticker, cost))
+            if qty < 0 or (qty > 0 and price <= 0):
+                return False
+            values.extend((qty, cost, price, qty * price))
+        if not all(isfinite(value) for value in values):
+            return False
+        for bars in market_state.values():
+            prices = [float(bar["close"]) for bar in bars or []]
+            if any(not isfinite(price) or price <= 0 for price in prices):
+                return False
+            # Bound derived returns and annualized volatility, not just inputs.
+            if prices and not isfinite((max(prices) / min(prices)) * sqrt(252.0)):
+                return False
+        return isfinite(equity(portfolio_state, cash))
+    except (KeyError, TypeError, ValueError, OverflowError):
+        return False
+
+
 def decide(
     market_state: dict,
     portfolio_state: dict,
@@ -315,7 +342,7 @@ def decide(
     """Return a list of long-only buy/sell orders."""
     global _last_rebalance_bar_date, _last_targets
 
-    if not market_state:
+    if not market_state or not _finite_inputs(market_state, portfolio_state, cash):
         return []
 
     latest_date = _latest_bar_date(market_state)

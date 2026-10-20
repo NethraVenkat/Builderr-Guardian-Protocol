@@ -1,4 +1,4 @@
-# E0 release candidate - Stage 10
+# E0 release candidate
 
 Status: locally verified candidate; organizer admission remains pending.
 
@@ -11,7 +11,8 @@ No H6.1 overlay, strategy change, or evaluator change is included.
 
 ## Scope and dependencies
 
-The release changes only agent.py and adds this document, the release manifest,
+Relative to the Guardian base, the release changes agent.py and adds release
+documentation (this guide, SUBMISSION.md and RELEASE-AUDIT.md), the manifest,
 requirements-test.txt, tests/test_e0_release.py, tests/e0_expected.json and
 .gitattributes. The latter pins LF checkout endings for the selected release files
 so byte hashes remain identical on Windows as well as other platforms.
@@ -30,7 +31,9 @@ Essential runtime: agent.py plus Python. Review/support files: requirements.txt,
 LICENSE, README.md, AGENT_BRIEF.md, universe.json, preview.py,
 sample_regimes.json.gz, selfcheck.py and strategy_selftest.py.
 The self-contained release tests require no scratch modules or external archive.
-No API key, endpoint, local developer path or external service is needed.
+No API key, endpoint or external service is needed to run E0. Inherited historical
+files do contain developer paths and backup locations; see RELEASE-AUDIT.md for
+the publication-content review.
 Official optional live-runner tooling has separate dependencies and is not part
 of the agent's runtime requirements.
 
@@ -72,7 +75,7 @@ All economic outputs match exactly; maximum accounting residual < $3e-11.
 | moderate_selloff | -3.364614% | 6.132986% | -2.530669 | -3.960029 | 17 |
 | vol_spike_snapback | -15.772963% | 33.457653% | -1.295210 | -1.730564 | 21 |
 
-Measured historical max decision latency: 3.893200 ms. Ten heavy-input decisions
+Stage 10 measured historical max decision latency: 3.893200 ms. Ten heavy-input decisions
 (1,000 tickers, 220 bars each) had a maximum of 46.876200 ms. These measurements
 are below the published five-second limit, not a worst-case guarantee.
 The private raw audit and reproducible comparison script are preserved separately;
@@ -81,8 +84,9 @@ they are not dependencies of this branch or its release tests.
 ## Compliance limits and admission
 
 The published contract calls decide(market_state, portfolio_state, cash) once
-per day. Output is capped at 45 orders per call. This satisfies the published
-50-trade daily limit only under that scheduling contract. Repeated stale,
+per day. Output is capped at 45 orders per call. This bounds generated orders below 50 for one invocation per day. It does not
+independently prove a limit on fills if partial fills or retries are counted
+separately. Repeated stale,
 overweight intraday calls can emit more than 50 orders in total; no universal
 daily counter or retry idempotence is claimed. Confirm actual integration before
 submission. The unchanged public runner accepted 51 executed trades in the audit;
@@ -118,3 +122,12 @@ See SUBMISSION.md for the current publication gates, organizer branch-selection
 questions and unsent email templates. Stage 11 preserves the exact Stage 10 agent
 and fixtures. Local verification passes; named-branch execution and organizer
 admission remain unverified. No external action is authorized by these documents.
+
+## Provenance and current audit
+
+AI tools assisted development, testing and documentation. The source and executed
+evidence determine the claims; no authorship is inferred from writing style.
+See RELEASE-AUDIT.md for the full file inventory, inherited historical artifacts,
+security-scan scope and outstanding publication conditions. Official files,
+including ANATOMY.md and earlier audit reports, may describe older objectives or
+checkpoints; use the current challenge rules and this guide for this candidate.

@@ -14,3 +14,4 @@ RELEASE.md text eol=lf
 release-manifest.sha256 text eol=lf
 .gitattributes text eol=lf
 SUBMISSION.md text eol=lf
+RELEASE-AUDIT.md text eol=lf

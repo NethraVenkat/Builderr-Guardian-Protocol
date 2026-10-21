@@ -1,0 +1,76 @@
+{
+  "audit_milestone": "Track B2-A Replay Engine and Data Compliance Gate",
+  "timestamp_utc": "2026-10-21T15:47:38.807278+00:00",
+  "python_interpreter": "C:\\Users\\Manish\\Downloads\\Signalpost\\.venv\\Scripts\\python.exe",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "total_duration_seconds": 11.0,
+  "overall_status": "ALL_PASSED",
+  "suite_results": [
+    {
+      "suite": "validation_unit_tests",
+      "category": "Input Validation & Boundary Integrity",
+      "description": "Tests calendar sanity, positive finite OHLC, geometric bounds, duplicate rejection, and future timestamp strict rejection.",
+      "command": "C:\\Users\\Manish\\Downloads\\Signalpost\\.venv\\Scripts\\python.exe -m pytest research/tests/test_validation.py -v -ra -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": true,
+      "duration_seconds": 1.62,
+      "log_path": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-TrackB\\research\\evidence\\b2a_validation_unit_tests.log",
+      "output_summary": "ation.py::TestValidationControls::test_series_chronology_and_duplicate_rejection PASSED [ 87%]\nresearch/tests/test_validation.py::TestValidationControls::test_future_timestamp_strict_rejection_at_boundary PASSED [100%]\n\n============================== 8 passed in 0.06s =============================="
+    },
+    {
+      "suite": "provider_compliance_tests",
+      "category": "Storage Compliance & Streaming",
+      "description": "Tests storage guard prohibiting Tiingo durable caching and verifies ephemeral in-memory streaming.",
+      "command": "C:\\Users\\Manish\\Downloads\\Signalpost\\.venv\\Scripts\\python.exe -m pytest research/tests/test_provider_compliance.py -v -ra -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": true,
+      "duration_seconds": 1.1981,
+      "log_path": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-TrackB\\research\\evidence\\b2a_provider_compliance_tests.log",
+      "output_summary": "_compliance.py::TestProviderCompliance::test_in_memory_stream_provider_ephemeral_usage PASSED [ 75%]\nresearch/tests/test_provider_compliance.py::TestProviderCompliance::test_static_regime_provider_loading PASSED [100%]\n\n============================== 4 passed in 0.13s =============================="
+    },
+    {
+      "suite": "corporate_actions_tests",
+      "category": "Corporate Action Accounting",
+      "description": "Tests stock split ratio invariant and point-in-time cash dividend distribution.",
+      "command": "C:\\Users\\Manish\\Downloads\\Signalpost\\.venv\\Scripts\\python.exe -m pytest research/tests/test_corporate_actions.py -v -ra -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": true,
+      "duration_seconds": 1.421,
+      "log_path": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-TrackB\\research\\evidence\\b2a_corporate_actions_tests.log",
+      "output_summary": "tests/test_corporate_actions.py::TestCorporateActions::test_cash_dividend_distribution PASSED [ 75%]\nresearch/tests/test_corporate_actions.py::TestCorporateActions::test_unheld_ticker_dividend_yields_zero PASSED [100%]\n\n============================== 4 passed in 0.05s =============================="
+    },
+    {
+      "suite": "replay_accounting_tests",
+      "category": "Execution & Cash Accounting",
+      "description": "Tests cash conservation, leveraged slippage, sell-precedes-buy order ordering, and missing price handling.",
+      "command": "C:\\Users\\Manish\\Downloads\\Signalpost\\.venv\\Scripts\\python.exe -m pytest research/tests/test_replay_accounting.py -v -ra -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": true,
+      "duration_seconds": 1.1796,
+      "log_path": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-TrackB\\research\\evidence\\b2a_replay_accounting_tests.log",
+      "output_summary": "ests/test_replay_accounting.py::TestReplayAccounting::test_missing_execution_price_drops_cleanly PASSED [ 80%]\nresearch/tests/test_replay_accounting.py::TestReplayAccounting::test_short_selling_prevention PASSED [100%]\n\n============================== 5 passed in 0.04s =============================="
+    },
+    {
+      "suite": "risk_limits_tests",
+      "category": "Portfolio Risk Caps",
+      "description": "Tests gross beta exposure (1.5x), concentration streaks (30%), and catastrophic drawdown (50%).",
+      "command": "C:\\Users\\Manish\\Downloads\\Signalpost\\.venv\\Scripts\\python.exe -m pytest research/tests/test_risk_limits.py -v -ra -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": true,
+      "duration_seconds": 1.6798,
+      "log_path": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-TrackB\\research\\evidence\\b2a_risk_limits_tests.log",
+      "output_summary": "PASSED [ 33%]\nresearch/tests/test_risk_limits.py::TestRiskLimits::test_concentration_streak_tracking PASSED [ 66%]\nresearch/tests/test_risk_limits.py::TestRiskLimits::test_catastrophic_drawdown_detection PASSED [100%]\n\n============================== 3 passed in 0.09s =============================="
+    },
+    {
+      "suite": "baseline_parity_tests",
+      "category": "Baseline Deterministic Reproduction",
+      "description": "Proves ReplayEngine reproduces official preview.py metrics across all 3 public regimes.",
+      "command": "C:\\Users\\Manish\\Downloads\\Signalpost\\.venv\\Scripts\\python.exe -m pytest research/tests/test_baseline_parity.py -v -ra -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": true,
+      "duration_seconds": 3.8888,
+      "log_path": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-TrackB\\research\\evidence\\b2a_baseline_parity_tests.log",
+      "output_summary": "ity::test_replay_engine_matches_official_preview[moderate_selloff] PASSED [ 66%]\nresearch/tests/test_baseline_parity.py::TestBaselineParity::test_replay_engine_matches_official_preview[vol_spike_snapback] PASSED [100%]\n\n============================== 3 passed in 1.64s =============================="
+    }
+  ]
+}

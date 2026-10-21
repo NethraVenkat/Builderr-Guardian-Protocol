@@ -22,9 +22,26 @@ class MissingPaymentDateError(ValueError):
 
 class PaymentDatePolicy(str, Enum):
     """Explicit policy for handling dividends with missing payment dates."""
-    REJECT = "REJECT"                             # Strict research gate: raises MissingPaymentDateError
-    IMPUTE_SETTLEMENT_LAG = "IMPUTE_SETTLEMENT_LAG"   # Documented proxy: ex_date + 14 calendar days, audit logged
-    EX_DATE_COMPATIBILITY = "EX_DATE_COMPATIBILITY"   # Legacy / preview.py parity mode: ex_date = payment_date
+    REJECT = "REJECT"                                   # Strict research gate: raises MissingPaymentDateError
+    IMPUTE_SETTLEMENT_LAG = "IMPUTE_SETTLEMENT_LAG"     # Documented proxy: ex_date + 14 calendar days, audit logged
+    IMPUTE_BUSINESS_DAYS_10 = "IMPUTE_BUSINESS_DAYS_10" # Institutional proxy: ex_date + 10 trading business days, audit logged
+    EX_DATE_COMPATIBILITY = "EX_DATE_COMPATIBILITY"     # Legacy / preview.py parity mode: ex_date = payment_date
+
+
+def compute_business_day_settlement(
+    ex_date: str,
+    business_days: int = 10,
+    holidays: set[str] | None = None,
+) -> str:
+    """Computes settlement date by advancing N trading business days, skipping weekends and holidays."""
+    cur = datetime.strptime(str(ex_date)[:10], "%Y-%m-%d")
+    hols = holidays or set()
+    added = 0
+    while added < business_days:
+        cur += timedelta(days=1)
+        if cur.weekday() < 5 and cur.strftime("%Y-%m-%d") not in hols:
+            added += 1
+    return cur.strftime("%Y-%m-%d")
 
 
 @dataclass(frozen=True)
@@ -116,6 +133,15 @@ class CorporateActionRegistry:
                     "ex_date": ex_d,
                     "imputed_payment_date": pay_d,
                     "method": "SETTLEMENT_LAG_14D",
+                })
+            elif effective_policy == PaymentDatePolicy.IMPUTE_BUSINESS_DAYS_10:
+                pay_d = compute_business_day_settlement(ex_d, business_days=10)
+                self.imputation_audit_log.append({
+                    "warning": "UNVERIFIED_PAYMENT_DATE_IMPUTATION",
+                    "ticker": ticker.upper(),
+                    "ex_date": ex_d,
+                    "imputed_payment_date": pay_d,
+                    "method": "SETTLEMENT_BUSINESS_DAYS_10",
                 })
             elif effective_policy == PaymentDatePolicy.EX_DATE_COMPATIBILITY:
                 pay_d = ex_d

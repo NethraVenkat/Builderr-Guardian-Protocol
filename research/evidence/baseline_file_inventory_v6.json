@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-10-21T18:50:22.314983+00:00",
-  "git_commit": "82343368dca7cba165c43a4362359ead844cb364",
-  "total_files": 161,
-  "tracked_count": 128,
-  "untracked_count": 3,
+  "generated_at_utc": "2026-10-21T19:19:55.606185+00:00",
+  "git_commit": "c096738e6117c065deabe22c8af891016b3f84fd",
+  "total_files": 163,
+  "tracked_count": 132,
+  "untracked_count": 1,
   "ignored_count": 30,
   "files": {
     ".gitattributes": {
@@ -258,8 +258,8 @@
     },
     "research/engine/corporate_actions.py": {
       "status": "tracked",
-      "bytes": 10990,
-      "sha256": "91fb01cb42d5f0be419a3f3ecf4466ed97cdbbff3dadd6e0c3ddbcbf0d581b5a"
+      "bytes": 12159,
+      "sha256": "75ac5ad2f1a65dcaee8a849c0ddcdbc11f3cbfa115a21d5501e3cb2a7a8d7396"
     },
     "research/engine/ingestion.py": {
       "status": "tracked",
@@ -323,8 +323,13 @@
     },
     "research/evidence/baseline_file_inventory_v5.json": {
       "status": "tracked",
-      "bytes": 46011,
-      "sha256": "9b98019d1f5d10dbff2318d6cd528c06d903f7d4b8326865b6269db538b5c519"
+      "bytes": 39850,
+      "sha256": "8d5c871521a7231787980289e3b245ad9ae2778b8fb80be73ed5a3f65ecd8f6c"
+    },
+    "research/evidence/baseline_file_inventory_v6.json": {
+      "status": "tracked",
+      "bytes": 28463,
+      "sha256": "5c5aef643a5ceeae0939c3b92eedf600fa1da94a7aebf33f987458635985571c"
     },
     "research/evidence/baseline_test_suite_results.json": {
       "status": "tracked",
@@ -391,6 +396,11 @@
       "bytes": 3381,
       "sha256": "0e2e4852f8dc78bd16be795aeb548fc2caf7d1052f90dbe9600c65b0674692d0"
     },
+    "research/scripts/generate_inventory_v6.py": {
+      "status": "tracked",
+      "bytes": 3162,
+      "sha256": "f7939fb76cfefc2bf10c3cb9ba0bbac6f3b8b480fd5454bb63b2ea3227604009"
+    },
     "research/scripts/generate_permissions_matrix.py": {
       "status": "tracked",
       "bytes": 5478,
@@ -431,6 +441,11 @@
       "bytes": 7612,
       "sha256": "e71f07e1297f1414fe9729c15ea15d6b96fa28f72eee70dc83f92fd9815bd3a0"
     },
+    "research/scripts/validate_soak_run.py": {
+      "status": "tracked",
+      "bytes": 10951,
+      "sha256": "dbe579b879871828111be62e5d6c6a8d85f32e40f03d78df46ccf36114e60ad9"
+    },
     "research/scripts/verify_remediation_controls.py": {
       "status": "tracked",
       "bytes": 17170,
@@ -463,8 +478,8 @@
     },
     "research/tests/test_b2_financial_corner_cases.py": {
       "status": "tracked",
-      "bytes": 9551,
-      "sha256": "ff29a640104724d9bbcfdb9abf52e26c6e518ca5b3ff57b50ff652a593ebc77a"
+      "bytes": 11657,
+      "sha256": "2c35df117b964b9676708740d71f3dfea5e10da726bb805f65bbb4383ec08979"
     },
     "research/tests/test_b2_ingestion_quality.py": {
       "status": "tracked",
@@ -480,6 +495,11 @@
       "status": "tracked",
       "bytes": 9000,
       "sha256": "02449d872d4668df2ad213c004187c23e8c2889a029af7de179ff8c815ea0b2f"
+    },
+    "research/tests/test_b2_soak_validation.py": {
+      "status": "tracked",
+      "bytes": 6558,
+      "sha256": "f00717933db1f67a6f5af47a137effb0c64f378789b0e4f75e365e19e3bacd65"
     },
     "research/tests/test_b2_storage_compliance.py": {
       "status": "tracked",
@@ -646,20 +666,10 @@
       "bytes": 11486,
       "sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd"
     },
-    "research/scripts/generate_inventory_v6.py": {
+    "research/tests/test_b2_leveraged_overlay.py": {
       "status": "untracked",
-      "bytes": 3162,
-      "sha256": "f7939fb76cfefc2bf10c3cb9ba0bbac6f3b8b480fd5454bb63b2ea3227604009"
-    },
-    "research/scripts/validate_soak_run.py": {
-      "status": "untracked",
-      "bytes": 10951,
-      "sha256": "dbe579b879871828111be62e5d6c6a8d85f32e40f03d78df46ccf36114e60ad9"
-    },
-    "research/tests/test_b2_soak_validation.py": {
-      "status": "untracked",
-      "bytes": 6558,
-      "sha256": "f00717933db1f67a6f5af47a137effb0c64f378789b0e4f75e365e19e3bacd65"
+      "bytes": 8848,
+      "sha256": "7223607d994c01277a301ed6bd6055eb0fd03ebfa00bcc4ebf24714ff7fbf5d6"
     },
     "research/evidence/b2a_baseline_parity_tests.log": {
       "status": "ignored",

@@ -125,6 +125,39 @@ class TestFinancialCornerCases:
         assert entry["warning"] == "UNVERIFIED_PAYMENT_DATE_IMPUTATION"
         assert entry["imputed_payment_date"] == "2026-07-15"
 
+    def test_missing_payment_date_impute_business_days_10(self):
+        """Under IMPUTE_BUSINESS_DAYS_10 policy, missing payment date adds 10 trading business days."""
+        registry = CorporateActionRegistry(payment_date_policy=PaymentDatePolicy.IMPUTE_BUSINESS_DAYS_10)
+        registry.register_dividend(ex_date="2026-07-01", ticker="QQQ", amount_per_share=0.75, payment_date=None)
+        assert len(registry.imputation_audit_log) == 1
+        entry = registry.imputation_audit_log[0]
+        assert entry["warning"] == "UNVERIFIED_PAYMENT_DATE_IMPUTATION"
+        assert entry["method"] == "SETTLEMENT_BUSINESS_DAYS_10"
+        # 2026-07-01 is Wednesday. 10 business days -> 2026-07-15 (Wed)
+        assert entry["imputed_payment_date"] == "2026-07-15"
+
+    def test_business_days_vs_calendar_days_distinction(self):
+        """Proves 14-calendar-day lag is NOT equivalent to 10-business-day settlement across holidays and year-ends."""
+        from research.engine.corporate_actions import compute_business_day_settlement
+
+        # Case 1: Ex-date before MLK Jr. Day holiday (2021-01-08 Friday)
+        # 14 calendar days -> 2021-01-22 (Friday)
+        # 10 business days with MLK holiday (2021-01-18) -> 2021-01-25 (Monday)
+        holidays = {"2021-01-18"}
+        cal_14d = "2021-01-22"
+        b_10d = compute_business_day_settlement("2021-01-08", business_days=10, holidays=holidays)
+        assert b_10d == "2021-01-25"
+        assert b_10d != cal_14d, "Holiday pushes business-day settlement beyond 14 calendar days"
+
+        # Case 2: Year-end boundary with Christmas and New Year's (2020-12-23 Wednesday)
+        # 14 calendar days -> 2021-01-06 (Wednesday)
+        # 10 business days with 2020-12-25 and 2021-01-01 holidays -> 2021-01-08 (Friday)
+        ye_holidays = {"2020-12-25", "2021-01-01"}
+        ye_cal_14d = "2021-01-06"
+        ye_b_10d = compute_business_day_settlement("2020-12-23", business_days=10, holidays=ye_holidays)
+        assert ye_b_10d == "2021-01-08"
+        assert ye_b_10d != ye_cal_14d, "Year-end dual holidays push business-day settlement by 2 full days"
+
     def test_missing_payment_date_ex_date_compatibility(self):
         """Under EX_DATE_COMPATIBILITY mode, ex-date is used but flagged in imputation audit log."""
         registry = CorporateActionRegistry(payment_date_policy=PaymentDatePolicy.EX_DATE_COMPATIBILITY)

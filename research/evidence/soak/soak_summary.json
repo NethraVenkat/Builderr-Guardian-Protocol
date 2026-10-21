@@ -1,0 +1,23 @@
+{
+  "soak_verdict": "INCOMPLETE",
+  "target_duration_sec": 180.0,
+  "actual_duration_sec": 180.69,
+  "actual_duration_mins": 3.01,
+  "start_time_utc": "2026-10-21T18:11:53.505257+00:00",
+  "finish_time_utc": "2026-10-21T18:14:54.221476+00:00",
+  "pid": 10336,
+  "total_cycles_completed": 244,
+  "total_sessions_simulated": 11809,
+  "total_agent_decisions": 11809,
+  "total_orders_executed": 6194,
+  "average_decisions_per_sec": 65.36,
+  "fault_injections_tested": 488,
+  "fault_recoveries_successful": 488,
+  "invariant_failures": 0,
+  "unhandled_exceptions": 0,
+  "final_cur_mem_mb": 4.3,
+  "final_peak_mem_mb": 14.22,
+  "memory_slope_mb_per_hour": -4.873,
+  "telemetry_samples_count": 11,
+  "telemetry_file": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-TrackB\\research\\evidence\\soak\\soak_telemetry.jsonl"
+}

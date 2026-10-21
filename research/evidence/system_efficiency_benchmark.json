@@ -1,0 +1,68 @@
+{
+  "benchmark_suite_version": "v1.0",
+  "timestamp_utc": "2026-10-21T23:44:00Z",
+  "hardware_platform": "Windows x64",
+  "python_version": "3.11.9",
+  "regimes": {
+    "calm_uptrend": {
+      "dataset_load_time_ms": 170.01,
+      "validation_time_ms": 170.04,
+      "validation_throughput_bars_per_sec": 41989.8,
+      "replay_time_ms": 478.79,
+      "sessions_processed": 64,
+      "sessions_per_sec": 133.7,
+      "orders_processed": 38,
+      "orders_per_sec": 79.4,
+      "decisions_count": 64,
+      "decisions_per_sec": 133.7,
+      "decision_latency_p50_ms": 1.8133,
+      "decision_latency_p95_ms": 25.2021,
+      "decision_latency_p99_ms": 36.9318,
+      "decision_latency_max_ms": 36.9318,
+      "peak_memory_mb": 20.23,
+      "steady_state_memory_mb": 14.39
+    },
+    "moderate_selloff": {
+      "dataset_load_time_ms": 150.66,
+      "validation_time_ms": 194.14,
+      "validation_throughput_bars_per_sec": 33316.6,
+      "replay_time_ms": 218.23,
+      "sessions_processed": 31,
+      "sessions_per_sec": 142.1,
+      "orders_processed": 17,
+      "orders_per_sec": 77.9,
+      "decisions_count": 31,
+      "decisions_per_sec": 142.1,
+      "decision_latency_p50_ms": 3.8276,
+      "decision_latency_p95_ms": 21.4549,
+      "decision_latency_p99_ms": 22.6336,
+      "decision_latency_max_ms": 22.6336,
+      "peak_memory_mb": 19.46,
+      "steady_state_memory_mb": 13.6
+    },
+    "vol_spike_snapback": {
+      "dataset_load_time_ms": 148.11,
+      "validation_time_ms": 191.09,
+      "validation_throughput_bars_per_sec": 35716.7,
+      "replay_time_ms": 217.45,
+      "sessions_processed": 50,
+      "sessions_per_sec": 229.9,
+      "orders_processed": 21,
+      "orders_per_sec": 96.6,
+      "decisions_count": 50,
+      "decisions_per_sec": 229.9,
+      "decision_latency_p50_ms": 1.8761,
+      "decision_latency_p95_ms": 5.4437,
+      "decision_latency_p99_ms": 24.5556,
+      "decision_latency_max_ms": 24.5556,
+      "peak_memory_mb": 19.87,
+      "steady_state_memory_mb": 14.03
+    }
+  },
+  "aggregate_summary": {
+    "mean_decision_latency_p50_ms": 2.5057,
+    "mean_decisions_per_sec": 168.6,
+    "peak_memory_mb": 20.23,
+    "mean_validation_throughput_bars_per_sec": 37007.7
+  }
+}

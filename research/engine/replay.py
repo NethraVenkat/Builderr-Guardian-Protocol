@@ -165,6 +165,8 @@ class ReplayEngine:
 
         return {
             "metrics": metrics,
+            "equity_curve": list(portfolio.equity_curve),
+            "total_trades": portfolio.trade_count,
             "peak_gross": portfolio.peak_gross,
             "peak_gross_notional": portfolio.peak_gross_notional,
             "peak_beta_adjusted": portfolio.peak_beta_adjusted,

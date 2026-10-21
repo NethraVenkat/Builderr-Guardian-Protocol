@@ -21,6 +21,7 @@ from research.engine.accounting import (
     CONCENTRATION_CAP,
     LEVERAGE_CAP,
     PortfolioState,
+    RiskMode,
     calculate_metrics,
 )
 from research.engine.corporate_actions import CorporateActionRegistry
@@ -38,11 +39,13 @@ class ReplayEngine:
         corporate_actions: CorporateActionRegistry | None = None,
         commission_bps: float = 0.0,
         start_cash: float = 100_000.0,
+        risk_mode: RiskMode = RiskMode.TELEMETRY_ONLY,
     ):
         self.provider = provider
         self.corporate_actions = corporate_actions or CorporateActionRegistry()
         self.commission_bps = commission_bps
         self.start_cash = start_cash
+        self.risk_mode = risk_mode
         self.decide = self._load_agent(agent_path_or_fn)
 
     def _load_agent(self, agent_path_or_fn: Path | str | Callable) -> Callable:
@@ -75,14 +78,18 @@ class ReplayEngine:
 
         # Stream day-by-day point-in-time slices
         for current_date, market_state in self.provider.stream_daily_slices(eval_start, eval_end):
+            portfolio.reset_daily_trade_counter()
+
             # 1. Point-in-time Corporate Actions before market open
             split_logs = self.corporate_actions.apply_splits_for_date(
                 current_date, portfolio.positions, portfolio.avg_cost
             )
-            div_payout, div_logs = self.corporate_actions.apply_dividends_for_date(
+            div_cash, div_rec, div_logs = self.corporate_actions.process_dividends_for_date(
                 current_date, portfolio.positions
             )
-            portfolio.cash += div_payout
+            portfolio.cash += div_cash
+            portfolio.total_dividends_credited += div_cash
+            portfolio.dividend_receivables = self.corporate_actions.total_outstanding_receivables()
 
             # Extract today's open and close prices
             today_opens: dict[str, float] = {}
@@ -99,16 +106,27 @@ class ReplayEngine:
 
             for order in sells:
                 px = today_opens.get(order["ticker"])
-                portfolio.execute_order(order, px, commission_bps=self.commission_bps)
+                portfolio.execute_order(
+                    order, px, commission_bps=self.commission_bps,
+                    risk_mode=self.risk_mode, current_prices=today_opens
+                )
 
             for order in buys:
                 px = today_opens.get(order["ticker"])
-                portfolio.execute_order(order, px, commission_bps=self.commission_bps)
+                portfolio.execute_order(
+                    order, px, commission_bps=self.commission_bps,
+                    risk_mode=self.risk_mode, current_prices=today_opens
+                )
 
             pending_orders = []
 
             # 3. Mark to Market at today's CLOSE
             portfolio.mark_to_market(today_closes)
+
+            # 4. Verify double-entry balance sheet invariant
+            inv_ok, inv_reason = portfolio.check_accounting_invariants(today_closes)
+            if not inv_ok:
+                raise RuntimeError(f"Balance sheet invariant violated on {current_date}: {inv_reason}")
 
             # 4. Invoke agent at today's CLOSE
             # Strict point-in-time contract: bars in market_state must not exceed current_date

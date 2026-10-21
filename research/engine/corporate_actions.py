@@ -1,11 +1,15 @@
-"""Point-in-Time Corporate Actions Engine.
+"""Point-in-Time Corporate Actions Engine with Full Lifecycle Accounting.
 
-Handles stock splits (forward/reverse) and cash dividends on their exact ex-dates,
-preserving portfolio accounting invariants without requiring retroactive historical price restatements.
+Supports:
+  1. Stock splits (forward and reverse) on ex-date before market open.
+  2. Cash dividends with distinct Ex-Date, Record Date, and Payment Date:
+     - On Ex-Date: creates Dividend Receivable entitlement without immediate cash.
+     - On Payment Date: converts Dividend Receivable into spendable Cash.
+     - Compatibility Mode: optional instant cash credit on ex-date for preview.py parity.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
 
@@ -18,17 +22,32 @@ class StockSplitEvent:
 
 @dataclass(frozen=True)
 class CashDividendEvent:
-    ex_date: str
+    ex_date: str          # Date stock trades ex-dividend (ownership cutoff)
+    record_date: str      # Date company finalizes eligible shareholders
+    payment_date: str     # Date cash is actually credited to broker account
     ticker: str
-    amount_per_share: float  # Cash amount in USD per held share
+    amount_per_share: float  # Cash dividend per share in USD
+
+
+@dataclass
+class DividendReceivable:
+    ticker: str
+    ex_date: str
+    payment_date: str
+    held_qty: float
+    amount_per_share: float
+    total_amount: float
 
 
 class CorporateActionRegistry:
-    """Stores and executes verified corporate action events."""
+    """Manages verified corporate actions across the investment lifecycle."""
 
-    def __init__(self) -> None:
+    def __init__(self, instant_credit_compatibility: bool = False) -> None:
+        self.instant_credit_compatibility = instant_credit_compatibility
         self._splits: dict[str, list[StockSplitEvent]] = {}
-        self._dividends: dict[str, list[CashDividendEvent]] = {}
+        self._dividends_by_ex: dict[str, list[CashDividendEvent]] = {}
+        self._dividends_by_pay: dict[str, list[CashDividendEvent]] = {}
+        self.receivables: list[DividendReceivable] = []
 
     def register_split(self, ex_date: str, ticker: str, split_ratio: float) -> None:
         if split_ratio <= 0.0:
@@ -36,13 +55,29 @@ class CorporateActionRegistry:
         event = StockSplitEvent(ex_date=str(ex_date)[:10], ticker=ticker.upper(), split_ratio=float(split_ratio))
         self._splits.setdefault(event.ex_date, []).append(event)
 
-    def register_dividend(self, ex_date: str, ticker: str, amount_per_share: float) -> None:
+    def register_dividend(
+        self,
+        ex_date: str,
+        ticker: str,
+        amount_per_share: float,
+        record_date: str | None = None,
+        payment_date: str | None = None,
+    ) -> None:
         if amount_per_share <= 0.0:
             raise ValueError(f"Dividend amount must be positive, got {amount_per_share}")
+        ex_d = str(ex_date)[:10]
+        rec_d = str(record_date)[:10] if record_date else ex_d
+        pay_d = str(payment_date)[:10] if payment_date else ex_d
+
         event = CashDividendEvent(
-            ex_date=str(ex_date)[:10], ticker=ticker.upper(), amount_per_share=float(amount_per_share)
+            ex_date=ex_d,
+            record_date=rec_d,
+            payment_date=pay_d,
+            ticker=ticker.upper(),
+            amount_per_share=float(amount_per_share),
         )
-        self._dividends.setdefault(event.ex_date, []).append(event)
+        self._dividends_by_ex.setdefault(event.ex_date, []).append(event)
+        self._dividends_by_pay.setdefault(event.payment_date, []).append(event)
 
     def apply_splits_for_date(
         self,
@@ -79,30 +114,88 @@ class CorporateActionRegistry:
                 })
         return logs
 
+    def process_dividends_for_date(
+        self,
+        date_str: str,
+        positions: dict[str, float],
+    ) -> tuple[float, float, list[dict[str, Any]]]:
+        """Process dividends for date_str.
+
+        Returns:
+          (cash_credited_today, new_receivables_booked_today, logs)
+        """
+        logs: list[dict[str, Any]] = []
+        cash_credited = 0.0
+        new_receivables = 0.0
+
+        # Step 1: Handle Ex-Dates occurring today
+        for ev in self._dividends_by_ex.get(date_str, []):
+            held = positions.get(ev.ticker, 0.0)
+            if held > 0.0:
+                payout = held * ev.amount_per_share
+                # If payment date is today or compatibility mode is enabled, credit cash immediately
+                if self.instant_credit_compatibility or ev.payment_date <= date_str:
+                    cash_credited += payout
+                    logs.append({
+                        "action": "cash_dividend",
+                        "ticker": ev.ticker,
+                        "date": date_str,
+                        "held_qty": held,
+                        "amount_per_share": ev.amount_per_share,
+                        "total_payout": payout,
+                        "cash_credited": payout,
+                    })
+                else:
+                    # Entitlement booked as dividend receivable on balance sheet
+                    rec = DividendReceivable(
+                        ticker=ev.ticker,
+                        ex_date=ev.ex_date,
+                        payment_date=ev.payment_date,
+                        held_qty=held,
+                        amount_per_share=ev.amount_per_share,
+                        total_amount=payout,
+                    )
+                    self.receivables.append(rec)
+                    new_receivables += payout
+                    logs.append({
+                        "action": "dividend_entitlement_booked",
+                        "ticker": ev.ticker,
+                        "ex_date": date_str,
+                        "payment_date": ev.payment_date,
+                        "held_qty": held,
+                        "amount_per_share": ev.amount_per_share,
+                        "total_payout": payout,
+                        "receivable_booked": payout,
+                    })
+
+        # Step 2: On Payment Date, convert previously booked Receivables into spendable Cash
+        remaining_receivables: list[DividendReceivable] = []
+        for rec in self.receivables:
+            if rec.payment_date <= date_str:
+                cash_credited += rec.total_amount
+                logs.append({
+                    "action": "dividend_receivable_paid",
+                    "ticker": rec.ticker,
+                    "ex_date": rec.ex_date,
+                    "payment_date": date_str,
+                    "total_payout": rec.total_amount,
+                    "cash_credited": rec.total_amount,
+                })
+            else:
+                remaining_receivables.append(rec)
+        self.receivables = remaining_receivables
+
+        return cash_credited, new_receivables, logs
+
     def apply_dividends_for_date(
         self,
         date_str: str,
         positions: dict[str, float],
     ) -> tuple[float, list[dict[str, Any]]]:
-        """Apply cash dividends occurring on date_str.
+        """Backward-compatible interface returning (cash_credited, logs)."""
+        cash_credited, _, logs = self.process_dividends_for_date(date_str, positions)
+        return cash_credited, logs
 
-        Returns total cash credited and execution logs.
-        """
-        total_payout = 0.0
-        logs: list[dict[str, Any]] = []
-        events = self._dividends.get(date_str, [])
-        for ev in events:
-            sym = ev.ticker
-            held = positions.get(sym, 0.0)
-            if held > 0.0:
-                payout = held * ev.amount_per_share
-                total_payout += payout
-                logs.append({
-                    "action": "cash_dividend",
-                    "ticker": sym,
-                    "date": date_str,
-                    "held_qty": held,
-                    "amount_per_share": ev.amount_per_share,
-                    "total_payout": payout,
-                })
-        return total_payout, logs
+    def total_outstanding_receivables(self) -> float:
+        """Total dividend receivables awaiting cash payment on the balance sheet."""
+        return sum(rec.total_amount for rec in self.receivables)

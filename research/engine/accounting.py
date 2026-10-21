@@ -1,12 +1,18 @@
-"""Deterministic Portfolio Accounting, Execution & Risk Telemetry.
+"""Deterministic Portfolio Accounting, Pre-Trade Risk Enforcement & PnL Lifecycle.
 
-Provides exact cash accounting, slippage modeling, position tracking,
-and auto-enforced competition risk caps (gross leverage <= 1.5x, concentration <= 30%).
+Provides:
+  1. Double-entry accounting tracking Cash, Positions, Dividend Receivables, Realized PnL,
+     Unrealized PnL, Commissions, and Total Equity.
+  2. Double-entry balance sheet invariant verification:
+     Total Equity == Start Cash + Realized PnL + Unrealized PnL + Dividends - Commissions.
+  3. Pre-trade Active Risk Enforcement Gates (Leverage <= 1.50x, Concentration <= 30%, Max Trades <= 50)
+     strictly distinguished from post-hoc Passive Telemetry.
 """
 from __future__ import annotations
 
 import math
 from dataclasses import dataclass, field
+from enum import Enum
 from typing import Any
 
 BETA_3X = {"TQQQ", "SOXL", "UPRO", "SPXL", "TNA", "FAS", "TECL", "LABU", "CURE", "DRN", "UDOW", "NAIL"}
@@ -17,7 +23,14 @@ SLIP_LEVERAGED = 0.0010  # 10 bps
 LEVERAGE_CAP = 1.50
 CONCENTRATION_CAP = 0.30
 CATASTROPHE_DD = 0.50
+MAX_TRADES_PER_DAY = 50
 START_CASH = 100_000.0
+
+
+class RiskMode(str, Enum):
+    """Distinguishes passive measurement from active execution gating."""
+    TELEMETRY_ONLY = "telemetry_only"        # Measures breaches post-close; does not alter orders (preview.py mode)
+    ACTIVE_ENFORCEMENT = "active_enforcement"  # Pre-trade checks reject or clamp orders exceeding caps (live_runner mode)
 
 
 def get_beta(ticker: str) -> float:
@@ -39,31 +52,75 @@ class FillResult:
     slippage: float
     notional: float
     commission: float
+    realized_pnl: float = 0.0
+    rejected: bool = False
+    rejection_reason: str | None = None
 
 
 @dataclass
 class PortfolioState:
     cash: float = START_CASH
-    positions: dict[str, float] = field(default_factory=dict)  # ticker -> qty
-    avg_cost: dict[str, float] = field(default_factory=dict)   # ticker -> unit cost
+    start_cash: float = START_CASH
+    positions: dict[str, float] = field(default_factory=dict)       # ticker -> held qty
+    avg_cost: dict[str, float] = field(default_factory=dict)        # ticker -> average purchase cost
+    dividend_receivables: float = 0.0                               # unpaid dividend entitlement asset
+    realized_pnl: float = 0.0                                       # accumulated gross realized PnL from closed sells
+    total_dividends_credited: float = 0.0                           # cash dividends paid into account
+    total_commissions: float = 0.0                                  # accumulated transaction fees
+    trades_today: int = 0                                           # daily trade counter for 50 trades/day rule
+    trade_count: int = 0                                            # total trade counter across simulation
     equity_curve: list[float] = field(default_factory=list)
     peak_gross: float = 0.0
     peak_conc: float = 0.0
     conc_streak: dict[str, int] = field(default_factory=dict)
     max_conc_streak: int = 0
-    trade_count: int = 0
     fill_log: list[FillResult] = field(default_factory=list)
+    rejected_orders: list[dict[str, Any]] = field(default_factory=list)
 
-    def total_equity(self, current_prices: dict[str, float]) -> float:
-        pos_val = sum(
+    def total_positions_value(self, current_prices: dict[str, float]) -> float:
+        return sum(
             self.positions.get(t, 0.0) * current_prices.get(t, self.avg_cost.get(t, 0.0))
             for t in self.positions
             if self.positions.get(t, 0.0) > 0.0
         )
-        return max(self.cash + pos_val, 1e-9)
+
+    def unrealized_pnl(self, current_prices: dict[str, float]) -> float:
+        """Mark-to-market unrealized PnL on open positions."""
+        total = 0.0
+        for t, q in self.positions.items():
+            if q > 0.0:
+                cost = self.avg_cost.get(t, 0.0)
+                px = current_prices.get(t, cost)
+                total += (px - cost) * q
+        return total
+
+    def total_equity(self, current_prices: dict[str, float]) -> float:
+        """Comprehensive balance sheet equity including cash, positions and receivables."""
+        eq = self.cash + self.total_positions_value(current_prices) + self.dividend_receivables
+        return max(eq, 1e-9)
+
+    def check_accounting_invariants(self, current_prices: dict[str, float], tolerance: float = 1e-7) -> tuple[bool, str]:
+        """Verify the fundamental double-entry balance sheet identity:
+
+        Equity == Start Cash + Realized PnL + Unrealized PnL + Dividends - Commissions
+        """
+        eq = self.total_equity(current_prices)
+        unrealized = self.unrealized_pnl(current_prices)
+        reconstructed = (
+            self.start_cash
+            + self.realized_pnl
+            + unrealized
+            + self.total_dividends_credited
+            + self.dividend_receivables
+            - self.total_commissions
+        )
+        diff = abs(eq - reconstructed)
+        if diff > tolerance:
+            return False, f"Balance sheet discrepancy: Equity={eq:.6f} vs Reconstructed={reconstructed:.6f} (diff={diff:.2e})"
+        return True, "Balance sheet identity verified"
 
     def get_portfolio_state_dict(self, current_prices: dict[str, float]) -> dict[str, Any]:
-        """Format portfolio state matching competition contract schema."""
+        """Format portfolio state matching official competition contract."""
         return {
             "cash": float(self.cash),
             "positions": [
@@ -74,69 +131,123 @@ class PortfolioState:
             "last_prices": {t: float(p) for t, p in sorted(current_prices.items()) if p is not None},
         }
 
+    def reset_daily_trade_counter(self) -> None:
+        self.trades_today = 0
+
     def execute_order(
         self,
         order: dict[str, Any],
         open_price: float | None,
         commission_bps: float = 0.0,
-    ) -> FillResult | None:
-        """Execute a single order at open_price with slippage.
-
-        Enforces long-only, cash bounds, and holding constraints.
-        """
-        if open_price is None or open_price <= 0.0 or not math.isfinite(open_price):
-            return None
-
+        risk_mode: RiskMode = RiskMode.TELEMETRY_ONLY,
+        current_prices: dict[str, float] | None = None,
+    ) -> FillResult:
+        """Execute a single order with active or telemetry-only risk gates."""
         ticker = str(order.get("ticker", "")).strip().upper()
         side = str(order.get("side", "")).strip().lower()
+
         try:
             req_qty = float(order.get("quantity", 0.0))
         except (TypeError, ValueError):
+            self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": 0.0, "reason": "INVALID_QUANTITY"})
             return None
 
         if req_qty <= 0.0 or not math.isfinite(req_qty):
+            self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": req_qty, "reason": "NONPOSITIVE_QUANTITY"})
+            return None
+
+        orig_qty = req_qty
+
+        if open_price is None or open_price <= 0.0 or not math.isfinite(open_price):
+            self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "MISSING_EXECUTION_PRICE"})
+            return None
+
+        # Active Daily Trade Cap Enforcement
+        if risk_mode == RiskMode.ACTIVE_ENFORCEMENT and self.trades_today >= MAX_TRADES_PER_DAY:
+            self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "DAILY_TRADE_LIMIT_EXCEEDED"})
             return None
 
         b = get_beta(ticker)
         slip = SLIP_LEVERAGED if b > 1.0 else SLIP_EQUITY
+        prices = current_prices or {}
 
         if side == "buy":
             fill_px = open_price * (1.0 + slip)
+            eq = self.total_equity(prices)
+
+            # Active Pre-Trade Enforcement Gates
+            if risk_mode == RiskMode.ACTIVE_ENFORCEMENT:
+                # 1. Single Position Concentration Cap (30% of equity)
+                cur_held = self.positions.get(ticker, 0.0)
+                cur_notional = cur_held * prices.get(ticker, fill_px)
+                if eq > 0 and (cur_notional / eq) >= (CONCENTRATION_CAP - 0.002):
+                    self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "EXCEEDS_CONCENTRATION_CAP"})
+                    return None
+                max_pos_notional = (CONCENTRATION_CAP * eq) - cur_notional
+                if max_pos_notional <= (0.002 * eq):
+                    self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "EXCEEDS_CONCENTRATION_CAP"})
+                    return None
+                max_qty_conc = max_pos_notional / fill_px
+                req_qty = min(req_qty, max_qty_conc)
+
+                # 2. Gross Beta-Adjusted Leverage Cap (1.50x equity)
+                cur_gross_beta = sum(
+                    self.positions.get(t, 0.0) * prices.get(t, self.avg_cost.get(t, 0.0)) * get_beta(t)
+                    for t in self.positions
+                )
+                if eq > 0 and (cur_gross_beta / eq) >= (LEVERAGE_CAP - 0.005):
+                    self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "EXCEEDS_LEVERAGE_CAP"})
+                    return None
+                avail_beta_room = (LEVERAGE_CAP * eq) - cur_gross_beta
+                if avail_beta_room <= (0.005 * eq):
+                    self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "EXCEEDS_LEVERAGE_CAP"})
+                    return None
+                max_qty_lev = avail_beta_room / (fill_px * b)
+                req_qty = min(req_qty, max_qty_lev)
+
+            # Cash Affordability Cap
             cost = fill_px * req_qty
             comm = cost * (commission_bps / 10000.0)
             if cost + comm > self.cash:
-                # Affordability cap: can't buy more than available cash allows
-                avail = max(self.cash - comm, 0.0)
-                filled_qty = avail / fill_px if fill_px > 0 else 0.0
+                avail_cash = max(self.cash - comm, 0.0)
+                filled_qty = avail_cash / fill_px if fill_px > 0 else 0.0
                 cost = fill_px * filled_qty
                 comm = cost * (commission_bps / 10000.0)
             else:
                 filled_qty = req_qty
 
-            if filled_qty <= 0.0:
+            if filled_qty <= 1e-9:
+                self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "INSUFFICIENT_CASH"})
                 return None
 
             held = self.positions.get(ticker, 0.0)
-            prev_notional = held * self.avg_cost.get(ticker, 0.0)
+            prev_cost_total = held * self.avg_cost.get(ticker, 0.0)
             new_held = held + filled_qty
             self.positions[ticker] = new_held
-            self.avg_cost[ticker] = (prev_notional + cost) / new_held
+            self.avg_cost[ticker] = (prev_cost_total + cost) / new_held
             self.cash -= (cost + comm)
+            self.total_commissions += comm
+            self.trades_today += 1
             self.trade_count += 1
 
-            res = FillResult(ticker, "buy", req_qty, filled_qty, fill_px, slip, cost, comm)
+            res = FillResult(ticker, "buy", orig_qty, filled_qty, fill_px, slip, cost, comm)
             self.fill_log.append(res)
             return res
 
         elif side == "sell":
             held = self.positions.get(ticker, 0.0)
-            filled_qty = min(req_qty, held)
-            if filled_qty <= 0.0:
+            if held <= 0.0:
+                self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "UNHELD_POSITION"})
                 return None
 
+            filled_qty = min(req_qty, held)
             fill_px = open_price * (1.0 - slip)
             proceeds = fill_px * filled_qty
             comm = proceeds * (commission_bps / 10000.0)
+
+            # Gross Realized PnL Calculation (exact identity: Equity == Start + Realized + Unrealized + Div - Comm)
+            cost_basis = filled_qty * self.avg_cost.get(ticker, 0.0)
+            pnl = proceeds - cost_basis
 
             self.positions[ticker] = held - filled_qty
             if self.positions[ticker] <= 1e-9:
@@ -144,12 +255,16 @@ class PortfolioState:
                 self.avg_cost.pop(ticker, None)
 
             self.cash += (proceeds - comm)
+            self.realized_pnl += pnl
+            self.total_commissions += comm
+            self.trades_today += 1
             self.trade_count += 1
 
-            res = FillResult(ticker, "sell", req_qty, filled_qty, fill_px, slip, proceeds, comm)
+            res = FillResult(ticker, "sell", orig_qty, filled_qty, fill_px, slip, proceeds, comm, realized_pnl=pnl)
             self.fill_log.append(res)
             return res
 
+        self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "UNKNOWN_SIDE"})
         return None
 
     def mark_to_market(self, close_prices: dict[str, float]) -> float:
@@ -159,14 +274,14 @@ class PortfolioState:
             for t, q in self.positions.items()
             if q > 0.0
         }
-        eq = max(self.cash + sum(pos_values.values()), 1e-9)
+        eq = max(self.cash + sum(pos_values.values()) + self.dividend_receivables, 1e-9)
         self.equity_curve.append(eq)
 
-        # Gross Beta-adjusted leverage check
+        # Gross Beta-adjusted leverage telemetry
         gross = sum(abs(v) * get_beta(t) for t, v in pos_values.items()) / eq
         self.peak_gross = max(self.peak_gross, gross)
 
-        # Single position concentration check
+        # Single position concentration telemetry
         for t in list(self.positions.keys()):
             frac = abs(pos_values.get(t, 0.0)) / eq
             self.peak_conc = max(self.peak_conc, frac)
@@ -180,20 +295,18 @@ class PortfolioState:
 
 
 def calculate_metrics(equity_curve: list[float], trades: int = 0, errors: int = 0) -> dict[str, Any]:
-    """Compute financial summary metrics identical to preview.py."""
+    """Compute financial summary metrics matching preview.py."""
     if not equity_curve:
         return {"ret": 0.0, "mdd": 0.0, "sharpe": 0.0, "calmar": 0.0, "trades": trades, "days": 0, "errors": errors}
 
     ret = equity_curve[-1] / START_CASH - 1.0
 
-    # Max Drawdown
     peak, mdd = -1e18, 0.0
     for v in equity_curve:
         peak = max(peak, v)
         if peak > 0:
             mdd = max(mdd, (peak - v) / peak)
 
-    # Sharpe ratio
     if len(equity_curve) < 2:
         sharpe = 0.0
     else:
@@ -204,7 +317,6 @@ def calculate_metrics(equity_curve: list[float], trades: int = 0, errors: int = 
         stdev = math.sqrt(var) if var > 0 else 0.0
         sharpe = (mean_ret / stdev * math.sqrt(252.0)) if stdev > 1e-9 else 0.0
 
-    # Calmar ratio
     ann_ret = ((1.0 + ret) ** (252.0 / len(equity_curve)) - 1.0) if len(equity_curve) > 0 else 0.0
     calmar = (ann_ret / mdd) if mdd > 1e-9 else 0.0
 

@@ -1,0 +1,570 @@
+[
+  [
+    ".gitattributes",
+    473,
+    18,
+    "74382a7c5bbf2fad1f6befb012ff7b989f4678f0",
+    "591ed434d5b1426ab4c27519feae35558f6b28688b08498e86779ecb99ce31ce",
+    "configuration & release manifest"
+  ],
+  [
+    ".github/workflows/leaderboard.yml",
+    1010,
+    32,
+    "81e40d84f957cda55476ded10b3361f7f5ce37db",
+    "1b0df7efb8f555afa73ed7e20a30acb38af7b19c910e863ce57bd6abf95ce282",
+    "competition data & environment fixtures"
+  ],
+  [
+    ".gitignore",
+    239,
+    17,
+    "ce76b53a3fe5895e17020226f98d57caaf832e10",
+    "500143d827220ab3b22b829b3cdde42aeb0affed47a748f78f400730b5ffb8fd",
+    "configuration & release manifest"
+  ],
+  [
+    "AGENT_BRIEF.md",
+    6376,
+    113,
+    "a0c700c71bf591fac1cbe7863c2b4cba7a37fd37",
+    "c0d8eb979e0626536e7e7969a62c7173e12a19c5e47d86084da6a315ad160360",
+    "official & audit documentation"
+  ],
+  [
+    "ANATOMY.md",
+    4467,
+    72,
+    "1eeff922db94eb91b7b6c9c3bfba5d0b253670d4",
+    "8af52774532587374b14b78c74cdc5925c03ee30137805c2712044abb7ee1ee1",
+    "official & audit documentation"
+  ],
+  [
+    "LICENSE",
+    1065,
+    22,
+    "b3dd334f2fd97c5927b2ea92ca6b40aed889f984",
+    "ef7d235e2ccb01d434d6b71c33194dcc4828fe039df282301ce48cde405126d2",
+    "official & audit documentation"
+  ],
+  [
+    "README.md",
+    13030,
+    164,
+    "053956d708ac720e5970706463f0b069748924ed",
+    "1c61f6777afafe903620096a175f12ddbab0c90a5ce455707cd1befd65017f1a",
+    "official & audit documentation"
+  ],
+  [
+    "RELEASE-AUDIT.md",
+    10216,
+    169,
+    "b55fa6be98752d63f4c020cd79a103b993c03f9f",
+    "e76a41baeda84fa1a92ffc6f9b500112b7708336c9342f685e54aa002dee1e82",
+    "official & audit documentation"
+  ],
+  [
+    "RELEASE.md",
+    7479,
+    134,
+    "d3fe35db9a158df9230466767f894de965fdffc9",
+    "eb34e674afd07d3a2fcedce1c7423fdac1fa0ba03d4a1dcb71b291110c3671e6",
+    "official & audit documentation"
+  ],
+  [
+    "START_HERE.md",
+    3580,
+    93,
+    "9883dd9f0b0241976b557a88223a4766b7f0b9e9",
+    "1401a8de56dbadd401053871c8b5e9b90cb26f00f21791afd7279c5452470eaf",
+    "official & audit documentation"
+  ],
+  [
+    "SUBMISSION.md",
+    9148,
+    169,
+    "172a3ffc7cb3254692fc1345435ffa9df1679895",
+    "35a5a439af16ef1ec787ccd6cbf349389cad7fc0c197f0ea62be0bd2851b3b72",
+    "official & audit documentation"
+  ],
+  [
+    "agent.py",
+    12952,
+    375,
+    "63dc88e25ddf0d06537bfaafe7d00723cca8d647",
+    "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+    "required competition runtime (E0)"
+  ],
+  [
+    "ai_momentum.py",
+    5429,
+    148,
+    "0b09e2a7ec0a4fbd94e2a76f964edf3e2c1dffe9",
+    "42b2cb44fdfbaade9e9ca60a3ba508932f31ce3e0a2c6cff7d61a4aaacaa6fcd",
+    "inherited reference strategy"
+  ],
+  [
+    "baseline.py",
+    1639,
+    44,
+    "085c995a556a8097052767c9b9f71fc32af3e8e8",
+    "eb19b0e31d44961f804cb663abd03e1750a5f86da344eacc7b83a90e3b2cca6d",
+    "inherited reference strategy"
+  ],
+  [
+    "build_universe.py",
+    4744,
+    122,
+    "d804dcde3195bcb2155091b3e0821cc1f1f6d2a7",
+    "684465dfe68e826b2e0957cbd469ca8365c7361ed2d23aff767bd879d847644f",
+    "inherited reference strategy"
+  ],
+  [
+    "capture_endpoint_orders.py",
+    5600,
+    138,
+    "66698402e65d51114b21687d73d9c4f5fe60091e",
+    "978925ef033cfa09a1c47c1323b6edceb96bf084bd1cd065e89a0904a4bcfccc",
+    "official evaluator & runner suite"
+  ],
+  [
+    "com.builderr.live-leaderboard.plist",
+    1098,
+    31,
+    "9892aad3f22fd7e24cedf16d2d5f1364d60dc08d",
+    "d6a926aaa2f4c5b2d9d7d5b1889e4d3bfd595411ce496e40200ed1a20e7e6b44",
+    "competition data & environment fixtures"
+  ],
+  [
+    "docs/competition-contract.md",
+    16607,
+    242,
+    "bd7cca2be1acb747393f4f518c0c4bc8f4725a4d",
+    "9a033a9e7b029c0fbf8e1ac92365e6b7e3b4efd759ec3e2ea835a25135c91bfd",
+    "inherited historical research audit docs"
+  ],
+  [
+    "docs/compliance-matrix.md",
+    8328,
+    39,
+    "9e0493eaebdf0c2b8f8a17e4288f31e752e58727",
+    "2bfbe5a09c270439f1559739d104a10ea6031708baf532083c37314c81f761ff",
+    "inherited historical research audit docs"
+  ],
+  [
+    "docs/evidence-ledger.md",
+    22005,
+    252,
+    "68c7959849e53ffa10ed3c8bd1010e88b94881d6",
+    "abc66a74929d40ef3e1f12bfca507d53374c36cd77abaf7f3d197e292fdcd39c",
+    "inherited historical research audit docs"
+  ],
+  [
+    "docs/evidence-manifest.sha256",
+    5523,
+    63,
+    "42044505ea32681e34674677208aa554b0404b7b",
+    "02f463ebe5279b7a76d34fcd99d74a9849ba2e0ef109edece055315974a722c2",
+    "inherited historical research audit docs"
+  ],
+  [
+    "docs/stage-status.md",
+    6308,
+    30,
+    "753955df0c5c8fcaa862161bb0f4f3ff803cf9fe",
+    "707b9f90930ed6c65d76903eab84bf0f28cd3b07a4e19e4639ac59c2d4b5b921",
+    "inherited historical research audit docs"
+  ],
+  [
+    "docs/stage2-baseline.md",
+    8300,
+    123,
+    "974a42c97c95af4e23fd87a76b80f4423bb6b4ee",
+    "b33a8267d73d7f753518bd1a13d4943613e7ff2da30a794e5fe0ebd5dd265c81",
+    "inherited historical research audit docs"
+  ],
+  [
+    "docs/stage2a-final-verification.md",
+    14446,
+    220,
+    "2ad64d87c87830276fc6ab17b0e661c9ad77fde9",
+    "a446d757e6dcbe34fa02ca7128dedb66fcbd9df984c857f7fa8b8845f7c3f36d",
+    "inherited historical research audit docs"
+  ],
+  [
+    "drawdown_momentum.py",
+    10530,
+    242,
+    "ad218f374fa798ba3bfe0c6a9133c7977e6b1a6d",
+    "ec69adbe1bfcb881157e14eca0b0358a0133d008e4a60732c9301022a6aa5498",
+    "inherited reference strategy"
+  ],
+  [
+    "endpoint_harness_selftest.py",
+    3561,
+    88,
+    "15aac80f5e329ea49c19fa60fc93889f5917e351",
+    "7a0c0e2d64b811ad23cf6bb81dee08b9b5b6af1aabc6ea6a2edcf18895fee42b",
+    "official evaluator & runner suite"
+  ],
+  [
+    "endpoint_replay.py",
+    2399,
+    56,
+    "750f90b6f284015ed9d2f721b8806b30a8786264",
+    "1c0847876abb0bb661c1c3cb749f72d5351ac3bcb490780080de973c9cd3f2fa",
+    "official evaluator & runner suite"
+  ],
+  [
+    "endpoint_security.py",
+    4464,
+    113,
+    "77f63e60713ae867146e91e525fd7f3cd5615d24",
+    "09d888cf432ad944ff8c4cd8e38ac6282d4915b5b86313ef7f9208b4e44f7356",
+    "official evaluator & runner suite"
+  ],
+  [
+    "example_sector_rotation.py",
+    3947,
+    114,
+    "c3cb2f6ebd4de56d363eb83ea0d8ef9a40c71240",
+    "922aa2fcfb9c8077eb2abc152b0f7a09a6f89138ef64a6428561d06ed9e4901f",
+    "inherited reference strategy"
+  ],
+  [
+    "example_vol_target.py",
+    3691,
+    113,
+    "338eb2aa4b385149b69d4f253dce86ddf1deb3bf",
+    "934d15636b7c7e0d3d9a708d0e24b83fa8383281d56a700ec2d25b8d9a723b49",
+    "inherited reference strategy"
+  ],
+  [
+    "fairness_tests.py",
+    5273,
+    140,
+    "c2b6cd0ef4242bcc3bb87cbb5518654cd1ac1aaa",
+    "156b340194ae102a01629ab18bbb0b3ce4875be5a60817433319134de32b9b58",
+    "official evaluator & runner suite"
+  ],
+  [
+    "full_test.py",
+    2285,
+    68,
+    "c63154466067a9ab158cef79a864a0dd417d5699",
+    "e54dea03623582b619d9757603a6b71bd1e7e96bf2e4898432111171af4ef086",
+    "official evaluator & runner suite"
+  ],
+  [
+    "history.json",
+    79950,
+    4672,
+    "f1bc28ad5f6241fdb5b51b68b89b4ccbfb282421",
+    "2061a7b55149aa1d52ea3f79af3e35e1c39d65ab4a24d3197104cdb6a56ae0db",
+    "competition data & environment fixtures"
+  ],
+  [
+    "house_barbell_realasset.py",
+    8106,
+    175,
+    "2ad9bb5d3625be2456e441bc397c68be0a9dca57",
+    "52a59d2aef92e6ed95a629f81718a893a74fd3c6127cbdf24ef9b3716d255310",
+    "inherited reference strategy"
+  ],
+  [
+    "leaderboard.json",
+    19344,
+    824,
+    "c4a6277090adc79744ef56bd614899531d9c8ac4",
+    "2bb4e768ef36674199459d2f35dadea4076ace7c1b842528dd4633f923bba2a6",
+    "competition data & environment fixtures"
+  ],
+  [
+    "live_runner.py",
+    35608,
+    720,
+    "767f1e592fcee867f3e2b5aace5299db2beae42c",
+    "57375968644d8bd5536ce094510c18c1e57a49cf0f02d3f20a03acb19464b422",
+    "official evaluator & runner suite"
+  ],
+  [
+    "live_runner_selftest.py",
+    5117,
+    140,
+    "3fd7aee75d5a4c431f28404fde1b012a4824a880",
+    "4779f8724159865baca04858f24593fe923682e5c6b52ce25772079cfa3d5207",
+    "official evaluator & runner suite"
+  ],
+  [
+    "local_test.py",
+    2872,
+    80,
+    "8ad225c4d9d249c51b25a927c9264027eabb306e",
+    "5ce768429c9021678e1ea5f1094d57e0a7b76ff881ac9ec1195455d0e3f0361f",
+    "official evaluator & runner suite"
+  ],
+  [
+    "market_open.py",
+    1085,
+    35,
+    "89b1bdffbdf00ed35ac020ef73029c1d59770aea",
+    "c749f4f925619c131b2a06f6c890d1391e8a049d21f8b889885491e23f49940c",
+    "official evaluator & runner suite"
+  ],
+  [
+    "momentum_v1.py",
+    1636,
+    55,
+    "b08417fdc073a0074382108cd822908d7d2c5001",
+    "40622061d4b84c15420aa998c1d6185d3887d0509314319c37cda36239c73158",
+    "inherited reference strategy"
+  ],
+  [
+    "preview.py",
+    11763,
+    279,
+    "f12f837440ee9e6471b4d5a13cbee1b5b4a16775",
+    "9283f1fbf5aecd3df97ae29fef3c7056837cc8218005013a15b508dd0043f037",
+    "official evaluator & runner suite"
+  ],
+  [
+    "private_results.json",
+    88651,
+    5026,
+    "ed5a1c58e953f4af779c2cdf299d0d008ca03d76",
+    "7244412e20e181fa874aee9f993627ac047b89878366042bfe32732166e0c774",
+    "competition data & environment fixtures"
+  ],
+  [
+    "qqq_benchmark.py",
+    1418,
+    32,
+    "e9d8404cd6c09d8542eb6b91e98682c41b774fe6",
+    "1049b7840bd39bcc8e55d26dbf3e588f3cb190a7c43a1b8a52e15eb3b1f692f5",
+    "inherited reference strategy"
+  ],
+  [
+    "refresh_live_leaderboard.sh",
+    1295,
+    39,
+    "a7520c6a1a667fb24e6402da79fe6a14e3e35bd5",
+    "ce1db89e9ceb9aed1d8c7c3d23cea34e3405fa00073f46cb1bc4d2a30c72dccb",
+    "competition data & environment fixtures"
+  ],
+  [
+    "release-manifest.sha256",
+    1390,
+    18,
+    "8436e97a5dd17672d40dcab51d957eb57984ab0e",
+    "ac786a4a53646a96cc3b5af7314c925aa127b17f0767838776726a4bfb109ef1",
+    "configuration & release manifest"
+  ],
+  [
+    "requirements-test.txt",
+    86,
+    3,
+    "af84ae2aed88d94039b4186ee84842670a79f331",
+    "852aa3cfcba51e002694c668696f87d4758aecb46532599a5acefca10a2adc7f",
+    "configuration & release manifest"
+  ],
+  [
+    "requirements.txt",
+    48,
+    2,
+    "0b0184b5133a0842a15d31a3c7fa60f4751590f8",
+    "f5b333a0dc79e237db6bf4af4d496a717ceaa8eff5a10bc409dddeeeb509bef3",
+    "configuration & release manifest"
+  ],
+  [
+    "sample_regimes.json.gz",
+    412567,
+    1415,
+    "544d7d60685a2bce9751cec31adcc5d797122a19",
+    "ebda311e99e4ec19ec76452ef0ce03d9eeaf663b6e3da58268a5e5690ca4116a",
+    "competition data & environment fixtures"
+  ],
+  [
+    "scratch/analyze_vol_spike_attribution.py",
+    1218,
+    35,
+    "70e077b80c3fd2a379611f34e7834df970ee8281",
+    "cb953b63f66bd24fa66bbfdaa2f61b636c0039188def27ca660d5b4beccce845",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/audit_test.py",
+    2950,
+    66,
+    "8b4772f564b04aa2a9541546f1d538726db585e6",
+    "5b26dabba7dae8bd232898e79bd0dc50b309d209b477721f04741466d4f6dadb",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/backup_and_verify_evidence.py",
+    7620,
+    186,
+    "03e9f27e52aa2594911699063e5a044d6d962d99",
+    "f96a82c02cec53563bafd3b365903faa0ee1061c731f25a7ebf3a760006dc7a1",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/baseline_check.py",
+    3893,
+    92,
+    "52c07235da723c3db18d558519c91ea9779efe2d",
+    "e91082076a747dcc23fac8da8087a535429b293e1e60d8afbda9d7e498884855",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/benchmark_runtime.py",
+    3304,
+    94,
+    "b58a661573811cd4ba3fe3b3b0139792f63ddfa9",
+    "e27d9ca4d279b39fb1d49cbdf1cf3005c768da720ad5ceab32775ec38fec01cb",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/build_ledger_and_manifest.py",
+    25203,
+    328,
+    "3586a6f86ee41adce40d37b7aa9c20522917cea1",
+    "69d8410a32a9687a76cbd475d9b4875e40f018b5bc19abc568292c29230ea068",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/deep_baseline_profile.py",
+    11148,
+    268,
+    "c9c3719536fd88837b6b8a6345001af54cd4ec0e",
+    "5ff43d95a5fd28aed907a59b252bf696f6a7fb912d45e1e8e628316817a8ae28",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/math_verify.py",
+    7267,
+    204,
+    "040e394d12fb0125ce733c9a1bb02fe17ad89e8c",
+    "71800cc8dfcc86d007d0f325f92f3547c0785418d95a7c16e0d1425f1c93e2b4",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/profile_cpu.py",
+    1225,
+    45,
+    "79d0f88aabbc05c5c604cf3376de6b7a892772f8",
+    "83c49eb29d7d9274cdd2da8cccba336275193a43320985b77b643a0121730a02",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/reproduce_baseline.py",
+    1542,
+    51,
+    "fbf1892e39d3066b42535e590beaaafca29bf069",
+    "27b5afb5e75bf003a7dc92ab695ad028c8009313ecf7aaf529734e2a82b8ed54",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/runtime_check.py",
+    4976,
+    143,
+    "576e006db39fa73581fab06464ea66f5c2582d5b",
+    "3022862e0b9e7b510fb821ce2f31682918fe0cc8b252ebec1bdf3f5ec540d5eb",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/test_adverse_inputs.py",
+    3011,
+    77,
+    "415520f921b370956cba8ea2c82568ced2928671",
+    "70c3c0e5d0b3cfc11401c9a6d275e56447a90b1894b96cb26c1b1ca02966660d",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/test_agent_features.py",
+    6264,
+    150,
+    "5ef6c6c93609747b885588f189ad2f26e2d093ad",
+    "8f8673fe5a2db2836cf658629c554663894012e7c9601ebc06cc34a219e44962",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/test_cadence.py",
+    7205,
+    181,
+    "8240d470d506f5c8403606fbc2c75612a7864352",
+    "f169a009557cbfdf55a46659c0d774b94063684961cbbc3271f65d7eabea5408",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/test_hypotheses.py",
+    14881,
+    346,
+    "98b884e9b5b3bdc64a2d6db6b731ff0f1d735fe3",
+    "67fbd18e90f206c890b42c35040d7fcc165ff7cafbeae897d4e2111be92c4499",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "scratch/test_hypotheses_part2.py",
+    14973,
+    337,
+    "4c2f8e18a52c6cc07d5e7a412b83590ccf323ec2",
+    "a3849549c2b02178815666ac4909ac4d366b3ea70903cee21b84b4f7d0b11e78",
+    "inherited historical research scratch scripts"
+  ],
+  [
+    "seed_dual_momentum.py",
+    5691,
+    143,
+    "759516fb27c28075138fdbc6398d1b6303f4fe91",
+    "7844dc0b492ed09fe0ed122e0b83bc6c12d946f885ce26d12fc7d783c8f2a29f",
+    "inherited reference strategy"
+  ],
+  [
+    "selfcheck.py",
+    5545,
+    134,
+    "39720e4f1f5f7d86702960ba63d4291ab3a093d6",
+    "dfb1bb434f44785c74cf78e9cb299bb2d4ab09777c54f48ac06110e57b19811b",
+    "official evaluator & runner suite"
+  ],
+  [
+    "strategy_selftest.py",
+    4710,
+    156,
+    "b06562d423113c4ce85aaf02bbbb6906bb9d2e39",
+    "d40ef706e546654f8d3d0c82155a17857e6b9c6e09d7a63053bb0132bed0ebf1",
+    "official evaluator & runner suite"
+  ],
+  [
+    "test_market_open.py",
+    519,
+    19,
+    "afcf382192a4ace092d4c4392f4bf2c63454e25c",
+    "8dc352cb67deb98e734a2cfed4989e650050721346ba2391177716d696781868",
+    "official evaluator & runner suite"
+  ],
+  [
+    "tests/e0_expected.json",
+    1479,
+    51,
+    "7acf8fd5a5d63167d755398947aa57353385f7c7",
+    "f49a8c919423d911401369a99c19429148b496f355d8b034c018218d601c4337",
+    "release verification test suite"
+  ],
+  [
+    "tests/test_e0_release.py",
+    8947,
+    203,
+    "bcc4a1d8f1c446a332dc7eff22f1b3debcef36a1",
+    "1a787e8a07a98f9b68341f83e4398bdb6f481423ffd65d8e9458620b35f84166",
+    "release verification test suite"
+  ],
+  [
+    "universe.json",
+    11486,
+    1007,
+    "788ed0e239a1b1c3620069fd96db4fe9f708f6ab",
+    "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+    "competition data & environment fixtures"
+  ]
+]

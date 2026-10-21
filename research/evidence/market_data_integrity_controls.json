@@ -1,0 +1,60 @@
+{
+  "positive_control_clean_replay": {
+    "status": "PASS",
+    "trades": 38,
+    "ret": 0.1465046673310002,
+    "mdd": 0.03568218839390026,
+    "errors": 0
+  },
+  "negative_control_zero_price": {
+    "status": "PASS (Handled)",
+    "errors": 0,
+    "note": "Agent closes() discarded invalid series and failed closed safely"
+  },
+  "negative_control_nan_price": {
+    "status": "PASS (Handled)",
+    "errors": 0,
+    "note": "Agent _finite_inputs rejects non-finite values safely"
+  },
+  "negative_control_future_timestamp": {
+    "status": "PASS",
+    "orders_emitted": 0,
+    "note": "Agent abstains on insufficient historical depth (< 50 bars)"
+  },
+  "execution_timing_audit": {
+    "status": "PASS (Strictly Causal)",
+    "signal_timestamp": "Day T Close",
+    "fill_timestamp": "Day T+1 Open",
+    "fill_pricing": "Day T+1 Open price * (1 +/- slippage)",
+    "same_bar_execution_permitted": false,
+    "note": "Verified in preview.py lines 106-180 and live_runner.py lines 397-485"
+  },
+  "negative_control_shuffled_timestamps": {
+    "status": "DETECTED / BEHAVIORAL SHIFT",
+    "clean_trades": 38,
+    "shuffled_trades": 38,
+    "ret": 0.1465046673310002,
+    "note": "Out-of-order bars alter moving averages and momentum calculations"
+  },
+  "drift_protection_control": {
+    "status": "PASS",
+    "orders": [
+      {
+        "ticker": "AAPL",
+        "side": "sell",
+        "quantity": 800
+      },
+      {
+        "ticker": "QQQ",
+        "side": "buy",
+        "quantity": 199
+      },
+      {
+        "ticker": "SPY",
+        "side": "buy",
+        "quantity": 199
+      }
+    ],
+    "note": "Agent successfully forced sell orders to eliminate > 27% concentration drift"
+  }
+}

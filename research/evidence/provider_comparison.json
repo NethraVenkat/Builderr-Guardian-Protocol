@@ -1,0 +1,80 @@
+[
+  {
+    "provider": "Competition Sample Regimes (sample_regimes.json.gz)",
+    "source_url": "Built-in repository archive (commit ac733ec)",
+    "license": "Public competition starter repository (MIT License)",
+    "terms_and_redistribution": "Permitted for local validation and testing. Bundled in official starter.",
+    "auth_required": "None (local gzip JSON)",
+    "rate_limits": "None",
+    "historical_coverage": "3 discrete regimes: 2019-01-15 to 2020-04-29, 2020-04-27 to 2021-08-30, 2020-07-28 to 2021-10-14",
+    "asset_coverage": "21 symbols only (missing QLD, SSO, DIA, IWM, AMZN, GOOGL, TSLA)",
+    "price_nature": "Adjusted daily OHLCV (derived from split-adjusted market history)",
+    "classification": "VERIFIED AND USABLE (For In-Sample Baseline Replay Only)",
+    "leakage_risk": "None in execution; high risk of overfitting if used as strategy discovery data"
+  },
+  {
+    "provider": "Polygon.io",
+    "source_url": "https://polygon.io/docs/stocks/get_v2_aggs_ticker__stocksticker__range__multiplier___timespan___from___to",
+    "license": "Commercial SaaS with Developer Tier",
+    "terms_and_redistribution": "Personal / internal development only; raw redistribution strictly prohibited by TOS Section 3.2. Free tier restricted to 2 years history and 5 calls/min.",
+    "auth_required": "API Key (Bearer Token)",
+    "rate_limits": "Free tier: 5 requests/min. Paid tiers: unlimited/second.",
+    "historical_coverage": "Full 15+ years for all US equities and ETFs on paid tier; 2 years on free tier.",
+    "asset_coverage": "Complete 100% coverage of all 1,000 universe.json tickers and 24 agent tickers.",
+    "price_nature": "Official SIP consolidated aggregate OHLCV; unadjusted and split-adjusted options available.",
+    "classification": "VERIFIED WITH RESTRICTIONS (Requires private API key; raw data cannot be committed to git)",
+    "leakage_risk": "Requires point-in-time adjustment logic to prevent retrospective dividend adjustments"
+  },
+  {
+    "provider": "Tiingo",
+    "source_url": "https://api.tiingo.com/documentation/end-of-day",
+    "license": "Commercial SaaS with Free Developer Tier",
+    "terms_and_redistribution": "Personal non-commercial use on free tier. Redistribution forbidden. Free tier limited to 500 unique symbols/month and 50 requests/hour.",
+    "auth_required": "API Token",
+    "rate_limits": "Free tier: 50 req/hour, 500 symbols/month. Paid: 10,000 req/hour.",
+    "historical_coverage": "30+ years of daily OHLCV including both raw and split/dividend adjusted prices.",
+    "asset_coverage": "Complete coverage of all 24 core symbols; top 1,000 liquid names covered.",
+    "price_nature": "Raw and adjusted OHLCV provided alongside explicit split and dividend event tables.",
+    "classification": "VERIFIED WITH RESTRICTIONS (Requires private token; personal use only; no repo distribution)",
+    "leakage_risk": "Low if using unadjusted prices with explicit point-in-time corporate actions"
+  },
+  {
+    "provider": "Yahoo Finance (via yfinance)",
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ / yfinance library",
+    "license": "Unlicensed API wrapper scraping Yahoo web endpoints",
+    "terms_and_redistribution": "Yahoo Terms of Service strictly forbid automated scraping, commercial exploitation, or bulk dataset distribution. Used in official build_universe.py and live_runner.py, but legal status for redistribution is UNRESOLVED.",
+    "auth_required": "None (uses ephemeral session cookies and crumb)",
+    "rate_limits": "Undocumented, erratic IP-level throttling (HTTP 429 / 403 Forbidden).",
+    "historical_coverage": "Comprehensive historical daily coverage (1980s to present).",
+    "asset_coverage": "Complete coverage of all 24 active tickers and 1,000 universe tickers.",
+    "price_nature": "Heuristically adjusted by Yahoo; backward split and cash dividend adjustment via auto_adjust=True. Silent revisions occur.",
+    "classification": "LICENSE UNRESOLVED / INCOMPLETE (Legal status murky; survivorship bias; silent retroactive changes)",
+    "leakage_risk": "High retroactive lookahead from cash-dividend adjustments; survivor bias (delisted stocks missing)"
+  },
+  {
+    "provider": "Stooq (stooq.com)",
+    "source_url": "https://stooq.com/q/d/l/?s={ticker}.us&i=d",
+    "license": "Public web service with terms prohibiting automated scraping / redistribution",
+    "terms_and_redistribution": "Terms of Service restrict bulk downloading; no commercial redistribution rights.",
+    "auth_required": "None",
+    "rate_limits": "Captcha blocks on aggressive downloading.",
+    "historical_coverage": "Daily US equity and ETF histories (10-30 years).",
+    "asset_coverage": "Good coverage of surviving US tickers; completely lacks delisted history.",
+    "price_nature": "Split-adjusted daily OHLCV.",
+    "classification": "LICENSE UNRESOLVED (Terms restrict automated retrieval; survivorship bias)",
+    "leakage_risk": "Moderate"
+  },
+  {
+    "provider": "CRSP (Center for Research in Security Prices)",
+    "source_url": "https://www.crsp.org/",
+    "license": "Strict Academic / Institutional Paid Subscription",
+    "terms_and_redistribution": "Strictly proprietary; redistributing raw or derived data to public GitHub or unauthorized third parties violates copyright and institutional contract.",
+    "auth_required": "WRDS Institutional Account",
+    "rate_limits": "N/A",
+    "historical_coverage": "1926 to present, 100% survivorship-bias-free, complete delisting and distribution returns.",
+    "asset_coverage": "All historical US equities.",
+    "price_nature": "Audited point-in-time transaction prices and exact corporate action events.",
+    "classification": "UNAVAILABLE / LICENSE RESTRICTED (Cannot be published or distributed)",
+    "leakage_risk": "Zero"
+  }
+]

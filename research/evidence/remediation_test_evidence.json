@@ -1,0 +1,190 @@
+{
+  "finding_b_asset_coverage": {
+    "active_universe_count": 24,
+    "sample_regimes_universe_count": 21,
+    "intersection_count": 17,
+    "intersection_symbols": [
+      "AAPL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "QQQ",
+      "SMH",
+      "SPY",
+      "XLC",
+      "XLE",
+      "XLF",
+      "XLI",
+      "XLK",
+      "XLP",
+      "XLRE",
+      "XLU",
+      "XLV",
+      "XLY"
+    ],
+    "missing_active_count_total": 7,
+    "missing_active_symbols_total": [
+      "AMZN",
+      "DIA",
+      "GOOGL",
+      "IWM",
+      "QLD",
+      "SSO",
+      "TSLA"
+    ],
+    "missing_risk_candidates_count": 5,
+    "missing_risk_candidates": [
+      "AMZN",
+      "DIA",
+      "GOOGL",
+      "IWM",
+      "TSLA"
+    ],
+    "missing_overlay_candidates_count": 2,
+    "missing_overlay_candidates": [
+      "QLD",
+      "SSO"
+    ],
+    "unused_sample_regime_symbols_count": 4,
+    "unused_sample_regime_symbols": [
+      "JPM",
+      "KRE",
+      "SOXL",
+      "TQQQ"
+    ],
+    "explanation_of_prior_discrepancy": "Prior report stated 21 available symbols yet listed 5 missing active symbols because it only counted the 5 missing risk candidates (DIA, IWM, GOOGL, AMZN, TSLA), omitting the 2 missing tactical overlay ETFs (QLD, SSO). Total missing active symbols is 7 (5 + 2 = 7). Sample regimes contain 17 active symbols + 4 non-active symbols (JPM, KRE, SOXL, TQQQ) = 21 symbols.",
+    "disabled_strategy_subsystems": [
+      "Tactical 2x Leverage Overlay: agent.py lines 223-224 require closes(market_state.get('QLD')) and closes(market_state.get('SSO')). Because both are missing, overlay_on is permanently False in preview.py.",
+      "Broad Value/Small-Cap sleeves: DIA and IWM cannot be scored by momentum ranker.",
+      "Mega-Cap Growth single stocks: GOOGL, AMZN, TSLA cannot be scored by momentum ranker."
+    ]
+  },
+  "finding_c_future_timestamp_audit": {
+    "c1_short_history_outcome": "SAFELY_ABSTAINED_FOR_UNRELATED_REASON",
+    "c1_explanation": "When history has < 50 bars, decide() returns [] solely due to len(spy) < 50 check, NOT because timestamp was audited or rejected.",
+    "c2_full_history_outcome": "INCORRECTLY_ACCEPTED_FUTURE_DATA",
+    "c2_orders_emitted": [
+      {
+        "ticker": "AAPL",
+        "side": "buy",
+        "quantity": 94
+      },
+      {
+        "ticker": "QQQ",
+        "side": "buy",
+        "quantity": 50
+      },
+      {
+        "ticker": "SPY",
+        "side": "buy",
+        "quantity": 41
+      }
+    ],
+    "c2_recorded_rebalance_date": "2099-12-31",
+    "c2_explanation": "When sufficient historical depth (>=61 bars) is present, agent.py blindly accepts future timestamps (2099-12-31) and computes indicators on them without rejection.",
+    "scientific_verdict": "CRITICAL CORRECTION: agent.py DOES NOT reject future timestamps. Prior report incorrectly classified safe abstention under short history as future timestamp rejection."
+  },
+  "finding_d_nonmonotonic_timestamps": {
+    "duplicate_timestamps": {
+      "behavior": "SILENTLY_PROCESSED_WITHOUT_DEDUPLICATION",
+      "orders_emitted_count": 3,
+      "recorded_rebalance_date": "2026-01-64",
+      "verdict": "Agent does not deduplicate timestamps; processes duplicate bars sequentially in index order."
+    },
+    "reversed_timestamps": {
+      "behavior": "UNCHECKED_INDEX_CALCULATION",
+      "orders_emitted_count": 0,
+      "verdict": "Agent does not validate chronological monotonicity. Oldest bar at [-1] appears below SMA50 of subsequent bars, triggering defensive mode."
+    },
+    "shuffled_timestamps": {
+      "behavior": "UNCHECKED_INDEX_CALCULATION",
+      "orders_emitted_count": 0,
+      "verdict": "Agent computes SMA, momentum and volatility directly on scrambled array order without sorting."
+    },
+    "scientific_verdict": "Agent runtime contains ZERO timestamp chronology validation. Upstream data harness must guarantee monotonic, sorted, deduplicated series."
+  },
+  "finding_e_causal_execution": {
+    "preview_runner_causal_model": {
+      "signal_timing": "Day T Close (market_state contains bars with ts <= date)",
+      "fill_timing": "Day T+1 Open (px = open_on(ticker, date) from previous day's pending)",
+      "same_bar_execution_permitted": false,
+      "slippage_model": "5 bps for equities, 10 bps for beta > 1",
+      "empirical_e1_normal": {
+        "trades": 38,
+        "ret": 0.1465046673310002
+      },
+      "empirical_e2_missing_fill_bar": {
+        "trades": 34,
+        "ret": 0.14422227386450026,
+        "verdict": "Order silently drops if Day T+1 open price is None; trades drop from 38 to 34 without crash."
+      },
+      "empirical_e3_stale_prices": {
+        "trades": 39,
+        "ret": 0.11988195389750045,
+        "verdict": "Stale prices suppress momentum score, shifting allocations and reducing return from 14.65% to 11.99%."
+      }
+    },
+    "live_runner_causal_model": {
+      "signal_timing": "Day T Morning (market_state contains bars with ts < date)",
+      "fill_timing": "Day T Open (filled at current session open)",
+      "mathematical_equivalence": "Identical information filtration: decide() sees information strictly through Close_{T-1} and fills at Open_T."
+    }
+  },
+  "finding_h_failure_taxonomy": [
+    {
+      "test_name": "pytest_e0_release (3 of 56 tests)",
+      "command": "python -m pytest tests/test_e0_release.py",
+      "exit_code": 1,
+      "failure_signature": "AssertionError: {'sharpe': 4.176699109831122} != {'sharpe': 4.17669910983113}",
+      "discrepancy_magnitude": "<= 2.2e-14",
+      "classification": "KNOWN_CROSS_PLATFORM_NUMERICAL_SENSITIVITY",
+      "resolution_provenance": "Verified 56/56 PASS in fix/e0-floating-point-regression (commit 228d48b) using pytest.approx(..., rel=1e-12, abs=1e-12).",
+      "is_agent_defect": false
+    },
+    {
+      "test_name": "test_market_open.py",
+      "command": "python -X utf8 test_market_open.py",
+      "exit_code": 1,
+      "failure_signature": "ModuleNotFoundError: No module named 'yfinance'",
+      "classification": "MISSING_OPTIONAL_DEPENDENCY",
+      "resolution_provenance": "Unpinned runner utility; not a dependency of agent.py (standard library only).",
+      "is_agent_defect": false
+    },
+    {
+      "test_name": "live_runner_selftest.py",
+      "command": "python -X utf8 live_runner_selftest.py",
+      "exit_code": 1,
+      "failure_signature": "ModuleNotFoundError: No module named 'yfinance'",
+      "classification": "MISSING_OPTIONAL_DEPENDENCY",
+      "resolution_provenance": "Live competition runner fixture requiring yfinance.",
+      "is_agent_defect": false
+    },
+    {
+      "test_name": "fairness_tests.py",
+      "command": "python -X utf8 fairness_tests.py",
+      "exit_code": 1,
+      "failure_signature": "SyntaxError: from __future__ imports must occur at the beginning of the file",
+      "classification": "UPSTREAM_AUDIT_FIXTURE",
+      "resolution_provenance": "Documented intentional upstream fixture testing syntax error resilience (docs/stage-status.md).",
+      "is_agent_defect": false
+    },
+    {
+      "test_name": "local_test.py",
+      "command": "python -X utf8 local_test.py",
+      "exit_code": 2,
+      "failure_signature": "ERROR: builderr not installed.",
+      "classification": "PROPRIETARY_EXTERNAL_TOOL_REQUIREMENT",
+      "resolution_provenance": "Requires unreleased proprietary builderr CLI package.",
+      "is_agent_defect": false
+    },
+    {
+      "test_name": "full_test.py",
+      "command": "python -X utf8 full_test.py",
+      "exit_code": 1,
+      "failure_signature": "ModuleNotFoundError: No module named 'builderr'",
+      "classification": "PROPRIETARY_EXTERNAL_TOOL_REQUIREMENT",
+      "resolution_provenance": "Requires unreleased proprietary builderr.backtest package.",
+      "is_agent_defect": false
+    }
+  ]
+}

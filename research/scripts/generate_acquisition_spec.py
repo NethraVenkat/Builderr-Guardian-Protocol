@@ -1,0 +1,79 @@
+"""Generate comprehensive Data Acquisition Specification for Stage B2 readiness."""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+evidence_dir = ROOT / "research/evidence"
+evidence_dir.mkdir(parents=True, exist_ok=True)
+
+spec = {
+    "target_universe": {
+        "total_symbols": 24,
+        "broad_index_etfs": ["SPY", "QQQ", "DIA", "IWM"],
+        "sector_spdr_etfs": ["XLK", "XLF", "XLE", "XLV", "XLI", "XLY", "XLP", "XLU", "XLRE", "XLC"],
+        "thematic_etfs": ["SMH"],
+        "mega_cap_equities": ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "TSLA"],
+        "tactical_leveraged_etfs_2x": ["QLD", "SSO"]
+    },
+    "structural_history_boundaries": {
+        "hard_start_barrier": "2018-06-18",
+        "barrier_reason": "Inception date of XLC (Communication Services Select Sector SPDR). Before this date, XLC did not exist.",
+        "secondary_barrier": "2015-10-07",
+        "secondary_reason": "Inception date of XLRE (Real Estate Select Sector SPDR).",
+        "leveraged_barrier": "2006-06-19",
+        "leveraged_reason": "Inception date of ProShares Ultra QQQ (QLD) and ProShares Ultra S&P500 (SSO).",
+        "recommended_full_universe_window": "2018-07-02 to 2026-07-06 (8.0 calendar years of continuous 24-symbol coverage)"
+    },
+    "market_calendar_and_session_alignment": {
+        "exchange_calendar": "NYSE / Nasdaq Regular Trading Hours (XNYS)",
+        "timezone": "America/New_York (US Eastern)",
+        "session_open": "09:30:00 ET",
+        "session_close": "16:00:00 ET",
+        "trading_days_per_year": "~252 trading sessions",
+        "missing_session_policy": "Strict validation against exchange calendar. Gaps due to market holidays (e.g. Good Friday, Memorial Day) allowed; unscheduled session dropouts trigger alert."
+    },
+    "adjustment_and_leakage_control": {
+        "split_adjustment": "Backward ratio adjustment applied to prices (open, high, low, close) and inverse to volume. Preserves percentage returns across splits without artificial gaps.",
+        "dividend_policy": "Raw unadjusted prices maintained alongside split-adjusted prices. To prevent lookahead leakage, cash dividends are credited to cash balance on ex-dividend date during backtest replay rather than retroactively adjusting historical price series.",
+        "point_in_time_safety": "Bars delivered to agent.decide() at date T close strictly contain historical observations through session T close. Execution fills at session T+1 open price + slippage."
+    },
+    "storage_architecture_and_git_hygiene": {
+        "local_storage_path": "data_cache/daily_bars_24.parquet",
+        "git_status": "Strictly git-ignored via .gitignore line 9 ('data_cache/') and line 10 ('*.parquet')",
+        "manifest_path": "data_cache/market_data_manifest.sha256",
+        "credential_isolation": "API keys (if any) stored in root .env (git-ignored via .gitignore line 5). Zero credentials committed."
+    },
+    "provider_qualification_and_costs": [
+        {
+            "provider": "Tiingo",
+            "tier": "Free Developer",
+            "estimated_cost_usd": 0.0,
+            "limits": "500 unique symbols/month, 50 requests/hour",
+            "history_depth": "30+ years EOD",
+            "suitability": "HIGH (Provides raw + adjusted + split + dividend tables; sufficient for 24 symbols)"
+        },
+        {
+            "provider": "Polygon.io",
+            "tier": "Starter Paid Tier",
+            "estimated_cost_usd": 29.0,
+            "limits": "Unlimited requests/minute",
+            "history_depth": "15+ years SIP aggregates",
+            "suitability": "HIGH (Institutional-grade SIP consolidated data)"
+        },
+        {
+            "provider": "Polygon.io",
+            "tier": "Free Tier",
+            "estimated_cost_usd": 0.0,
+            "limits": "5 requests/minute, 2-year history limit",
+            "history_depth": "2 years only (Insufficient for full multi-regime backtesting)"
+        }
+    ],
+    "user_decisions_required_before_b2": [
+        "Select primary historical data source (Tiingo Free EOD vs Polygon.io vs User-Provided Verified CSV Archive).",
+        "Approve local git-ignored ingestion into data_cache/.",
+        "Confirm research partition boundaries (Train: 2018-07 to 2022-12; Val: 2023-01 to 2024-12; Sealed: 2025-01 to 2026-07)."
+    ]
+}
+
+(evidence_dir / "data_acquisition_specification.json").write_text(json.dumps(spec, indent=2), encoding="utf-8")
+print(f"Generated data_acquisition_specification.json in {evidence_dir}")

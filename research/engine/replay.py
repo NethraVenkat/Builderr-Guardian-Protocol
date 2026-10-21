@@ -166,6 +166,8 @@ class ReplayEngine:
         return {
             "metrics": metrics,
             "peak_gross": portfolio.peak_gross,
+            "peak_gross_notional": portfolio.peak_gross_notional,
+            "peak_beta_adjusted": portfolio.peak_beta_adjusted,
             "peak_conc": portfolio.peak_conc,
             "max_conc_streak": portfolio.max_conc_streak,
             "trace_sha256": trace_digest,

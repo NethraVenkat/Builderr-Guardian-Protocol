@@ -70,7 +70,9 @@ class PortfolioState:
     trades_today: int = 0                                           # daily trade counter for 50 trades/day rule
     trade_count: int = 0                                            # total trade counter across simulation
     equity_curve: list[float] = field(default_factory=list)
-    peak_gross: float = 0.0
+    peak_gross: float = 0.0                                         # Preview.py compatibility (beta-weighted)
+    peak_gross_notional: float = 0.0                                # Genuine gross notional leverage: sum(|V|) / equity
+    peak_beta_adjusted: float = 0.0                                 # Beta-adjusted exposure: sum(|V| * beta) / equity
     peak_conc: float = 0.0
     conc_streak: dict[str, int] = field(default_factory=dict)
     max_conc_streak: int = 0
@@ -277,9 +279,14 @@ class PortfolioState:
         eq = max(self.cash + sum(pos_values.values()) + self.dividend_receivables, 1e-9)
         self.equity_curve.append(eq)
 
-        # Gross Beta-adjusted leverage telemetry
-        gross = sum(abs(v) * get_beta(t) for t, v in pos_values.items()) / eq
-        self.peak_gross = max(self.peak_gross, gross)
+        # 1. Genuine Gross-Notional Leverage: sum(|V_i|) / equity
+        gross_notional = sum(abs(v) for v in pos_values.values()) / eq if eq > 0 else 0.0
+        self.peak_gross_notional = max(self.peak_gross_notional, gross_notional)
+
+        # 2. Beta-Adjusted Exposure: sum(|V_i| * beta_i) / equity
+        beta_adj = sum(abs(v) * get_beta(t) for t, v in pos_values.items()) / eq if eq > 0 else 0.0
+        self.peak_beta_adjusted = max(self.peak_beta_adjusted, beta_adj)
+        self.peak_gross = self.peak_beta_adjusted  # Match preview.py evaluator telemetry
 
         # Single position concentration telemetry
         for t in list(self.positions.keys()):

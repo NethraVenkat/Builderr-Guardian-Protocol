@@ -53,7 +53,9 @@ class CorporateActionRegistry:
         if split_ratio <= 0.0:
             raise ValueError(f"Split ratio must be positive, got {split_ratio}")
         event = StockSplitEvent(ex_date=str(ex_date)[:10], ticker=ticker.upper(), split_ratio=float(split_ratio))
-        self._splits.setdefault(event.ex_date, []).append(event)
+        existing = self._splits.setdefault(event.ex_date, [])
+        if event not in existing:
+            existing.append(event)
 
     def register_dividend(
         self,
@@ -76,8 +78,12 @@ class CorporateActionRegistry:
             ticker=ticker.upper(),
             amount_per_share=float(amount_per_share),
         )
-        self._dividends_by_ex.setdefault(event.ex_date, []).append(event)
-        self._dividends_by_pay.setdefault(event.payment_date, []).append(event)
+        existing_ex = self._dividends_by_ex.setdefault(event.ex_date, [])
+        if event not in existing_ex:
+            existing_ex.append(event)
+        existing_pay = self._dividends_by_pay.setdefault(event.payment_date, [])
+        if event not in existing_pay:
+            existing_pay.append(event)
 
     def apply_splits_for_date(
         self,

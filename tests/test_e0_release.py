@@ -9,6 +9,7 @@ import json
 import gzip
 import sys
 import time
+import math
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -190,7 +191,14 @@ def test_historical_decision_accounting_and_metrics(name, monkeypatch):
         return traced
     monkeypatch.setattr(preview, "load_decide", traced_loader)
     result = preview.run_regime(ROOT / "agent.py", name, regimes[name])
-    assert result == expected["metrics"]
+    assert set(result.keys()) == set(expected["metrics"].keys())
+    for k in ("name", "days", "trades", "errors", "max_conc_streak"):
+        assert type(result[k]) is type(expected["metrics"][k])
+        assert result[k] == expected["metrics"][k]
+    for k in ("ret", "mdd", "sharpe", "calmar", "peak_gross", "peak_conc"):
+        assert isinstance(result[k], float)
+        assert math.isfinite(result[k])
+        assert result[k] == pytest.approx(expected["metrics"][k], rel=1e-12, abs=1e-12)
     digest = hashlib.sha256(json.dumps(traces, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     assert digest == expected["decision_and_portfolio_sha256"]
 

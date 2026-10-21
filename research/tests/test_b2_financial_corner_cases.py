@@ -27,7 +27,11 @@ from research.engine.accounting import (
     RiskMode,
     START_CASH,
 )
-from research.engine.corporate_actions import CorporateActionRegistry
+from research.engine.corporate_actions import (
+    CorporateActionRegistry,
+    MissingPaymentDateError,
+    PaymentDatePolicy,
+)
 
 
 class TestFinancialCornerCases:
@@ -87,9 +91,9 @@ class TestFinancialCornerCases:
         registry.register_split("2026-06-01", "AAPL", 2.0)
         registry.register_split("2026-06-01", "AAPL", 2.0)
 
-        # Register identical dividend twice
-        registry.register_dividend("2026-06-01", "AAPL", 1.0)
-        registry.register_dividend("2026-06-01", "AAPL", 1.0)
+        # Register identical dividend twice (with explicit payment date)
+        registry.register_dividend("2026-06-01", "AAPL", 1.0, payment_date="2026-06-01")
+        registry.register_dividend("2026-06-01", "AAPL", 1.0, payment_date="2026-06-01")
 
         positions = {"AAPL": 100.0}
         avg_cost = {"AAPL": 200.0}
@@ -105,11 +109,28 @@ class TestFinancialCornerCases:
         assert cash_payout == 200.0
         assert len(div_logs) == 1
 
-    def test_missing_payment_date_defaults_gracefully(self):
-        """Dividend registered without payment_date defaults gracefully to instant credit."""
-        registry = CorporateActionRegistry()
-        registry.register_dividend(ex_date="2026-07-01", ticker="QQQ", amount_per_share=0.75, payment_date=None)
+    def test_missing_payment_date_rejected_by_policy(self):
+        """Under default strict policy (REJECT), missing payment date raises MissingPaymentDateError."""
+        registry = CorporateActionRegistry(payment_date_policy=PaymentDatePolicy.REJECT)
+        with pytest.raises(MissingPaymentDateError) as exc_info:
+            registry.register_dividend(ex_date="2026-07-01", ticker="QQQ", amount_per_share=0.75, payment_date=None)
+        assert "Silent substitution of ex-date as payment date is prohibited" in str(exc_info.value)
 
+    def test_missing_payment_date_impute_settlement_lag(self):
+        """Under IMPUTE_SETTLEMENT_LAG policy, missing payment date adds 14-day lag with audit entry."""
+        registry = CorporateActionRegistry(payment_date_policy=PaymentDatePolicy.IMPUTE_SETTLEMENT_LAG)
+        registry.register_dividend(ex_date="2026-07-01", ticker="QQQ", amount_per_share=0.75, payment_date=None)
+        assert len(registry.imputation_audit_log) == 1
+        entry = registry.imputation_audit_log[0]
+        assert entry["warning"] == "UNVERIFIED_PAYMENT_DATE_IMPUTATION"
+        assert entry["imputed_payment_date"] == "2026-07-15"
+
+    def test_missing_payment_date_ex_date_compatibility(self):
+        """Under EX_DATE_COMPATIBILITY mode, ex-date is used but flagged in imputation audit log."""
+        registry = CorporateActionRegistry(payment_date_policy=PaymentDatePolicy.EX_DATE_COMPATIBILITY)
+        registry.register_dividend(ex_date="2026-07-01", ticker="QQQ", amount_per_share=0.75, payment_date=None)
+        assert len(registry.imputation_audit_log) == 1
+        assert registry.imputation_audit_log[0]["warning"] == "EX_DATE_COMPATIBILITY_IMPUTATION"
         positions = {"QQQ": 400.0}
         payout, logs = registry.apply_dividends_for_date("2026-07-01", positions)
         assert payout == 300.0

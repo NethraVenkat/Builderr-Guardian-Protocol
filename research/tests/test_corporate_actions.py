@@ -42,8 +42,8 @@ class TestCorporateActions:
 
     def test_cash_dividend_distribution(self):
         registry = CorporateActionRegistry()
-        # $1.50 per share dividend on SPY on 2026-06-15
-        registry.register_dividend("2026-06-15", "SPY", 1.50)
+        # $1.50 per share dividend on SPY on 2026-06-15 (explicit payment date)
+        registry.register_dividend("2026-06-15", "SPY", 1.50, payment_date="2026-06-15")
 
         positions = {"SPY": 250.0}
         payout, logs = registry.apply_dividends_for_date("2026-06-15", positions)
@@ -54,7 +54,7 @@ class TestCorporateActions:
 
     def test_unheld_ticker_dividend_yields_zero(self):
         registry = CorporateActionRegistry()
-        registry.register_dividend("2026-06-15", "XOM", 1.00)
+        registry.register_dividend("2026-06-15", "XOM", 1.00, payment_date="2026-06-15")
         positions = {"SPY": 100.0}
         payout, logs = registry.apply_dividends_for_date("2026-06-15", positions)
         assert payout == 0.0

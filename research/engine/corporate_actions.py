@@ -10,7 +10,21 @@ Supports:
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import datetime, timedelta
+from enum import Enum
 from typing import Any
+
+
+class MissingPaymentDateError(ValueError):
+    """Raised when dividend payment_date is missing and policy is REJECT."""
+    pass
+
+
+class PaymentDatePolicy(str, Enum):
+    """Explicit policy for handling dividends with missing payment dates."""
+    REJECT = "REJECT"                             # Strict research gate: raises MissingPaymentDateError
+    IMPUTE_SETTLEMENT_LAG = "IMPUTE_SETTLEMENT_LAG"   # Documented proxy: ex_date + 14 calendar days, audit logged
+    EX_DATE_COMPATIBILITY = "EX_DATE_COMPATIBILITY"   # Legacy / preview.py parity mode: ex_date = payment_date
 
 
 @dataclass(frozen=True)
@@ -42,12 +56,23 @@ class DividendReceivable:
 class CorporateActionRegistry:
     """Manages verified corporate actions across the investment lifecycle."""
 
-    def __init__(self, instant_credit_compatibility: bool = False) -> None:
+    def __init__(
+        self,
+        instant_credit_compatibility: bool = False,
+        payment_date_policy: PaymentDatePolicy | None = None,
+    ) -> None:
         self.instant_credit_compatibility = instant_credit_compatibility
+        if payment_date_policy is not None:
+            self.payment_date_policy = payment_date_policy
+        elif instant_credit_compatibility:
+            self.payment_date_policy = PaymentDatePolicy.EX_DATE_COMPATIBILITY
+        else:
+            self.payment_date_policy = PaymentDatePolicy.REJECT
         self._splits: dict[str, list[StockSplitEvent]] = {}
         self._dividends_by_ex: dict[str, list[CashDividendEvent]] = {}
         self._dividends_by_pay: dict[str, list[CashDividendEvent]] = {}
         self.receivables: list[DividendReceivable] = []
+        self.imputation_audit_log: list[dict[str, Any]] = []
 
     def register_split(self, ex_date: str, ticker: str, split_ratio: float) -> None:
         if split_ratio <= 0.0:
@@ -64,12 +89,45 @@ class CorporateActionRegistry:
         amount_per_share: float,
         record_date: str | None = None,
         payment_date: str | None = None,
+        policy: PaymentDatePolicy | None = None,
     ) -> None:
         if amount_per_share <= 0.0:
             raise ValueError(f"Dividend amount must be positive, got {amount_per_share}")
         ex_d = str(ex_date)[:10]
         rec_d = str(record_date)[:10] if record_date else ex_d
-        pay_d = str(payment_date)[:10] if payment_date else ex_d
+
+        effective_policy = policy or self.payment_date_policy
+
+        if payment_date is not None and str(payment_date).strip() != "":
+            pay_d = str(payment_date)[:10]
+        else:
+            # Payment date is missing - handle via explicit policy rather than silent substitution
+            if effective_policy == PaymentDatePolicy.REJECT:
+                raise MissingPaymentDateError(
+                    f"Missing payment date for {ticker} dividend on ex-date {ex_d}. "
+                    f"Silent substitution of ex-date as payment date is prohibited under PaymentDatePolicy.REJECT."
+                )
+            elif effective_policy == PaymentDatePolicy.IMPUTE_SETTLEMENT_LAG:
+                dt = datetime.strptime(ex_d, "%Y-%m-%d") + timedelta(days=14)
+                pay_d = dt.strftime("%Y-%m-%d")
+                self.imputation_audit_log.append({
+                    "warning": "UNVERIFIED_PAYMENT_DATE_IMPUTATION",
+                    "ticker": ticker.upper(),
+                    "ex_date": ex_d,
+                    "imputed_payment_date": pay_d,
+                    "method": "SETTLEMENT_LAG_14D",
+                })
+            elif effective_policy == PaymentDatePolicy.EX_DATE_COMPATIBILITY:
+                pay_d = ex_d
+                self.imputation_audit_log.append({
+                    "warning": "EX_DATE_COMPATIBILITY_IMPUTATION",
+                    "ticker": ticker.upper(),
+                    "ex_date": ex_d,
+                    "imputed_payment_date": pay_d,
+                    "method": "EX_DATE_EQUIVALENCE",
+                })
+            else:
+                raise ValueError(f"Unknown PaymentDatePolicy: {effective_policy}")
 
         event = CashDividendEvent(
             ex_date=ex_d,

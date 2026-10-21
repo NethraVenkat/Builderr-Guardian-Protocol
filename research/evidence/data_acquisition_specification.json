@@ -59,39 +59,73 @@
     "point_in_time_safety": "Bars delivered to agent.decide() at date T close strictly contain historical observations through session T close. Execution fills at session T+1 open price + slippage."
   },
   "storage_architecture_and_git_hygiene": {
-    "local_storage_path": "data_cache/daily_bars_24.parquet",
-    "git_status": "Strictly git-ignored via .gitignore line 9 ('data_cache/') and line 10 ('*.parquet')",
+    "local_storage_path": "data_cache/daily_bars_24.parquet (ONLY permitted if using Tiingo Power /mo or Polygon Developer /mo; STRICTLY FORBIDDEN on Tiingo Free/Starter)",
+    "git_status": "Strictly git-ignored via .gitignore line 9 (data_cache/) and line 10 (*.parquet)",
     "manifest_path": "data_cache/market_data_manifest.sha256",
-    "credential_isolation": "API keys (if any) stored in root .env (git-ignored via .gitignore line 5). Zero credentials committed."
+    "credential_isolation": "API keys stored in root .env (git-ignored via .gitignore line 5). Zero credentials committed.",
+    "free_tier_storage_rule": "If Tiingo Free/Starter tier is selected, data MUST be streamed via InMemoryStreamProvider with zero persistent disk artifacts."
   },
   "provider_qualification_and_costs": [
     {
-      "provider": "Tiingo",
+      "provider": "Tiingo (Power Plan - Individual)",
+      "tier": "Power Individual",
+      "confirmed_monthly_cost_usd": 30.0,
+      "limits": "10,000 requests/hour, 100,000 requests/day, 40 GB bandwidth",
+      "history_depth": "30+ to 50+ years EOD",
+      "local_caching_permitted": true,
+      "suitability": "RECOMMENDED (Full 2018-2026 coverage, point-in-time splits/dividends, internal disk caching authorized under Section 1.6)"
+    },
+    {
+      "provider": "Polygon.io (Developer Tier)",
+      "tier": "Stocks Developer",
+      "confirmed_monthly_cost_usd": 79.0,
+      "limits": "Unlimited requests/minute, flat files S3 access",
+      "history_depth": "10 years (covers 2016-present, fully encompassing July 2018 - July 2026)",
+      "local_caching_permitted": true,
+      "suitability": "VIABLE (Institutional-grade SIP consolidated data; higher cost at /mo)"
+    },
+    {
+      "provider": "Tiingo (Free / Starter Tier)",
       "tier": "Free Developer",
-      "estimated_cost_usd": 0.0,
-      "limits": "500 unique symbols/month, 50 requests/hour",
+      "confirmed_monthly_cost_usd": 0.0,
+      "limits": "500 unique symbols/month, 50 requests/hour, 1,000 requests/day, 1 GB bandwidth",
       "history_depth": "30+ years EOD",
-      "suitability": "HIGH (Provides raw + adjusted + split + dividend tables; sufficient for 24 symbols)"
+      "local_caching_permitted": false,
+      "suitability": "CONDITIONAL (Viable ONLY via InMemoryStreamProvider; zero disk persistence allowed under Section 1.6; rate limits require throttled ingestion)"
     },
     {
-      "provider": "Polygon.io",
-      "tier": "Starter Paid Tier",
-      "estimated_cost_usd": 29.0,
+      "provider": "Polygon.io (Stocks Starter Tier)",
+      "tier": "Stocks Starter",
+      "confirmed_monthly_cost_usd": 29.0,
       "limits": "Unlimited requests/minute",
-      "history_depth": "15+ years SIP aggregates",
-      "suitability": "HIGH (Institutional-grade SIP consolidated data)"
+      "history_depth": "5 years rolling only (CORRECTION: misses 2018 - mid-2021)",
+      "local_caching_permitted": true,
+      "suitability": "INSUFFICIENT (Fails 8-year target window requirement; cannot cover 2018-2021)"
     },
     {
-      "provider": "Polygon.io",
-      "tier": "Free Tier",
-      "estimated_cost_usd": 0.0,
-      "limits": "5 requests/minute, 2-year history limit",
-      "history_depth": "2 years only (Insufficient for full multi-regime backtesting)"
+      "provider": "Polygon.io (Free Basic Tier)",
+      "tier": "Free Basic",
+      "confirmed_monthly_cost_usd": 0.0,
+      "limits": "5 requests/minute",
+      "history_depth": "2 years only",
+      "local_caching_permitted": true,
+      "suitability": "INSUFFICIENT (Fails 8-year target window requirement)"
     }
   ],
   "user_decisions_required_before_b2": [
-    "Select primary historical data source (Tiingo Free EOD vs Polygon.io vs User-Provided Verified CSV Archive).",
-    "Approve local git-ignored ingestion into data_cache/.",
-    "Confirm research partition boundaries (Train: 2018-07 to 2022-12; Val: 2023-01 to 2024-12; Sealed: 2025-01 to 2026-07)."
-  ]
+    "Select primary data acquisition strategy: (A) Paid Tiingo Power (/mo, allows local parquet caching) vs (B) Free Tiingo streaming (zero disk cache, transient RAM only) vs (C) Paid Polygon Developer (/mo).",
+    "Authorize credential configuration in git-ignored .env file.",
+    "Select dividend payment date policy: REJECT (strict) vs IMPUTE_SETTLEMENT_LAG (+14 days)."
+  ],
+  "ticker_aliases_and_corporate_events": {
+    "META": {
+      "former_symbol": "FB",
+      "change_date": "2022-06-09",
+      "provider_handling": "Query as META; historical bars pre-June 2022 aliased from FB."
+    },
+    "GOOGL": {
+      "distinction": "Class A voting shares (IPO 2004); distinguished from GOOG (Class C non-voting created April 2014)."
+    },
+    "dividend_payment_date_policy": "Strict policy: if historical payment date is missing (e.g. pre-2023 Tiingo), PaymentDatePolicy.REJECT prevents silent ex-date substitution; fallback requires documented PaymentDatePolicy.IMPUTE_SETTLEMENT_LAG (+14 days)."
+  }
 }

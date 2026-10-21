@@ -89,6 +89,10 @@ class ContinuousSoakHarness:
         last_sample_mono = self.start_monotonic
         t_start_cpu = time.process_time()
 
+        # Ensure fresh telemetry file for new soak run
+        with open(self.telemetry_path, "w", encoding="utf-8") as f:
+            pass
+
         print(f"================================================================================")
         print(f"GUARDIAN ALPHA TRACK B — CONTINUOUS SOAK HARNESS STARTED")
         print(f"Target Duration: {self.target_duration:.1f}s ({self.target_duration/60.0:.1f} mins)")

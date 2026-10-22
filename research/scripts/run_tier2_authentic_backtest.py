@@ -27,6 +27,8 @@ import agent
 from research.engine.accounting import (
     PortfolioState,
     calculate_metrics,
+    FinancialStateValidationError,
+    validate_and_extract_carryforward_state,
 )
 from research.engine.corporate_actions import (
     CorporateActionRegistry,
@@ -297,21 +299,12 @@ def run_tier2_backtest() -> dict[str, Any]:
             t1_holdings_manifest = json.load(f)
 
         for name, dec_fn in strategies:
-            t1_strat = t1_holdings_manifest.get(name, {})
-            # Fixed in V24: retrieve ending_cash and dividend_receivables properly
-            init_cash = float(t1_strat.get("ending_cash") or t1_strat.get("cash", 0.0))
-            receivables = float(t1_strat.get("dividend_receivables", 0.0))
-            init_pos = {
-                (p.get("symbol") or p.get("ticker")): float(p["shares"])
-                for p in t1_strat.get("positions", [])
-            }
-            init_avg_cost = {
-                (p.get("symbol") or p.get("ticker")): float(p.get("raw_price") or p.get("close_price", 0.0))
-                for p in t1_strat.get("positions", [])
-            }
-            # Start capital = cash + stock cost basis (excluding receivables, which are added dynamically to equity)
-            initial_cost_basis = sum(q * init_avg_cost.get(t, 0.0) for t, q in init_pos.items())
-            start_capital = init_cash + initial_cost_basis
+            t1_strat = t1_holdings_manifest.get(name)
+            if t1_strat is None:
+                raise FinancialStateValidationError(f"Strategy '{name}' not found in {tier1_holdings_path}. Silent fallbacks are prohibited.")
+            
+            # V25: Strict fail-closed validation of carryforward state (zero silent fallbacks)
+            init_cash, receivables, init_pos, init_avg_cost, start_capital = validate_and_extract_carryforward_state(t1_strat, name)
 
             init_port = PortfolioState(
                 cash=init_cash,

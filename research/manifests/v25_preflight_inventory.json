@@ -1,0 +1,103 @@
+{
+  "stage": "V25_STAGE_B2_P_PREFLIGHT",
+  "branch": "research/track-b-v25-final-certification",
+  "parent_commit": "1e7a2acb9e82eebea24d7e8eed3e3fae0a80e580",
+  "file_inventory": {
+    "agent.py": {
+      "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "size_bytes": 12952
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "size_bytes": 8228
+    },
+    "research/strategies/v11_candidates.py": {
+      "sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+      "size_bytes": 24554
+    },
+    "research/engine/accounting.py": {
+      "sha256": "e9f2d720dd4777d541a85b7922cde2fcbde688ec645c1dbcbb96068a42cbe907",
+      "size_bytes": 15014
+    },
+    "research/engine/replay.py": {
+      "sha256": "fd5ed8d8301bf0dfa57b736633b777ca8499837c0b4e9ebf677f90833d843c36",
+      "size_bytes": 13258
+    },
+    "research/engine/corporate_actions.py": {
+      "sha256": "75ac5ad2f1a65dcaee8a849c0ddcdbc11f3cbfa115a21d5501e3cb2a7a8d7396",
+      "size_bytes": 12159
+    },
+    "research/engine/independent_accounting.py": {
+      "sha256": "c657f45244703b91954d30612bcaf39e4d6fe02ee16612a884a466c82840e64d",
+      "size_bytes": 18314
+    },
+    "research/engine/tiingo_client.py": {
+      "sha256": "cd96609100b536b0dec0726df32165d1a6ee5523b76246d58d5779bfbd15b2c1",
+      "size_bytes": 24124
+    },
+    "research/scripts/run_tier2_authentic_backtest.py": {
+      "sha256": "33423f1b42e92d6c1fd6907dfaff7e040dc1d35144d6c78a6b1c433ce867c9a3",
+      "size_bytes": 15286
+    },
+    "research/scripts/verify_tier2_accounting.py": {
+      "sha256": "76c7b2b798a1c9fb66447e0f7ffbbffa1b066758d02a2662fb41a058190f1d9a",
+      "size_bytes": 11436
+    },
+    "research/scripts/compute_tier2_statistics_and_regimes.py": {
+      "sha256": "8e68b3ccb7a1094675b8bc0d998e2fa60e5f3dfe18261e0cbf553200adffa786",
+      "size_bytes": 11923
+    },
+    "research/manifests/tier2_four_way_results.json": {
+      "sha256": "0776de1b73a7ab7fc94a90499a2fbf2588b07754e596c501355f824cd5ac1691",
+      "size_bytes": 58529
+    },
+    "research/manifests/tier2_terminal_holdings.json": {
+      "sha256": "9ea3fbb1795fd25732157517b71d8bda58d5f2586e06018f6f942e08399b6e82",
+      "size_bytes": 5290
+    },
+    "research/manifests/tier2_independent_accounting.json": {
+      "sha256": "e0453cf18af70074952362e8e413fb42104cfdd22a4d0e1121d254373ab9a6d9",
+      "size_bytes": 4282
+    },
+    "research/manifests/tier2_carryforward_continuity_bridge.json": {
+      "sha256": "b4bb913eb731a7524aa92584cdee3cdb88c9f443479aa3883beeee4e10109ba8",
+      "size_bytes": 10447
+    },
+    "research/manifests/tier2_carryforward_corrected_results.json": {
+      "sha256": "35ab8befffdd7d9bbf14c9a1d2a2bd46b805c89a0f1f992a1d4c8ed3f21e52a5",
+      "size_bytes": 58043
+    },
+    "research/manifests/tier2_carryforward_sensitivity_results.json": {
+      "sha256": "269aa6cf9f9df2fc418387774e4b6b7c04ab9237548be81b2dc4ace23f80ad4e",
+      "size_bytes": 58185
+    },
+    "research/manifests/tier2_paired_strategy_statistics.json": {
+      "sha256": "a8ad197a6862dccda00482cba81fb9792ce89a50b8548b87ec55f3eb61f8b103",
+      "size_bytes": 5249
+    },
+    "research/manifests/tier2_regime_robustness_profile.json": {
+      "sha256": "318ca51b4a2d06bd26281b4c244a91f7ecaa5fa2b5fa2d085dd80fc94bb03a69",
+      "size_bytes": 8746
+    },
+    "research/manifests/tier1_terminal_holdings_v22.json": {
+      "sha256": "1512701dd68874750fff6e8c4a385fc49010d432f98708dcee0cc70135faf752",
+      "size_bytes": 6473
+    },
+    "research/manifests/tier2_preregistration_protocol.json": {
+      "sha256": "cf983ce558098012730882c06050987c5231d6b409e7021a45e4cbd02aa2b43b",
+      "size_bytes": 7119
+    },
+    "tiingo_cache/tier1_bars.json": {
+      "sha256": "dfbf29725434d267305e54678574769c0c2fead0c8f9d5ca73c38d5fd203245f",
+      "size_bytes": 12496122
+    },
+    "tiingo_cache/tier2_bars.json": {
+      "sha256": "9f8811ec80302e69bde84badd01703dd620ace1202f2e182aa7c7559c300dd4d",
+      "size_bytes": 4171615
+    },
+    "sample_regimes.json.gz": {
+      "sha256": "ebda311e99e4ec19ec76452ef0ce03d9eeaf663b6e3da58268a5e5690ca4116a",
+      "size_bytes": 412567
+    }
+  }
+}

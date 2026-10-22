@@ -33,6 +33,11 @@ class RiskMode(str, Enum):
     ACTIVE_ENFORCEMENT = "active_enforcement"  # Pre-trade checks reject or clamp orders exceeding caps (live_runner mode)
 
 
+class FinancialStateValidationError(ValueError):
+    """Raised when portfolio state fields are missing, malformed, negative, or fail balance sheet conservation."""
+    pass
+
+
 def get_beta(ticker: str) -> float:
     t = ticker.upper()
     if t in BETA_3X:
@@ -338,3 +343,144 @@ def calculate_metrics(equity_curve: list[float], trades: int = 0, errors: int = 
         "days": len(equity_curve),
         "errors": errors,
     }
+
+
+def validate_and_extract_carryforward_state(
+    strat_data: dict[str, Any],
+    strat_name: str,
+) -> tuple[float, float, dict[str, float], dict[str, float], float]:
+    """Fail closed with explicit validation errors when restoring carryforward portfolio state.
+
+    Removes all silent fallback behavior. Validates that:
+      1. strat_data is a dictionary.
+      2. 'ending_cash' is explicitly present, non-null, numeric, and >= 0.0.
+      3. 'dividend_receivables' is explicitly present, non-null, numeric, and >= 0.0.
+      4. 'positions' is present as a list of valid position records with non-empty symbol, shares > 0, price > 0.
+      5. Double-entry balance sheet conservation matches 'ending_nav' within $0.05.
+
+    Returns:
+      (init_cash, receivables, positions_dict, avg_cost_dict, start_capital)
+    """
+    if not isinstance(strat_data, dict):
+        raise FinancialStateValidationError(
+            f"Invalid strategy manifest for '{strat_name}': expected dict, got {type(strat_data).__name__}"
+        )
+
+    if "ending_cash" not in strat_data:
+        raise FinancialStateValidationError(
+            f"Missing mandatory 'ending_cash' for strategy '{strat_name}'. Silent fallbacks are prohibited."
+        )
+    if strat_data["ending_cash"] is None:
+        raise FinancialStateValidationError(
+            f"Mandatory 'ending_cash' is None for strategy '{strat_name}'"
+        )
+
+    try:
+        init_cash = float(strat_data["ending_cash"])
+    except (ValueError, TypeError) as e:
+        raise FinancialStateValidationError(
+            f"Malformed 'ending_cash' for strategy '{strat_name}': {e}"
+        )
+
+    if not math.isfinite(init_cash) or init_cash < 0.0:
+        raise FinancialStateValidationError(
+            f"Non-finite or negative 'ending_cash' ({init_cash}) for strategy '{strat_name}'"
+        )
+
+    if "dividend_receivables" not in strat_data:
+        raise FinancialStateValidationError(
+            f"Missing mandatory 'dividend_receivables' for strategy '{strat_name}'. Silent fallbacks are prohibited."
+        )
+    if strat_data["dividend_receivables"] is None:
+        raise FinancialStateValidationError(
+            f"Mandatory 'dividend_receivables' is None for strategy '{strat_name}'"
+        )
+
+    try:
+        receivables = float(strat_data["dividend_receivables"])
+    except (ValueError, TypeError) as e:
+        raise FinancialStateValidationError(
+            f"Malformed 'dividend_receivables' for strategy '{strat_name}': {e}"
+        )
+
+    if not math.isfinite(receivables) or receivables < 0.0:
+        raise FinancialStateValidationError(
+            f"Non-finite or negative 'dividend_receivables' ({receivables}) for strategy '{strat_name}'"
+        )
+
+    if "positions" not in strat_data or not isinstance(strat_data["positions"], list):
+        raise FinancialStateValidationError(
+            f"Missing or invalid 'positions' list for strategy '{strat_name}'"
+        )
+
+    init_pos: dict[str, float] = {}
+    init_avg_cost: dict[str, float] = {}
+    total_positions_val = 0.0
+
+    for p in strat_data["positions"]:
+        if not isinstance(p, dict):
+            raise FinancialStateValidationError(
+                f"Invalid position record in '{strat_name}': expected dict, got {type(p).__name__}"
+            )
+        sym = p.get("symbol") or p.get("ticker")
+        if not sym or not isinstance(sym, str):
+            raise FinancialStateValidationError(
+                f"Missing symbol in position record for '{strat_name}'"
+            )
+        if "shares" not in p or p["shares"] is None:
+            raise FinancialStateValidationError(
+                f"Missing 'shares' for symbol '{sym}' in '{strat_name}'"
+            )
+        try:
+            shares = float(p["shares"])
+        except (ValueError, TypeError) as e:
+            raise FinancialStateValidationError(
+                f"Malformed 'shares' for symbol '{sym}' in '{strat_name}': {e}"
+            )
+        if not math.isfinite(shares) or shares <= 0.0:
+            raise FinancialStateValidationError(
+                f"Non-positive shares ({shares}) for symbol '{sym}' in '{strat_name}'"
+            )
+
+        px_val = p.get("raw_price")
+        if px_val is None:
+            px_val = p.get("close_price")
+        if px_val is None:
+            raise FinancialStateValidationError(
+                f"Missing price for symbol '{sym}' in '{strat_name}'"
+            )
+        try:
+            price = float(px_val)
+        except (ValueError, TypeError) as e:
+            raise FinancialStateValidationError(
+                f"Malformed price for symbol '{sym}' in '{strat_name}': {e}"
+            )
+        if not math.isfinite(price) or price <= 0.0:
+            raise FinancialStateValidationError(
+                f"Non-positive price ({price}) for symbol '{sym}' in '{strat_name}'"
+            )
+
+        init_pos[sym] = shares
+        init_avg_cost[sym] = price
+        total_positions_val += shares * price
+
+    # Double-entry balance sheet verification on manifest:
+    expected_nav = init_cash + receivables + total_positions_val
+    if "ending_nav" in strat_data and strat_data["ending_nav"] is not None:
+        try:
+            manifest_nav = float(strat_data["ending_nav"])
+            if abs(expected_nav - manifest_nav) > 0.05:
+                raise FinancialStateValidationError(
+                    f"Balance sheet conservation violation in '{strat_name}': "
+                    f"Cash ({init_cash:.2f}) + Receivables ({receivables:.2f}) + Stock ({total_positions_val:.2f}) = {expected_nav:.2f} "
+                    f"does not match manifest ending_nav {manifest_nav:.2f}"
+                )
+        except (ValueError, TypeError) as e:
+            if isinstance(e, FinancialStateValidationError):
+                raise
+            raise FinancialStateValidationError(
+                f"Malformed 'ending_nav' for strategy '{strat_name}': {e}"
+            )
+
+    start_capital = init_cash + total_positions_val
+    return init_cash, receivables, init_pos, init_avg_cost, start_capital

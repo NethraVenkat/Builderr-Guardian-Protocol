@@ -1,0 +1,42 @@
+{
+  "Frozen E0": {
+    "ending_nav": 233249.64,
+    "qld_sso_fills_count": 38,
+    "qld_sso_notional": 617170.28,
+    "qld_sso_slippage_actual_10bps": 617.17,
+    "qld_sso_slippage_hypothetical_5bps": 308.59,
+    "excess_slippage_dollars": 308.59,
+    "excess_slippage_pct_of_ending_nav": 0.1323,
+    "below_0_3_pct_nav": true
+  },
+  "Candidate A": {
+    "ending_nav": 192272.44,
+    "qld_sso_fills_count": 46,
+    "qld_sso_notional": 623029.47,
+    "qld_sso_slippage_actual_10bps": 623.03,
+    "qld_sso_slippage_hypothetical_5bps": 311.51,
+    "excess_slippage_dollars": 311.51,
+    "excess_slippage_pct_of_ending_nav": 0.162,
+    "below_0_3_pct_nav": true
+  },
+  "Candidate E": {
+    "ending_nav": 225907.32,
+    "qld_sso_fills_count": 40,
+    "qld_sso_notional": 643731.19,
+    "qld_sso_slippage_actual_10bps": 643.73,
+    "qld_sso_slippage_hypothetical_5bps": 321.87,
+    "excess_slippage_dollars": 321.87,
+    "excess_slippage_pct_of_ending_nav": 0.1425,
+    "below_0_3_pct_nav": true
+  },
+  "Candidate A+E": {
+    "ending_nav": 207620.42,
+    "qld_sso_fills_count": 46,
+    "qld_sso_notional": 657861.43,
+    "qld_sso_slippage_actual_10bps": 657.86,
+    "qld_sso_slippage_hypothetical_5bps": 328.93,
+    "excess_slippage_dollars": 328.93,
+    "excess_slippage_pct_of_ending_nav": 0.1584,
+    "below_0_3_pct_nav": true
+  }
+}

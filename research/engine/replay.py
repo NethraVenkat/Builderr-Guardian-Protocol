@@ -164,7 +164,7 @@ class ReplayEngine:
         trace_digest = hashlib.sha256(trace_json.encode("utf-8")).hexdigest()
 
         tot_turnover = sum(f.notional for f in portfolio.fill_log)
-        tot_slippage = sum(f.slippage * f.filled_qty for f in portfolio.fill_log)
+        tot_slippage = sum(f.notional * f.slippage for f in portfolio.fill_log)
         tot_commissions = portfolio.total_commissions
 
         self.last_portfolio = portfolio

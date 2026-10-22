@@ -42,6 +42,10 @@ INCEPTION_DATES: dict[str, str] = {
 }
 
 
+# Known US stock market major fixed holidays (MM-DD)
+US_MARKET_HOLIDAYS_MD: set[str] = {"01-01", "07-04", "12-25"}
+
+
 def is_valid_calendar_date(ts_val: Any) -> bool:
     try:
         validate_calendar_date(ts_val, reject_weekends=False)
@@ -106,6 +110,11 @@ class DataQualityAuditor:
         # 2. Weekend check
         if is_weekend(ts):
             anomalies.append(QualityAnomaly(sym, ts, "WEEKEND_DATA", f"Date falls on weekend: {ts}", "FATAL"))
+            return False, anomalies
+
+        # 2b. Major market holiday check
+        if len(ts) >= 10 and ts[5:10] in US_MARKET_HOLIDAYS_MD:
+            anomalies.append(QualityAnomaly(sym, ts, "MARKET_HOLIDAY_DATA", f"Date falls on US market holiday: {ts}", "FATAL"))
             return False, anomalies
 
         # 3. Monotonicity check against previous date

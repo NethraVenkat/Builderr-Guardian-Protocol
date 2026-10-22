@@ -1,0 +1,191 @@
+{
+  "Challenger: Candidate A+E vs Benchmark: Frozen E0": {
+    "challenger": "Candidate A+E",
+    "benchmark": "Frozen E0",
+    "sample_sessions": 504,
+    "parametric_t_test": {
+      "t_statistic": -1.2535,
+      "p_value_two_tailed": 0.210031,
+      "statistically_significant_005": false
+    },
+    "block_bootstrap_length_5": {
+      "block_length": 5,
+      "replications": 10000,
+      "seed": 42,
+      "observed_mean_daily_delta": -0.000234,
+      "observed_annualized_delta": -0.0591,
+      "mean_delta_95_ci": [
+        -0.000634,
+        9.4e-05
+      ],
+      "annualized_mean_delta_95_ci": [
+        -0.1599,
+        0.0237
+      ],
+      "observed_sharpe_delta": -0.1928,
+      "sharpe_delta_95_ci": [
+        -0.5138,
+        0.086
+      ],
+      "observed_mdd_delta_pct": -0.03,
+      "mdd_delta_95_ci_pct": [
+        -1.86,
+        8.23
+      ],
+      "bootstrap_p_value_zero_cross": 0.0991
+    },
+    "block_bootstrap_length_10": {
+      "block_length": 10,
+      "replications": 10000,
+      "seed": 42,
+      "observed_mean_daily_delta": -0.000234,
+      "observed_annualized_delta": -0.0591,
+      "mean_delta_95_ci": [
+        -0.000647,
+        9.9e-05
+      ],
+      "annualized_mean_delta_95_ci": [
+        -0.163,
+        0.0249
+      ],
+      "observed_sharpe_delta": -0.1928,
+      "sharpe_delta_95_ci": [
+        -0.5285,
+        0.0899
+      ],
+      "observed_mdd_delta_pct": -0.03,
+      "mdd_delta_95_ci_pct": [
+        -1.24,
+        8.26
+      ],
+      "bootstrap_p_value_zero_cross": 0.1057
+    },
+    "interpretation": "Candidate A+E and Frozen E0 return differences are not statistically distinguishable at alpha=0.05 (p = 0.2100)."
+  },
+  "Challenger: Candidate A vs Benchmark: Frozen E0": {
+    "challenger": "Candidate A",
+    "benchmark": "Frozen E0",
+    "sample_sessions": 504,
+    "parametric_t_test": {
+      "t_statistic": -2.0517,
+      "p_value_two_tailed": 0.040198,
+      "statistically_significant_005": true
+    },
+    "block_bootstrap_length_5": {
+      "block_length": 5,
+      "replications": 10000,
+      "seed": 42,
+      "observed_mean_daily_delta": -0.000389,
+      "observed_annualized_delta": -0.0979,
+      "mean_delta_95_ci": [
+        -0.0008,
+        -5.6e-05
+      ],
+      "annualized_mean_delta_95_ci": [
+        -0.2016,
+        -0.014
+      ],
+      "observed_sharpe_delta": -0.3232,
+      "sharpe_delta_95_ci": [
+        -0.6627,
+        -0.0454
+      ],
+      "observed_mdd_delta_pct": 0.63,
+      "mdd_delta_95_ci_pct": [
+        -1.12,
+        9.29
+      ],
+      "bootstrap_p_value_zero_cross": 0.009
+    },
+    "block_bootstrap_length_10": {
+      "block_length": 10,
+      "replications": 10000,
+      "seed": 42,
+      "observed_mean_daily_delta": -0.000389,
+      "observed_annualized_delta": -0.0979,
+      "mean_delta_95_ci": [
+        -0.000825,
+        -4.4e-05
+      ],
+      "annualized_mean_delta_95_ci": [
+        -0.208,
+        -0.0112
+      ],
+      "observed_sharpe_delta": -0.3232,
+      "sharpe_delta_95_ci": [
+        -0.6891,
+        -0.0367
+      ],
+      "observed_mdd_delta_pct": 0.63,
+      "mdd_delta_95_ci_pct": [
+        -0.52,
+        9.11
+      ],
+      "bootstrap_p_value_zero_cross": 0.0092
+    },
+    "interpretation": "Candidate A achieves lower Sharpe (1.3054 vs 1.6286) and lower ending NAV ($192,272.44 vs $233,249.64). The difference is statistically significant (p = 0.0402)."
+  },
+  "Challenger: Candidate E vs Benchmark: Frozen E0": {
+    "challenger": "Candidate E",
+    "benchmark": "Frozen E0",
+    "sample_sessions": 504,
+    "parametric_t_test": {
+      "t_statistic": -0.7533,
+      "p_value_two_tailed": 0.451264,
+      "statistically_significant_005": false
+    },
+    "block_bootstrap_length_5": {
+      "block_length": 5,
+      "replications": 10000,
+      "seed": 42,
+      "observed_mean_daily_delta": -6e-05,
+      "observed_annualized_delta": -0.0151,
+      "mean_delta_95_ci": [
+        -0.000222,
+        8.6e-05
+      ],
+      "annualized_mean_delta_95_ci": [
+        -0.056,
+        0.0216
+      ],
+      "observed_sharpe_delta": -0.0698,
+      "sharpe_delta_95_ci": [
+        -0.2102,
+        0.0661
+      ],
+      "observed_mdd_delta_pct": 1.63,
+      "mdd_delta_95_ci_pct": [
+        -0.54,
+        4.04
+      ],
+      "bootstrap_p_value_zero_cross": 0.2236
+    },
+    "block_bootstrap_length_10": {
+      "block_length": 10,
+      "replications": 10000,
+      "seed": 42,
+      "observed_mean_daily_delta": -6e-05,
+      "observed_annualized_delta": -0.0151,
+      "mean_delta_95_ci": [
+        -0.000234,
+        8.9e-05
+      ],
+      "annualized_mean_delta_95_ci": [
+        -0.0591,
+        0.0225
+      ],
+      "observed_sharpe_delta": -0.0698,
+      "sharpe_delta_95_ci": [
+        -0.2198,
+        0.0771
+      ],
+      "observed_mdd_delta_pct": 1.63,
+      "mdd_delta_95_ci_pct": [
+        -0.25,
+        4.11
+      ],
+      "bootstrap_p_value_zero_cross": 0.2376
+    },
+    "interpretation": "Candidate E and Frozen E0 return differences are not statistically distinguishable at alpha=0.05 (p = 0.4513)."
+  }
+}

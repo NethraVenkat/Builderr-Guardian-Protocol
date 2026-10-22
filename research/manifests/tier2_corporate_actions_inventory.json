@@ -1,0 +1,1183 @@
+{
+  "manifest_version": "1.0.0",
+  "stage": "Stage B2-N Tier 2 Corporate Actions",
+  "observation_window": {
+    "start": "2020-01-01",
+    "end": "2021-12-31"
+  },
+  "total_splits": 6,
+  "splits": [
+    {
+      "symbol": "AAPL",
+      "date": "2020-08-31",
+      "split_factor": 4.0,
+      "raw_close": 129.04,
+      "adj_close": 125.067246036
+    },
+    {
+      "symbol": "NVDA",
+      "date": "2021-07-20",
+      "split_factor": 4.0,
+      "raw_close": 186.12,
+      "adj_close": 18.5274519215
+    },
+    {
+      "symbol": "TSLA",
+      "date": "2020-08-31",
+      "split_factor": 5.0,
+      "raw_close": 498.32,
+      "adj_close": 166.1066666667
+    },
+    {
+      "symbol": "QLD",
+      "date": "2020-08-18",
+      "split_factor": 2.0,
+      "raw_close": 92.54,
+      "adj_close": 22.838744009
+    },
+    {
+      "symbol": "QLD",
+      "date": "2021-05-25",
+      "split_factor": 2.0,
+      "raw_close": 63.38,
+      "adj_close": 31.2841926798
+    },
+    {
+      "symbol": "SSO",
+      "date": "2020-08-18",
+      "split_factor": 2.0,
+      "raw_close": 75.03,
+      "adj_close": 18.160787527
+    }
+  ],
+  "total_dividends": 161,
+  "dividends": [
+    {
+      "symbol": "SPY",
+      "date": "2020-03-20",
+      "div_cash": 1.405559,
+      "raw_close": 228.8,
+      "adj_close": 209.1922215708
+    },
+    {
+      "symbol": "SPY",
+      "date": "2020-06-19",
+      "div_cash": 1.366242,
+      "raw_close": 308.64,
+      "adj_close": 283.4392240594
+    },
+    {
+      "symbol": "SPY",
+      "date": "2020-09-18",
+      "div_cash": 1.339224,
+      "raw_close": 330.65,
+      "adj_close": 304.8819597156
+    },
+    {
+      "symbol": "SPY",
+      "date": "2020-12-18",
+      "div_cash": 1.58,
+      "raw_close": 369.18,
+      "adj_close": 341.8661284868
+    },
+    {
+      "symbol": "SPY",
+      "date": "2021-03-19",
+      "div_cash": 1.277788,
+      "raw_close": 389.48,
+      "adj_close": 361.8474786273
+    },
+    {
+      "symbol": "SPY",
+      "date": "2021-06-18",
+      "div_cash": 1.375875,
+      "raw_close": 414.92,
+      "adj_close": 386.7608419732
+    },
+    {
+      "symbol": "SPY",
+      "date": "2021-09-17",
+      "div_cash": 1.428117,
+      "raw_close": 441.4,
+      "adj_close": 412.7749334337
+    },
+    {
+      "symbol": "SPY",
+      "date": "2021-12-17",
+      "div_cash": 1.636431,
+      "raw_close": 459.87,
+      "adj_close": 431.5774497853
+    },
+    {
+      "symbol": "QQQ",
+      "date": "2020-03-23",
+      "div_cash": 0.36269,
+      "raw_close": 170.46,
+      "adj_close": 164.0624707804
+    },
+    {
+      "symbol": "QQQ",
+      "date": "2020-06-22",
+      "div_cash": 0.42426,
+      "raw_close": 246.74,
+      "adj_close": 237.8879454665
+    },
+    {
+      "symbol": "QQQ",
+      "date": "2020-09-21",
+      "div_cash": 0.38824,
+      "raw_close": 267.51,
+      "adj_close": 258.2871115656
+    },
+    {
+      "symbol": "QQQ",
+      "date": "2020-12-21",
+      "div_cash": 0.56133,
+      "raw_close": 308.92,
+      "adj_close": 298.8114044678
+    },
+    {
+      "symbol": "QQQ",
+      "date": "2021-03-22",
+      "div_cash": 0.39468,
+      "raw_close": 318.61,
+      "adj_close": 308.5660898051
+    },
+    {
+      "symbol": "QQQ",
+      "date": "2021-06-21",
+      "div_cash": 0.39679,
+      "raw_close": 344.36,
+      "adj_close": 333.8886244125
+    },
+    {
+      "symbol": "QQQ",
+      "date": "2021-09-20",
+      "div_cash": 0.41391,
+      "raw_close": 365.7,
+      "adj_close": 354.9810366714
+    },
+    {
+      "symbol": "QQQ",
+      "date": "2021-12-20",
+      "div_cash": 0.49141,
+      "raw_close": 380.69,
+      "adj_close": 370.0086739996
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-01-17",
+      "div_cash": 0.13848,
+      "raw_close": 293.27,
+      "adj_close": 259.8882816919
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-02-21",
+      "div_cash": 0.8039,
+      "raw_close": 289.74,
+      "adj_close": 257.4724824464
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-03-20",
+      "div_cash": 0.60183,
+      "raw_close": 191.9,
+      "adj_close": 171.063450147
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-04-17",
+      "div_cash": 0.13018,
+      "raw_close": 242.43,
+      "adj_close": 216.2229351697
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-05-15",
+      "div_cash": 0.46228,
+      "raw_close": 236.91,
+      "adj_close": 211.7119626677
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-06-19",
+      "div_cash": 0.75266,
+      "raw_close": 258.8,
+      "adj_close": 231.9463216589
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-07-17",
+      "div_cash": 0.21123,
+      "raw_close": 266.74,
+      "adj_close": 239.2517614406
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-08-21",
+      "div_cash": 0.6035,
+      "raw_close": 279.29,
+      "adj_close": 251.0497596565
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-09-18",
+      "div_cash": 0.6668,
+      "raw_close": 276.52,
+      "adj_close": 249.1592234593
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-10-16",
+      "div_cash": 0.11679,
+      "raw_close": 285.97,
+      "adj_close": 257.7794099464
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-11-20",
+      "div_cash": 0.65225,
+      "raw_close": 292.53,
+      "adj_close": 264.2806847283
+    },
+    {
+      "symbol": "DIA",
+      "date": "2020-12-18",
+      "div_cash": 0.58746,
+      "raw_close": 301.9,
+      "adj_close": 273.2765632603
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-01-15",
+      "div_cash": 0.1275,
+      "raw_close": 308.12,
+      "adj_close": 279.0222505252
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-02-19",
+      "div_cash": 0.60133,
+      "raw_close": 314.92,
+      "adj_close": 285.7246254229
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-03-19",
+      "div_cash": 0.67142,
+      "raw_close": 326.01,
+      "adj_close": 296.395676242
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-04-16",
+      "div_cash": 0.11195,
+      "raw_close": 341.86,
+      "adj_close": 310.9076634951
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-05-21",
+      "div_cash": 0.70309,
+      "raw_close": 342.04,
+      "adj_close": 311.7107976686
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-06-18",
+      "div_cash": 0.4927,
+      "raw_close": 332.96,
+      "adj_close": 303.8849465026
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-07-16",
+      "div_cash": 0.20669,
+      "raw_close": 346.74,
+      "adj_close": 316.6502773003
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-08-20",
+      "div_cash": 0.61111,
+      "raw_close": 351.16,
+      "adj_close": 321.2447930084
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-09-17",
+      "div_cash": 0.73564,
+      "raw_close": 345.64,
+      "adj_close": 316.8680110917
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-10-15",
+      "div_cash": 0.11671,
+      "raw_close": 352.85,
+      "adj_close": 323.584826349
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-11-19",
+      "div_cash": 0.70096,
+      "raw_close": 355.91,
+      "adj_close": 327.0338545154
+    },
+    {
+      "symbol": "DIA",
+      "date": "2021-12-17",
+      "div_cash": 0.662241,
+      "raw_close": 353.63,
+      "adj_close": 325.5473496084
+    },
+    {
+      "symbol": "IWM",
+      "date": "2020-03-25",
+      "div_cash": 0.41988,
+      "raw_close": 109.97,
+      "adj_close": 101.6365470909
+    },
+    {
+      "symbol": "IWM",
+      "date": "2020-06-15",
+      "div_cash": 0.465775,
+      "raw_close": 140.99,
+      "adj_close": 130.73635116
+    },
+    {
+      "symbol": "IWM",
+      "date": "2020-09-23",
+      "div_cash": 0.566445,
+      "raw_close": 144.07,
+      "adj_close": 134.1176045398
+    },
+    {
+      "symbol": "IWM",
+      "date": "2020-12-14",
+      "div_cash": 0.592476,
+      "raw_close": 189.93,
+      "adj_close": 177.3611306455
+    },
+    {
+      "symbol": "IWM",
+      "date": "2021-03-25",
+      "div_cash": 0.398096,
+      "raw_close": 216.66,
+      "adj_close": 202.6939889555
+    },
+    {
+      "symbol": "IWM",
+      "date": "2021-06-10",
+      "div_cash": 0.34716,
+      "raw_close": 229.28,
+      "adj_close": 214.8252793914
+    },
+    {
+      "symbol": "IWM",
+      "date": "2021-09-24",
+      "div_cash": 0.678967,
+      "raw_close": 223.05,
+      "adj_close": 209.6242055291
+    },
+    {
+      "symbol": "IWM",
+      "date": "2021-12-13",
+      "div_cash": 0.66552,
+      "raw_close": 216.04,
+      "adj_close": 203.6616115838
+    },
+    {
+      "symbol": "XLK",
+      "date": "2020-03-23",
+      "div_cash": 0.371482,
+      "raw_close": 70.4,
+      "adj_close": 33.4947049343
+    },
+    {
+      "symbol": "XLK",
+      "date": "2020-06-22",
+      "div_cash": 0.280517,
+      "raw_close": 103.88,
+      "adj_close": 49.5571844136
+    },
+    {
+      "symbol": "XLK",
+      "date": "2020-09-21",
+      "div_cash": 0.246526,
+      "raw_close": 112.44,
+      "adj_close": 53.7584419514
+    },
+    {
+      "symbol": "XLK",
+      "date": "2020-12-21",
+      "div_cash": 0.297642,
+      "raw_close": 128.08,
+      "adj_close": 61.3783530355
+    },
+    {
+      "symbol": "XLK",
+      "date": "2021-03-22",
+      "div_cash": 0.273149,
+      "raw_close": 131.87,
+      "adj_close": 63.3254907132
+    },
+    {
+      "symbol": "XLK",
+      "date": "2021-06-21",
+      "div_cash": 0.259491,
+      "raw_close": 143.35,
+      "adj_close": 68.9629293141
+    },
+    {
+      "symbol": "XLK",
+      "date": "2021-09-20",
+      "div_cash": 0.272862,
+      "raw_close": 152.38,
+      "adj_close": 73.4383573889
+    },
+    {
+      "symbol": "XLK",
+      "date": "2021-12-20",
+      "div_cash": 0.316544,
+      "raw_close": 165.57,
+      "adj_close": 79.9477313577
+    },
+    {
+      "symbol": "XLF",
+      "date": "2020-03-23",
+      "div_cash": 0.159296,
+      "raw_close": 17.66,
+      "adj_close": 15.7331798927
+    },
+    {
+      "symbol": "XLF",
+      "date": "2020-06-22",
+      "div_cash": 0.151596,
+      "raw_close": 23.71,
+      "adj_close": 21.2581416984
+    },
+    {
+      "symbol": "XLF",
+      "date": "2020-09-21",
+      "div_cash": 0.135278,
+      "raw_close": 23.93,
+      "adj_close": 21.5766802926
+    },
+    {
+      "symbol": "XLF",
+      "date": "2020-12-21",
+      "div_cash": 0.152,
+      "raw_close": 28.72,
+      "adj_close": 26.0326750274
+    },
+    {
+      "symbol": "XLF",
+      "date": "2021-03-22",
+      "div_cash": 0.151233,
+      "raw_close": 33.63,
+      "adj_close": 30.6203294121
+    },
+    {
+      "symbol": "XLF",
+      "date": "2021-06-21",
+      "div_cash": 0.139299,
+      "raw_close": 35.91,
+      "adj_close": 32.8231165761
+    },
+    {
+      "symbol": "XLF",
+      "date": "2021-09-20",
+      "div_cash": 0.162032,
+      "raw_close": 36.55,
+      "adj_close": 33.5562045693
+    },
+    {
+      "symbol": "XLF",
+      "date": "2021-12-20",
+      "div_cash": 0.184411,
+      "raw_close": 37.66,
+      "adj_close": 34.7445908979
+    },
+    {
+      "symbol": "XLE",
+      "date": "2020-03-23",
+      "div_cash": 0.565756,
+      "raw_close": 23.57,
+      "adj_close": 9.1734523061
+    },
+    {
+      "symbol": "XLE",
+      "date": "2020-06-22",
+      "div_cash": 0.501041,
+      "raw_close": 39.25,
+      "adj_close": 15.4711191655
+    },
+    {
+      "symbol": "XLE",
+      "date": "2020-09-21",
+      "div_cash": 0.543571,
+      "raw_close": 31.97,
+      "adj_close": 12.8158301003
+    },
+    {
+      "symbol": "XLE",
+      "date": "2020-12-21",
+      "div_cash": 0.5201,
+      "raw_close": 38.13,
+      "adj_close": 15.4936851723
+    },
+    {
+      "symbol": "XLE",
+      "date": "2021-03-22",
+      "div_cash": 0.519944,
+      "raw_close": 48.54,
+      "adj_close": 19.934941697
+    },
+    {
+      "symbol": "XLE",
+      "date": "2021-06-21",
+      "div_cash": 0.530291,
+      "raw_close": 54.07,
+      "adj_close": 22.4238487376
+    },
+    {
+      "symbol": "XLE",
+      "date": "2021-09-20",
+      "div_cash": 0.591901,
+      "raw_close": 47.24,
+      "adj_close": 19.8367914344
+    },
+    {
+      "symbol": "XLE",
+      "date": "2021-12-20",
+      "div_cash": 0.695015,
+      "raw_close": 53.01,
+      "adj_close": 22.5515491434
+    },
+    {
+      "symbol": "XLV",
+      "date": "2020-03-23",
+      "div_cash": 0.381983,
+      "raw_close": 74.62,
+      "adj_close": 67.2283159959
+    },
+    {
+      "symbol": "XLV",
+      "date": "2020-06-22",
+      "div_cash": 0.424807,
+      "raw_close": 99.94,
+      "adj_close": 90.4229021692
+    },
+    {
+      "symbol": "XLV",
+      "date": "2020-09-21",
+      "div_cash": 0.418362,
+      "raw_close": 103.18,
+      "adj_close": 93.7328852513
+    },
+    {
+      "symbol": "XLV",
+      "date": "2020-12-21",
+      "div_cash": 0.464341,
+      "raw_close": 111.41,
+      "adj_close": 101.6311762698
+    },
+    {
+      "symbol": "XLV",
+      "date": "2021-03-22",
+      "div_cash": 0.397468,
+      "raw_close": 115.67,
+      "adj_close": 105.879842918
+    },
+    {
+      "symbol": "XLV",
+      "date": "2021-06-21",
+      "div_cash": 0.48083,
+      "raw_close": 124.74,
+      "adj_close": 114.6223031941
+    },
+    {
+      "symbol": "XLV",
+      "date": "2021-09-20",
+      "div_cash": 0.466542,
+      "raw_close": 131.15,
+      "adj_close": 120.9410869206
+    },
+    {
+      "symbol": "XLV",
+      "date": "2021-12-20",
+      "div_cash": 0.527521,
+      "raw_close": 136.56,
+      "adj_close": 126.4164223637
+    },
+    {
+      "symbol": "XLI",
+      "date": "2020-03-23",
+      "div_cash": 0.395772,
+      "raw_close": 48.77,
+      "adj_close": 44.2767749898
+    },
+    {
+      "symbol": "XLI",
+      "date": "2020-06-22",
+      "div_cash": 0.306335,
+      "raw_close": 69.04,
+      "adj_close": 62.9573932984
+    },
+    {
+      "symbol": "XLI",
+      "date": "2020-09-21",
+      "div_cash": 0.305283,
+      "raw_close": 75.87,
+      "adj_close": 69.4640389839
+    },
+    {
+      "symbol": "XLI",
+      "date": "2020-12-21",
+      "div_cash": 0.365887,
+      "raw_close": 87.94,
+      "adj_close": 80.8499219333
+    },
+    {
+      "symbol": "XLI",
+      "date": "2021-03-22",
+      "div_cash": 0.295643,
+      "raw_close": 96.12,
+      "adj_close": 88.6422243541
+    },
+    {
+      "symbol": "XLI",
+      "date": "2021-06-21",
+      "div_cash": 0.314329,
+      "raw_close": 101.48,
+      "adj_close": 93.875111831
+    },
+    {
+      "symbol": "XLI",
+      "date": "2021-09-20",
+      "div_cash": 0.323098,
+      "raw_close": 98.86,
+      "adj_close": 91.7503391456
+    },
+    {
+      "symbol": "XLI",
+      "date": "2021-12-20",
+      "div_cash": 0.384997,
+      "raw_close": 100.42,
+      "adj_close": 93.5554588541
+    },
+    {
+      "symbol": "XLY",
+      "date": "2020-03-23",
+      "div_cash": 0.42366,
+      "raw_close": 87.53,
+      "adj_close": 41.5246776184
+    },
+    {
+      "symbol": "XLY",
+      "date": "2020-06-22",
+      "div_cash": 0.296038,
+      "raw_close": 128.39,
+      "adj_close": 61.0493115724
+    },
+    {
+      "symbol": "XLY",
+      "date": "2020-09-21",
+      "div_cash": 0.305594,
+      "raw_close": 141.51,
+      "adj_close": 67.4331675671
+    },
+    {
+      "symbol": "XLY",
+      "date": "2020-12-21",
+      "div_cash": 0.296123,
+      "raw_close": 157.89,
+      "adj_close": 75.3797706102
+    },
+    {
+      "symbol": "XLY",
+      "date": "2021-03-22",
+      "div_cash": 0.264059,
+      "raw_close": 167.28,
+      "adj_close": 79.9888069828
+    },
+    {
+      "symbol": "XLY",
+      "date": "2021-06-21",
+      "div_cash": 0.25535,
+      "raw_close": 173.23,
+      "adj_close": 82.9560388301
+    },
+    {
+      "symbol": "XLY",
+      "date": "2021-09-20",
+      "div_cash": 0.274892,
+      "raw_close": 179.64,
+      "adj_close": 86.1572866528
+    },
+    {
+      "symbol": "XLY",
+      "date": "2021-12-20",
+      "div_cash": 0.292225,
+      "raw_close": 191.85,
+      "adj_close": 92.1534889636
+    },
+    {
+      "symbol": "XLP",
+      "date": "2020-03-23",
+      "div_cash": 0.287381,
+      "raw_close": 48.63,
+      "adj_close": 40.9376629084
+    },
+    {
+      "symbol": "XLP",
+      "date": "2020-06-22",
+      "div_cash": 0.460776,
+      "raw_close": 58.99,
+      "adj_close": 50.0467988388
+    },
+    {
+      "symbol": "XLP",
+      "date": "2020-09-21",
+      "div_cash": 0.376628,
+      "raw_close": 62.83,
+      "adj_close": 53.6241633632
+    },
+    {
+      "symbol": "XLP",
+      "date": "2020-12-21",
+      "div_cash": 0.564405,
+      "raw_close": 66.64,
+      "adj_close": 57.3576315844
+    },
+    {
+      "symbol": "XLP",
+      "date": "2021-03-22",
+      "div_cash": 0.35694,
+      "raw_close": 66.72,
+      "adj_close": 57.7337096688
+    },
+    {
+      "symbol": "XLP",
+      "date": "2021-06-21",
+      "div_cash": 0.443628,
+      "raw_close": 69.14,
+      "adj_close": 60.2116453335
+    },
+    {
+      "symbol": "XLP",
+      "date": "2021-09-20",
+      "div_cash": 0.442006,
+      "raw_close": 70.21,
+      "adj_close": 61.5283992967
+    },
+    {
+      "symbol": "XLP",
+      "date": "2021-12-20",
+      "div_cash": 0.511737,
+      "raw_close": 74.71,
+      "adj_close": 65.920425437
+    },
+    {
+      "symbol": "XLU",
+      "date": "2020-03-23",
+      "div_cash": 0.473961,
+      "raw_close": 44.93,
+      "adj_close": 18.4373004157
+    },
+    {
+      "symbol": "XLU",
+      "date": "2020-06-22",
+      "div_cash": 0.475761,
+      "raw_close": 57.57,
+      "adj_close": 23.8194331941
+    },
+    {
+      "symbol": "XLU",
+      "date": "2020-09-21",
+      "div_cash": 0.498587,
+      "raw_close": 57.66,
+      "adj_close": 24.0629594878
+    },
+    {
+      "symbol": "XLU",
+      "date": "2020-12-21",
+      "div_cash": 0.521774,
+      "raw_close": 61.02,
+      "adj_close": 25.6829208215
+    },
+    {
+      "symbol": "XLU",
+      "date": "2021-03-22",
+      "div_cash": 0.460776,
+      "raw_close": 61.65,
+      "adj_close": 26.1420213401
+    },
+    {
+      "symbol": "XLU",
+      "date": "2021-06-21",
+      "div_cash": 0.494318,
+      "raw_close": 64.43,
+      "adj_close": 27.5304607728
+    },
+    {
+      "symbol": "XLU",
+      "date": "2021-09-20",
+      "div_cash": 0.499183,
+      "raw_close": 65.78,
+      "adj_close": 28.3206029433
+    },
+    {
+      "symbol": "XLU",
+      "date": "2021-12-20",
+      "div_cash": 0.54556,
+      "raw_close": 69.53,
+      "adj_close": 30.1699925629
+    },
+    {
+      "symbol": "XLRE",
+      "date": "2020-03-23",
+      "div_cash": 0.201839,
+      "raw_close": 25.46,
+      "adj_close": 20.4705336586
+    },
+    {
+      "symbol": "XLRE",
+      "date": "2020-06-22",
+      "div_cash": 0.270448,
+      "raw_close": 34.98,
+      "adj_close": 28.3423205917
+    },
+    {
+      "symbol": "XLRE",
+      "date": "2020-09-21",
+      "div_cash": 0.212973,
+      "raw_close": 34.44,
+      "adj_close": 28.0773490629
+    },
+    {
+      "symbol": "XLRE",
+      "date": "2020-12-21",
+      "div_cash": 0.466266,
+      "raw_close": 35.65,
+      "adj_close": 29.4439316879
+    },
+    {
+      "symbol": "XLRE",
+      "date": "2021-03-22",
+      "div_cash": 0.382324,
+      "raw_close": 38.68,
+      "adj_close": 32.2622271929
+    },
+    {
+      "symbol": "XLRE",
+      "date": "2021-06-21",
+      "div_cash": 0.285374,
+      "raw_close": 44.92,
+      "adj_close": 37.704913297
+    },
+    {
+      "symbol": "XLRE",
+      "date": "2021-09-20",
+      "div_cash": 0.260856,
+      "raw_close": 46.27,
+      "adj_close": 39.0570323044
+    },
+    {
+      "symbol": "XLRE",
+      "date": "2021-12-20",
+      "div_cash": 0.425422,
+      "raw_close": 49.3,
+      "adj_close": 41.9737932441
+    },
+    {
+      "symbol": "XLC",
+      "date": "2020-03-23",
+      "div_cash": 0.113003,
+      "raw_close": 40.32,
+      "adj_close": 37.8289019593
+    },
+    {
+      "symbol": "XLC",
+      "date": "2020-06-22",
+      "div_cash": 0.11161,
+      "raw_close": 55.55,
+      "adj_close": 52.2226584223
+    },
+    {
+      "symbol": "XLC",
+      "date": "2020-09-21",
+      "div_cash": 0.123931,
+      "raw_close": 57.93,
+      "adj_close": 54.5766086172
+    },
+    {
+      "symbol": "XLC",
+      "date": "2020-12-21",
+      "div_cash": 0.107,
+      "raw_close": 66.43,
+      "adj_close": 62.6853755837
+    },
+    {
+      "symbol": "XLC",
+      "date": "2021-03-22",
+      "div_cash": 0.132892,
+      "raw_close": 75.91,
+      "adj_close": 71.7563938807
+    },
+    {
+      "symbol": "XLC",
+      "date": "2021-06-21",
+      "div_cash": 0.140498,
+      "raw_close": 79.2,
+      "adj_close": 74.999183575
+    },
+    {
+      "symbol": "XLC",
+      "date": "2021-09-20",
+      "div_cash": 0.141702,
+      "raw_close": 81.33,
+      "adj_close": 77.1503931119
+    },
+    {
+      "symbol": "XLC",
+      "date": "2021-12-20",
+      "div_cash": 0.156681,
+      "raw_close": 75.79,
+      "adj_close": 72.0437267268
+    },
+    {
+      "symbol": "SMH",
+      "date": "2020-12-21",
+      "div_cash": 1.5022,
+      "raw_close": 214.57,
+      "adj_close": 104.0959562403
+    },
+    {
+      "symbol": "SMH",
+      "date": "2021-12-20",
+      "div_cash": 1.5733,
+      "raw_close": 291.51,
+      "adj_close": 142.1857033675
+    },
+    {
+      "symbol": "AAPL",
+      "date": "2020-02-07",
+      "div_cash": 0.77,
+      "raw_close": 320.03,
+      "adj_close": 77.1973914695
+    },
+    {
+      "symbol": "AAPL",
+      "date": "2020-05-08",
+      "div_cash": 0.82,
+      "raw_close": 310.13,
+      "adj_close": 75.0071208245
+    },
+    {
+      "symbol": "AAPL",
+      "date": "2020-08-07",
+      "div_cash": 0.82,
+      "raw_close": 444.45,
+      "adj_close": 107.6916799068
+    },
+    {
+      "symbol": "AAPL",
+      "date": "2020-11-06",
+      "div_cash": 0.205,
+      "raw_close": 118.69,
+      "adj_close": 115.2345801105
+    },
+    {
+      "symbol": "AAPL",
+      "date": "2021-02-05",
+      "div_cash": 0.205,
+      "raw_close": 136.76,
+      "adj_close": 132.9775403558
+    },
+    {
+      "symbol": "AAPL",
+      "date": "2021-05-07",
+      "div_cash": 0.22,
+      "raw_close": 130.21,
+      "adj_close": 126.8226132539
+    },
+    {
+      "symbol": "AAPL",
+      "date": "2021-08-06",
+      "div_cash": 0.22,
+      "raw_close": 146.14,
+      "adj_close": 142.5524742788
+    },
+    {
+      "symbol": "AAPL",
+      "date": "2021-11-05",
+      "div_cash": 0.22,
+      "raw_close": 151.28,
+      "adj_close": 147.7808940279
+    },
+    {
+      "symbol": "MSFT",
+      "date": "2020-02-19",
+      "div_cash": 0.51,
+      "raw_close": 187.28,
+      "adj_close": 177.1633755206
+    },
+    {
+      "symbol": "MSFT",
+      "date": "2020-05-20",
+      "div_cash": 0.51,
+      "raw_close": 185.66,
+      "adj_close": 176.1133362915
+    },
+    {
+      "symbol": "MSFT",
+      "date": "2020-08-19",
+      "div_cash": 0.51,
+      "raw_close": 209.7,
+      "adj_close": 199.4009717863
+    },
+    {
+      "symbol": "MSFT",
+      "date": "2020-11-18",
+      "div_cash": 0.56,
+      "raw_close": 211.08,
+      "adj_close": 201.2456922692
+    },
+    {
+      "symbol": "MSFT",
+      "date": "2021-02-17",
+      "div_cash": 0.56,
+      "raw_close": 244.2,
+      "adj_close": 233.356526624
+    },
+    {
+      "symbol": "MSFT",
+      "date": "2021-05-19",
+      "div_cash": 0.56,
+      "raw_close": 243.12,
+      "adj_close": 232.8596167393
+    },
+    {
+      "symbol": "MSFT",
+      "date": "2021-08-18",
+      "div_cash": 0.56,
+      "raw_close": 290.73,
+      "adj_close": 278.9967002303
+    },
+    {
+      "symbol": "MSFT",
+      "date": "2021-11-17",
+      "div_cash": 0.62,
+      "raw_close": 339.12,
+      "adj_close": 326.0287515436
+    },
+    {
+      "symbol": "NVDA",
+      "date": "2020-02-27",
+      "div_cash": 0.16,
+      "raw_close": 252.6,
+      "adj_close": 6.2763010091
+    },
+    {
+      "symbol": "NVDA",
+      "date": "2020-06-04",
+      "div_cash": 0.16,
+      "raw_close": 350.66,
+      "adj_close": 8.7167534442
+    },
+    {
+      "symbol": "NVDA",
+      "date": "2020-09-01",
+      "div_cash": 0.16,
+      "raw_close": 552.84,
+      "adj_close": 13.7465483792
+    },
+    {
+      "symbol": "NVDA",
+      "date": "2020-12-03",
+      "div_cash": 0.16,
+      "raw_close": 535.84,
+      "adj_close": 13.327816242
+    },
+    {
+      "symbol": "NVDA",
+      "date": "2021-03-09",
+      "div_cash": 0.16,
+      "raw_close": 500.81,
+      "adj_close": 12.4605033271
+    },
+    {
+      "symbol": "NVDA",
+      "date": "2021-06-09",
+      "div_cash": 0.16,
+      "raw_close": 694.33,
+      "adj_close": 17.2793972876
+    },
+    {
+      "symbol": "NVDA",
+      "date": "2021-08-31",
+      "div_cash": 0.04,
+      "raw_close": 223.85,
+      "adj_close": 22.2872942763
+    },
+    {
+      "symbol": "NVDA",
+      "date": "2021-12-01",
+      "div_cash": 0.04,
+      "raw_close": 314.35,
+      "adj_close": 31.3017755083
+    },
+    {
+      "symbol": "QLD",
+      "date": "2020-03-25",
+      "div_cash": 0.009093,
+      "raw_close": 82.59,
+      "adj_close": 10.1915488854
+    },
+    {
+      "symbol": "SSO",
+      "date": "2020-03-25",
+      "div_cash": 0.197593,
+      "raw_close": 82.16,
+      "adj_close": 9.9432913716
+    },
+    {
+      "symbol": "SSO",
+      "date": "2020-12-23",
+      "div_cash": 0.08422,
+      "raw_close": 88.32,
+      "adj_close": 21.3979775544
+    },
+    {
+      "symbol": "SSO",
+      "date": "2021-03-23",
+      "div_cash": 0.069605,
+      "raw_close": 98.87,
+      "adj_close": 23.9708723622
+    },
+    {
+      "symbol": "SSO",
+      "date": "2021-06-22",
+      "div_cash": 0.043853,
+      "raw_close": 116.57,
+      "adj_close": 28.2728409622
+    },
+    {
+      "symbol": "SSO",
+      "date": "2021-09-22",
+      "div_cash": 0.038492,
+      "raw_close": 124.86,
+      "adj_close": 30.2928300655
+    },
+    {
+      "symbol": "SSO",
+      "date": "2021-12-23",
+      "div_cash": 0.104337,
+      "raw_close": 143.85,
+      "adj_close": 34.9253905809
+    }
+  ]
+}

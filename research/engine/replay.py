@@ -42,6 +42,7 @@ class ReplayEngine:
         start_cash: float = 100_000.0,
         risk_mode: RiskMode = RiskMode.TELEMETRY_ONLY,
         price_semantics: str = "causal_production",
+        initial_portfolio: PortfolioState | None = None,
     ):
         self.provider = provider
         self.corporate_actions = corporate_actions or CorporateActionRegistry()
@@ -49,6 +50,7 @@ class ReplayEngine:
         self.start_cash = start_cash
         self.risk_mode = risk_mode
         self.price_semantics = price_semantics
+        self.initial_portfolio = initial_portfolio
         self.decide = self._load_agent(agent_path_or_fn)
 
     def _load_agent(self, agent_path_or_fn: Path | str | Callable) -> Callable:
@@ -146,7 +148,14 @@ class ReplayEngine:
                     mod._last_targets = None
 
         timeline = self.provider.get_timeline(eval_start, eval_end)
-        portfolio = PortfolioState(cash=self.start_cash)
+        if self.initial_portfolio is not None:
+            portfolio = copy.deepcopy(self.initial_portfolio)
+            portfolio.equity_curve = []
+            portfolio.fill_log = []
+            portfolio.trade_count = 0
+            portfolio.trades_today = 0
+        else:
+            portfolio = PortfolioState(cash=self.start_cash)
         pending_orders: list[dict[str, Any]] = []
         errors = 0
         traces: list[dict[str, Any]] = []

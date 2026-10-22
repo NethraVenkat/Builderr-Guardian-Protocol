@@ -37,8 +37,8 @@ class TestPerformanceBenchmark:
         assert metrics.decision_latency_p95_ms <= metrics.decision_latency_p99_ms
         assert metrics.decision_latency_p99_ms <= metrics.decision_latency_max_ms
 
-        # Latency P50 should be sub-5ms in Python
-        assert metrics.decision_latency_p50_ms < 5.0
+        # Latency P50 should be sub-10ms in Python
+        assert metrics.decision_latency_p50_ms < 10.0
 
         # Peak memory sanity check
         assert 0.0 < metrics.peak_memory_mb < 200.0

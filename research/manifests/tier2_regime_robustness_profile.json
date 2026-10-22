@@ -1,0 +1,262 @@
+{
+  "stage": "Stage B2-N Tier 2 Objective Macroeconomic Regime Robustness Profile",
+  "observation_window": {
+    "start": "2020-01-02",
+    "end": "2021-12-31"
+  },
+  "total_regimes": 6,
+  "regimes": [
+    {
+      "regime_id": "REGIME_1_PRE_COVID",
+      "name": "Pre-COVID Expansion",
+      "start_date": "2020-01-02",
+      "end_date": "2020-02-19",
+      "sessions_count": 33,
+      "description": "Steady market rise with low volatility prior to global pandemic lockdowns.",
+      "strategy_performance": {
+        "Frozen E0": {
+          "starting_nav": 100000.0,
+          "ending_nav": 125556.68,
+          "regime_net_return_pct": 25.56,
+          "annualized_return_pct": 468.56,
+          "max_drawdown_pct": 3.49,
+          "sharpe_ratio": 7.1168
+        },
+        "Candidate A": {
+          "starting_nav": 100000.0,
+          "ending_nav": 125556.68,
+          "regime_net_return_pct": 25.56,
+          "annualized_return_pct": 468.56,
+          "max_drawdown_pct": 3.49,
+          "sharpe_ratio": 7.1168
+        },
+        "Candidate E": {
+          "starting_nav": 100000.0,
+          "ending_nav": 125526.24,
+          "regime_net_return_pct": 25.53,
+          "annualized_return_pct": 467.51,
+          "max_drawdown_pct": 3.6,
+          "sharpe_ratio": 6.7608
+        },
+        "Candidate A+E": {
+          "starting_nav": 100000.0,
+          "ending_nav": 125526.24,
+          "regime_net_return_pct": 25.53,
+          "annualized_return_pct": 467.51,
+          "max_drawdown_pct": 3.6,
+          "sharpe_ratio": 6.7608
+        }
+      }
+    },
+    {
+      "regime_id": "REGIME_2_COVID_CRASH",
+      "name": "COVID-19 Market Shock",
+      "start_date": "2020-02-20",
+      "end_date": "2020-03-23",
+      "sessions_count": 23,
+      "description": "Severe liquidity crisis, S&P 500 -34% decline, VIX spikes to 82.",
+      "strategy_performance": {
+        "Frozen E0": {
+          "starting_nav": 125556.68,
+          "ending_nav": 85691.4,
+          "regime_net_return_pct": -31.75,
+          "annualized_return_pct": -98.48,
+          "max_drawdown_pct": 30.78,
+          "sharpe_ratio": -6.5259
+        },
+        "Candidate A": {
+          "starting_nav": 125556.68,
+          "ending_nav": 84905.02,
+          "regime_net_return_pct": -32.38,
+          "annualized_return_pct": -98.62,
+          "max_drawdown_pct": 31.42,
+          "sharpe_ratio": -6.5256
+        },
+        "Candidate E": {
+          "starting_nav": 125526.24,
+          "ending_nav": 83619.91,
+          "regime_net_return_pct": -33.38,
+          "annualized_return_pct": -98.83,
+          "max_drawdown_pct": 32.58,
+          "sharpe_ratio": -6.8303
+        },
+        "Candidate A+E": {
+          "starting_nav": 125526.24,
+          "ending_nav": 85706.17,
+          "regime_net_return_pct": -31.72,
+          "annualized_return_pct": -98.47,
+          "max_drawdown_pct": 30.89,
+          "sharpe_ratio": -6.4383
+        }
+      }
+    },
+    {
+      "regime_id": "REGIME_3_POST_COVID_RECOVERY",
+      "name": "Emergency Stimulus & Rebound",
+      "start_date": "2020-03-24",
+      "end_date": "2020-08-31",
+      "sessions_count": 112,
+      "description": "Historic Fed/Treasury stimulus, zero interest rates, aggressive V-shaped recovery.",
+      "strategy_performance": {
+        "Frozen E0": {
+          "starting_nav": 85691.4,
+          "ending_nav": 179490.43,
+          "regime_net_return_pct": 109.46,
+          "annualized_return_pct": 427.82,
+          "max_drawdown_pct": 6.42,
+          "sharpe_ratio": 5.222
+        },
+        "Candidate A": {
+          "starting_nav": 84905.02,
+          "ending_nav": 157695.13,
+          "regime_net_return_pct": 85.73,
+          "annualized_return_pct": 302.71,
+          "max_drawdown_pct": 6.36,
+          "sharpe_ratio": 4.3074
+        },
+        "Candidate E": {
+          "starting_nav": 83619.91,
+          "ending_nav": 174657.68,
+          "regime_net_return_pct": 108.87,
+          "annualized_return_pct": 424.48,
+          "max_drawdown_pct": 6.23,
+          "sharpe_ratio": 5.2601
+        },
+        "Candidate A+E": {
+          "starting_nav": 85706.17,
+          "ending_nav": 165700.39,
+          "regime_net_return_pct": 93.34,
+          "annualized_return_pct": 340.76,
+          "max_drawdown_pct": 6.36,
+          "sharpe_ratio": 4.579
+        }
+      }
+    },
+    {
+      "regime_id": "REGIME_4_TECH_MOMENTUM",
+      "name": "Tech Momentum Expansion",
+      "start_date": "2020-09-01",
+      "end_date": "2021-02-12",
+      "sessions_count": 114,
+      "description": "Mega-cap tech rally, work-from-home leaders, vaccine approvals.",
+      "strategy_performance": {
+        "Frozen E0": {
+          "starting_nav": 179490.43,
+          "ending_nav": 198005.0,
+          "regime_net_return_pct": 10.32,
+          "annualized_return_pct": 24.24,
+          "max_drawdown_pct": 15.47,
+          "sharpe_ratio": 0.8343
+        },
+        "Candidate A": {
+          "starting_nav": 157695.13,
+          "ending_nav": 162179.85,
+          "regime_net_return_pct": 2.84,
+          "annualized_return_pct": 6.39,
+          "max_drawdown_pct": 20.06,
+          "sharpe_ratio": 0.2788
+        },
+        "Candidate E": {
+          "starting_nav": 174657.68,
+          "ending_nav": 196237.31,
+          "regime_net_return_pct": 12.36,
+          "annualized_return_pct": 29.37,
+          "max_drawdown_pct": 15.6,
+          "sharpe_ratio": 0.977
+        },
+        "Candidate A+E": {
+          "starting_nav": 165700.39,
+          "ending_nav": 173112.56,
+          "regime_net_return_pct": 4.47,
+          "annualized_return_pct": 10.16,
+          "max_drawdown_pct": 20.34,
+          "sharpe_ratio": 0.4138
+        }
+      }
+    },
+    {
+      "regime_id": "REGIME_5_CYCLICAL_ROTATION",
+      "name": "Reopening & Cyclical Rotation",
+      "start_date": "2021-02-16",
+      "end_date": "2021-11-05",
+      "sessions_count": 185,
+      "description": "Economic reopening, energy and financials surge, growth-to-value rotation.",
+      "strategy_performance": {
+        "Frozen E0": {
+          "starting_nav": 198005.0,
+          "ending_nav": 241917.85,
+          "regime_net_return_pct": 22.18,
+          "annualized_return_pct": 31.37,
+          "max_drawdown_pct": 8.07,
+          "sharpe_ratio": 1.731
+        },
+        "Candidate A": {
+          "starting_nav": 162179.85,
+          "ending_nav": 198323.56,
+          "regime_net_return_pct": 22.29,
+          "annualized_return_pct": 31.53,
+          "max_drawdown_pct": 7.99,
+          "sharpe_ratio": 1.7398
+        },
+        "Candidate E": {
+          "starting_nav": 196237.31,
+          "ending_nav": 241835.06,
+          "regime_net_return_pct": 23.24,
+          "annualized_return_pct": 32.92,
+          "max_drawdown_pct": 8.05,
+          "sharpe_ratio": 1.8103
+        },
+        "Candidate A+E": {
+          "starting_nav": 173112.56,
+          "ending_nav": 213388.65,
+          "regime_net_return_pct": 23.27,
+          "annualized_return_pct": 32.97,
+          "max_drawdown_pct": 8.1,
+          "sharpe_ratio": 1.8081
+        }
+      }
+    },
+    {
+      "regime_id": "REGIME_6_INFLATION_HAWKISH",
+      "name": "Inflation Spike & Hawkish Pivot",
+      "start_date": "2021-11-08",
+      "end_date": "2021-12-31",
+      "sessions_count": 38,
+      "description": "CPI prints reach 40-year highs, Fed signals rate hikes, tech multiple compression.",
+      "strategy_performance": {
+        "Frozen E0": {
+          "starting_nav": 241917.85,
+          "ending_nav": 233249.64,
+          "regime_net_return_pct": -3.58,
+          "annualized_return_pct": -21.49,
+          "max_drawdown_pct": 8.51,
+          "sharpe_ratio": -0.6536
+        },
+        "Candidate A": {
+          "starting_nav": 198323.56,
+          "ending_nav": 192272.44,
+          "regime_net_return_pct": -3.05,
+          "annualized_return_pct": -18.58,
+          "max_drawdown_pct": 9.33,
+          "sharpe_ratio": -0.5524
+        },
+        "Candidate E": {
+          "starting_nav": 241835.06,
+          "ending_nav": 225907.32,
+          "regime_net_return_pct": -6.59,
+          "annualized_return_pct": -36.35,
+          "max_drawdown_pct": 9.74,
+          "sharpe_ratio": -1.3123
+        },
+        "Candidate A+E": {
+          "starting_nav": 213388.65,
+          "ending_nav": 207620.42,
+          "regime_net_return_pct": -2.7,
+          "annualized_return_pct": -16.62,
+          "max_drawdown_pct": 9.48,
+          "sharpe_ratio": -0.456
+        }
+      }
+    }
+  ]
+}

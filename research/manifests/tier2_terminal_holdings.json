@@ -1,0 +1,224 @@
+{
+  "Frozen E0": {
+    "terminal_date": "2021-12-31",
+    "terminal_nav": 233249.64,
+    "cash": 15407.54,
+    "cash_weight_pct": 6.61,
+    "positions": [
+      {
+        "ticker": "AAPL",
+        "shares": 200.0,
+        "close_price": 177.57,
+        "market_value": 35514.0,
+        "weight_pct": 15.23
+      },
+      {
+        "ticker": "MSFT",
+        "shares": 104.0,
+        "close_price": 336.32,
+        "market_value": 34977.28,
+        "weight_pct": 15.0
+      },
+      {
+        "ticker": "NVDA",
+        "shares": 120.0,
+        "close_price": 294.11,
+        "market_value": 35293.2,
+        "weight_pct": 15.13
+      },
+      {
+        "ticker": "QLD",
+        "shares": 285.0,
+        "close_price": 89.02,
+        "market_value": 25370.7,
+        "weight_pct": 10.88
+      },
+      {
+        "ticker": "SMH",
+        "shares": 114.0,
+        "close_price": 308.79,
+        "market_value": 35202.06,
+        "weight_pct": 15.09
+      },
+      {
+        "ticker": "SSO",
+        "shares": 111.0,
+        "close_price": 146.37,
+        "market_value": 16247.07,
+        "weight_pct": 6.97
+      },
+      {
+        "ticker": "TSLA",
+        "shares": 33.0,
+        "close_price": 1056.78,
+        "market_value": 34873.74,
+        "weight_pct": 14.95
+      }
+    ],
+    "active_positions_count": 7,
+    "terminal_hhi": 1307.86
+  },
+  "Candidate A": {
+    "terminal_date": "2021-12-31",
+    "terminal_nav": 192272.44,
+    "cash": 11813.14,
+    "cash_weight_pct": 6.14,
+    "positions": [
+      {
+        "ticker": "AAPL",
+        "shares": 165.0,
+        "close_price": 177.57,
+        "market_value": 29299.05,
+        "weight_pct": 15.24
+      },
+      {
+        "ticker": "NVDA",
+        "shares": 100.0,
+        "close_price": 294.11,
+        "market_value": 29411.0,
+        "weight_pct": 15.3
+      },
+      {
+        "ticker": "QLD",
+        "shares": 235.0,
+        "close_price": 89.02,
+        "market_value": 20919.7,
+        "weight_pct": 10.88
+      },
+      {
+        "ticker": "SSO",
+        "shares": 91.0,
+        "close_price": 146.37,
+        "market_value": 13319.67,
+        "weight_pct": 6.93
+      },
+      {
+        "ticker": "TSLA",
+        "shares": 27.0,
+        "close_price": 1056.78,
+        "market_value": 28533.06,
+        "weight_pct": 14.84
+      },
+      {
+        "ticker": "XLRE",
+        "shares": 568.0,
+        "close_price": 51.81,
+        "market_value": 29428.08,
+        "weight_pct": 15.31
+      },
+      {
+        "ticker": "XLV",
+        "shares": 208.0,
+        "close_price": 140.89,
+        "market_value": 29305.12,
+        "weight_pct": 15.24
+      }
+    ],
+    "active_positions_count": 7,
+    "terminal_hhi": 1322.69
+  },
+  "Candidate E": {
+    "terminal_date": "2021-12-31",
+    "terminal_nav": 225907.32,
+    "cash": 25629.12,
+    "cash_weight_pct": 11.34,
+    "positions": [
+      {
+        "ticker": "AAPL",
+        "shares": 206.0,
+        "close_price": 177.57,
+        "market_value": 36579.42,
+        "weight_pct": 16.19
+      },
+      {
+        "ticker": "MSFT",
+        "shares": 124.0,
+        "close_price": 336.32,
+        "market_value": 41703.68,
+        "weight_pct": 18.46
+      },
+      {
+        "ticker": "NVDA",
+        "shares": 135.0,
+        "close_price": 294.11,
+        "market_value": 39704.85,
+        "weight_pct": 17.58
+      },
+      {
+        "ticker": "SMH",
+        "shares": 134.0,
+        "close_price": 308.79,
+        "market_value": 41377.86,
+        "weight_pct": 18.32
+      },
+      {
+        "ticker": "TSLA",
+        "shares": 38.0,
+        "close_price": 1056.78,
+        "market_value": 40157.64,
+        "weight_pct": 17.78
+      }
+    ],
+    "active_positions_count": 5,
+    "terminal_hhi": 1573.86
+  },
+  "Candidate A+E": {
+    "terminal_date": "2021-12-31",
+    "terminal_nav": 207620.42,
+    "cash": 6712.52,
+    "cash_weight_pct": 3.23,
+    "positions": [
+      {
+        "ticker": "AAPL",
+        "shares": 184.0,
+        "close_price": 177.57,
+        "market_value": 32672.88,
+        "weight_pct": 15.74
+      },
+      {
+        "ticker": "NVDA",
+        "shares": 125.0,
+        "close_price": 294.11,
+        "market_value": 36763.75,
+        "weight_pct": 17.71
+      },
+      {
+        "ticker": "QLD",
+        "shares": 254.0,
+        "close_price": 89.02,
+        "market_value": 22611.08,
+        "weight_pct": 10.89
+      },
+      {
+        "ticker": "SSO",
+        "shares": 99.0,
+        "close_price": 146.37,
+        "market_value": 14490.63,
+        "weight_pct": 6.98
+      },
+      {
+        "ticker": "TSLA",
+        "shares": 29.0,
+        "close_price": 1056.78,
+        "market_value": 30646.62,
+        "weight_pct": 14.76
+      },
+      {
+        "ticker": "XLRE",
+        "shares": 613.0,
+        "close_price": 51.81,
+        "market_value": 31759.53,
+        "weight_pct": 15.3
+      },
+      {
+        "ticker": "XLV",
+        "shares": 225.0,
+        "close_price": 140.89,
+        "market_value": 31700.25,
+        "weight_pct": 15.27
+      }
+    ],
+    "active_positions_count": 7,
+    "terminal_hhi": 1417.1
+  }
+}

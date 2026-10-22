@@ -1,0 +1,30 @@
+{
+  "Frozen E0": {
+    "unrounded_nav": 233249.6419,
+    "rounded_nav_2dec": 233249.64,
+    "rounding_delta": 0.0018999999738298357,
+    "pct_delta": 8.145778738834737e-07,
+    "shares_integer_quantized": true
+  },
+  "Candidate A": {
+    "unrounded_nav": 192272.4363,
+    "rounded_nav_2dec": 192272.44,
+    "rounding_delta": -0.003700000001117587,
+    "pct_delta": -1.9243527945651703e-06,
+    "shares_integer_quantized": true
+  },
+  "Candidate E": {
+    "unrounded_nav": 225907.3198,
+    "rounded_nav_2dec": 225907.32,
+    "rounding_delta": -0.00020000000949949026,
+    "pct_delta": -8.853188541059847e-08,
+    "shares_integer_quantized": true
+  },
+  "Candidate A+E": {
+    "unrounded_nav": 207620.419,
+    "rounded_nav_2dec": 207620.42,
+    "rounding_delta": -0.0010000000183936208,
+    "pct_delta": -4.816482035871534e-07,
+    "shares_integer_quantized": true
+  }
+}

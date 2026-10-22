@@ -1,0 +1,48 @@
+{
+  "splits": {
+    "QLD": [
+      {
+        "date": "2015-05-20",
+        "split_factor": 2.0,
+        "raw_close": null,
+        "adj_close": 4.725321485
+      },
+      {
+        "date": "2017-07-17",
+        "split_factor": 2.0,
+        "raw_close": null,
+        "adj_close": 7.5792611421
+      }
+    ],
+    "SSO": [
+      {
+        "date": "2015-05-20",
+        "split_factor": 2.0,
+        "raw_close": null,
+        "adj_close": 8.0562338359
+      }
+    ]
+  },
+  "dividend_counts": {
+    "SPY": 22,
+    "QQQ": 22,
+    "DIA": 63,
+    "IWM": 22,
+    "XLK": 22,
+    "XLF": 23,
+    "XLE": 23,
+    "XLV": 23,
+    "XLI": 22,
+    "XLY": 22,
+    "XLP": 22,
+    "XLU": 22,
+    "XLRE": 17,
+    "XLC": 6,
+    "SMH": 6,
+    "AAPL": 21,
+    "MSFT": 21,
+    "NVDA": 21,
+    "QLD": 12,
+    "SSO": 20
+  }
+}

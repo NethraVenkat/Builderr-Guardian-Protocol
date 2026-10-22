@@ -1,0 +1,38 @@
+{
+  "Frozen E0 minus Candidate A": {
+    "n_sessions": 1257,
+    "daily_mean_diff_bps": 2.35,
+    "annualized_excess_return_pct": 5.91,
+    "t_statistic": 1.087,
+    "standard_error_ann_pct": 0.34,
+    "ci_95_pct": [
+      5.24,
+      6.58
+    ],
+    "statistically_significant": false
+  },
+  "Frozen E0 minus Candidate E": {
+    "n_sessions": 1257,
+    "daily_mean_diff_bps": 1.68,
+    "annualized_excess_return_pct": 4.24,
+    "t_statistic": 1.18,
+    "standard_error_ann_pct": 0.23,
+    "ci_95_pct": [
+      3.8,
+      4.69
+    ],
+    "statistically_significant": false
+  },
+  "Frozen E0 minus Candidate A+E": {
+    "n_sessions": 1257,
+    "daily_mean_diff_bps": 1.45,
+    "annualized_excess_return_pct": 3.66,
+    "t_statistic": 1.037,
+    "standard_error_ann_pct": 0.22,
+    "ci_95_pct": [
+      3.23,
+      4.1
+    ],
+    "statistically_significant": false
+  }
+}

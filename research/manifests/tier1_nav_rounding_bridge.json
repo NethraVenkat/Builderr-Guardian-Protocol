@@ -1,0 +1,164 @@
+{
+  "as_of_date": "2019-12-31",
+  "strategy": "Frozen E0",
+  "unrounded_components": {
+    "sum_positions_market_value": "347491.1031060927122413804",
+    "ending_cash": "0.03995659431493667",
+    "dividend_receivables": "5.062059328900196",
+    "exact_nav_unrounded": "347496.2051220159273740504"
+  },
+  "rounded_values": {
+    "round_half_even_bankers": {
+      "sum_positions": "347491.10",
+      "cash": "0.04",
+      "receivables": "5.06",
+      "exact_nav": "347496.21"
+    },
+    "round_half_up_commercial": {
+      "sum_positions": "347491.10",
+      "cash": "0.04",
+      "receivables": "5.06",
+      "exact_nav": "347496.21"
+    },
+    "floor": {
+      "exact_nav": "347496.20"
+    },
+    "ceiling": {
+      "exact_nav": "347496.21"
+    }
+  },
+  "displayed_subtotals_analysis": {
+    "v20_report_displayed": {
+      "positions_display": "347491.10",
+      "cash_display": "0.0400",
+      "receivables_display": "5.0645",
+      "sum_of_displays": "347496.2045",
+      "sum_of_displays_rounded_cent": "347496.20",
+      "v20_report_nav_text": "347496.21",
+      "difference_cents": "+0.01"
+    },
+    "root_cause_explanation": "The V20 report displayed sum_positions as $347,491.10 (from float 347491.1031), cash as $0.0400 (from float 0.039956), and receivables as $5.0645. Exact unrounded total NAV in memory was 347496.2051220159. When formatted using Python float string formatting or IEEE-754 binary float addition prior to cent quantization, 347496.20512... is strictly greater than 347496.20500, so any half-up or nearest-cent rounding rounds UP to $347,496.21! Conversely, if one takes the pre-rounded display values ($347,491.10 + $0.04 + $5.0645), their sum is $347,496.2045, which ends in .2045 (< .2050), so rounding the display sum yields $347,496.20. This confirms the 1-cent discrepancy is pure display-level round-off artifact between sum-of-rounded-displays ($347,496.20) vs rounded-exact-total ($347,496.21)."
+  },
+  "positions_breakdown": [
+    {
+      "symbol": "AAPL",
+      "shares_unrounded": "752.4333585899832",
+      "raw_terminal_close": "293.65",
+      "market_value_exact": "220952.055749948566680",
+      "market_value_cent_round_half_even": "220952.06",
+      "market_value_cent_round_half_up": "220952.06"
+    },
+    {
+      "symbol": "AMZN",
+      "shares_unrounded": "0.8912470972057491",
+      "raw_terminal_close": "1847.84",
+      "market_value_exact": "1646.882036100671416944",
+      "market_value_cent_round_half_even": "1646.88",
+      "market_value_cent_round_half_up": "1646.88"
+    },
+    {
+      "symbol": "DIA",
+      "shares_unrounded": "0.40754995214805945",
+      "raw_terminal_close": "285.1",
+      "market_value_exact": "116.192491357411749195",
+      "market_value_cent_round_half_even": "116.19",
+      "market_value_cent_round_half_up": "116.19"
+    },
+    {
+      "symbol": "GOOGL",
+      "shares_unrounded": "0.640983703463192",
+      "raw_terminal_close": "1339.39",
+      "market_value_exact": "858.52716258156473288",
+      "market_value_cent_round_half_even": "858.53",
+      "market_value_cent_round_half_up": "858.53"
+    },
+    {
+      "symbol": "IWM",
+      "shares_unrounded": "0.06689053745492402",
+      "raw_terminal_close": "165.67",
+      "market_value_exact": "11.0817553401572623934",
+      "market_value_cent_round_half_even": "11.08",
+      "market_value_cent_round_half_up": "11.08"
+    },
+    {
+      "symbol": "META",
+      "shares_unrounded": "0.6712403506276701",
+      "raw_terminal_close": "205.25",
+      "market_value_exact": "137.772081966329288025",
+      "market_value_cent_round_half_even": "137.77",
+      "market_value_cent_round_half_up": "137.77"
+    },
+    {
+      "symbol": "MSFT",
+      "shares_unrounded": "0.9045589348659178",
+      "raw_terminal_close": "157.7",
+      "market_value_exact": "142.64894402835523706",
+      "market_value_cent_round_half_even": "142.65",
+      "market_value_cent_round_half_up": "142.65"
+    },
+    {
+      "symbol": "NVDA",
+      "shares_unrounded": "524.1328983152976",
+      "raw_terminal_close": "235.3",
+      "market_value_exact": "123328.47097358952528",
+      "market_value_cent_round_half_even": "123328.47",
+      "market_value_cent_round_half_up": "123328.47"
+    },
+    {
+      "symbol": "QLD",
+      "shares_unrounded": "0.14674261397999544",
+      "raw_terminal_close": "121.89",
+      "market_value_exact": "17.8864572180216441816",
+      "market_value_cent_round_half_even": "17.89",
+      "market_value_cent_round_half_up": "17.89"
+    },
+    {
+      "symbol": "SMH",
+      "shares_unrounded": "0.8192047506890958",
+      "raw_terminal_close": "141.41",
+      "market_value_exact": "115.843743794945037078",
+      "market_value_cent_round_half_even": "115.84",
+      "market_value_cent_round_half_up": "115.84"
+    },
+    {
+      "symbol": "XLE",
+      "shares_unrounded": "0.734886180352305",
+      "raw_terminal_close": "60.04",
+      "market_value_exact": "44.12256626835239220",
+      "market_value_cent_round_half_even": "44.12",
+      "market_value_cent_round_half_up": "44.12"
+    },
+    {
+      "symbol": "XLP",
+      "shares_unrounded": "0.24010285637655215",
+      "raw_terminal_close": "62.98",
+      "market_value_exact": "15.1216778945952544070",
+      "market_value_cent_round_half_even": "15.12",
+      "market_value_cent_round_half_up": "15.12"
+    },
+    {
+      "symbol": "XLRE",
+      "shares_unrounded": "1.0",
+      "raw_terminal_close": "38.67",
+      "market_value_exact": "38.670",
+      "market_value_cent_round_half_even": "38.67",
+      "market_value_cent_round_half_up": "38.67"
+    },
+    {
+      "symbol": "XLU",
+      "shares_unrounded": "0.14784595134165102",
+      "raw_terminal_close": "64.62",
+      "market_value_exact": "9.5538053756974889124",
+      "market_value_cent_round_half_even": "9.55",
+      "market_value_cent_round_half_up": "9.55"
+    },
+    {
+      "symbol": "XLV",
+      "shares_unrounded": "0.5524608347586764",
+      "raw_terminal_close": "101.86",
+      "market_value_exact": "56.273660628518778104",
+      "market_value_cent_round_half_even": "56.27",
+      "market_value_cent_round_half_up": "56.27"
+    }
+  ]
+}

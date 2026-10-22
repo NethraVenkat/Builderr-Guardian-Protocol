@@ -1,0 +1,119 @@
+{
+  "system_environment": {
+    "os": "Windows-10-10.0.26300-SP0",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "cpu_count": 16,
+    "pytest_version": "pytest 9.1.1"
+  },
+  "isolated_runs": [
+    {
+      "iteration": 1,
+      "sessions_per_sec": 182.3,
+      "decisions_per_sec": 182.3,
+      "replay_time_ms": 351.0,
+      "decision_p50_ms": 1.4232,
+      "peak_memory_mb": 20.23,
+      "wall_time_sec": 0.951,
+      "passed_threshold": true
+    },
+    {
+      "iteration": 2,
+      "sessions_per_sec": 177.9,
+      "decisions_per_sec": 177.9,
+      "replay_time_ms": 359.82,
+      "decision_p50_ms": 1.4581,
+      "peak_memory_mb": 20.22,
+      "wall_time_sec": 0.956,
+      "passed_threshold": true
+    },
+    {
+      "iteration": 3,
+      "sessions_per_sec": 64.4,
+      "decisions_per_sec": 64.4,
+      "replay_time_ms": 994.08,
+      "decision_p50_ms": 4.2755,
+      "peak_memory_mb": 20.22,
+      "wall_time_sec": 1.637,
+      "passed_threshold": true
+    },
+    {
+      "iteration": 4,
+      "sessions_per_sec": 56.3,
+      "decisions_per_sec": 56.3,
+      "replay_time_ms": 1137.74,
+      "decision_p50_ms": 4.6821,
+      "peak_memory_mb": 20.22,
+      "wall_time_sec": 2.855,
+      "passed_threshold": true
+    },
+    {
+      "iteration": 5,
+      "sessions_per_sec": 70.3,
+      "decisions_per_sec": 70.3,
+      "replay_time_ms": 910.22,
+      "decision_p50_ms": 3.7299,
+      "peak_memory_mb": 20.22,
+      "wall_time_sec": 2.338,
+      "passed_threshold": true
+    }
+  ],
+  "warm_process_runs": [
+    {
+      "warm_iteration": 1,
+      "sessions_per_sec": 61.4,
+      "replay_time_ms": 1042.14,
+      "decision_p50_ms": 4.557,
+      "peak_memory_mb": 20.22,
+      "wall_time_sec": 2.62,
+      "passed_threshold": true
+    },
+    {
+      "warm_iteration": 2,
+      "sessions_per_sec": 67.2,
+      "replay_time_ms": 952.67,
+      "decision_p50_ms": 3.9694,
+      "peak_memory_mb": 20.22,
+      "wall_time_sec": 2.525,
+      "passed_threshold": true
+    },
+    {
+      "warm_iteration": 3,
+      "sessions_per_sec": 61.9,
+      "replay_time_ms": 1034.13,
+      "decision_p50_ms": 4.0793,
+      "peak_memory_mb": 20.22,
+      "wall_time_sec": 2.61,
+      "passed_threshold": true
+    },
+    {
+      "warm_iteration": 4,
+      "sessions_per_sec": 71.6,
+      "replay_time_ms": 893.91,
+      "decision_p50_ms": 3.5626,
+      "peak_memory_mb": 20.22,
+      "wall_time_sec": 2.369,
+      "passed_threshold": true
+    },
+    {
+      "warm_iteration": 5,
+      "sessions_per_sec": 61.7,
+      "replay_time_ms": 1038.0,
+      "decision_p50_ms": 4.6246,
+      "peak_memory_mb": 20.22,
+      "wall_time_sec": 2.698,
+      "passed_threshold": true
+    }
+  ],
+  "tracemalloc_ablation": {
+    "without_tracemalloc": {
+      "elapsed_sec": 0.4411,
+      "sessions_per_sec": 145.1
+    },
+    "with_tracemalloc": {
+      "elapsed_sec": 1.6634,
+      "sessions_per_sec": 38.47
+    },
+    "slowdown_factor": 3.77
+  },
+  "full_suite_context": {}
+}

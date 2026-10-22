@@ -78,17 +78,15 @@ class TestV20ExecutionCostForensics:
 
     def test_effective_slippage_rate_reconciliation(self):
         """Reconcile that actual execution slippage is ~5.13 bps, not 100 bps (1%)."""
-        forensics_file = REPO_ROOT / "scratch" / "slippage_forensics.json"
-        if not forensics_file.exists():
-            pytest.skip("scratch/slippage_forensics.json not generated yet")
-        with open(forensics_file, "r", encoding="utf-8") as f:
+        metrics_file = MANIFEST_DIR / "tier1_v20_comprehensive_metrics.json"
+        with open(metrics_file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
         e0 = data["Frozen E0"]
-        assert e0["total_fills"] == 620
+        assert e0["trade_count"] == 620
         assert math.isclose(e0["gross_exec_notional"], 30_430_005.31, rel_tol=1e-4)
-        assert math.isclose(e0["total_dollar_slippage"], 15_624.97, rel_tol=1e-4)
-        assert 5.10 <= e0["effective_bps_exec"] <= 5.15, f"Unexpected effective bps: {e0['effective_bps_exec']}"
+        assert math.isclose(e0["total_slippage_cost"], 15_624.97, rel_tol=1e-4)
+        assert 5.10 <= e0["effective_slippage_bps_exec"] <= 5.15, f"Unexpected effective bps: {e0['effective_slippage_bps_exec']}"
 
 
 class TestV20TerminalHoldingsReconciliation:

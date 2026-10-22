@@ -1,0 +1,33 @@
+{
+  "git_branch": "research/track-b-v22-price-semantics",
+  "git_head": "16be2a24d23e05d249912f6d7b1c5a829b178f23",
+  "tracked_files_count": 197,
+  "untracked_entries": [
+    "?? scratch/audit_q4_2019_decisions.py",
+    "?? scratch/audit_splits_and_dividends.py",
+    "?? scratch/benchmark_stability_investigation.py",
+    "?? scratch/check_env.py",
+    "?? scratch/compute_full_v20_metrics.py",
+    "?? scratch/compute_paired_statistics.py",
+    "?? scratch/decimal_nav_bridge.py",
+    "?? scratch/explain_delta.py",
+    "?? scratch/inspect_four_way.py",
+    "?? scratch/inspect_q4.py",
+    "?? scratch/inventory_v22.py",
+    "?? scratch/reconstruct_aapl_nvda_history.py",
+    "?? scratch/run_four_way.py",
+    "?? scratch/show_positions.py",
+    "?? scratch/slippage_forensics.py",
+    "?? scratch/terminal_holdings_reconciliation.py",
+    "?? scratch/test_independent_ledger.py",
+    "?? scratch/trace_aapl_nvda.py",
+    "?? scratch/v17_prompt.txt",
+    "?? scratch/v19_prompt.txt",
+    "?? scratch/v19_prompt_full.txt",
+    "?? scratch/v20_prompt.txt",
+    "?? scratch/v21_prompt.txt",
+    "?? scratch/verify_rebalance_logic.py"
+  ],
+  "tiingo_cache_exists": true,
+  "sample_regimes_exists": true
+}

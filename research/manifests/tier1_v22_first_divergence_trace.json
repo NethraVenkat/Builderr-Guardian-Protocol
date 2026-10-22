@@ -1,0 +1,9 @@
+{
+  "first_divergence_session": 1,
+  "divergence_date": "2015-01-05",
+  "previous_date": "2015-01-02",
+  "legacy_nav": 98616.3716242551,
+  "causal_nav": 98706.77387500003,
+  "nav_difference_dollars": 90.40225074492628,
+  "root_cause": "On session #1 (2015-01-05), the first trading session of Tier 1, agent.decide evaluated initial allocation orders. In legacy mode, order sizing used Tiingo's backward-adjusted prices (which reflect future splits/dividends), whereas in causal production mode, order sizing used true point-in-time raw prices. This caused immediate share quantity divergence on the very first execution on 2015-01-06."
+}

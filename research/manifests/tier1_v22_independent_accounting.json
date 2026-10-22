@@ -1,0 +1,14 @@
+{
+  "sessions_audited": 1258,
+  "initial_capital": 100000.0,
+  "independent_terminal_nav": 218989.3973,
+  "simulator_terminal_nav": 218989.3973,
+  "terminal_nav_discrepancy": 2.5e-05,
+  "independent_terminal_cash": 12253.4626,
+  "simulator_terminal_cash": 12253.4626,
+  "independent_receivables": 836.5347,
+  "simulator_receivables": 836.5347,
+  "max_daily_balance_sheet_discrepancy": 1e-10,
+  "balance_sheet_violations": 0,
+  "terminal_positions_count": 22
+}

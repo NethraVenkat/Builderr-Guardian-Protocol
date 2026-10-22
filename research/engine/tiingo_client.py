@@ -431,6 +431,7 @@ class TiingoHistoricalProvider(MarketDataProvider):
         warmup_start_date: str = "2014-09-01",
         client: TiingoClient | None = None,
         preloaded_bars: dict[str, list[dict[str, Any]]] | None = None,
+        price_semantics: str = "legacy_v20",
     ):
         super().__init__(provider_id="tiingo_starter", prohibit_durable_storage=True)
         self.symbols = [s.strip().upper() for s in symbols]
@@ -440,6 +441,7 @@ class TiingoHistoricalProvider(MarketDataProvider):
         self.client = client or TiingoClient()
         self._bars: dict[str, list[dict[str, Any]]] = preloaded_bars or {}
         self._timeline: list[str] = []
+        self.price_semantics = price_semantics
 
         if not self._bars and self.client.has_token:
             self._fetch_all()
@@ -491,28 +493,77 @@ class TiingoHistoricalProvider(MarketDataProvider):
         warmup_bars: int = 220,
     ) -> Iterator[tuple[str, dict[str, list[dict[str, Any]]]]]:
         timeline = self.get_timeline(start_date, end_date)
+
+        # Pre-extract split events by symbol for high-performance causal alignment
+        splits_by_sym: dict[str, list[tuple[str, float]]] = {}
+        for sym, bars in self._bars.items():
+            sps = [(b["ts"], float(b.get("split_factor", 1.0)))
+                   for b in bars if float(b.get("split_factor", 1.0)) != 1.0]
+            splits_by_sym[sym] = sps
+
         for cur_dt in timeline:
             market_state: dict[str, list[dict[str, Any]]] = {}
             for sym, all_bars in self._bars.items():
                 # Slice point-in-time: bars where ts <= cur_dt
                 visible = [b for b in all_bars if b["ts"] <= cur_dt]
                 if visible:
-                    # Provide backward-adjusted close for signal computation, and raw open for execution
-                    market_state[sym] = [
-                        {
-                            "ts": b["ts"],
-                            "open": b["open"],
-                            "high": b["high"],
-                            "low": b["low"],
-                            "close": b.get("adj_close", b["close"]),  # backward-adjusted close for momentum/SMA
-                            "raw_close": b.get("raw_close", b.get("close")),  # raw close for mark-to-market valuation
-                            "raw_open": b.get("raw_open", b.get("open")),    # raw open for fill execution
-                            "adj_close": b.get("adj_close", b["close"]),
-                            "adj_open": b.get("adj_open", b["open"]),
-                            "volume": b.get("volume", 0.0),
-                            "div_cash": b.get("div_cash", 0.0),
-                            "split_factor": b.get("split_factor", 1.0),
-                        }
-                        for b in visible[-warmup_bars:]
-                    ]
+                    window = visible[-warmup_bars:]
+                    if self.price_semantics == "legacy_v20":
+                        # Legacy V20/V21 semantics: Tiingo backward adjusted close in close field
+                        market_state[sym] = [
+                            {
+                                "ts": b["ts"],
+                                "open": b["open"],
+                                "high": b["high"],
+                                "low": b["low"],
+                                "close": b.get("adj_close", b["close"]),
+                                "raw_close": b.get("raw_close", b.get("close")),
+                                "raw_open": b.get("raw_open", b.get("open")),
+                                "adj_close": b.get("adj_close", b["close"]),
+                                "adj_open": b.get("adj_open", b["open"]),
+                                "volume": b.get("volume", 0.0),
+                                "div_cash": b.get("div_cash", 0.0),
+                                "split_factor": b.get("split_factor", 1.0),
+                            }
+                            for b in window
+                        ]
+                    else:
+                        # Production-faithful Causal Semantics (Option B):
+                        # Latest bar (at cur_dt) has close = raw_close (economically valid market price on cur_dt).
+                        # Historical lookback bars are adjusted only for past splits effective on or before cur_dt.
+                        # Future splits after cur_dt are strictly excluded.
+                        sym_splits = [sp for sp in splits_by_sym.get(sym, []) if sp[0] <= cur_dt]
+                        bar_list = []
+                        for b in window:
+                            b_ts = b["ts"]
+                            raw_c = b.get("raw_close", b.get("close"))
+                            raw_o = b.get("raw_open", b.get("open"))
+                            raw_h = b.get("high", raw_c)
+                            raw_l = b.get("low", raw_c)
+                            cum_split = 1.0
+                            if sym_splits:
+                                for sp_date, sp_factor in sym_splits:
+                                    if b_ts < sp_date:
+                                        cum_split *= sp_factor
+                            causal_c = raw_c / cum_split
+                            causal_o = raw_o / cum_split
+                            causal_h = raw_h / cum_split
+                            causal_l = raw_l / cum_split
+
+                            bar_list.append({
+                                "ts": b_ts,
+                                "open": causal_o,
+                                "high": causal_h,
+                                "low": causal_l,
+                                "close": causal_c,
+                                "raw_close": raw_c,
+                                "raw_open": raw_o,
+                                "causal_adj_close": causal_c,
+                                "causal_adj_open": causal_o,
+                                "tiingo_backward_adj_close": b.get("adj_close", raw_c),
+                                "volume": b.get("volume", 0.0),
+                                "div_cash": b.get("div_cash", 0.0),
+                                "split_factor": b.get("split_factor", 1.0),
+                            })
+                        market_state[sym] = bar_list
             yield cur_dt, market_state

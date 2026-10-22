@@ -13,6 +13,7 @@ import copy
 import hashlib
 import importlib.util
 import json
+import math
 from pathlib import Path
 from typing import Any, Callable
 
@@ -40,12 +41,14 @@ class ReplayEngine:
         commission_bps: float = 0.0,
         start_cash: float = 100_000.0,
         risk_mode: RiskMode = RiskMode.TELEMETRY_ONLY,
+        price_semantics: str = "causal_production",
     ):
         self.provider = provider
         self.corporate_actions = corporate_actions or CorporateActionRegistry()
         self.commission_bps = commission_bps
         self.start_cash = start_cash
         self.risk_mode = risk_mode
+        self.price_semantics = price_semantics
         self.decide = self._load_agent(agent_path_or_fn)
 
     def _load_agent(self, agent_path_or_fn: Path | str | Callable) -> Callable:
@@ -63,6 +66,68 @@ class ReplayEngine:
             raise AttributeError(f"Module {p} must define decide(market_state, portfolio_state, cash)")
         return mod.decide
 
+    def _adapt_market_state_causal(
+        self,
+        market_state: dict[str, list[dict[str, Any]]],
+        current_date: str,
+        today_closes: dict[str, float],
+    ) -> dict[str, list[dict[str, Any]]]:
+        """Option B: Replay adapter ensures latest bar has raw close and lookback bars are split-continuous."""
+        adapted: dict[str, list[dict[str, Any]]] = {}
+        for sym, bars in market_state.items():
+            if not bars:
+                adapted[sym] = bars
+                continue
+            last_b = bars[-1]
+            raw_c = today_closes.get(sym, last_b.get("raw_close", last_b["close"]))
+
+            # If last bar close already matches raw close, it is already causally normalized
+            if math.isclose(last_b["close"], raw_c, rel_tol=1e-5):
+                adapted[sym] = bars
+                continue
+
+            splits_in_visible: list[tuple[str, float]] = []
+            if hasattr(self, "corporate_actions") and self.corporate_actions:
+                for sp_date, sp_val in self.corporate_actions._splits.get(sym, []):
+                    if sp_date <= current_date:
+                        splits_in_visible.append((sp_date, float(sp_val)))
+
+            if not splits_in_visible:
+                splits_in_visible = [
+                    (b["ts"], float(b.get("split_factor", 1.0)))
+                    for b in bars if float(b.get("split_factor", 1.0)) != 1.0 and b["ts"] <= current_date
+                ]
+
+            new_bars = []
+            for b in bars:
+                b_ts = b["ts"]
+                b_raw_c = b.get("raw_close", b.get("close"))
+                b_raw_o = b.get("raw_open", b.get("open"))
+                cum_split = 1.0
+                for sp_date, sp_factor in splits_in_visible:
+                    if b_ts < sp_date:
+                        cum_split *= sp_factor
+                causal_c = b_raw_c / cum_split
+                causal_o = b_raw_o / cum_split
+
+                new_bars.append({
+                    "ts": b_ts,
+                    "open": causal_o,
+                    "high": b.get("high", b_raw_c) / cum_split,
+                    "low": b.get("low", b_raw_c) / cum_split,
+                    "close": causal_c,
+                    "raw_close": b_raw_c,
+                    "raw_open": b_raw_o,
+                    "causal_adj_close": causal_c,
+                    "causal_adj_open": causal_o,
+                    "tiingo_backward_adj_close": b.get("adj_close", b_raw_c),
+                    "volume": b.get("volume", 0.0),
+                    "div_cash": b.get("div_cash", 0.0),
+                    "split_factor": b.get("split_factor", 1.0),
+                })
+            adapted[sym] = new_bars
+        return adapted
+
     def run_replay(
         self,
         eval_start: str | None = None,
@@ -70,6 +135,16 @@ class ReplayEngine:
         record_traces: bool = True,
     ) -> dict[str, Any]:
         """Execute deterministic replay across the provider's trading timeline."""
+        # Reset agent module globals if present to guarantee stateless replay isolation
+        import sys
+        if hasattr(self.decide, "__module__"):
+            mod = sys.modules.get(self.decide.__module__)
+            if mod:
+                if hasattr(mod, "_last_rebalance_bar_date"):
+                    mod._last_rebalance_bar_date = None
+                if hasattr(mod, "_last_targets"):
+                    mod._last_targets = None
+
         timeline = self.provider.get_timeline(eval_start, eval_end)
         portfolio = PortfolioState(cash=self.start_cash)
         pending_orders: list[dict[str, Any]] = []
@@ -136,9 +211,14 @@ class ReplayEngine:
 
             # 4. Invoke agent at today's CLOSE
             # Strict point-in-time contract: bars in market_state must not exceed current_date
+            if self.price_semantics == "causal_production":
+                agent_market_state = self._adapt_market_state_causal(market_state, current_date, today_closes)
+            else:
+                agent_market_state = market_state
+
             port_dict = portfolio.get_portfolio_state_dict(today_closes)
             try:
-                orders = self.decide(market_state, port_dict, portfolio.cash)
+                orders = self.decide(agent_market_state, port_dict, portfolio.cash)
             except Exception as e:
                 errors += 1
                 orders = []

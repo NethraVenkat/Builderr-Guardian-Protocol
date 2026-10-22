@@ -1,0 +1,82 @@
+{
+  "as_of_date": "2019-12-31",
+  "strategy": "Frozen E0",
+  "unrounded_components": {
+    "sum_positions_market_value": "205899.400",
+    "ending_cash": "12253.462601351275",
+    "dividend_receivables": "836.534674",
+    "exact_nav_unrounded": "218989.397275351275"
+  },
+  "rounded_values": {
+    "round_half_even_bankers": {
+      "sum_positions": "205899.40",
+      "cash": "12253.46",
+      "receivables": "836.53",
+      "exact_nav": "218989.40"
+    },
+    "round_half_up_commercial": {
+      "sum_positions": "205899.40",
+      "cash": "12253.46",
+      "receivables": "836.53",
+      "exact_nav": "218989.40"
+    }
+  },
+  "positions_breakdown": [
+    {
+      "symbol": "AAPL",
+      "shares_unrounded": "117.0",
+      "raw_price": "293.65",
+      "market_value_exact": "34357.050",
+      "market_value_cent_round_half_even": "34357.05",
+      "market_value_cent_round_half_up": "34357.05"
+    },
+    {
+      "symbol": "NVDA",
+      "shares_unrounded": "145.0",
+      "raw_price": "235.3",
+      "market_value_exact": "34118.50",
+      "market_value_cent_round_half_even": "34118.50",
+      "market_value_cent_round_half_up": "34118.50"
+    },
+    {
+      "symbol": "QLD",
+      "shares_unrounded": "200.0",
+      "raw_price": "121.89",
+      "market_value_exact": "24378.000",
+      "market_value_cent_round_half_even": "24378.00",
+      "market_value_cent_round_half_up": "24378.00"
+    },
+    {
+      "symbol": "SMH",
+      "shares_unrounded": "227.0",
+      "raw_price": "141.41",
+      "market_value_exact": "32100.070",
+      "market_value_cent_round_half_even": "32100.07",
+      "market_value_cent_round_half_up": "32100.07"
+    },
+    {
+      "symbol": "SSO",
+      "shares_unrounded": "98.0",
+      "raw_price": "150.84",
+      "market_value_exact": "14782.320",
+      "market_value_cent_round_half_even": "14782.32",
+      "market_value_cent_round_half_up": "14782.32"
+    },
+    {
+      "symbol": "TSLA",
+      "shares_unrounded": "80.0",
+      "raw_price": "418.33",
+      "market_value_exact": "33466.400",
+      "market_value_cent_round_half_even": "33466.40",
+      "market_value_cent_round_half_up": "33466.40"
+    },
+    {
+      "symbol": "XLV",
+      "shares_unrounded": "321.0",
+      "raw_price": "101.86",
+      "market_value_exact": "32697.060",
+      "market_value_cent_round_half_even": "32697.06",
+      "market_value_cent_round_half_up": "32697.06"
+    }
+  ]
+}

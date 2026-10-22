@@ -55,6 +55,8 @@ class FillResult:
     realized_pnl: float = 0.0
     rejected: bool = False
     rejection_reason: str | None = None
+    date: str = ""
+    open_price: float = 0.0
 
 
 @dataclass

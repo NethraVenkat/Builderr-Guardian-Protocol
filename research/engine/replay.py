@@ -106,17 +106,23 @@ class ReplayEngine:
 
             for order in sells:
                 px = today_opens.get(order["ticker"])
-                portfolio.execute_order(
+                res = portfolio.execute_order(
                     order, px, commission_bps=self.commission_bps,
                     risk_mode=self.risk_mode, current_prices=today_opens
                 )
+                if res:
+                    res.date = current_date
+                    res.open_price = px or 0.0
 
             for order in buys:
                 px = today_opens.get(order["ticker"])
-                portfolio.execute_order(
+                res = portfolio.execute_order(
                     order, px, commission_bps=self.commission_bps,
                     risk_mode=self.risk_mode, current_prices=today_opens
                 )
+                if res:
+                    res.date = current_date
+                    res.open_price = px or 0.0
 
             pending_orders = []
 

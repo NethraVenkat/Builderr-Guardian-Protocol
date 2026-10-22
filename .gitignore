@@ -3,6 +3,12 @@ __pycache__/
 .venv/
 venv/
 .env
+.tiingo_token
+*.token
+*.secret
+tiingo_cache/
+research/data/raw/
+research/data/tiingo/
 .DS_Store
 *.log
 local_test_output/

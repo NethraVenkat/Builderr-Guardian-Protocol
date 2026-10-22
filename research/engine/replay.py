@@ -163,10 +163,20 @@ class ReplayEngine:
         trace_json = json.dumps(traces, sort_keys=True, separators=(",", ":"))
         trace_digest = hashlib.sha256(trace_json.encode("utf-8")).hexdigest()
 
+        tot_turnover = sum(f.notional for f in portfolio.fill_log)
+        tot_slippage = sum(f.slippage * f.filled_qty for f in portfolio.fill_log)
+        tot_commissions = portfolio.total_commissions
+
+        self.last_portfolio = portfolio
+
         return {
             "metrics": metrics,
             "equity_curve": list(portfolio.equity_curve),
             "total_trades": portfolio.trade_count,
+            "turnover": tot_turnover,
+            "slippage_cost": tot_slippage,
+            "commission_cost": tot_commissions,
+            "fill_log": portfolio.fill_log,
             "peak_gross": portfolio.peak_gross,
             "peak_gross_notional": portfolio.peak_gross_notional,
             "peak_beta_adjusted": portfolio.peak_beta_adjusted,

@@ -22,6 +22,7 @@ from research.strategies.v11_candidates import (
     CandidateE_CostAwareRebalancing,
     CandidateF_IntegratedRiskControl,
 )
+from research.strategies.v12_candidate_ae import CandidateAE_Combined
 
 
 @pytest.fixture
@@ -33,6 +34,7 @@ def candidate_instances():
         "Candidate_D": CandidateD_RecoveryParticipation(),
         "Candidate_E": CandidateE_CostAwareRebalancing(),
         "Candidate_F": CandidateF_IntegratedRiskControl(),
+        "Candidate_AE": CandidateAE_Combined(),
     }
 
 
@@ -46,7 +48,8 @@ def test_candidate_contract_parity(candidate_instances):
 
 @pytest.mark.parametrize("cand_name", [
     "Candidate_A", "Candidate_B", "Candidate_C",
-    "Candidate_D", "Candidate_E", "Candidate_F"
+    "Candidate_D", "Candidate_E", "Candidate_F",
+    "Candidate_AE",
 ])
 @pytest.mark.parametrize("regime", [
     "calm_uptrend", "moderate_selloff", "vol_spike_snapback"

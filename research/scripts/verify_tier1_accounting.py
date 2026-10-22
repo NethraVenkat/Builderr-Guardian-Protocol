@@ -100,6 +100,18 @@ def verify_accounting():
         ending_nav = p.total_equity(last_prices)
         discrepancy = abs(ending_nav - reconstructed_nav)
 
+        terminal_positions = {
+            sym: {
+                "shares": round(qty, 4),
+                "avg_cost": round(p.avg_cost.get(sym, 0.0), 4),
+                "last_price": round(last_prices.get(sym, 0.0), 4),
+                "market_value": round(qty * last_prices.get(sym, 0.0), 4),
+                "unrealized_pnl": round(qty * (last_prices.get(sym, 0.0) - p.avg_cost.get(sym, 0.0)), 4),
+            }
+            for sym, qty in p.positions.items()
+            if qty > 0
+        }
+
         reconciliations[name] = {
             "strategy": name,
             "start_cash": round(start_cash, 6),
@@ -114,6 +126,8 @@ def verify_accounting():
             "reconstructed_nav": round(reconstructed_nav, 6),
             "absolute_discrepancy": round(discrepancy, 10),
             "reconciliation_verdict": "CONSERVED" if discrepancy < 1e-6 else "VIOLATED",
+            "terminal_positions_count": len(terminal_positions),
+            "terminal_positions": terminal_positions,
         }
 
     with open(MANIFEST_FILE, "w", encoding="utf-8") as f:

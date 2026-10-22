@@ -2,61 +2,395 @@
   "Frozen E0": {
     "strategy": "Frozen E0",
     "start_cash": 100000.0,
-    "ending_cash": 2.803148,
-    "positions_value": 282560.717304,
-    "dividend_receivables": 5.629243,
-    "ending_nav": 282569.149694,
-    "realized_pnl": 125523.98973,
-    "unrealized_pnl": 47556.001619,
-    "total_dividends_credited": 9483.529102,
+    "ending_cash": 0.039957,
+    "positions_value": 347491.103106,
+    "dividend_receivables": 5.062059,
+    "ending_nav": 347496.205122,
+    "realized_pnl": 173547.191102,
+    "unrealized_pnl": 64945.507664,
+    "total_dividends_credited": 8998.444296,
     "total_commissions": 0.0,
-    "reconstructed_nav": 282569.149694,
+    "reconstructed_nav": 347496.205122,
     "absolute_discrepancy": 2e-10,
-    "reconciliation_verdict": "CONSERVED"
+    "reconciliation_verdict": "CONSERVED",
+    "terminal_positions_count": 15,
+    "terminal_positions": {
+      "XLU": {
+        "shares": 0.1478,
+        "avg_cost": 64.4799,
+        "last_price": 64.62,
+        "market_value": 9.5538,
+        "unrealized_pnl": 0.0207
+      },
+      "NVDA": {
+        "shares": 524.1329,
+        "avg_cost": 198.463,
+        "last_price": 235.3,
+        "market_value": 123328.471,
+        "unrealized_pnl": 19307.4951
+      },
+      "AAPL": {
+        "shares": 752.4334,
+        "avg_cost": 233.0609,
+        "last_price": 293.65,
+        "market_value": 220952.0557,
+        "unrealized_pnl": 45589.2455
+      },
+      "XLP": {
+        "shares": 0.2401,
+        "avg_cost": 60.6773,
+        "last_price": 62.98,
+        "market_value": 15.1217,
+        "unrealized_pnl": 0.5529
+      },
+      "AMZN": {
+        "shares": 0.8912,
+        "avg_cost": 1954.1061,
+        "last_price": 1847.84,
+        "market_value": 1646.882,
+        "unrealized_pnl": -94.7094
+      },
+      "XLE": {
+        "shares": 0.7349,
+        "avg_cost": 56.4291,
+        "last_price": 60.04,
+        "market_value": 44.1226,
+        "unrealized_pnl": 2.6536
+      },
+      "QLD": {
+        "shares": 0.1467,
+        "avg_cost": 103.8203,
+        "last_price": 121.89,
+        "market_value": 17.8865,
+        "unrealized_pnl": 2.6516
+      },
+      "GOOGL": {
+        "shares": 0.641,
+        "avg_cost": 1249.0643,
+        "last_price": 1339.39,
+        "market_value": 858.5272,
+        "unrealized_pnl": 57.8973
+      },
+      "IWM": {
+        "shares": 0.0669,
+        "avg_cost": 152.655,
+        "last_price": 165.67,
+        "market_value": 11.0818,
+        "unrealized_pnl": 0.8706
+      },
+      "DIA": {
+        "shares": 0.4075,
+        "avg_cost": 268.0966,
+        "last_price": 285.1,
+        "market_value": 116.1925,
+        "unrealized_pnl": 6.9298
+      },
+      "MSFT": {
+        "shares": 0.9046,
+        "avg_cost": 136.021,
+        "last_price": 157.7,
+        "market_value": 142.6489,
+        "unrealized_pnl": 19.6099
+      },
+      "META": {
+        "shares": 0.6712,
+        "avg_cost": 194.0208,
+        "last_price": 205.25,
+        "market_value": 137.7721,
+        "unrealized_pnl": 7.5375
+      },
+      "XLV": {
+        "shares": 0.5525,
+        "avg_cost": 89.5147,
+        "last_price": 101.86,
+        "market_value": 56.2737,
+        "unrealized_pnl": 6.8203
+      },
+      "SMH": {
+        "shares": 0.8192,
+        "avg_cost": 95.4977,
+        "last_price": 141.41,
+        "market_value": 115.8437,
+        "unrealized_pnl": 37.6116
+      },
+      "XLRE": {
+        "shares": 1.0,
+        "avg_cost": 38.3492,
+        "last_price": 38.67,
+        "market_value": 38.67,
+        "unrealized_pnl": 0.3208
+      }
+    }
   },
   "Candidate A": {
     "strategy": "Candidate A",
     "start_cash": 100000.0,
-    "ending_cash": 0.0,
-    "positions_value": 282646.307407,
-    "dividend_receivables": 7.688317,
-    "ending_nav": 282653.995725,
-    "realized_pnl": 111163.273828,
-    "unrealized_pnl": 63122.172747,
-    "total_dividends_credited": 8360.860833,
+    "ending_cash": 0.028572,
+    "positions_value": 246261.78287,
+    "dividend_receivables": 16.96945,
+    "ending_nav": 246278.780891,
+    "realized_pnl": 85689.629679,
+    "unrealized_pnl": 52959.466198,
+    "total_dividends_credited": 7612.715565,
     "total_commissions": 0.0,
-    "reconstructed_nav": 282653.995725,
-    "absolute_discrepancy": 1e-10,
-    "reconciliation_verdict": "CONSERVED"
+    "reconstructed_nav": 246278.780891,
+    "absolute_discrepancy": 0.0,
+    "reconciliation_verdict": "CONSERVED",
+    "terminal_positions_count": 11,
+    "terminal_positions": {
+      "XLU": {
+        "shares": 20.899,
+        "avg_cost": 52.8405,
+        "last_price": 64.62,
+        "market_value": 1350.4909,
+        "unrealized_pnl": 246.1785
+      },
+      "NVDA": {
+        "shares": 429.6634,
+        "avg_cost": 181.0793,
+        "last_price": 235.3,
+        "market_value": 101099.8091,
+        "unrealized_pnl": 23296.6321
+      },
+      "AAPL": {
+        "shares": 483.7829,
+        "avg_cost": 233.0517,
+        "last_price": 293.65,
+        "market_value": 142062.854,
+        "unrealized_pnl": 29316.4453
+      },
+      "XLP": {
+        "shares": 0.9354,
+        "avg_cost": 60.9877,
+        "last_price": 62.98,
+        "market_value": 58.9122,
+        "unrealized_pnl": 1.8636
+      },
+      "AMZN": {
+        "shares": 0.3565,
+        "avg_cost": 1948.2191,
+        "last_price": 1847.84,
+        "market_value": 658.692,
+        "unrealized_pnl": -35.7817
+      },
+      "QLD": {
+        "shares": 0.9451,
+        "avg_cost": 103.7697,
+        "last_price": 121.89,
+        "market_value": 115.1939,
+        "unrealized_pnl": 17.1249
+      },
+      "IWM": {
+        "shares": 0.0478,
+        "avg_cost": 156.7367,
+        "last_price": 165.67,
+        "market_value": 7.9242,
+        "unrealized_pnl": 0.4273
+      },
+      "GOOGL": {
+        "shares": 0.3891,
+        "avg_cost": 1199.6668,
+        "last_price": 1339.39,
+        "market_value": 521.1756,
+        "unrealized_pnl": 54.3683
+      },
+      "DIA": {
+        "shares": 0.7389,
+        "avg_cost": 229.7482,
+        "last_price": 285.1,
+        "market_value": 210.6742,
+        "unrealized_pnl": 40.9021
+      },
+      "MSFT": {
+        "shares": 0.5842,
+        "avg_cost": 139.9223,
+        "last_price": 157.7,
+        "market_value": 92.1231,
+        "unrealized_pnl": 10.3851
+      },
+      "XLK": {
+        "shares": 0.9156,
+        "avg_cost": 79.7427,
+        "last_price": 91.67,
+        "market_value": 83.9338,
+        "unrealized_pnl": 10.9207
+      }
+    }
   },
   "Candidate E": {
     "strategy": "Candidate E",
     "start_cash": 100000.0,
-    "ending_cash": 0.0,
-    "positions_value": 281098.690448,
-    "dividend_receivables": 17.098709,
-    "ending_nav": 281115.789157,
-    "realized_pnl": 109210.771535,
-    "unrealized_pnl": 63601.36055,
-    "total_dividends_credited": 8286.558364,
+    "ending_cash": 0.126,
+    "positions_value": 277717.299808,
+    "dividend_receivables": 18.996833,
+    "ending_nav": 277736.422642,
+    "realized_pnl": 112488.134829,
+    "unrealized_pnl": 57151.024762,
+    "total_dividends_credited": 8078.266218,
     "total_commissions": 0.0,
-    "reconstructed_nav": 281115.789157,
+    "reconstructed_nav": 277736.422642,
     "absolute_discrepancy": 1e-10,
-    "reconciliation_verdict": "CONSERVED"
+    "reconciliation_verdict": "CONSERVED",
+    "terminal_positions_count": 10,
+    "terminal_positions": {
+      "XLU": {
+        "shares": 0.764,
+        "avg_cost": 62.2915,
+        "last_price": 64.62,
+        "market_value": 49.3704,
+        "unrealized_pnl": 1.779
+      },
+      "NVDA": {
+        "shares": 270.5939,
+        "avg_cost": 185.578,
+        "last_price": 235.3,
+        "market_value": 63670.7342,
+        "unrealized_pnl": 13454.4606
+      },
+      "AAPL": {
+        "shares": 616.3804,
+        "avg_cost": 226.3772,
+        "last_price": 293.65,
+        "market_value": 181000.097,
+        "unrealized_pnl": 41465.609
+      },
+      "XLP": {
+        "shares": 0.7621,
+        "avg_cost": 60.207,
+        "last_price": 62.98,
+        "market_value": 47.9976,
+        "unrealized_pnl": 2.1133
+      },
+      "AMZN": {
+        "shares": 0.6057,
+        "avg_cost": 1994.0254,
+        "last_price": 1847.84,
+        "market_value": 1119.227,
+        "unrealized_pnl": -88.5437
+      },
+      "QLD": {
+        "shares": 0.2939,
+        "avg_cost": 103.8272,
+        "last_price": 121.89,
+        "market_value": 35.8263,
+        "unrealized_pnl": 5.3091
+      },
+      "IWM": {
+        "shares": 0.2109,
+        "avg_cost": 156.7321,
+        "last_price": 165.67,
+        "market_value": 34.9456,
+        "unrealized_pnl": 1.8853
+      },
+      "GOOGL": {
+        "shares": 23.5468,
+        "avg_cost": 1241.8958,
+        "last_price": 1339.39,
+        "market_value": 31538.3453,
+        "unrealized_pnl": 2295.6758
+      },
+      "MSFT": {
+        "shares": 0.6642,
+        "avg_cost": 139.974,
+        "last_price": 157.7,
+        "market_value": 104.7464,
+        "unrealized_pnl": 11.7738
+      },
+      "XLRE": {
+        "shares": 3.0,
+        "avg_cost": 38.3492,
+        "last_price": 38.67,
+        "market_value": 116.01,
+        "unrealized_pnl": 0.9625
+      }
+    }
   },
   "Candidate A+E": {
     "strategy": "Candidate A+E",
     "start_cash": 100000.0,
-    "ending_cash": 0.39944,
-    "positions_value": 279779.596018,
-    "dividend_receivables": 22.509633,
-    "ending_nav": 279802.50509,
-    "realized_pnl": 108132.218416,
-    "unrealized_pnl": 63384.442733,
-    "total_dividends_credited": 8263.334307,
+    "ending_cash": 0.028572,
+    "positions_value": 285111.26186,
+    "dividend_receivables": 19.204114,
+    "ending_nav": 285130.494546,
+    "realized_pnl": 118696.471115,
+    "unrealized_pnl": 58568.78536,
+    "total_dividends_credited": 7846.033956,
     "total_commissions": 0.0,
-    "reconstructed_nav": 279802.50509,
+    "reconstructed_nav": 285130.494546,
     "absolute_discrepancy": 0.0,
-    "reconciliation_verdict": "CONSERVED"
+    "reconciliation_verdict": "CONSERVED",
+    "terminal_positions_count": 10,
+    "terminal_positions": {
+      "XLU": {
+        "shares": 0.0966,
+        "avg_cost": 59.3795,
+        "last_price": 64.62,
+        "market_value": 6.2441,
+        "unrealized_pnl": 0.5064
+      },
+      "NVDA": {
+        "shares": 281.8467,
+        "avg_cost": 186.1831,
+        "last_price": 235.3,
+        "market_value": 66318.5346,
+        "unrealized_pnl": 13843.4373
+      },
+      "AAPL": {
+        "shares": 632.255,
+        "avg_cost": 226.381,
+        "last_price": 293.65,
+        "market_value": 185661.6783,
+        "unrealized_pnl": 42531.1547
+      },
+      "XLP": {
+        "shares": 0.1385,
+        "avg_cost": 57.9187,
+        "last_price": 62.98,
+        "market_value": 8.7252,
+        "unrealized_pnl": 0.7012
+      },
+      "AMZN": {
+        "shares": 0.7344,
+        "avg_cost": 1993.8633,
+        "last_price": 1847.84,
+        "market_value": 1357.1445,
+        "unrealized_pnl": -107.2467
+      },
+      "QLD": {
+        "shares": 0.0605,
+        "avg_cost": 103.8266,
+        "last_price": 121.89,
+        "market_value": 7.3746,
+        "unrealized_pnl": 1.0929
+      },
+      "IWM": {
+        "shares": 0.0478,
+        "avg_cost": 156.7369,
+        "last_price": 165.67,
+        "market_value": 7.9242,
+        "unrealized_pnl": 0.4273
+      },
+      "GOOGL": {
+        "shares": 23.6745,
+        "avg_cost": 1242.402,
+        "last_price": 1339.39,
+        "market_value": 31709.3269,
+        "unrealized_pnl": 2296.1382
+      },
+      "MSFT": {
+        "shares": 0.0406,
+        "avg_cost": 140.005,
+        "last_price": 157.7,
+        "market_value": 6.3974,
+        "unrealized_pnl": 0.7178
+      },
+      "DIA": {
+        "shares": 0.0979,
+        "avg_cost": 266.1395,
+        "last_price": 285.1,
+        "market_value": 27.9119,
+        "unrealized_pnl": 1.8563
+      }
+    }
   }
 }

@@ -68,6 +68,15 @@ def acquire_and_qualify() -> dict[str, Any]:
             elapsed = 0.0
         else:
             logger.info(f"[{idx}/{len(SYMBOLS)}] Fetching {sym} from Tiingo API...")
+            while rate_limiter.remaining_hourly < 1:
+                now_t = time.time()
+                rate_limiter._purge(now_t)
+                if rate_limiter.remaining_hourly >= 1:
+                    break
+                oldest = rate_limiter.hour_window[0] if rate_limiter.hour_window else now_t
+                wait_sec = max(1.0, 3601.0 - (now_t - oldest))
+                logger.info(f"Hourly rate limit active. Waiting {wait_sec:.1f}s for sliding window rolloff...")
+                time.sleep(min(wait_sec, 15.0))
             t0 = time.perf_counter()
             raw_bars = client.fetch_historical_prices(sym, START_DATE, END_DATE)
             elapsed = time.perf_counter() - t0

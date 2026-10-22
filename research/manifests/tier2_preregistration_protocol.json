@@ -1,0 +1,192 @@
+{
+  "protocol_version": "V23_STAGE_B2_N",
+  "preregistration_timestamp_utc": "2026-10-22T17:42:00Z",
+  "status": "IMMUTABLY_COMMITTED_PRIOR_TO_TIER2_DATA_ACCESS",
+  "universe": {
+    "count": 24,
+    "symbols": [
+      "SPY",
+      "QQQ",
+      "IWM",
+      "EEM",
+      "TLT",
+      "IEF",
+      "LQD",
+      "HYG",
+      "GLD",
+      "VNQ",
+      "AAPL",
+      "MSFT",
+      "AMZN",
+      "GOOGL",
+      "META",
+      "NVDA",
+      "TSLA",
+      "JPM",
+      "JNJ",
+      "V",
+      "PG",
+      "XOM",
+      "UNH",
+      "HD"
+    ]
+  },
+  "frozen_strategies": {
+    "E0_production": {
+      "file": "agent.py",
+      "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "role": "Frozen Production Baseline"
+    },
+    "Candidate_A": {
+      "file": "research/strategies/candidate_alpha.py",
+      "sha256_canonical_lf": "8cd03d00ecfca49c83f88faaad28afa16e6f86df82cb7a261d135d847ae3137a",
+      "role": "Dynamic Volatility Targeting"
+    },
+    "Candidate_E": {
+      "file": "research/strategies/loss_reduction_candidates.py",
+      "sha256_canonical_lf": "4553a89c48fd965ae6acbae40dc0df3e9a08bd7944b33388bbf4293302025d0c",
+      "role": "Leveraged Overlay Shock Absorber"
+    },
+    "Candidate_AE": {
+      "file": "research/strategies/v12_candidate_ae.py",
+      "sha256_canonical_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "role": "Combined Candidate (A+E)"
+    }
+  },
+  "option_b_adapter": {
+    "replay_engine_file": "research/engine/replay.py",
+    "replay_engine_sha256": "270c1304a04f74defe4770eccc24617162a5c1d0965b863ce7c3680c2266b036",
+    "provider_file": "research/engine/provider.py",
+    "provider_sha256": "4e9cfc7221b14f40ffe94fa6583ca8dab29a9e0c4cbcae51b7f8db7c82e852b5",
+    "semantics": "Option B causal price semantics: decision day T uses raw close for order sizing, portfolio drift, deadbands, cash affordability, and mark-to-market. Lookback bars t < T are scaled strictly by past splits effective on or before T, preventing future corporate action leakage."
+  },
+  "indicator_specifications": {
+    "volatility_lookback_days": 63,
+    "momentum_short_days": 20,
+    "trend_filter_sma_days": 200,
+    "input_type": "Causally split-adjusted continuous close series without future split leakage"
+  },
+  "signal_and_execution_timing": {
+    "signal_generation": "Session T close (16:00 ET)",
+    "order_placement": "Session T close post-signal",
+    "execution_eligible": "Session T+1 open (09:30 ET)",
+    "fill_pricing": "Raw Open of T+1 with 5 bps slippage"
+  },
+  "portfolio_initialization_designs": {
+    "primary_design": {
+      "name": "Fresh Portfolio Initialization",
+      "initial_cash": 100000.0,
+      "initial_positions": {},
+      "start_date": "2020-01-02",
+      "warmup_start": "2019-09-01",
+      "rationale": "Clean institutional out-of-sample benchmark isolating Tier 2 performance from Tier 1 terminal drift."
+    },
+    "secondary_design": {
+      "name": "Continuous Carry-Forward Sensitivity",
+      "initial_cash_e0": 10948.33,
+      "initial_nav_e0": 218989.4,
+      "terminal_holdings_source": "research/manifests/tier1_terminal_holdings_v22.json",
+      "start_date": "2020-01-02",
+      "rationale": "Tests real-world lifecycle continuity from 2019-12-31 to 2020-01-02."
+    }
+  },
+  "warmup_policy": {
+    "warmup_start": "2019-09-01",
+    "warmup_end": "2019-12-31",
+    "source_data": "Tier 1 cached observations",
+    "trading_during_warmup": false,
+    "pnl_attribution": "Excluded from Tier 2 performance metrics"
+  },
+  "execution_cost_and_dividend_model": {
+    "commission_per_share": 0.0,
+    "slippage_bps": 5.0,
+    "slippage_multiplier": 0.0005,
+    "dividend_policy": "Credited in cash to balance on ex-dividend date: shares_held * divCash"
+  },
+  "performance_metrics": [
+    "starting_nav",
+    "ending_nav",
+    "total_net_return_pct",
+    "cagr_pct",
+    "sharpe_ratio",
+    "sortino_ratio",
+    "annualized_volatility_pct",
+    "max_drawdown_pct",
+    "max_drawdown_peak_date",
+    "max_drawdown_trough_date",
+    "worst_day_pct",
+    "total_executed_trades",
+    "annualized_turnover",
+    "total_slippage_cost",
+    "total_dividends",
+    "terminal_hhi"
+  ],
+  "primary_paired_comparison": {
+    "benchmark": "Frozen E0",
+    "primary_challenger": "Candidate A+E",
+    "secondary_challengers": [
+      "Candidate A",
+      "Candidate E"
+    ],
+    "hypothesis": "Candidate A+E achieves equal or superior risk-adjusted return (Sharpe) with strictly lower maximum drawdown out-of-sample compared to E0."
+  },
+  "statistical_analysis_method": {
+    "paired_returns": "Daily strategy return differences: delta_r_t = r_candidate_t - r_e0_t",
+    "parametric_test": "Paired Student t-test (t-stat, p-value)",
+    "non_parametric_test": "Stationary Block Bootstrap (Politis & Romano 1994)",
+    "replications": 10000,
+    "random_seed": 42
+  },
+  "bootstrap_block_sensitivity": {
+    "tested_block_lengths": [
+      5,
+      10
+    ],
+    "default_block_length": 5
+  },
+  "acceptance_criteria": {
+    "engineering_gate": "100% independent accounting ledger reconciliation (discrepancy == .000000) across all Tier 2 sessions; all 7 negative accounting controls pass; full test suite passes in clean checkout.",
+    "scientific_gate": "True empirical out-of-sample reporting without parameter tuning or post-hoc justification. Findings reported objectively regardless of whether challenger outperforms baseline."
+  },
+  "missing_data_policy": {
+    "treatment": "Forward-fill last valid close for valuation; zero volume precludes execution; halts > 3 consecutive days flagged."
+  },
+  "corporate_actions_policy": {
+    "splits": "Causal backward lookback scaling; cash and holdings adjust on ex-date; raw share counts scale by S, mark price scales by 1/S.",
+    "known_splits_to_qualify": [
+      {
+        "symbol": "AAPL",
+        "ratio": 4.0,
+        "ex_date": "2020-08-31"
+      },
+      {
+        "symbol": "TSLA",
+        "ratio": 5.0,
+        "ex_date": "2020-08-31"
+      },
+      {
+        "symbol": "NVDA",
+        "ratio": 4.0,
+        "ex_date": "2021-07-20"
+      }
+    ],
+    "dividends": "Credited at ex-date close based on settled shares."
+  },
+  "forbidden_actions": [
+    "Modifying agent.py (SHA-256 46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd)",
+    "Hyperparameter or model tuning based on Tier 2 performance",
+    "Requesting, downloading, or reading observations >= 2022-01-01 (Tier 3)",
+    "Transmitting credentials or publishing private API tokens",
+    "Executing live orders or remote Git push"
+  ],
+  "tier2_observation_window": {
+    "start_date": "2020-01-01",
+    "end_date": "2021-12-31",
+    "expected_trading_days": 505
+  },
+  "tier3_isolation_firewall": {
+    "cutoff_date": "2022-01-01",
+    "status": "ABSOLUTELY_SEALED",
+    "programmatic_enforcement": "Hard exception raised if query start_date or end_date >= 2022-01-01"
+  }
+}

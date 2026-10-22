@@ -91,15 +91,75 @@ def redact_secret(text: str, secret: str | None) -> str:
     return text.replace(secret, "[REDACTED_TIINGO_TOKEN]")
 
 
-class RateLimiter:
-    """Sliding-window request rate limiter."""
+class RequestLedger:
+    """Persistent, append-only request ledger recording all Tiingo API queries."""
 
-    def __init__(self, max_per_hour: int = MAX_REQUESTS_PER_HOUR, max_per_day: int = MAX_REQUESTS_PER_DAY):
+    def __init__(self, ledger_path: Path | None = None):
+        self.ledger_path = ledger_path or (Path("research/manifests") / "tiingo_request_ledger.jsonl")
+
+    def record(self, entry: dict[str, Any]) -> None:
+        try:
+            self.ledger_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(self.ledger_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(entry) + "\n")
+        except Exception as e:
+            logger.warning(f"Failed to record to request ledger: {e}")
+
+    def load_recent_timestamps(self, window_seconds: float = 86400.0) -> list[float]:
+        if not self.ledger_path.exists():
+            return []
+        now = time.time()
+        timestamps = []
+        try:
+            with open(self.ledger_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line:
+                        data = json.loads(line)
+                        ts = data.get("epoch_timestamp", 0.0)
+                        if (now - ts) <= window_seconds:
+                            timestamps.append(ts)
+        except Exception:
+            pass
+        return sorted(timestamps)
+
+    def get_all_entries(self) -> list[dict[str, Any]]:
+        if not self.ledger_path.exists():
+            return []
+        entries = []
+        with open(self.ledger_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    entries.append(json.loads(line))
+        return entries
+
+
+class RateLimiter:
+    """Sliding-window request rate limiter with ledger persistence."""
+
+    def __init__(
+        self,
+        max_per_hour: int = MAX_REQUESTS_PER_HOUR,
+        max_per_day: int = MAX_REQUESTS_PER_DAY,
+        ledger: RequestLedger | None = None,
+    ):
         self.max_per_hour = max_per_hour
         self.max_per_day = max_per_day
+        self.ledger = ledger
         self.hour_window: deque[float] = deque()
         self.day_window: deque[float] = deque()
         self.total_requests = 0
+
+        # Seed from persistent ledger if available
+        if self.ledger:
+            recent_ts = self.ledger.load_recent_timestamps(86400.0)
+            now = time.time()
+            for ts in recent_ts:
+                if (now - ts) <= 3600.0:
+                    self.hour_window.append(ts)
+                self.day_window.append(ts)
+            self.total_requests = len(self.day_window)
 
     def record_request(self) -> None:
         now = time.time()
@@ -137,9 +197,15 @@ class RateLimiter:
 class TiingoClient:
     """Secure, quota-managed client for Tiingo EOD endpoints."""
 
-    def __init__(self, api_token: str | None = None, rate_limiter: RateLimiter | None = None):
+    def __init__(
+        self,
+        api_token: str | None = None,
+        rate_limiter: RateLimiter | None = None,
+        ledger: RequestLedger | None = None,
+    ):
         self._token = api_token or get_tiingo_token()
-        self.rate_limiter = rate_limiter or RateLimiter()
+        self.ledger = ledger or RequestLedger()
+        self.rate_limiter = rate_limiter or RateLimiter(ledger=ledger)
 
     @property
     def has_token(self) -> bool:
@@ -160,13 +226,19 @@ class TiingoClient:
                 "Blocked: end_date must be explicitly specified to prevent streaming into sealed holdout (2022+)."
             )
 
-    def _execute_request(self, url: str) -> Any:
+    def _execute_request(
+        self,
+        url: str,
+        endpoint_type: str = "generic",
+        symbol: str = "",
+        start_date: str | None = None,
+        end_date: str | None = None,
+    ) -> Any:
         if not self._token:
             raise TiingoTokenMissingError(
                 "Tiingo API token not configured. Set TIINGO_API_KEY in environment or registry."
             )
 
-        self.rate_limiter.record_request()
         headers = {
             "Authorization": f"Token {self._token}",
             "Accept": "application/json",
@@ -174,25 +246,103 @@ class TiingoClient:
         }
         req = urllib.request.Request(url, headers=headers)
 
-        try:
-            with urllib.request.urlopen(req, timeout=15.0) as resp:
-                status = resp.status
-                payload_bytes = resp.read()
-                return json.loads(payload_bytes.decode("utf-8"))
-        except urllib.error.HTTPError as e:
-            redacted_msg = redact_secret(str(e), self._token)
-            redacted_url = redact_secret(url, self._token)
-            raise TiingoAPIError(f"HTTP Error {e.code} for {redacted_url}: {redacted_msg}") from None
-        except Exception as e:
-            redacted_msg = redact_secret(str(e), self._token)
-            redacted_url = redact_secret(url, self._token)
-            raise TiingoAPIError(f"Network error for {redacted_url}: {redacted_msg}") from None
+        max_retries = 3
+        last_error = None
+        for attempt in range(max_retries + 1):
+            self.rate_limiter.record_request()
+            try:
+                with urllib.request.urlopen(req, timeout=20.0) as resp:
+                    status = resp.status
+                    payload_bytes = resp.read()
+                    data = json.loads(payload_bytes.decode("utf-8"))
+                    record_count = len(data) if isinstance(data, list) else 1
+                    self.ledger.record({
+                        "epoch_timestamp": time.time(),
+                        "timestamp_utc": datetime.utcnow().isoformat() + "Z",
+                        "symbol": symbol,
+                        "start_date": start_date,
+                        "end_date": end_date,
+                        "endpoint_type": endpoint_type,
+                        "http_status": status,
+                        "retry_count": attempt,
+                        "record_count": record_count,
+                        "data_size_bytes": len(payload_bytes),
+                        "result_classification": "SUCCESS",
+                    })
+                    return data
+            except urllib.error.HTTPError as e:
+                status = e.code
+                redacted_msg = redact_secret(str(e), self._token)
+                redacted_url = redact_secret(url, self._token)
+                last_error = TiingoAPIError(f"HTTP Error {status} for {redacted_url}: {redacted_msg}")
+                if status == 429:
+                    retry_after = e.headers.get("Retry-After")
+                    wait_time = float(retry_after) if retry_after else (2.0 ** attempt) * 5.0
+                    logger.warning(f"Rate limited (429). Retrying after {wait_time}s...")
+                    self.ledger.record({
+                        "epoch_timestamp": time.time(),
+                        "timestamp_utc": datetime.utcnow().isoformat() + "Z",
+                        "symbol": symbol,
+                        "start_date": start_date,
+                        "end_date": end_date,
+                        "endpoint_type": endpoint_type,
+                        "http_status": status,
+                        "retry_count": attempt,
+                        "record_count": 0,
+                        "data_size_bytes": 0,
+                        "result_classification": "RATE_LIMITED",
+                    })
+                    if attempt < max_retries:
+                        time.sleep(wait_time)
+                        continue
+                    raise TiingoRateLimitExceeded(f"HTTP 429 Rate Limited: {redacted_msg}") from None
+                elif status in (500, 502, 503, 504) and attempt < max_retries:
+                    wait_time = (2.0 ** attempt) * 2.0
+                    time.sleep(wait_time)
+                    continue
+                else:
+                    self.ledger.record({
+                        "epoch_timestamp": time.time(),
+                        "timestamp_utc": datetime.utcnow().isoformat() + "Z",
+                        "symbol": symbol,
+                        "start_date": start_date,
+                        "end_date": end_date,
+                        "endpoint_type": endpoint_type,
+                        "http_status": status,
+                        "retry_count": attempt,
+                        "record_count": 0,
+                        "data_size_bytes": 0,
+                        "result_classification": "HTTP_ERROR",
+                    })
+                    raise last_error from None
+            except Exception as e:
+                redacted_msg = redact_secret(str(e), self._token)
+                redacted_url = redact_secret(url, self._token)
+                if attempt < max_retries:
+                    wait_time = (2.0 ** attempt) * 2.0
+                    logger.warning(f"Network error on attempt {attempt}: {redacted_msg}. Retrying in {wait_time}s...")
+                    time.sleep(wait_time)
+                    continue
+                self.ledger.record({
+                    "epoch_timestamp": time.time(),
+                    "timestamp_utc": datetime.utcnow().isoformat() + "Z",
+                    "symbol": symbol,
+                    "start_date": start_date,
+                    "end_date": end_date,
+                    "endpoint_type": endpoint_type,
+                    "http_status": 0,
+                    "retry_count": attempt,
+                    "record_count": 0,
+                    "data_size_bytes": 0,
+                    "result_classification": "NETWORK_ERROR",
+                })
+                raise TiingoAPIError(f"Network error for {redacted_url}: {redacted_msg}") from None
 
     def fetch_metadata(self, ticker: str) -> dict[str, Any]:
         """Fetch instrument metadata (ticker, name, exchange, description, startDate, endDate)."""
         clean_ticker = ticker.strip().upper()
         url = f"{TIINGO_BASE_URL}/{urllib.parse.quote(clean_ticker)}"
-        return self._execute_request(url)
+        return self._execute_request(url, endpoint_type="metadata", symbol=clean_ticker)
 
     def fetch_historical_prices(
         self,
@@ -210,7 +360,13 @@ class TiingoClient:
             "format": "json",
         })
         url = f"{TIINGO_BASE_URL}/{urllib.parse.quote(clean_ticker)}/prices?{query}"
-        raw_bars = self._execute_request(url)
+        raw_bars = self._execute_request(
+            url,
+            endpoint_type="prices",
+            symbol=clean_ticker,
+            start_date=start_date,
+            end_date=end_date,
+        )
 
         if not isinstance(raw_bars, list):
             return []
@@ -300,6 +456,13 @@ class TiingoHistoricalProvider(MarketDataProvider):
                 self.warmup_start_date,
                 self.end_date,
             )
+            # If fetch_ticker returned empty (as live FB does for pre-2022 data on Tiingo), fallback to sym
+            if not bars and fetch_ticker != sym:
+                bars = self.client.fetch_historical_prices(
+                    sym,
+                    self.warmup_start_date,
+                    self.end_date,
+                )
             # Re-label ticker to production symbol
             for b in bars:
                 b["ticker"] = sym
@@ -341,11 +504,14 @@ class TiingoHistoricalProvider(MarketDataProvider):
                             "open": b["open"],
                             "high": b["high"],
                             "low": b["low"],
-                            "close": b["adj_close"],  # backward-adjusted close for momentum/SMA
-                            "raw_close": b["close"],
-                            "volume": b["volume"],
-                            "div_cash": b["div_cash"],
-                            "split_factor": b["split_factor"],
+                            "close": b.get("adj_close", b["close"]),  # backward-adjusted close for momentum/SMA
+                            "raw_close": b.get("raw_close", b.get("close")),  # raw close for mark-to-market valuation
+                            "raw_open": b.get("raw_open", b.get("open")),    # raw open for fill execution
+                            "adj_close": b.get("adj_close", b["close"]),
+                            "adj_open": b.get("adj_open", b["open"]),
+                            "volume": b.get("volume", 0.0),
+                            "div_cash": b.get("div_cash", 0.0),
+                            "split_factor": b.get("split_factor", 1.0),
                         }
                         for b in visible[-warmup_bars:]
                     ]

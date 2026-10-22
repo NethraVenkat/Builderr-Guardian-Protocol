@@ -96,8 +96,8 @@ class ReplayEngine:
             today_closes: dict[str, float] = {}
             for sym, bars in market_state.items():
                 if bars and bars[-1]["ts"] == current_date:
-                    today_opens[sym] = bars[-1]["open"]
-                    today_closes[sym] = bars[-1]["close"]
+                    today_opens[sym] = bars[-1].get("raw_open", bars[-1]["open"])
+                    today_closes[sym] = bars[-1].get("raw_close", bars[-1]["close"])
 
             # 2. Execution at today's OPEN: Fill yesterday's pending orders
             # Sells first to replenish cash

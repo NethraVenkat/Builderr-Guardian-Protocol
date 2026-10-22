@@ -1,0 +1,62 @@
+{
+  "Frozen E0": {
+    "strategy": "Frozen E0",
+    "start_cash": 100000.0,
+    "ending_cash": 2.803148,
+    "positions_value": 282560.717304,
+    "dividend_receivables": 5.629243,
+    "ending_nav": 282569.149694,
+    "realized_pnl": 125523.98973,
+    "unrealized_pnl": 47556.001619,
+    "total_dividends_credited": 9483.529102,
+    "total_commissions": 0.0,
+    "reconstructed_nav": 282569.149694,
+    "absolute_discrepancy": 2e-10,
+    "reconciliation_verdict": "CONSERVED"
+  },
+  "Candidate A": {
+    "strategy": "Candidate A",
+    "start_cash": 100000.0,
+    "ending_cash": 0.0,
+    "positions_value": 282646.307407,
+    "dividend_receivables": 7.688317,
+    "ending_nav": 282653.995725,
+    "realized_pnl": 111163.273828,
+    "unrealized_pnl": 63122.172747,
+    "total_dividends_credited": 8360.860833,
+    "total_commissions": 0.0,
+    "reconstructed_nav": 282653.995725,
+    "absolute_discrepancy": 1e-10,
+    "reconciliation_verdict": "CONSERVED"
+  },
+  "Candidate E": {
+    "strategy": "Candidate E",
+    "start_cash": 100000.0,
+    "ending_cash": 0.0,
+    "positions_value": 281098.690448,
+    "dividend_receivables": 17.098709,
+    "ending_nav": 281115.789157,
+    "realized_pnl": 109210.771535,
+    "unrealized_pnl": 63601.36055,
+    "total_dividends_credited": 8286.558364,
+    "total_commissions": 0.0,
+    "reconstructed_nav": 281115.789157,
+    "absolute_discrepancy": 1e-10,
+    "reconciliation_verdict": "CONSERVED"
+  },
+  "Candidate A+E": {
+    "strategy": "Candidate A+E",
+    "start_cash": 100000.0,
+    "ending_cash": 0.39944,
+    "positions_value": 279779.596018,
+    "dividend_receivables": 22.509633,
+    "ending_nav": 279802.50509,
+    "realized_pnl": 108132.218416,
+    "unrealized_pnl": 63384.442733,
+    "total_dividends_credited": 8263.334307,
+    "total_commissions": 0.0,
+    "reconstructed_nav": 279802.50509,
+    "absolute_discrepancy": 0.0,
+    "reconciliation_verdict": "CONSERVED"
+  }
+}

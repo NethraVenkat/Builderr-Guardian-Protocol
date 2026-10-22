@@ -1,0 +1,45 @@
+{
+  "manifest_version": "1.0.0",
+  "protocol": "GUARDIAN_ALPHA_V17",
+  "stage": "B2-H",
+  "generated_at_utc": "2026-10-22T09:40:00Z",
+  "git": {
+    "branch": "research/track-b-v17-tiingo",
+    "commit_sha": "7b018e240bfe17b9870d7c46814e399634654137",
+    "base_commit": "e18f6bcf4d6f409b50a86790488e7ed9bbe73526",
+    "frozen_e0_agent_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+    "frozen_candidate_ae_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+    "frozen_diagnostic_fixture_sha256": "ebda311e99e4ec19ec76452ef0ce03d9eeaf663b6e3da58268a5e5690ca4116a",
+    "production_universe_manifest_sha256": "82117bc596322722db6a7a5897e4522552578688a24015632a30e2324c1c27b7"
+  },
+  "readiness_verdicts": {
+    "software_correctness": "PASS",
+    "token_security": "PASS",
+    "provider_qualification": "PASS",
+    "historical_data_completeness": "CONDITIONAL",
+    "corporate_action_integrity": "PASS",
+    "financial_replay_integrity": "PASS",
+    "tier_1_performance_measurement": "CONDITIONAL",
+    "statistical_validity": "PASS",
+    "tier_3_holdout_protection": "PASS",
+    "production_deployment_readiness": "CONDITIONAL"
+  },
+  "api_accounting": {
+    "provider": "tiingo_starter",
+    "authorized_rate_limits": {
+      "hourly_request_limit": 50,
+      "daily_request_limit": 1000,
+      "monthly_unique_symbols": 500,
+      "monthly_bandwidth_gb": 1.0
+    },
+    "budgeted_requests_tier_1": 24,
+    "holdout_cutoff_date": "2022-01-01",
+    "holdout_protection_enforced_in_code": true
+  },
+  "regression_tests": {
+    "total_tests": 201,
+    "passed": 201,
+    "failed": 0,
+    "clean_checkout_status": "PASS"
+  }
+}

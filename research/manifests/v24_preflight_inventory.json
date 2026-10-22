@@ -1,0 +1,19 @@
+{
+  "protocol_version": "V24",
+  "timestamp_utc": "2026-10-22T18:55:00Z",
+  "git_branch": "research/track-b-v24-tier2-forensics",
+  "parent_commits": {
+    "v22_checkpoint": "fc5d82747ff3dfe38d9c28082e087780686f89dd",
+    "v23_preregistration_1": "afbc801",
+    "v23_preregistration_2": "2c11ebf",
+    "v23_final_code": "6d21c4fd808cf83eae936943e3ee75a18be8591f",
+    "v23_final_report": "9057ab1"
+  },
+  "hashes": {
+    "agent_py": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+    "candidate_ae_py_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+    "sample_regimes_json_gz": "ebda311e99e4ec19ec76452ef0ce03d9eeaf663b6e3da58268a5e5690ca4116a",
+    "tier1_bars_json": "dfbf29725434d267305e54678574769c0c2fead0c8f9d5ca73c38d5fd203245f",
+    "tier2_bars_json": "9f8811ec80302e69bde84badd01703dd620ace1202f2e182aa7c7559c300dd4d"
+  }
+}

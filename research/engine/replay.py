@@ -137,15 +137,26 @@ class ReplayEngine:
         record_traces: bool = True,
     ) -> dict[str, Any]:
         """Execute deterministic replay across the provider's trading timeline."""
-        # Reset agent module globals if present to guarantee stateless replay isolation
+        # Reset agent module globals and candidate state to guarantee stateless replay isolation
         import sys
-        if hasattr(self.decide, "__module__"):
-            mod = sys.modules.get(self.decide.__module__)
-            if mod:
-                if hasattr(mod, "_last_rebalance_bar_date"):
-                    mod._last_rebalance_bar_date = None
-                if hasattr(mod, "_last_targets"):
-                    mod._last_targets = None
+        for mod_name in ("agent", getattr(self.decide, "__module__", None)):
+            if mod_name and mod_name in sys.modules:
+                m = sys.modules[mod_name]
+                if hasattr(m, "_last_rebalance_bar_date"):
+                    m._last_rebalance_bar_date = None
+                if hasattr(m, "_last_targets"):
+                    m._last_targets = None
+
+        # Reset instance state if bound method has reset() or state tracking
+        decide_obj = getattr(self.decide, "__self__", None)
+        if decide_obj is not None:
+            if hasattr(decide_obj, "reset") and callable(decide_obj.reset):
+                decide_obj.reset()
+            else:
+                if hasattr(decide_obj, "days_counter"):
+                    decide_obj.days_counter = 0
+                if hasattr(decide_obj, "last_rebalance_date"):
+                    decide_obj.last_rebalance_date = None
 
         timeline = self.provider.get_timeline(eval_start, eval_end)
         if self.initial_portfolio is not None:

@@ -530,7 +530,7 @@
       234892.5919038005,
       233249.64190380048
     ],
-    "execution_duration_seconds": 11.13,
+    "execution_duration_seconds": 12.37,
     "trace_sha256": "ab785c0e70b1a1dbdccf985827e145a8bfd6497f5ee1d90e433117803392d04c",
     "compliance": {
       "no_errors": true,
@@ -1071,7 +1071,7 @@
       193498.87605125058,
       192272.43629685056
     ],
-    "execution_duration_seconds": 8.23,
+    "execution_duration_seconds": 32.69,
     "trace_sha256": "b5479ce1a9dd9c9ea1e17b50361d69a89c1a74c6abaf318ee9d2dde0d3d45f29",
     "compliance": {
       "no_errors": true,
@@ -1612,7 +1612,7 @@
       227299.98980995046,
       225907.31980995048
     ],
-    "execution_duration_seconds": 8.75,
+    "execution_duration_seconds": 37.42,
     "trace_sha256": "1fc87168ab0d98579bae1ce57753590237fccd5f76f14b868e91ea87d4154c5b",
     "compliance": {
       "no_errors": true,
@@ -2153,7 +2153,7 @@
       208981.5658794504,
       207620.4190406504
     ],
-    "execution_duration_seconds": 8.29,
+    "execution_duration_seconds": 20.75,
     "trace_sha256": "968f7717f595933a6fb03707e7049e1b6b58c721f4bbb72066448844d15c8991",
     "compliance": {
       "no_errors": true,

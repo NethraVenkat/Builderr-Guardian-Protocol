@@ -298,7 +298,9 @@ def run_tier2_backtest() -> dict[str, Any]:
 
         for name, dec_fn in strategies:
             t1_strat = t1_holdings_manifest.get(name, {})
-            init_cash = float(t1_strat.get("cash", 100_000.0))
+            # Fixed in V24: retrieve ending_cash and dividend_receivables properly
+            init_cash = float(t1_strat.get("ending_cash") or t1_strat.get("cash", 0.0))
+            receivables = float(t1_strat.get("dividend_receivables", 0.0))
             init_pos = {
                 (p.get("symbol") or p.get("ticker")): float(p["shares"])
                 for p in t1_strat.get("positions", [])
@@ -307,13 +309,16 @@ def run_tier2_backtest() -> dict[str, Any]:
                 (p.get("symbol") or p.get("ticker")): float(p.get("raw_price") or p.get("close_price", 0.0))
                 for p in t1_strat.get("positions", [])
             }
-            start_capital = init_cash + sum(q * init_avg_cost.get(t, 0.0) for t, q in init_pos.items())
+            # Start capital = cash + stock cost basis (excluding receivables, which are added dynamically to equity)
+            initial_cost_basis = sum(q * init_avg_cost.get(t, 0.0) for t, q in init_pos.items())
+            start_capital = init_cash + initial_cost_basis
 
             init_port = PortfolioState(
                 cash=init_cash,
                 start_cash=start_capital,
                 positions=init_pos,
                 avg_cost=init_avg_cost,
+                dividend_receivables=receivables,
             )
 
             t0 = time.perf_counter()

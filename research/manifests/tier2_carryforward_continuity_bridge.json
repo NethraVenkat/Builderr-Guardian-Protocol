@@ -1,0 +1,346 @@
+{
+  "Frozen E0": {
+    "closing_date": "2019-12-31",
+    "opening_date": "2020-01-02",
+    "ending_cash": 12253.46,
+    "dividend_receivables": 836.53,
+    "closing_positions_market_value": 205899.4,
+    "reconstructed_closing_nav": 218989.4,
+    "reported_tier1_terminal_nav": 218989.4,
+    "closing_discrepancy": 0.0,
+    "overnight_market_movement_pnl": 2493.53,
+    "opening_positions_market_value": 208392.93,
+    "opening_economic_nav": 221482.93,
+    "overnight_nav_pct_change": 1.14,
+    "positions": [
+      {
+        "symbol": "AAPL",
+        "shares": 117.0,
+        "close_price_20191231": 293.65,
+        "close_market_value": 34357.05,
+        "open_price_20200102": 296.24,
+        "open_market_value": 34660.08,
+        "overnight_delta": 303.03,
+        "pct_change": 0.88
+      },
+      {
+        "symbol": "NVDA",
+        "shares": 145.0,
+        "close_price_20191231": 235.3,
+        "close_market_value": 34118.5,
+        "open_price_20200102": 238.75,
+        "open_market_value": 34618.75,
+        "overnight_delta": 500.25,
+        "pct_change": 1.47
+      },
+      {
+        "symbol": "QLD",
+        "shares": 200.0,
+        "close_price_20191231": 121.89,
+        "close_market_value": 24378.0,
+        "open_price_20200102": 123.91,
+        "open_market_value": 24782.0,
+        "overnight_delta": 404.0,
+        "pct_change": 1.66
+      },
+      {
+        "symbol": "SMH",
+        "shares": 227.0,
+        "close_price_20191231": 141.41,
+        "close_market_value": 32100.07,
+        "open_price_20200102": 143.79,
+        "open_market_value": 32640.33,
+        "overnight_delta": 540.26,
+        "pct_change": 1.68
+      },
+      {
+        "symbol": "SSO",
+        "shares": 98.0,
+        "close_price_20191231": 150.84,
+        "close_market_value": 14782.32,
+        "open_price_20200102": 152.4,
+        "open_market_value": 14935.2,
+        "overnight_delta": 152.88,
+        "pct_change": 1.03
+      },
+      {
+        "symbol": "TSLA",
+        "shares": 80.0,
+        "close_price_20191231": 418.33,
+        "close_market_value": 33466.4,
+        "open_price_20200102": 424.5,
+        "open_market_value": 33960.0,
+        "overnight_delta": 493.6,
+        "pct_change": 1.47
+      },
+      {
+        "symbol": "XLV",
+        "shares": 321.0,
+        "close_price_20191231": 101.86,
+        "close_market_value": 32697.06,
+        "open_price_20200102": 102.17,
+        "open_market_value": 32796.57,
+        "overnight_delta": 99.51,
+        "pct_change": 0.3
+      }
+    ]
+  },
+  "Candidate A": {
+    "closing_date": "2019-12-31",
+    "opening_date": "2020-01-02",
+    "ending_cash": 11973.28,
+    "dividend_receivables": 1607.01,
+    "closing_positions_market_value": 189491.1,
+    "reconstructed_closing_nav": 203071.4,
+    "reported_tier1_terminal_nav": 203071.4,
+    "closing_discrepancy": 0.0,
+    "overnight_market_movement_pnl": 2293.69,
+    "opening_positions_market_value": 191784.79,
+    "opening_economic_nav": 205365.09,
+    "overnight_nav_pct_change": 1.13,
+    "positions": [
+      {
+        "symbol": "AAPL",
+        "shares": 108.0,
+        "close_price_20191231": 293.65,
+        "close_market_value": 31714.2,
+        "open_price_20200102": 296.24,
+        "open_market_value": 31993.92,
+        "overnight_delta": 279.72,
+        "pct_change": 0.88
+      },
+      {
+        "symbol": "NVDA",
+        "shares": 134.0,
+        "close_price_20191231": 235.3,
+        "close_market_value": 31530.2,
+        "open_price_20200102": 238.75,
+        "open_market_value": 31992.5,
+        "overnight_delta": 462.3,
+        "pct_change": 1.47
+      },
+      {
+        "symbol": "QLD",
+        "shares": 184.0,
+        "close_price_20191231": 121.89,
+        "close_market_value": 22427.76,
+        "open_price_20200102": 123.91,
+        "open_market_value": 22799.44,
+        "overnight_delta": 371.68,
+        "pct_change": 1.66
+      },
+      {
+        "symbol": "SMH",
+        "shares": 209.0,
+        "close_price_20191231": 141.41,
+        "close_market_value": 29554.69,
+        "open_price_20200102": 143.79,
+        "open_market_value": 30052.11,
+        "overnight_delta": 497.42,
+        "pct_change": 1.68
+      },
+      {
+        "symbol": "SSO",
+        "shares": 90.0,
+        "close_price_20191231": 150.84,
+        "close_market_value": 13575.6,
+        "open_price_20200102": 152.4,
+        "open_market_value": 13716.0,
+        "overnight_delta": 140.4,
+        "pct_change": 1.03
+      },
+      {
+        "symbol": "TSLA",
+        "shares": 73.0,
+        "close_price_20191231": 418.33,
+        "close_market_value": 30538.09,
+        "open_price_20200102": 424.5,
+        "open_market_value": 30988.5,
+        "overnight_delta": 450.41,
+        "pct_change": 1.47
+      },
+      {
+        "symbol": "XLV",
+        "shares": 296.0,
+        "close_price_20191231": 101.86,
+        "close_market_value": 30150.56,
+        "open_price_20200102": 102.17,
+        "open_market_value": 30242.32,
+        "overnight_delta": 91.76,
+        "pct_change": 0.3
+      }
+    ]
+  },
+  "Candidate E": {
+    "closing_date": "2019-12-31",
+    "opening_date": "2020-01-02",
+    "ending_cash": 9597.57,
+    "dividend_receivables": 2227.17,
+    "closing_positions_market_value": 198860.9,
+    "reconstructed_closing_nav": 210685.65,
+    "reported_tier1_terminal_nav": 210685.65,
+    "closing_discrepancy": -0.0026,
+    "overnight_market_movement_pnl": 2530.85,
+    "opening_positions_market_value": 201391.75,
+    "opening_economic_nav": 213216.5,
+    "overnight_nav_pct_change": 1.2,
+    "positions": [
+      {
+        "symbol": "AAPL",
+        "shares": 111.0,
+        "close_price_20191231": 293.65,
+        "close_market_value": 32595.15,
+        "open_price_20200102": 296.24,
+        "open_market_value": 32882.64,
+        "overnight_delta": 287.49,
+        "pct_change": 0.88
+      },
+      {
+        "symbol": "MSFT",
+        "shares": 201.0,
+        "close_price_20191231": 157.7,
+        "close_market_value": 31697.7,
+        "open_price_20200102": 158.78,
+        "open_market_value": 31914.78,
+        "overnight_delta": 217.08,
+        "pct_change": 0.68
+      },
+      {
+        "symbol": "NVDA",
+        "shares": 135.0,
+        "close_price_20191231": 235.3,
+        "close_market_value": 31765.5,
+        "open_price_20200102": 238.75,
+        "open_market_value": 32231.25,
+        "overnight_delta": 465.75,
+        "pct_change": 1.47
+      },
+      {
+        "symbol": "QLD",
+        "shares": 190.0,
+        "close_price_20191231": 121.89,
+        "close_market_value": 23159.1,
+        "open_price_20200102": 123.91,
+        "open_market_value": 23542.9,
+        "overnight_delta": 383.8,
+        "pct_change": 1.66
+      },
+      {
+        "symbol": "SMH",
+        "shares": 216.0,
+        "close_price_20191231": 141.41,
+        "close_market_value": 30544.56,
+        "open_price_20200102": 143.79,
+        "open_market_value": 31058.64,
+        "overnight_delta": 514.08,
+        "pct_change": 1.68
+      },
+      {
+        "symbol": "SSO",
+        "shares": 92.5429,
+        "close_price_20191231": 150.84,
+        "close_market_value": 13959.17,
+        "open_price_20200102": 152.4,
+        "open_market_value": 14103.54,
+        "overnight_delta": 144.37,
+        "pct_change": 1.03
+      },
+      {
+        "symbol": "TSLA",
+        "shares": 84.0,
+        "close_price_20191231": 418.33,
+        "close_market_value": 35139.72,
+        "open_price_20200102": 424.5,
+        "open_market_value": 35658.0,
+        "overnight_delta": 518.28,
+        "pct_change": 1.47
+      }
+    ]
+  },
+  "Candidate A+E": {
+    "closing_date": "2019-12-31",
+    "opening_date": "2020-01-02",
+    "ending_cash": 8688.77,
+    "dividend_receivables": 2799.39,
+    "closing_positions_market_value": 184116.91,
+    "reconstructed_closing_nav": 195605.08,
+    "reported_tier1_terminal_nav": 195605.08,
+    "closing_discrepancy": -0.0026,
+    "overnight_market_movement_pnl": 2342.75,
+    "opening_positions_market_value": 186459.66,
+    "opening_economic_nav": 197947.83,
+    "overnight_nav_pct_change": 1.2,
+    "positions": [
+      {
+        "symbol": "AAPL",
+        "shares": 103.0,
+        "close_price_20191231": 293.65,
+        "close_market_value": 30245.95,
+        "open_price_20200102": 296.24,
+        "open_market_value": 30512.72,
+        "overnight_delta": 266.77,
+        "pct_change": 0.88
+      },
+      {
+        "symbol": "MSFT",
+        "shares": 186.0,
+        "close_price_20191231": 157.7,
+        "close_market_value": 29332.2,
+        "open_price_20200102": 158.78,
+        "open_market_value": 29533.08,
+        "overnight_delta": 200.88,
+        "pct_change": 0.68
+      },
+      {
+        "symbol": "NVDA",
+        "shares": 125.0,
+        "close_price_20191231": 235.3,
+        "close_market_value": 29412.5,
+        "open_price_20200102": 238.75,
+        "open_market_value": 29843.75,
+        "overnight_delta": 431.25,
+        "pct_change": 1.47
+      },
+      {
+        "symbol": "QLD",
+        "shares": 176.0,
+        "close_price_20191231": 121.89,
+        "close_market_value": 21452.64,
+        "open_price_20200102": 123.91,
+        "open_market_value": 21808.16,
+        "overnight_delta": 355.52,
+        "pct_change": 1.66
+      },
+      {
+        "symbol": "SMH",
+        "shares": 199.0,
+        "close_price_20191231": 141.41,
+        "close_market_value": 28140.59,
+        "open_price_20200102": 143.79,
+        "open_market_value": 28614.21,
+        "overnight_delta": 473.62,
+        "pct_change": 1.68
+      },
+      {
+        "symbol": "SSO",
+        "shares": 85.5429,
+        "close_price_20191231": 150.84,
+        "close_market_value": 12903.29,
+        "open_price_20200102": 152.4,
+        "open_market_value": 13036.74,
+        "overnight_delta": 133.45,
+        "pct_change": 1.03
+      },
+      {
+        "symbol": "TSLA",
+        "shares": 78.0,
+        "close_price_20191231": 418.33,
+        "close_market_value": 32629.74,
+        "open_price_20200102": 424.5,
+        "open_market_value": 33111.0,
+        "overnight_delta": 481.26,
+        "pct_change": 1.47
+      }
+    ]
+  }
+}

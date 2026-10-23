@@ -10,6 +10,7 @@
 **Base Commit:** `1d480c09ef4774856b21705fb265c6c4cc0c1734` (V27 head)  
 **Pre-Remediation Full Regression:** 351 / 351 Passed in 69.93s (exit code 0, `task-9039`)  
 **Post-Remediation Full Regression:** 364 / 364 Passed in 151.35s (exit code 0, `task-9329`)  
+**Clean-Checkout Regression:** 364 / 364 Passed in 161.97s (exit code 0, `task-9351`)  
 
 ---
 
@@ -292,6 +293,24 @@ Failed: 0
 Skipped: 0
 Task ID: 7948e66a-3796-4255-b1bd-adccf772999c/task-9329
 Log File: task-9329.log
+```
+
+### 8.2 Clean-Checkout Verification
+```
+Directory: C:\Users\Manish\Downloads\Guardian-Alpha-V26-Clean
+Branch: research/track-b-v27r-scientific-reconciliation
+Head Commit: 91ebb2e59ce6ff8b66adcbcf70a38681eb8093c4
+Command: python -m pytest research/tests -q
+Result: 364 passed in 161.97s (0:02:41)
+Exit Code: 0
+Total Test Modules: 38
+Collected: 364
+Passed: 364
+Failed: 0
+Skipped: 0
+Task ID: 7948e66a-3796-4255-b1bd-adccf772999c/task-9351
+Log File: task-9351.log
+Working Tree: Clean (0 uncommitted files, working tree clean)
 ```
 
 ---

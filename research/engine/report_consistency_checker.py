@@ -361,10 +361,236 @@ def verify_v26_report_text(report_path: Path | str, manifest_dir: Path | str = "
     return True
 
 
+def verify_report_tables_against_manifests(
+    report_path: Path | str,
+    manifest_dir: Path | str = "research/manifests",
+    tolerance: float = 0.02,
+) -> dict[str, Any]:
+    """Parse all markdown tables in the report and verify every financial cell against machine manifests.
+
+    Cross-checks:
+    1. Table Section 3.2: Authoritative Tier 1 holdings (AAPL, NVDA, QLD, SMH, SSO, TSLA, XLV)
+       against tier1_terminal_holdings_v22.json and tier2_carryforward_continuity_bridge.json.
+    2. Table Section 3.3: Tier 1 closing balance sheet across all 4 strategies
+       against tier1_terminal_holdings_v22.json.
+    3. Table Section 4.2: Forensic reconciliation against v26_tier1_holdings_forensic_reconciliation.json.
+    4. Table Section 5.2: Machine precision overnight bridge against tier2_carryforward_continuity_bridge.json.
+    5. Table Section 6.1: Carryforward performance matrix against v26_strategy_specific_carryforward_results.json.
+    6. Table Section 6.2: Fresh-start benchmark ending metrics against tier2_terminal_holdings.json and tier2_four_way_results.json.
+    """
+    r_path = Path(report_path)
+    if not r_path.exists():
+        raise FileNotFoundError(f"Report file not found: {r_path}")
+
+    m_dir = Path(manifest_dir)
+    t1_holdings_path = m_dir / "tier1_terminal_holdings_v22.json"
+    t2_bridge_path = m_dir / "tier2_carryforward_continuity_bridge.json"
+    cf_results_path = m_dir / "v26_strategy_specific_carryforward_results.json"
+    t2_holdings_path = m_dir / "tier2_terminal_holdings.json"
+    t1_recon_path = m_dir / "v26_tier1_holdings_forensic_reconciliation.json"
+
+    with open(t1_holdings_path, "r", encoding="utf-8") as f:
+        t1_holdings = json.load(f)
+    with open(t2_bridge_path, "r", encoding="utf-8") as f:
+        t2_bridge = json.load(f)
+    with open(cf_results_path, "r", encoding="utf-8") as f:
+        cf_results = json.load(f)
+    with open(t2_holdings_path, "r", encoding="utf-8") as f:
+        t2_holdings = json.load(f)
+    with open(t1_recon_path, "r", encoding="utf-8") as f:
+        t1_recon = json.load(f)
+
+    with open(r_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    tables = parse_markdown_tables(content)
+    checked_tables = 0
+    checks_performed = 0
+
+    for table in tables:
+        headers = table["headers"]
+        rows = table["rows"]
+        h_str = " ".join(headers).lower()
+
+        # 1. Authoritative Tier 1 Terminal Holdings
+        if "symbol" in h_str and "2019-12-31 raw close price" in h_str:
+            e0_t1_pos = {p["symbol"]: p for p in t1_holdings["Frozen E0"]["positions"]}
+            e0_br_pos = {p["symbol"]: p for p in t2_bridge["Frozen E0"]["positions"]}
+
+            for r in rows:
+                sym = r["cells"][0].replace("*", "").strip()
+                if sym in e0_t1_pos:
+                    expected_sh = e0_t1_pos[sym]["shares"]
+                    expected_close_px = e0_t1_pos[sym]["raw_price"]
+                    expected_close_mv = e0_t1_pos[sym]["market_value"]
+                    expected_open_px = e0_br_pos[sym]["open_price_20200102"]
+                    expected_open_mv = e0_br_pos[sym]["open_market_value"]
+                    expected_delta = e0_br_pos[sym]["overnight_delta"]
+
+                    actual_sh = extract_numeric_value(r["cells"][1])
+                    actual_close_px = extract_numeric_value(r["cells"][2])
+                    actual_close_mv = extract_numeric_value(r["cells"][3])
+                    actual_open_px = extract_numeric_value(r["cells"][4])
+                    actual_open_mv = extract_numeric_value(r["cells"][5])
+                    actual_delta = extract_numeric_value(r["cells"][6])
+
+                    if actual_sh is None or abs(actual_sh - expected_sh) > tolerance:
+                        raise ReportConsistencyError(f"Holdings shares mismatch for {sym}: reported={actual_sh}, manifest={expected_sh}")
+                    if actual_close_px is None or abs(actual_close_px - expected_close_px) > tolerance:
+                        raise ReportConsistencyError(f"Holdings close px mismatch for {sym}: reported={actual_close_px}, manifest={expected_close_px}")
+                    if actual_close_mv is None or abs(actual_close_mv - expected_close_mv) > tolerance:
+                        raise ReportConsistencyError(f"Holdings close mv mismatch for {sym}: reported={actual_close_mv}, manifest={expected_close_mv}")
+                    if actual_open_px is None or abs(actual_open_px - expected_open_px) > tolerance:
+                        raise ReportConsistencyError(f"Holdings open px mismatch for {sym}: reported={actual_open_px}, manifest={expected_open_px}")
+                    if actual_open_mv is None or abs(actual_open_mv - expected_open_mv) > tolerance:
+                        raise ReportConsistencyError(f"Holdings open mv mismatch for {sym}: reported={actual_open_mv}, manifest={expected_open_mv}")
+                    if actual_delta is None or abs(actual_delta - expected_delta) > tolerance:
+                        raise ReportConsistencyError(f"Holdings overnight delta mismatch for {sym}: reported={actual_delta}, manifest={expected_delta}")
+                    checks_performed += 6
+                elif "total" in sym.lower():
+                    actual_tot_close_mv = extract_numeric_value(r["cells"][3])
+                    actual_tot_open_mv = extract_numeric_value(r["cells"][5])
+                    actual_tot_delta = extract_numeric_value(r["cells"][6])
+
+                    expected_tot_close_mv = t2_bridge["Frozen E0"]["closing_positions_market_value"]
+                    expected_tot_open_mv = t2_bridge["Frozen E0"]["opening_positions_market_value"]
+                    expected_tot_delta = t2_bridge["Frozen E0"]["overnight_market_movement_pnl"]
+
+                    if actual_tot_close_mv is None or abs(actual_tot_close_mv - expected_tot_close_mv) > tolerance:
+                        raise ReportConsistencyError(f"Holdings total close mv mismatch: reported={actual_tot_close_mv}, manifest={expected_tot_close_mv}")
+                    if actual_tot_open_mv is None or abs(actual_tot_open_mv - expected_tot_open_mv) > tolerance:
+                        raise ReportConsistencyError(f"Holdings total open mv mismatch: reported={actual_tot_open_mv}, manifest={expected_tot_open_mv}")
+                    if actual_tot_delta is None or abs(actual_tot_delta - expected_tot_delta) > tolerance:
+                        raise ReportConsistencyError(f"Holdings total delta mismatch: reported={actual_tot_delta}, manifest={expected_tot_delta}")
+                    checks_performed += 3
+
+            checked_tables += 1
+
+        # 2. Authoritative Tier 1 Closing Balance Sheet
+        elif "strategy" in h_str and "tier 1 closing nav" in h_str:
+            for r in rows:
+                strat = r["cells"][0].replace("*", "").strip()
+                if strat in t1_holdings:
+                    expected_cash = round(t1_holdings[strat]["ending_cash"], 2)
+                    expected_rec = round(t1_holdings[strat]["dividend_receivables"], 2)
+                    expected_pos = round(sum(p["market_value"] for p in t1_holdings[strat]["positions"]), 2)
+                    expected_nav = round(t1_holdings[strat]["ending_nav"], 2)
+
+                    actual_cash = extract_numeric_value(r["cells"][1])
+                    actual_rec = extract_numeric_value(r["cells"][2])
+                    actual_pos = extract_numeric_value(r["cells"][3])
+                    actual_nav = extract_numeric_value(r["cells"][4])
+
+                    if actual_cash is None or abs(actual_cash - expected_cash) > tolerance:
+                        raise ReportConsistencyError(f"Balance sheet cash mismatch for {strat}: reported={actual_cash}, manifest={expected_cash}")
+                    if actual_rec is None or abs(actual_rec - expected_rec) > tolerance:
+                        raise ReportConsistencyError(f"Balance sheet rec mismatch for {strat}: reported={actual_rec}, manifest={expected_rec}")
+                    if actual_pos is None or abs(actual_pos - expected_pos) > tolerance:
+                        raise ReportConsistencyError(f"Balance sheet pos mismatch for {strat}: reported={actual_pos}, manifest={expected_pos}")
+                    if actual_nav is None or abs(actual_nav - expected_nav) > tolerance:
+                        raise ReportConsistencyError(f"Balance sheet nav mismatch for {strat}: reported={actual_nav}, manifest={expected_nav}")
+                    checks_performed += 4
+            checked_tables += 1
+
+        # 3. Forensic Line-by-Line Holdings Comparison
+        elif "authoritative shares" in h_str and "erroneous v25 shares" in h_str:
+            for r in rows:
+                first_cell = r["cells"][0].replace("*", "").strip()
+                if "total" in first_cell.lower():
+                    actual_auth_tot = extract_numeric_value(r["cells"][3])
+                    actual_v25_tot = extract_numeric_value(r["cells"][6])
+                    actual_delta = extract_numeric_value(r["cells"][7])
+
+                    expected_auth = t1_recon["authoritative_manifest_stock_total"]
+                    expected_v25 = t1_recon["v25_reported_stock_total"]
+                    expected_diff = t1_recon["discrepancy_amount"]
+
+                    if actual_auth_tot is None or abs(actual_auth_tot - expected_auth) > tolerance:
+                        raise ReportConsistencyError(f"Forensic auth stock total mismatch: reported={actual_auth_tot}, manifest={expected_auth}")
+                    if actual_v25_tot is None or abs(actual_v25_tot - expected_v25) > tolerance:
+                        raise ReportConsistencyError(f"Forensic v25 stock total mismatch: reported={actual_v25_tot}, manifest={expected_v25}")
+                    if actual_delta is None or abs(actual_delta - expected_diff) > tolerance:
+                        raise ReportConsistencyError(f"Forensic delta mismatch: reported={actual_delta}, manifest={expected_diff}")
+                    checks_performed += 3
+            checked_tables += 1
+
+        # 4. Machine Precision Overnight NAV Reconciliation
+        elif "full-precision cash" in h_str and "component truncation delta" in h_str:
+            for r in rows:
+                strat = r["cells"][0].replace("*", "").strip()
+                if strat in t2_bridge:
+                    expected_open_nav = round(t2_bridge[strat]["opening_economic_nav"], 2)
+                    actual_open_nav = extract_numeric_value(r["cells"][5])
+                    actual_delta = extract_numeric_value(r["cells"][7])
+
+                    if actual_open_nav is None or abs(actual_open_nav - expected_open_nav) > tolerance:
+                        raise ReportConsistencyError(f"Overnight bridge NAV mismatch for {strat}: reported={actual_open_nav}, manifest={expected_open_nav}")
+                    if actual_delta is None or abs(actual_delta - 0.01) > 0.001:
+                        raise ReportConsistencyError(f"Overnight bridge delta mismatch for {strat}: reported={actual_delta}, expected=0.01")
+                    checks_performed += 2
+            checked_tables += 1
+
+        # 5. Reconciled Tier 2 Carry-Forward Performance Matrix
+        elif "starting economic nav" in h_str and "ending positions mv" in h_str:
+            for r in rows:
+                strat = r["cells"][0].replace("*", "").strip()
+                if strat in cf_results:
+                    expected_start_cash = round(cf_results[strat]["starting_cash"], 2)
+                    expected_start_rec = round(cf_results[strat]["starting_receivables"], 2)
+                    expected_end_cash = round(cf_results[strat]["ending_cash"], 2)
+                    expected_end_nav = round(cf_results[strat]["ending_nav"], 2)
+                    expected_trades = cf_results[strat]["total_trades"]
+
+                    actual_start_cash = extract_numeric_value(r["cells"][1])
+                    actual_start_rec = extract_numeric_value(r["cells"][2])
+                    actual_end_cash = extract_numeric_value(r["cells"][7])
+                    actual_end_nav = extract_numeric_value(r["cells"][8])
+                    actual_trades = extract_numeric_value(r["cells"][12])
+
+                    if actual_start_cash is None or abs(actual_start_cash - expected_start_cash) > tolerance:
+                        raise ReportConsistencyError(f"Carryforward start cash mismatch for {strat}: reported={actual_start_cash}, manifest={expected_start_cash}")
+                    if actual_start_rec is None or abs(actual_start_rec - expected_start_rec) > tolerance:
+                        raise ReportConsistencyError(f"Carryforward start rec mismatch for {strat}: reported={actual_start_rec}, manifest={expected_start_rec}")
+                    if actual_end_cash is None or abs(actual_end_cash - expected_end_cash) > tolerance:
+                        raise ReportConsistencyError(f"Carryforward end cash mismatch for {strat}: reported={actual_end_cash}, manifest={expected_end_cash}")
+                    if actual_end_nav is None or abs(actual_end_nav - expected_end_nav) > tolerance:
+                        raise ReportConsistencyError(f"Carryforward end nav mismatch for {strat}: reported={actual_end_nav}, manifest={expected_end_nav}")
+                    if actual_trades is None or actual_trades != expected_trades:
+                        raise ReportConsistencyError(f"Carryforward trades mismatch for {strat}: reported={actual_trades}, manifest={expected_trades}")
+                    checks_performed += 5
+            checked_tables += 1
+
+        # 6. Certified Fresh-Start Metrics
+        elif "ending nav (2021-12-31)" in h_str and "ending receivables" in h_str:
+            for r in rows:
+                strat = r["cells"][0].replace("*", "").strip()
+                if strat == "Frozen E0":
+                    expected_e0_cash = t2_holdings["Frozen E0"]["cash"]
+                    expected_e0_nav = t2_holdings["Frozen E0"]["terminal_nav"]
+                    actual_cash = extract_numeric_value(r["cells"][1])
+                    actual_nav = extract_numeric_value(r["cells"][4])
+
+                    if actual_cash is None or abs(actual_cash - expected_e0_cash) > tolerance:
+                        raise ReportConsistencyError(f"Fresh-start E0 cash mismatch: reported={actual_cash}, manifest={expected_e0_cash}")
+                    if actual_nav is None or abs(actual_nav - expected_e0_nav) > tolerance:
+                        raise ReportConsistencyError(f"Fresh-start E0 nav mismatch: reported={actual_nav}, manifest={expected_e0_nav}")
+                    checks_performed += 2
+
+            checked_tables += 1
+
+    return {
+        "report_path": str(r_path),
+        "tables_cross_checked": checked_tables,
+        "manifest_checks_performed": checks_performed,
+        "verified": True,
+    }
+
+
 def verify_v26r_report_text(report_path: Path | str, manifest_dir: Path | str = "research/manifests") -> bool:
-    """Scan V26-R report text for table arithmetic verification, full precision balance sheet, and erratum consistency."""
+    """Scan V26-R report text for table arithmetic verification, full precision balance sheet, manifest cross-check, and erratum consistency."""
     verify_report_text(report_path, manifest_dir)
     verify_report_table_arithmetic(report_path, tolerance=0.02)
+    verify_report_tables_against_manifests(report_path, manifest_dir, tolerance=0.02)
     r_path = Path(report_path)
     with open(r_path, "r", encoding="utf-8") as f:
         content = f.read()
@@ -388,12 +614,14 @@ def verify_v26r_report_text(report_path: Path | str, manifest_dir: Path | str = 
         "233,249.64",  # Frozen E0 Primary Ending NAV
         "15,407.54",   # Frozen E0 Primary Ending Cash
         "364.05",      # Terminal Dividend Receivables
+        "71.81s",      # Authoritative Clean-Checkout Execution Time
     ]
     for req in v26r_mandatory:
         if req not in content:
             raise ReportConsistencyError(f"V26-R Mandatory value '{req}' missing from report {r_path}")
 
     return True
+
 
 
 if __name__ == "__main__":

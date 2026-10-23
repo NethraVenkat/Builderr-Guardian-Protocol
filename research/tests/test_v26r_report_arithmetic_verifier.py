@@ -28,6 +28,8 @@ from research.engine.report_consistency_checker import (
     parse_markdown_tables,
     validate_table_arithmetic,
     verify_report_table_arithmetic,
+    verify_report_tables_against_manifests,
+    verify_v26r_report_text,
 )
 
 MANIFEST_DIR = Path("research/manifests")
@@ -281,3 +283,71 @@ def test_strategy_balance_sheet_table_validation():
     assert len(tables) == 1
     logs = validate_table_arithmetic(tables[0])
     assert len(logs) == 4
+
+
+# ==============================================================================
+# 7. MANIFEST CROSS-CHECK & REPORT MUTATION TESTS
+# ==============================================================================
+def test_v26r_report_tables_against_manifests_success():
+    """Verify published V26-R report tables against machine manifests."""
+    report_path = Path("GUARDIAN_ALPHA_V26R_FINANCIAL_REPORT_RECONCILIATION.md")
+    assert report_path.exists()
+    res = verify_report_tables_against_manifests(report_path)
+    assert res["tables_cross_checked"] == 6
+    assert res["manifest_checks_performed"] >= 90
+    assert res["verified"] is True
+
+
+def test_v26r_full_report_text_verification():
+    """Verify that full gating validator passes on the published V26-R report."""
+    report_path = Path("GUARDIAN_ALPHA_V26R_FINANCIAL_REPORT_RECONCILIATION.md")
+    assert verify_v26r_report_text(report_path) is True
+
+
+def test_manifest_crosscheck_mutation_share_quantity(tmp_path):
+    """Mutating a share quantity in Table 1 triggers ReportConsistencyError against manifest."""
+    original = Path("GUARDIAN_ALPHA_V26R_FINANCIAL_REPORT_RECONCILIATION.md").read_text(encoding="utf-8")
+    mutated = original.replace("AAPL** | 117.0 |", "AAPL** | 118.0 |")
+    mut_file = tmp_path / "mutated_report.md"
+    mut_file.write_text(mutated, encoding="utf-8")
+
+    with pytest.raises(ReportConsistencyError) as exc_info:
+        verify_report_tables_against_manifests(mut_file)
+    assert "Holdings shares mismatch for AAPL" in str(exc_info.value)
+
+
+def test_manifest_crosscheck_mutation_close_price(tmp_path):
+    """Mutating a close price in Table 1 triggers ReportConsistencyError against manifest."""
+    original = Path("GUARDIAN_ALPHA_V26R_FINANCIAL_REPORT_RECONCILIATION.md").read_text(encoding="utf-8")
+    mutated = original.replace("NVDA** | 145.0 | \\$235.30 |", "NVDA** | 145.0 | \\$240.00 |")
+    mut_file = tmp_path / "mutated_report.md"
+    mut_file.write_text(mutated, encoding="utf-8")
+
+    with pytest.raises(ReportConsistencyError) as exc_info:
+        verify_report_tables_against_manifests(mut_file)
+    assert "Holdings close px mismatch for NVDA" in str(exc_info.value)
+
+
+def test_manifest_crosscheck_mutation_cash(tmp_path):
+    """Mutating ending cash in Section 3.3 balance sheet triggers ReportConsistencyError against manifest."""
+    original = Path("GUARDIAN_ALPHA_V26R_FINANCIAL_REPORT_RECONCILIATION.md").read_text(encoding="utf-8")
+    mutated = original.replace("Frozen E0** | \\$12,253.46 |", "Frozen E0** | \\$12,000.00 |")
+    mut_file = tmp_path / "mutated_report.md"
+    mut_file.write_text(mutated, encoding="utf-8")
+
+    with pytest.raises(ReportConsistencyError) as exc_info:
+        verify_report_tables_against_manifests(mut_file)
+    assert "Balance sheet cash mismatch for Frozen E0" in str(exc_info.value)
+
+
+def test_manifest_crosscheck_mutation_carryforward_nav(tmp_path):
+    """Mutating carryforward ending NAV in Section 6.1 triggers ReportConsistencyError against manifest."""
+    original = Path("GUARDIAN_ALPHA_V26R_FINANCIAL_REPORT_RECONCILIATION.md").read_text(encoding="utf-8")
+    mutated = original.replace("**\\$535,191.10** | 55.43%", "**\\$530,000.00** | 55.43%")
+    mut_file = tmp_path / "mutated_report.md"
+    mut_file.write_text(mutated, encoding="utf-8")
+
+    with pytest.raises(ReportConsistencyError) as exc_info:
+        verify_report_tables_against_manifests(mut_file)
+    assert "Carryforward end nav mismatch for Frozen E0" in str(exc_info.value)
+

@@ -1,0 +1,2243 @@
+[
+  {
+    "name": "analyze_method_a_infeasibility.py",
+    "status": "UNTRACKED",
+    "size_bytes": 6959,
+    "sha256": "e10ab719319f2862d55b2618bd47513b060c6b4d87659c629282122010ba9eb2",
+    "line_count": 158,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic proof of cash infeasibility under Method A fixed-trade replay",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "analyze_vol_spike_attribution.py",
+    "status": "TRACKED",
+    "size_bytes": 1218,
+    "sha256": "cb953b63f66bd24fa66bbfdaa2f61b636c0039188def27ca660d5b4beccce845",
+    "line_count": 34,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (analyze_vol_spike_attribution.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "analyze_xle_and_sectors.py",
+    "status": "TRACKED",
+    "size_bytes": 4829,
+    "sha256": "ee8da734826da8f70d846edc0221754d9ed6da7e1163109af4e2c183b8ec08e4",
+    "line_count": 125,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (analyze_xle_and_sectors.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_agent_interface.py",
+    "status": "UNTRACKED",
+    "size_bytes": 871,
+    "sha256": "8f563ca357265f89454efeda305df0b68598d3c5ab0a55d90e150857cfe97975",
+    "line_count": 28,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Verifies agent contract interface and state isolation",
+    "internal_modules": [
+      "agent"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_all_regimes_turnover.py",
+    "status": "TRACKED",
+    "size_bytes": 1624,
+    "sha256": "9656d35d226d4c26e4e40aa5bb6962fc647435692bc5e0a3b37e700f52ebc5fe",
+    "line_count": 34,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (audit_all_regimes_turnover.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_fallbacks.py",
+    "status": "UNTRACKED",
+    "size_bytes": 594,
+    "sha256": "832a6a9456c81f6830bd1cc67238b73b7fc0fc6c2978d584073dd604e5e13025",
+    "line_count": 14,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Audits fallback mechanisms and fail-closed safety triggers",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_method_a_exact_orders.py",
+    "status": "UNTRACKED",
+    "size_bytes": 6773,
+    "sha256": "140af1d9ee163dc81ac0c053e92f3760a9b3006a69dee457034823036c748ebb",
+    "line_count": 169,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Derives exact order-level fill and rejection counts (182, 198, 18, 16, 150, 169, 45, 44, 5, 1) hardcoded in test_v28_governance_certification.py (test_method_a_order_partition_and_mutual_exclusivity)",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "audit_pnl_attribution.py",
+    "status": "UNTRACKED",
+    "size_bytes": 949,
+    "sha256": "74290303f81fe43ee835453627e95e74e6211589f37c25ead62ad305a656bd81",
+    "line_count": 20,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic attribution of daily returns to alpha vs market factor",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_accounting_reconciliation.json",
+      "research/manifests/tier2_independent_accounting.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_q4_2019_decisions.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3242,
+    "sha256": "ff831e54300b36d402b1d18f182166714f8dba7e42acf95038be53fea2c79a15",
+    "line_count": 87,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic audit of agent decisions during Q4 2019 rebalances",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "audit_splits_and_dividends.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1469,
+    "sha256": "e89145ee4077274781340d74a44edec16d11f86e0b8a694115859283647da46f",
+    "line_count": 40,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic audit of corporate actions across 24 assets in Tier 1 and Tier 2",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_corporate_actions_inventory.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier1_bars.json"
+    ]
+  },
+  {
+    "name": "audit_test.py",
+    "status": "TRACKED",
+    "size_bytes": 2950,
+    "sha256": "5b26dabba7dae8bd232898e79bd0dc50b309d209b477721f04741466d4f6dadb",
+    "line_count": 65,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (audit_test.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_universe_validity.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1150,
+    "sha256": "66d48d915b9d9103680d887f0a73a824fc7453f05d633279a19159fe79fed5fc",
+    "line_count": 36,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Validates point-in-time universe membership and survivor bias",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier1_bars.json",
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "audit_v13_01_costs.py",
+    "status": "TRACKED",
+    "size_bytes": 2482,
+    "sha256": "e5b72bdf743daa3952a22b13ea192175021293a8a59c0d824c4aa6c15df86726",
+    "line_count": 58,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (audit_v13_01_costs.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_v13_02_suppressed_orders.py",
+    "status": "TRACKED",
+    "size_bytes": 1426,
+    "sha256": "d5daad552ee8c54b0b29973117bd967721f71b71523c9ae7b0faad8d08382d9f",
+    "line_count": 35,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (audit_v13_02_suppressed_orders.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_v13_03_liquidation_timeline.py",
+    "status": "TRACKED",
+    "size_bytes": 2491,
+    "sha256": "6fa10f094772d889af354cc68ac178b1c6a3afdfc4f33d09597c2a155ab5cdad",
+    "line_count": 60,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (audit_v13_03_liquidation_timeline.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_v13_04_bootstrap.py",
+    "status": "TRACKED",
+    "size_bytes": 3152,
+    "sha256": "62e0236e940a4fdd66e4811400d1c5d4a12c8babcb49f9ef48342cb59a401f58",
+    "line_count": 85,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (audit_v13_04_bootstrap.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_v13_05_latency_memory.py",
+    "status": "TRACKED",
+    "size_bytes": 3451,
+    "sha256": "949125948ff7cb6fffd19462c64508851c26e2efe4f6c891fc4f4297ffbee3a4",
+    "line_count": 82,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (audit_v13_05_latency_memory.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "audit_v14_full_forensics.py",
+    "status": "TRACKED",
+    "size_bytes": 7019,
+    "sha256": "acd42b884d8c4f3a335abe403e2711114601ebfd42a30b129680728a31c91944",
+    "line_count": 146,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (audit_v14_full_forensics.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "research/manifests/production_universe_manifest.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "backup_and_verify_evidence.py",
+    "status": "TRACKED",
+    "size_bytes": 7620,
+    "sha256": "f96a82c02cec53563bafd3b365903faa0ee1061c731f25a7ebf3a760006dc7a1",
+    "line_count": 185,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (backup_and_verify_evidence.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "baseline_check.py",
+    "status": "TRACKED",
+    "size_bytes": 3893,
+    "sha256": "e91082076a747dcc23fac8da8087a535429b293e1e60d8afbda9d7e498884855",
+    "line_count": 91,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (baseline_check.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "benchmark_runtime.py",
+    "status": "TRACKED",
+    "size_bytes": 3304,
+    "sha256": "e27d9ca4d279b39fb1d49cbdf1cf3005c768da720ad5ceab32775ec38fec01cb",
+    "line_count": 93,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (benchmark_runtime.py)",
+    "internal_modules": [
+      "agent"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "benchmark_stability_investigation.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3988,
+    "sha256": "f1d8a932a4e5fd383e0c2cc1299040dfe159b0c3b7569b392fa792c0478b1248",
+    "line_count": 112,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic stability analysis of QQQ and SPY benchmarks",
+    "internal_modules": [
+      "agent",
+      "research.engine.benchmark",
+      "research.engine.provider",
+      "research.engine.replay"
+    ],
+    "manifests_read": [
+      "research/manifests/benchmark_stability_profile.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "benchmark_v12.py",
+    "status": "TRACKED",
+    "size_bytes": 1917,
+    "sha256": "f908d9893e09e94783c4eee3a93073d5b50bd06bbf883bac565e3cbbdecf6eb3",
+    "line_count": 51,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (benchmark_v12.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "build_ledger_and_manifest.py",
+    "status": "TRACKED",
+    "size_bytes": 25203,
+    "sha256": "69d8410a32a9687a76cbd475d9b4875e40f018b5bc19abc568292c29230ea068",
+    "line_count": 327,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (build_ledger_and_manifest.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "check_env.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1355,
+    "sha256": "3a612925354a7ed65a408b7103ed00414dd43baac31be311eed0a96dc64c248d",
+    "line_count": 33,
+    "category": 5,
+    "category_name": "5. Temporary or incidental artifact",
+    "description": "Temporary or incidental inspection/environment artifact",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "check_tickers.py",
+    "status": "UNTRACKED",
+    "size_bytes": 438,
+    "sha256": "914f8d309838092c7bb0ce5e3547aecdad5588088af90f5e61086a91228e58e8",
+    "line_count": 14,
+    "category": 5,
+    "category_name": "5. Temporary or incidental artifact",
+    "description": "Temporary or incidental inspection/environment artifact",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/production_universe_manifest.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier1_bars.json"
+    ]
+  },
+  {
+    "name": "check_turnover_formula.py",
+    "status": "TRACKED",
+    "size_bytes": 1720,
+    "sha256": "cbe9085e0d332383c18128936f546b05ede5d50da70cf15c79941a124be09364",
+    "line_count": 33,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (check_turnover_formula.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "compare_first_divergence.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3465,
+    "sha256": "ca395c3f8f09ea4c66dbf8c01abb3828ad28243f94cf2d391f97c7bd3eb04d99",
+    "line_count": 83,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Preserved historical research script (compare_first_divergence.py)",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client"
+    ],
+    "manifests_read": [
+      "research/manifests/tier1_v22_first_divergence_trace.json"
+    ],
+    "manifests_written": [
+      "research/manifests/tier1_v22_first_divergence_trace.json"
+    ],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "compute_attribution.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2226,
+    "sha256": "5bc45df3d9e0e8d49d129b1a1c63f64895b478acb4602388cf961cf33c38236c",
+    "line_count": 60,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded Brinson attribution script",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier2_four_way_results.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "compute_benchmarks.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3658,
+    "sha256": "979ce477df23ac95ba78596cacc945c52afb29495b422b2bc5cd251ef1ffb5f6",
+    "line_count": 100,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded benchmark computation script",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier1_bars.json",
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "compute_bootstrap_ci.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2758,
+    "sha256": "da76f891fd19cf522160e0043ee088c889307fe3c4268f6a5c34be8b73963e9b",
+    "line_count": 71,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Computes block-bootstrap confidence intervals for paired differences cited in V23/V25 reports",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier2_four_way_results.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "compute_exact_overnight_bridge.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3308,
+    "sha256": "09c10f317654f5edbd656800c2cc4b8d03ed8a63b9e0bad32fa5d761e94791c7",
+    "line_count": 76,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Generates committed manifest research/manifests/tier2_carryforward_continuity_bridge.json cited in V24/V25/V26R/V28 reports and tested in test_v24/test_v26r",
+    "internal_modules": [],
+    "manifests_read": [
+      "\nWrote research/manifests/tier2_carryforward_continuity_bridge.json successfully",
+      "research/manifests/tier1_terminal_holdings_v22.json",
+      "research/manifests/tier2_carryforward_continuity_bridge.json"
+    ],
+    "manifests_written": [
+      "research/manifests/tier2_carryforward_continuity_bridge.json"
+    ],
+    "data_read": [
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "compute_full_v20_metrics.py",
+    "status": "UNTRACKED",
+    "size_bytes": 8479,
+    "sha256": "6499fe118b56887dea8cc16df4dff6f12547bac5d6a0f1b2327487400e0acc44",
+    "line_count": 202,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded V20 metrics computation script",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "Saved research/manifests/tier1_v20_comprehensive_metrics.json",
+      "research/manifests/tier1_v20_comprehensive_metrics.json"
+    ],
+    "manifests_written": [
+      "research/manifests/tier1_v20_comprehensive_metrics.json"
+    ],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "compute_method_a_and_b_matrices.py",
+    "status": "UNTRACKED",
+    "size_bytes": 10558,
+    "sha256": "34f3e2cdba1cb391f8fea429ab967aa722762507f1fed1e2aae2f7085725ca86",
+    "line_count": 238,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Generates committed manifest research/manifests/v27r_two_method_execution_sensitivity.json cited in V27R/V28 reports and tested in test_v28_governance_certification.py",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "research/manifests/v27r_two_method_execution_sensitivity.json"
+    ],
+    "manifests_written": [
+      "research/manifests/v27r_two_method_execution_sensitivity.json"
+    ],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "compute_paired_statistics.py",
+    "status": "UNTRACKED",
+    "size_bytes": 4069,
+    "sha256": "404d4b913c903ce37e9ae80812beffa9b3cd6c382394607d5393a621ada3b865",
+    "line_count": 102,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Derives paired strategy t-statistics and metrics cited in V23/V25 reports",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "research/manifests/tier1_paired_strategy_statistics.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "compute_slip_audit.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1329,
+    "sha256": "410a0b390b6b154dfd5f88073615967a720f872b6bf26a19ab415149263c85bb",
+    "line_count": 31,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Audits effective slippage vs modeled slippage",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier2_leveraged_etf_slippage_audit.json"
+    ],
+    "manifests_written": [
+      "research/manifests/tier2_leveraged_etf_slippage_audit.json"
+    ],
+    "data_read": []
+  },
+  {
+    "name": "compute_underwater_periods.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1663,
+    "sha256": "20166a51177be05c7c2972ee5fb7f9536d2f4cad3e565c0a4bd87e1aa1a6db97",
+    "line_count": 45,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Calculates drawdown durations and underwater curves",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_four_way_results.json",
+      "research/manifests/tier2_four_way_results.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "compute_v22_statistics.py",
+    "status": "UNTRACKED",
+    "size_bytes": 5218,
+    "sha256": "6f9b6651a1b4a7eca83a1c0a341aeecb17c2ecc750b11ea79d0387554c0ca414",
+    "line_count": 130,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded V22 summary statistics calculation",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "research/manifests/tier1_v22_paired_strategy_statistics.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "counterfactual_rebalancing.py",
+    "status": "TRACKED",
+    "size_bytes": 9060,
+    "sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "line_count": 231,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (counterfactual_rebalancing.py)",
+    "internal_modules": [
+      "agent"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "decimal_nav_bridge.py",
+    "status": "UNTRACKED",
+    "size_bytes": 4504,
+    "sha256": "db4bc10399da8be251bc6d087bd1c7421586708cfca38c681eaae356505ae0d1",
+    "line_count": 98,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Derives decimal NAV rounding bridge cited in V21/V22 reports",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_nav_rounding_bridge.json",
+      "research/manifests/tier1_terminal_holdings_v20.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "decimal_nav_bridge_v22.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2859,
+    "sha256": "152d9913d7d9f484f2bf65ece283b97c721d70f70ceba675c7ef8f1dc12500b2",
+    "line_count": 68,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Derives V22 decimal NAV bridge cited in V22 report",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_terminal_holdings_v22.json",
+      "research/manifests/tier1_v22_nav_rounding_bridge.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "deep_baseline_profile.py",
+    "status": "TRACKED",
+    "size_bytes": 11148,
+    "sha256": "5ff43d95a5fd28aed907a59b252bf696f6a7fb912d45e1e8e628316817a8ae28",
+    "line_count": 267,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (deep_baseline_profile.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "detailed_loss_attribution.py",
+    "status": "TRACKED",
+    "size_bytes": 6331,
+    "sha256": "f8f1a54b93143f56fb117c4dc83b127b5c536a2837b3b5d748436980543b8d05",
+    "line_count": 164,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (detailed_loss_attribution.py)",
+    "internal_modules": [
+      "agent",
+      "research.engine.provider"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "diagnose_candidate_accounting.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1924,
+    "sha256": "ef5be6ddc62cfd1e6b1350fce2b325ca8c7d44953333aebd849d6a3f0b997ce6",
+    "line_count": 38,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Diagnostic of candidate cash and share accounting",
+    "internal_modules": [
+      "research.engine.corporate_actions",
+      "research.engine.independent_accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.strategies.v11_candidates"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "diagnose_execution_divergence.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3938,
+    "sha256": "71926a7f368a092090c147957a238dde0a5e4fefbb9ed17af015b9e93ae96389",
+    "line_count": 96,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Diagnostic of divergence in execution replay",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "dump_results.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1413,
+    "sha256": "257a69d66f2066a8ba6fabbfa5dc2e4e5934af3452213f318236be2d0a99d1a4",
+    "line_count": 24,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Dumps structured replay results for inspection",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier2_carryforward_corrected_results.json",
+      "research/manifests/tier2_carryforward_sensitivity_results.json",
+      "research/manifests/tier2_four_way_results.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "evaluate_v10_candidates.py",
+    "status": "TRACKED",
+    "size_bytes": 1331,
+    "sha256": "8f08ebd45ad41583bde1ef284746b920b10f52879ac8aa3cb80395ee473918c3",
+    "line_count": 37,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (evaluate_v10_candidates.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.loss_reduction_candidates"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "explain_delta.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2088,
+    "sha256": "2f554ffc1f9faf225505151906f758ebcbea9a9e285f1a7b3e7ebfc0c2c1e9da",
+    "line_count": 45,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Explains performance deltas between revisions",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "find_first_date_trade_diff.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2649,
+    "sha256": "f02860a2064af7984d6916f1506947ea06b57bed53d151cb7bc248d238e451f8",
+    "line_count": 76,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Identifies the first date where trade quantities differ",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "find_first_divergence.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3673,
+    "sha256": "33741acc6dd5f4b66d7a073f7e2a9a06b00bb5fcf66fcd6bd867b3e45f6a4977",
+    "line_count": 97,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Pinpoints the exact first divergence date between strategy versions",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client"
+    ],
+    "manifests_read": [
+      "research/manifests/tier1_v22_first_divergence_trace.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "fix_v22_holdings.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1399,
+    "sha256": "9e3b02ce9ca3c0dc72b1c75ebeea1a7ddff043ccb26626c3bc4c5761d9d750ac",
+    "line_count": 33,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded remediation script for V22 holdings structure",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_terminal_holdings_v22.json"
+    ],
+    "manifests_written": [
+      "research/manifests/tier1_terminal_holdings_v22.json"
+    ],
+    "data_read": [
+      "tiingo_cache/tier1_bars.json"
+    ]
+  },
+  {
+    "name": "four_way_comparison.py",
+    "status": "TRACKED",
+    "size_bytes": 3699,
+    "sha256": "b5e3f52c644df793a9da66514184567655c48725aaa30df388b4e94a07d1d9dd",
+    "line_count": 96,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (four_way_comparison.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "gate1_dates_reconciliation.py",
+    "status": "TRACKED",
+    "size_bytes": 2722,
+    "sha256": "a2a78e1182969fe2d0af18e9c106ba7b33fc1ff556a10e2ef06b1f48cabbf829",
+    "line_count": 68,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (gate1_dates_reconciliation.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "gate1_v16_reconciliation.py",
+    "status": "TRACKED",
+    "size_bytes": 5451,
+    "sha256": "74238d59df97bd7c69ecac95ae4871828b7840947cfbb67724bb3b003085f263",
+    "line_count": 118,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (gate1_v16_reconciliation.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "gate2_attribution_bridge.py",
+    "status": "TRACKED",
+    "size_bytes": 5316,
+    "sha256": "97afec783bbdfc09401464920665243855f510b67c316160edc06d667283768c",
+    "line_count": 108,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (gate2_attribution_bridge.py)",
+    "internal_modules": [
+      "research.engine.accounting",
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "gate3_cost_sensitivity.py",
+    "status": "TRACKED",
+    "size_bytes": 1780,
+    "sha256": "a448e692a9df98c4d8ed778123d18f77c7f98816fb4b6e22761d29be9dea0b95",
+    "line_count": 45,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (gate3_cost_sensitivity.py)",
+    "internal_modules": [
+      "research.engine.accounting",
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "gate4_statistical_review.py",
+    "status": "TRACKED",
+    "size_bytes": 3558,
+    "sha256": "606e253cacdaae2448fb20d75ee83e67d95041d3a466b4a6c9d3a5f64b78e909",
+    "line_count": 90,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (gate4_statistical_review.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "generate_v26_preflight_inventory.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2536,
+    "sha256": "907a2eb0bfe66740c86e21d35ce20f0110269529e78606011b5acae400ebde0f",
+    "line_count": 68,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded preflight inventory generator for V26",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/corporate_actions_v22.json",
+      "research/manifests/production_universe_manifest.json",
+      "research/manifests/tier1_terminal_holdings_v22.json",
+      "research/manifests/tier2_carryforward_continuity_bridge.json",
+      "research/manifests/tier2_carryforward_corrected_results.json",
+      "research/manifests/tier2_carryforward_sensitivity_results.json",
+      "research/manifests/tier2_four_way_results.json",
+      "research/manifests/tier2_independent_accounting.json",
+      "research/manifests/tier2_leveraged_etf_slippage_audit.json",
+      "research/manifests/tier2_terminal_holdings.json",
+      "research/manifests/tiingo_request_ledger.jsonl",
+      "research/manifests/v26_preflight_inventory.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier1_bars.json",
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "hypotheses_results.json",
+    "status": "IGNORED",
+    "size_bytes": 8119,
+    "sha256": "88d72466b37afdf083072f2161e02954869ebd9f72e4256f38bf785201095473",
+    "line_count": 266,
+    "category": 5,
+    "category_name": "5. Temporary or incidental artifact",
+    "description": "Temporary or incidental inspection/environment artifact",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "inspect_all_manifest_trades.py",
+    "status": "UNTRACKED",
+    "size_bytes": 697,
+    "sha256": "769536f4e6fd8826ba7f266bf4ebb9cbfde56d373cb828eb2900d5f813528104",
+    "line_count": 15,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Inspects all trades across committed manifests for integrity",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier2_four_way_results.json",
+      "research/manifests/v26_strategy_specific_carryforward_results.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "inspect_four_way.py",
+    "status": "UNTRACKED",
+    "size_bytes": 597,
+    "sha256": "bd4378c0d6becc5c69984f55f21d405f07a2d94c357fc4b7488a0060e6fd1ffa",
+    "line_count": 15,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic inspection of 4-way backtest metrics",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_v20_comprehensive_metrics.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "inspect_q4.py",
+    "status": "UNTRACKED",
+    "size_bytes": 572,
+    "sha256": "754cb3744a881ca0467f1bb7ad429a2c8502c6746dade9e540b5d23161940ff0",
+    "line_count": 8,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Inspects Q4 rebalance orders and weights",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "inspect_recovery_timing.py",
+    "status": "TRACKED",
+    "size_bytes": 2297,
+    "sha256": "26b558ab046393e6da1c7e57c5a938235720a6064748a31659d25ed4b5dbb906",
+    "line_count": 57,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (inspect_recovery_timing.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "inspect_t2_metrics.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1196,
+    "sha256": "8e3aa68a65b6fcfc042e5543fdfe25ec4e85c941824d9f1911e52e3e47239d76",
+    "line_count": 26,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Inspects Tier 2 summary metrics across configurations",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_v22_comprehensive_metrics.json",
+      "research/manifests/tier2_four_way_results.json",
+      "research/manifests/tier2_independent_accounting.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "inspect_v11_b_loss_attribution.py",
+    "status": "TRACKED",
+    "size_bytes": 2412,
+    "sha256": "b34a1ecd084d8586b70c4fb54eb4910713553c98017089cdc985a2258ad64a88",
+    "line_count": 69,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (inspect_v11_b_loss_attribution.py)",
+    "internal_modules": [
+      "agent",
+      "research.engine.provider",
+      "research.engine.replay"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "inspect_v22_holdings.py",
+    "status": "UNTRACKED",
+    "size_bytes": 925,
+    "sha256": "6114e73fa3d3289784c59899b6c66145f477ea2237c94ca4ca14d43eef944770",
+    "line_count": 18,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Inspects V22 terminal holdings against ledger",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_terminal_holdings_v22.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "inspect_windows.py",
+    "status": "TRACKED",
+    "size_bytes": 664,
+    "sha256": "851b865198a396a9007424fd3fa06df6592e8076640d467cc7a6d06c302b912a",
+    "line_count": 13,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (inspect_windows.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "inventory_v22.py",
+    "status": "UNTRACKED",
+    "size_bytes": 897,
+    "sha256": "18d150aefe7a00456856cd163c614ca9b427023682d228125b90cc906c0cb339",
+    "line_count": 23,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded V22 file inventory generator",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/v22_preflight_inventory.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier1_bars.json",
+      "tiingo_cache_exists"
+    ]
+  },
+  {
+    "name": "investigate_cagr_dd.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1674,
+    "sha256": "03b52953fd9edea17fff29b4e83ce775b5268d982596923de2bf30e3f2117b93",
+    "line_count": 53,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded CAGR and drawdown sensitivity investigation",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier2_four_way_results.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "math_verify.py",
+    "status": "TRACKED",
+    "size_bytes": 7267,
+    "sha256": "71800cc8dfcc86d007d0f325f92f3547c0785418d95a7c16e0d1425f1c93e2b4",
+    "line_count": 203,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (math_verify.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "print_trades.py",
+    "status": "TRACKED",
+    "size_bytes": 353,
+    "sha256": "e4ff62bb7996cd70902c1de2a156939e6226624fa5853c545a03002b1a35d56b",
+    "line_count": 7,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (print_trades.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "profile_cpu.py",
+    "status": "TRACKED",
+    "size_bytes": 1225,
+    "sha256": "83c49eb29d7d9274cdd2da8cccba336275193a43320985b77b643a0121730a02",
+    "line_count": 44,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (profile_cpu.py)",
+    "internal_modules": [
+      "agent"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "q4_2019_decisions.json",
+    "status": "IGNORED",
+    "size_bytes": 35519,
+    "sha256": "d1df08f012625ce60008ce1a11fc5ad5b89c3c9850fd5874cab89df0214ac0a0",
+    "line_count": 1582,
+    "category": 5,
+    "category_name": "5. Temporary or incidental artifact",
+    "description": "Temporary or incidental inspection/environment artifact",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "reconcile_v10_attribution.py",
+    "status": "TRACKED",
+    "size_bytes": 6081,
+    "sha256": "1c124b50afd73718b0cc67a58d219b4c5e464c8a98c1c1cfb3a83e996d77410a",
+    "line_count": 154,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (reconcile_v10_attribution.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "reconcile_v25_holdings_discrepancy.py",
+    "status": "UNTRACKED",
+    "size_bytes": 4086,
+    "sha256": "a3b4586012e3a179a8a93d559dd07d78cbde6ce04fc2ba9a8a404d486c0e9f9c",
+    "line_count": 78,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Reconciles terminal holdings discrepancy between E0 and candidate for V26 report",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/production_universe_manifest.json",
+      "research/manifests/tier1_terminal_holdings_v22.json",
+      "research/manifests/tier2_carryforward_continuity_bridge.json",
+      "research/manifests/v26_tier1_holdings_forensic_reconciliation.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "reconstruct_aapl_nvda_history.py",
+    "status": "UNTRACKED",
+    "size_bytes": 6024,
+    "sha256": "4eaa4652fc899b3cc111056d1fa008a290f963d7fd75db86a189f2231583aac3",
+    "line_count": 148,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Reconstructs full trade-by-trade history for top concentration holdings",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client"
+    ],
+    "manifests_read": [
+      "research/manifests/tier1_aapl_nvda_position_history.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "reconstruct_pnl_bridge.py",
+    "status": "UNTRACKED",
+    "size_bytes": 4720,
+    "sha256": "92b7c9f4727bdcae04639778a0e193b0687af4369870ed299841a24a33bd9bf5",
+    "line_count": 109,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Derives PnL conservation decomposition and NAV bridge between baseline and moderate slippage cited in V27R Section 3",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "reproduce_baseline.py",
+    "status": "TRACKED",
+    "size_bytes": 1542,
+    "sha256": "27b5afb5e75bf003a7dc92ab695ad028c8009313ecf7aaf529734e2a82b8ed54",
+    "line_count": 50,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (reproduce_baseline.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "reproduce_p0_accounting.py",
+    "status": "TRACKED",
+    "size_bytes": 8789,
+    "sha256": "1a93aaef8a613f69bde7392b4ed92d824ed6e119f8777e2abe703fbb3fce6e59",
+    "line_count": 227,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (reproduce_p0_accounting.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "run_corrected_carryforward.py",
+    "status": "UNTRACKED",
+    "size_bytes": 4980,
+    "sha256": "6528953fef7e03a9657f5cb4a901ef26176f6e4dcdffb79fb60211f2b15c31a5",
+    "line_count": 117,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Generates corrected carryforward results manifest for V24/V25",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "\nWrote research/manifests/tier2_carryforward_corrected_results.json successfully",
+      "research/manifests/tier1_terminal_holdings_v22.json",
+      "research/manifests/tier2_carryforward_corrected_results.json"
+    ],
+    "manifests_written": [
+      "research/manifests/tier2_carryforward_corrected_results.json"
+    ],
+    "data_read": [
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "run_four_way.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1504,
+    "sha256": "53815d17b1990d0f45153b62c43a952ef7602229d4823fec180619356fa005a1",
+    "line_count": 40,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded 4-way validation runner for Tier 1",
+    "internal_modules": [
+      "agent",
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "run_four_way_v22.py",
+    "status": "UNTRACKED",
+    "size_bytes": 7678,
+    "sha256": "636ce5d76cec2b88ecd88ea2bb424500352cfe10ccfb00624f557b045725bbce",
+    "line_count": 178,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded 4-way validation runner for V22",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "research/manifests/tier1_terminal_holdings_v22.json",
+      "research/manifests/tier1_v22_comprehensive_metrics.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "run_statistical_validation.py",
+    "status": "TRACKED",
+    "size_bytes": 7038,
+    "sha256": "8a4a86e99118cd94a6312e0e6813564e98923d38a5c530e55ec0879ee67e095e",
+    "line_count": 171,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (run_statistical_validation.py)",
+    "internal_modules": [
+      "agent",
+      "research.engine.provider",
+      "research.engine.replay"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "runtime_check.py",
+    "status": "TRACKED",
+    "size_bytes": 4976,
+    "sha256": "3022862e0b9e7b510fb821ce2f31682918fe0cc8b252ebec1bdf3f5ec540d5eb",
+    "line_count": 142,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (runtime_check.py)",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "show_positions.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1031,
+    "sha256": "688004dfe2de165f7ef7d997b828972745429bf77c631c9586f5bc4084a92bd1",
+    "line_count": 14,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Displays portfolio positions at rebalance boundaries",
+    "internal_modules": [],
+    "manifests_read": [
+      "research/manifests/tier1_terminal_holdings_v20.json"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "simulate_v22_vs_v21.py",
+    "status": "UNTRACKED",
+    "size_bytes": 4197,
+    "sha256": "ff2f57732ca0343296982affeaf28942f158128d8f65fd477b9f2c61be22f283",
+    "line_count": 109,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded simulation comparing V22 and V21 replay modes",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.corporate_actions",
+      "research.engine.replay"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "slippage_forensics.json",
+    "status": "IGNORED",
+    "size_bytes": 1366,
+    "sha256": "dba5d1b450ed593e3a5c84b0ced7350747e1385251f76e61fed654e624b41d3f",
+    "line_count": 50,
+    "category": 5,
+    "category_name": "5. Temporary or incidental artifact",
+    "description": "Temporary or incidental inspection/environment artifact",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "slippage_forensics.py",
+    "status": "UNTRACKED",
+    "size_bytes": 4792,
+    "sha256": "2e9383845027c5ba6f177010566acd27f727744bf97bccf270d8cdea2e684b91",
+    "line_count": 137,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic investigation into QLD/SSO leveraged ETF slippage",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "table_arithmetic_verifier.py",
+    "status": "UNTRACKED",
+    "size_bytes": 8206,
+    "sha256": "659b75adabc31059880a79ebf76cc75aa88934b16e0f9313fa999120885e4d6a",
+    "line_count": 184,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Verifies markdown table arithmetic and manifest cross-checks for V26R/V27R/V28 governance reports",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "terminal_holdings_reconciliation.py",
+    "status": "UNTRACKED",
+    "size_bytes": 5076,
+    "sha256": "8af505a62a7ccc37ab4242c7a435c9c45c39856cafbf2e54aa794e633908f40e",
+    "line_count": 131,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Derives terminal holdings reconciliation cited in V20 report",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "Saved research/manifests/tier1_terminal_holdings_v20.json",
+      "research/manifests/tier1_terminal_holdings_v20.json"
+    ],
+    "manifests_written": [
+      "research/manifests/tier1_terminal_holdings_v20.json"
+    ],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "test_adverse_inputs.py",
+    "status": "TRACKED",
+    "size_bytes": 3011,
+    "sha256": "70c3c0e5d0b3cfc11401c9a6d275e56447a90b1894b96cb26c1b1ca02966660d",
+    "line_count": 76,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (test_adverse_inputs.py)",
+    "internal_modules": [
+      "agent"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "test_agent_features.py",
+    "status": "TRACKED",
+    "size_bytes": 6264,
+    "sha256": "8f8673fe5a2db2836cf658629c554663894012e7c9601ebc06cc34a219e44962",
+    "line_count": 149,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (test_agent_features.py)",
+    "internal_modules": [
+      "agent"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "test_cadence.py",
+    "status": "TRACKED",
+    "size_bytes": 7205,
+    "sha256": "f169a009557cbfdf55a46659c0d774b94063684961cbbc3271f65d7eabea5408",
+    "line_count": 180,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (test_cadence.py)",
+    "internal_modules": [
+      "agent"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "test_candidates_a_to_f.py",
+    "status": "TRACKED",
+    "size_bytes": 25038,
+    "sha256": "42b17889ed35c408cd608f441f2682b8197db363f7951f9d322ef765bfdbb0d5",
+    "line_count": 630,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (test_candidates_a_to_f.py)",
+    "internal_modules": [
+      "agent",
+      "research.engine.provider",
+      "research.engine.replay"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "test_carryforward_ledger.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3723,
+    "sha256": "697029d0d8e58847a33a31fb20838fca716a641ef8f7384231c4a6ba96316ab7",
+    "line_count": 91,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Tests carryforward ledger state transitions",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.corporate_actions",
+      "research.engine.independent_accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "research/manifests/tier1_terminal_holdings_v22.json",
+      "research/manifests/v26_strategy_specific_carryforward_results.json"
+    ],
+    "manifests_written": [
+      "research/manifests/v26_strategy_specific_carryforward_results.json"
+    ],
+    "data_read": [
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "test_causal_adapter.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2168,
+    "sha256": "daf5d9b607d3a351e4cdc6abb40800bf5b0e57108111c9a8e732941ec0583854",
+    "line_count": 65,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic test proving point-in-time price normalization between split-adjusted V21 and raw V22",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "test_execution_sensitivity.py",
+    "status": "UNTRACKED",
+    "size_bytes": 5107,
+    "sha256": "51d639040199b1a0cf3b695a1a21771fd644a4a8e86ac6b52466f036e83c1f5e",
+    "line_count": 124,
+    "category": 1,
+    "category_name": "1. Required for reproducibility of published V28 results",
+    "description": "Generates committed manifest research/manifests/v27_execution_realism_stress_results.json cited in V27 report and tested in test_v27_scientific_validity.py",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [
+      "research/manifests/v27_execution_realism_stress_results.json"
+    ],
+    "manifests_written": [
+      "research/manifests/v27_execution_realism_stress_results.json"
+    ],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "test_hypotheses.py",
+    "status": "TRACKED",
+    "size_bytes": 14881,
+    "sha256": "67fbd18e90f206c890b42c35040d7fcc165ff7cafbeae897d4e2111be92c4499",
+    "line_count": 345,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (test_hypotheses.py)",
+    "internal_modules": [
+      "agent"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "test_hypotheses_part2.py",
+    "status": "TRACKED",
+    "size_bytes": 14973,
+    "sha256": "a3849549c2b02178815666ac4909ac4d366b3ea70903cee21b84b4f7d0b11e78",
+    "line_count": 336,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (test_hypotheses_part2.py)",
+    "internal_modules": [
+      "agent"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "test_independent_ledger.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3397,
+    "sha256": "0c3425e61843c397580915ba05f904d345a40a296f1cf280c9513eb5b63a5e47",
+    "line_count": 84,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Tests independent double-entry ledger implementation",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.independent_accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "test_manifest_crosscheck.py",
+    "status": "UNTRACKED",
+    "size_bytes": 12247,
+    "sha256": "a5d09d1de6313592da6f1f4edc0e17d481e92f71d685b6518f32a648901f0c59",
+    "line_count": 210,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic cross-checker between report markdown tables and manifests",
+    "internal_modules": [
+      "research.engine.report_consistency_checker"
+    ],
+    "manifests_read": [
+      "research/manifests"
+    ],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "test_method_a.py",
+    "status": "UNTRACKED",
+    "size_bytes": 7690,
+    "sha256": "806395b66b10c0970ed55f2bffb6a636bf5dc272baf26e5c483c65ebbed15f3b",
+    "line_count": 170,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Forensic test runner for Method A execution",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "test_order_invariance.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3104,
+    "sha256": "673dd17b3032cf7a5a53046745910796d45c176709467b9b1991dd43252274db",
+    "line_count": 73,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Tests invariance of execution outcome to order evaluation sequence",
+    "internal_modules": [
+      "agent",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest",
+      "research.strategies.v11_candidates",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "test_recon_table.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1551,
+    "sha256": "a92cca8772a0af01a5770487e9ab683d3d7e9194ee4cc09216b3da3e4f1a78f9",
+    "line_count": 27,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Tests reconciliation table calculations",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "test_replay_adapter.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3233,
+    "sha256": "980e877008f7fd2eef62f6eb82ab685ef039469b0ce7b147fa3e90827de19996",
+    "line_count": 80,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Tests causal replay adapter interface",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "test_session_flow_ledger.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2303,
+    "sha256": "c21269a7e382cdc7122300a64417e58390184c5e0f5024c9492f4ec7ecde3142",
+    "line_count": 51,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Tests session flow ledger mechanics",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.independent_accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache/tier2_bars.json"
+    ]
+  },
+  {
+    "name": "test_speed.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1742,
+    "sha256": "436bc94f4ab200041cbaa2e1554369f5fc4d8d737b82e77a06418929a75ac2b0",
+    "line_count": 48,
+    "category": 5,
+    "category_name": "5. Temporary or incidental artifact",
+    "description": "Temporary or incidental inspection/environment artifact",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "trace_aapl_nvda.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2501,
+    "sha256": "91fc59754e444fd288fe2fde8ccfe36fa7c79371caf396a0cc191252d04b65ad",
+    "line_count": 67,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Traces AAPL and NVDA historical position and split adjustments",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.replay",
+      "research.engine.tiingo_client"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "trace_execution_divergence.py",
+    "status": "UNTRACKED",
+    "size_bytes": 6191,
+    "sha256": "cbc30d27b06f572d3dd269f78e6a4e91a24410e821a90b80225c28b74650db0f",
+    "line_count": 159,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Traces exact bar and order where execution diverges between baseline and friction scenarios",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "trace_fills.py",
+    "status": "UNTRACKED",
+    "size_bytes": 4674,
+    "sha256": "558d71dcd8b13ca4d976eb26c391b9533caebc386c6a14247e4a7eceb937b497",
+    "line_count": 106,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Order-level fill trace comparing baseline vs moderate slippage vs commissions",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "trace_next_divergences.py",
+    "status": "UNTRACKED",
+    "size_bytes": 2171,
+    "sha256": "52f547e6d887399eac60dc122b4914157ab73c0dba3cbee91973cb340200045b",
+    "line_count": 59,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Traces subsequent divergence points across the rebalance timeline",
+    "internal_modules": [
+      "agent",
+      "research.engine.accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client",
+      "research.scripts.run_tier2_authentic_backtest"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  },
+  {
+    "name": "v12_statistical_sensitivity.py",
+    "status": "TRACKED",
+    "size_bytes": 5573,
+    "sha256": "713e327b002f0c14e8fdd3229c88491ec0049f6e0bf817535f4ffd7ef872e1f8",
+    "line_count": 131,
+    "category": 3,
+    "category_name": "3. Superseded research experiment",
+    "description": "Superseded tracked research experiment from earlier Track B stage (v12_statistical_sensitivity.py)",
+    "internal_modules": [
+      "research.engine.provider",
+      "research.engine.replay",
+      "research.strategies.v12_candidate_ae"
+    ],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "v17_prompt.txt",
+    "status": "UNTRACKED",
+    "size_bytes": 20800,
+    "sha256": "04302466235a3a88d55624b84dbc414cc80d05ce04b0bf8b0fd1da63aa72ff45",
+    "line_count": 1460,
+    "category": 4,
+    "category_name": "4. Historical agent prompt or working note",
+    "description": "Historical agent prompt or working note",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "v19_prompt.txt",
+    "status": "UNTRACKED",
+    "size_bytes": 4269,
+    "sha256": "8d2e4633f4eb3dcdd1c12ed4f153027447a17d82e171a921e85dba965101176d",
+    "line_count": 290,
+    "category": 4,
+    "category_name": "4. Historical agent prompt or working note",
+    "description": "Historical agent prompt or working note",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "v19_prompt_full.txt",
+    "status": "UNTRACKED",
+    "size_bytes": 15787,
+    "sha256": "c10d38335a72443953d170cf5b042bd2c77565fdcd8f974ebe48d3bc34555e81",
+    "line_count": 1054,
+    "category": 4,
+    "category_name": "4. Historical agent prompt or working note",
+    "description": "Historical agent prompt or working note",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "v20_prompt.txt",
+    "status": "UNTRACKED",
+    "size_bytes": 16985,
+    "sha256": "8b133098569b63b32c95307ed610d8e3c7fc4217384de0ce32efe111bd3fbfab",
+    "line_count": 1258,
+    "category": 4,
+    "category_name": "4. Historical agent prompt or working note",
+    "description": "Historical agent prompt or working note",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "v21_prompt.txt",
+    "status": "UNTRACKED",
+    "size_bytes": 13938,
+    "sha256": "5e240084fbd0084b58d2a1b03d56ca4f35a155df02701f3bca3037f9595fea3c",
+    "line_count": 964,
+    "category": 4,
+    "category_name": "4. Historical agent prompt or working note",
+    "description": "Historical agent prompt or working note",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "v23_prompt.txt",
+    "status": "UNTRACKED",
+    "size_bytes": 13460,
+    "sha256": "b10a3989c0e5c7627294645644ddac10aa2d125640227e28c31c652675d88fe9",
+    "line_count": 854,
+    "category": 4,
+    "category_name": "4. Historical agent prompt or working note",
+    "description": "Historical agent prompt or working note",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "v24_prompt_full.txt",
+    "status": "UNTRACKED",
+    "size_bytes": 11929,
+    "sha256": "5c4bfb1d58e2108393f25df17701be6a21c87046c2bd29d719a8c5f8e53db84f",
+    "line_count": 832,
+    "category": 4,
+    "category_name": "4. Historical agent prompt or working note",
+    "description": "Historical agent prompt or working note",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "v25_prompt.txt",
+    "status": "UNTRACKED",
+    "size_bytes": 9668,
+    "sha256": "e9a550984b464a39cc0f8938984e27daac291351d2027b7c4b892365a54f9d82",
+    "line_count": 638,
+    "category": 4,
+    "category_name": "4. Historical agent prompt or working note",
+    "description": "Historical agent prompt or working note",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "v25_prompt_full.json",
+    "status": "IGNORED",
+    "size_bytes": 10124,
+    "sha256": "0f0a0707d40d2d5e78a478330be9f003181890324955307551586ea3081179cf",
+    "line_count": 1,
+    "category": 4,
+    "category_name": "4. Historical agent prompt or working note",
+    "description": "Historical agent prompt or working note",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "verify_rebalance_logic.py",
+    "status": "UNTRACKED",
+    "size_bytes": 1376,
+    "sha256": "98b354cb946f24676e4f998440c39a7bdfb77fd9cf1ceb78547aca6b8f33349e",
+    "line_count": 35,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Verifies rebalance order generation logic and rounding",
+    "internal_modules": [],
+    "manifests_read": [],
+    "manifests_written": [],
+    "data_read": []
+  },
+  {
+    "name": "verify_v22_accounting.py",
+    "status": "UNTRACKED",
+    "size_bytes": 3309,
+    "sha256": "66ebca49a41d1f4a5752a740f327d082e23f6a1aafad24f21a0aa03927303512",
+    "line_count": 84,
+    "category": 2,
+    "category_name": "2. Useful historical forensic evidence",
+    "description": "Verifies independent accounting engine against V22 output",
+    "internal_modules": [
+      "agent",
+      "research.engine.corporate_actions",
+      "research.engine.independent_accounting",
+      "research.engine.replay",
+      "research.engine.tiingo_client"
+    ],
+    "manifests_read": [
+      "research/manifests/tier1_v22_independent_accounting.json"
+    ],
+    "manifests_written": [],
+    "data_read": [
+      "tiingo_cache"
+    ]
+  }
+]

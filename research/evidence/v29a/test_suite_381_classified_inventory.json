@@ -1,0 +1,3050 @@
+[
+  {
+    "item_id": "research/tests/test_b2_benchmark.py::TestPerformanceBenchmark::test_benchmark_metrics_validity",
+    "file": "research/tests/test_b2_benchmark.py",
+    "function_name": "test_benchmark_metrics_validity",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_causality_integrity.py::TestCausalityAndTemporalIntegrity::test_nonmonotonic_timestamp_rejections",
+    "file": "research/tests/test_b2_causality_integrity.py",
+    "function_name": "test_nonmonotonic_timestamp_rejections",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Chronologically reversed or out-of-order bars must be rejected, not silently sorted."
+  },
+  {
+    "item_id": "research/tests/test_b2_causality_integrity.py::TestCausalityAndTemporalIntegrity::test_duplicate_session_timestamp_rejection",
+    "file": "research/tests/test_b2_causality_integrity.py",
+    "function_name": "test_duplicate_session_timestamp_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Duplicate dates in a series must be rejected as malformed data."
+  },
+  {
+    "item_id": "research/tests/test_b2_causality_integrity.py::TestCausalityAndTemporalIntegrity::test_calendar_edge_cases",
+    "file": "research/tests/test_b2_causality_integrity.py",
+    "function_name": "test_calendar_edge_cases",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Test leap year validity and non-existent Gregorian dates."
+  },
+  {
+    "item_id": "research/tests/test_b2_causality_integrity.py::TestCausalityAndTemporalIntegrity::test_next_session_open_execution_causality",
+    "file": "research/tests/test_b2_causality_integrity.py",
+    "function_name": "test_next_session_open_execution_causality",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Prove that orders queued on Day T close are executed at Day T+1 open, never on Day T."
+  },
+  {
+    "item_id": "research/tests/test_b2_causality_integrity.py::TestCausalityAndTemporalIntegrity::test_strict_future_bar_exclusion",
+    "file": "research/tests/test_b2_causality_integrity.py",
+    "function_name": "test_strict_future_bar_exclusion",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Validate that validate_market_state rejects any bar with ts > current_date."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_accounting.py::TestIndependentFinancialAccounting::test_decimal_double_entry_accounting_invariant",
+    "file": "research/tests/test_b2_financial_accounting.py",
+    "function_name": "test_decimal_double_entry_accounting_invariant",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Verify double-entry identity across complex multi-trade cycle using Decimal arithmetic."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_accounting.py::TestIndependentFinancialAccounting::test_partial_fill_on_cash_boundary",
+    "file": "research/tests/test_b2_financial_accounting.py",
+    "function_name": "test_partial_fill_on_cash_boundary",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "When requested order cost exceeds available cash, engine must partially fill to exact cash limit."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_accounting.py::TestIndependentFinancialAccounting::test_insufficient_funds_rejection",
+    "file": "research/tests/test_b2_financial_accounting.py",
+    "function_name": "test_insufficient_funds_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Order must be cleanly rejected with INSUFFICIENT_CASH when available cash <= 1e-9."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_accounting.py::TestIndependentFinancialAccounting::test_halted_asset_missing_price_rejection",
+    "file": "research/tests/test_b2_financial_accounting.py",
+    "function_name": "test_halted_asset_missing_price_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "When execution price is None or <= 0, order must be cleanly rejected."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_accounting.py::TestIndependentFinancialAccounting::test_unheld_short_sale_rejection",
+    "file": "research/tests/test_b2_financial_accounting.py",
+    "function_name": "test_unheld_short_sale_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Short sales are forbidden by competition mandate: selling unheld stock is rejected."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_accounting.py::TestIndependentFinancialAccounting::test_repeated_stock_splits_invariant",
+    "file": "research/tests/test_b2_financial_accounting.py",
+    "function_name": "test_repeated_stock_splits_invariant",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Multiple sequential stock splits must preserve exact position notional without leakage."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_accounting.py::TestDividendLifecycleAndTimingEnforcement::test_dividend_receivable_vs_cash_timing_boundary",
+    "file": "research/tests/test_b2_financial_accounting.py",
+    "function_name": "test_dividend_receivable_vs_cash_timing_boundary",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Prove buy order depending on dividend cash is rejected on Ex-Date and succeeds on Payment Date.\n\nTimeline:\n  - T_ex: 2026-06-10 (Ex-Date, stock trades ex-dividend)\n  - T_rec: 2026-06-11 (Record Date)\n  - T_pay: 2026-06-25 (Payment Date, cash credited to broker account)"
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_dividend_paid_after_position_liquidated",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_dividend_paid_after_position_liquidated",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Holding stock on Ex-Date establishes legal entitlement; selling before Payment Date does NOT forfeit dividend."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_duplicate_corporate_action_registration_deduplication",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_duplicate_corporate_action_registration_deduplication",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Repeatedly registering identical corporate actions must be safely deduplicated."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_missing_payment_date_rejected_by_policy",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_missing_payment_date_rejected_by_policy",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Under default strict policy (REJECT), missing payment date raises MissingPaymentDateError."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_missing_payment_date_impute_settlement_lag",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_missing_payment_date_impute_settlement_lag",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Under IMPUTE_SETTLEMENT_LAG policy, missing payment date adds 14-day lag with audit entry."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_missing_payment_date_impute_business_days_10",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_missing_payment_date_impute_business_days_10",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Under IMPUTE_BUSINESS_DAYS_10 policy, missing payment date adds 10 trading business days."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_business_days_vs_calendar_days_distinction",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_business_days_vs_calendar_days_distinction",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Proves 14-calendar-day lag is NOT equivalent to 10-business-day settlement across holidays and year-ends."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_missing_payment_date_ex_date_compatibility",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_missing_payment_date_ex_date_compatibility",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Under EX_DATE_COMPATIBILITY mode, ex-date is used but flagged in imputation audit log."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_fees_incurred_only_on_executed_trades",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_fees_incurred_only_on_executed_trades",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Rejected trades must never assess commissions or reduce cash."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_equity_conservation_under_zero_movement",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_equity_conservation_under_zero_movement",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "With zero price movement and no trades, equity must remain bit-identical across sessions."
+  },
+  {
+    "item_id": "research/tests/test_b2_financial_corner_cases.py::TestFinancialCornerCases::test_separation_of_gross_notional_vs_beta_adjusted_leverage",
+    "file": "research/tests/test_b2_financial_corner_cases.py",
+    "function_name": "test_separation_of_gross_notional_vs_beta_adjusted_leverage",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Prove that Gross-Notional Leverage and Beta-Adjusted Exposure are quantitatively distinct."
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestDataQualityAuditor::test_clean_bar_passes",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_clean_bar_passes",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestDataQualityAuditor::test_negative_or_zero_price_rejected",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_negative_or_zero_price_rejected",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestDataQualityAuditor::test_geometric_integrity_rejection",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_geometric_integrity_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestDataQualityAuditor::test_negative_volume_rejection",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_negative_volume_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestDataQualityAuditor::test_weekend_date_rejection",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_weekend_date_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestDataQualityAuditor::test_pre_inception_date_rejection",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_pre_inception_date_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestDataQualityAuditor::test_series_chronology_and_duplicate_rejection",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_series_chronology_and_duplicate_rejection",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestIngestionPipelineAndCompliance::test_http_status_classification",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_http_status_classification",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestIngestionPipelineAndCompliance::test_ticker_alias_resolution",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_ticker_alias_resolution",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestIngestionPipelineAndCompliance::test_dataset_hash_reproducibility",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_dataset_hash_reproducibility",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestIngestionPipelineAndCompliance::test_ingestion_pipeline_prohibits_durable_storage_on_ephemeral_tier",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_ingestion_pipeline_prohibits_durable_storage_on_ephemeral_tier",
+    "classification": "Mock data",
+    "notes": "Uses mocks, unittest.mock, or dummy mocked providers",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_ingestion_quality.py::TestIngestionPipelineAndCompliance::test_mock_ingestion_handles_rate_limit_and_auth_failures",
+    "file": "research/tests/test_b2_ingestion_quality.py",
+    "function_name": "test_mock_ingestion_handles_rate_limit_and_auth_failures",
+    "classification": "Mock data",
+    "notes": "Uses mocks, unittest.mock, or dummy mocked providers",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_leveraged_overlay.py::test_overlay_inactive_when_qld_sso_missing",
+    "file": "research/tests/test_b2_leveraged_overlay.py",
+    "function_name": "test_overlay_inactive_when_qld_sso_missing",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "When QLD and SSO are absent from market state, overlay must remain inactive."
+  },
+  {
+    "item_id": "research/tests/test_b2_leveraged_overlay.py::test_overlay_activates_in_calm_uptrend_with_qld_sso",
+    "file": "research/tests/test_b2_leveraged_overlay.py",
+    "function_name": "test_overlay_activates_in_calm_uptrend_with_qld_sso",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "When QLD and SSO exist and QQQ is in calm uptrend, overlay activates."
+  },
+  {
+    "item_id": "research/tests/test_b2_leveraged_overlay.py::test_overlay_deactivates_on_high_volatility",
+    "file": "research/tests/test_b2_leveraged_overlay.py",
+    "function_name": "test_overlay_deactivates_on_high_volatility",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "When QQQ 20-day realized volatility exceeds 0.28, overlay must be off."
+  },
+  {
+    "item_id": "research/tests/test_b2_leveraged_overlay.py::test_overlay_liquidation_on_trend_breakdown",
+    "file": "research/tests/test_b2_leveraged_overlay.py",
+    "function_name": "test_overlay_liquidation_on_trend_breakdown",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "When account holds QLD and SSO and market breaks down, agent must sell all shares."
+  },
+  {
+    "item_id": "research/tests/test_b2_leveraged_overlay.py::test_replay_engine_executes_leveraged_overlay_with_slippage",
+    "file": "research/tests/test_b2_leveraged_overlay.py",
+    "function_name": "test_replay_engine_executes_leveraged_overlay_with_slippage",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Integration test: ReplayEngine processes QLD/SSO with 10 bps slippage and ledger conservation."
+  },
+  {
+    "item_id": "research/tests/test_b2_loss_reduction.py::test_candidates_match_competition_contract",
+    "file": "research/tests/test_b2_loss_reduction.py",
+    "function_name": "test_candidates_match_competition_contract",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify all candidate strategies adhere to the official competition decide() interface."
+  },
+  {
+    "item_id": "research/tests/test_b2_loss_reduction.py::test_emergency_exit_breaks_five_day_cadence",
+    "file": "research/tests/test_b2_loss_reduction.py",
+    "function_name": "test_emergency_exit_breaks_five_day_cadence",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "When a severe market shock occurs, FastExitDeRisking must exit immediately without waiting 5 days."
+  },
+  {
+    "item_id": "research/tests/test_b2_loss_reduction.py::test_drawdown_multiplier_de_risks_portfolio",
+    "file": "research/tests/test_b2_loss_reduction.py",
+    "function_name": "test_drawdown_multiplier_de_risks_portfolio",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "When portfolio suffers drawdown, gross targets must scale down proportionally."
+  },
+  {
+    "item_id": "research/tests/test_b2_loss_reduction.py::test_defensive_weights_exclude_xle",
+    "file": "research/tests/test_b2_loss_reduction.py",
+    "function_name": "test_defensive_weights_exclude_xle",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Defensive allocation must exclude volatile energy (XLE) when configured."
+  },
+  {
+    "item_id": "research/tests/test_b2_loss_reduction.py::test_baseline_vol_spike_attribution_truth",
+    "file": "research/tests/test_b2_loss_reduction.py",
+    "function_name": "test_baseline_vol_spike_attribution_truth",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Forensic verification: In vol_spike_snapback, week 1 tech losses exceed 70% of total loss."
+  },
+  {
+    "item_id": "research/tests/test_b2_replay_independence.py::TestReplayIndependenceAndParity::test_parity_classification_against_preview[calm_uptrend]",
+    "file": "research/tests/test_b2_replay_independence.py",
+    "function_name": "test_parity_classification_against_preview",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Formally test and classify Bitwise Parity vs. Tolerance Parity."
+  },
+  {
+    "item_id": "research/tests/test_b2_replay_independence.py::TestReplayIndependenceAndParity::test_parity_classification_against_preview[moderate_selloff]",
+    "file": "research/tests/test_b2_replay_independence.py",
+    "function_name": "test_parity_classification_against_preview",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Formally test and classify Bitwise Parity vs. Tolerance Parity."
+  },
+  {
+    "item_id": "research/tests/test_b2_replay_independence.py::TestReplayIndependenceAndParity::test_parity_classification_against_preview[vol_spike_snapback]",
+    "file": "research/tests/test_b2_replay_independence.py",
+    "function_name": "test_parity_classification_against_preview",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Formally test and classify Bitwise Parity vs. Tolerance Parity."
+  },
+  {
+    "item_id": "research/tests/test_b2_replay_independence.py::TestReplayIndependenceAndParity::test_independent_hand_calculated_replay",
+    "file": "research/tests/test_b2_replay_independence.py",
+    "function_name": "test_independent_hand_calculated_replay",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify against an independent closed-form hand calculation.\n\nSynthetic timeline:\n  Day 1 (2026-01-05): Agent issues buy AAPL 100 shares.\n  Day 2 (2026-01-06): Open @ 100.0, fills with 5 bps slippage. Price = 100.05.\n                      Cost = 10,005.00. Cash = 89,995.00.\n                      Close @ 102.0. Equity = 89,995 + 10,200 = 100,195.00.\n                      Agent issues sell AAPL 100 shares.\n  Day 3 (2026-01-07): Open @ 105.0, fills with 5 bps slippage. Price = 104.9475.\n                      Proceeds = 10,494.75. Cash = 89,995 + 10,494.75 = 100,489.75.\n                      Realized PnL = 10,494.75 - 10,005.00 = +489.75.\n                      Close @ 106.0. Equity = 100,489.75."
+  },
+  {
+    "item_id": "research/tests/test_b2_replay_independence.py::TestReplayIndependenceAndParity::test_canonical_trace_hash_reproducibility",
+    "file": "research/tests/test_b2_replay_independence.py",
+    "function_name": "test_canonical_trace_hash_reproducibility",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Multiple independent replay runs must produce identical SHA-256 trace digests."
+  },
+  {
+    "item_id": "research/tests/test_b2_risk_enforcement.py::TestRiskEnforcementVersusTelemetry::test_active_concentration_clamping_and_rejection",
+    "file": "research/tests/test_b2_risk_enforcement.py",
+    "function_name": "test_active_concentration_clamping_and_rejection",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "In ACTIVE_ENFORCEMENT mode, an order exceeding 30% concentration must be clamped.\n\nIf already at or above 30%, further buy orders must be rejected."
+  },
+  {
+    "item_id": "research/tests/test_b2_risk_enforcement.py::TestRiskEnforcementVersusTelemetry::test_telemetry_only_concentration_breach_monitoring",
+    "file": "research/tests/test_b2_risk_enforcement.py",
+    "function_name": "test_telemetry_only_concentration_breach_monitoring",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "In TELEMETRY_ONLY mode (preview.py contract), orders are NOT clamped or rejected.\n\nBreaches are accurately tracked and reported in telemetry."
+  },
+  {
+    "item_id": "research/tests/test_b2_risk_enforcement.py::TestRiskEnforcementVersusTelemetry::test_active_gross_beta_leverage_gating_on_leveraged_etf",
+    "file": "research/tests/test_b2_risk_enforcement.py",
+    "function_name": "test_active_gross_beta_leverage_gating_on_leveraged_etf",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "TQQQ and SOXL carry beta 3.0. In ACTIVE mode, leverage room must be measured in beta-adjusted space."
+  },
+  {
+    "item_id": "research/tests/test_b2_risk_enforcement.py::TestRiskEnforcementVersusTelemetry::test_active_daily_trade_limit_enforcement",
+    "file": "research/tests/test_b2_risk_enforcement.py",
+    "function_name": "test_active_daily_trade_limit_enforcement",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Active mode must enforce the 50 trades/day competition rule, rejecting the 51st trade."
+  },
+  {
+    "item_id": "research/tests/test_b2_risk_enforcement.py::TestRiskEnforcementVersusTelemetry::test_overnight_market_gap_concentration_drift",
+    "file": "research/tests/test_b2_risk_enforcement.py",
+    "function_name": "test_overnight_market_gap_concentration_drift",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Concentration drift caused by price appreciation without new trades is correctly tracked."
+  },
+  {
+    "item_id": "research/tests/test_b2_risk_enforcement.py::TestRiskEnforcementVersusTelemetry::test_catastrophic_drawdown_detection",
+    "file": "research/tests/test_b2_risk_enforcement.py",
+    "function_name": "test_catastrophic_drawdown_detection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_soak_validation.py::test_missing_soak_directory",
+    "file": "research/tests/test_b2_soak_validation.py",
+    "function_name": "test_missing_soak_directory",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_soak_validation.py::test_pending_soak_directory",
+    "file": "research/tests/test_b2_soak_validation.py",
+    "function_name": "test_pending_soak_directory",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_soak_validation.py::test_short_run_yields_incomplete_verdict",
+    "file": "research/tests/test_b2_soak_validation.py",
+    "function_name": "test_short_run_yields_incomplete_verdict",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_soak_validation.py::test_full_7200s_clean_run_passes",
+    "file": "research/tests/test_b2_soak_validation.py",
+    "function_name": "test_full_7200s_clean_run_passes",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_soak_validation.py::test_corrupted_telemetry_sequence_fails",
+    "file": "research/tests/test_b2_soak_validation.py",
+    "function_name": "test_corrupted_telemetry_sequence_fails",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_soak_validation.py::test_invariant_failure_in_summary_fails",
+    "file": "research/tests/test_b2_soak_validation.py",
+    "function_name": "test_invariant_failure_in_summary_fails",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.parquet-tiingo_free]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.parquet-tiingo_starter]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.parquet-yahoo_finance_unlicensed]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.csv-tiingo_free]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.csv-tiingo_starter]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.csv-yahoo_finance_unlicensed]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.json-tiingo_free]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.json-tiingo_starter]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.json-yahoo_finance_unlicensed]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.sqlite-tiingo_free]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.sqlite-tiingo_starter]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.sqlite-yahoo_finance_unlicensed]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.db-tiingo_free]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.db-tiingo_starter]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_forbidden_storage_targets_blocked[.db-yahoo_finance_unlicensed]",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_forbidden_storage_targets_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "StorageComplianceGuard must raise StorageComplianceError for any file format when provider is restricted."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_in_memory_provider_blocks_persist_call",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_in_memory_provider_blocks_persist_call",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "InMemoryStreamProvider initialized with a restricted provider must raise on persist_to_disk."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_replay_trace_logs_do_not_leak_raw_ohlcv",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_replay_trace_logs_do_not_leak_raw_ohlcv",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Ensure execution traces serialize only portfolio metadata and never dump raw OHLCV price histories."
+  },
+  {
+    "item_id": "research/tests/test_b2_storage_compliance.py::TestStorageComplianceAudit::test_ephemeral_provider_generates_zero_disk_artifacts",
+    "file": "research/tests/test_b2_storage_compliance.py",
+    "function_name": "test_ephemeral_provider_generates_zero_disk_artifacts",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Executing replay with InMemoryStreamProvider leaves zero persistent files on disk."
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_all_25_stress_scenarios_pass",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_all_25_stress_scenarios_pass",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[1]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[2]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[3]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[4]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[5]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[6]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[7]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[8]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[9]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[10]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[11]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[12]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[13]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[14]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[15]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[16]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[17]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[18]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[19]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[20]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[21]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[22]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[23]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[24]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_trading_stress.py::TestTradingStressAndOperationalFailure::test_individual_stress_scenario[25]",
+    "file": "research/tests/test_b2_trading_stress.py",
+    "function_name": "test_individual_stress_scenario",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_walk_forward.py::TestCandidateStrategyAndOptimization::test_candidate_interface_parity",
+    "file": "research/tests/test_b2_walk_forward.py",
+    "function_name": "test_candidate_interface_parity",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_walk_forward.py::TestCandidateStrategyAndOptimization::test_candidate_drawdown_derisking",
+    "file": "research/tests/test_b2_walk_forward.py",
+    "function_name": "test_candidate_drawdown_derisking",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_walk_forward.py::TestWalkForwardBootstrapAndValidator::test_paired_bootstrap_identical_series",
+    "file": "research/tests/test_b2_walk_forward.py",
+    "function_name": "test_paired_bootstrap_identical_series",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_walk_forward.py::TestWalkForwardBootstrapAndValidator::test_paired_bootstrap_strictly_superior_candidate",
+    "file": "research/tests/test_b2_walk_forward.py",
+    "function_name": "test_paired_bootstrap_strictly_superior_candidate",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_b2_walk_forward.py::TestWalkForwardBootstrapAndValidator::test_walk_forward_evaluation_on_calm_uptrend",
+    "file": "research/tests/test_b2_walk_forward.py",
+    "function_name": "test_walk_forward_evaluation_on_calm_uptrend",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_baseline_parity.py::TestBaselineParity::test_replay_engine_matches_official_preview[calm_uptrend]",
+    "file": "research/tests/test_baseline_parity.py",
+    "function_name": "test_replay_engine_matches_official_preview",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_baseline_parity.py::TestBaselineParity::test_replay_engine_matches_official_preview[moderate_selloff]",
+    "file": "research/tests/test_baseline_parity.py",
+    "function_name": "test_replay_engine_matches_official_preview",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_baseline_parity.py::TestBaselineParity::test_replay_engine_matches_official_preview[vol_spike_snapback]",
+    "file": "research/tests/test_baseline_parity.py",
+    "function_name": "test_replay_engine_matches_official_preview",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_corporate_actions.py::TestCorporateActions::test_forward_stock_split_accounting_invariant",
+    "file": "research/tests/test_corporate_actions.py",
+    "function_name": "test_forward_stock_split_accounting_invariant",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_corporate_actions.py::TestCorporateActions::test_reverse_stock_split_accounting_invariant",
+    "file": "research/tests/test_corporate_actions.py",
+    "function_name": "test_reverse_stock_split_accounting_invariant",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_corporate_actions.py::TestCorporateActions::test_cash_dividend_distribution",
+    "file": "research/tests/test_corporate_actions.py",
+    "function_name": "test_cash_dividend_distribution",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_corporate_actions.py::TestCorporateActions::test_unheld_ticker_dividend_yields_zero",
+    "file": "research/tests/test_corporate_actions.py",
+    "function_name": "test_unheld_ticker_dividend_yields_zero",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_provider_compliance.py::TestProviderCompliance::test_tiingo_storage_prohibition_guard",
+    "file": "research/tests/test_provider_compliance.py",
+    "function_name": "test_tiingo_storage_prohibition_guard",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Tiingo free/starter data must NOT be persisted to durable local storage."
+  },
+  {
+    "item_id": "research/tests/test_provider_compliance.py::TestProviderCompliance::test_permitted_local_provider_storage",
+    "file": "research/tests/test_provider_compliance.py",
+    "function_name": "test_permitted_local_provider_storage",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Permitted sources (e.g. user-owned CSVs, paid corporate licenses) pass guard."
+  },
+  {
+    "item_id": "research/tests/test_provider_compliance.py::TestProviderCompliance::test_in_memory_stream_provider_ephemeral_usage",
+    "file": "research/tests/test_provider_compliance.py",
+    "function_name": "test_in_memory_stream_provider_ephemeral_usage",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Proves streaming without durable storage."
+  },
+  {
+    "item_id": "research/tests/test_provider_compliance.py::TestProviderCompliance::test_static_regime_provider_loading",
+    "file": "research/tests/test_provider_compliance.py",
+    "function_name": "test_static_regime_provider_loading",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_replay_accounting.py::TestReplayAccounting::test_cash_conservation_invariant",
+    "file": "research/tests/test_replay_accounting.py",
+    "function_name": "test_cash_conservation_invariant",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_replay_accounting.py::TestReplayAccounting::test_leveraged_etf_slippage",
+    "file": "research/tests/test_replay_accounting.py",
+    "function_name": "test_leveraged_etf_slippage",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_replay_accounting.py::TestReplayAccounting::test_sell_precedes_buy_cash_replenishment",
+    "file": "research/tests/test_replay_accounting.py",
+    "function_name": "test_sell_precedes_buy_cash_replenishment",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Proves that proceeds from sells on day T open are available to fund buys on the same morning."
+  },
+  {
+    "item_id": "research/tests/test_replay_accounting.py::TestReplayAccounting::test_missing_execution_price_drops_cleanly",
+    "file": "research/tests/test_replay_accounting.py",
+    "function_name": "test_missing_execution_price_drops_cleanly",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_replay_accounting.py::TestReplayAccounting::test_short_selling_prevention",
+    "file": "research/tests/test_replay_accounting.py",
+    "function_name": "test_short_selling_prevention",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_risk_limits.py::TestRiskLimits::test_gross_beta_leverage_calculation",
+    "file": "research/tests/test_risk_limits.py",
+    "function_name": "test_gross_beta_leverage_calculation",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_risk_limits.py::TestRiskLimits::test_concentration_streak_tracking",
+    "file": "research/tests/test_risk_limits.py",
+    "function_name": "test_concentration_streak_tracking",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_risk_limits.py::TestRiskLimits::test_catastrophic_drawdown_detection",
+    "file": "research/tests/test_risk_limits.py",
+    "function_name": "test_catastrophic_drawdown_detection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidate_contract_parity",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidate_contract_parity",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[calm_uptrend-Candidate_A]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[calm_uptrend-Candidate_B]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[calm_uptrend-Candidate_C]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[calm_uptrend-Candidate_D]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[calm_uptrend-Candidate_E]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[calm_uptrend-Candidate_F]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[calm_uptrend-Candidate_AE]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[moderate_selloff-Candidate_A]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[moderate_selloff-Candidate_B]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[moderate_selloff-Candidate_C]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[moderate_selloff-Candidate_D]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[moderate_selloff-Candidate_E]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[moderate_selloff-Candidate_F]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[moderate_selloff-Candidate_AE]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[vol_spike_snapback-Candidate_A]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[vol_spike_snapback-Candidate_B]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[vol_spike_snapback-Candidate_C]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[vol_spike_snapback-Candidate_D]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[vol_spike_snapback-Candidate_E]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[vol_spike_snapback-Candidate_F]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidates_run_cleanly_all_regimes[vol_spike_snapback-Candidate_AE]",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidates_run_cleanly_all_regimes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v11_candidates.py::test_candidate_determinism",
+    "file": "research/tests/test_v11_candidates.py",
+    "function_name": "test_candidate_determinism",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_emergency_sell_smaller_than_buffer_threshold",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_emergency_sell_smaller_than_buffer_threshold",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "If a position is 2% of equity (< 3% buffer), an emergency shock MUST sell it completely."
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_full_liquidation_bypasses_buffer_in_normal_rebalance",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_full_liquidation_bypasses_buffer_in_normal_rebalance",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "When a stock is removed from top winners, its 2.5% position must be fully closed."
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_buffer_suppresses_small_trade_adjustment",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_buffer_suppresses_small_trade_adjustment",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "If target is 20% and current is 18.5% (delta 1.5% < 3%), buffer should keep 18.5%."
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_simultaneous_scheduled_and_emergency_rebalance",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_simultaneous_scheduled_and_emergency_rebalance",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "When day counter >= 5 AND shock occurs, emergency exit takes precedence."
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_repeated_emergency_triggers_idempotent",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_repeated_emergency_triggers_idempotent",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Consecutive emergency shock days do not produce redundant sell orders."
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_missing_or_corrupt_spy_resilience",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_missing_or_corrupt_spy_resilience",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Missing or short SPY bars safely evaluates to False without raising exceptions."
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_leveraged_etf_exposure_gated_during_distress",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_leveraged_etf_exposure_gated_during_distress",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "QLD and SSO overlay must never be active when shock occurs or vol > 0.28."
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_insufficient_cash_handling",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_insufficient_cash_handling",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_stock_split_during_liquidation",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_stock_split_during_liquidation",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v12_candidate_ae_conflicts.py::test_transaction_cost_shock_balance_sheet_conservation",
+    "file": "research/tests/test_v12_candidate_ae_conflicts.py",
+    "function_name": "test_transaction_cost_shock_balance_sheet_conservation",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v13_historical_qualification.py::test_pre_inception_xlre_rejection",
+    "file": "research/tests/test_v13_historical_qualification.py",
+    "function_name": "test_pre_inception_xlre_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "XLRE incepted on 2015-10-07; observations prior must be rejected."
+  },
+  {
+    "item_id": "research/tests/test_v13_historical_qualification.py::test_pre_inception_xlc_rejection",
+    "file": "research/tests/test_v13_historical_qualification.py",
+    "function_name": "test_pre_inception_xlc_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "XLC incepted on 2018-06-18; observations prior must be rejected."
+  },
+  {
+    "item_id": "research/tests/test_v13_historical_qualification.py::test_production_universe_manifest_exact_24",
+    "file": "research/tests/test_v13_historical_qualification.py",
+    "function_name": "test_production_universe_manifest_exact_24",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Universe manifest must match exact 24 E0 instruments and contain no substitutes."
+  },
+  {
+    "item_id": "research/tests/test_v13_historical_qualification.py::test_duplicate_dividend_deduplication",
+    "file": "research/tests/test_v13_historical_qualification.py",
+    "function_name": "test_duplicate_dividend_deduplication",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v13_historical_qualification.py::test_invalid_split_ratio_rejected",
+    "file": "research/tests/test_v13_historical_qualification.py",
+    "function_name": "test_invalid_split_ratio_rejected",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v13_historical_qualification.py::test_future_split_not_applied_prematurely",
+    "file": "research/tests/test_v13_historical_qualification.py",
+    "function_name": "test_future_split_not_applied_prematurely",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v13_historical_qualification.py::test_us_market_holiday_rejection",
+    "file": "research/tests/test_v13_historical_qualification.py",
+    "function_name": "test_us_market_holiday_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Christmas Day (2024-12-25) is a market holiday and should be rejected."
+  },
+  {
+    "item_id": "research/tests/test_v13_historical_qualification.py::test_missing_leveraged_etfs_agent_resilience",
+    "file": "research/tests/test_v13_historical_qualification.py",
+    "function_name": "test_missing_leveraged_etfs_agent_resilience",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "If QLD or SSO are missing from market state, agent executes cleanly without crashing."
+  },
+  {
+    "item_id": "research/tests/test_v13_historical_qualification.py::test_storage_compliance_intercepts_unauthorized_persistence",
+    "file": "research/tests/test_v13_historical_qualification.py",
+    "function_name": "test_storage_compliance_intercepts_unauthorized_persistence",
+    "classification": "Mock data",
+    "notes": "Uses mocks, unittest.mock, or dummy mocked providers",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v14_financial_forensics.py::test_production_universe_exact_equality",
+    "file": "research/tests/test_v14_financial_forensics.py",
+    "function_name": "test_production_universe_exact_equality",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Verify production manifest matches agent.py source AST exactly."
+  },
+  {
+    "item_id": "research/tests/test_v14_financial_forensics.py::test_regime_calendar_lengths_and_notional",
+    "file": "research/tests/test_v14_financial_forensics.py",
+    "function_name": "test_regime_calendar_lengths_and_notional",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify exact session lengths and turnover bounds for all 3 regimes."
+  },
+  {
+    "item_id": "research/tests/test_v14_financial_forensics.py::test_accounting_invariants_and_slippage_integrity",
+    "file": "research/tests/test_v14_financial_forensics.py",
+    "function_name": "test_accounting_invariants_and_slippage_integrity",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify double-entry balance sheet invariant and slippage formula."
+  },
+  {
+    "item_id": "research/tests/test_v14_financial_forensics.py::test_four_way_candidate_deterministic_returns",
+    "file": "research/tests/test_v14_financial_forensics.py",
+    "function_name": "test_four_way_candidate_deterministic_returns",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify exact reproduction of V12 four-way comparison metrics."
+  },
+  {
+    "item_id": "research/tests/test_v14_financial_forensics.py::test_statistical_uncertainty_negative_control",
+    "file": "research/tests/test_v14_financial_forensics.py",
+    "function_name": "test_statistical_uncertainty_negative_control",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify paired t-test fails to reject null hypothesis at 95% confidence on N=49 days."
+  },
+  {
+    "item_id": "research/tests/test_v15_evidence_gates.py::test_gate1_raw_fixture_calendar_dates",
+    "file": "research/tests/test_v15_evidence_gates.py",
+    "function_name": "test_gate1_raw_fixture_calendar_dates",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify exact raw calendar dates and warmup/scored lengths in sample_regimes.json.gz."
+  },
+  {
+    "item_id": "research/tests/test_v15_evidence_gates.py::test_gate2_attribution_bridge_and_defensive_holdings",
+    "file": "research/tests/test_v15_evidence_gates.py",
+    "function_name": "test_gate2_attribution_bridge_and_defensive_holdings",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify cent-accurate terminal equity bridge and subsequent defensive holdings."
+  },
+  {
+    "item_id": "research/tests/test_v15_evidence_gates.py::test_gate3_cost_sensitivity_hierarchy",
+    "file": "research/tests/test_v15_evidence_gates.py",
+    "function_name": "test_gate3_cost_sensitivity_hierarchy",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify Candidate A+E strictly outperforms Baseline E0 across realistic spreads & commissions."
+  },
+  {
+    "item_id": "research/tests/test_v15_evidence_gates.py::test_gate7_pristine_holdout_isolation",
+    "file": "research/tests/test_v15_evidence_gates.py",
+    "function_name": "test_gate7_pristine_holdout_isolation",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Verify sample regimes fixture has zero observations in 2022-2024."
+  },
+  {
+    "item_id": "research/tests/test_v16_procurement_preflight.py::test_cent_level_rounding_order_reconciliation",
+    "file": "research/tests/test_v16_procurement_preflight.py",
+    "function_name": "test_cent_level_rounding_order_reconciliation",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Prove the mathematical origin of $2,621.20 vs $2,621.21."
+  },
+  {
+    "item_id": "research/tests/test_v16_procurement_preflight.py::test_v15_clean_worktree_commit_id",
+    "file": "research/tests/test_v16_procurement_preflight.py",
+    "function_name": "test_v15_clean_worktree_commit_id",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify clean clone worktree is checked out at full V15 commit, not V14."
+  },
+  {
+    "item_id": "research/tests/test_v16_procurement_preflight.py::test_provider_rolling_10_year_history_insufficiency",
+    "file": "research/tests/test_v16_procurement_preflight.py",
+    "function_name": "test_provider_rolling_10_year_history_insufficiency",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Prove that as of late 2026, a 10-year rolling provider history does NOT cover January 2015."
+  },
+  {
+    "item_id": "research/tests/test_v16_procurement_preflight.py::test_holdout_boundary_strict_absence",
+    "file": "research/tests/test_v16_procurement_preflight.py",
+    "function_name": "test_holdout_boundary_strict_absence",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify that no observation in sample_regimes.json.gz is dated >= 2022-01-01."
+  },
+  {
+    "item_id": "research/tests/test_v17_tiingo_qualification.py::test_secret_redaction_layer",
+    "file": "research/tests/test_v17_tiingo_qualification.py",
+    "function_name": "test_secret_redaction_layer",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify secret token is stripped from text and URLs."
+  },
+  {
+    "item_id": "research/tests/test_v17_tiingo_qualification.py::test_holdout_protection_hardcoded_cutoff",
+    "file": "research/tests/test_v17_tiingo_qualification.py",
+    "function_name": "test_holdout_protection_hardcoded_cutoff",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify attempts to request data in or after 2022-01-01 are blocked before network call."
+  },
+  {
+    "item_id": "research/tests/test_v17_tiingo_qualification.py::test_rate_limiter_enforcement",
+    "file": "research/tests/test_v17_tiingo_qualification.py",
+    "function_name": "test_rate_limiter_enforcement",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify sliding-window rate limiter stops requests exceeding max per hour."
+  },
+  {
+    "item_id": "research/tests/test_v17_tiingo_qualification.py::test_tiingo_client_normalizes_eod_bars",
+    "file": "research/tests/test_v17_tiingo_qualification.py",
+    "function_name": "test_tiingo_client_normalizes_eod_bars",
+    "classification": "Mock data",
+    "notes": "Uses mocks, unittest.mock, or dummy mocked providers",
+    "docstring": "Verify raw Tiingo JSON payload is normalized correctly into schema."
+  },
+  {
+    "item_id": "research/tests/test_v17_tiingo_qualification.py::test_tiingo_historical_provider_streaming",
+    "file": "research/tests/test_v17_tiingo_qualification.py",
+    "function_name": "test_tiingo_historical_provider_streaming",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify provider streams daily point-in-time slices for agent."
+  },
+  {
+    "item_id": "research/tests/test_v17_tiingo_qualification.py::test_invalid_bar_data_rejections",
+    "file": "research/tests/test_v17_tiingo_qualification.py",
+    "function_name": "test_invalid_bar_data_rejections",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify rejection of NaN, non-positive price, and invalid High/Low bounds."
+  },
+  {
+    "item_id": "research/tests/test_v17_tiingo_qualification.py::test_auth_header_and_request_structure",
+    "file": "research/tests/test_v17_tiingo_qualification.py",
+    "function_name": "test_auth_header_and_request_structure",
+    "classification": "Mock data",
+    "notes": "Uses mocks, unittest.mock, or dummy mocked providers",
+    "docstring": "Verify Authorization header is 'Token <secret>' and Accept is 'application/json'."
+  },
+  {
+    "item_id": "research/tests/test_v17_tiingo_qualification.py::test_meta_fb_ticker_aliasing",
+    "file": "research/tests/test_v17_tiingo_qualification.py",
+    "function_name": "test_meta_fb_ticker_aliasing",
+    "classification": "Mock data",
+    "notes": "Uses mocks, unittest.mock, or dummy mocked providers",
+    "docstring": "Verify provider maps META to FB for pre-2022 requests."
+  },
+  {
+    "item_id": "research/tests/test_v18_authentic_tier1.py::test_holdout_firewall_blocks_boundary_crossings",
+    "file": "research/tests/test_v18_authentic_tier1.py",
+    "function_name": "test_holdout_firewall_blocks_boundary_crossings",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify holdout firewall blocks any 2022-2024 date prior to socket creation."
+  },
+  {
+    "item_id": "research/tests/test_v18_authentic_tier1.py::test_negative_controls_bar_validation",
+    "file": "research/tests/test_v18_authentic_tier1.py",
+    "function_name": "test_negative_controls_bar_validation",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Adversarial negative controls: verify bad bar geometries are strictly rejected."
+  },
+  {
+    "item_id": "research/tests/test_v18_authentic_tier1.py::test_request_ledger_recording_and_redaction",
+    "file": "research/tests/test_v18_authentic_tier1.py",
+    "function_name": "test_request_ledger_recording_and_redaction",
+    "classification": "Mock data",
+    "notes": "Uses mocks, unittest.mock, or dummy mocked providers",
+    "docstring": "Verify ledger records query details without leaking tokens."
+  },
+  {
+    "item_id": "research/tests/test_v18_authentic_tier1.py::test_point_in_time_causality_streaming",
+    "file": "research/tests/test_v18_authentic_tier1.py",
+    "function_name": "test_point_in_time_causality_streaming",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify that daily slices stream strictly point-in-time (zero lookahead)."
+  },
+  {
+    "item_id": "research/tests/test_v19_tier1_forensics.py::test_24_asset_dataset_bar_count_reconciliation",
+    "file": "research/tests/test_v19_tier1_forensics.py",
+    "function_name": "test_24_asset_dataset_bar_count_reconciliation",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Verify total raw, warm-up, Tier 1, unique and duplicate counts."
+  },
+  {
+    "item_id": "research/tests/test_v19_tier1_forensics.py::test_coverage_matrix_all_24_qualified",
+    "file": "research/tests/test_v19_tier1_forensics.py",
+    "function_name": "test_coverage_matrix_all_24_qualified",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify coverage matrix has 24/24 assets marked QUALIFIED."
+  },
+  {
+    "item_id": "research/tests/test_v19_tier1_forensics.py::test_accounting_balance_sheet_conservation",
+    "file": "research/tests/test_v19_tier1_forensics.py",
+    "function_name": "test_accounting_balance_sheet_conservation",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Verify daily and terminal double-entry balance sheet conservation."
+  },
+  {
+    "item_id": "research/tests/test_v19_tier1_forensics.py::test_terminal_unrealized_pnl_is_non_zero_for_open_positions",
+    "file": "research/tests/test_v19_tier1_forensics.py",
+    "function_name": "test_terminal_unrealized_pnl_is_non_zero_for_open_positions",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify unrealized P&L is explicitly reported and non-zero when positions are open."
+  },
+  {
+    "item_id": "research/tests/test_v19_tier1_forensics.py::test_point_in_time_causality_negative_control",
+    "file": "research/tests/test_v19_tier1_forensics.py",
+    "function_name": "test_point_in_time_causality_negative_control",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify future corporate actions do not alter historical valuations or decisions."
+  },
+  {
+    "item_id": "research/tests/test_v19_tier1_forensics.py::test_holdout_protection_strict_boundary",
+    "file": "research/tests/test_v19_tier1_forensics.py",
+    "function_name": "test_holdout_protection_strict_boundary",
+    "classification": "Mock data",
+    "notes": "Uses mocks, unittest.mock, or dummy mocked providers",
+    "docstring": "Verify TiingoClient rejects any query touching dates >= 2022-01-01."
+  },
+  {
+    "item_id": "research/tests/test_v19_tier1_forensics.py::test_cagr_formula_consistency",
+    "file": "research/tests/test_v19_tier1_forensics.py",
+    "function_name": "test_cagr_formula_consistency",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify CAGR formula compounding matches exact return over session count."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20ExecutionCostForensics::test_configured_slippage_constants",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_configured_slippage_constants",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify baseline configured slippage: 5 bps for equity/1x ETFs, 10 bps for 2x overlay."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20ExecutionCostForensics::test_per_fill_dollar_impact_formula",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_per_fill_dollar_impact_formula",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify dollar slippage formula: abs(qty) * abs(fill_price - reference_price)."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20ExecutionCostForensics::test_effective_slippage_rate_reconciliation",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_effective_slippage_rate_reconciliation",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Reconcile that actual execution slippage is ~5.13 bps, not 100 bps (1%)."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20TerminalHoldingsReconciliation::test_unrounded_terminal_holdings_sum",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_unrounded_terminal_holdings_sum",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Assert unrounded position market values sum to exactly $347,491.10."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20TerminalHoldingsReconciliation::test_cost_basis_and_unrealized_pnl_invariants",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_cost_basis_and_unrealized_pnl_invariants",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Verify unrealized PnL equals market value less adjusted cost basis for every position."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20CashReserveAndProductionFidelity::test_production_cash_reserve_targets",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_production_cash_reserve_targets",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify agent.py allocates budget targeting 6% cash with overlay, 8% without."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20CashReserveAndProductionFidelity::test_fractional_exhaustion_at_terminal_cash",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_fractional_exhaustion_at_terminal_cash",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify terminal cash of pennies is caused by cash-affordability fill clamping."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20CorporateActionForensics::test_split_cost_basis_conservation",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_split_cost_basis_conservation",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify split multiplies shares and divides avg_cost, conserving total cost basis."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20CorporateActionForensics::test_dividend_imputed_settlement_policy",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_dividend_imputed_settlement_policy",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify dividend lifecycle: ex-date receivable accrual and 10-business-day settlement."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20IndependentAccountingAndNegativeControls::test_seven_adversarial_negative_controls",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_seven_adversarial_negative_controls",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Assert all 7 adversarial negative controls catch anomalies."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20IndependentAccountingAndNegativeControls::test_independent_ledger_double_entry_balance",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_independent_ledger_double_entry_balance",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Assert clean double-entry conservation invariant holds without exception."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20HoldoutAndSecurityIntegrity::test_holdout_strict_isolation_2022_2024",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_holdout_strict_isolation_2022_2024",
+    "classification": "Mock data",
+    "notes": "Uses mocks, unittest.mock, or dummy mocked providers",
+    "docstring": "Assert Tiingo client raises HoldoutProtectionViolation on any query >= 2022-01-01."
+  },
+  {
+    "item_id": "research/tests/test_v20_financial_integrity.py::TestV20HoldoutAndSecurityIntegrity::test_secret_redaction_sanitizer",
+    "file": "research/tests/test_v20_financial_integrity.py",
+    "function_name": "test_secret_redaction_sanitizer",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify token is completely masked in logs and URLs."
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestTargetWeightsVsHardConstraints::test_target_weights_not_hard_caps",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_target_weights_not_hard_caps",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestConcentrationForensics::test_aapl_nvda_deadband_suppression",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_aapl_nvda_deadband_suppression",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestExactDecimalNAVRounding::test_decimal_rounding_bridge",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_decimal_rounding_bridge",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestCorporateActionsFidelity::test_split_inventory",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_split_inventory",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestBenchmarkSensitivityClassification::test_decision_latency_sub_5ms",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_decision_latency_sub_5ms",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestHoldoutAndSecurityGates::test_tier2_tier3_strictly_blocked",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_tier2_tier3_strictly_blocked",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestHoldoutAndSecurityGates::test_token_redaction",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_token_redaction",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestNegativeControls::test_unadjusted_prices_trigger_aapl_trim",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_unadjusted_prices_trigger_aapl_trim",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestCashExhaustionAndPartialFills::test_buy_orders_scale_to_available_cash",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_buy_orders_scale_to_available_cash",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestManifestConsistency::test_manifest_nav_matches_unrounded_bridge",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_manifest_nav_matches_unrounded_bridge",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v21_portfolio_fidelity.py::TestExposureConcentrationMetrics::test_e0_high_concentration_vs_candidates",
+    "file": "research/tests/test_v21_portfolio_fidelity.py",
+    "function_name": "test_e0_high_concentration_vs_candidates",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v22_price_semantics.py::TestCausalPriceNormalizationContract::test_raw_market_price_used_in_decision_latest_bar",
+    "file": "research/tests/test_v22_price_semantics.py",
+    "function_name": "test_raw_market_price_used_in_decision_latest_bar",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v22_price_semantics.py::TestSplitAdjustmentLeakageRejection::test_apple_future_split_not_leaked",
+    "file": "research/tests/test_v22_price_semantics.py",
+    "function_name": "test_apple_future_split_not_leaked",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v22_price_semantics.py::TestSplitAdjustmentLeakageRejection::test_nvda_fortyfold_split_not_leaked",
+    "file": "research/tests/test_v22_price_semantics.py",
+    "function_name": "test_nvda_fortyfold_split_not_leaked",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v22_price_semantics.py::TestNegativeControlRebalanceTrimming::test_aapl_trimming_discrepancy",
+    "file": "research/tests/test_v22_price_semantics.py",
+    "function_name": "test_aapl_trimming_discrepancy",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v22_price_semantics.py::TestCorporateActionInHolding::test_qld_split_continuity",
+    "file": "research/tests/test_v22_price_semantics.py",
+    "function_name": "test_qld_split_continuity",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v22_price_semantics.py::TestReplayEnginePriceSemanticsSwitch::test_replay_engine_adapter_modes",
+    "file": "research/tests/test_v22_price_semantics.py",
+    "function_name": "test_replay_engine_adapter_modes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23Tier2BoundariesAndHoldoutFirewall::test_holdout_firewall_rejection",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_holdout_firewall_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Assert queries requesting dates on or after 2022-01-01 are strictly rejected."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23Tier2BoundariesAndHoldoutFirewall::test_tier2_cache_dates_within_authorized_window",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_tier2_cache_dates_within_authorized_window",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Assert cached Tier 2 bars never contain observations on or after 2022-01-01."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23UniverseAndCorporateActions::test_24_symbols_presence_and_bar_count",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_24_symbols_presence_and_bar_count",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Assert all 24 production instruments are present with 505 Tier 2 bars each."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23UniverseAndCorporateActions::test_known_stock_splits_qualification",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_known_stock_splits_qualification",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Assert AAPL 4:1, TSLA 5:1, and NVDA 4:1 splits are accurately represented."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23OptionBPriceContractAndCausality::test_option_b_preserves_raw_close_for_decision_bar",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_option_b_preserves_raw_close_for_decision_bar",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Assert Option B adapter sets bar[-1]['close'] to raw_close on decision day T."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23CrossYearBoundaryAndPendingOrders::test_zero_pending_orders_at_tier1_terminal_boundary",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_zero_pending_orders_at_tier1_terminal_boundary",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Assert no pending orders are dangling at 2019-12-31 close."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23IndependentAccountingAndNegativeControls::test_independent_accounting_manifest_certification",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_independent_accounting_manifest_certification",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Assert all 4 strategies achieved 100% accounting certification."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23IndependentAccountingAndNegativeControls::test_seven_adversarial_negative_controls",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_seven_adversarial_negative_controls",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Assert all 7 adversarial negative controls catch anomalies."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23StatisticalAndManifestConsistency::test_preregistration_protocol_present_and_valid",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_preregistration_protocol_present_and_valid",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Assert tier2_preregistration_protocol.json is valid and covers 24 assets."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23StatisticalAndManifestConsistency::test_four_way_results_present_and_valid",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_four_way_results_present_and_valid",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Assert tier2_four_way_results.json exists and contains all 4 strategies."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23StatisticalAndManifestConsistency::test_paired_statistics_manifest",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_paired_statistics_manifest",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Assert tier2_paired_strategy_statistics.json has block bootstrap CIs."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23StatisticalAndManifestConsistency::test_regime_robustness_manifest",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_regime_robustness_manifest",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Assert tier2_regime_robustness_profile.json has all 6 macroeconomic regimes."
+  },
+  {
+    "item_id": "research/tests/test_v23_tier2_validation.py::TestV23StatisticalAndManifestConsistency::test_secret_redaction",
+    "file": "research/tests/test_v23_tier2_validation.py",
+    "function_name": "test_secret_redaction",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Assert secret redaction function functions properly."
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_tier1_to_tier2_continuity_bridge_frozen_e0",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_tier1_to_tier2_continuity_bridge_frozen_e0",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_four_way_continuity_bridge_completeness",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_four_way_continuity_bridge_completeness",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_phantom_capital_rejection",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_phantom_capital_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_fresh_start_terminal_cash_exact_match",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_fresh_start_terminal_cash_exact_match",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_execution_order_invariance",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_execution_order_invariance",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_corporate_action_registry_isolation",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_corporate_action_registry_isolation",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_preregistration_cost_model_audit",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_preregistration_cost_model_audit",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_commit_provenance",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_commit_provenance",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_paired_statistics_significance_bounds",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_paired_statistics_significance_bounds",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_holdout_protection_firewall",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_holdout_protection_firewall",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v24_continuity_and_forensics.py::test_credential_redaction",
+    "file": "research/tests/test_v24_continuity_and_forensics.py",
+    "function_name": "test_credential_redaction",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_phantom_capital_arithmetic_bridge",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_phantom_capital_arithmetic_bridge",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_validation_fails_on_missing_ending_cash",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_validation_fails_on_missing_ending_cash",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_validation_fails_on_null_or_negative_cash",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_validation_fails_on_null_or_negative_cash",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_validation_fails_on_missing_or_negative_receivables",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_validation_fails_on_missing_or_negative_receivables",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_validation_fails_on_malformed_positions",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_validation_fails_on_malformed_positions",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_validation_fails_on_balance_sheet_violation",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_validation_fails_on_balance_sheet_violation",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_carry_forward_reconstruction_frozen_e0",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_carry_forward_reconstruction_frozen_e0",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_fresh_start_cash_ledger_balance",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_fresh_start_cash_ledger_balance",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_deliberate_state_contamination_negative_control",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_deliberate_state_contamination_negative_control",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_preregistered_cost_impact_below_threshold",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_preregistered_cost_impact_below_threshold",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_manifest_consistency_checker",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_manifest_consistency_checker",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_tier3_sealed_rejection",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_tier3_sealed_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v25_financial_certification.py::test_credential_redaction_safety",
+    "file": "research/tests/test_v25_financial_certification.py",
+    "function_name": "test_credential_redaction_safety",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_unauthorized_ticker",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_unauthorized_ticker",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_incorrect_position_subtotal",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_incorrect_position_subtotal",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_missing_transaction",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_missing_transaction",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_phantom_capital",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_phantom_capital",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_incorrect_starting_cash",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_incorrect_starting_cash",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_reused_portfolio_state",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_reused_portfolio_state",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_mispriced_security",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_mispriced_security",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_dividend_double_settlement",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_dividend_double_settlement",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_incorrect_split_factor",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_incorrect_split_factor",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_slippage_double_deduction",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_slippage_double_deduction",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_corrupted_candidate_manifests",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_corrupted_candidate_manifests",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_report_table_contradicting_manifest",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_report_table_contradicting_manifest",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_future_dated_market_observation",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_future_dated_market_observation",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26_adversarial_challenge.py::test_negative_control_unauthorized_tier3_access",
+    "file": "research/tests/test_v26_adversarial_challenge.py",
+    "function_name": "test_negative_control_unauthorized_tier3_access",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_parse_markdown_tables_basic",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_parse_markdown_tables_basic",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_authoritative_manifest_exact_arithmetic[Frozen E0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_authoritative_manifest_exact_arithmetic",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_authoritative_manifest_exact_arithmetic[Candidate A]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_authoritative_manifest_exact_arithmetic",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_authoritative_manifest_exact_arithmetic[Candidate E]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_authoritative_manifest_exact_arithmetic",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_authoritative_manifest_exact_arithmetic[Candidate A+E]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_authoritative_manifest_exact_arithmetic",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_component_rounding_invariant[Frozen E0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_component_rounding_invariant",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Prove that summing rounded components yields exactly 1 cent less than rounding unrounded sum."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_component_rounding_invariant[Candidate A]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_component_rounding_invariant",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Prove that summing rounded components yields exactly 1 cent less than rounding unrounded sum."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_component_rounding_invariant[Candidate E]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_component_rounding_invariant",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Prove that summing rounded components yields exactly 1 cent less than rounding unrounded sum."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_component_rounding_invariant[Candidate A+E]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_component_rounding_invariant",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Prove that summing rounded components yields exactly 1 cent less than rounding unrounded sum."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_valid_sample_table_passes",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_valid_sample_table_passes",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_share_quantity[1.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_share_quantity",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_share_quantity[-1.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_share_quantity",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_share_quantity[0.5]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_share_quantity",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_share_quantity[-0.5]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_share_quantity",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_price[0.05]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_price",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_price[-0.05]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_price",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_price[1.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_price",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_price[-1.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_price",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_row_market_value[1.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_row_market_value",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_row_market_value[-1.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_row_market_value",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_row_market_value[10.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_row_market_value",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_single_row_market_value[-10.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_single_row_market_value",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_grand_total[1.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_grand_total",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_grand_total[-1.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_grand_total",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_grand_total[1000.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_grand_total",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_alter_grand_total[-1000.0]",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_alter_grand_total",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_omitted_row",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_omitted_row",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_mutation_unauthorized_ticker_in_manifest",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_mutation_unauthorized_ticker_in_manifest",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_historical_v25_table_internal_arithmetic",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_historical_v25_table_internal_arithmetic",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify that the 7 stocks in the original V25 Section 6 table DID sum to $253,391.71."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_strategy_balance_sheet_table_validation",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_strategy_balance_sheet_table_validation",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_v26r_report_tables_against_manifests_success",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_v26r_report_tables_against_manifests_success",
+    "classification": "Independent evidence-derived assertions",
+    "notes": "Verifies cross-manifest or independent double-entry accounting reconciliation",
+    "docstring": "Verify published V26-R report tables against machine manifests."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_v26r_full_report_text_verification",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_v26r_full_report_text_verification",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify that full gating validator passes on the published V26-R report."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_manifest_crosscheck_mutation_share_quantity",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_manifest_crosscheck_mutation_share_quantity",
+    "classification": "Independent evidence-derived assertions",
+    "notes": "Verifies cross-manifest or independent double-entry accounting reconciliation",
+    "docstring": "Mutating a share quantity in Table 1 triggers ReportConsistencyError against manifest."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_manifest_crosscheck_mutation_close_price",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_manifest_crosscheck_mutation_close_price",
+    "classification": "Independent evidence-derived assertions",
+    "notes": "Verifies cross-manifest or independent double-entry accounting reconciliation",
+    "docstring": "Mutating a close price in Table 1 triggers ReportConsistencyError against manifest."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_manifest_crosscheck_mutation_cash",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_manifest_crosscheck_mutation_cash",
+    "classification": "Independent evidence-derived assertions",
+    "notes": "Verifies cross-manifest or independent double-entry accounting reconciliation",
+    "docstring": "Mutating ending cash in Section 3.3 balance sheet triggers ReportConsistencyError against manifest."
+  },
+  {
+    "item_id": "research/tests/test_v26r_report_arithmetic_verifier.py::test_manifest_crosscheck_mutation_carryforward_nav",
+    "file": "research/tests/test_v26r_report_arithmetic_verifier.py",
+    "function_name": "test_manifest_crosscheck_mutation_carryforward_nav",
+    "classification": "Independent evidence-derived assertions",
+    "notes": "Verifies cross-manifest or independent double-entry accounting reconciliation",
+    "docstring": "Mutating carryforward ending NAV in Section 6.1 triggers ReportConsistencyError against manifest."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_future_market_information_poisoning",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_future_market_information_poisoning",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Poisoning future market bars (T+1, T+2) must not alter strategy decisions on day T."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_noncausal_backward_adjusted_closes",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_noncausal_backward_adjusted_closes",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Using Tiingo backward-adjusted close creates scale distortion on pre-split dates."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_incorrect_benchmark_dividend_treatment",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_incorrect_benchmark_dividend_treatment",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Failing to reinvest cash dividends produces an understated benchmark return."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_invalid_split_ratios[0.0]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_invalid_split_ratios",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Non-positive or negative split ratios must be rejected by CorporateActionRegistry."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_invalid_split_ratios[-1.0]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_invalid_split_ratios",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Non-positive or negative split ratios must be rejected by CorporateActionRegistry."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_invalid_split_ratios[-2.0]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_invalid_split_ratios",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Non-positive or negative split ratios must be rejected by CorporateActionRegistry."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_duplicated_cash_income",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_duplicated_cash_income",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Injected duplicate dividend credit breaks double-entry balance sheet conservation."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_duplicate_transaction_costs",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_duplicate_transaction_costs",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Double deduction of slippage corrupts cash balances."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_unrealistic_full_fills_insufficient_cash",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_unrealistic_full_fills_insufficient_cash",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Attempting to buy shares with zero cash must be rejected with INSUFFICIENT_CASH."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_daily_trade_cap_breach",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_daily_trade_cap_breach",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Exceeding 50 trades in a day under ACTIVE_ENFORCEMENT triggers DAILY_TRADE_LIMIT_EXCEEDED."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_out_of_order_timestamps",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_out_of_order_timestamps",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Market series with non-monotonic or disordered timestamps must be rejected."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_tampered_performance_metrics",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_tampered_performance_metrics",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Contradictory terminal cash or NAV across manifests raises ReportConsistencyError."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_historical_inception_constraints",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_historical_inception_constraints",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "XLC only incepted 2018-06-19; observations before that date must not exist."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_unauthorized_universe_symbols[UNH]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_unauthorized_universe_symbols",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Orders for securities outside the 24-ticker universe must be rejected."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_unauthorized_universe_symbols[GME]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_unauthorized_universe_symbols",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Orders for securities outside the 24-ticker universe must be rejected."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_unauthorized_universe_symbols[XYZ]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_unauthorized_universe_symbols",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Orders for securities outside the 24-ticker universe must be rejected."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_unauthorized_universe_symbols[AMC]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_unauthorized_universe_symbols",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Orders for securities outside the 24-ticker universe must be rejected."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_report_manifest_crosscheck",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_report_manifest_crosscheck",
+    "classification": "Independent evidence-derived assertions",
+    "notes": "Verifies cross-manifest or independent double-entry accounting reconciliation",
+    "docstring": "Mutating a table cell in the report triggers fail-closed ReportConsistencyError."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_holdout_firewall[2022-01-01]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_holdout_firewall",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Any attempt to query Tiingo for observations on or after 2022-01-01 must be blocked."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_holdout_firewall[2022-06-15]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_holdout_firewall",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Any attempt to query Tiingo for observations on or after 2022-01-01 must be blocked."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_holdout_firewall[2023-01-01]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_holdout_firewall",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Any attempt to query Tiingo for observations on or after 2022-01-01 must be blocked."
+  },
+  {
+    "item_id": "research/tests/test_v27_scientific_validity.py::test_negative_control_holdout_firewall[2024-12-31]",
+    "file": "research/tests/test_v27_scientific_validity.py",
+    "function_name": "test_negative_control_holdout_firewall",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Any attempt to query Tiingo for observations on or after 2022-01-01 must be blocked."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_authoritative_tier1_holdings_and_concentration",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_authoritative_tier1_holdings_and_concentration",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Verify that authoritative V22 Option B Tier 1 holdings sum to $218,989.40 and have 31.27% top-2 concentration."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_superseded_v20_holdings_provenance",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_superseded_v20_holdings_provenance",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Verify that superseded V20/V21 run ($347,496.21) is preserved as historical evidence and not mixed with V22."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_two_method_execution_sensitivity_manifest",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_two_method_execution_sensitivity_manifest",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Verify that the two-method execution sensitivity manifest exists and contains rigorous Method A & B results."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_first_divergence_tracing",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_first_divergence_tracing",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Verify that the exact first divergence between Baseline and Moderate slippage occurs on 2020-02-25 on fill #35."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_adv_01_substitute_superseded_holdings_into_corrected_nav",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_adv_01_substitute_superseded_holdings_into_corrected_nav",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Adversarial Injection 1: Substitute superseded holdings ($344k) into corrected NAV ($218k). Must fail closed."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_adv_02_mix_incompatible_simulation_revisions",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_adv_02_mix_incompatible_simulation_revisions",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Adversarial Injection 2: Mix V20 cash ($0.04) with V22 positions ($205.8k). Must fail closed."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_adv_03_double_charge_slippage",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_adv_03_double_charge_slippage",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Adversarial Injection 3: Double-charge slippage in price AND cash. Must violate accounting invariant."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_adv_04_inject_phantom_capital",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_adv_04_inject_phantom_capital",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Adversarial Injection 4: Inject $100,000 phantom cash without trade or deposit. Must fail closed."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_adv_05_misclassify_path_dependent_gain_as_direct_savings",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_adv_05_misclassify_path_dependent_gain_as_direct_savings",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Adversarial Injection 5: Misclassify reactive gain as direct cost savings. Must fail validation."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_adv_06_corrupt_scenario_fill_chronology",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_adv_06_corrupt_scenario_fill_chronology",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Adversarial Injection 6: Permute fill dates out of chronological sequence. Must fail validation."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_adv_07_alter_report_subtotal",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_adv_07_alter_report_subtotal",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Adversarial Injection 7: Alter a markdown table subtotal. Automated validator must detect error."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_adv_08_introduce_future_information",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_adv_08_introduce_future_information",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Adversarial Injection 8: Future price change at T+1 cannot leak into decision at T."
+  },
+  {
+    "item_id": "research/tests/test_v27r_scientific_reconciliation.py::test_adv_09_access_sealed_tier3_observations",
+    "file": "research/tests/test_v27r_scientific_reconciliation.py",
+    "function_name": "test_adv_09_access_sealed_tier3_observations",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Adversarial Injection 9: Querying dates >= 2022-01-01 must trigger HoldoutProtectionViolation."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_protected_strategy_hashes",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_protected_strategy_hashes",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Verify that agent.py and v12_candidate_ae.py hashes match governing freeze."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_three_model_execution_classification",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_three_model_execution_classification",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Phase 2: Distinguish unconstrained theoretical attribution, cash-feasible replay, and reactive replay."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_exact_pnl_bridge_zero_residual",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_exact_pnl_bridge_zero_residual",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Phase 3: Prove that Baseline vs Moderate Slippage NAV difference ($2,124.85) is 100% reconciled dynamically without residual."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_pnl_bridge_tampering_fails",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_pnl_bridge_tampering_fails",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Adversarial Negative Control: Tampering with any P&L input record breaks zero-residual conservation."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_overnight_capital_continuity_and_gap",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_overnight_capital_continuity_and_gap",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Phase 4: Verify the exact +$2,493.53 (+1.14%) overnight market gap between Dec 31 close and Jan 2 open."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_cagr_compounding_conventions",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_cagr_compounding_conventions",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Phase 4: Explicitly certify trading days CAGR vs calendar nominal CAGR across all tiers.\n\nTier 1 (5-Year):\n  - Nominal 5.0-year calendar: 16.97% ($(218,989.40 / 100,000)^{1/5.0} - 1$)\n  - Trading days annualization (1,258 sessions): 17.00% ($(218,989.40 / 100,000)^{252/1258} - 1$)\n  - ACT/365.25 date annualization (1,824 days): 17.00% ($(218,989.40 / 100,000)^{365.25/1824} - 1$)\n\nTier 2 (2-Year Standalone):\n  - Nominal 2.0-year calendar: 52.72% ($(233,249.64 / 100,000)^{1/2.0} - 1$)\n  - Trading days annualization (505 sessions): 52.60% ($(233,249.64 / 100,000)^{252/505} - 1$)\n\nCombined Horizon (7-Year Continuous):\n  - Nominal 7.0-year calendar: 27.08% ($(535,191.10 / 100,000)^{1/7.0} - 1$)\n  - Trading days annualization (1,763 sessions): 27.10% ($(535,191.10 / 100,000)^{252/1763} - 1$)\n  - ACT/365.25 leap-year date annualization (2,556 days): 27.09% ($(535,191.10 / 100,000)^{365.25/2556} - 1$)"
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_method_a_order_partition_and_mutual_exclusivity",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_method_a_order_partition_and_mutual_exclusivity",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Hardcoded fill counts (182, 198, 18, 16, 150, 169, 45, 44, 5, 1) asserted to sum to 414/408",
+    "docstring": "Phase 4: Certify Method A order mutual-exclusivity partition across Severe and Extreme slippage."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_01_infeasible_cash_balances",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_01_infeasible_cash_balances",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Negative Control 1: Order execution with negative cash or exceeding cash must fail closed."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_02_hypothetical_trades_incorrectly_labelled_executable",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_02_hypothetical_trades_incorrectly_labelled_executable",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Negative Control 2: Claiming unexecutable volume as realizable must raise InfeasibleExecutionError."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_03_missing_pnl_attribution",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_03_missing_pnl_attribution",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Negative Control 3: P&L bridge with missing components (non-zero residual) must fail closed."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_04_incorrect_capital_denominators",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_04_incorrect_capital_denominators",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Negative Control 4: Return calculations using incorrect denominators must be rejected."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_05_mixed_closing_and_opening_nav",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_05_mixed_closing_and_opening_nav",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": "Negative Control 5: Mixing Dec 31 closing NAV ($218k) and Jan 2 opening NAV ($221k) must fail."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_06_report_manifest_inconsistencies",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_06_report_manifest_inconsistencies",
+    "classification": "Historical stored output",
+    "notes": "Asserts properties, invariants or values of committed manifests",
+    "docstring": "Negative Control 6: Mutating a report table value causes automated validator to reject."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_07_incorrect_transaction_cost_treatment",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_07_incorrect_transaction_cost_treatment",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Negative Control 7: Double charging commissions or slippage violates accounting invariants."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_08_unauthorized_symbols",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_08_unauthorized_symbols",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Negative Control 8: Orders for non-universe tickers must be rejected by production gate."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_09_future_data_leakage",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_09_future_data_leakage",
+    "classification": "Live execution results",
+    "notes": "Executes simulation engine dynamically against bars",
+    "docstring": "Negative Control 9: Future price anomaly on day T+1 cannot alter decision on day T."
+  },
+  {
+    "item_id": "research/tests/test_v28_governance_certification.py::test_adv_10_tier3_access_attempts",
+    "file": "research/tests/test_v28_governance_certification.py",
+    "function_name": "test_adv_10_tier3_access_attempts",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Negative Control 10: Any attempt to query sealed Tier 3 dates (>= 2022-01-01) must fail closed."
+  },
+  {
+    "item_id": "research/tests/test_validation.py::TestValidationControls::test_positive_calendar_date",
+    "file": "research/tests/test_validation.py",
+    "function_name": "test_positive_calendar_date",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_validation.py::TestValidationControls::test_negative_calendar_date",
+    "file": "research/tests/test_validation.py",
+    "function_name": "test_negative_calendar_date",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_validation.py::TestValidationControls::test_weekend_rejection",
+    "file": "research/tests/test_validation.py",
+    "function_name": "test_weekend_rejection",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_validation.py::TestValidationControls::test_positive_bar",
+    "file": "research/tests/test_validation.py",
+    "function_name": "test_positive_bar",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_validation.py::TestValidationControls::test_negative_prices_and_nonfinite",
+    "file": "research/tests/test_validation.py",
+    "function_name": "test_negative_prices_and_nonfinite",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_validation.py::TestValidationControls::test_geometric_boundary_integrity",
+    "file": "research/tests/test_validation.py",
+    "function_name": "test_geometric_boundary_integrity",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_validation.py::TestValidationControls::test_series_chronology_and_duplicate_rejection",
+    "file": "research/tests/test_validation.py",
+    "function_name": "test_series_chronology_and_duplicate_rejection",
+    "classification": "Hardcoded arithmetic assertions",
+    "notes": "Verifies arithmetic identities on hardcoded figures",
+    "docstring": ""
+  },
+  {
+    "item_id": "research/tests/test_validation.py::TestValidationControls::test_future_timestamp_strict_rejection_at_boundary",
+    "file": "research/tests/test_validation.py",
+    "function_name": "test_future_timestamp_strict_rejection_at_boundary",
+    "classification": "Synthetic tests",
+    "notes": "Synthetic unit or boundary test",
+    "docstring": "Proves future-dated data is rejected by the research boundary rather than ignored due to short history."
+  }
+]

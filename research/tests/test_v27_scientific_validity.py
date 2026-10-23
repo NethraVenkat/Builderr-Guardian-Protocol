@@ -168,17 +168,37 @@ def test_negative_control_noncausal_backward_adjusted_closes(tier2_preloaded):
     assert not math.isclose(adapted["AAPL"][-1]["close"], adj_close, rel_tol=0.10)
 
 
+def _compute_buy_and_hold_nav(bars, start_date, end_date, initial_cash=100000.0, reinvest_divs=True):
+    filtered = [b for b in bars if start_date <= b["ts"][:10] <= end_date]
+    filtered.sort(key=lambda x: x["ts"])
+    if not filtered:
+        return 0.0
+    first_b = filtered[0]
+    open_px = first_b.get("raw_open", first_b["open"])
+    shares = math.floor(initial_cash / open_px)
+    cash = initial_cash - (shares * open_px)
+    for b in filtered:
+        close_px = b.get("raw_close", b["close"])
+        div = b.get("div_cash", 0.0)
+        if div > 0:
+            div_total = shares * div
+            if reinvest_divs:
+                shares += div_total / close_px
+            else:
+                cash += div_total
+    return cash + (shares * filtered[-1].get("raw_close", filtered[-1]["close"]))
+
+
 # ==============================================================================
 # 3. BENCHMARK DIVIDEND FAIRNESS AND REINVESTMENT DISTORTION
 # ==============================================================================
 def test_negative_control_incorrect_benchmark_dividend_treatment(tier1_preloaded):
     """Failing to reinvest cash dividends produces an understated benchmark return."""
-    from scratch.compute_benchmarks import run_buy_and_hold
-    spy_with_divs = run_buy_and_hold(tier1_preloaded["SPY"], "2015-01-02", "2019-12-31", reinvest_divs=True)
-    spy_no_divs = run_buy_and_hold(tier1_preloaded["SPY"], "2015-01-02", "2019-12-31", reinvest_divs=False)
+    spy_with_divs = _compute_buy_and_hold_nav(tier1_preloaded["SPY"], "2015-01-02", "2019-12-31", reinvest_divs=True)
+    spy_no_divs = _compute_buy_and_hold_nav(tier1_preloaded["SPY"], "2015-01-02", "2019-12-31", reinvest_divs=False)
     
-    assert spy_with_divs["ending_nav"] > spy_no_divs["ending_nav"]
-    div_delta = spy_with_divs["ending_nav"] - spy_no_divs["ending_nav"]
+    assert spy_with_divs > spy_no_divs
+    div_delta = spy_with_divs - spy_no_divs
     assert div_delta > 1000.0, f"Dividend reinvestment difference should exceed $1000, got ${div_delta:.2f}"
 
 

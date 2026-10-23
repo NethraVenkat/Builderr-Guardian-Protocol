@@ -40,6 +40,8 @@ An adversarial institutional audit of Guardian Alpha across historical Tier 1 (2
 - **Base Commit:** `5194c6a8ffee8068f9795b1ba9b8f874baca0ff9` (V26-R Erratum and Table Manifest Verification)
 - **Parent Implementation Commit:** `df207e245b79d82574568f117a1379642de36845`
 - **V26 Implementation Checkpoint:** `f613010d0c5ea35419228e5e739195cd13ac7e3f`
+- **V27 Initial Implementation Commit:** `4444ef2da12bafa5d1f9b17593b4a71d3981fe5d` (`feat(v27): complete scientific validity, market realism, bias forensics, and 22 negative controls`)
+- **V27 Clean-Checkout Hardening Commit:** `031c515988b79abe7bf76a75b25bee5c2c6c18dd` (`fix(v27): inline benchmark helper in negative controls to eliminate scratch dependency`)
 
 ### 2.2 Cryptographic Integrity of Protected Files
 | Component | File Path | Expected SHA-256 Checksum | Verified SHA-256 Checksum | Match Status |
@@ -276,10 +278,13 @@ Log File: task-8887.log
 ```
 Directory: C:\Users\Manish\Downloads\Guardian-Alpha-V26-Clean
 Branch: research/track-b-v27-scientific-validity
+Head Commit: 031c515988b79abe7bf76a75b25bee5c2c6c18dd
 Command: python -m pytest research/tests -q
-Result: 351 passed
+Result: 351 passed in 132.49s (0:02:12)
 Exit Code: 0
-Working Tree: Clean (0 uncommitted files)
+Task ID: 7948e66a-3796-4255-b1bd-adccf772999c/task-8960
+Log File: task-8960.log
+Working Tree: Clean (0 uncommitted files, working tree clean)
 ```
 
 ---

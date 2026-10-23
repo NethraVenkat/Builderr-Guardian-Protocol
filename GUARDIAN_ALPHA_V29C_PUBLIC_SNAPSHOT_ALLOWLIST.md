@@ -1,10 +1,10 @@
 # GUARDIAN ALPHA — V29C: PUBLIC SNAPSHOT ALLOWLIST
 
-**Audit Phase:** Batch V29C: Publication Safety & Release Snapshot Audit  
-**Auditor:** Independent Quantitative Research Governance Specialist & Release Engineer  
-**Date:** 2026-10-23  
-**Target Repository:** Public Release Branch (`release/v29c-clean-publication`)  
-**Base Commit Reference:** `origin/main` (`ac733ecddee59f62ffc4a7514767f57c3e716632`)  
+**Audit Phase:** Batch V29C: Publication Safety & Release Snapshot Audit
+**Auditor:** Independent Quantitative Research Governance Specialist & Release Engineer
+**Date:** 2026-10-23
+**Target Repository:** Public Release Branch (`release/v29c-clean-publication`)
+**Base Commit Reference:** `origin/main` (`ac733ecddee59f62ffc4a7514767f57c3e716632`)
 
 ---
 

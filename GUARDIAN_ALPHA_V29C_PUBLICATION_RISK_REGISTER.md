@@ -1,13 +1,13 @@
 # GUARDIAN ALPHA — V29C: PUBLICATION RISK REGISTER
 
-**Audit Phase:** Batch V29C: Publication Safety & Release Snapshot Audit  
-**Auditor:** Independent Quantitative Research Governance Specialist & Release Engineer  
-**Date:** 2026-10-23  
-**Audited History Scope:** `origin/main` (`ac733ecddee59f62ffc4a7514767f57c3e716632`) to `HEAD` (`fd829eff562cebe603b310db2a708b1b3c77999d`)  
-**Commit Range:** 49 linear research commits (Track B / V12 through V29B)  
-**Total Objects Audited:** 3,461 Git objects (2,006 blobs, 765 trees, 689 commits)  
-**Active Worktree:** `C:\Users\Manish\Downloads\Guardian-Alpha-V29B`  
-**Current Branch:** `research/v29c-publication-safety`  
+**Audit Phase:** Batch V29C: Publication Safety & Release Snapshot Audit
+**Auditor:** Independent Quantitative Research Governance Specialist & Release Engineer
+**Date:** 2026-10-23
+**Audited History Scope:** `origin/main` (`ac733ecddee59f62ffc4a7514767f57c3e716632`) to `HEAD` (`fd829eff562cebe603b310db2a708b1b3c77999d`)
+**Commit Range:** 49 linear research commits (Track B / V12 through V29B)
+**Total Objects Audited:** 3,461 Git objects (2,006 blobs, 765 trees, 689 commits)
+**Active Worktree:** `C:\Users\Manish\Downloads\Guardian-Alpha-V29B`
+**Current Branch:** `research/v29c-publication-safety`
 
 ---
 
@@ -53,7 +53,7 @@ This Publication Risk Register provides an exhaustive, forensic security and int
 - **Blob Object:** `6c1fdda3def689b67a358659b91a8b4c990fe907`
 - **Introduction Commit:** `33cfed953d7917bd85f3114c13746f10e17c3614` (`feat(v21): portfolio concentration forensics...`)
 - **Forensic Content:** Contains 1,258 daily trading entries from `2015-01-02` to `2019-12-31`. Each record contains daily raw close prices for `AAPL` and `NVDA` alongside share counts, cost basis, market value, and orders.
-- **Licensing Constraint:** Under the Tiingo Commercial Subscription and Developer Agreement, redistribution of raw, daily end-of-day market price series to third parties or via public internet repositories is strictly forbidden. 
+- **Licensing Constraint:** Under the Tiingo Commercial Subscription and Developer Agreement, redistribution of raw, daily end-of-day market price series to third parties or via public internet repositories is strictly forbidden.
 - **Remediation:** Must be **excluded** from any public snapshot. The blob must not exist in any commit reachable from a public branch.
 
 ### 3.2 `research/manifests/v29b_method_a_order_event_trace.json`
@@ -91,7 +91,7 @@ This Publication Risk Register provides an exhaustive, forensic security and int
   ```python
   clean_clone_path = Path("C:/Users/Manish/Downloads/Guardian-Alpha-Clean-Clone-V15")
   ```
-- **Remediation:** 
+- **Remediation:**
   1. Public release commits must be authored by the sanctioned organizational entity (`Builderr Quantitative Researcher <researcher@builderr.local>`).
   2. Public test suites must use dynamic relative paths (`Path(__file__).resolve().parents[...]`).
   3. Master internal research reports remain in the private research repository; public documentation is replaced by sanitized release documentation.

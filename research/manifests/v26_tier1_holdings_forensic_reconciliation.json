@@ -1,0 +1,150 @@
+{
+  "audit_target": "V25 Report Section 6 Holdings Discrepancy",
+  "discrepancy_amount": 47492.3,
+  "v25_reported_stock_total": 253391.71,
+  "authoritative_manifest_stock_total": 205899.4,
+  "unh_investigation": {
+    "symbol": "UNH",
+    "in_authorized_universe": false,
+    "in_tier1_terminal_holdings_manifest": false,
+    "in_tier2_trading_manifest": false,
+    "finding": "UNH was never in the 24-ticker production universe, never traded by E0, never loaded by replay engine. It was an author markdown report hallucination."
+  },
+  "per_symbol_reconciliation": {
+    "authoritative_real_holdings": [
+      {
+        "symbol": "AAPL",
+        "shares": 117.0,
+        "shares_unrounded": 117.0,
+        "raw_price": 293.65,
+        "market_value": 34357.05,
+        "weight_pct": 15.69
+      },
+      {
+        "symbol": "NVDA",
+        "shares": 145.0,
+        "shares_unrounded": 145.0,
+        "raw_price": 235.3,
+        "market_value": 34118.5,
+        "weight_pct": 15.58
+      },
+      {
+        "symbol": "QLD",
+        "shares": 200.0,
+        "shares_unrounded": 200.0,
+        "raw_price": 121.89,
+        "market_value": 24378.0,
+        "weight_pct": 11.13
+      },
+      {
+        "symbol": "SMH",
+        "shares": 227.0,
+        "shares_unrounded": 227.0,
+        "raw_price": 141.41,
+        "market_value": 32100.07,
+        "weight_pct": 14.66
+      },
+      {
+        "symbol": "SSO",
+        "shares": 98.0,
+        "shares_unrounded": 98.0,
+        "raw_price": 150.84,
+        "market_value": 14782.32,
+        "weight_pct": 6.75
+      },
+      {
+        "symbol": "TSLA",
+        "shares": 80.0,
+        "shares_unrounded": 80.0,
+        "raw_price": 418.33,
+        "market_value": 33466.4,
+        "weight_pct": 15.28
+      },
+      {
+        "symbol": "XLV",
+        "shares": 321.0,
+        "shares_unrounded": 321.0,
+        "raw_price": 101.86,
+        "market_value": 32697.06,
+        "weight_pct": 14.93
+      }
+    ],
+    "authoritative_cash": 12253.462601351275,
+    "authoritative_receivables": 836.534674,
+    "authoritative_closing_nav": 218989.39727535128,
+    "overnight_bridge": [
+      {
+        "symbol": "AAPL",
+        "shares": 117.0,
+        "close_price_20191231": 293.65,
+        "close_market_value": 34357.05,
+        "open_price_20200102": 296.24,
+        "open_market_value": 34660.08,
+        "overnight_delta": 303.03,
+        "pct_change": 0.88
+      },
+      {
+        "symbol": "NVDA",
+        "shares": 145.0,
+        "close_price_20191231": 235.3,
+        "close_market_value": 34118.5,
+        "open_price_20200102": 238.75,
+        "open_market_value": 34618.75,
+        "overnight_delta": 500.25,
+        "pct_change": 1.47
+      },
+      {
+        "symbol": "QLD",
+        "shares": 200.0,
+        "close_price_20191231": 121.89,
+        "close_market_value": 24378.0,
+        "open_price_20200102": 123.91,
+        "open_market_value": 24782.0,
+        "overnight_delta": 404.0,
+        "pct_change": 1.66
+      },
+      {
+        "symbol": "SMH",
+        "shares": 227.0,
+        "close_price_20191231": 141.41,
+        "close_market_value": 32100.07,
+        "open_price_20200102": 143.79,
+        "open_market_value": 32640.33,
+        "overnight_delta": 540.26,
+        "pct_change": 1.68
+      },
+      {
+        "symbol": "SSO",
+        "shares": 98.0,
+        "close_price_20191231": 150.84,
+        "close_market_value": 14782.32,
+        "open_price_20200102": 152.4,
+        "open_market_value": 14935.2,
+        "overnight_delta": 152.88,
+        "pct_change": 1.03
+      },
+      {
+        "symbol": "TSLA",
+        "shares": 80.0,
+        "close_price_20191231": 418.33,
+        "close_market_value": 33466.4,
+        "open_price_20200102": 424.5,
+        "open_market_value": 33960.0,
+        "overnight_delta": 493.6,
+        "pct_change": 1.47
+      },
+      {
+        "symbol": "XLV",
+        "shares": 321.0,
+        "close_price_20191231": 101.86,
+        "close_market_value": 32697.06,
+        "open_price_20200102": 102.17,
+        "open_market_value": 32796.57,
+        "overnight_delta": 99.51,
+        "pct_change": 0.3
+      }
+    ],
+    "real_open_positions_value": 208392.93,
+    "real_pre_trade_open_nav": 221482.93
+  }
+}

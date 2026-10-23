@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from research.engine.accounting import (
+    AUTHORIZED_UNIVERSE,
     CATASTROPHE_DD,
     CONCENTRATION_CAP,
     LEVERAGE_CAP,
@@ -167,6 +168,7 @@ class ReplayEngine:
             portfolio.trades_today = 0
         else:
             portfolio = PortfolioState(cash=self.start_cash)
+        portfolio.authorized_universe = AUTHORIZED_UNIVERSE
         pending_orders: list[dict[str, Any]] = []
         errors = 0
         traces: list[dict[str, Any]] = []

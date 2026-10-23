@@ -18,6 +18,13 @@ from typing import Any
 BETA_3X = {"TQQQ", "SOXL", "UPRO", "SPXL", "TNA", "FAS", "TECL", "LABU", "CURE", "DRN", "UDOW", "NAIL"}
 BETA_2X = {"QLD", "SSO", "DDM", "ROM", "UWM", "AGQ"}
 
+AUTHORIZED_UNIVERSE = frozenset({
+    "SPY", "QQQ", "DIA", "IWM",
+    "XLK", "XLF", "XLE", "XLV", "XLI", "XLY", "XLP", "XLU", "XLRE", "XLC", "SMH",
+    "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "TSLA",
+    "QLD", "SSO"
+})
+
 SLIP_EQUITY = 0.0005     # 5 bps
 SLIP_LEVERAGED = 0.0010  # 10 bps
 LEVERAGE_CAP = 1.50
@@ -35,6 +42,11 @@ class RiskMode(str, Enum):
 
 class FinancialStateValidationError(ValueError):
     """Raised when portfolio state fields are missing, malformed, negative, or fail balance sheet conservation."""
+    pass
+
+
+class UnauthorizedSecurityError(FinancialStateValidationError):
+    """Raised when an order or portfolio state references a security outside the 24-ticker authorized universe."""
     pass
 
 
@@ -85,6 +97,7 @@ class PortfolioState:
     max_conc_streak: int = 0
     fill_log: list[FillResult] = field(default_factory=list)
     rejected_orders: list[dict[str, Any]] = field(default_factory=list)
+    authorized_universe: frozenset[str] | None = None
 
     def total_positions_value(self, current_prices: dict[str, float]) -> float:
         return sum(
@@ -169,6 +182,11 @@ class PortfolioState:
 
         if open_price is None or open_price <= 0.0 or not math.isfinite(open_price):
             self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "MISSING_EXECUTION_PRICE"})
+            return None
+
+        # Fail-closed 24-ticker production universe validation when universe is restricted
+        if self.authorized_universe is not None and ticker not in self.authorized_universe:
+            self.rejected_orders.append({"ticker": ticker, "side": side, "quantity": orig_qty, "reason": "UNAUTHORIZED_SECURITY"})
             return None
 
         # Active Daily Trade Cap Enforcement
@@ -426,6 +444,10 @@ def validate_and_extract_carryforward_state(
         if not sym or not isinstance(sym, str):
             raise FinancialStateValidationError(
                 f"Missing symbol in position record for '{strat_name}'"
+            )
+        if sym.upper() not in AUTHORIZED_UNIVERSE:
+            raise UnauthorizedSecurityError(
+                f"Unauthorized security '{sym}' in position record for '{strat_name}'. Not in 24-ticker production universe."
             )
         if "shares" not in p or p["shares"] is None:
             raise FinancialStateValidationError(

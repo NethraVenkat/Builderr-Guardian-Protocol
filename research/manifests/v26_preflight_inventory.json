@@ -1,0 +1,136 @@
+{
+  "manifest_version": "v26_preflight_inventory_v1.0",
+  "stage": "B2-Q",
+  "base_commit": "548c7495fe906897dad3f2eae7c159a6deece361",
+  "branch": "research/track-b-v26-certification-challenge",
+  "files": {
+    "agent.py": {
+      "size_bytes": 12952,
+      "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "exists": true
+    },
+    "research/strategies/v11_candidates.py": {
+      "size_bytes": 24554,
+      "sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+      "exists": true
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "size_bytes": 8228,
+      "sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "exists": true
+    },
+    "research/engine/accounting.py": {
+      "size_bytes": 21248,
+      "sha256": "c0344f2db004e5addd441764a2cf0fea45324e89736d975650cbdfebf9c6d6e5",
+      "exists": true
+    },
+    "research/engine/independent_accounting.py": {
+      "size_bytes": 18314,
+      "sha256": "c657f45244703b91954d30612bcaf39e4d6fe02ee16612a884a466c82840e64d",
+      "exists": true
+    },
+    "research/engine/replay.py": {
+      "size_bytes": 13258,
+      "sha256": "fd5ed8d8301bf0dfa57b736633b777ca8499837c0b4e9ebf677f90833d843c36",
+      "exists": true
+    },
+    "research/engine/corporate_actions.py": {
+      "size_bytes": 12159,
+      "sha256": "75ac5ad2f1a65dcaee8a849c0ddcdbc11f3cbfa115a21d5501e3cb2a7a8d7396",
+      "exists": true
+    },
+    "research/engine/tiingo_client.py": {
+      "size_bytes": 24124,
+      "sha256": "cd96609100b536b0dec0726df32165d1a6ee5523b76246d58d5779bfbd15b2c1",
+      "exists": true
+    },
+    "research/engine/report_consistency_checker.py": {
+      "size_bytes": 4755,
+      "sha256": "2f0458e80b403650e35ab6e6078264c8e74ff73c6238401c1241f1691cf59f15",
+      "exists": true
+    },
+    "research/scripts/run_tier2_authentic_backtest.py": {
+      "size_bytes": 14885,
+      "sha256": "87f01b76458a0b265f6534fdd7162cd45a02266abe7c493cf099743635196aa5",
+      "exists": true
+    },
+    "research/manifests/production_universe_manifest.json": {
+      "size_bytes": 11195,
+      "sha256": "82117bc596322722db6a7a5897e4522552578688a24015632a30e2324c1c27b7",
+      "exists": true
+    },
+    "research/manifests/corporate_actions_v22.json": {
+      "exists": false
+    },
+    "research/manifests/tier1_terminal_holdings_v22.json": {
+      "size_bytes": 6473,
+      "sha256": "1512701dd68874750fff6e8c4a385fc49010d432f98708dcee0cc70135faf752",
+      "exists": true
+    },
+    "research/manifests/tier2_four_way_results.json": {
+      "size_bytes": 58529,
+      "sha256": "0776de1b73a7ab7fc94a90499a2fbf2588b07754e596c501355f824cd5ac1691",
+      "exists": true
+    },
+    "research/manifests/tier2_terminal_holdings.json": {
+      "size_bytes": 5290,
+      "sha256": "9ea3fbb1795fd25732157517b71d8bda58d5f2586e06018f6f942e08399b6e82",
+      "exists": true
+    },
+    "research/manifests/tier2_independent_accounting.json": {
+      "size_bytes": 4282,
+      "sha256": "e0453cf18af70074952362e8e413fb42104cfdd22a4d0e1121d254373ab9a6d9",
+      "exists": true
+    },
+    "research/manifests/tier2_carryforward_continuity_bridge.json": {
+      "size_bytes": 10447,
+      "sha256": "b4bb913eb731a7524aa92584cdee3cdb88c9f443479aa3883beeee4e10109ba8",
+      "exists": true
+    },
+    "research/manifests/tier2_carryforward_corrected_results.json": {
+      "size_bytes": 58043,
+      "sha256": "35ab8befffdd7d9bbf14c9a1d2a2bd46b805c89a0f1f992a1d4c8ed3f21e52a5",
+      "exists": true
+    },
+    "research/manifests/tier2_carryforward_sensitivity_results.json": {
+      "size_bytes": 58185,
+      "sha256": "269aa6cf9f9df2fc418387774e4b6b7c04ab9237548be81b2dc4ace23f80ad4e",
+      "exists": true
+    },
+    "research/manifests/tier2_leveraged_etf_slippage_audit.json": {
+      "size_bytes": 1370,
+      "sha256": "7816ebf7ca78d23e7b0a609f297b46ce2c084c79b33c18369b0875da57715cec",
+      "exists": true
+    },
+    "research/manifests/tiingo_request_ledger.jsonl": {
+      "size_bytes": 29010,
+      "sha256": "efff3ec3a06c518fa2af544659deb6605b2d1af7a7847e0590ac1969679946d5",
+      "exists": true
+    },
+    "research/tests/test_v24_continuity_and_forensics.py": {
+      "size_bytes": 13892,
+      "sha256": "6e06cb79664db1c3e3e2baea13aa648b159bac9ec09ec87ddb82aa494e5af399",
+      "exists": true
+    },
+    "research/tests/test_v25_financial_certification.py": {
+      "size_bytes": 14549,
+      "sha256": "f6d41eeada63af3f7bbc21230bc4336a4f2c8c672cf88538d4d21fc857510886",
+      "exists": true
+    },
+    "GUARDIAN_ALPHA_V25_FINAL_TIER2_FINANCIAL_CERTIFICATION_REPORT.md": {
+      "size_bytes": 28024,
+      "sha256": "1f12321d50ec4c32285468ede0769a5007f4bcb22b09c51254b292815b933d97",
+      "exists": true
+    },
+    "tiingo_cache/tier1_bars.json": {
+      "size_bytes": 12496122,
+      "sha256": "dfbf29725434d267305e54678574769c0c2fead0c8f9d5ca73c38d5fd203245f",
+      "exists": true
+    },
+    "tiingo_cache/tier2_bars.json": {
+      "size_bytes": 4171615,
+      "sha256": "9f8811ec80302e69bde84badd01703dd620ace1202f2e182aa7c7559c300dd4d",
+      "exists": true
+    }
+  }
+}

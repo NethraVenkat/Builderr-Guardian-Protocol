@@ -67,13 +67,19 @@ def verify_report_text(report_path: Path | str, manifest_dir: Path | str = "rese
     with open(r_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Rejected legacy typos from V23
+    # Rejected legacy typos and fabricated report artifacts
     rejected_strings = [
         ("$12,042.84", "Legacy V23 intermediate cash typo"),
         ("$12,285.18", "Legacy V23 residual table plug typo"),
+        ("215,362.16", "Fabricated Candidate A/AE fresh-start NAV in V25 report"),
+        ("227,847.74", "Fabricated Candidate E fresh-start NAV in V25 report"),
+        ("488,775.76", "Fabricated Candidate A/AE carry-forward NAV in V25 report"),
+        ("519,921.46", "Fabricated Candidate E carry-forward NAV in V25 report"),
+        ("253,391.71", "Fabricated Tier 1 positions subtotal with unauthorized UNH"),
+        ("UNH", "Unauthorized security outside 24-ticker production universe"),
     ]
 
-    # Check line-by-line for unflagged legacy typos
+    # Check line-by-line for unflagged legacy typos and fabrications
     lines = content.splitlines()
     for line_num, line in enumerate(lines, 1):
         for rejected, desc in rejected_strings:
@@ -82,16 +88,22 @@ def verify_report_text(report_path: Path | str, manifest_dir: Path | str = "rese
                 is_flagged = (
                     "~~" in line
                     or "v23" in lower
+                    or "v25" in lower
                     or "legacy" in lower
                     or "typo" in lower
                     or "contradiction" in lower
                     or "defect" in lower
                     or "prior" in lower
                     or "superseded" in lower
+                    or "unauthorized" in lower
+                    or "fabricat" in lower
+                    or "hallucinat" in lower
+                    or "erroneous" in lower
+                    or "discrepancy" in lower
                 )
                 if not is_flagged:
                     raise ReportConsistencyError(
-                        f"Found unflagged legacy typo {rejected} ({desc}) at line {line_num}: {line.strip()}"
+                        f"Found unflagged artifact {rejected} ({desc}) at line {line_num}: {line.strip()}"
                     )
 
     # Verify authoritative values are present (accounting for markdown dollar escapes)
@@ -107,6 +119,29 @@ def verify_report_text(report_path: Path | str, manifest_dir: Path | str = "rese
     for req in mandatory_strings:
         if req not in content:
             raise ReportConsistencyError(f"Mandatory authoritative value '{req}' missing from report {r_path}")
+
+    return True
+
+
+def verify_v26_report_text(report_path: Path | str, manifest_dir: Path | str = "research/manifests") -> bool:
+    """Scan V26 report text for strict candidate consistency and discrepancy reconciliation."""
+    verify_report_text(report_path, manifest_dir)
+    r_path = Path(report_path)
+    with open(r_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    v26_mandatory = [
+        "192,272.44", # Candidate A Fresh-Start NAV
+        "225,907.32", # Candidate E Fresh-Start NAV
+        "207,620.42", # Candidate A+E Fresh-Start NAV
+        "405,757.44", # Candidate A Carry-Forward NAV
+        "479,976.21", # Candidate E Carry-Forward NAV
+        "419,877.18", # Candidate A+E Carry-Forward NAV
+        "47,492.30",  # Reconciled holdings discrepancy
+    ]
+    for req in v26_mandatory:
+        if req not in content:
+            raise ReportConsistencyError(f"V26 Mandatory value '{req}' missing from report {r_path}")
 
     return True
 

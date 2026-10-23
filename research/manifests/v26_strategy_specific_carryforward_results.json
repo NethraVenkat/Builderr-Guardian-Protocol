@@ -1,0 +1,70 @@
+{
+  "Frozen E0": {
+    "starting_cash": 12253.462601351275,
+    "starting_receivables": 836.534674,
+    "starting_positions": {
+      "AAPL": 117.0,
+      "NVDA": 145.0,
+      "QLD": 200.0,
+      "SMH": 227.0,
+      "SSO": 98.0,
+      "TSLA": 80.0,
+      "XLV": 321.0
+    },
+    "ending_nav": 535191.0984709023,
+    "ending_cash": 35459.32810090226,
+    "total_trades": 401,
+    "dividends_credited": 7264.42492
+  },
+  "Candidate A": {
+    "starting_cash": 11973.284191401206,
+    "starting_receivables": 1607.0140439999998,
+    "starting_positions": {
+      "AAPL": 108.0,
+      "NVDA": 134.0,
+      "QLD": 184.0,
+      "SMH": 209.0,
+      "SSO": 90.0,
+      "TSLA": 73.0,
+      "XLV": 296.0
+    },
+    "ending_nav": 405757.4418631521,
+    "ending_cash": 24984.992643152065,
+    "total_trades": 447,
+    "dividends_credited": 5472.482539000001
+  },
+  "Candidate E": {
+    "starting_cash": 9597.574315775146,
+    "starting_receivables": 2227.1737204062656,
+    "starting_positions": {
+      "AAPL": 111.0,
+      "MSFT": 201.0,
+      "NVDA": 135.0,
+      "QLD": 190.0,
+      "SMH": 216.0,
+      "SSO": 92.5429,
+      "TSLA": 84.0
+    },
+    "ending_nav": 479976.20536521677,
+    "ending_cash": 53695.017196102184,
+    "total_trades": 377,
+    "dividends_credited": 6803.080843625699
+  },
+  "Candidate A+E": {
+    "starting_cash": 8688.77375427516,
+    "starting_receivables": 2799.3945058125305,
+    "starting_positions": {
+      "AAPL": 103.0,
+      "MSFT": 186.0,
+      "NVDA": 125.0,
+      "QLD": 176.0,
+      "SMH": 199.0,
+      "SSO": 85.5429,
+      "TSLA": 78.0
+    },
+    "ending_nav": 419877.18230801634,
+    "ending_cash": 12931.451029901713,
+    "total_trades": 415,
+    "dividends_credited": 5464.862670625702
+  }
+}

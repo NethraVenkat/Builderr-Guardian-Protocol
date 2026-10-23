@@ -1,0 +1,95 @@
+{
+  "manifest_version": "V29B_ORDER_EVENT_TRACE",
+  "generated_at_utc": "2026-10-23T13:37:05.017259+00:00",
+  "source_cache_hash_tier2": "9f8811ec80302e69bde84badd01703dd620ace1202f2e182aa7c7559c300dd4d",
+  "canonical_event_content_sha256": "0354de96f3d70427570ac67feb66955523e7a4589a42f8bc7fa285cde5cd2349",
+  "total_baseline_orders": 414,
+  "scenarios": {
+    "scenario_3_severe_slippage": {
+      "config": {
+        "id": "scenario_3_severe_slippage",
+        "name": "Scenario 3: Severe Slippage (25 bps equity / 50 bps leveraged)",
+        "slip_equity": 0.0025,
+        "slip_leveraged": 0.005,
+        "commission_bps": 0.0,
+        "expected_trades": 414
+      },
+      "verification_summary": {
+        "status": "VERIFIED",
+        "total_requested": 414,
+        "executed_trades": 414,
+        "full_fills": 380,
+        "partial_fills": 34,
+        "rejections": 0,
+        "breakdown": {
+          "full_buys": 182,
+          "full_sells": 198,
+          "partial_buys_cash": 18,
+          "partial_sells_inv": 16,
+          "rejected_buys_cash": 0,
+          "rejected_sells_inv": 0
+        },
+        "curtailed_buys_tracked": {
+          "XLI": 1,
+          "META": 2,
+          "SSO": 2,
+          "AAPL": 2,
+          "XLK": 4,
+          "XLV": 2,
+          "TSLA": 2,
+          "XLY": 1,
+          "MSFT": 1,
+          "XLP": 1
+        }
+      }
+    },
+    "scenario_4_extreme_slippage": {
+      "config": {
+        "id": "scenario_4_extreme_slippage",
+        "name": "Scenario 4: Extreme Slippage (50 bps equity / 100 bps leveraged)",
+        "slip_equity": 0.005,
+        "slip_leveraged": 0.01,
+        "commission_bps": 0.0,
+        "expected_trades": 408
+      },
+      "verification_summary": {
+        "status": "VERIFIED",
+        "total_requested": 414,
+        "executed_trades": 408,
+        "full_fills": 319,
+        "partial_fills": 89,
+        "rejections": 6,
+        "breakdown": {
+          "full_buys": 150,
+          "full_sells": 169,
+          "partial_buys_cash": 45,
+          "partial_sells_inv": 44,
+          "rejected_buys_cash": 5,
+          "rejected_sells_inv": 1
+        },
+        "curtailed_buys_tracked": {
+          "SSO": 4,
+          "QQQ": 1,
+          "TSLA": 5,
+          "XLI": 4,
+          "XLU": 1,
+          "XLF": 3,
+          "XLE": 4,
+          "SMH": 3,
+          "AAPL": 3,
+          "MSFT": 3,
+          "GOOGL": 2,
+          "XLRE": 2,
+          "XLC": 1,
+          "META": 3,
+          "QLD": 1,
+          "XLK": 4,
+          "XLV": 3,
+          "XLY": 1,
+          "NVDA": 1,
+          "XLP": 1
+        }
+      }
+    }
+  }
+}

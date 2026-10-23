@@ -38,6 +38,7 @@ import research.engine.accounting as accounting
 from research.engine.corporate_actions import CorporateActionRegistry, PaymentDatePolicy
 from research.engine.replay import ReplayEngine
 from research.engine.tiingo_client import TiingoHistoricalProvider, TiingoClient, HoldoutProtectionViolation
+from research.engine.event_verifier import verify_order_events
 from research.engine.report_consistency_checker import (
     ReportConsistencyError,
     ReportTableArithmeticError,
@@ -277,32 +278,42 @@ def test_cagr_compounding_conventions():
 
 
 def test_method_a_order_partition_and_mutual_exclusivity():
-    """Phase 4: Certify Method A order mutual-exclusivity partition across Severe and Extreme slippage."""
-    total_requested = 414  # 200 buys + 214 sells
+    """Phase 4: Certify Method A order mutual-exclusivity partition across Severe and Extreme slippage.
+    
+    V29B Remediation: Replaces static hardcoded arithmetic with genuine evidence-derived
+    verification of actual generated order-level event traces from Tier 2 replay.
+    """
+    manifest_path = Path("research/manifests/v29b_method_a_order_event_trace.json")
+    assert manifest_path.exists(), "Order event manifest must exist"
+    data = json.loads(manifest_path.read_text(encoding="utf-8"))
 
-    # Severe Slippage (Scenario 3: 25 bps eq / 50 bps lev)
-    s3_full_buys = 182
-    s3_full_sells = 198
-    s3_full = s3_full_buys + s3_full_sells  # 380
-    s3_part_buys_cash = 18   # 18 buy orders capped by cash affordability
-    s3_part_sells_inv = 16   # 16 downstream sell orders capped by reduced held inventory
-    s3_part = s3_part_buys_cash + s3_part_sells_inv  # 34
-    s3_rej = 0
-    assert s3_full + s3_part + s3_rej == total_requested
-    assert s3_full + s3_part == 414  # 414 executed trades
+    # Evidence-derived verification of Scenario 3 (Severe Slippage)
+    s3_events = data["scenarios"]["scenario_3_severe_slippage"]["events"]
+    s3_res = verify_order_events(s3_events, expected_requested_count=414, expected_executed_count=414)
+    assert s3_res["status"] == "VERIFIED"
+    assert s3_res["full_fills"] == 380
+    assert s3_res["partial_fills"] == 34
+    assert s3_res["rejections"] == 0
+    assert s3_res["breakdown"]["full_buys"] == 182
+    assert s3_res["breakdown"]["full_sells"] == 198
+    assert s3_res["breakdown"]["partial_buys_cash"] == 18
+    assert s3_res["breakdown"]["partial_sells_inv"] == 16
+    assert s3_res["executed_trades"] == 414
 
-    # Extreme Slippage (Scenario 4: 50 bps eq / 100 bps lev)
-    s4_full_buys = 150
-    s4_full_sells = 169
-    s4_full = s4_full_buys + s4_full_sells  # 319
-    s4_part_buys_cash = 45   # 45 buy orders capped by cash affordability
-    s4_part_sells_inv = 44   # 44 downstream sell orders capped by reduced held inventory
-    s4_part = s4_part_buys_cash + s4_part_sells_inv  # 89
-    s4_rej_buys_cash = 5     # 5 buy orders rejected due to $0.00 cash
-    s4_rej_sells_inv = 1     # 1 sell order rejected due to 0 unheld shares (Order 331, prior buy rejected)
-    s4_rej = s4_rej_buys_cash + s4_rej_sells_inv  # 6
-    assert s4_full + s4_part + s4_rej == total_requested
-    assert s4_full + s4_part == 408  # Exactly 408 executed trades matching manifest
+    # Evidence-derived verification of Scenario 4 (Extreme Slippage)
+    s4_events = data["scenarios"]["scenario_4_extreme_slippage"]["events"]
+    s4_res = verify_order_events(s4_events, expected_requested_count=414, expected_executed_count=408)
+    assert s4_res["status"] == "VERIFIED"
+    assert s4_res["full_fills"] == 319
+    assert s4_res["partial_fills"] == 89
+    assert s4_res["rejections"] == 6
+    assert s4_res["breakdown"]["full_buys"] == 150
+    assert s4_res["breakdown"]["full_sells"] == 169
+    assert s4_res["breakdown"]["partial_buys_cash"] == 45
+    assert s4_res["breakdown"]["partial_sells_inv"] == 44
+    assert s4_res["breakdown"]["rejected_buys_cash"] == 5
+    assert s4_res["breakdown"]["rejected_sells_inv"] == 1
+    assert s4_res["executed_trades"] == 408
 
 
 # ==============================================================================

@@ -3,8 +3,11 @@ Unit & Integration Tests for Tiingo Client, Secret Security, Rate Limiter & Hold
 """
 import pytest
 from unittest.mock import MagicMock, patch
+import hashlib
+from pathlib import Path
 from research.engine.tiingo_client import (
     TiingoClient,
+    RequestLedger,
     TiingoHistoricalProvider,
     RateLimiter,
     HoldoutProtectionViolation,
@@ -160,9 +163,19 @@ def test_invalid_bar_data_rejections():
     assert "Invalid bounds" in str(exc.value)
 
 
-def test_auth_header_and_request_structure():
-    """Verify Authorization header is 'Token <secret>' and Accept is 'application/json'."""
-    client = TiingoClient(api_token="valid_secret_token_abc123")
+def test_auth_header_and_request_structure(tmp_path):
+    """Verify Authorization header is 'Token <secret>' and Accept is 'application/json'.
+    
+    Uses tmp_path to isolate RequestLedger, preventing mutation of persistent research ledger.
+    """
+    persistent_ledger_path = Path("research/manifests/tiingo_request_ledger.jsonl")
+    initial_bytes = persistent_ledger_path.read_bytes() if persistent_ledger_path.exists() else None
+    initial_hash = hashlib.sha256(initial_bytes).hexdigest() if initial_bytes is not None else None
+
+    isolated_ledger_file = tmp_path / "isolated_request_ledger.jsonl"
+    isolated_ledger = RequestLedger(ledger_path=isolated_ledger_file)
+    client = TiingoClient(api_token="valid_secret_token_abc123", ledger=isolated_ledger)
+
     with patch("urllib.request.urlopen") as mock_urlopen:
         mock_resp = MagicMock()
         mock_resp.status = 200
@@ -177,6 +190,19 @@ def test_auth_header_and_request_structure():
         req = call_args[0]
         assert req.headers["Authorization"] == "Token valid_secret_token_abc123"
         assert req.headers["Accept"] == "application/json"
+
+    # Regression assertion: prove persistent ledger was not modified
+    if initial_bytes is not None:
+        current_bytes = persistent_ledger_path.read_bytes()
+        assert current_bytes == initial_bytes, "Persistent ledger was mutated by mocked test!"
+        assert hashlib.sha256(current_bytes).hexdigest() == initial_hash
+    else:
+        assert not persistent_ledger_path.exists(), "Persistent ledger was created by mocked test!"
+
+    # Prove isolated ledger received the recorded entry
+    assert isolated_ledger_file.exists()
+    assert len(isolated_ledger.get_all_entries()) == 1
+    assert isolated_ledger.get_all_entries()[0]["symbol"] == "SPY"
 
 
 def test_meta_fb_ticker_aliasing():

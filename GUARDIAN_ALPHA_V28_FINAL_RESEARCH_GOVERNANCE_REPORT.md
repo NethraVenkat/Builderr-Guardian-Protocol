@@ -42,13 +42,20 @@ agent.py                      46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0
 research/v12_candidate_ae.py  978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793  978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793  FROZEN (MATCH)
 ```
 
-#### 1.3 Baseline Test Suite Reproduction
-Prior to any modifications, the full V27-R test suite (364 tests) was executed in the workspace:
+#### 1.3 Regression Suite Reproduction & Expansion
+Prior to modifications, the full V27-R test suite (364 tests) was executed and reproduced in the workspace:
 - **Baseline Suite:** 364 tests collected
 - **Exit Code:** 0
 - **Execution Time:** 144.50 seconds
 - **Pass Rate:** 364/364 passed (100.0%)
 - **Log Reference:** `task-9385.log`
+
+Following the implementation of the 10 adversarial negative controls and governance tests in `research/tests/test_v28_governance_certification.py`, full dual-environment regression verification was conducted:
+- **Primary Workspace Suite:** 379/379 passed in 263.79s (exit code 0, `task-9479.log`)
+- **Clean Checkout Directory:** `C:\Users\Manish\Downloads\Guardian-Alpha-V26-Clean`
+- **Clean Checkout Suite:** 379/379 passed in 235.39s (exit code 0, `task-9574.log`)
+- **Total Combined Verified Pass Count:** 379 / 379 (100.0%)
+- **Clean Checkout Working Tree:** Clean (0 uncommitted files)
 
 ---
 
@@ -267,6 +274,10 @@ Before authorizing the opening of Tier 3 (2022–2024 Holdout), all governing cr
 - [x] **Criterion 5 (Clean Worktree Air-Gap):** Tier 3 data files remain untouched, sealed, and inaccessible from the test runner.
 
 #### 7.2 Release Governance Mandate & Next Protocol Step
-1. **Repository State:** The V28 branch `research/track-b-v28-governance-certification` is committed with all tests and reports.
+1. **Repository State & Cryptographic Ancestry:**
+   - Governing Branch: `research/track-b-v28-governance-certification`
+   - Base Ancestor: `bbc51d6e8d3ba138777eb994bb8cd3accc10157e` (V27-R Final Head)
+   - Final V28 Implementation & Certification Commit: `ab808f7a28fb4f7ed0bfbdaa449131f876043f36`
+   - Clean Checkout Status: Synced at `ab808f7a28fb4f7ed0bfbdaa449131f876043f36`, working tree clean (0 uncommitted files)
 2. **Tier 3 Unsealing Directive:** Do NOT open Tier 3 automatically. Opening Tier 3 requires an explicit user governance instruction following pre-commit hashing and clean checkout verification.
 3. **Authorized Status:** The Guardian Alpha research codebase is **OFFICIALLY CERTIFIED FOR PRE-HOLDOUT READINESS**.

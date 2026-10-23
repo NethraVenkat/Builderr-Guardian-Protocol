@@ -61,8 +61,8 @@ def test_protected_strategy_hashes():
     assert agent_path.exists()
     assert ae_path.exists()
     
-    h_agent = hashlib.sha256(agent_path.read_bytes()).hexdigest()
-    h_ae = hashlib.sha256(ae_path.read_bytes()).hexdigest()
+    h_agent = hashlib.sha256(agent_path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+    h_ae = hashlib.sha256(ae_path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
     
     assert h_agent == "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
     assert h_ae == "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793"

@@ -1,0 +1,404 @@
+{
+  "metadata": {
+    "evaluation_period": "Tier 2 (2020-01-01 to 2021-12-31)",
+    "trading_sessions": 505,
+    "method_a_description": "Fixed-Trade Execution-Cost Replay (exact baseline orders frozen)",
+    "method_b_description": "Fully Reactive Portfolio Replay (dynamic path-dependent rebalancing)"
+  },
+  "Frozen E0": {
+    "method_a_fixed_trade": [
+      {
+        "scenario": "Scenario 0: Zero Friction (0 bps eq, 0 bps lev, 0 comm)",
+        "ending_nav": 238621.72,
+        "cagr_pct": 54.34,
+        "max_drawdown_pct": 31.61,
+        "sharpe": 1.68,
+        "trades": 414,
+        "total_slippage_cost": 0.0,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": -5372.08,
+        "infeasible_count": 0
+      },
+      {
+        "scenario": "Scenario 1: Baseline (5 bps eq, 10 bps lev, 0 comm)",
+        "ending_nav": 233249.64,
+        "cagr_pct": 52.6,
+        "max_drawdown_pct": 31.75,
+        "sharpe": 1.63,
+        "trades": 414,
+        "total_slippage_cost": 5372.13,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": 0.0,
+        "infeasible_count": 0
+      },
+      {
+        "scenario": "Scenario 2: Moderate Slippage (10 bps eq, 20 bps lev, 0 comm)",
+        "ending_nav": 227877.56,
+        "cagr_pct": 50.83,
+        "max_drawdown_pct": 31.89,
+        "sharpe": 1.58,
+        "trades": 414,
+        "total_slippage_cost": 10744.34,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": 5372.08,
+        "infeasible_count": 0
+      },
+      {
+        "scenario": "Scenario 3: Severe Slippage (25 bps eq, 50 bps lev, 0 comm)",
+        "ending_nav": 211370.66,
+        "cagr_pct": 45.28,
+        "max_drawdown_pct": 32.3,
+        "sharpe": 1.42,
+        "trades": 414,
+        "total_slippage_cost": 26660.57,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": 21878.98,
+        "infeasible_count": 36
+      },
+      {
+        "scenario": "Scenario 4: Extreme Slippage (50 bps eq, 100 bps lev, 0 comm)",
+        "ending_nav": 182532.52,
+        "cagr_pct": 35.02,
+        "max_drawdown_pct": 32.99,
+        "sharpe": 1.15,
+        "trades": 408,
+        "total_slippage_cost": 50623.43,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": 50717.12,
+        "infeasible_count": 96
+      },
+      {
+        "scenario": "Scenario 5: Commission 1 bps (5 bps eq, 10 bps lev, 1 bps comm)",
+        "ending_nav": 232236.93,
+        "cagr_pct": 52.27,
+        "max_drawdown_pct": 31.78,
+        "sharpe": 1.62,
+        "trades": 414,
+        "total_slippage_cost": 5372.13,
+        "total_commission_cost": 1012.71,
+        "direct_cost_drag": 1012.71,
+        "infeasible_count": 0
+      },
+      {
+        "scenario": "Scenario 6: Commission 5 bps (5 bps eq, 10 bps lev, 5 bps comm)",
+        "ending_nav": 228186.1,
+        "cagr_pct": 50.93,
+        "max_drawdown_pct": 31.88,
+        "sharpe": 1.58,
+        "trades": 414,
+        "total_slippage_cost": 5372.13,
+        "total_commission_cost": 5063.54,
+        "direct_cost_drag": 5063.54,
+        "infeasible_count": 0
+      },
+      {
+        "scenario": "Scenario 7: Commission 10 bps (5 bps eq, 10 bps lev, 10 bps comm)",
+        "ending_nav": 223122.56,
+        "cagr_pct": 49.25,
+        "max_drawdown_pct": 32.0,
+        "sharpe": 1.53,
+        "trades": 414,
+        "total_slippage_cost": 5372.13,
+        "total_commission_cost": 10127.08,
+        "direct_cost_drag": 10127.08,
+        "infeasible_count": 0
+      }
+    ],
+    "method_b_reactive": [
+      {
+        "scenario": "Scenario 0: Zero Friction (0 bps eq, 0 bps lev, 0 comm)",
+        "ending_nav": 240545.38,
+        "cagr_pct": 54.96,
+        "max_drawdown_pct": 31.66,
+        "sharpe": 1.69,
+        "trades": 413,
+        "total_slippage_cost": 0.0,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": -7295.74,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 1: Baseline (5 bps eq, 10 bps lev, 0 comm)",
+        "ending_nav": 233249.64,
+        "cagr_pct": 52.6,
+        "max_drawdown_pct": 31.75,
+        "sharpe": 1.63,
+        "trades": 414,
+        "total_slippage_cost": 5372.13,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": 0.0,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 2: Moderate Slippage (10 bps eq, 20 bps lev, 0 comm)",
+        "ending_nav": 235374.49,
+        "cagr_pct": 53.29,
+        "max_drawdown_pct": 31.85,
+        "sharpe": 1.65,
+        "trades": 401,
+        "total_slippage_cost": 10596.01,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": -2124.85,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 3: Severe Slippage (25 bps eq, 50 bps lev, 0 comm)",
+        "ending_nav": 206789.34,
+        "cagr_pct": 43.7,
+        "max_drawdown_pct": 32.1,
+        "sharpe": 1.42,
+        "trades": 416,
+        "total_slippage_cost": 25161.32,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": 26460.3,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 4: Extreme Slippage (50 bps eq, 100 bps lev, 0 comm)",
+        "ending_nav": 162236.74,
+        "cagr_pct": 27.31,
+        "max_drawdown_pct": 34.03,
+        "sharpe": 0.98,
+        "trades": 422,
+        "total_slippage_cost": 42753.25,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": 71012.9,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 5: Commission 1 bps (5 bps eq, 10 bps lev, 1 bps comm)",
+        "ending_nav": 241738.99,
+        "cagr_pct": 55.34,
+        "max_drawdown_pct": 31.76,
+        "sharpe": 1.7,
+        "trades": 407,
+        "total_slippage_cost": 5458.93,
+        "total_commission_cost": 1035.43,
+        "net_nav_diff": -8489.35,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 6: Commission 5 bps (5 bps eq, 10 bps lev, 5 bps comm)",
+        "ending_nav": 235636.08,
+        "cagr_pct": 53.37,
+        "max_drawdown_pct": 31.84,
+        "sharpe": 1.65,
+        "trades": 400,
+        "total_slippage_cost": 5298.01,
+        "total_commission_cost": 5020.8,
+        "net_nav_diff": -2386.44,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 7: Commission 10 bps (5 bps eq, 10 bps lev, 10 bps comm)",
+        "ending_nav": 220594.57,
+        "cagr_pct": 48.41,
+        "max_drawdown_pct": 31.91,
+        "sharpe": 1.53,
+        "trades": 418,
+        "total_slippage_cost": 5210.35,
+        "total_commission_cost": 9823.87,
+        "net_nav_diff": 12655.07,
+        "classification": "Path-Dependent Reactive Effect"
+      }
+    ]
+  },
+  "Candidate A+E": {
+    "method_a_fixed_trade": [
+      {
+        "scenario": "Scenario 0: Zero Friction (0 bps eq, 0 bps lev, 0 comm)",
+        "ending_nav": 213069.07,
+        "cagr_pct": 45.86,
+        "max_drawdown_pct": 31.6,
+        "sharpe": 1.49,
+        "trades": 440,
+        "total_slippage_cost": 0.0,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": -5448.65,
+        "infeasible_count": 0
+      },
+      {
+        "scenario": "Scenario 1: Baseline (5 bps eq, 10 bps lev, 0 comm)",
+        "ending_nav": 207620.42,
+        "cagr_pct": 43.99,
+        "max_drawdown_pct": 31.72,
+        "sharpe": 1.44,
+        "trades": 440,
+        "total_slippage_cost": 5448.7,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": 0.0,
+        "infeasible_count": 0
+      },
+      {
+        "scenario": "Scenario 2: Moderate Slippage (10 bps eq, 20 bps lev, 0 comm)",
+        "ending_nav": 202456.29,
+        "cagr_pct": 42.19,
+        "max_drawdown_pct": 31.85,
+        "sharpe": 1.38,
+        "trades": 440,
+        "total_slippage_cost": 10875.25,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": 5164.13,
+        "infeasible_count": 10
+      },
+      {
+        "scenario": "Scenario 3: Severe Slippage (25 bps eq, 50 bps lev, 0 comm)",
+        "ending_nav": 185469.99,
+        "cagr_pct": 36.1,
+        "max_drawdown_pct": 32.24,
+        "sharpe": 1.2,
+        "trades": 440,
+        "total_slippage_cost": 26559.91,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": 22150.43,
+        "infeasible_count": 54
+      },
+      {
+        "scenario": "Scenario 4: Extreme Slippage (50 bps eq, 100 bps lev, 0 comm)",
+        "ending_nav": 159062.1,
+        "cagr_pct": 26.06,
+        "max_drawdown_pct": 32.89,
+        "sharpe": 0.92,
+        "trades": 434,
+        "total_slippage_cost": 50356.97,
+        "total_commission_cost": 0.0,
+        "direct_cost_drag": 48558.32,
+        "infeasible_count": 104
+      },
+      {
+        "scenario": "Scenario 5: Commission 1 bps (5 bps eq, 10 bps lev, 1 bps comm)",
+        "ending_nav": 206607.64,
+        "cagr_pct": 43.64,
+        "max_drawdown_pct": 31.75,
+        "sharpe": 1.43,
+        "trades": 440,
+        "total_slippage_cost": 5448.37,
+        "total_commission_cost": 1023.92,
+        "direct_cost_drag": 1012.78,
+        "infeasible_count": 2
+      },
+      {
+        "scenario": "Scenario 6: Commission 5 bps (5 bps eq, 10 bps lev, 5 bps comm)",
+        "ending_nav": 202756.73,
+        "cagr_pct": 42.29,
+        "max_drawdown_pct": 31.84,
+        "sharpe": 1.38,
+        "trades": 440,
+        "total_slippage_cost": 5438.86,
+        "total_commission_cost": 5114.6,
+        "direct_cost_drag": 4863.69,
+        "infeasible_count": 6
+      },
+      {
+        "scenario": "Scenario 7: Commission 10 bps (5 bps eq, 10 bps lev, 10 bps comm)",
+        "ending_nav": 197874.72,
+        "cagr_pct": 40.57,
+        "max_drawdown_pct": 31.96,
+        "sharpe": 1.33,
+        "trades": 440,
+        "total_slippage_cost": 5401.65,
+        "total_commission_cost": 10173.52,
+        "direct_cost_drag": 9745.7,
+        "infeasible_count": 24
+      }
+    ],
+    "method_b_reactive": [
+      {
+        "scenario": "Scenario 0: Zero Friction (0 bps eq, 0 bps lev, 0 comm)",
+        "ending_nav": 214533.79,
+        "cagr_pct": 46.36,
+        "max_drawdown_pct": 31.73,
+        "sharpe": 1.5,
+        "trades": 438,
+        "total_slippage_cost": 0.0,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": -6913.37,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 1: Baseline (5 bps eq, 10 bps lev, 0 comm)",
+        "ending_nav": 207620.42,
+        "cagr_pct": 43.99,
+        "max_drawdown_pct": 31.72,
+        "sharpe": 1.44,
+        "trades": 440,
+        "total_slippage_cost": 5448.7,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": 0.0,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 2: Moderate Slippage (10 bps eq, 20 bps lev, 0 comm)",
+        "ending_nav": 199873.66,
+        "cagr_pct": 41.28,
+        "max_drawdown_pct": 31.81,
+        "sharpe": 1.37,
+        "trades": 441,
+        "total_slippage_cost": 10664.41,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": 7746.76,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 3: Severe Slippage (25 bps eq, 50 bps lev, 0 comm)",
+        "ending_nav": 179645.5,
+        "cagr_pct": 33.95,
+        "max_drawdown_pct": 32.04,
+        "sharpe": 1.17,
+        "trades": 441,
+        "total_slippage_cost": 25146.02,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": 27974.92,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 4: Extreme Slippage (50 bps eq, 100 bps lev, 0 comm)",
+        "ending_nav": 145824.1,
+        "cagr_pct": 20.71,
+        "max_drawdown_pct": 32.32,
+        "sharpe": 0.8,
+        "trades": 442,
+        "total_slippage_cost": 44969.79,
+        "total_commission_cost": 0.0,
+        "net_nav_diff": 61796.32,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 5: Commission 1 bps (5 bps eq, 10 bps lev, 1 bps comm)",
+        "ending_nav": 206297.4,
+        "cagr_pct": 43.53,
+        "max_drawdown_pct": 31.74,
+        "sharpe": 1.42,
+        "trades": 439,
+        "total_slippage_cost": 5425.57,
+        "total_commission_cost": 1019.69,
+        "net_nav_diff": 1323.02,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 6: Commission 5 bps (5 bps eq, 10 bps lev, 5 bps comm)",
+        "ending_nav": 200181.02,
+        "cagr_pct": 41.39,
+        "max_drawdown_pct": 31.8,
+        "sharpe": 1.37,
+        "trades": 441,
+        "total_slippage_cost": 5335.52,
+        "total_commission_cost": 5016.06,
+        "net_nav_diff": 7439.4,
+        "classification": "Path-Dependent Reactive Effect"
+      },
+      {
+        "scenario": "Scenario 7: Commission 10 bps (5 bps eq, 10 bps lev, 10 bps comm)",
+        "ending_nav": 199399.56,
+        "cagr_pct": 41.11,
+        "max_drawdown_pct": 31.89,
+        "sharpe": 1.37,
+        "trades": 419,
+        "total_slippage_cost": 4940.04,
+        "total_commission_cost": 9245.24,
+        "net_nav_diff": 8220.86,
+        "classification": "Path-Dependent Reactive Effect"
+      }
+    ]
+  }
+}

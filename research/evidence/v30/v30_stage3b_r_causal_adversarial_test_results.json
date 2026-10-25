@@ -1,0 +1,105 @@
+{
+  "causal_adversarial_test_results": {
+    "timestamp_utc": "2026-10-25T10:17:00Z",
+    "test_suite": "Causal Event-Time Adversarial Stress Tests",
+    "adversarial_scenarios": [
+      {
+        "scenario_id": "ADV_01",
+        "name": "Delayed Closing Bar (Arrival after 09:15 EST Cutoff)",
+        "synthetic_fixture": "EOD bar for session T-1 arriving at 09:22:00 EST on session T",
+        "expected_action": "QUARANTINED_LATE",
+        "observed_result": "Bar rejected; order generation inhibited; runner aborts session T rebalance without placing orders.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_02",
+        "name": "Revised Closing Price After Decision Committed",
+        "synthetic_fixture": "Vendor publishes restated close for SPY at 10:00:00 EST after market open fills",
+        "expected_action": "REVISION_LOGGED_NO_RETROACTIVE_ORDERS",
+        "observed_result": "Revision logged into audit journal; zero retrospective modifications to executed fills or portfolio state.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_03",
+        "name": "Dividend Adjustment Received After Signal Computation",
+        "synthetic_fixture": "Ex-dividend event payload received after orders committed to pending",
+        "expected_action": "QUARANTINED_POST_DECISION_CORPORATE_ACTION",
+        "observed_result": "Corporate action held in quarantine buffer until next rebalance watermark advancement.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_04",
+        "name": "Missing Bar for Single Universe Ticker",
+        "synthetic_fixture": "EOD bars present for 49 tickers; bar for XLV missing",
+        "expected_action": "REJECTED_INCOMPLETE_BAR_SET",
+        "observed_result": "decide_fn detects missing ticker closes; returns empty orders list; portfolio maintains safe hold.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_05",
+        "name": "Market Holiday / Weekend Observation",
+        "synthetic_fixture": "Bar payload dated on a Saturday (2026-01-10)",
+        "expected_action": "QUARANTINED_NON_TRADING_DAY",
+        "observed_result": "Weekend bar dropped; watermark date does not advance; zero orders emitted.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_06",
+        "name": "T+1 Open Gap with Adverse Slippage",
+        "synthetic_fixture": "TQQQ closes at $50.00 at T-1; opens at $45.00 (-10% gap down) on day T",
+        "expected_action": "FILLED_AT_OPEN_WITH_SLIPPAGE",
+        "observed_result": "Sell orders execute at $45.00 * (1 - 0.0010) = $44.955; buy orders clamped to affordable integer shares; cash >= 0.0 strictly preserved.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_07",
+        "name": "Signal Computed After Order Cutoff Window",
+        "synthetic_fixture": "Execution host delays decide() call until 09:32:00 EST (post-open)",
+        "expected_action": "ABORT_ORDER_SUBMISSION_AND_LOCK",
+        "observed_result": "Process triggers INCIDENT_LOCK; orders cannot be submitted post-market open; fails closed.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_08",
+        "name": "Strategy State Changed After Observation Start",
+        "synthetic_fixture": "Attempted modification of D2 parameters during active holding period",
+        "expected_action": "REJECTED_IMMUTABLE_CONTRACT",
+        "observed_result": "Strategy modules are frozen and non-mutating; runtime parameter tampering raises fatal error.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_09",
+        "name": "Late-Arriving Event Behind Committed Watermark",
+        "synthetic_fixture": "Bar with date 2026-01-05 arrives after watermark has advanced to 2026-01-06",
+        "expected_action": "QUARANTINED_LATE",
+        "observed_result": "Event dropped into quarantine log; historical journal remains append-only and immutable.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_10",
+        "name": "Duplicate Event ID with Conflicting Payload",
+        "synthetic_fixture": "Two distinct bars for SPY dated 2026-01-05 with different close prices",
+        "expected_action": "QUARANTINED_CONFLICT",
+        "observed_result": "Second event quarantined as payload conflict; first event preserved; alarm raised.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_11",
+        "name": "Host Clock Skew Discrepancy (> 5 Minutes)",
+        "synthetic_fixture": "Local host clock is 15 minutes ahead of exchange timestamp",
+        "expected_action": "QUARANTINED_CLOCK_SKEW_ALARM",
+        "observed_result": "Host clock anomaly logged; runner inhibits order transmission until NTP synchronization succeeds.",
+        "status": "VERIFIED_PASS"
+      },
+      {
+        "scenario_id": "ADV_12",
+        "name": "Out-of-Order Event Sequence Arrival",
+        "synthetic_fixture": "Event seq 5 arrived before event seq 4",
+        "expected_action": "BUFFERED_PENDING",
+        "observed_result": "Event 5 buffered in memory until event 4 arrives; then processed in strict sequence.",
+        "status": "VERIFIED_PASS"
+      }
+    ],
+    "adversarial_robustness_verdict": "VERIFIED_PASS_UNDER_SYNTHETIC_FIXTURES"
+  }
+}

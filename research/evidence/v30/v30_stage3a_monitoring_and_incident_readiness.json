@@ -1,0 +1,68 @@
+{
+  "monitoring_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Operational Monitoring & Incident Readiness Audit",
+    "timestamp_utc": "2026-10-25T06:45:00Z",
+    "auditor_role": "Adversarial Engineering Judge & Systems SRE"
+  },
+  "controls_evaluation": [
+    {
+      "control_id": "MON-01",
+      "control_name": "Append-Only Event Journaling",
+      "implementation": "research/evidence/v30/logs/*.jsonl",
+      "mechanism": "Chronologically ordered JSONL records with event UUIDs and sequence nonces.",
+      "unit_test_status": "PASS (Validated in test_v30_stage2g_r_remediation.py)",
+      "operating_system_boundary": "UNPROVEN (Python process file handle; no OS-level immutable WORM storage or fsync guarantee on Windows NTFS)."
+    },
+    {
+      "control_id": "MON-02",
+      "control_name": "Crash Recovery & Replay Idempotency",
+      "implementation": "research/engine/v30_stage2g_r_crash_tester.py",
+      "mechanism": "On initialization, journal is replayed to reconstruct portfolio state without duplicating executions.",
+      "unit_test_status": "PASS (Zero state divergence across simulated crashes)",
+      "operating_system_boundary": "UNPROVEN (Requires daemon process supervisor to automatically respawn on crash)."
+    },
+    {
+      "control_id": "MON-03",
+      "control_name": "Market Data Revision & Outage Handling",
+      "implementation": "research/engine/v30_stage2g_r_causal_event_engine.py",
+      "mechanism": "Validates timestamp monotonically increasing; flags delayed or revised bars; triggers circuit breaker on missing feed.",
+      "unit_test_status": "PASS (Handles simulated network timeouts and bar revisions)",
+      "operating_system_boundary": "UNPROVEN (Real socket timeouts and DNS resolution failures unproven against live network)."
+    },
+    {
+      "control_id": "MON-04",
+      "control_name": "Double-Entry Financial Reconciliation",
+      "implementation": "research/engine/v30_stage2h_b_decimal_accounting_oracle.py",
+      "mechanism": "Reconciles Cash + Equities == Equity Value to exact Decimal precision; detects cash overdraws.",
+      "unit_test_status": "PASS (Exact mathematical parity in unit tests)",
+      "operating_system_boundary": "PROVEN (Deterministic in-memory arithmetic independent of OS)."
+    },
+    {
+      "control_id": "MON-05",
+      "control_name": "Persistent Disk Hard-Stop Lock",
+      "implementation": "research/engine/v30_stage2h_b_security_guard.py",
+      "mechanism": "On Critical/Hard-Stop breach, writes persistent lock file to disk; process permanently refuses to execute until owner provides reset key.",
+      "unit_test_status": "PASS (Validated in test_v30_stage2h_b_governance.py)",
+      "operating_system_boundary": "PROVEN (Persistent file on disk survives process restart)."
+    },
+    {
+      "control_id": "MON-06",
+      "control_name": "Credential Separation & Zero Exposure",
+      "implementation": ".gitignore and scan_secrets.py",
+      "mechanism": "API keys and secrets excluded from Git; environment variables required at runtime.",
+      "unit_test_status": "PASS (Zero secrets in Git history or workspace)",
+      "operating_system_boundary": "PROVEN (Operating system environment variable isolation)."
+    }
+  ],
+  "adversarial_sre_finding": {
+    "finding": "HOST_OS_SUPERVISION_GAP",
+    "severity": "HIGH",
+    "description": "While software-level accounting and event logging pass all tests, no system service (e.g., Windows Task Scheduler, NSSM service, or Linux systemd) or external healthcheck watchdog is configured. An unexpected OS reboot or Python crash would leave the evaluation unmonitored.",
+    "required_remediation_prior_to_activation": "Deploy automated OS process supervisor with external heartbeat alert (e.g. Healthchecks.io or Telegram webhook)."
+  },
+  "owner_action_required": {
+    "status": "PENDING_APPROVAL",
+    "decision_ref": "DEC-05",
+    "action": "Owner reviews incident severity thresholds and approves persistent disk lock policy."
+  }
+}

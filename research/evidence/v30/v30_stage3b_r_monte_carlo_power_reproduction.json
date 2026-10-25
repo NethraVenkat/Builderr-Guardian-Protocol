@@ -1,0 +1,1958 @@
+{
+  "monte_carlo_power_reproduction": {
+    "timestamp_utc": "2026-10-25T08:30:00Z",
+    "simulation_parameters": {
+      "replications_M": 2000,
+      "burn_in_steps": 100,
+      "master_seed": 20261025,
+      "rng_framework": "NumPy PCG64 AR(1) stationary process"
+    },
+    "econometric_insight": "In small samples (N=30), sample Newey-West HAC estimation induces finite-sample downward variance bias, resulting in empirical size inflation at the null boundary (empirical Type I error ~8.5-9.5% vs nominal 5.0%). Consequently, empirical Monte Carlo power is higher (~17-18% vs 11.55%), demonstrating that asymptotic normal approximation alone fails to capture finite-sample HAC test-statistic distortions.",
+    "scenarios": [
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 7.9,
+        "mc_se_pct": 0.6
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 33.95,
+        "mc_se_pct": 1.06
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 73.25,
+        "mc_se_pct": 0.99
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 95.0,
+        "mc_se_pct": 0.49
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.85,
+        "mc_se_pct": 0.21
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 7.85,
+        "mc_se_pct": 0.6
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 19.05,
+        "mc_se_pct": 0.88
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 35.15,
+        "mc_se_pct": 1.07
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 55.35,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 94.9,
+        "mc_se_pct": 0.49
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 2.15,
+        "mc_se_pct": 0.32
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 8.05,
+        "mc_se_pct": 0.61
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 11.8,
+        "mc_se_pct": 0.72
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 18.8,
+        "mc_se_pct": 0.87
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 26.05,
+        "mc_se_pct": 0.98
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 55.1,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.05,
+        "mc_se_pct": 0.05
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 9.8,
+        "mc_se_pct": 0.66
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 31.55,
+        "mc_se_pct": 1.04
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 64.2,
+        "mc_se_pct": 1.07
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 88.8,
+        "mc_se_pct": 0.71
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 1.65,
+        "mc_se_pct": 0.28
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 8.7,
+        "mc_se_pct": 0.63
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 17.95,
+        "mc_se_pct": 0.86
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 32.55,
+        "mc_se_pct": 1.05
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 48.55,
+        "mc_se_pct": 1.12
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 89.8,
+        "mc_se_pct": 0.68
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 3.75,
+        "mc_se_pct": 0.42
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 9.8,
+        "mc_se_pct": 0.66
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 14.1,
+        "mc_se_pct": 0.78
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 18.9,
+        "mc_se_pct": 0.88
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 26.1,
+        "mc_se_pct": 0.98
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 47.85,
+        "mc_se_pct": 1.12
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.4,
+        "mc_se_pct": 0.14
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 9.9,
+        "mc_se_pct": 0.67
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 28.85,
+        "mc_se_pct": 1.01
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 54.15,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 78.45,
+        "mc_se_pct": 0.92
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 99.8,
+        "mc_se_pct": 0.1
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 2.2,
+        "mc_se_pct": 0.33
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 11.2,
+        "mc_se_pct": 0.71
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 19.45,
+        "mc_se_pct": 0.89
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 30.2,
+        "mc_se_pct": 1.03
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 42.0,
+        "mc_se_pct": 1.1
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 79.35,
+        "mc_se_pct": 0.91
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 6.4,
+        "mc_se_pct": 0.55
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 12.1,
+        "mc_se_pct": 0.73
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 16.2,
+        "mc_se_pct": 0.82
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 20.2,
+        "mc_se_pct": 0.9
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 24.7,
+        "mc_se_pct": 0.96
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 41.8,
+        "mc_se_pct": 1.1
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 7.65,
+        "mc_se_pct": 0.59
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 42.1,
+        "mc_se_pct": 1.1
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 87.85,
+        "mc_se_pct": 0.73
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 99.6,
+        "mc_se_pct": 0.14
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.5,
+        "mc_se_pct": 0.16
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 7.9,
+        "mc_se_pct": 0.6
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 22.0,
+        "mc_se_pct": 0.93
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 42.65,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 68.15,
+        "mc_se_pct": 1.04
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 99.3,
+        "mc_se_pct": 0.19
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 1.5,
+        "mc_se_pct": 0.27
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 6.25,
+        "mc_se_pct": 0.54
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 12.35,
+        "mc_se_pct": 0.74
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 20.4,
+        "mc_se_pct": 0.9
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 30.95,
+        "mc_se_pct": 1.03
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 67.35,
+        "mc_se_pct": 1.05
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 8.35,
+        "mc_se_pct": 0.62
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 36.5,
+        "mc_se_pct": 1.08
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 75.75,
+        "mc_se_pct": 0.96
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 96.0,
+        "mc_se_pct": 0.44
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.45,
+        "mc_se_pct": 0.15
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 7.8,
+        "mc_se_pct": 0.6
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 17.85,
+        "mc_se_pct": 0.86
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 35.55,
+        "mc_se_pct": 1.07
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 55.75,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 95.45,
+        "mc_se_pct": 0.47
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 2.75,
+        "mc_se_pct": 0.37
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 8.0,
+        "mc_se_pct": 0.61
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 12.25,
+        "mc_se_pct": 0.73
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 17.65,
+        "mc_se_pct": 0.85
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 25.2,
+        "mc_se_pct": 0.97
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 56.8,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.05,
+        "mc_se_pct": 0.05
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 9.55,
+        "mc_se_pct": 0.66
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 34.05,
+        "mc_se_pct": 1.06
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 67.6,
+        "mc_se_pct": 1.05
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 90.3,
+        "mc_se_pct": 0.66
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 99.95,
+        "mc_se_pct": 0.05
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 1.55,
+        "mc_se_pct": 0.28
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 9.4,
+        "mc_se_pct": 0.65
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 18.8,
+        "mc_se_pct": 0.87
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 32.4,
+        "mc_se_pct": 1.05
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 48.9,
+        "mc_se_pct": 1.12
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 90.35,
+        "mc_se_pct": 0.66
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 4.8,
+        "mc_se_pct": 0.48
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 10.4,
+        "mc_se_pct": 0.68
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 14.55,
+        "mc_se_pct": 0.79
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 18.95,
+        "mc_se_pct": 0.88
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 26.1,
+        "mc_se_pct": 0.98
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 50.2,
+        "mc_se_pct": 1.12
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 5.4,
+        "mc_se_pct": 0.51
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 48.55,
+        "mc_se_pct": 1.12
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 94.25,
+        "mc_se_pct": 0.52
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 99.9,
+        "mc_se_pct": 0.07
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.15,
+        "mc_se_pct": 0.09
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 5.9,
+        "mc_se_pct": 0.53
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 22.7,
+        "mc_se_pct": 0.94
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 51.05,
+        "mc_se_pct": 1.12
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 77.45,
+        "mc_se_pct": 0.93
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 99.9,
+        "mc_se_pct": 0.07
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 1.2,
+        "mc_se_pct": 0.24
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 6.2,
+        "mc_se_pct": 0.54
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 12.5,
+        "mc_se_pct": 0.74
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 22.45,
+        "mc_se_pct": 0.93
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 35.3,
+        "mc_se_pct": 1.07
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 76.45,
+        "mc_se_pct": 0.95
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 8.85,
+        "mc_se_pct": 0.64
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 41.65,
+        "mc_se_pct": 1.1
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 83.7,
+        "mc_se_pct": 0.83
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 98.9,
+        "mc_se_pct": 0.23
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.3,
+        "mc_se_pct": 0.12
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 6.45,
+        "mc_se_pct": 0.55
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 19.7,
+        "mc_se_pct": 0.89
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 41.45,
+        "mc_se_pct": 1.1
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 65.1,
+        "mc_se_pct": 1.07
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 98.7,
+        "mc_se_pct": 0.25
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 1.7,
+        "mc_se_pct": 0.29
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 7.5,
+        "mc_se_pct": 0.59
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 13.65,
+        "mc_se_pct": 0.77
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 20.95,
+        "mc_se_pct": 0.91
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 30.8,
+        "mc_se_pct": 1.03
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 66.5,
+        "mc_se_pct": 1.06
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 10.25,
+        "mc_se_pct": 0.68
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 36.85,
+        "mc_se_pct": 1.08
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 74.55,
+        "mc_se_pct": 0.97
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 95.95,
+        "mc_se_pct": 0.44
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 1.2,
+        "mc_se_pct": 0.24
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 8.55,
+        "mc_se_pct": 0.63
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 19.35,
+        "mc_se_pct": 0.88
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 35.95,
+        "mc_se_pct": 1.07
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 56.95,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 95.15,
+        "mc_se_pct": 0.48
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 3.65,
+        "mc_se_pct": 0.42
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 10.15,
+        "mc_se_pct": 0.68
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 14.65,
+        "mc_se_pct": 0.79
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 21.7,
+        "mc_se_pct": 0.92
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 30.05,
+        "mc_se_pct": 1.03
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 57.75,
+        "mc_se_pct": 1.1
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 5.65,
+        "mc_se_pct": 0.52
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 62.9,
+        "mc_se_pct": 1.08
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 98.45,
+        "mc_se_pct": 0.28
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.2,
+        "mc_se_pct": 0.1
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 6.6,
+        "mc_se_pct": 0.56
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 25.8,
+        "mc_se_pct": 0.98
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 61.4,
+        "mc_se_pct": 1.09
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 89.75,
+        "mc_se_pct": 0.68
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.55,
+        "mc_se_pct": 0.17
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 5.3,
+        "mc_se_pct": 0.5
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 13.3,
+        "mc_se_pct": 0.76
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 25.6,
+        "mc_se_pct": 0.98
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 43.2,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 88.3,
+        "mc_se_pct": 0.72
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 6.75,
+        "mc_se_pct": 0.56
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 50.8,
+        "mc_se_pct": 1.12
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 93.95,
+        "mc_se_pct": 0.53
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 99.85,
+        "mc_se_pct": 0.09
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.05,
+        "mc_se_pct": 0.05
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 6.2,
+        "mc_se_pct": 0.54
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 23.45,
+        "mc_se_pct": 0.95
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 51.6,
+        "mc_se_pct": 1.12
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 78.3,
+        "mc_se_pct": 0.92
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 99.9,
+        "mc_se_pct": 0.07
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 1.25,
+        "mc_se_pct": 0.25
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 6.55,
+        "mc_se_pct": 0.55
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 14.45,
+        "mc_se_pct": 0.79
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 25.3,
+        "mc_se_pct": 0.97
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 37.7,
+        "mc_se_pct": 1.08
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 80.1,
+        "mc_se_pct": 0.89
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 8.55,
+        "mc_se_pct": 0.63
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 44.55,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 86.45,
+        "mc_se_pct": 0.77
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 98.7,
+        "mc_se_pct": 0.25
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 100.0,
+        "mc_se_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 0.4,
+        "mc_se_pct": 0.14
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 7.95,
+        "mc_se_pct": 0.6
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 21.55,
+        "mc_se_pct": 0.92
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 45.15,
+        "mc_se_pct": 1.11
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 67.35,
+        "mc_se_pct": 1.05
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 98.95,
+        "mc_se_pct": 0.23
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "mc_rejection_pct": 2.65,
+        "mc_se_pct": 0.36
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "mc_rejection_pct": 8.85,
+        "mc_se_pct": 0.64
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 15.6,
+        "mc_se_pct": 0.81
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 23.4,
+        "mc_se_pct": 0.95
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 33.1,
+        "mc_se_pct": 1.05
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "mc_rejection_pct": 68.45,
+        "mc_se_pct": 1.04
+      }
+    ]
+  }
+}

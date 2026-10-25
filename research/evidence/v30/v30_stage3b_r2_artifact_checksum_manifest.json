@@ -1,0 +1,83 @@
+{
+  "manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 3B-R2 - Artifact Checksum Manifest",
+    "timestamp_utc": "2026-10-25T18:50:00Z",
+    "git_branch": "archive/v30-stage2h-final-evidence-freeze",
+    "git_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "git_parent": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "total_stage3b_r2_artifacts": 14,
+    "exclusion_notice": "This manifest records independent external cryptographic hashes of the other 14 Stage 3B-R2 deliverables, simulation scripts, and tests. Self-hashing is explicitly excluded to avoid self-referential paradoxes."
+  },
+  "artifacts": {
+    "GUARDIAN_ALPHA_V30_STAGE3B_R2_FINAL_CORRECTION_AND_OWNER_HANDOVER.md": {
+      "size_bytes": 28564,
+      "raw_sha256": "5b542ef9b0175c5e05dd70146faa4be4cd1fbd28295512d24fdb419e89c120c3",
+      "lf_sha256": "5b542ef9b0175c5e05dd70146faa4be4cd1fbd28295512d24fdb419e89c120c3"
+    },
+    "research/evidence/v30/v30_stage3b_r2_checkpoint_certification.json": {
+      "size_bytes": 1449,
+      "raw_sha256": "593e5e6be6ca8eae48ffc0f1e5460b7b7180ec2a4749998a5d0932f9bbe151d8",
+      "lf_sha256": "be05ac87cbe9f3470f75cf399a96e5794e0ed2f0373a4a48bdbfcf95ad8c95de"
+    },
+    "research/evidence/v30/v30_stage3b_r2_exact_ar1_variance_reconciliation.json": {
+      "size_bytes": 2295,
+      "raw_sha256": "f1ed5414188ae736a0f953eed4483a3ff8ffe3f77556e9500291da7bc331d2fd",
+      "lf_sha256": "eb4ea0ba489fafe85117c5620aece44e719f1c66cb85b71812324e5db69f15d2"
+    },
+    "research/evidence/v30/v30_stage3b_r2_corrected_analytical_scenario_matrix.json": {
+      "size_bytes": 157930,
+      "raw_sha256": "3e308a93c0569412e88d2665fbbb98266e75932eb4316841f28a9edeea845900",
+      "lf_sha256": "eb85124543ad45f2a05e98096275ebea822f4b68fda452481d0ee1fff487230f"
+    },
+    "research/evidence/v30/v30_stage3b_r2_joint_hac_bootstrap_simulation_spec.json": {
+      "size_bytes": 1909,
+      "raw_sha256": "1c86bb45bf87fd4c3faa0fcfdce5d4a44a2bc4a4ebcca7a7fef2ce49d0316a86",
+      "lf_sha256": "b9d30ea2b5c216f656bd1595448247c432cf922ebd4d0986e6bbf94f9497988e"
+    },
+    "research/evidence/v30/v30_stage3b_r2_joint_calibration_results.json": {
+      "size_bytes": 31748,
+      "raw_sha256": "235035e96e3a6fb22aa5b712bb39d14d1299bc5429732b505fb5b8018f9906ee",
+      "lf_sha256": "f41e3db277bf5eb051451b1f0e7b4afdcfbc0068f6139e195c63b8fdb69083bd"
+    },
+    "research/evidence/v30/v30_stage3b_r2_provider_rights_correction.json": {
+      "size_bytes": 13336,
+      "raw_sha256": "a739c36db9a44e531b34d9f01bb29b7d8fc204e9605c32f17e5302b4d827e540",
+      "lf_sha256": "a739c36db9a44e531b34d9f01bb29b7d8fc204e9605c32f17e5302b4d827e540"
+    },
+    "research/evidence/v30/v30_stage3b_r2_governance_id_crosswalk.json": {
+      "size_bytes": 5609,
+      "raw_sha256": "5c3a5de833dc5fa00ba466bfeae0ec84141e12ad7127f286fd7b610dcca57dc5",
+      "lf_sha256": "5c3a5de833dc5fa00ba466bfeae0ec84141e12ad7127f286fd7b610dcca57dc5"
+    },
+    "research/evidence/v30/v30_stage3b_r2_evidence_inventory_reconciliation.json": {
+      "size_bytes": 8900,
+      "raw_sha256": "1215390256f63a7d87ba83e91cf92ec060a8971e26a7dd5c7535b193ff35a9f5",
+      "lf_sha256": "7d96396c5c73f22d94e4100a32d54a16fed4137eee1f6bdad580a34af22fdbf2"
+    },
+    "research/evidence/v30/v30_stage3b_r2_interrupted_execution_classification.json": {
+      "size_bytes": 3486,
+      "raw_sha256": "12d760ea2f525271e7af13c344ca1b982342380c04e153bb8cf7917a8b79e370",
+      "lf_sha256": "f1247e75a476368867ea35761894802bdd06053bc83ffb1a09455a49b0f56f42"
+    },
+    "research/evidence/v30/v30_stage3b_r2_corrected_owner_decision_register.json": {
+      "size_bytes": 5558,
+      "raw_sha256": "1f22b788e4822fe799c3fdd84cfd02ea04bbd061f6e242a389aae618693e5193",
+      "lf_sha256": "1f22b788e4822fe799c3fdd84cfd02ea04bbd061f6e242a389aae618693e5193"
+    },
+    "research/evidence/v30/v30_stage3b_r2_executed_test_ledger.json": {
+      "size_bytes": 3337,
+      "raw_sha256": "1e3a1806ec5545720e9857bdcdeadfccf75c754cf679e9ca6144848a474c2ae9",
+      "lf_sha256": "1e3a1806ec5545720e9857bdcdeadfccf75c754cf679e9ca6144848a474c2ae9"
+    },
+    "research/simulations/v30_stage3b_r2_reproducible_joint_calibration.py": {
+      "size_bytes": 10123,
+      "raw_sha256": "d957ceee1f89f6b29eeeed9918dd8cdc3c755b679e54c3b72d42cb7f302b9055",
+      "lf_sha256": "d957ceee1f89f6b29eeeed9918dd8cdc3c755b679e54c3b72d42cb7f302b9055"
+    },
+    "research/tests/test_v30_stage3b_r2_final_corrections.py": {
+      "size_bytes": 11395,
+      "raw_sha256": "98aaff5b535f86b258ae3af7255e5f06f06e29afb1a9fb10405a2bb96eee097e",
+      "lf_sha256": "98aaff5b535f86b258ae3af7255e5f06f06e29afb1a9fb10405a2bb96eee097e"
+    }
+  }
+}

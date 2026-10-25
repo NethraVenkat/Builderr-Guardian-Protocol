@@ -1,0 +1,50 @@
+{
+  "fail_closed_monitoring_review": {
+    "timestamp_utc": "2026-10-25T07:41:00Z",
+    "review_objective": "Audit the operational risks of automated process restarts and specify strict fail-closed recovery invariants for prospective paper evaluation.",
+    "risks_of_naive_automatic_restarts": [
+      {
+        "risk_id": "RESTART_RISK_01",
+        "name": "Rapid-Fire Restart Thrashing & IP Blacklisting",
+        "description": "If an unhandled exception is caused by an invalid API token, network partition, or vendor rate-limiting, an OS-level daemon supervisor (e.g. systemd/NSSM) blindly restarting every 5 seconds will hammer the provider API, resulting in temporary or permanent IP bans and account suspension."
+      },
+      {
+        "risk_id": "RESTART_RISK_02",
+        "name": "Duplicate Order Replay & Double Fill Exposure",
+        "description": "If a crash occurs after an order was transmitted to the broker/simulator but before the execution fill was committed to disk, an automatic restart that re-evaluates the strategy could re-transmit the same buy/sell order, doubling position size or causing unauthorized margin borrowing."
+      },
+      {
+        "risk_id": "RESTART_RISK_03",
+        "name": "Corrupted State & Deserialization Cascades",
+        "description": "If a host power failure or abrupt kill leaves a JSON journal file partially written, an automatic restart attempting to parse malformed JSON could enter an infinite crash loop or miscalculate portfolio cash."
+      },
+      {
+        "risk_id": "RESTART_RISK_04",
+        "name": "Stale Market Data Execution",
+        "description": "If vendor feeds freeze or fail to update, an auto-restarted runner could calculate signals and place orders against yesterday's closing prices during a market crash."
+      }
+    ],
+    "fail_closed_recovery_invariants": {
+      "invariant_1_persistent_incident_lock": {
+        "mechanism": "Physical `INCIDENT_LOCK` file written to persistent storage containing UTC timestamp, error code, stack trace, and SHA-256 HMAC integrity signature.",
+        "behavior": "Runner startup routine immediately inspects disk for `INCIDENT_LOCK`. If detected, the process halts immediately with exit code 99 and logs a fatal error without opening network connections or placing orders."
+      },
+      "invariant_2_manual_authorization_required": {
+        "rule": "Automated daemons, scripts, or supervisors are STRUCTURALLY FORBIDDEN from clearing an `INCIDENT_LOCK`. Clearing the lock requires a human operator to inspect root cause and execute an explicit cryptographic reset command."
+      },
+      "invariant_3_deterministic_order_id_deduplication": {
+        "rule": "Every outbound order generates a deterministic client order ID: `UUIDv5(namespace, session_date + ticker + target_shares + nonce)`. Broker sandbox/simulator must reject duplicate client order IDs to prevent replay."
+      },
+      "invariant_4_double_entry_pre_reconciliation": {
+        "rule": "On every startup or recovery, the complete disk event journal is replayed through `DecimalAccountingOracle`. If balance sheet identity `Cash + Receivables + Equities == Total Equity` does not match to exact Decimal precision, startup aborts into `INCIDENT_LOCK`."
+      },
+      "invariant_5_stale_data_circuit_breaker": {
+        "rule": "If incoming market data timestamp is older than max allowable latency (e.g. > 18 hours for daily EOD bars, or > 15 minutes for intraday bars), trading signals are inhibited and alert is dispatched."
+      },
+      "invariant_6_isolated_external_watchdog": {
+        "rule": "External monitoring (e.g. Healthchecks.io / Uptime Kuma) acts strictly as a passive dead-man's switch receiving periodic pings. The watchdog has ZERO broker credentials, ZERO ability to generate orders, and ZERO ability to clear incident locks."
+      }
+    },
+    "environmental_restriction": "NO SUPERVISORS, WATCHERS, OR DAEMONS HAVE BEEN INSTALLED OR STARTED IN THIS REPOSITORY."
+  }
+}

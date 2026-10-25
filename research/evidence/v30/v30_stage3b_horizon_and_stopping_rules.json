@@ -1,0 +1,44 @@
+{
+  "horizon_and_stopping_rules": {
+    "timestamp_utc": "2026-10-25T08:08:00Z",
+    "evaluation_horizon": {
+      "nominal_sessions": 252,
+      "calendar_equivalent": "~1 trading year",
+      "minimum_causal_defensive_floor": 30,
+      "maximum_contingent_sessions": 504
+    },
+    "extension_protocol": {
+      "trigger_formula": "Extend \\iff N_{def}^{causal}(T=252) = \\sum_{t=1}^{252} \\mathbb{I}(I_{def,t}^{causal} = 1) < 30",
+      "objective_observability": "Computable strictly from the pre-trade causal regime journal as of session 252 market open. It requires zero access to portfolio equity curves, daily returns, drawdowns, or running p-values.",
+      "extension_execution": "If triggered at session 252, prospective data collection continues session-by-session until the earliest of: (a) N_{def}^{causal} reaches 30, or (b) total sessions T reaches 504.",
+      "stopping_boundary_at_504": "If N_{def}^{causal} remains < 30 at session 504 (indicating a sustained 2-year bull market), the trial terminates immediately. Verdict: INCONCLUSIVE (Insufficient defensive regime observations to achieve statistical power)."
+    },
+    "prohibition_of_interim_optional_stopping": {
+      "rule": "STRICT_PROHIBITION_ON_PEEKING",
+      "justification": "Evaluating d_t sequentially and terminating early when p < 0.05 inflates the false positive rate (Type I error) from 5% to over 20%. Continuous monitoring without alpha-spending corrections invalidates standard inferential statistics.",
+      "enforcement": "The primary hypothesis test is executed exactly once: at the formal conclusion of the trial (session 252, or upon reaching N_{def}=30 during extension, or at session 504)."
+    },
+    "taxonomic_distinction_of_stopping_categories": {
+      "administrative_extension": {
+        "purpose": "Sample size replenishment due to low market volatility.",
+        "outcome_dependence": "ZERO (depends solely on ex-ante regime trigger frequency).",
+        "inferential_impact": "Statistically valid; preserves nominal alpha level."
+      },
+      "safety_related_discontinuation": {
+        "name": "Catastrophic Circuit Breaker",
+        "trigger": "MaxDrawdown_{D2}(t) > MaxDrawdown_{E0}(t) + 0.0300 \\quad (+300\\text{ bps})",
+        "action": "Immediate permanent halt of evaluation runner.",
+        "statistical_treatment": "NON-NEUTRAL FAILURE. Must be analyzed as an explicit experimental failure (verdict: REJECT D2). It is not treated as random missing data."
+      },
+      "scientific_early_stopping": {
+        "status": "FORBIDDEN",
+        "note": "Early termination for scientific efficacy or futility is strictly prohibited because no alpha-spending sequential boundary (e.g. O'Brien-Fleming) is preregistered."
+      }
+    },
+    "owner_decision_gate": {
+      "decision_id": "DEC-04",
+      "status": "PENDING_OWNER_RATIFICATION",
+      "recommendation": "Owner should approve this exact 252/504-session protocol in the formal preregistration document."
+    }
+  }
+}

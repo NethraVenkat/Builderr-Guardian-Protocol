@@ -1,0 +1,42 @@
+{
+  "checkpoint_certification": {
+    "timestamp_utc": "2026-10-25T18:45:00Z",
+    "stage": "V30 Stage 3C",
+    "git_branch": "archive/v30-stage2h-final-evidence-freeze",
+    "git_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "git_parent": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "archival_commit_delta_file_count": 198,
+    "working_tree_state": {
+      "staged_changes": 0,
+      "tracked_modifications": 0
+    },
+    "protected_source_hashes": {
+      "agent.py": {
+        "mode": "raw",
+        "expected": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+        "status": "MATCH"
+      },
+      "universe.json": {
+        "mode": "lf",
+        "expected": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+        "status": "MATCH"
+      },
+      "research/strategies/v12_candidate_ae.py": {
+        "mode": "lf",
+        "expected": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+        "status": "MATCH"
+      },
+      "research/strategies/v30_candidate_d2_cash_cushion.py": {
+        "mode": "raw",
+        "expected": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+        "status": "MATCH"
+      }
+    },
+    "tier3_holdout_isolation": {
+      "tiingo_cache_entries": 2,
+      "inspection_status": "SEALED_UNINSPECTED",
+      "leakage_status": "ZERO_LEAKAGE"
+    },
+    "verification_verdict": "PASS"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "owner_preregistration_draft": {
+    "timestamp_utc": "2026-10-25T08:12:00Z",
+    "document_title": "GUARDIAN ALPHA V30 — PROSPECTIVE EVALUATION SCIENTIFIC PREREGISTRATION",
+    "status": "DRAFT_PENDING_OWNER_SIGNATURE",
+    "preregistration_text": {
+      "section_1_experimental_charter": "This document constitutes the irrevocable scientific preregistration protocol for the prospective, out-of-sample evaluation of Guardian Alpha Candidate D2 against Frozen Baseline E0. Historical optimization is permanently closed. No parameters, thresholds, or universes may be modified during the prospective evaluation.",
+      "section_2_frozen_comparator_identities": {
+        "baseline_E0": "research/strategies/v12_candidate_ae.py (LF SHA-256: 978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793)",
+        "comparator_D2": "research/strategies/v30_candidate_d2_cash_cushion.py (Raw SHA-256: 5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215)",
+        "agent_core": "agent.py (Raw SHA-256: 46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd)",
+        "universe": "universe.json (LF SHA-256: 66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd)"
+      },
+      "section_3_causal_session_eligibility": "A trading session T is defined as an eligible prospective defensive session if and only if the strategy regime signal computed at the market close of session T-1 (using data strictly <= T-1) allocated D2 into its defensive cash cushion sleeve (risk_on is False or winners is empty). Conditioning on same-day negative returns R_{m,T} < 0 is strictly recognized as a secondary descriptive partition, not the primary causal endpoint.",
+      "section_4_primary_statistical_endpoint": {
+        "metric": "d_t = max(0, -R_{E0,t}) - max(0, -R_{D2,t}) on eligible defensive sessions",
+        "primary_hurdle": "Reject H0: E[d_t | I_{def,t}^{causal}=1] <= 0.0010 (10 bps/day) at alpha = 0.05",
+        "inferential_tests": "Both Newey-West HAC (Bartlett kernel, lag q = floor(4*(N/100)^(2/9))) and Stationary Block Bootstrap (B=10,000, seed=20261025) must achieve p < 0.05."
+      },
+      "section_5_secondary_risk_budget_guardrail": "Full-period Delta CAGR = CAGR_{D2} - CAGR_{E0} >= -0.0200 (-200 bps annualized). This is formally agreed to be an operational risk-budget guardrail, not a statistically validated non-inferiority proof.",
+      "section_6_horizon_and_extension_rules": "The nominal evaluation duration is exactly 252 prospective trading sessions. If the number of causal defensive sessions N_{def}^{causal} < 30 at session 252, data collection automatically extends session-by-session until N_{def}^{causal} = 30 or total sessions reach 504. If N_{def}^{causal} < 30 at session 504, the trial terminates as INCONCLUSIVE. Interim optional stopping for statistical significance is strictly forbidden.",
+      "section_7_catastrophic_safety_circuit_breaker": "If at any point during prospective evaluation D2's maximum drawdown exceeds E0's maximum drawdown by more than 300 basis points (+0.0300), the trial halts immediately and Candidate D2 is formally REJECTED.",
+      "section_8_fail_closed_governance": "The system will operate under a fail-closed model. Any unhandled exception or reconciliation failure triggers an INCIDENT_LOCK requiring human clearance. No automated restart may clear locks or place orders.",
+      "section_9_owner_execution_block": {
+        "declaration": "I, the repository owner, hereby ratify the above protocol and confirm that I have verified my market data subscription rights, including non-display and post-termination data obligations.",
+        "owner_name": "PENDING_OWNER_INPUT",
+        "signature_date": "PENDING_OWNER_INPUT",
+        "cryptographic_hmac_signature": "PENDING_OWNER_EXECUTION"
+      }
+    }
+  }
+}

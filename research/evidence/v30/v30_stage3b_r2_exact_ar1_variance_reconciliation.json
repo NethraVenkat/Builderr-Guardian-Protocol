@@ -1,0 +1,37 @@
+{
+  "exact_ar1_variance_reconciliation": {
+    "timestamp_utc": "2026-10-25T18:15:00Z",
+    "mathematical_formulation": {
+      "exact_finite_n_formula": "Var(Xbar) = (sigma^2 / N) * [1 + 2 * sum_{k=1}^{N-1} (1 - k/N) * rho^k]",
+      "asymptotic_infinite_n_formula": "Var_asymp(Xbar) = (sigma^2 / N) * [(1 + rho) / (1 - rho)]",
+      "exact_effective_sample_size": "N_eff_exact = N / [1 + 2 * sum_{k=1}^{N-1} (1 - k/N) * rho^k]",
+      "asymptotic_effective_sample_size": "N_eff_asymp = N * (1 - rho) / (1 + rho)"
+    },
+    "core_target_scenario": {
+      "N": 30,
+      "rho": 0.2,
+      "sigma_bps": 50.0,
+      "true_mu_bps": 15.0,
+      "hurdle_bps": 10.0,
+      "alpha_one_sided": 0.05,
+      "exact_variance": 123.2638888888889,
+      "asymptotic_variance": 124.99999999999997,
+      "exact_standard_error_bps": 11.102427162061858,
+      "asymptotic_standard_error_bps": 11.180339887498947,
+      "exact_effective_sample_size": 20.281690140845065,
+      "asymptotic_effective_sample_size": 20.000000000000004,
+      "relative_error_variance_pct": 1.4084507042253198,
+      "relative_error_standard_error_pct": 0.7017629956026673,
+      "exact_analytical_power_pct": 11.61408974562157,
+      "asymptotic_analytical_power_pct": 11.552859229661872,
+      "power_discrepancy_pct": 0.061230515959698195
+    },
+    "historical_discrepancy_reconciliation": {
+      "stage3b_r_reported_asymptotic_power": 11.55,
+      "stage3b_r_reported_variance_scaled_power": 11.83,
+      "root_cause_of_11_83_discrepancy": "The 11.83% estimate in Stage 3B-R arose from a truncated 1-lag approximation: gamma0 + 2(1-1/2)*rho*gamma0 = sigma^2(1+rho) with effective sample size 20.91. When all N-1 lags are summed with the exact finite-sample weights (1-k/N), the exact factor is 1.479167 (N_eff = 20.2817), yielding exactly 11.6141% power.",
+      "corrected_exact_power_for_target_scenario": 11.6141,
+      "audit_conclusion": "The infinite-sample asymptotic formula slightly underestimates power by 0.06% (11.55% vs 11.61%) because it assumes an infinite sequence of positive auto-covariances, whereas the finite sample truncates at lag N-1 and applies downward-sloping weights (1-k/N). Both 11.55% and 11.61% confirm the trial is deeply underpowered at N=30."
+    }
+  }
+}

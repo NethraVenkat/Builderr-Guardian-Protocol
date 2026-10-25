@@ -1,0 +1,63 @@
+{
+  "statistical_protocol_and_decision_matrix": {
+    "timestamp_utc": "2026-10-25T08:07:00Z",
+    "primary_endpoint": {
+      "name": "Paired Downside Shortfall Reduction on Causal Defensive Sessions",
+      "formula": "d_t = \\max(0, -R_{E0,t}) - \\max(0, -R_{D2,t}) \\quad \\text{for } t \\in \\{1, \\dots, T\\} \\text{ where } I_{def,t}^{causal} = 1",
+      "return_convention": {
+        "formula": "R_{p,t} = (V_{p,t}^{net} / V_{p,t-1}^{net}) - 1",
+        "net_of_costs": true,
+        "cost_model": "Simulated commissions ($0 on modern US equity brokers) + bid-ask half-spread model (5 bps on leveraged ETFs, 2 bps on defensive ETFs) + 50% cash yield at current risk-free rate"
+      },
+      "exclusions_policy": "Exchange holidays, emergency market halts, incomplete vendor bar feeds, and ticker delisting days are excluded from evaluation.",
+      "incident_handling": "Sessions occurring during an active INCIDENT_LOCK are quarantined into a separate incident ledger and excluded from primary causal inference."
+    },
+    "formal_hypotheses": {
+      "hypothesis_1_directional": {
+        "null_H01": "\\mu_d \\le 0",
+        "alt_H11": "\\mu_d > 0",
+        "test_type": "One-sided test of directional non-negative downside reduction"
+      },
+      "hypothesis_2_economic_hurdle": {
+        "null_H02": "\\mu_d \\le \\delta_{min} = 0.0010 \\quad (10\\text{ basis points per defensive session})",
+        "alt_H12": "\\mu_d > 0.0010",
+        "test_type": "One-sided test of economically meaningful downside alpha",
+        "promotion_gate": "MANDATORY. Strategy certification requires rejecting H02 at alpha = 0.05."
+      }
+    },
+    "inferential_methodology": {
+      "primary_parametric_test": {
+        "name": "Newey-West (1987) HAC Covariance Estimator",
+        "kernel": "Bartlett triangular kernel",
+        "lag_selection_rule": "q = \\lfloor 4 (N_{def} / 100)^{2/9} \\rfloor",
+        "test_statistic": "t_{NW} = (\\bar{d} - \\delta_{min}) / (\\hat{\\sigma}_{HAC} / \\sqrt{N_{def}})",
+        "decision_threshold": "t_{NW} > z_{0.95} = 1.6449 \\implies p_{HAC} < 0.05"
+      },
+      "primary_non_parametric_test": {
+        "name": "Politis & Romano (1994) Stationary Block Bootstrap",
+        "block_length_parameter": "Geometric distribution with mean b = \\lceil N_{def}^{1/3} \\rceil",
+        "bootstrap_replications_B": 10000,
+        "reproducible_rng_seed": 20261025,
+        "outputs": [
+          "One-sided empirical p-value: p_{boot} = \\frac{1}{B} \\sum_{b=1}^B \\mathbb{I}(\\bar{d}^{*,b} - \\bar{d} \\ge \\bar{d} - \\delta_{min})",
+          "Lower 95% Confidence Bound: d_{lower, 95%}"
+        ]
+      },
+      "discrepancy_resolution_rule": {
+        "rule": "CONSERVATIVE_DISJUNCTION. Promotion requires BOTH p_{HAC} < 0.05 AND p_{boot} < 0.05. If HAC rejects but Bootstrap fails (or vice versa), the more conservative non-rejection verdict governs (verdict: INCONCLUSIVE / FAIL TO REJECT H02)."
+      }
+    },
+    "sensitivity_analyses_preregistration": {
+      "lag_sensitivity": "Evaluate q in [1, 2, 4, 8]",
+      "block_length_sensitivity": "Evaluate b in [3, 5, 10]",
+      "hurdle_sensitivity": "Evaluate delta in [0 bps, 5 bps, 10 bps, 15 bps]",
+      "multiplicity_control": "Hierarchical testing: Secondary CAGR non-inferiority is tested if and only if Primary Hurdle H02 is rejected at alpha = 0.05.",
+      "data_restatement_policy": "If provider restates historical bars after event freeze, original recorded EOD bars govern the primary verdict. Restated bars are analyzed solely in an audit sensitivity annex."
+    },
+    "owner_governance_status": {
+      "decision_id": "DEC-03",
+      "status": "PENDING_OWNER_RATIFICATION",
+      "legal_notice": "Neither the 10-bps hurdle nor the Newey-West lag formula may be approved by autonomous agents. Human owner signature is required."
+    }
+  }
+}

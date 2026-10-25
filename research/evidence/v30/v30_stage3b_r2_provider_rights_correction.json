@@ -1,0 +1,206 @@
+{
+  "provider_rights_correction": {
+    "timestamp_utc": "2026-10-25T18:25:00Z",
+    "stage": "V30 Stage 3B-R2",
+    "governance_status": "DEC-02 REMAINS STRICTLY BLOCKED",
+    "reconciliation_summary": "Reconciles overconfident assertions from Stage 3B-R (which labeled Tiingo Power 'FEASIBLE' and Alpaca/IBKR 'COMPLIANT'). Rights are now categorized strictly under the 5-tier institutional taxonomy based on official published legal agreements, explicitly separating API technical capability from contractual entitlements.",
+    "taxonomy_definitions": {
+      "VERIFIED_BY_APPLICABLE_AGREEMENT": "Expressly permitted in published standard terms without ongoing ambiguities or specialized exemptions.",
+      "CONDITIONAL": "Permitted only under strict operational preconditions (e.g. active paid subscription, non-display declaration, platform-restricted execution, or mandatory post-termination purge).",
+      "UNKNOWN": "Contractual terms cannot be established without inspecting an account-specific executed master service agreement or license schedule.",
+      "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS": "Expressly barred under published self-service developer/starter terms; requires separate negotiated enterprise contract.",
+      "NOT_APPLICABLE": "Activity or retention category is not relevant to the provider's operational role."
+    },
+    "providers": {
+      "Tiingo": {
+        "primary_source_url": "https://app.tiingo.com/tos/",
+        "agreement_title": "Tiingo Terms of Service",
+        "effective_date_or_review_timestamp": "Current Published Terms (Reviewed 2026-10)",
+        "actual_customer_license_status": "UNKNOWN (No active corporate subscription receipt or master service agreement verified on file)",
+        "entitlements_by_dimension": {
+          "api_technical_capability": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "REST API returns daily EOD bars, adjusted prices, and historical splits for US equities."
+          },
+          "authorized_non_display_research": {
+            "status": "CONDITIONAL",
+            "notes": "Permitted for internal quantitative modeling during active Power tier subscription ($30/mo); Starter tier limits usage to personal display."
+          },
+          "automated_strategy_usage": {
+            "status": "CONDITIONAL",
+            "notes": "Permitted as internal signal input under Power tier; prohibited under Starter tier if automated generation constitutes commercial derivation."
+          },
+          "raw_price_retention": {
+            "status": "CONDITIONAL",
+            "notes": "Power tier permits local caching during active subscription. Permanent retention of raw price feeds is prohibited upon subscription termination."
+          },
+          "derived_price_feature_retention": {
+            "status": "CONDITIONAL",
+            "notes": "Starter tier explicitly bars persistent storage of Derived Products ('Starter Plan or Trial Plan does not permit persistent storage of Derived Products'). Power tier permits storage while active; retention post-cancellation requires perpetual rights addendum."
+          },
+          "portfolio_weights_signals_retention": {
+            "status": "CONDITIONAL",
+            "notes": "Permitted in research repository provided derived weights cannot be reverse-engineered into raw vendor price ticks."
+          },
+          "operational_logs_audit_journals": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "Internal audit journals recording timestamp and execution decision are standard business records."
+          },
+          "subscription_termination_rights": {
+            "status": "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS",
+            "notes": "Published terms mandate that all cached vendor data must be purged upon subscription termination. No perpetual research archive license is granted by default."
+          },
+          "special_addenda_requirement": {
+            "status": "CONDITIONAL",
+            "notes": "Requires a Perpetual Research Archive Addendum if repository is to retain historical features post-subscription."
+          }
+        },
+        "overconfidence_correction": "Stage 3B-R claimed Tiingo Power was 'FEASIBLE'. This is corrected to CONDITIONAL: a paid subscription alone does not grant perpetual retention of research evidence after cancellation, and no active paid account has been verified."
+      },
+      "Massive_Polygon_io": {
+        "primary_source_url": "https://massive.com/legal/market-data-terms-of-service",
+        "agreement_title": "Massive / Polygon.io Market Data Terms of Service",
+        "effective_date_or_review_timestamp": "Current Published Terms (Reviewed 2026-10)",
+        "actual_customer_license_status": "UNKNOWN (No Enterprise Non-Display License executed)",
+        "entitlements_by_dimension": {
+          "api_technical_capability": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "REST and WebSocket endpoints provide tick, minute, and daily aggregations."
+          },
+          "authorized_non_display_research": {
+            "status": "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS",
+            "notes": "Published Developer terms state: 'You may use Market Data solely for internal display purposes... Use of Market Data for non-display use, automated trading, or to create derivative works, indices, or pricing models requires a separate Enterprise Non-Display License.'"
+          },
+          "automated_strategy_usage": {
+            "status": "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS",
+            "notes": "Expressly prohibited under default developer terms without separate Enterprise Non-Display agreement."
+          },
+          "raw_price_retention": {
+            "status": "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS",
+            "notes": "Caching allowed only for temporary session performance; perpetual local storage prohibited."
+          },
+          "derived_price_feature_retention": {
+            "status": "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS",
+            "notes": "Creation of derived works, indices, or quantitative features is barred under default self-service plans."
+          },
+          "portfolio_weights_signals_retention": {
+            "status": "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS",
+            "notes": "Derivative works clause covers portfolio models derived directly from Massive data."
+          },
+          "operational_logs_audit_journals": {
+            "status": "CONDITIONAL",
+            "notes": "Permitted only if operational logs omit proprietary vendor quotes."
+          },
+          "subscription_termination_rights": {
+            "status": "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS",
+            "notes": "Mandatory complete data purge upon service termination."
+          },
+          "special_addenda_requirement": {
+            "status": "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS",
+            "notes": "An Enterprise Non-Display License Addendum is strictly mandatory before any algorithmic use."
+          }
+        },
+        "overconfidence_correction": "Confirmed disqualified. Massive default terms cannot support Guardian Alpha research or prospective trading under any self-service tier."
+      },
+      "Alpaca": {
+        "primary_source_url": "https://alpaca.markets/terms-and-conditions",
+        "agreement_title": "Alpaca Developer Terms of Use & Brokerage Client Agreement",
+        "effective_date_or_review_timestamp": "Current Published Terms (Reviewed 2026-10)",
+        "actual_customer_license_status": "UNKNOWN (No active funded brokerage account or API keys verified)",
+        "entitlements_by_dimension": {
+          "api_technical_capability": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "Supports automated order submission and paper trading environment with integrated market data."
+          },
+          "authorized_non_display_research": {
+            "status": "CONDITIONAL",
+            "notes": "Permitted for trading strategy execution on Alpaca platform. External standalone quantitative redistribution is restricted."
+          },
+          "automated_strategy_usage": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "Core design of Alpaca API is programmatic trading via paper and live brokerage endpoints."
+          },
+          "raw_price_retention": {
+            "status": "CONDITIONAL",
+            "notes": "Market data (IEX or SIP) is licensed for platform order placement; permanent redistribution/archival outside Alpaca is not authorized."
+          },
+          "derived_price_feature_retention": {
+            "status": "CONDITIONAL",
+            "notes": "Permitted internally for execution management."
+          },
+          "portfolio_weights_signals_retention": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "Trade orders, portfolio allocations, and account equity curves are broker customer property."
+          },
+          "operational_logs_audit_journals": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "Brokerage compliance explicitly mandates retention of trade logs and order confirmations."
+          },
+          "subscription_termination_rights": {
+            "status": "CONDITIONAL",
+            "notes": "Account records and trade history remain accessible; market data feed terminates upon account closure."
+          },
+          "special_addenda_requirement": {
+            "status": "CONDITIONAL",
+            "notes": "Requires verified brokerage client onboarding and paper trading API key agreement."
+          }
+        },
+        "overconfidence_correction": "Stage 3B-R claimed Alpaca was 'COMPLIANT'. This is corrected to CONDITIONAL: compliance is contingent on account opening, jurisdictional eligibility, and strict restriction of market data use to Alpaca paper execution."
+      },
+      "Interactive_Brokers": {
+        "primary_source_url": "https://www.interactivebrokers.com/en/index.php?f=4585",
+        "agreement_title": "IBKR Market Data Subscriber Agreement & Client Services Agreement",
+        "effective_date_or_review_timestamp": "Current Published Terms (Reviewed 2026-10)",
+        "actual_customer_license_status": "UNKNOWN (No active customer account or Non-Display Declaration verified)",
+        "entitlements_by_dimension": {
+          "api_technical_capability": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "TWS / IB Gateway API supports automated order routing and portfolio streaming."
+          },
+          "authorized_non_display_research": {
+            "status": "CONDITIONAL",
+            "notes": "Subject to exchange non-display declarations. Most exchanges (NYSE, NASDAQ, CME) enforce non-display fees if classified as non-display algorithmic trading."
+          },
+          "automated_strategy_usage": {
+            "status": "CONDITIONAL",
+            "notes": "Permitted through API upon completion of appropriate electronic risk disclosures."
+          },
+          "raw_price_retention": {
+            "status": "PROHIBITED_UNDER_PUBLISHED_DEFAULT_TERMS",
+            "notes": "IBKR standard market data agreements strictly prohibit recording or storing real-time streaming quotes for historical redistribution."
+          },
+          "derived_price_feature_retention": {
+            "status": "CONDITIONAL",
+            "notes": "Derived risk metrics permitted for private portfolio management."
+          },
+          "portfolio_weights_signals_retention": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "Customer trade history, statements, and audit reports are customer records."
+          },
+          "operational_logs_audit_journals": {
+            "status": "VERIFIED_BY_APPLICABLE_AGREEMENT",
+            "notes": "Customer trade journals are regulatory audit requirements."
+          },
+          "subscription_termination_rights": {
+            "status": "CONDITIONAL",
+            "notes": "Tax and trade statements preserved for 7+ years; real-time market data access ceases immediately upon termination."
+          },
+          "special_addenda_requirement": {
+            "status": "CONDITIONAL",
+            "notes": "Electronic Non-Display Declaration and Exchange Market Data Agreement required."
+          }
+        },
+        "overconfidence_correction": "Stage 3B-R claimed IBKR was 'COMPLIANT'. Corrected to CONDITIONAL: non-display algorithmic trading requires specific exchange declarations and potentially institutional fee schedules."
+      }
+    },
+    "owner_decision_gate_impact": {
+      "DEC_02_status": "STRICTLY_BLOCKED",
+      "prerequisites_to_unblock_DEC_02": [
+        "1. Select primary provider (DEC-01).",
+        "2. If Tiingo: Verify active Power plan and obtain written confirmation of perpetual internal research rights for derived portfolio weights.",
+        "3. If Alpaca: Complete developer onboarding, accept Paper Trading API agreement, and confirm data caching boundaries.",
+        "4. Approve fail-closed data purge architecture that strips proprietary vendor prices upon license termination while preserving normalized portfolio weights."
+      ]
+    }
+  }
+}

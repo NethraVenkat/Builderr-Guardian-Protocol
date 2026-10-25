@@ -1,0 +1,83 @@
+{
+  "manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 3C - Artifact Checksum Manifest",
+    "timestamp_utc": "2026-10-25T19:05:00Z",
+    "git_branch": "archive/v30-stage2h-final-evidence-freeze",
+    "git_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "git_parent": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "total_stage3c_artifacts": 14,
+    "exclusion_notice": "This manifest records independent external cryptographic hashes of the other 14 Stage 3C deliverables and test suites. Self-hashing is explicitly excluded to avoid self-referential paradoxes."
+  },
+  "artifacts": {
+    "GUARDIAN_ALPHA_V30_STAGE3C_SCIENTIFIC_DECISION_AND_EVIDENCE_FREEZE.md": {
+      "size_bytes": 28169,
+      "raw_sha256": "cdd3b473220b4bf7a9f23220e462077bb0f94077a763a2e61d698d561359a747",
+      "lf_sha256": "cdd3b473220b4bf7a9f23220e462077bb0f94077a763a2e61d698d561359a747"
+    },
+    "research/evidence/v30/v30_stage3c_frozen_checkpoint_certification.json": {
+      "size_bytes": 1456,
+      "raw_sha256": "2e4c358c4713a4b8d5c1fd53dedcaf715584daee140fe0a6d3649b45ad8c1f79",
+      "lf_sha256": "eb7026042b813c4f53eb3521d47de1115a6263fb94e0f1997af46ae919fe9724"
+    },
+    "research/evidence/v30/v30_stage3c_eligible_evidence_inventory.json": {
+      "size_bytes": 40592,
+      "raw_sha256": "be7a0d813f0ce80ac059658b1e0f9993fdc59be68a415377875a9e0658a35c0c",
+      "lf_sha256": "621765aa494f56990a1598a7aeb0769e7f7006eea3997b010077af1c082cb0a0"
+    },
+    "research/evidence/v30/v30_stage3c_exclusion_and_disposition_ledger.json": {
+      "size_bytes": 1636,
+      "raw_sha256": "9abc7217a09bccf8e6651104a2ad46defe23e95337a5d546350e51c3d0b657dd",
+      "lf_sha256": "7423c21b72dc4a2235e6e9a48a6ef726fd206abbab23302d18d1aa163dd7d029"
+    },
+    "research/evidence/v30/v30_stage3c_historical_evidence_integrity_reconciliation.json": {
+      "size_bytes": 2195,
+      "raw_sha256": "98fe98be2ac43b997876d3fec0a69eec13c86fc84d0f1337bd8c060c62e3199c",
+      "lf_sha256": "0025f4b7882ced40088451db35f6c6b3a222316b53d00faeff8c52f34c069ba0"
+    },
+    "research/evidence/v30/v30_stage3c_scientific_alternatives_decision_matrix.json": {
+      "size_bytes": 2995,
+      "raw_sha256": "81de76e8b054bbcec13c0c914fb10fe5b2f41cac2e34056a01aa301a8988983d",
+      "lf_sha256": "745347d8933b9e99148e6e32e64d53576e7dbe251f7e9039d9f8eca2149fbcff"
+    },
+    "research/evidence/v30/v30_stage3c_exploratory_only_preregistration_draft.json": {
+      "size_bytes": 3478,
+      "raw_sha256": "7c4aa75f435646d414a8a98d20907b8bca42c7b44107d11cd6e71324ec553b86",
+      "lf_sha256": "2f537f08d81d9806f4d0213efa869102503df1e13c919024828a047efaaf38db"
+    },
+    "research/evidence/v30/v30_stage3c_statistical_failure_preservation_record.json": {
+      "size_bytes": 2300,
+      "raw_sha256": "9ef79ddaf4046009a96889e5b3b64a8cdf8695e5ec0fefe53b916c218537737e",
+      "lf_sha256": "94c45b5c3ca8e91a091aa845e3c2ffae90eda76f6376b01e79615a2ba57aa538"
+    },
+    "research/evidence/v30/v30_stage3c_canonical_owner_decision_register.json": {
+      "size_bytes": 2749,
+      "raw_sha256": "3552040f9c18ca0799081181f243cfae63a58216012f843404e3b02a4a7c3551",
+      "lf_sha256": "2ec703c870a37e3e35238c2b26e998eaec673f6747b6b82ba2249e4a314eebba"
+    },
+    "research/evidence/v30/v30_stage3c_provider_independent_retention_taxonomy.json": {
+      "size_bytes": 3958,
+      "raw_sha256": "dac3c731eb069cd7eda6004a22e5e749fafdba5b12150d8c1618f6e75403fa19",
+      "lf_sha256": "99ee44c171410622bae4cd4c1d31a414a64788edf97409fc44b1268674a824a6"
+    },
+    "research/evidence/v30/v30_stage3c_human_archival_staging_manifest.json": {
+      "size_bytes": 36790,
+      "raw_sha256": "c109b7e88507adc3e05c3ba5e630121e3cdd3c9a9f978fb0c953adcb191d8d38",
+      "lf_sha256": "a69f75792aca824e06c66a45b47bd5a2d7d0e20f12a58d4441ae705ab398557c"
+    },
+    "research/evidence/v30/v30_stage3c_human_only_git_archival_instructions.json": {
+      "size_bytes": 2671,
+      "raw_sha256": "427c746230664b52981b8ba6376d67c556725bc53114756cff09acc57ac7d14a",
+      "lf_sha256": "0b1146872dec90e037e0de3c8268aa7278d89bef61f4984e0f580a07afdc9fbc"
+    },
+    "research/evidence/v30/v30_stage3c_executed_verification_ledger.json": {
+      "size_bytes": 1925,
+      "raw_sha256": "7c98f8f58e312bf75556fa16f9570a96b10197de3217d6db84d60627a55276be",
+      "lf_sha256": "7c98f8f58e312bf75556fa16f9570a96b10197de3217d6db84d60627a55276be"
+    },
+    "research/tests/test_v30_stage3c_governance_and_freeze.py": {
+      "size_bytes": 8955,
+      "raw_sha256": "c529a60aac5ab810401d68541f51195e197ece87bc0983cdd895a8e24521ca80",
+      "lf_sha256": "c529a60aac5ab810401d68541f51195e197ece87bc0983cdd895a8e24521ca80"
+    }
+  }
+}

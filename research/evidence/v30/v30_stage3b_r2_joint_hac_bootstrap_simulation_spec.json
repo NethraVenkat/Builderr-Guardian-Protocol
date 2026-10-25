@@ -1,0 +1,44 @@
+{
+  "joint_hac_bootstrap_simulation_spec": {
+    "timestamp_utc": "2026-10-25T18:15:00Z",
+    "dgp_specification": {
+      "process_type": "Stationary AR(1)",
+      "innovation_distribution": "Normal(0, sigma_eps^2)",
+      "innovation_variance_formula": "sigma_eps^2 = sigma^2 * (1 - rho^2)",
+      "burn_in_steps": 50,
+      "initialization": "X_0 = 0.0 with 50-step burn-in to establish stationary invariant distribution"
+    },
+    "hac_component_spec": {
+      "kernel": "Bartlett (Newey-West 1987)",
+      "bandwidth_selection_formula": "q = floor(4.0 * (N / 100.0)^(2/9))",
+      "lags_for_N": {
+        "N_30": 3,
+        "N_45": 3,
+        "N_60": 3,
+        "N_90": 3
+      },
+      "test_direction": "One-sided superior hurdle test",
+      "null_hypothesis": "H0: mu_d <= delta_min (10.0 bps)",
+      "critical_threshold": "z_crit = 1.6448536269514722 (nominal alpha = 0.05)"
+    },
+    "stationary_bootstrap_component_spec": {
+      "algorithm": "Politis & Romano (1994) Stationary Block Bootstrap",
+      "block_length_selection": "b = ceil(N^(1/3))",
+      "expected_block_lengths": {
+        "N_30": 4,
+        "N_60": 4,
+        "N_90": 5
+      },
+      "geometric_parameter": "p_geom = 1.0 / b",
+      "resamples_per_trial_B": 1000,
+      "null_centering_transformation": "d_tilde_t = d_t - d_bar + delta_min (ensures sample mean equals 10.0 bps under H0)",
+      "empirical_p_value_formula": "p_boot = (1/B) * sum_{b=1}^B I(mean(d_star_b) >= d_bar)",
+      "rejection_criterion": "p_boot < 0.05"
+    },
+    "joint_decision_rule": {
+      "rule_type": "Conservative Disjunction on Identical Sample Sequence",
+      "rejection_condition": "REJECT_H0 iff (p_hac < 0.05 AND p_boot < 0.05)",
+      "small_sample_edge_case_handling": "If sample variance < 1e-6, HAC variance clamped to 1e-6; if N < 30, test returns INSUFFICIENT_SAMPLE_SIZE."
+    }
+  }
+}

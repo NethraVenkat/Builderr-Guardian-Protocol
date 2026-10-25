@@ -1,0 +1,50 @@
+{
+  "exploratory_only_preregistration_draft": {
+    "timestamp_utc": "2026-10-25T18:50:00Z",
+    "stage": "V30 Stage 3C",
+    "protocol_status": "UNAPPROVED_PROPOSAL (Requires Explicit Owner Review & Signature)",
+    "study_classification": "EXPLORATORY OBSERVATIONAL RESEARCH (Non-Confirmatory)",
+    "frozen_candidate_identities": {
+      "E0_baseline": {
+        "file_path": "research/strategies/v12_candidate_ae.py",
+        "sha256_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+        "description": "Baseline momentum ETF rotation with 100% equity allocation across all regimes."
+      },
+      "D2_candidate": {
+        "file_path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+        "sha256_raw": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+        "description": "Defensive cash cushion allocating 50% to defensive basket (XLP, XLU, XLV) and 50% to cash during risk-off regimes."
+      }
+    },
+    "causal_eligibility_rule": {
+      "formula": "I_{def,T}^{causal} = 1 iff S_{T-1} == DEFENSIVE",
+      "timing": "Decided strictly at Session T-1 Close (16:00:00 ET); executed at Session T Open (09:30:00 ET).",
+      "collider_bias_prohibition": "Conditioning on same-day negative market returns (R_{m,T} < 0) is strictly barred from primary evaluation to prevent collider bias."
+    },
+    "metrics_specification": {
+      "primary_tracking_metric": "d_t = max(0, -R_{E0,t}) - max(0, -R_{D2,t}) for sessions where I_{def,t}^{causal} == 1",
+      "interpretation": "Purely descriptive paired downside shortfall difference. No p-values or significance tests will be used for promotion.",
+      "secondary_descriptive_metrics": [
+        "Cumulative total return for E0 and D2 over full evaluation horizon",
+        "CAGR difference: Delta CAGR = CAGR(D2) - CAGR(E0)",
+        "Maximum Peak-to-Trough Drawdown for E0 and D2",
+        "Annualized Realized Volatility",
+        "Realized Exposure (mean invested equity weight)",
+        "Cash-drag decomposition during risk-off bull market rallies",
+        "Turnover, execution count, and modeled transaction costs (5 bps slippage)"
+      ],
+      "uncertainty_reporting": "Descriptive confidence intervals (e.g. Wilson score, percentile bootstrap) will be reported solely as descriptive spread indicators, not confirmatory error rates."
+    },
+    "unapproved_historical_proposals": {
+      "economic_hurdle_10bps": "UNAPPROVED_PROPOSAL (10 bps hurdle remains illustrative proposal only; not confirmed as required economic threshold)",
+      "cagr_guardrail_200bps": "UNAPPROVED_PROPOSAL (-200 bps Delta CAGR remains unratified proposal)",
+      "horizon_252_sessions": "UNAPPROVED_PROPOSAL (252 trading sessions remains proposed planning horizon)",
+      "maximum_504_sessions": "UNAPPROVED_PROPOSAL (504 trading sessions remains proposed administrative ceiling)"
+    },
+    "operational_incident_and_censoring_rules": {
+      "missing_observations": "If market data feed drops > 3 consecutive bars, data logging is quarantined and session is flagged as MISSING_DATA.",
+      "safety_stops": "If single-day slippage exceeds 50 bps or portfolio weights diverge > 2%, automated circuit breaker trips and episode is logged as INFORMATIVE_CENSORING.",
+      "stopping_rules": "Zero interim optional stopping. No early termination upon favorable interim outcomes. No retrospective parameter tuning."
+    }
+  }
+}

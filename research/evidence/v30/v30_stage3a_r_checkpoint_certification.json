@@ -1,0 +1,46 @@
+{
+  "checkpoint_certification": {
+    "timestamp_utc": "2026-10-25T07:35:00Z",
+    "stage": "3A-R",
+    "repository_workspace": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-V29B",
+    "git_branch": "archive/v30-stage2h-final-evidence-freeze",
+    "git_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "git_parent": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "archival_commit_message": "chore(v30-freeze): preserve 198 research artifacts with original bytes",
+    "staged_files": 0,
+    "modified_tracked_files": 0,
+    "agent_git_mutations": 0,
+    "protected_source_hashes": {
+      "agent.py": {
+        "normalization": "raw",
+        "expected_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+        "status": "VERIFIED_BIT_FOR_BIT_MATCH"
+      },
+      "universe.json": {
+        "normalization": "lf",
+        "expected_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+        "status": "VERIFIED_BIT_FOR_BIT_MATCH"
+      },
+      "research/strategies/v12_candidate_ae.py": {
+        "normalization": "lf",
+        "expected_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+        "status": "VERIFIED_BIT_FOR_BIT_MATCH"
+      },
+      "research/strategies/v30_candidate_d2_cash_cushion.py": {
+        "normalization": "raw",
+        "expected_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+        "status": "VERIFIED_BIT_FOR_BIT_MATCH"
+      }
+    },
+    "tier3_isolation": {
+      "cache_directory": "tiingo_cache",
+      "files_inspected": 0,
+      "bytes_read": 0,
+      "status": "SEALED_AND_UNTOUCHED"
+    },
+    "stage3a_deliverables_preservation": {
+      "status": "100_PERCENT_PRESERVED_NO_DELETIONS",
+      "preserved_files_count": 12
+    }
+  }
+}

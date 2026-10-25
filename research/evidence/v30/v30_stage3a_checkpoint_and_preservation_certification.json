@@ -1,0 +1,56 @@
+{
+  "certification_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Checkpoint and Preservation Certification",
+    "timestamp_utc": "2026-10-25T06:45:00Z",
+    "auditor_role": "Independent Quantitative Research Auditor & Evidence Custodian",
+    "overall_status": "PASS"
+  },
+  "git_checkpoint": {
+    "repository_path": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-V29B",
+    "current_branch": "archive/v30-stage2h-final-evidence-freeze",
+    "expected_branch": "archive/v30-stage2h-final-evidence-freeze",
+    "branch_verified": true,
+    "current_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "expected_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "head_verified": true,
+    "parent_commit": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "expected_parent": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "parent_verified": true,
+    "archived_artifacts_count": 198,
+    "archival_commit_message": "chore(v30-freeze): preserve 198 research artifacts with original bytes",
+    "total_tracked_files": 469,
+    "staging_clean": true,
+    "working_tree_clean": true,
+    "agent_git_mutations": 0
+  },
+  "protected_sources": {
+    "agent.py": {
+      "mode": "raw",
+      "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "verified": true
+    },
+    "universe.json": {
+      "mode": "lf_normalized",
+      "sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "verified": true
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "mode": "lf_normalized",
+      "sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "verified": true
+    },
+    "research/strategies/v30_candidate_d2_cash_cushion.py": {
+      "mode": "raw",
+      "sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "verified": true
+    }
+  },
+  "tier3_holdout_isolation": {
+    "status": "SEALED_AND_UNTOUCHED",
+    "directory": "tiingo_cache/",
+    "contained_in_git_index": false,
+    "accessed_in_stage3a": false,
+    "inspected_or_hashed": false,
+    "observation_dates_sealed": "2022-01-01 to present"
+  }
+}

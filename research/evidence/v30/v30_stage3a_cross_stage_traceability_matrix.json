@@ -1,0 +1,136 @@
+{
+  "matrix_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Cross-Stage Evidence Traceability Matrix",
+    "timestamp_utc": "2026-10-25T06:45:00Z",
+    "allowed_classifications": [
+      "VERIFIED FACT",
+      "DOCUMENTED HISTORICAL RESULT",
+      "PROPOSED ASSUMPTION",
+      "EXTERNAL EVIDENCE",
+      "UNRESOLVED ISSUE",
+      "OWNER APPROVAL REQUIRED"
+    ]
+  },
+  "traceability_entries": [
+    {
+      "id": "TRC-01",
+      "claim": "Baseline E0 historical performance achieves 52.60% CAGR and 31.75% MaxDD on Tier 2 in-sample data.",
+      "source_stage": "Stage 2B / 2F",
+      "source_file": "GUARDIAN_ALPHA_V30_STAGE2F_FINAL_CORRECTIONS_AND_FORWARD_PROTOCOL.md",
+      "classification": "DOCUMENTED HISTORICAL RESULT",
+      "audit_comment": "Accurate historical record of in-sample backtest; must NOT be treated as prospective out-of-sample proof."
+    },
+    {
+      "id": "TRC-02",
+      "claim": "Candidate D2 50% Cash Cushion achieves 21.20% MaxDD in historical backtest, reducing drawdown by 10.55% vs E0.",
+      "source_stage": "Stage 2B / 2D / 2F",
+      "source_file": "research/evidence/v30/v30_stage2f_p4_drawdown_reconciliation.json",
+      "classification": "DOCUMENTED HISTORICAL RESULT",
+      "audit_comment": "Drawdown reduction is largely mechanical from 50% cash dilution; repeatedly evaluated across 43 variants."
+    },
+    {
+      "id": "TRC-03",
+      "claim": "At least 43 strategy variants were evaluated against Tier 1/Tier 2 data, introducing substantial multiple testing selection bias.",
+      "source_stage": "Stage 2F",
+      "source_file": "research/evidence/v30/v30_stage2f_statistical_selection_bias_recalculation.json",
+      "classification": "VERIFIED FACT",
+      "audit_comment": "Haircut models (Harvey-Liu-Zhu and Bailey-Lopez de Prado DSR) verify that raw historical p-values are contaminated."
+    },
+    {
+      "id": "TRC-04",
+      "claim": "Double-entry decimal accounting oracle enforces zero negative cash balances, exact dividend receivables, and split adjustments.",
+      "source_stage": "Stage 2H-B",
+      "source_file": "research/engine/v30_stage2h_b_decimal_accounting_oracle.py",
+      "classification": "VERIFIED FACT",
+      "audit_comment": "Mathematical oracle verified with 12/12 passing unit tests in test_v30_stage2h_b_governance.py."
+    },
+    {
+      "id": "TRC-05",
+      "claim": "Primary prospective endpoint is paired downside shortfall difference d_t = max(0, -R_E0,t) - max(0, -R_D2,t) on defensive sessions.",
+      "source_stage": "Stage 2G / 2G-R / 2H-C",
+      "source_file": "research/evidence/v30/v30_stage2g_r_revised_statistical_protocol.json",
+      "classification": "PROPOSED ASSUMPTION",
+      "audit_comment": "Formulated by research agents; requires formal owner ratification under DEC-03 before prospective evaluation begins."
+    },
+    {
+      "id": "TRC-06",
+      "claim": "Secondary full-horizon constraint specifies D2 CAGR must not lag E0 CAGR by more than 200 bps (2.0% annual drag tolerance).",
+      "source_stage": "Stage 2G-R / 2H-C",
+      "source_file": "research/evidence/v30/v30_stage2h_c_scientific_evaluation_proposal.json",
+      "classification": "PROPOSED ASSUMPTION",
+      "audit_comment": "Represents an assumed insurance cost budget; requires owner approval under DEC-03."
+    },
+    {
+      "id": "TRC-07",
+      "claim": "Prospective evaluation horizon is 252 sessions with minimum N_def = 30 defensive sessions floor.",
+      "source_stage": "Stage 2G / 2H-C",
+      "source_file": "research/evidence/v30/v30_stage2h_c_owner_decision_register.json",
+      "classification": "PROPOSED ASSUMPTION",
+      "audit_comment": "Planning horizon assumption. Power analysis indicates N_def=30 has only ~35% power; requires owner decision DEC-04."
+    },
+    {
+      "id": "TRC-08",
+      "claim": "Tiingo, Polygon, Alpaca, and IBKR personal subscriptions permit private internal algorithmic modeling and local caching.",
+      "source_stage": "Stage 2H-A / 2H-B / 3A",
+      "source_file": "research/evidence/v30/v30_stage2h_b_provider_rights_matrix.json",
+      "classification": "EXTERNAL EVIDENCE",
+      "audit_comment": "Confirmed by web search and official ToS documents; all providers strictly ban public redistribution and multi-user display."
+    },
+    {
+      "id": "TRC-09",
+      "claim": "Operational crash recovery and incident controls currently exist as in-process Python test harnesses rather than OS-level daemons.",
+      "source_stage": "Stage 2G-R / 2H-A / 3A",
+      "source_file": "research/engine/v30_stage2g_r_crash_tester.py",
+      "classification": "UNRESOLVED ISSUE",
+      "audit_comment": "Real operating environment failure recovery (process death, unhandled SIGKILL, hardware power outage) remains unproven."
+    },
+    {
+      "id": "TRC-10",
+      "claim": "Prospective market-data provider selection DEC-01 requires human repository owner action.",
+      "source_stage": "Stage 2H-C / 3A",
+      "source_file": "research/evidence/v30/v30_stage2h_c_owner_decision_register.json",
+      "classification": "OWNER APPROVAL REQUIRED",
+      "audit_comment": "Owner must select provider and register account; agent cannot select or purchase provider."
+    },
+    {
+      "id": "TRC-11",
+      "claim": "Data licensing terms and Non-Professional subscriber declaration DEC-02 require human repository owner execution.",
+      "source_stage": "Stage 2H-C / 3A",
+      "source_file": "research/evidence/v30/v30_stage2h_c_owner_decision_register.json",
+      "classification": "OWNER APPROVAL REQUIRED",
+      "audit_comment": "Owner must verify personal Non-Professional eligibility under exchange rules."
+    },
+    {
+      "id": "TRC-12",
+      "claim": "Primary statistical endpoint and return cost tolerance DEC-03 require human repository owner ratification.",
+      "source_stage": "Stage 2H-C / 3A",
+      "source_file": "research/evidence/v30/v30_stage2h_c_owner_decision_register.json",
+      "classification": "OWNER APPROVAL REQUIRED",
+      "audit_comment": "Preregistration of statistical hypothesis must be locked by owner signature prior to data observation."
+    },
+    {
+      "id": "TRC-13",
+      "claim": "Evaluation horizon, defensive sample size floor, and early stopping rules DEC-04 require human repository owner approval.",
+      "source_stage": "Stage 2H-C / 3A",
+      "source_file": "research/evidence/v30/v30_stage2h_c_owner_decision_register.json",
+      "classification": "OWNER APPROVAL REQUIRED",
+      "audit_comment": "Owner must commit to observation duration and contingent extension policy."
+    },
+    {
+      "id": "TRC-14",
+      "claim": "Incident governance, hard-stop thresholds, and manual reset key custody DEC-05 require human repository owner approval.",
+      "source_stage": "Stage 2H-C / 3A",
+      "source_file": "research/evidence/v30/v30_stage2h_c_owner_decision_register.json",
+      "classification": "OWNER APPROVAL REQUIRED",
+      "audit_comment": "Owner must retain physical custody of emergency reset keys."
+    },
+    {
+      "id": "TRC-15",
+      "claim": "Prospective evaluation activation authority DEC-06 remains BLOCKED; zero automated activation permitted.",
+      "source_stage": "Stage 2H-C / 3A",
+      "source_file": "research/evidence/v30/v30_stage2h_c_owner_decision_register.json",
+      "classification": "OWNER APPROVAL REQUIRED",
+      "audit_comment": "Permanent hard-block. Requires owner cryptographic HMAC token. No token generated by agent."
+    }
+  ]
+}

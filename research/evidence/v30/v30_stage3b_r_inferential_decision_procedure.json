@@ -1,0 +1,52 @@
+{
+  "inferential_decision_procedure": {
+    "timestamp_utc": "2026-10-25T10:18:00Z",
+    "procedure_title": "Guardian Alpha V30 Two-Tier Inferential Decision Algorithm",
+    "primary_metric": "d_t = \\max(0, -R_{E0,t}) - \\max(0, -R_{D2,t}) \\quad \\text{for } t \\in \\{1, \\dots, T\\} \\text{ where } I_{def,t}^{causal} = 1",
+    "hypotheses_definitions": {
+      "H01_directional": "\\mu_d \\le 0 \\quad \\text{vs} \\quad H11: \\mu_d > 0",
+      "H02_economic_hurdle": "\\mu_d \\le \\delta_{min} = 0.0010 \\quad \\text{vs} \\quad H12: \\mu_d > 0.0010"
+    },
+    "treatment_of_separated_defensive_episodes": {
+      "phenomenon": "Eligible causal defensive sessions do not form a contiguous time series; they arrive in disconnected clusters separated by risk-on bull market regimes.",
+      "autocovariance_rule": "Autocovariance \\gamma_j is estimated strictly across observations separated by j calendar trading days within the same active regime episode. Pairs separated by inactive risk-on intervals are treated as mutually independent (covariance = 0.0).",
+      "lag_formula": "q = \\lfloor 4 (N_{def} / 100)^{2/9} \\rfloor"
+    },
+    "stationary_block_bootstrap_specification": {
+      "algorithm": "Politis & Romano (1994) Stationary Block Bootstrap",
+      "block_length_mean": "b = \\lceil N_{def}^{1/3} \\rceil",
+      "geometric_parameter": "p_{geom} = 1.0 / b",
+      "replications_B": 10000,
+      "null_centering_transformation": "\\tilde{d}_t = d_t - \\bar{d} + \\delta_{min} \\quad (\\text{shifts mean to exact hurdle under } H02)",
+      "bootstrap_p_value_formula": "p_{boot} = \\frac{1}{B} \\sum_{b=1}^B \\mathbb{I}(\\bar{d}^{*,b} \\ge \\bar{d})",
+      "confidence_bound": "d_{lower, 95%} = 5\\text{th percentile of } \\bar{d}^{*,b} - \\delta_{min} + \\bar{d}"
+    },
+    "decision_procedure_pseudocode": [
+      "INPUT: Paired differences {d_t} for t where I_{def,t}^{causal} == 1; N_def = len(d_t)",
+      "IF N_def < 30 THEN RETURN 'INCONCLUSIVE: INSUFFICIENT_SAMPLE_SIZE'",
+      "STEP 1: Compute sample mean d_bar = mean(d_t)",
+      "STEP 2: Compute Newey-West HAC variance sigma_hac^2 with lag q = floor(4*(N_def/100)^(2/9))",
+      "STEP 3: Evaluate Directional Test: t_dir = d_bar / (sigma_hac / sqrt(N_def))",
+      "        p_dir = 1.0 - norm_cdf(t_dir)",
+      "        IF p_dir >= 0.05 THEN RETURN 'FAIL: NO_DIRECTIONAL_SUPERIORITY (D2 fails to reduce downside losses)'",
+      "STEP 4: Evaluate Economic Hurdle Test (HAC): t_hurdle = (d_bar - 0.0010) / (sigma_hac / sqrt(N_def))",
+      "        p_hac = 1.0 - norm_cdf(t_hurdle)",
+      "STEP 5: Evaluate Economic Hurdle Test (Stationary Block Bootstrap):",
+      "        Center series: d_tilde = d_t - d_bar + 0.0010",
+      "        Generate B=10,000 bootstrap resamples using geometric block length b = ceil(N_def^(1/3))",
+      "        Compute empirical p_boot = mean(bootstrap_means >= d_bar)",
+      "STEP 6: Discrepancy Resolution (Conservative Disjunction):",
+      "        IF p_hac < 0.05 AND p_boot < 0.05 THEN",
+      "            hurdle_verdict = 'REJECT_H02_PASS'",
+      "        ELSE",
+      "            hurdle_verdict = 'FAIL_TO_REJECT_H02 (Alpha does not exceed 10-bps economic hurdle with dual confidence)'",
+      "STEP 7: Hierarchical Gatekeeper Secondary Check:",
+      "        IF hurdle_verdict == 'REJECT_H02_PASS' THEN",
+      "            delta_cagr = CAGR(D2) - CAGR(E0)",
+      "            IF delta_cagr >= -0.0200 THEN RETURN 'CERTIFIED_PROSPECTIVE_SUCCESS'",
+      "            ELSE RETURN 'FAIL: EXCEEDED_CAGR_DRAG_BUDGET (Delta CAGR < -200 bps)'",
+      "        ELSE RETURN hurdle_verdict"
+    ],
+    "formal_governance_notice": "The decision procedure is mathematically deterministic and closed. It cannot be altered during or after data collection."
+  }
+}

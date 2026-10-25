@@ -1,0 +1,70 @@
+{
+  "updated_decision_register": {
+    "timestamp_utc": "2026-10-25T07:44:00Z",
+    "stage": "3A-R",
+    "decisions": [
+      {
+        "decision_id": "DEC-01",
+        "title": "Market-Data Provider Selection",
+        "status": "PENDING_OWNER_SELECTION",
+        "options": {
+          "option_a": "Tiingo Power ($30/mo): Recommended for daily EOD bar research, point-in-time corporate actions, REST simplicity, zero daemon overhead.",
+          "option_b": "Alpaca Algo Trader Plus ($9/mo): Recommended if full-stack simulated paper order placement and fill mocking are required."
+        },
+        "blockers": ["Owner has not selected provider or funded account."]
+      },
+      {
+        "decision_id": "DEC-02",
+        "title": "Data Licensing & Privacy Compliance",
+        "status": "BLOCKED",
+        "prerequisites": [
+          "Owner must verify their personal non-professional subscriber status with chosen vendor.",
+          "Owner must acknowledge that standard subscriptions do NOT authorize bulk database redistribution.",
+          "Owner must formally acknowledge and accept vendor post-termination data purge mandates."
+        ],
+        "blockers": ["Lack of signed owner declaration and subscription contract verification."]
+      },
+      {
+        "decision_id": "DEC-03",
+        "title": "Primary Statistical Endpoint & Non-Inferiority Budget",
+        "status": "PENDING_OWNER_RATIFICATION",
+        "specifications": {
+          "primary_hurdle": "Reject H02: E[d_t | I_{def,t}=1] <= 10 bps using Newey-West HAC (q = floor(4*(N_def/100)^(2/9))) and Stationary Block Bootstrap.",
+          "secondary_constraint": "Delta CAGR >= -200 bps (Operational risk-budget heuristic; not a formal statistical non-inferiority proof)."
+        },
+        "blockers": ["Owner has not formally signed off on the 10-bps hurdle or secondary risk budget."]
+      },
+      {
+        "decision_id": "DEC-04",
+        "title": "Evaluation Horizon & Power Protocol",
+        "status": "PENDING_OWNER_RATIFICATION",
+        "specifications": {
+          "horizon": "252 trading sessions with mandatory N_def >= 30 defensive sessions floor.",
+          "extension": "Contingent extension up to 504 sessions if N_def < 30 at session 252 (market-dependent, outcome-independent).",
+          "stopping_rules": "Strict prohibition on optional stopping. Catastrophic circuit breaker at D2 drawdown > E0 drawdown + 300 bps."
+        },
+        "blockers": ["Owner has not ratified the 252/504-session protocol."]
+      },
+      {
+        "decision_id": "DEC-05",
+        "title": "Fail-Closed Monitoring & Incident SRE Architecture",
+        "status": "PENDING_OWNER_RATIFICATION",
+        "specifications": {
+          "recovery_model": "Fail-closed persistent INCIDENT_LOCK requiring human cryptographic reset.",
+          "restart_policy": "No automated blind restart loops; external watchdog operates strictly out-of-band without trading keys.",
+          "accounting": "Double-entry replay through DecimalAccountingOracle required before any signal processing."
+        },
+        "blockers": ["OS-level daemon supervisor unconfigured; owner must assume custody of reset keys."]
+      },
+      {
+        "decision_id": "DEC-06",
+        "title": "Prospective Evaluation Activation Authority",
+        "status": "STRICTLY_BLOCKED",
+        "current_state": "BLOCKED",
+        "activation_token": "NONE_GENERATED",
+        "broker_connection": "NONE",
+        "prerequisites": "Requires unanimous completion and owner ratification of DEC-01 through DEC-05, followed by manual owner execution of cryptographic activation script."
+      }
+    ]
+  }
+}

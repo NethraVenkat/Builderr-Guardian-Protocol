@@ -1,0 +1,104 @@
+{
+  "corrected_owner_decision_register": {
+    "timestamp_utc": "2026-10-25T18:35:00Z",
+    "stage": "V30 Stage 3B-R2",
+    "decisions": [
+      {
+        "decision_id": "DEC-01",
+        "title": "Market Data Provider Selection",
+        "status": "PENDING_OWNER_SELECTION",
+        "scientific_and_governance_summary": "Evaluation of candidate feeds (Tiingo, Alpaca, Massive, IBKR). Tiingo Power ($30/mo) is recommended for historical/offline daily EOD bars; Alpaca AlgoTrader Plus ($9/mo) is recommended for broker simulated paper orders. Massive is disqualified under default terms.",
+        "owner_action_required": "Formally select primary market-data vendor for prospective daily bars."
+      },
+      {
+        "decision_id": "DEC-02",
+        "title": "Market Data Licensing and Rights",
+        "status": "STRICTLY_BLOCKED",
+        "scientific_and_governance_summary": "All 4 providers enforce non-display restrictions and mandatory post-termination data purge clauses. Tiingo Starter prohibits persistent storage of derived products; Massive Developer prohibits non-display algorithmic usage.",
+        "owner_action_required": "Execute required commercial addenda (e.g. Tiingo Power active subscription + non-display addendum / Alpaca paper API agreement) and approve fail-closed data purge architecture."
+      },
+      {
+        "decision_id": "DEC-03",
+        "title": "Statistical Endpoint and Inferential Protocol",
+        "status": "CONDITIONAL",
+        "scientific_and_governance_summary": "Two-tier hypothesis structure (H01 directional downside reduction, H02 10-bps economic hurdle) with conservative disjunction rule. Size calibration shows empirical inflation (7.7% - 8.9%) at N=30.",
+        "owner_action_required": "Review and ratify two-tier inferential protocol and acknowledge underpowered classification if N_def < 60.",
+        "sub_decisions": [
+          {
+            "id": "DEC-03.A",
+            "title": "Causal Session Eligibility",
+            "status": "VERIFIED_PASS",
+            "summary": "Eligible sessions defined strictly ex-ante by S_{T-1} == DEFENSIVE. Collider conditioning on R_{m,T} < 0 is formally relegated to secondary sub-analysis."
+          },
+          {
+            "id": "DEC-03.B",
+            "title": "Statistical Size Calibration",
+            "status": "FAILED_AT_N30_CONDITIONAL_AT_N90",
+            "summary": "Dual HAC + Bootstrap joint test rejects 7.7% - 8.9% at N=30 under the null boundary (nominal 5%), failing size calibration in small samples."
+          },
+          {
+            "id": "DEC-03.C",
+            "title": "Secondary Return Constraint",
+            "status": "PENDING_OWNER_RATIFICATION",
+            "summary": "Delta CAGR >= -200 bps secondary guardrail against excessive cash drag."
+          }
+        ]
+      },
+      {
+        "decision_id": "DEC-04",
+        "title": "Evaluation Horizon and Stopping Rules",
+        "status": "CONDITIONAL",
+        "scientific_and_governance_summary": "Inverse sampling quota design requiring N_def >= 30 causal risk-off sessions over an initial 252 sessions (extendable to 504 sessions). Zero return or p-value peeking permitted.",
+        "owner_action_required": "Approve evaluation duration budget and formal trial conclusion criteria.",
+        "sub_decisions": [
+          {
+            "id": "DEC-04.A",
+            "title": "Sampling Quota Floor",
+            "status": "VERIFIED_PASS",
+            "summary": "Minimum causal defensive sample count N_def >= 30."
+          },
+          {
+            "id": "DEC-04.B",
+            "title": "Administrative Extension",
+            "status": "CONDITIONAL_PENDING_OWNER_SIGNATURE",
+            "summary": "Extension up to 504 trading days governed solely by pre-declared session counts."
+          }
+        ]
+      },
+      {
+        "decision_id": "DEC-05",
+        "title": "Monitoring and Incident Governance",
+        "status": "CONDITIONAL",
+        "scientific_and_governance_summary": "Fail-closed automated circuit breakers, slippage alerts, and state quarantine mechanisms mathematically specified and verified in synthetic unit tests.",
+        "owner_action_required": "Approve incident response runbook and authorize offline network socket latency profiling.",
+        "sub_decisions": [
+          {
+            "id": "DEC-05.A",
+            "title": "Fail-Closed Incident Lock",
+            "status": "VERIFIED_PASS",
+            "summary": "Tripwires defined for slippage > 50 bps, 3 missing bars, and weight divergence > 2%."
+          },
+          {
+            "id": "DEC-05.B",
+            "title": "Latency and Data Availability",
+            "status": "BLOCKED_PENDING_PHYSICAL_BENCHMARK",
+            "summary": "Physical network latency profiling pending live connection authorization."
+          },
+          {
+            "id": "DEC-05.C",
+            "title": "Operator Recovery Controls",
+            "status": "PENDING_OWNER_PROCEDURAL_APPROVAL",
+            "summary": "Runbook procedures for manual intervention and state reconciliation."
+          }
+        ]
+      },
+      {
+        "decision_id": "DEC-06",
+        "title": "Activation Authority",
+        "status": "STRICTLY_BLOCKED",
+        "scientific_and_governance_summary": "Permanent safety boundary. Neither paper nor live trading execution can be initiated without explicit owner action. Zero autonomous agent activation authority.",
+        "owner_action_required": "REMAINS BLOCKED. Do not authorize until DEC-01 through DEC-05 are fully resolved."
+      }
+    ]
+  }
+}

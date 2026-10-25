@@ -1,0 +1,53 @@
+{
+  "statistical_endpoint_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Statistical Endpoint & Inference Specification",
+    "timestamp_utc": "2026-10-25T06:45:00Z",
+    "auditor_role": "Principal Quantitative Research Auditor"
+  },
+  "primary_endpoint": {
+    "name": "Paired Downside Shortfall Reduction on Defensive Sessions",
+    "mathematical_formula": "d_t = \\max(0, -R_{E0,t}) - \\max(0, -R_{D2,t})",
+    "conditioning_subset": "Observed trading sessions where defensive regime is active (I_{def,t} = 1)",
+    "regime_trigger_definition": "Defensive session active when market benchmark (SPY/QQQ) return R_{m,t} < 0 OR D2 asset allocation selects 50% defensive cash cushion",
+    "economic_interpretation": "Measures dollar-for-dollar portfolio loss reduction achieved by D2's cash buffer during down-market days",
+    "null_hypothesis": "H_0: E[d_t | I_{def,t} = 1] <= delta_{min}",
+    "alternative_hypothesis": "H_1: E[d_t | I_{def,t} = 1] > delta_{min}",
+    "minimum_effect_size_hurdle": "delta_{min} = 0.0010 (10 basis points per defensive session)",
+    "justification_for_hurdle": "Prevents claiming scientific success on economically trivial shortfall differences that would be eroded by cash management costs or slippage."
+  },
+  "statistical_inference_methodology": {
+    "serial_correlation_and_heteroskedasticity": {
+      "phenomenon": "Financial down-sessions exhibit volatility clustering, serial autocorrelation, and leptokurtosis.",
+      "primary_hac_estimator": "Newey-West (1987) Heteroskedasticity and Autocorrelation Consistent Covariance Estimator",
+      "lag_selection_rule": "q = floor(4 * (N_{def} / 100)^(2/9))",
+      "test_statistic": "t_{HAC} = (\\bar{d} - delta_{min}) / SE_{HAC}(\\bar{d})"
+    },
+    "non_parametric_validation": {
+      "method": "Stationary Block Bootstrap (Politis & Romano 1994)",
+      "average_block_length": "b = ceil(N_{def}^(1/3))",
+      "bootstrap_replications": 10000,
+      "confidence_interval_type": "Studentized (bootstrap-t) 95% Confidence Interval",
+      "purpose": "Protects against non-normality and temporal dependence without assuming asymptotic Gaussian distribution."
+    },
+    "selection_bias_haircut": {
+      "historical_context": "At least 43 strategy variations were tested on historical Tier 1/Tier 2 data.",
+      "deflated_sharpe_ratio": "Bailey & Lopez de Prado (2014) DSR haircut framework applied to historical claims",
+      "prospective_independence": "Prospective forward evaluation resets selection bias ONLY IF the evaluation design and parameters are locked irrevocably prior to observation start."
+    }
+  },
+  "secondary_full_horizon_constraint": {
+    "name": "Full-Horizon Cumulative Return Drag Tolerance",
+    "mathematical_formula": "CAGR_{D2} >= CAGR_{E0} - 0.0200",
+    "economic_rationale": "Holding 50% defensive cash during market upturns creates return drag. The owner establishes an insurance budget where D2 may not lag E0 by more than 200 bps annualized.",
+    "dual_decision_rule": {
+      "condition_for_success": "Primary test rejects H_0 (p_HAC < 0.05 and p_boot < 0.05) AND Secondary constraint holds (CAGR_{D2} >= CAGR_{E0} - 2.0%)",
+      "condition_for_inconclusive": "Primary test fails to reject H_0 OR Secondary constraint is breached",
+      "condition_for_rejection": "D2 suffers larger maximum drawdown than E0 in prospective testing"
+    }
+  },
+  "owner_action_required": {
+    "status": "PENDING_RATIFICATION",
+    "decision_ref": "DEC-03",
+    "action": "Owner must formally ratify the 10 bps minimum hurdle and the 200 bps annual drag budget before evaluation begins."
+  }
+}

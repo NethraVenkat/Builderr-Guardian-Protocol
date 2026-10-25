@@ -1,0 +1,44 @@
+{
+  "historical_evidence_integrity": {
+    "timestamp_utc": "2026-10-25T10:21:00Z",
+    "audit_objective": "Cryptographic integrity audit of the Guardian Alpha V30 artifact chain spanning Stages 3A, 3A-R, and 3B.",
+    "stage_3a_artifacts_status": {
+      "primary_report": {
+        "file": "GUARDIAN_ALPHA_V30_STAGE3A_OWNER_GOVERNANCE_REVIEW.md",
+        "current_size_bytes": 23926,
+        "current_raw_sha256": "026f2bf3ed911d26428ef3edc698c4572a788a48757bb57352e5a11fc1f5ec5d",
+        "manifest_status": "DOCUMENTED_DISCREPANCY_PRESERVED",
+        "provenance_note": "Post-manifest table edit occurred during initial Stage 3A creation; pre-edit text preserved in transcript; document preserved intact without destructive rollback."
+      },
+      "supporting_files_count": 11,
+      "preservation_status": "100_PERCENT_PRESERVED"
+    },
+    "stage_3a_r_artifacts_status": {
+      "primary_report": {
+        "file": "GUARDIAN_ALPHA_V30_STAGE3A_R_GOVERNANCE_CORRECTIONS.md",
+        "current_size_bytes": 26114,
+        "manifest_status": "MATCHES_STAGE3A_R_INVENTORY",
+        "preservation_status": "INTACT"
+      },
+      "supporting_files_count": 12,
+      "preservation_status": "100_PERCENT_PRESERVED"
+    },
+    "stage_3b_artifacts_status": {
+      "primary_report": {
+        "file": "GUARDIAN_ALPHA_V30_STAGE3B_OFFLINE_PROTOCOL_FINALIZATION.md",
+        "current_size_bytes": 26300,
+        "current_raw_sha256": "317a1824f648f3fd3ede3c2aa2f50c52eaf2bfa1b4f58000cf88f682b37063a0",
+        "manifest_status": "MATCHES_STAGE3B_MANIFEST",
+        "preservation_status": "INTACT"
+      },
+      "supporting_files_count": 12,
+      "preservation_status": "100_PERCENT_PRESERVED"
+    },
+    "historical_test_failures_preservation": {
+      "test_v30_stage2h_b_governance.py": "Failure in test_git_checkpoint_immutability preserved untouched (HEAD expectation mismatch).",
+      "test_v30_stage2h_c_r2_execution_proof.py": "Failures in test_01 and test_08 preserved untouched (HEAD expectation and untracked inventory mismatch).",
+      "policy_adherence": "Strictly adhered to non-destructive governance; zero tests rewritten to force artificial pass."
+    },
+    "zero_overwrite_certification": "No file from Stage 2, Stage 3A, Stage 3A-R, or Stage 3B has been overwritten, reverted, or deleted."
+  }
+}

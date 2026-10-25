@@ -1,0 +1,31 @@
+{
+  "data_retention_architecture_compatibility": {
+    "timestamp_utc": "2026-10-25T07:37:00Z",
+    "architecture_objective": "Ensure Guardian Alpha data ingestion and preservation pipelines comply with vendor termination and non-redistribution clauses without compromising scientific reproducibility.",
+    "architectural_separation": {
+      "raw_vendor_tier": {
+        "storage_location": "tiingo_cache/ (and future provider_cache/)",
+        "git_tracking": "STRICTLY_EXCLUDED_VIA_GITIGNORE",
+        "content_type": "Raw JSON/CSV API responses, vendor bar tables, tick streams",
+        "purge_protocol": "Must be purgable via a single command (e.g. `python scripts/purge_vendor_cache.py`) upon subscription termination without breaking git history or tracked evidence",
+        "compliance_status": "COMPLIANT_WITH_VENDOR_DATA_PURGE_CLAUSES"
+      },
+      "derived_analytics_tier": {
+        "storage_location": "research/evidence/v30/ and research/logs/",
+        "git_tracking": "TRACKED_AND_COMMITTED_FOR_REPRODUCIBILITY",
+        "content_type": "Portfolio weights, daily returns $R_{E0,t}$ and $R_{D2,t}$, shortfall metric $d_t$, execution timestamps, SHA-256 nonces, Newey-West test statistics",
+        "legal_characterization": "Proprietary derived work product. All major vendor terms (Tiingo, Polygon, Alpaca, IBKR) recognize algorithmic signals, weights, and performance statistics as the subscriber's intellectual property, exempt from raw data purge mandates.",
+        "compliance_status": "PERMITTED_FOR_PERMANENT_GIT_ARCHIVE"
+      }
+    },
+    "reproducibility_vs_purge_resolution": {
+      "conflict": "If raw market data must be deleted upon subscription termination, how can third parties reproduce the exact research results?",
+      "resolution": "Guardian Alpha relies on cryptographic SHA-256 digests of the raw inputs and fully recorded deterministic event logs. Independent verifiers with their own valid vendor subscriptions can re-download the same date range and verify that their freshly ingested raw data hashes match Guardian Alpha's pre-recorded input digests. This preserves scientific reproducibility without committing copyrighted exchange data to the repository."
+    },
+    "technical_safeguards": {
+      "safeguard_1": ".gitignore enforces exclusion of all *.cache, tiingo_cache/, and provider_cache/ directories.",
+      "safeguard_2": "Pre-commit hooks or staging manifests inspect all untracked files to prevent accidental staging of raw market data.",
+      "safeguard_3": "Audit ledgers store only statistical metrics, Decimal accounting balances, and paired difference series."
+    }
+  }
+}

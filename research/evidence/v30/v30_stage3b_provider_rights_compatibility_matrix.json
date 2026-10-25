@@ -1,0 +1,106 @@
+{
+  "provider_rights_compatibility_matrix": {
+    "timestamp_utc": "2026-10-25T08:10:00Z",
+    "audit_objective": "Rigorous contractual evaluation of provider terms against Guardian Alpha's specific prospective evidence artifacts and execution architecture.",
+    "official_sources_audited": {
+      "Tiingo": {
+        "url": "https://app.tiingo.com/tos/",
+        "verified_terms_version": "Tiingo Terms of Use (Section: Data Storage & Derived Products)"
+      },
+      "Massive_Polygon_io": {
+        "url": "https://massive.com/legal/market-data-terms-of-service",
+        "verified_terms_version": "Massive Market Data Terms of Service (Section: Restrictions & Non-Display)"
+      },
+      "Alpaca": {
+        "url": "https://alpaca.markets/disclosures",
+        "verified_terms_version": "Alpaca Customer Agreement, NYSE Market Data Display Agreement, NASDAQ Global Subscriber Agreement"
+      },
+      "Interactive_Brokers": {
+        "url": "https://www.interactivebrokers.com/en/index.php?f=1564",
+        "verified_terms_version": "IBKR Market Data & Analytics Subscriber Agreement (Form 1564)"
+      }
+    },
+    "critical_legal_findings": [
+      {
+        "finding_id": "TIINGO_STARTER_AND_POWER_LIMITS",
+        "citation": "Tiingo ToS: 'A Starter Plan or Trial Plan does not permit persistent storage of Derived Products, during the plan or after it ends... Company does not provide exceptions under this Section for a Starter Plan or a Power Plan. Only a Start-up, Enterprise, or Institutional account may receive an exception...'",
+        "implication": "On Tiingo Starter, saving portfolio weights, backtest equity curves, or derived statistics to persistent disk violates the ToS. A Power plan permits storage during active subscription, but does not grant enterprise exceptions. All raw data must be purged upon subscription cancellation."
+      },
+      {
+        "finding_id": "MASSIVE_POLYGON_NON_DISPLAY_PROHIBITION",
+        "citation": "Massive Terms of Service: Users may NOT 'Use Market Data for non-display use or to create derivative works (including, without limitation, any index... investment product... settlement value or investment strategy) based on the Market Data unless you are licensed to do so...'",
+        "implication": "Published default Developer terms provide data for display use only. Using Massive market data to drive an automated trading algorithm or investment strategy requires specific non-display licensing."
+      },
+      {
+        "finding_id": "EXCHANGE_NON_DISPLAY_DECLARATIONS",
+        "citation": "NYSE/NASDAQ SRO Regulations via Alpaca and IBKR",
+        "implication": "Algorithmic execution is non-display. While Alpaca's brokerage API natively supports non-display paper trading, creating permanent bulk historical databases of exchange feeds without enterprise redistribution rights violates SRO rules."
+      }
+    ],
+    "compatibility_matrix": {
+      "dimensions": [
+        {
+          "dimension": "Technical API Access",
+          "Tiingo_Power": "PERMITTED WITH VERIFIED AUTHORIZATION",
+          "Massive_Developer": "PERMITTED WITH VERIFIED AUTHORIZATION",
+          "Alpaca_AlgoTrader": "PERMITTED WITH VERIFIED AUTHORIZATION",
+          "IBKR_TWS": "PERMITTED WITH VERIFIED AUTHORIZATION",
+          "notes": "All four provide stable REST/WebSocket endpoints subject to rate limits."
+        },
+        {
+          "dimension": "Non-Display Algorithmic Usage",
+          "Tiingo_Power": "CONDITIONAL",
+          "Massive_Developer": "PROHIBITED UNDER PUBLISHED DEFAULT TERMS",
+          "Alpaca_AlgoTrader": "PERMITTED WITH VERIFIED AUTHORIZATION",
+          "IBKR_TWS": "CONDITIONAL",
+          "notes": "Massive default terms explicitly prohibit investment strategy generation without non-display license. IBKR requires non-display declaration."
+        },
+        {
+          "dimension": "Persistent Source-Data Storage (Raw Bars/Ticks)",
+          "Tiingo_Power": "CONDITIONAL",
+          "Massive_Developer": "PROHIBITED UNDER PUBLISHED DEFAULT TERMS",
+          "Alpaca_AlgoTrader": "PROHIBITED UNDER PUBLISHED DEFAULT TERMS",
+          "IBKR_TWS": "PROHIBITED UNDER PUBLISHED DEFAULT TERMS",
+          "notes": "Tiingo Power permits local storage solely while active. Massive, Alpaca, and IBKR prohibit building persistent local databases of raw exchange data."
+        },
+        {
+          "dimension": "Derived-Data Retention (Weights, Signals, Returns)",
+          "Tiingo_Power": "CONDITIONAL",
+          "Massive_Developer": "PROHIBITED UNDER PUBLISHED DEFAULT TERMS",
+          "Alpaca_AlgoTrader": "PERMITTED WITH VERIFIED AUTHORIZATION",
+          "IBKR_TWS": "PERMITTED WITH VERIFIED AUTHORIZATION",
+          "notes": "Tiingo Starter strictly prohibits persistent storage of Derived Products. Tiingo Power permits it during subscription. Massive default terms restrict derived works."
+        },
+        {
+          "dimension": "Private Research Repositories (Git Tracking)",
+          "Tiingo_Power": "CONDITIONAL",
+          "Massive_Developer": "CONDITIONAL",
+          "Alpaca_AlgoTrader": "PERMITTED WITH VERIFIED AUTHORIZATION",
+          "IBKR_TWS": "CONDITIONAL",
+          "notes": "Tracking derived execution journals is permitted; tracking raw vendor bar dumps is strictly prohibited across all providers."
+        },
+        {
+          "dimension": "Subscription Cancellation Purge Obligation",
+          "Tiingo_Power": "MANDATORY_PURGE",
+          "Massive_Developer": "MANDATORY_PURGE",
+          "Alpaca_AlgoTrader": "MANDATORY_PURGE",
+          "IBKR_TWS": "MANDATORY_PURGE",
+          "notes": "All four vendors require destruction/purging of cached source market data upon termination or account closure."
+        },
+        {
+          "dimension": "Redistribution & Public Open-Source Release",
+          "Tiingo_Power": "PROHIBITED UNDER PUBLISHED DEFAULT TERMS",
+          "Massive_Developer": "PROHIBITED UNDER PUBLISHED DEFAULT TERMS",
+          "Alpaca_AlgoTrader": "PROHIBITED UNDER PUBLISHED DEFAULT TERMS",
+          "IBKR_TWS": "PROHIBITED UNDER PUBLISHED DEFAULT TERMS",
+          "notes": "Publishing vendor market data in open source is uniformly forbidden. Public repositories may contain only algorithm code and derived metrics."
+        }
+      ]
+    },
+    "owner_decision_gate": {
+      "decision_id": "DEC-02",
+      "status": "BLOCKED",
+      "legal_rationale": "Owner has not verified their active subscription agreement or executed necessary non-display declarations. Because Massive default terms prohibit non-display investment strategies and Tiingo Starter prohibits persistent storage of derived products, DEC-02 must remain BLOCKED until owner proves compliant subscription tier."
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "test_ledger_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Executed Test Ledger",
+    "timestamp_utc": "2026-10-25T06:50:00Z",
+    "archival_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "parent_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "archive/v30-stage2h-final-evidence-freeze",
+    "overall_status": "PASS"
+  },
+  "executed_test_suites": [
+    {
+      "suite_name": "test_v30_stage3a_governance_review.py",
+      "command": "python -m pytest research/tests/test_v30_stage3a_governance_review.py -v",
+      "exit_code": 0,
+      "duration_seconds": 0.38,
+      "status": "PASS",
+      "test_count": 10,
+      "passed": 10,
+      "failed": 0,
+      "stdout_summary": "10 passed in 0.38s"
+    },
+    {
+      "suite_name": "preview.py (Admission Safety Bar Smoke Check)",
+      "command": "$env:PYTHONIOENCODING='utf-8'; python preview.py",
+      "exit_code": 0,
+      "duration_seconds": 9.85,
+      "status": "PASS",
+      "summary": "Cleared admission safety bar (no leverage breach, no concentration breach, no blow-up)"
+    },
+    {
+      "suite_name": "selfcheck.py (Agent Initialization & Order Generation)",
+      "command": "$env:PYTHONIOENCODING='utf-8'; python selfcheck.py",
+      "exit_code": 0,
+      "duration_seconds": 15.2,
+      "status": "PASS",
+      "summary": "agent.py loaded and ran 12 steps cleanly. 4 well-formed orders emitted across run."
+    }
+  ],
+  "protected_hashes_runtime_verification": [
+    {
+      "file": "agent.py",
+      "expected": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "match": true
+    },
+    {
+      "file": "universe.json",
+      "expected": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "match": true
+    },
+    {
+      "file": "research/strategies/v12_candidate_ae.py",
+      "expected": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "match": true
+    },
+    {
+      "file": "research/strategies/v30_candidate_d2_cash_cushion.py",
+      "expected": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "match": true
+    }
+  ]
+}

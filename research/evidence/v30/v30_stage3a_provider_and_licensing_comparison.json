@@ -1,0 +1,110 @@
+{
+  "comparison_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Provider Capabilities & Licensing Comparison",
+    "timestamp_utc": "2026-10-25T06:45:00Z",
+    "auditor_role": "Financial Data-Rights Specialist & Systems Architect"
+  },
+  "providers": {
+    "Tiingo": {
+      "tier_evaluated": "Starter / Power Plan ($0 - $30/mo)",
+      "official_url": "https://www.tiingo.com",
+      "historical_capabilities": "Complete daily EOD equity & ETF price history (30+ years), split-adjusted and unadjusted prices, cash dividends, corporate action metadata.",
+      "prospective_capabilities": "Daily EOD bar publication ~5:30 PM EST; IEX intraday real-time top-of-book quotes; news feed.",
+      "point_in_time_integrity": "High. Preserves historical split and dividend distributions with explicit ex-dates and adjustment factors.",
+      "reproducibility": "Excellent for daily EOD bar research; deterministic endpoints.",
+      "api_availability_and_limits": "REST API with JSON responses. Free: 500 requests/hr, 50 assets. Power: 20,000+ requests/hr.",
+      "licensing_terms": {
+        "personal_research_use": "PERMITTED (Individual Non-Professional plans)",
+        "automated_retrieval": "PERMITTED (via personal API token)",
+        "local_caching": "PERMITTED (for internal modeling / personal backtesting)",
+        "derived_analytics": "PERMITTED (proprietary portfolio weights, risk metrics)",
+        "model_training_and_inference": "PERMITTED (private internal execution)",
+        "long_term_storage": "CONDITIONALLY PERMITTED (internal analytics database allowed; public data warehousing prohibited)",
+        "reproducibility_artifacts": "PERMITTED (private local Git archival only)",
+        "redistribution": "STRICTLY PROHIBITED (requires enterprise Redistribution License)",
+        "team_sharing": "PROHIBITED (single natural person account only)",
+        "broker_simulation": "PERMITTED (offline simulated order fill against EOD bars)"
+      },
+      "unresolved_ambiguities": "Exact boundary on sharing derived research summaries vs raw prices in open-source academic publications.",
+      "suitability_verdict": "CONDITIONALLY SUITABLE",
+      "justification": "Optimal for offline daily EOD bar prospective evaluation. Low operational cost, robust corporate actions, verified non-professional terms."
+    },
+    "Polygon_Massive": {
+      "tier_evaluated": "Developer / Starter Plan ($29 - $79/mo)",
+      "official_url": "https://polygon.io (Massive)",
+      "historical_capabilities": "Tick-level, minute, and daily bar data from CTA/UTP consolidated tape (15+ years). Full corporate actions.",
+      "prospective_capabilities": "Consolidated SIP real-time stream, delayed feeds, REST and WebSocket endpoints.",
+      "point_in_time_integrity": "High. Official exchange consolidated tape records.",
+      "reproducibility": "Very high; comprehensive historical aggregates API.",
+      "api_availability_and_limits": "Unlimited API requests on paid developer tiers; rate-limited on free tier (5 req/min).",
+      "licensing_terms": {
+        "personal_research_use": "PERMITTED (Developer / Personal tier)",
+        "automated_retrieval": "PERMITTED (via personal API key)",
+        "local_caching": "PERMITTED (transient operational cache only)",
+        "derived_analytics": "PERMITTED (private internal use)",
+        "model_training_and_inference": "PERMITTED (private algorithms)",
+        "long_term_storage": "RESTRICTED (Terms explicitly prohibit bulk-scraping to build secondary permanent historical databases)",
+        "reproducibility_artifacts": "CONDITIONALLY PERMITTED (internal private use only)",
+        "redistribution": "STRICTLY PROHIBITED (Commercial plan + exchange display fees required for any external display)",
+        "team_sharing": "PROHIBITED (Single user credential)",
+        "broker_simulation": "PERMITTED (private simulation)"
+      },
+      "unresolved_ambiguities": "Distinction between allowable local backtest cache and prohibited bulk historical database construction.",
+      "suitability_verdict": "CONDITIONALLY SUITABLE",
+      "justification": "Technically superior for intraday data, but higher monthly recurring cost ($29-$79/mo) than necessary for pure daily EOD evaluation."
+    },
+    "Alpaca": {
+      "tier_evaluated": "Paper Trading API + Free / Algo Trader Plus ($0 - $9/mo)",
+      "official_url": "https://alpaca.markets",
+      "historical_capabilities": "5+ years historical bars (IEX feed on free tier; full SIP on $9/mo Algo Trader Plus tier).",
+      "prospective_capabilities": "Native simulated paper trading broker environment with simulated order fills, account balances, and real-time quotes.",
+      "point_in_time_integrity": "Moderate (IEX feed lacks 100% consolidated tape volume; SIP upgrade required for full tape).",
+      "reproducibility": "Moderate to High. Paper execution fills depend on simulated matching engine timing.",
+      "api_availability_and_limits": "200 requests/minute on free; higher on paid tiers.",
+      "licensing_terms": {
+        "personal_research_use": "PERMITTED (Retail individual accounts)",
+        "automated_retrieval": "PERMITTED (via API key/secret)",
+        "local_caching": "PERMITTED (for local backtesting and model training)",
+        "derived_analytics": "PERMITTED (private trading decisions)",
+        "model_training_and_inference": "PERMITTED (powering automated paper orders)",
+        "long_term_storage": "CONDITIONALLY PERMITTED (private internal use)",
+        "reproducibility_artifacts": "PERMITTED (private execution logs)",
+        "redistribution": "STRICTLY PROHIBITED (Incorporates NASDAQ/NYSE subscriber agreements banning redistribution)",
+        "team_sharing": "PROHIBITED (Personal account)",
+        "broker_simulation": "NATIVELY SUPPORTED (Built-in paper trading engine)"
+      },
+      "unresolved_ambiguities": "Paper trading slippage model on leveraged ETFs (e.g., TQQQ, SOXL) does not model real market liquidity constraints during volatility spikes.",
+      "suitability_verdict": "CONDITIONALLY SUITABLE",
+      "justification": "Best suited if owner desires end-to-end broker order routing simulation rather than pure mathematical bar simulation."
+    },
+    "Interactive_Brokers": {
+      "tier_evaluated": "TWS API / Client Portal API (US Equity Non-Professional ~$4.50/mo exchange fees)",
+      "official_url": "https://www.interactivebrokers.com",
+      "historical_capabilities": "Historical bars and ticks via TWS API; subject to strict pacing restrictions.",
+      "prospective_capabilities": "Real-time Level 1 and Level 2 market data, paper trading accounts, comprehensive multi-asset routing.",
+      "point_in_time_integrity": "Very High. Direct exchange data feeds with institutional grade corporate actions.",
+      "reproducibility": "Moderate (TWS API requires running local TWS or IB Gateway software daemon).",
+      "api_availability_and_limits": "Max 60 historical requests per 10-minute window; pacing violations trigger automatic cooldowns. Max 100 concurrent streaming lines.",
+      "licensing_terms": {
+        "personal_research_use": "PERMITTED (Non-Professional subscriber agreement)",
+        "automated_retrieval": "PERMITTED (via local TWS socket API)",
+        "local_caching": "RESTRICTED (Personal backtesting permitted; permanent database hoarding prohibited by exchange agreements)",
+        "derived_analytics": "PERMITTED (private trading use only)",
+        "model_training_and_inference": "PERMITTED (private algorithmic trading)",
+        "long_term_storage": "RESTRICTED (Exchange rules prohibit building public historical quote archives)",
+        "reproducibility_artifacts": "PERMITTED (private trade logs)",
+        "redistribution": "STRICTLY PROHIBITED (Section 3 of Market Data Agreement: commercial exploitation/redistribution strictly banned)",
+        "team_sharing": "PROHIBITED (Personal non-professional account)",
+        "broker_simulation": "NATIVELY SUPPORTED (TWS Paper Trading account)"
+      },
+      "unresolved_ambiguities": "LRS (Liberalized Remittance Scheme) compliance and account minimums for Indian residents; TWS daily gateway restart disrupts automated unattended 24/7 scripts.",
+      "suitability_verdict": "CONDITIONALLY SUITABLE",
+      "justification": "Highest institutional fidelity but severe operational complexity (local TWS daemon, strict API pacing limits, cross-border funding hurdles)."
+    }
+  },
+  "comparative_summary": {
+    "recommended_for_pure_data_evaluation": "Tiingo (Lowest operational friction, clean corporate actions, flat rate, zero daemon required)",
+    "recommended_for_paper_broker_simulation": "Alpaca (Native paper trading API, REST endpoints, clean JSON orders)",
+    "all_providers_license_constraint": "ALL evaluated providers permit private single-user research but STRICTLY FORBID external redistribution or public hosting under personal plans."
+  }
+}

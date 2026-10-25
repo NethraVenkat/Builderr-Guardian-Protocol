@@ -1,0 +1,76 @@
+{
+  "updated_decision_register": {
+    "timestamp_utc": "2026-10-25T08:13:00Z",
+    "stage": "3B",
+    "decisions": [
+      {
+        "decision_id": "DEC-01",
+        "title": "Market-Data Provider Selection",
+        "stage3b_status": "PENDING_OWNER_SELECTION",
+        "options_evaluated": {
+          "tiingo_power": "Recommended for daily EOD bar research ($30/mo). Requires active paid plan for local storage and derived works.",
+          "alpaca_algotrader": "Recommended for simulated broker paper order placement ($9/mo). Natively supports non-display paper trading API.",
+          "massive_developer": "Disqualified under published default terms due to explicit ban on non-display investment strategy creation.",
+          "interactive_brokers": "Operationally disqualified for unattended paper pilot due to daily TWS restart requirement and Indian LRS remittance friction."
+        },
+        "next_action": "Owner selects Tiingo Power or Alpaca AlgoTrader Plus."
+      },
+      {
+        "decision_id": "DEC-02",
+        "title": "Data Licensing & Evidence Retention Compliance",
+        "stage3b_status": "BLOCKED",
+        "blockers": [
+          "Tiingo Starter plan legally prohibits persistent storage of Derived Products (portfolio weights/statistics).",
+          "Massive/Polygon default terms explicitly prohibit using Market Data for non-display investment strategies.",
+          "All four surveyed providers require deletion of cached source market data upon subscription cancellation.",
+          "Owner has not signed a Non-Professional declaration or verified an active paid plan tier."
+        ],
+        "next_action": "Owner verifies active paid subscription and signs compliance declaration."
+      },
+      {
+        "decision_id": "DEC-03",
+        "title": "Causal Statistical Endpoint & Inferential Protocol",
+        "stage3b_status": "PENDING_OWNER_RATIFICATION",
+        "protocol_specifications": {
+          "causal_defensive_filter": "I_{def,T}^{causal} = 1 iff S_{T-1} == DEFENSIVE (ex-ante regime signal strictly prior to session T).",
+          "primary_hurdle": "Reject H02: E[d_t | I_{def,t}^{causal}=1] <= 10 bps using Newey-West HAC and Stationary Block Bootstrap.",
+          "secondary_constraint": "Delta CAGR >= -200 bps adopted strictly as an operational risk-budget guardrail (not formal non-inferiority proof)."
+        },
+        "next_action": "Owner ratifies formal preregistration text."
+      },
+      {
+        "decision_id": "DEC-04",
+        "title": "Evaluation Horizon & Power Boundary",
+        "stage3b_status": "PENDING_OWNER_RATIFICATION",
+        "protocol_specifications": {
+          "horizon": "252 prospective sessions.",
+          "sample_floor": "Minimum N_{def}^{causal} >= 30 defensive sessions.",
+          "extension": "Contingent objective extension up to 504 sessions if N_{def}^{causal} < 30 at session 252.",
+          "stopping_rules": "Strict ban on interim optional stopping. Catastrophic circuit breaker at D2 drawdown > E0 drawdown + 300 bps."
+        },
+        "next_action": "Owner approves preregistration horizon rules."
+      },
+      {
+        "decision_id": "DEC-05",
+        "title": "Fail-Closed Operations & SRE Architecture",
+        "stage3b_status": "PENDING_OWNER_RATIFICATION",
+        "protocol_specifications": {
+          "recovery_model": "Fail-closed persistent INCIDENT_LOCK requiring human clearance.",
+          "daemon_policy": "No automated blind restart loops; external watchdog operates strictly out-of-band without trading keys.",
+          "accounting": "Double-entry replay through DecimalAccountingOracle required before accepting new market ticks."
+        },
+        "next_action": "Owner establishes OS-level service boundary and takes custody of reset keys."
+      },
+      {
+        "decision_id": "DEC-06",
+        "title": "Prospective Evaluation Activation Authority",
+        "stage3b_status": "STRICTLY_BLOCKED",
+        "current_state": "LOCKED",
+        "activation_token": "NONE_GENERATED",
+        "broker_connection": "NONE",
+        "trading_activity": "ZERO",
+        "prerequisites": "Requires unanimous owner ratification of DEC-01 through DEC-05, funded account, and manual owner execution of cryptographic activation script."
+      }
+    ]
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "evidence_inventory_reconciliation": {
+    "timestamp_utc": "2026-10-25T18:40:00Z",
+    "stage": "V30 Stage 3B-R2",
+    "deliverable_count_reconciliation": {
+      "stage3b_r_text_claim": 14,
+      "stage3b_r_enumerated_items_in_text": 15,
+      "actual_physical_files_created_on_disk": 15,
+      "files_recorded_in_stage3b_r_manifest": 14,
+      "root_cause_explanation": "The Stage 3B-R manifest tracked exactly 14 items because the manifest itself (v30_stage3b_r_inventory_and_checksum_manifest.json) excluded itself to prevent self-referential paradoxes. The report text narrative stated 14 deliverables based on the manifest entries count, but then enumerated all 15 physical files on disk (1 report + 12 evidence json + 1 test suite + 1 manifest). Both counts are reconciled and certified lossless."
+    },
+    "historical_manifest_audit": {
+      "stage3a_manifest": {
+        "path": "research/evidence/v30/v30_stage3a_artifact_checksum_manifest.json",
+        "entries": 11,
+        "status": "PRESERVED_WITH_HISTORICAL_DISCREPANCY",
+        "known_discrepancy": "GUARDIAN_ALPHA_V30_STAGE3A_OWNER_GOVERNANCE_REVIEW.md hash differs from manifest (preserved as historical evidence without mutating historical manifest)."
+      },
+      "stage3a_r_manifest": {
+        "path": "research/evidence/v30/v30_stage3a_r_artifact_and_checksum_inventory.json",
+        "entries": 13,
+        "status": "100_PERCENT_MATCH"
+      },
+      "stage3b_manifest": {
+        "path": "research/evidence/v30/v30_stage3b_artifact_checksum_manifest.json",
+        "entries": 13,
+        "status": "100_PERCENT_MATCH"
+      },
+      "stage3b_r_manifest": {
+        "path": "research/evidence/v30/v30_stage3b_r_inventory_and_checksum_manifest.json",
+        "entries": 14,
+        "status": "100_PERCENT_MATCH"
+      }
+    },
+    "stage3b_r_artifacts_inventory": {
+      "GUARDIAN_ALPHA_V30_STAGE3B_R_FINAL_PROTOCOL_VERIFICATION.md": {
+        "exists": true,
+        "size_bytes": 28252,
+        "raw_sha256": "3c5178cf3e2112053ee94722824d59297e41b337fda78a6259b78a4d7686fd91",
+        "lf_sha256": "3c5178cf3e2112053ee94722824d59297e41b337fda78a6259b78a4d7686fd91",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_checkpoint_certification.json": {
+        "exists": true,
+        "size_bytes": 2161,
+        "raw_sha256": "3b6b82d7c7295ea3a709836a314264bca8bf9af14150d6b91b378ce8d041aefb",
+        "lf_sha256": "3b6b82d7c7295ea3a709836a314264bca8bf9af14150d6b91b378ce8d041aefb",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_execution_chronology_audit.json": {
+        "exists": true,
+        "size_bytes": 5133,
+        "raw_sha256": "b905f0cb57ff9746cfdbe3891ea93f9bfb9cd94e4af9cb6b4203e4fe661f7181",
+        "lf_sha256": "b905f0cb57ff9746cfdbe3891ea93f9bfb9cd94e4af9cb6b4203e4fe661f7181",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_causal_adversarial_test_results.json": {
+        "exists": true,
+        "size_bytes": 5368,
+        "raw_sha256": "27e17da895448d8aa2f19d0c28a4302c781934d1998c514ccab10b0228abb3f8",
+        "lf_sha256": "27e17da895448d8aa2f19d0c28a4302c781934d1998c514ccab10b0228abb3f8",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_independent_analytical_power.json": {
+        "exists": true,
+        "size_bytes": 50850,
+        "raw_sha256": "8c78156b908ab37011b980cba8f1784a633c2a87433118053cbcebb4c8cd89ae",
+        "lf_sha256": "28a45b40280a017bca2922ee74fc9b1103a2f2ad3e134f493307f26122cc5db2",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_monte_carlo_power_reproduction.json": {
+        "exists": true,
+        "size_bytes": 49649,
+        "raw_sha256": "45f9df17a4834987d06959839fbe835c71e3735ab3756d41c644347b48cfc7ed",
+        "lf_sha256": "3ea44ff2382531331ba94b10a8e61364871a62cb6faf122ca6e9fa4752a6e7a7",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_scenario_sensitivity_matrix.json": {
+        "exists": true,
+        "size_bytes": 108110,
+        "raw_sha256": "1c659fa9806bfdec324835f1b87c50e4dca3505ea6968dc7a125c18ff163140d",
+        "lf_sha256": "87bacd6661aee2687c56ddf63b305eae7422cfd59991c06ef520f339c012a98a",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_inferential_decision_procedure.json": {
+        "exists": true,
+        "size_bytes": 3785,
+        "raw_sha256": "2c266d336c2a5f80013aaf048b8b73d46c832918d3f5c717e491b9c1b6d0d1d9",
+        "lf_sha256": "2c266d336c2a5f80013aaf048b8b73d46c832918d3f5c717e491b9c1b6d0d1d9",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_horizon_and_stopping_assessment.json": {
+        "exists": true,
+        "size_bytes": 3176,
+        "raw_sha256": "501a403f6d9397ce9159e514ab6f81c5af1b16b2697c93b08391e59f9111572d",
+        "lf_sha256": "501a403f6d9397ce9159e514ab6f81c5af1b16b2697c93b08391e59f9111572d",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_provider_rights_matrix.json": {
+        "exists": true,
+        "size_bytes": 5541,
+        "raw_sha256": "5a954d55e596edf225e09ba8ae6414c2db7a09dd3a74d0a8287c0b2c4467ad03",
+        "lf_sha256": "5a954d55e596edf225e09ba8ae6414c2db7a09dd3a74d0a8287c0b2c4467ad03",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_historical_evidence_integrity.json": {
+        "exists": true,
+        "size_bytes": 2313,
+        "raw_sha256": "e70fd8da15746829b156656fffa87c85b94d0ce8b57de95bb328d24a6b8aebfc",
+        "lf_sha256": "e70fd8da15746829b156656fffa87c85b94d0ce8b57de95bb328d24a6b8aebfc",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_updated_decision_register.json": {
+        "exists": true,
+        "size_bytes": 4344,
+        "raw_sha256": "5ba47cdb961f5526d690b0f61b55efcd1d7119e750a263a12b68371c6ea1e0df",
+        "lf_sha256": "5ba47cdb961f5526d690b0f61b55efcd1d7119e750a263a12b68371c6ea1e0df",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_executed_test_ledger.json": {
+        "exists": true,
+        "size_bytes": 4116,
+        "raw_sha256": "9ab0cab88ef2809756c827a05aeb0de676df99070d66267b3906ee00db916756",
+        "lf_sha256": "9ab0cab88ef2809756c827a05aeb0de676df99070d66267b3906ee00db916756",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      },
+      "research/evidence/v30/v30_stage3b_r_inventory_and_checksum_manifest.json": {
+        "exists": true,
+        "size_bytes": 4710,
+        "raw_sha256": "e30964bc7b25761d35f0827b3cc7ad46d122659042934b0ecdbf646efbf9cf8c",
+        "lf_sha256": "f4a83cbb491724c930d2f6758f7f19c488e8ad8b019011f7ce872b10e988accf",
+        "included_in_prior_stage3b_r_manifest": false,
+        "manifest_exclusion_reason": "Self-manifest to avoid self-hashing cycle",
+        "preserved_unmodified": true
+      },
+      "research/tests/test_v30_stage3b_r_final_verification.py": {
+        "exists": true,
+        "size_bytes": 10843,
+        "raw_sha256": "9d64ebd6f60f9df2f40c08ca78408f4be97c6d5f325ce0457405f046ffeb0d59",
+        "lf_sha256": "9d64ebd6f60f9df2f40c08ca78408f4be97c6d5f325ce0457405f046ffeb0d59",
+        "included_in_prior_stage3b_r_manifest": true,
+        "manifest_exclusion_reason": "None",
+        "preserved_unmodified": true
+      }
+    }
+  }
+}

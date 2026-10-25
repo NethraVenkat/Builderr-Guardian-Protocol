@@ -1,0 +1,39 @@
+{
+  "exclusion_and_disposition_ledger": {
+    "timestamp_utc": "2026-10-25T18:45:00Z",
+    "stage": "V30 Stage 3C",
+    "exclusion_policy": "Strictly non-destructive. Only transient runtime caches, platform bytecode, and sealed holdout data are excluded from staging.",
+    "excluded_entries": [
+      {
+        "path_or_pattern": "tiingo_cache/",
+        "classification": "RESTRICTED_TIER_3_HOLDOUT",
+        "reason": "Holds prospective test observations dated 2022-01-01 onward; strictly quarantined and sealed from inspection or inclusion in archival commits."
+      },
+      {
+        "path_or_pattern": ".pytest_cache/",
+        "classification": "EPHEMERAL_TEST_RUNNER_CACHE",
+        "reason": "Transient internal cache generated during pytest execution; non-deterministic and platform dependent."
+      },
+      {
+        "path_or_pattern": "**/__pycache__/",
+        "classification": "COMPILED_BYTECODE",
+        "reason": "Python compiled .pyc files; non-source binary artifacts."
+      },
+      {
+        "path_or_pattern": "scratch/hypotheses_results.json",
+        "classification": "SUPERSEDED_SCRATCH_OUTPUT",
+        "reason": "Intermediate scratch experiment file from Stage 2 exploratory work; not part of canonical Stage 3 governance chain."
+      },
+      {
+        "path_or_pattern": ".git/",
+        "classification": "INTERNAL_VCS_METADATA",
+        "reason": "Git internal repository database."
+      }
+    ],
+    "secret_bearing_paths_audit": {
+      "api_keys_or_tokens_detected": 0,
+      "private_credentials_detected": 0,
+      "status": "VERIFIED_CLEAN"
+    }
+  }
+}

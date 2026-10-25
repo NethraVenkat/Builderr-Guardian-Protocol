@@ -1,0 +1,43 @@
+{
+  "statistical_hypothesis_correction": {
+    "timestamp_utc": "2026-10-25T07:38:00Z",
+    "primary_metric": "Paired Downside Shortfall Reduction on Defensive Sessions",
+    "mathematical_definition": "d_t = \\max(0, -R_{E0,t}) - \\max(0, -R_{D2,t}) \\quad \\text{for } t \\in \\{1, \\dots, T\\} \\text{ where } I_{def,t} = 1",
+    "defensive_conditioning_filter": "I_{def,t} = 1 \\iff R_{m,t} < 0 \\quad (\\text{where } R_{m,t} \\text{ is benchmark SPY/QQQ daily return})",
+    "two_tier_hypothesis_framework": {
+      "hypothesis_1_directional_improvement": {
+        "null_hypothesis_H01": "\\mu_d = \\mathbb{E}[d_t \\mid I_{def,t}=1] \\le 0",
+        "alternative_hypothesis_H11": "\\mu_d = \\mathbb{E}[d_t \\mid I_{def,t}=1] > 0",
+        "scientific_meaning": "Tests whether D2 provides strictly non-negative downside shortfall reduction compared to E0. Passing H11 rules out that D2 worsens downside losses, but does NOT prove economic utility.",
+        "decision_role": "Necessary minimum filter, but INSUFFICIENT for strategy promotion."
+      },
+      "hypothesis_2_economic_superiority": {
+        "null_hypothesis_H02": "\\mu_d = \\mathbb{E}[d_t \\mid I_{def,t}=1] \\le \\delta_{min} \\quad (\\delta_{min} = 0.0010 \\text{ or } 10\\text{ bps})",
+        "alternative_hypothesis_H12": "\\mu_d = \\mathbb{E}[d_t \\mid I_{def,t}=1] > \\delta_{min}",
+        "scientific_meaning": "Tests whether D2's downside shortfall reduction exceeds the minimum economically meaningful threshold of 10 basis points per defensive day, ensuring alpha is not consumed by slippage, commissions, or bid-ask friction.",
+        "decision_role": "MANDATORY hurdle for prospective validation and strategy certification."
+      },
+      "distinction_enforcement": "Rejecting H01 does NOT imply rejecting H02. An observed mean \\bar{d} = 3\\text{ bps} may achieve p < 0.01 under large N, rejecting H01, yet fail H02 (p > 0.50). Conflating these two tests is a statistical fallacy."
+    },
+    "inference_methodology": {
+      "newey_west_hac": {
+        "estimator": "Bartlett kernel HAC variance estimator",
+        "formula": "\\hat{\\sigma}_{HAC}^2 = \\hat{\\gamma}_0 + 2 \\sum_{j=1}^q \\left(1 - \\frac{j}{q+1}\\right) \\hat{\\gamma}_j",
+        "lag_selection_rule": "q = \\lfloor 4 (N_{def} / 100)^{2/9} \\rfloor",
+        "sample_size_example": "For N_def = 30, q = 3 lags; for N_def = 60, q = 3 lags; for N_def = 100, q = 4 lags",
+        "hac_test_statistic": "t_{NW} = (\\bar{d} - \\delta) / (\\hat{\\sigma}_{HAC} / \\sqrt{N_{def}})"
+      },
+      "stationary_block_bootstrap": {
+        "method": "Politis & Romano (1994) Stationary Block Bootstrap",
+        "block_length_parameter": "p_geom = 1 / b, where b = \\lceil N_{def}^{1/3} \\rceil",
+        "replications": 10000,
+        "outputs": ["Empirical p-value", "95% Percentile Confidence Interval", "Studentized Bootstrap CI"]
+      }
+    },
+    "owner_decision_gate": {
+      "decision_id": "DEC-03",
+      "status": "PENDING_OWNER_RATIFICATION",
+      "note": "Mathematical specification is finalized, but neither the 10-bps threshold nor the Newey-West lag formula has been formally approved by the owner."
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "provider_licensing_corrections": {
+    "audit_metadata": {
+      "title": "Stage 3A-R Provider Licensing & Contractual Rights Correction",
+      "timestamp_utc": "2026-10-25T07:36:00Z",
+      "correction_target": "Correction A - Contractual Rights vs Technical Capability"
+    },
+    "core_forensic_correction": {
+      "earlier_stage3a_claim": "Non-professional personal subscriptions automatically authorize local caching, backtest modeling, and private Git evidence preservation.",
+      "corrected_audit_finding": "FALSE AND OVERBROAD. Standard non-professional market data agreements (e.g. NYSE/NASDAQ Subscriber Agreements via Alpaca/IBKR) govern human visual display. Non-display algorithmic consumption, automated caching, and persistent database storage often require specific non-display acknowledgments or higher commercial tiers. Furthermore, all four providers contain post-termination data destruction clauses obligating the user to purge stored raw vendor data upon subscription cancellation.",
+      "contractual_boundary": "Contractual permission is independent of technical API capability. Having an API token does NOT grant unrestricted archival rights."
+    },
+    "provider_terms_audit": {
+      "Tiingo": {
+        "official_url": "https://www.tiingo.com/about/terms-of-use",
+        "verified_effective_date": "Current 2026 Terms of Use",
+        "plans_evaluated": ["Starter / Free", "Power ($30/mo)"],
+        "automated_collection": "PERMITTED (subject to hourly/daily rate and bandwidth limits)",
+        "non_display_algorithmic_use": "PERMITTED for internal model execution",
+        "persistent_raw_data_storage": {
+          "status": "RESTRICTED",
+          "details": "Starter/Free tier permits only transient memory caching during computation. Power tier permits local database storage ONLY while active subscription is maintained."
+        },
+        "derived_data_retention": "PERMITTED (signals, portfolio weights, execution records, performance statistics)",
+        "statistical_modeling": "PERMITTED for personal non-commercial quantitative research",
+        "corporate_actions": "PERMITTED (provided as part of EOD historical endpoint)",
+        "audit_log_retention": "PERMITTED for derived simulation ledgers",
+        "private_research_repositories": "PERMITTED for derived code and summary logs; PROHIBITED for raw vendor JSON quote dumps",
+        "subscription_termination_clause": {
+          "status": "MANDATORY_DATA_PURGE",
+          "details": "Upon cancellation or termination of service, all rights to use or retain Tiingo Data terminate automatically and immediately. User is contractually obligated to purge and delete all stored vendor data from local drives."
+        },
+        "overall_licensing_status": "CONDITIONALLY_SUITABLE_REQUIRING_ACTIVE_POWER_PLAN"
+      },
+      "Massive_Polygon_io": {
+        "official_url": "https://massive.com/terms",
+        "verified_effective_date": "Updated Massive.com / Polygon.io Terms of Service",
+        "plans_evaluated": ["Developer ($29-$79/mo)"],
+        "automated_collection": "PERMITTED via REST API and WebSocket",
+        "non_display_algorithmic_use": "PERMITTED for personal trading algorithm",
+        "persistent_raw_data_storage": {
+          "status": "RESTRICTED",
+          "details": "Permitted for internal application caching during active subscription; commercial scraping or bulk historical hoarding prohibited."
+        },
+        "derived_data_retention": "PERMITTED for proprietary analytics and models",
+        "statistical_modeling": "PERMITTED for internal research",
+        "corporate_actions": "PERMITTED via reference ticker events API",
+        "audit_log_retention": "PERMITTED for execution logs",
+        "private_research_repositories": "PERMITTED for code and derived statistics; raw historical bulk dumps prohibited",
+        "subscription_termination_clause": {
+          "status": "MANDATORY_DATA_PURGE",
+          "details": "Upon termination, restriction, or suspension of agreement, licensee is contractually required to cease all use and delete all Market Data in their possession."
+        },
+        "overall_licensing_status": "CONDITIONALLY_SUITABLE_WITH_TERMINATION_RISK"
+      },
+      "Alpaca": {
+        "official_url": "https://alpaca.markets/disclosures",
+        "verified_effective_date": "Current Alpaca Customer Agreement & Market Data Terms",
+        "plans_evaluated": ["Free Paper Trading (IEX)", "Algo Trader Plus ($9/mo, SIP)"],
+        "automated_collection": "PERMITTED via REST/WebSocket API",
+        "non_display_algorithmic_use": "PERMITTED natively for paper and live automated trading",
+        "persistent_raw_data_storage": {
+          "status": "RESTRICTED_BY_EXCHANGE_RULES",
+          "details": "Governed by NYSE Market Data Display Services Agreement and NASDAQ OMX Global Subscriber Agreement. Building persistent historical archives derived from real-time feeds without enterprise redistribution rights violates SRO exchange compliance policies."
+        },
+        "derived_data_retention": "PERMITTED (order logs, paper fill records, equity curves)",
+        "statistical_modeling": "PERMITTED for algorithmic strategy execution",
+        "corporate_actions": "RESTRICTED (splits/dividends handled internally on paper accounts, but raw historical splits table is limited compared to Tiingo)",
+        "audit_log_retention": "PERMITTED for trading ledger compliance",
+        "private_research_repositories": "PERMITTED for paper trading journals",
+        "subscription_termination_clause": {
+          "status": "MANDATORY_DATA_PURGE",
+          "details": "Upon account closure or termination, right to access feeds ceases; cached real-time exchange data must be deleted in compliance with SRO rules."
+        },
+        "overall_licensing_status": "CONDITIONALLY_SUITABLE_FOR_PAPER_BROKERAGE_SIMULATION"
+      },
+      "Interactive_Brokers": {
+        "official_url": "https://www.interactivebrokers.com/en/index.php?f=1564",
+        "verified_effective_date": "IBKR Market Data & Analytics Subscriber Agreement",
+        "plans_evaluated": ["Non-Professional TWS API Account (~$4.50/mo exchange fees)"],
+        "automated_collection": "PERMITTED via TWS API (strict 60 req/10 min pacing rules)",
+        "non_display_algorithmic_use": {
+          "status": "SEPARATE_DECLARATION_REQUIRED",
+          "details": "Automated API consumption is classified as Non-Display Use under exchange rules and requires explicit non-display declaration in IB Client Portal."
+        },
+        "persistent_raw_data_storage": {
+          "status": "STRICTLY_RESTRICTED",
+          "details": "Unencrypted local storage or redistribution of raw tick/market feeds is prohibited by exchange regulations."
+        },
+        "derived_data_retention": "PERMITTED for portfolio and order tracking",
+        "statistical_modeling": "PERMITTED for algorithmic execution",
+        "corporate_actions": "PERMITTED via IBKR dividend/corporate action reports",
+        "audit_log_retention": "PERMITTED for financial compliance",
+        "private_research_repositories": "PROHIBITED for raw market data; permitted for execution audit trail",
+        "subscription_termination_clause": {
+          "status": "MANDATORY_DATA_PURGE",
+          "details": "Inactivity or account termination triggers automatic revocation of licenses and contractual mandate to destroy all cached copies."
+        },
+        "overall_licensing_status": "OPERATIONALLY_AND_CONTRACTUALLY_BURDENSOME"
+      }
+    },
+    "owner_decision_gate": {
+      "decision_id": "DEC-02",
+      "status": "BLOCKED",
+      "justification": "Owner has not yet executed a specific vendor agreement or verified their individual subscriber classification. Until owner verifies contract terms and accepts post-termination data purge requirements, market-data ingestion remains locked."
+    }
+  }
+}

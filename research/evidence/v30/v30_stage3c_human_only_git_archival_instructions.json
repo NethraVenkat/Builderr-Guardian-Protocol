@@ -1,0 +1,49 @@
+{
+  "human_only_git_archival_instructions": {
+    "timestamp_utc": "2026-10-25T18:55:00Z",
+    "stage": "V30 Stage 3C",
+    "warning": "FOR HUMAN REPOSITORY OWNER EXECUTION ONLY. The AI agent MUST NOT execute these commands.",
+    "step_by_step_procedure_powershell": [
+      "# Step 1: Navigate to repository root",
+      "cd C:\\Users\\Manish\\Downloads\\Guardian-Alpha-V29B",
+      "",
+      "# Step 2: Verify repository state and invariants",
+      "$branch = git branch --show-current",
+      "if ($branch -ne \"archive/v30-stage2h-final-evidence-freeze\") { throw \"Branch mismatch: $branch\" }",
+      "$head = git rev-parse HEAD",
+      "if ($head -ne \"ce6b4c21b832044d0ffb45dce2ba949ab867d520\") { throw \"HEAD mismatch: $head\" }",
+      "",
+      "# Step 3: Verify working tree has zero staged changes",
+      "$staged = git diff --cached --name-only",
+      "if ($staged) { throw \"Unexpected staged changes detected: $staged\" }",
+      "",
+      "# Step 4: Stage ONLY the approved files from the human staging manifest",
+      "$manifest = Get-Content \"research/evidence/v30/v30_stage3c_human_archival_staging_manifest.json\" | ConvertFrom-Json",
+      "foreach ($path in $manifest.human_archival_staging_manifest.approved_paths.PSObject.Properties.Name) {",
+      "    git add -f -- $path",
+      "}",
+      "",
+      "# Step 5: Verify staged file count matches manifest",
+      "$staged_count = (git diff --cached --name-only).Count",
+      "$expected_count = $manifest.human_archival_staging_manifest.total_eligible_files",
+      "if ($staged_count -ne $expected_count) { throw \"Staged count mismatch: got $staged_count, expected $expected_count\" }",
+      "",
+      "# Step 6: Create archival commit (DO NOT PUSH)",
+      "git commit -m \"archive: Stage 3C evidence freeze and exploratory research decision package\"",
+      "",
+      "# Step 7: Post-commit verification",
+      "$new_head = git rev-parse HEAD",
+      "$parent = git rev-parse HEAD~1",
+      "if ($parent -ne \"ce6b4c21b832044d0ffb45dce2ba949ab867d520\") { throw \"Commit parent mismatch: $parent\" }",
+      "Write-Host \"Stage 3C Archival Freeze Committed Successfully: $new_head (DO NOT PUSH)\""
+    ],
+    "safety_safeguards": [
+      "Refuses unexpected staged files.",
+      "Preserves raw artifact bytes despite CRLF/LF Git normalization.",
+      "Strictly avoids git add . and wildcards.",
+      "Strictly avoids git reset, clean, restore, or checkout.",
+      "Preserves commit ancestry from Stage 2H-Final (ce6b4c21b832044d0ffb45dce2ba949ab867d520).",
+      "Strictly prohibits automatic or unattended git push."
+    ]
+  }
+}

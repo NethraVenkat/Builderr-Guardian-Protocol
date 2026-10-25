@@ -1,0 +1,60 @@
+{
+  "risk_register_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Open Risks, Methodological Limitations & Blockers",
+    "timestamp_utc": "2026-10-25T06:45:00Z",
+    "auditor_role": "Adversarial Engineering Judge"
+  },
+  "active_blockers": [
+    {
+      "blocker_id": "BLK-01",
+      "name": "Activation Authority Is Blocked",
+      "description": "DEC-06 is strictly BLOCKED. No cryptographic activation token exists. The trading engine cannot poll market data, execute orders, or connect to brokers.",
+      "severity": "CRITICAL_GOVERNANCE_BLOCKER",
+      "resolution": "Requires explicit, independent human repository owner decision after resolving DEC-01 through DEC-05."
+    },
+    {
+      "blocker_id": "BLK-02",
+      "name": "Market Data Provider & Contractual License Unselected",
+      "description": "No active provider subscription or API key is configured. DEC-01 and DEC-02 are PENDING.",
+      "severity": "OPERATIONAL_BLOCKER",
+      "resolution": "Owner must register provider account and sign non-professional agreement."
+    }
+  ],
+  "methodological_and_scientific_risks": [
+    {
+      "risk_id": "RSK-01",
+      "name": "Historical Data Snooping and In-Sample Selection Bias",
+      "category": "STATISTICAL",
+      "description": "43+ candidate strategies were tested on historical Tier 1/2 data. D2's historical performance (21.20% MaxDD) cannot be interpreted as out-of-sample evidence.",
+      "mitigation": "Prospective forward evaluation resets selection bias if and only if parameters and endpoints are preregistered irrevocably."
+    },
+    {
+      "risk_id": "RSK-02",
+      "name": "Low-Volatility Horizon Risk (Underpowered Sample)",
+      "category": "EMPIRICAL",
+      "description": "If prospective market conditions feature a relentless, low-volatility bull run, 252 calendar days may produce fewer than 30 defensive sessions, leaving the evaluation severely underpowered.",
+      "mitigation": "Contingent extension protocol allowing evaluation to extend up to 504 sessions."
+    },
+    {
+      "risk_id": "RSK-03",
+      "name": "Mechanical Cash Drag in Strong Bull Markets",
+      "category": "FINANCIAL",
+      "description": "D2 holds 50% defensive cash during risk-off triggers. In false-alarm whipsaw regimes, D2 will lag E0 significantly. If lag exceeds 200 bps, D2 fails the secondary constraint.",
+      "mitigation": "Preregistered 200 bps tolerance formally bounds acceptable insurance cost."
+    },
+    {
+      "risk_id": "RSK-04",
+      "name": "Leveraged ETF Volatility Decay (Beta Slippage)",
+      "category": "STRUCTURAL",
+      "description": "Guardian Alpha trades 3x leveraged ETFs (TQQQ, SOXL, UPRO). High-volatility sideways chop causes severe compounding value erosion independent of index levels.",
+      "mitigation": "D2's cash cushion partially mitigates this by halving exposure, but underlying asset decay remains a structural risk."
+    },
+    {
+      "risk_id": "RSK-05",
+      "name": "Simulator Parity and Host Execution Gap",
+      "category": "OPERATIONAL",
+      "description": "Backtest assumes perfect fill at bar close without slippage or market impact. In live paper trading, order routing delays and wide spreads during volatility spikes may cause execution slippage.",
+      "mitigation": "Stage 2H-B sell-first execution ordering resolves cash settlement timing, but real market slippage must be measured prospectively."
+    }
+  ]
+}

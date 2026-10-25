@@ -1,0 +1,89 @@
+{
+  "execution_chronology_audit": {
+    "timestamp_utc": "2026-10-25T10:16:00Z",
+    "audit_objective": "Forensic timeline audit of the 10 event-time causality dimensions governing Guardian Alpha execution.",
+    "event_chronology_table": [
+      {
+        "stage_id": "CHRON_01",
+        "dimension": "Market Bar Finalization (T-1)",
+        "event_time_est": "16:00:00 - 16:05:00 EST",
+        "evidence_source": "NYSE/NASDAQ Official Closing Cross; agent.py closing price reference",
+        "verified_status": "VERIFIED_KNOWN",
+        "description": "Cash session for trading day T-1 ends. Primary exchange closing auction prices are established."
+      },
+      {
+        "stage_id": "CHRON_02",
+        "dimension": "Vendor Bar Publication Time",
+        "event_time_est": "17:30:00 - 20:00:00 EST (Variable by vendor)",
+        "evidence_source": "Tiingo/Alpaca EOD documentation; live_runner.py",
+        "verified_status": "CONDITIONALLY_KNOWN",
+        "description": "Vendor publishes adjusted EOD bars including split/dividend factors. Exact arrival timestamp in prospective environment is UNKNOWN until live network feed is established."
+      },
+      {
+        "stage_id": "CHRON_03",
+        "dimension": "Strategy Signal Computation Time",
+        "event_time_est": "18:00:00 EST (T-1) to 09:00:00 EST (T)",
+        "evidence_source": "v30_candidate_d2_cash_cushion.py: target_weights_d2()",
+        "verified_status": "VERIFIED_KNOWN",
+        "description": "Signal evaluated on market_state strictly restricted to bars with ts <= T-1. S_{T-1} regime state and target weights w_T are determined."
+      },
+      {
+        "stage_id": "CHRON_04",
+        "dimension": "Corporate Action Adjustment Revisions",
+        "event_time_est": "UNKNOWN (Post-publication vendor restatements)",
+        "evidence_source": "Vendor ToS and corporate action schemas",
+        "verified_status": "UNKNOWN_TIMESTAMP",
+        "description": "Vendors may retroactively adjust historical prices for unannounced dividends or amended splits. The causal protocol mandates that once a signal is computed from a snapshot, retroactive adjustments are quarantined and not applied retroactively to already executed orders."
+      },
+      {
+        "stage_id": "CHRON_05",
+        "dimension": "Formal Decision Time",
+        "event_time_est": "09:00:00 - 09:15:00 EST (T)",
+        "evidence_source": "v30_stage2g_r_causal_event_engine.py: pre-market batch cutoff",
+        "verified_status": "VERIFIED_KNOWN",
+        "description": "Order batch is locked and cryptographically nonced with UUIDv5 client order IDs."
+      },
+      {
+        "stage_id": "CHRON_06",
+        "dimension": "Order Submission Cutoff",
+        "event_time_est": "09:25:00 EST (T)",
+        "evidence_source": "Broker API pre-market session rules",
+        "verified_status": "VERIFIED_KNOWN",
+        "description": "Orders queued for Market Open auction."
+      },
+      {
+        "stage_id": "CHRON_07",
+        "dimension": "Assumed Fill Time & Execution Timing",
+        "event_time_est": "09:30:00 EST (T) [Market Open]",
+        "evidence_source": "preview.py: lines 106-136 ('Fill yesterday orders at today open')",
+        "verified_status": "VERIFIED_KNOWN",
+        "description": "All rebalance orders emitted based on T-1 close execute deterministically at Session T Open price with slippage penalty."
+      },
+      {
+        "stage_id": "CHRON_08",
+        "dimension": "Evaluated Return Interval",
+        "event_time_est": "09:30:00 EST to 16:00:00 EST on Session T",
+        "evidence_source": "preview.py: lines 138-144 ('Mark to market on today close')",
+        "verified_status": "VERIFIED_KNOWN",
+        "description": "Portfolio return is evaluated over the open-to-close (or close-to-close with open execution) interval of session T."
+      },
+      {
+        "stage_id": "CHRON_09",
+        "dimension": "Outcome-Period Leakage Prevention",
+        "event_time_est": "Prior to 09:30:00 EST (T)",
+        "evidence_source": "Causal defensive indicator I_{def,T}^{causal}",
+        "verified_status": "VERIFIED_KNOWN",
+        "description": "Session T eligibility depends strictly on S_{T-1}. Same-day session T market return R_{m,T} is completely absent from the eligibility decision."
+      },
+      {
+        "stage_id": "CHRON_10",
+        "dimension": "Asynchronous Delay & Clock Skew Vulnerability",
+        "event_time_est": "Cutoff: 09:15:00 EST on T",
+        "evidence_source": "v30_stage2h_a_hardened_causal_engine.py: quarantine rules",
+        "verified_status": "VERIFIED_KNOWN",
+        "description": "Any vendor EOD bar for session T-1 arriving after 09:15:00 EST on session T is classified as QUARANTINED_LATE. The trading runner aborts order submission and freezes execution."
+      }
+    ],
+    "causal_pass_qualification": "While simulated execution timing at T+1 open is verified in preview.py and host contracts, exact prospective vendor arrival timestamps are UNKNOWN prior to live feed instrumentation. Therefore, causal chronology is qualified as CONDITIONAL upon pre-market feed arrival confirmation."
+  }
+}

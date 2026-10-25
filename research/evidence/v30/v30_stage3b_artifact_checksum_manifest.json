@@ -1,0 +1,77 @@
+{
+  "checksum_metadata": {
+    "title": "Guardian Alpha V30 Stage 3B - Artifact Checksum Manifest",
+    "timestamp_utc": "2026-10-25T08:18:00Z",
+    "archival_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "parent_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "total_stage3b_artifacts": 14,
+    "exclusion_notice": "This manifest records independent external cryptographic hashes of the 13 Stage 3B deliverables. Self-hashing is explicitly documented as excluded to avoid self-referential paradoxes."
+  },
+  "artifacts": {
+    "GUARDIAN_ALPHA_V30_STAGE3B_OFFLINE_PROTOCOL_FINALIZATION.md": {
+      "size_bytes": 26300,
+      "raw_sha256": "317a1824f648f3fd3ede3c2aa2f50c52eaf2bfa1b4f58000cf88f682b37063a0",
+      "lf_sha256": "317a1824f648f3fd3ede3c2aa2f50c52eaf2bfa1b4f58000cf88f682b37063a0"
+    },
+    "research/evidence/v30/v30_stage3b_checkpoint_certification.json": {
+      "size_bytes": 2157,
+      "raw_sha256": "1a2c2a13d66ff2b5fe64ffa6ffc1f031b43dd22a5519969e1cd104a7e1053e76",
+      "lf_sha256": "1a2c2a13d66ff2b5fe64ffa6ffc1f031b43dd22a5519969e1cd104a7e1053e76"
+    },
+    "research/evidence/v30/v30_stage3b_causal_session_eligibility_specification.json": {
+      "size_bytes": 4569,
+      "raw_sha256": "b0937d489385a3570affe878edf4e8171790a07be64acf630242c40f8e24fb7a",
+      "lf_sha256": "b0937d489385a3570affe878edf4e8171790a07be64acf630242c40f8e24fb7a"
+    },
+    "research/evidence/v30/v30_stage3b_statistical_protocol_and_decision_matrix.json": {
+      "size_bytes": 3853,
+      "raw_sha256": "26fa4b5b5b533bd20d244e90cfbe790ec8b2f8ec4a23db699d71c486980bfa39",
+      "lf_sha256": "26fa4b5b5b533bd20d244e90cfbe790ec8b2f8ec4a23db699d71c486980bfa39"
+    },
+    "research/evidence/v30/v30_stage3b_synthetic_power_sensitivity_analysis.json": {
+      "size_bytes": 79297,
+      "raw_sha256": "1bfb5fda7122fa8efc11df91282c7b5ca27a0b7a35f4460ad895b98789071af9",
+      "lf_sha256": "1b93367b54e524a8e5d743dec5dbd4857d86bfec731e59432fcf20a1b022c59b"
+    },
+    "research/evidence/v30/v30_stage3b_horizon_and_stopping_rules.json": {
+      "size_bytes": 2997,
+      "raw_sha256": "9c16f1f904dad76803148f77982f13b604125bff6002643a7dac63b9d43dac1d",
+      "lf_sha256": "9c16f1f904dad76803148f77982f13b604125bff6002643a7dac63b9d43dac1d"
+    },
+    "research/evidence/v30/v30_stage3b_secondary_cagr_constraint_analysis.json": {
+      "size_bytes": 3308,
+      "raw_sha256": "35243a2efba0b0ef52a5b663e15b6d47761d9167fd370bd1e3fc289550bde1e5",
+      "lf_sha256": "35243a2efba0b0ef52a5b663e15b6d47761d9167fd370bd1e3fc289550bde1e5"
+    },
+    "research/evidence/v30/v30_stage3b_provider_rights_compatibility_matrix.json": {
+      "size_bytes": 6745,
+      "raw_sha256": "ba74a5c2758eb85e8c16b4556dd948f845ef1a9ab0469d127df9542edac9f08a",
+      "lf_sha256": "ba74a5c2758eb85e8c16b4556dd948f845ef1a9ab0469d127df9542edac9f08a"
+    },
+    "research/evidence/v30/v30_stage3b_fail_closed_operations_specification.json": {
+      "size_bytes": 3733,
+      "raw_sha256": "7318bb4373e0b5340764bc25097018363b1dab230ce4f36bed9ee5ce2082f2ce",
+      "lf_sha256": "7318bb4373e0b5340764bc25097018363b1dab230ce4f36bed9ee5ce2082f2ce"
+    },
+    "research/evidence/v30/v30_stage3b_owner_preregistration_draft.json": {
+      "size_bytes": 3829,
+      "raw_sha256": "4b2066c57547d15d8adcb9add5f4517c28211186f2a2e0ee4d7c87bdd824a858",
+      "lf_sha256": "4b2066c57547d15d8adcb9add5f4517c28211186f2a2e0ee4d7c87bdd824a858"
+    },
+    "research/evidence/v30/v30_stage3b_updated_decision_register.json": {
+      "size_bytes": 4289,
+      "raw_sha256": "37bec37a04d1b0006a56bedb582f0f6627723663b79c23d3f75c1185a9c4542e",
+      "lf_sha256": "37bec37a04d1b0006a56bedb582f0f6627723663b79c23d3f75c1185a9c4542e"
+    },
+    "research/evidence/v30/v30_stage3b_executed_test_ledger.json": {
+      "size_bytes": 2770,
+      "raw_sha256": "cdb9e33115db59094611f85f1aae4d9648867eeea8d029d1d5d314f64d61be92",
+      "lf_sha256": "cdb9e33115db59094611f85f1aae4d9648867eeea8d029d1d5d314f64d61be92"
+    },
+    "research/tests/test_v30_stage3b_protocol_finalization.py": {
+      "size_bytes": 10394,
+      "raw_sha256": "d692b1ef369cfb031a581244f163e7df081f9fa28558a2919aea535fdd607b5b",
+      "lf_sha256": "d692b1ef369cfb031a581244f163e7df081f9fa28558a2919aea535fdd607b5b"
+    }
+  }
+}

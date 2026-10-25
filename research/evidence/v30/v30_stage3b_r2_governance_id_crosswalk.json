@@ -1,0 +1,99 @@
+{
+  "governance_id_crosswalk": {
+    "timestamp_utc": "2026-10-25T18:30:00Z",
+    "stage": "V30 Stage 3B-R2",
+    "purpose": "Restores original Stage 3A canonical decision taxonomy (DEC-01 through DEC-06) and establishes an explicit sub-decision hierarchy to resolve title drift and taxonomic inconsistencies introduced in Stage 3B-R reports.",
+    "canonical_taxonomy": {
+      "DEC-01": {
+        "canonical_title": "Market Data Provider Selection",
+        "stage3a_scope": "Selection of primary and secondary market data providers for prospective evaluation.",
+        "stage3b_r_mismatch_detected": "Stage 3B-R text report labeled DEC-01 as 'Protocol Pre-registration', displacing provider selection.",
+        "stage3b_r2_reconciled_status": "PENDING_OWNER_SELECTION",
+        "sub_decisions": {}
+      },
+      "DEC-02": {
+        "canonical_title": "Market Data Licensing and Rights",
+        "stage3a_scope": "Verification of contractual non-display usage, derived works storage, and post-termination purge rules.",
+        "stage3b_r_mismatch_detected": "Stage 3B-R text report labeled DEC-02 as 'Provider Rights Clearance' (substantively aligned, but overconfident in asserting Tiingo Power 'FEASIBLE' and Alpaca 'COMPLIANT').",
+        "stage3b_r2_reconciled_status": "STRICTLY_BLOCKED",
+        "sub_decisions": {}
+      },
+      "DEC-03": {
+        "canonical_title": "Statistical Endpoint and Inferential Protocol",
+        "stage3a_scope": "Formulation of hypotheses, test statistics, and significance thresholds.",
+        "stage3b_r_mismatch_detected": "Stage 3B-R text report misassigned DEC-03 to 'Operational Circuit Breakers', moving statistical inferential protocol to DEC-01.",
+        "stage3b_r2_reconciled_status": "CONDITIONAL",
+        "sub_decisions": {
+          "DEC-03.A": {
+            "title": "Causal Session Eligibility",
+            "scope": "Strict ex-ante regime determination (I_def,T = 1 iff S_{T-1} == DEFENSIVE) and formal rejection of post-treatment collider conditioning (R_{m,T} < 0).",
+            "status": "VERIFIED_PASS"
+          },
+          "DEC-03.B": {
+            "title": "Statistical Size Calibration",
+            "scope": "Dual Newey-West HAC + Stationary Block Bootstrap gatekeeper. Empirical size calibration shows joint rule remains oversized (7.7% - 8.9%) at N=30.",
+            "status": "FAILED_AT_N30_CONDITIONAL_AT_N90"
+          },
+          "DEC-03.C": {
+            "title": "Secondary Return Constraint",
+            "scope": "Maximum allowable annualized return drag: Delta CAGR = CAGR(D2) - CAGR(E0) >= -200 bps.",
+            "status": "PENDING_OWNER_RATIFICATION"
+          }
+        }
+      },
+      "DEC-04": {
+        "canonical_title": "Evaluation Horizon and Stopping Rules",
+        "stage3a_scope": "Sample size floor, target evaluation duration, and interim stopping rules.",
+        "stage3b_r_mismatch_detected": "Stage 3B-R text report misassigned DEC-04 to 'Execution Latency Benchmark', displacing sample size rules.",
+        "stage3b_r2_reconciled_status": "CONDITIONAL",
+        "sub_decisions": {
+          "DEC-04.A": {
+            "title": "Sampling Quota Floor",
+            "scope": "Inverse sampling quota design requiring minimum N_def >= 30 causal risk-off sessions before primary inference is computed.",
+            "status": "VERIFIED_PASS"
+          },
+          "DEC-04.B": {
+            "title": "Administrative Horizon & Extension",
+            "scope": "Baseline horizon of 252 sessions with administrative extension up to 504 sessions if N_def quota is unfulfilled. Absolute prohibition on p-value peeking.",
+            "status": "CONDITIONAL_PENDING_OWNER_SIGNATURE"
+          }
+        }
+      },
+      "DEC-05": {
+        "canonical_title": "Monitoring and Incident Governance",
+        "stage3a_scope": "Fail-closed circuit breakers, latency bounds, and operator recovery procedures.",
+        "stage3b_r_mismatch_detected": "Stage 3B-R text report misassigned DEC-05 to 'Horizon & Sampling Design', moving monitoring architecture out of place.",
+        "stage3b_r2_reconciled_status": "CONDITIONAL",
+        "sub_decisions": {
+          "DEC-05.A": {
+            "title": "Fail-Closed Incident Lock",
+            "scope": "Automatic operational suspension upon 3 consecutive missing bars, single-day slippage > 50 bps, or allocation divergence > 2%.",
+            "status": "VERIFIED_PASS"
+          },
+          "DEC-05.B": {
+            "title": "Latency and Data Availability",
+            "scope": "Hardware/network socket ingestion latency profiling and bar delivery timestamp audit.",
+            "status": "BLOCKED_PENDING_PHYSICAL_BENCHMARK"
+          },
+          "DEC-05.C": {
+            "title": "Operator Recovery Controls",
+            "scope": "Manual intervention protocols and reconciliation runbooks for state resumption.",
+            "status": "PENDING_OWNER_PROCEDURAL_APPROVAL"
+          }
+        }
+      },
+      "DEC-06": {
+        "canonical_title": "Activation Authority",
+        "stage3a_scope": "Explicit human authorization required before executing any forward live or paper orders.",
+        "stage3b_r_mismatch_detected": "None. Title and blocked status remained consistent across all stages.",
+        "stage3b_r2_reconciled_status": "STRICTLY_BLOCKED",
+        "sub_decisions": {}
+      }
+    },
+    "governance_rule_invariants": {
+      "historical_registers_preserved": true,
+      "prior_files_overwritten": false,
+      "activation_authorization": "BLOCKED (Requires human owner explicit action; zero agent activation authority permitted)"
+    }
+  }
+}

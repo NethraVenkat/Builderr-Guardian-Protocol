@@ -1,0 +1,54 @@
+{
+  "fail_closed_operations_specification": {
+    "timestamp_utc": "2026-10-25T08:11:00Z",
+    "design_principle": "FAIL_CLOSED_SYSTEMIC_CONTAINMENT. Automatic process restart must NEVER imply trading authorization or bypass safety boundaries.",
+    "offline_operational_requirements": [
+      {
+        "subsystem": "Persistent Incident Lock",
+        "requirement_id": "OP_REQ_01",
+        "specification": "Any unhandled exception, assertion failure, ledger imbalance, or security anomaly immediately writes a physical `INCIDENT_LOCK` file containing UTC timestamp, exception trace, and SHA-256 HMAC integrity hash. The host filesystem must flush this file synchronously."
+      },
+      {
+        "subsystem": "Startup Boot Invariant",
+        "requirement_id": "OP_REQ_02",
+        "specification": "The runner startup sequence must inspect the working directory for `INCIDENT_LOCK` before initializing logging, network, or broker sessions. If detected, the runner terminates immediately with exit code 99 and zero network activity."
+      },
+      {
+        "subsystem": "Prohibition of Blind Restarts",
+        "requirement_id": "OP_REQ_03",
+        "specification": "Host-level daemon managers (systemd / NSSM / Docker restart policies) must be configured with a backoff rate limit (e.g. max 3 restarts in 10 minutes) and must NEVER possess credentials to delete `INCIDENT_LOCK`."
+      },
+      {
+        "subsystem": "Event Replay & Order Deduplication",
+        "requirement_id": "OP_REQ_04",
+        "specification": "Every outbound order must generate an idempotent deterministic client order ID: `UUIDv5(namespace, session_date + ticker + target_shares + sequence_nonce)`. The execution adapter or broker sandbox must reject duplicate IDs."
+      },
+      {
+        "subsystem": "Double-Entry Accounting Replay",
+        "requirement_id": "OP_REQ_05",
+        "specification": "On recovery from restart, the entire event journal must be replayed through `DecimalAccountingOracle`. If `Cash + Receivables + Equities != Total Equity` at any point, the process halts into `INCIDENT_LOCK`."
+      },
+      {
+        "subsystem": "Stale Data Circuit Breaker",
+        "requirement_id": "OP_REQ_06",
+        "specification": "If incoming market data timestamp is older than allowable threshold (e.g. > 18 hours for EOD bars, or > 15 minutes for intraday), signal generation is inhibited and alert is logged."
+      },
+      {
+        "subsystem": "Vendor Data Deletion Protocol",
+        "requirement_id": "OP_REQ_07",
+        "specification": "A designated offline maintenance script (`purge_vendor_cache.py`) must be capable of removing all raw vendor bar archives from local disk upon subscription termination without modifying tracked Git evidence."
+      },
+      {
+        "subsystem": "Manual Operator Clearance",
+        "requirement_id": "OP_REQ_08",
+        "specification": "Clearing an `INCIDENT_LOCK` requires manual operator inspection of root cause and execution of a human-signed clearance utility. Autonomous agents are structurally forbidden from clearing locks."
+      },
+      {
+        "subsystem": "Out-of-Band Watchdog Isolation",
+        "requirement_id": "OP_REQ_09",
+        "specification": "External monitoring (Healthchecks.io / Uptime Kuma) operates strictly as a dead-man's switch receiver. The watchdog has zero broker credentials, zero API tokens, and zero restart authority."
+      }
+    ],
+    "process_isolation_finding": "Python-level try/except blocks and in-process guards are INSUFFICIENT to guarantee host-level process isolation. Operating-system boundaries (e.g. Windows service sandbox, dedicated unprivileged user accounts) must be established prior to forward activation."
+  }
+}

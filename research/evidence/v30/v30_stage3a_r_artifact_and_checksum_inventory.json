@@ -1,0 +1,76 @@
+{
+  "checksum_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A-R - Artifact & Checksum Inventory",
+    "timestamp_utc": "2026-10-25T07:48:00Z",
+    "archival_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "parent_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "total_stage3a_r_artifacts": 14
+  },
+  "artifacts": {
+    "GUARDIAN_ALPHA_V30_STAGE3A_R_GOVERNANCE_CORRECTIONS.md": {
+      "size_bytes": 27034,
+      "raw_sha256": "9f5629a55bf0a48cc7da9093943b8b52b8582aa67d8f497c4d0dabe887192707",
+      "lf_sha256": "9f5629a55bf0a48cc7da9093943b8b52b8582aa67d8f497c4d0dabe887192707"
+    },
+    "research/evidence/v30/v30_stage3a_r_checkpoint_certification.json": {
+      "size_bytes": 1792,
+      "raw_sha256": "2a1e8d19eb4981b0f0d9f3cb6f56432d7aaef3c9d19d8a6d3b171b1369f39ff9",
+      "lf_sha256": "2a1e8d19eb4981b0f0d9f3cb6f56432d7aaef3c9d19d8a6d3b171b1369f39ff9"
+    },
+    "research/evidence/v30/v30_stage3a_r_provider_licensing_corrections.json": {
+      "size_bytes": 7923,
+      "raw_sha256": "82c8c8f2d385df02020801265c7e1b53ccd0a344de6ef53f2a27b50b377507df",
+      "lf_sha256": "82c8c8f2d385df02020801265c7e1b53ccd0a344de6ef53f2a27b50b377507df"
+    },
+    "research/evidence/v30/v30_stage3a_r_data_retention_architecture_compatibility.json": {
+      "size_bytes": 2644,
+      "raw_sha256": "55baa360b0f5d1e4d191f5ed69297227a92f1cd279ceaea679ca08032e6a3fbf",
+      "lf_sha256": "55baa360b0f5d1e4d191f5ed69297227a92f1cd279ceaea679ca08032e6a3fbf"
+    },
+    "research/evidence/v30/v30_stage3a_r_statistical_hypothesis_correction.json": {
+      "size_bytes": 3177,
+      "raw_sha256": "770a12804898b62d73aeb83367f6dc254b7bd99eceb3c45ec21848eda46cb1f2",
+      "lf_sha256": "770a12804898b62d73aeb83367f6dc254b7bd99eceb3c45ec21848eda46cb1f2"
+    },
+    "research/evidence/v30/v30_stage3a_r_secondary_non_inferiority_assessment.json": {
+      "size_bytes": 3131,
+      "raw_sha256": "997cd8749a4d32c29950484530ce6eb03b6f9f55b73f25ac060d2f405ecf0da6",
+      "lf_sha256": "997cd8749a4d32c29950484530ce6eb03b6f9f55b73f25ac060d2f405ecf0da6"
+    },
+    "research/evidence/v30/v30_stage3a_r_horizon_and_power_analysis.json": {
+      "size_bytes": 3620,
+      "raw_sha256": "869ad6c45b871204c38936f7f7ce2ae760a5fef8e8df250091c9cde700192b90",
+      "lf_sha256": "869ad6c45b871204c38936f7f7ce2ae760a5fef8e8df250091c9cde700192b90"
+    },
+    "research/evidence/v30/v30_stage3a_r_fail_closed_monitoring_review.json": {
+      "size_bytes": 3995,
+      "raw_sha256": "8c398c44c0929bce789297b650d5b9a3be3b53abaef0eaf17d9a31a424f39b0e",
+      "lf_sha256": "8c398c44c0929bce789297b650d5b9a3be3b53abaef0eaf17d9a31a424f39b0e"
+    },
+    "research/evidence/v30/v30_stage3a_r_historical_regression_failure_reconciliation.json": {
+      "size_bytes": 3876,
+      "raw_sha256": "8ba0f87823acd347e52bf269efd9f2cd449c8621700d085fa3558c34f4e97fda",
+      "lf_sha256": "8ba0f87823acd347e52bf269efd9f2cd449c8621700d085fa3558c34f4e97fda"
+    },
+    "research/evidence/v30/v30_stage3a_r_stage3a_evidence_integrity.json": {
+      "size_bytes": 2257,
+      "raw_sha256": "85a9348e9bce09540b3282ae5aab868be3b298a25cdc702cf1fb5f12d7ec5c2d",
+      "lf_sha256": "85a9348e9bce09540b3282ae5aab868be3b298a25cdc702cf1fb5f12d7ec5c2d"
+    },
+    "research/evidence/v30/v30_stage3a_r_updated_decision_register.json": {
+      "size_bytes": 3655,
+      "raw_sha256": "45236c92af2a59ba5ee066519c80e36ed3f946b198d4d3be90ffd50f53b22f20",
+      "lf_sha256": "45236c92af2a59ba5ee066519c80e36ed3f946b198d4d3be90ffd50f53b22f20"
+    },
+    "research/evidence/v30/v30_stage3a_r_executed_verification_ledger.json": {
+      "size_bytes": 2555,
+      "raw_sha256": "0bae5c58072d6bbc178c9e24635f0c66783582fd468ea4b5f0de11f3db8c487b",
+      "lf_sha256": "0bae5c58072d6bbc178c9e24635f0c66783582fd468ea4b5f0de11f3db8c487b"
+    },
+    "research/tests/test_v30_stage3a_r_governance_corrections.py": {
+      "size_bytes": 8568,
+      "raw_sha256": "dd3b2a60bec2c3fcf44b98c5e8cf5d6d8214dc6141c2cffd0eeef52b3fe8ea54",
+      "lf_sha256": "dd3b2a60bec2c3fcf44b98c5e8cf5d6d8214dc6141c2cffd0eeef52b3fe8ea54"
+    }
+  }
+}

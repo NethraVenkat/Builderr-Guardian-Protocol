@@ -1,0 +1,75 @@
+{
+  "causal_session_eligibility_specification": {
+    "timestamp_utc": "2026-10-25T08:06:00Z",
+    "architecture_objective": "Establish an ex-ante, causally valid definition of prospective defensive sessions that strictly prevents look-ahead bias and post-treatment outcome conditioning.",
+    "decision_time_information_model": {
+      "timeline_steps": [
+        {
+          "step": 1,
+          "name": "Market Close (T-1)",
+          "nominal_time_est": "16:00:00 EST",
+          "description": "Trading session T-1 concludes. Cash close prices for all universe tickers are finalized."
+        },
+        {
+          "step": 2,
+          "name": "Vendor Bar Publication",
+          "nominal_time_est": "17:30:00 - 18:00:00 EST",
+          "description": "Vendor publishes finalized EOD bars with point-in-time dividend and split adjustments for session T-1. Arrival timestamp is cryptographically recorded."
+        },
+        {
+          "step": 3,
+          "name": "Regime Decision & Allocation (F_{T-1})",
+          "nominal_time_est": "18:00:00 - 18:15:00 EST",
+          "description": "Agent evaluates frozen strategy logic on market_state strictly restricted to bars <= T-1. State S_{T-1} (RISK_ON or DEFENSIVE) and target portfolio weights w_T are computed and immutably written to event journal."
+        },
+        {
+          "step": 4,
+          "name": "Order Decision & Deduplication",
+          "nominal_time_est": "18:15:00 EST (or 09:00:00 EST on T)",
+          "description": "Rebalance orders are calculated. Deterministic client order UUIDs (UUIDv5) are generated."
+        },
+        {
+          "step": 5,
+          "name": "Order Execution (T)",
+          "nominal_time_est": "09:30:00 EST",
+          "description": "Orders are submitted and executed at Market Open of session T (or simulated bar fill)."
+        },
+        {
+          "step": 6,
+          "name": "Performance Observation Period",
+          "nominal_time_est": "09:30:00 - 16:00:00 EST on T",
+          "description": "Portfolio return R_{p,T} is realized over session T. Treatment allocation w_T is held fixed."
+        }
+      ],
+      "information_boundary": "Information set F_{T-1} contains zero observations, prices, volumes, returns, or corporate actions from session T or beyond."
+    },
+    "causal_defensive_eligibility_definition": {
+      "mathematical_formula": "I_{def,T}^{causal} = 1 \\iff S_{T-1}^{regime} = \\text{DEFENSIVE}",
+      "strategy_logic_grounding": {
+        "file": "research/strategies/v30_candidate_d2_cash_cushion.py",
+        "condition": "risk_on is False OR len(winners) == 0",
+        "risk_on_parameters": {
+          "spy_sma50": "spy[-1] > sma(spy, 50)",
+          "qqq_sma50": "qqq[-1] > sma(qqq, 50)",
+          "qqq_vol20": "realized_vol(qqq, 20) < 0.35"
+        },
+        "treatment_allocation": "DEFENSIVE_WEIGHTS_D2 (XLP: 0.18, XLU: 0.18, XLV: 0.14, Cash Cushion: 0.50)"
+      },
+      "pre_execution_invariance": "Session T eligibility is recorded in the immutable audit journal before session T market open (09:30 EST). It is completely independent of what happens during session T."
+    },
+    "refutation_of_ex_post_conditioning": {
+      "flawed_historical_definition": "Defining defensive sessions as sessions where same-day market return R_{m,T} < 0 OR D2 enters cash.",
+      "causal_critique": {
+        "post_treatment_conditioning": "R_{m,T} is realized at 16:00 EST on day T. Conditioning on R_{m,T} < 0 selects observations based on the downstream outcome of the holding period.",
+        "collider_bias_and_drag_censorship": "When S_{T-1} triggers DEFENSIVE but the market rallies on day T (R_{m,T} > 0), D2 suffers cash drag. Discarding these days because R_{m,T} >= 0 artificially censors false-alarm insurance costs, creating a severe positive selection bias.",
+        "governance_classification": "Conditioning on R_{m,T} < 0 is formally classified as a SECONDARY DESCRIPTIVE SUB-ANALYSIS, NOT the primary causal evaluation."
+      }
+    },
+    "bias_prevention_safeguards": {
+      "look_ahead_bias": "Enforced by strict timestamp ordering: regime calculation reads only bars with date <= T-1.",
+      "survivorship_bias": "Universe membership is frozen in universe.json; point-in-time ticker availability is verified.",
+      "corporate_actions_look_ahead": "Split and dividend adjustments apply strictly as of ex-date; future unannounced splits are excluded.",
+      "episode_alignment": "Both E0 and D2 are evaluated on the exact same session calendar with identical execution timestamps."
+    }
+  }
+}

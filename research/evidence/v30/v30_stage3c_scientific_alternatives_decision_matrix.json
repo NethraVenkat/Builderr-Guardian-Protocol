@@ -1,0 +1,31 @@
+{
+  "scientific_alternatives_decision_matrix": {
+    "timestamp_utc": "2026-10-25T18:50:00Z",
+    "stage": "V30 Stage 3C",
+    "decision_context": "Stage 3B-R2 empirical simulations proved that the proposed dual Newey-West HAC + Stationary Block Bootstrap test exhibits severe size distortion in small samples (rejection rate 7.70% - 10.80% at the null boundary vs nominal 5.0%). Consequently, a confirmatory superiority evaluation cannot be certified with the existing test specification.",
+    "evaluated_alternatives": {
+      "OPTION_A": {
+        "title": "Retain Existing HAC + Stationary Bootstrap Rule for Confirmatory Inference",
+        "description": "Proceed with the preregistered dual-gate test (require both HAC and Stationary Block Bootstrap to reject at p < 0.05 against the 10-bps economic hurdle).",
+        "recommendation": "REJECT_FOR_CONFIRMATORY_USE",
+        "governance_verdict": "REJECTED",
+        "scientific_rationale": "The joint rule fails to control Type I error in small samples (N=30). Empirical null-boundary rejection is 7.70% to 10.80% (95% CI: [6.20%, 9.52%]), violating nominal size control. Claiming confirmatory statistical rigor under an oversized test is scientifically invalid."
+      },
+      "OPTION_B": {
+        "title": "Develop and Independently Calibrate a New Confirmatory Inferential Protocol",
+        "description": "Investigate alternative statistical methodologies (e.g. wild bootstrap, studentized block bootstrap, Bartlett-corrected HAC, pre-whitened kernels) to restore nominal 5% size control at N=30.",
+        "recommendation": "FUTURE_RESEARCH_OPTION_ONLY",
+        "governance_verdict": "DEFERRED",
+        "scientific_rationale": "Developing, tuning, and calibrating a new statistical test requires substantial offline econometric research. To prevent data-snooping and confirmation bias, any new candidate procedure must be fully specified, simulated, and peer-reviewed in advance without exploiting prospective market data or holdout observations."
+      },
+      "OPTION_C": {
+        "title": "Prepare an Exploratory Prospective Observational Comparison of Frozen E0 and D2",
+        "description": "Collect prospective market observations under frozen E0 and D2 execution rules and evaluate performance purely as an exploratory, descriptive observational study without claiming confirmatory statistical superiority.",
+        "recommendation": "PREFERRED_PROPOSAL",
+        "governance_verdict": "RECOMMENDED_TO_OWNER",
+        "scientific_rationale": "Allows prospective observational evidence to be gathered cleanly and losslessly under frozen strategy contracts. Avoids false claims of confirmatory statistical significance while preserving full operational transparency and descriptive uncertainty metrics."
+      }
+    },
+    "owner_action_required": "Review the alternatives and formally endorse Option C (Exploratory Prospective Comparison) as the scientific governance baseline."
+  }
+}

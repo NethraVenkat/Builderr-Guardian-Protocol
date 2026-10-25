@@ -1,0 +1,30 @@
+{
+  "secondary_non_inferiority_assessment": {
+    "timestamp_utc": "2026-10-25T07:39:00Z",
+    "evaluation_target": "Secondary Constraint: 200-Basis-Point CAGR Drag Tolerance",
+    "proposed_rule": "\\Delta \\text{CAGR} = \\text{CAGR}_{D2} - \\text{CAGR}_{E0} \\ge -0.0200 \\quad (-200\\text{ bps})",
+    "methodological_critique": {
+      "point_estimate_vs_inferential_testing": {
+        "finding": "In earlier stages, this constraint was formulated as a naive point-estimate check (if observed \\Delta \\text{CAGR} \\ge -2.0\\%, pass; otherwise fail). A point estimate ignores sampling variability and estimation error entirely.",
+        "demonstration_of_flaw": "Suppose over 252 sessions, \\Delta \\widehat{\\text{CAGR}} = -1.80\\% (-180 bps). Under naive point-estimate evaluation, this passes. However, daily paired return differences between E0 and D2 exhibit standard deviation \\sigma_{\\Delta R} \\approx 0.80\\% per day (annualized standard deviation \\approx 12.7\\%). The standard error of the annualized return difference over 252 sessions is approximately \\text{SE} \\approx 12.7\\% / \\sqrt{1} = 12.7\\% (or \\approx 200\\text{--}300\\text{ bps} for daily paired differences). A 95% confidence interval spans [-5.7%, +2.1%], encompassing severe true underperformance.",
+        "verdict": "Point-estimate acceptance provides ZERO statistical confidence that true long-term drag is bounded at -200 bps."
+      },
+      "formal_non_inferiority_specification": {
+        "framework": "Blackwelder (1982) Non-Inferiority Testing Framework",
+        "margin": "\\Delta_{NI} = 0.0200 \\quad (200\\text{ bps})",
+        "null_hypothesis_H0_NI": "\\mathbb{E}[R_{D2} - R_{E0}] \\le -\\Delta_{NI} \\quad (\\text{D2 is unacceptably inferior to E0})",
+        "alternative_hypothesis_H1_NI": "\\mathbb{E}[R_{D2} - R_{E0}] > -\\Delta_{NI} \\quad (\\text{D2 is non-inferior within 200 bps})",
+        "decision_criterion": "Reject H0_NI if and only if the lower bound of the two-sided 90% (or one-sided 95%) HAC-adjusted confidence interval exceeds -\\Delta_{NI}: CI_{lower, 95%}(\\mathbb{E}[R_{D2} - R_{E0}]) > -0.0200"
+      },
+      "sample_size_and_power_limitation": {
+        "finding": "Proving statistical non-inferiority within a tight 200-bps margin requires immense statistical power. With leveraged ETF volatility (annualized tracking difference \\sigma_d \\approx 10\\%), achieving 80% power for non-inferiority would require over 1,500 trading sessions (> 6 years).",
+        "governance_classification": "Therefore, over a 252-session prospective trial, \\Delta \\text{CAGR} \\ge -200\\text{ bps} MUST be classified as an OPERATIONAL RISK-BUDGET HEURISTIC, NOT a statistically validated non-inferiority proof."
+      }
+    },
+    "owner_decision_gate": {
+      "decision_id": "DEC-03_SECONDARY",
+      "status": "REQUIRES_OWNER_RISK_BUDGET_APPROVAL",
+      "recommendation": "The owner must acknowledge that passing the -200 bps CAGR drag test over 252 sessions is an operational insurance budget rule, not mathematical proof that D2 cannot trail E0 by more than 200 bps over multi-year horizons."
+    }
+  }
+}

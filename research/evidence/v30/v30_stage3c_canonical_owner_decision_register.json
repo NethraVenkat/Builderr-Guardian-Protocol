@@ -1,0 +1,51 @@
+{
+  "canonical_owner_decision_register": {
+    "timestamp_utc": "2026-10-25T18:50:00Z",
+    "stage": "V30 Stage 3C",
+    "governance_notice": "This register reflects current institutional auditor recommendations. It does NOT constitute human owner approval.",
+    "decisions": [
+      {
+        "decision_id": "DEC-01",
+        "title": "Market Data Provider Selection",
+        "recommended_status": "PENDING_OWNER_SELECTION",
+        "offline_research_permitted": true,
+        "description": "Select primary market-data vendor. Tiingo Power (/mo) is recommended for daily EOD bar research; Alpaca AlgoTrader Plus (/mo) is recommended for paper order execution. Offline historical testing is permitted without live data feeds."
+      },
+      {
+        "decision_id": "DEC-02",
+        "title": "Market Data Licensing and Rights",
+        "recommended_status": "STRICTLY_BLOCKED",
+        "offline_research_permitted": true,
+        "description": "Contractual non-display usage, derived works storage, and post-termination purge rules remain unapproved. Offline protocol design permitted; forward data ingestion strictly BLOCKED."
+      },
+      {
+        "decision_id": "DEC-03",
+        "title": "Statistical Endpoint and Inferential Protocol",
+        "recommended_status": "EXPLORATORY_ONLY_RECOMMENDED_PENDING_OWNER_APPROVAL",
+        "offline_research_permitted": true,
+        "description": "Confirmatory superiority is REJECTED due to small-sample size distortion (7.7% - 10.8% rejection at null). Option C (Exploratory Prospective Comparison) is recommended as the baseline protocol."
+      },
+      {
+        "decision_id": "DEC-04",
+        "title": "Evaluation Horizon and Stopping Rules",
+        "recommended_status": "PENDING_OWNER_APPROVAL",
+        "offline_research_permitted": true,
+        "description": "Inverse sampling quota design (minimum N_def >= 30, baseline 252 sessions, maximum 504 sessions). Requires human owner signature."
+      },
+      {
+        "decision_id": "DEC-05",
+        "title": "Monitoring and Incident Governance",
+        "recommended_status": "CONDITIONAL",
+        "offline_research_permitted": true,
+        "description": "Tripwire thresholds specified (slippage > 50 bps, 3 missing bars). Physical network latency profiling remains blocked until live feed access is approved."
+      },
+      {
+        "decision_id": "DEC-06",
+        "title": "Activation Authority",
+        "recommended_status": "STRICTLY_BLOCKED",
+        "offline_research_permitted": false,
+        "description": "Permanent safety barrier. Zero autonomous agent activation authority. Prospective paper and live trading remain strictly unauthorized."
+      }
+    ]
+  }
+}

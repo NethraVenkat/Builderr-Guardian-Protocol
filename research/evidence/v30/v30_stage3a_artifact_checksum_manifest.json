@@ -1,0 +1,71 @@
+{
+  "checksum_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Artifact Checksum Manifest",
+    "timestamp_utc": "2026-10-25T06:55:00Z",
+    "archival_head": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "parent_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "total_stage3a_artifacts": 12
+  },
+  "artifacts": {
+    "GUARDIAN_ALPHA_V30_STAGE3A_OWNER_GOVERNANCE_REVIEW.md": {
+      "size_bytes": 24094,
+      "raw_sha256": "0dad8b9901bc6dc901138529bad2c45f3680d738116d9739cbbac393303a0d6c",
+      "lf_sha256": "85be1b93b65322c2a78b381c7446370eeae09ea8a75ce9a68baee805cab307b2"
+    },
+    "research/evidence/v30/v30_stage3a_checkpoint_and_preservation_certification.json": {
+      "size_bytes": 2196,
+      "raw_sha256": "3c7a55cafa27e6f9bd6faf706cc50052333ca0e168789cce0d7175a4b2f2e777",
+      "lf_sha256": "57100870cf0c43938e1c4ae462d2d93f09f79f90acf919587e10f107fe8e132b"
+    },
+    "research/evidence/v30/v30_stage3a_cross_stage_traceability_matrix.json": {
+      "size_bytes": 7626,
+      "raw_sha256": "cbdee8110aa0861e05e47946b4c7e16448e455f8eb1276a4c2648cc8b52c7b16",
+      "lf_sha256": "8305084e36f31d81396def48567bebc8dfd46dae21d92ec0027b76721cfecb2c"
+    },
+    "research/evidence/v30/v30_stage3a_executed_test_ledger.json": {
+      "size_bytes": 2194,
+      "raw_sha256": "5c960e1313b0f62b37a3184fbc220db533ef8733629fc9aaba457eb57a18e6b7",
+      "lf_sha256": "56c497c2e3067006469fc2f639a9d35222556c3d1f149dc2b7921c902adaccda"
+    },
+    "research/evidence/v30/v30_stage3a_horizon_and_power_assessment.json": {
+      "size_bytes": 3198,
+      "raw_sha256": "b287792db34b30af4b28b5e72b2c8862d0b5b7628b5982c6c7bb2e272d1f47da",
+      "lf_sha256": "57e74d9602bad753055478fac69feaabfd2b631a30aae8ec84676c96b051388a"
+    },
+    "research/evidence/v30/v30_stage3a_monitoring_and_incident_readiness.json": {
+      "size_bytes": 4072,
+      "raw_sha256": "a29a403a657e572efba7abd9ec322585e2f02ceb0a578fcecc828a2e2afbba10",
+      "lf_sha256": "f27e20d26c32be82797ee3046633c9425365b0f6c114b57f57e237f2a684e4b0"
+    },
+    "research/evidence/v30/v30_stage3a_open_risks_and_blockers.json": {
+      "size_bytes": 3483,
+      "raw_sha256": "d549cc1c45e7921f9ba40b5bf719c35155492f842345a406439abe8ea65bda31",
+      "lf_sha256": "8ae2dc7ae419ac1a717dd89f119a0e2a8aef971fce81a6077ce24c2caa736962"
+    },
+    "research/evidence/v30/v30_stage3a_owner_decision_register.json": {
+      "size_bytes": 3845,
+      "raw_sha256": "a2510af52a3617bd2788c6c2f57cd8747cb86abe878b00fb24a720f254b1542e",
+      "lf_sha256": "501d49337c9d46460170328137a3fc922549fb111160b33dc24633658bdba9ba"
+    },
+    "research/evidence/v30/v30_stage3a_provider_and_licensing_comparison.json": {
+      "size_bytes": 9054,
+      "raw_sha256": "0637838dcc35b800afa2f51823e170b45662b411c6b894598655abf3c53e6a99",
+      "lf_sha256": "2863bcfae1d377dbb0736efb576c7e6dbed5de1ce99a430b1e8b1d5db1920055"
+    },
+    "research/evidence/v30/v30_stage3a_statistical_endpoint_decision_matrix.json": {
+      "size_bytes": 3673,
+      "raw_sha256": "8477b0ca1b37e5bac8647ff88b59971a85318e79715fe9f845c5074d1621eaad",
+      "lf_sha256": "8ada83841e5296cb26ec7e18e99ccf0aeb252c0347e32406a76d0d5cfb19eddb"
+    },
+    "research/tests/test_v30_stage3a_governance_review.py": {
+      "size_bytes": 6119,
+      "raw_sha256": "c0bf9f7097d52c6f38918c2e10df38c88a3010af8fb4996afab6a205c8e1ef5d",
+      "lf_sha256": "698feb39a6e495aa06edc688d18d521709f6b24e50e58906d1cd7a11caf51aad"
+    }
+  },
+  "self_checksum": {
+    "size_bytes": 3510,
+    "raw_sha256": "791dd5ceda7af15ac1b7b12d111501b7c841caf7d0657ce84a94f55e6b3f9023",
+    "lf_sha256": "13acc8864829fe9aa336f69874d2441b2e3331c0c364f95013869ece75b33a5e"
+  }
+}

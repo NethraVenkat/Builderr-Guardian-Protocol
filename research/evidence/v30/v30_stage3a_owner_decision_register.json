@@ -1,0 +1,63 @@
+{
+  "register_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Owner Decision Register & Governance Framework",
+    "timestamp_utc": "2026-10-25T06:45:00Z",
+    "auditor_role": "Independent Research Governance Officer"
+  },
+  "decisions": {
+    "DEC-01": {
+      "decision_id": "DEC-01",
+      "title": "Select Prospective Market-Data Provider",
+      "status": "PENDING",
+      "recommendation": "Tiingo for pure daily EOD bar data ($0-$30/mo); OR Alpaca for paper order execution mocking ($0-$9/mo).",
+      "evidence_ref": "v30_stage3a_provider_and_licensing_comparison.json",
+      "owner_action_required": "Owner evaluates pricing, corporate actions, and API models, then selects a single primary provider.",
+      "can_agent_execute": false
+    },
+    "DEC-02": {
+      "decision_id": "DEC-02",
+      "title": "Approve Provider Rights and Data Retention Terms",
+      "status": "PENDING",
+      "recommendation": "Execute Personal Non-Professional Subscriber Declaration; restrict local storage to internal single-user research; zero public redistribution.",
+      "evidence_ref": "v30_stage3a_provider_and_licensing_comparison.json",
+      "owner_action_required": "Owner signs Non-Professional declaration and accepts data retention restrictions during account registration.",
+      "can_agent_execute": false
+    },
+    "DEC-03": {
+      "decision_id": "DEC-03",
+      "title": "Approve Primary Scientific Endpoint & Return-Cost Tolerance",
+      "status": "PENDING",
+      "recommendation": "Ratify primary endpoint d_t = max(0, -R_E0,t) - max(0, -R_D2,t) > 10 bps on defensive sessions with Newey-West HAC inference, and secondary full-horizon constraint CAGR_D2 >= CAGR_E0 - 200 bps.",
+      "evidence_ref": "v30_stage3a_statistical_endpoint_decision_matrix.json",
+      "owner_action_required": "Owner formally ratifies statistical test specification and 200 bps annual insurance cost tolerance.",
+      "can_agent_execute": false
+    },
+    "DEC-04": {
+      "decision_id": "DEC-04",
+      "title": "Approve Evaluation Horizon, Sample Size Floor & Stopping Criteria",
+      "status": "PENDING",
+      "recommendation": "Approve 252-session baseline horizon with N_def >= 30 floor, contingent extension up to 504 sessions, strict prohibition of optional early stopping on favorable results, and emergency termination on > 300 bps drawdown underperformance.",
+      "evidence_ref": "v30_stage3a_horizon_and_power_assessment.json",
+      "owner_action_required": "Owner ratifies duration commitment, extension policy, and termination boundaries.",
+      "can_agent_execute": false
+    },
+    "DEC-05": {
+      "decision_id": "DEC-05",
+      "title": "Approve Monitoring, Incident Response & Evidence Retention",
+      "status": "PENDING",
+      "recommendation": "Approve 4-tier incident severity taxonomy, disk-persisted hard-stop lock requiring physical manual reset key, and deployment of OS-level process supervisor.",
+      "evidence_ref": "v30_stage3a_monitoring_and_incident_readiness.json",
+      "owner_action_required": "Owner reviews incident response playbook and takes custody of emergency reset keys.",
+      "can_agent_execute": false
+    },
+    "DEC-06": {
+      "decision_id": "DEC-06",
+      "title": "Separately Authorize Forward PAPER-ONLY Evaluation",
+      "status": "BLOCKED",
+      "recommendation": "MAINTAIN PERMANENT BLOCK. No activation token may be generated until DEC-01 through DEC-05 are fully resolved and signed by owner.",
+      "evidence_ref": "GUARDIAN_ALPHA_V30_STAGE3A_OWNER_GOVERNANCE_REVIEW.md",
+      "owner_action_required": "Owner issues signed HMAC cryptographic activation token ONLY when fully prepared to begin paper evaluation. Live trading remains permanently banned.",
+      "can_agent_execute": false
+    }
+  }
+}

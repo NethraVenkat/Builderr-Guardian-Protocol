@@ -1,0 +1,72 @@
+{
+  "horizon_and_power_analysis": {
+    "timestamp_utc": "2026-10-25T07:40:00Z",
+    "evaluation_parameters": {
+      "nominal_horizon_sessions": 252,
+      "calendar_equivalent": "~1 trading year",
+      "minimum_defensive_floor_N_def": 30,
+      "desired_defensive_target_range": [45, 60],
+      "maximum_contingent_extension_sessions": 504
+    },
+    "outcome_independence_audit": {
+      "preregistration_principle": "An extension rule is statistically valid if and only if it is completely blinded to the experimental outcome (strategy alpha, shortfall difference d_t, or interim p-values).",
+      "extension_trigger_specification": "Extension occurs IF AND ONLY IF N_{def} = \\sum_{t=1}^{252} \\mathbb{I}(R_{m,t} < 0) < 30.",
+      "market_benchmark_definition": "R_{m,t} is the daily total return of the benchmark index (SPY).",
+      "outcome_independence_verdict": "VERIFIED_OUTCOME_INDEPENDENT. The condition depends entirely on broader market macro volatility, not on D2 or E0 execution, returns, or cumulative p-values.",
+      "anti_peeking_rule": "Interim evaluation of d_t or stopping early because p < 0.05 is achieved at session t < 252 is STRICTLY PROHIBITED. Optional stopping inflates Type I error from 5% to > 20%."
+    },
+    "power_recalculation_under_serial_dependence": {
+      "analytical_model": "One-sided t-test against non-zero hurdle \\delta_{min} under AR(1) error persistence",
+      "effective_sample_size_formula": "N_{eff} = N_{def} \\frac{1 - \\rho_1}{1 + \\rho_1}",
+      "assumed_persistence_range": "\\rho_1 \\in [0.10, 0.30] \\quad (\\text{downside volatility clustering})",
+      "sensitivity_table": [
+        {
+          "nominal_N_def": 20,
+          "effective_N_eff_rho02": 13.3,
+          "power_d020_small": "12%",
+          "power_d035_moderate": "26%",
+          "power_d050_large": "46%",
+          "adequacy": "SEVERELY_DEFICIENT"
+        },
+        {
+          "nominal_N_def": 30,
+          "effective_N_eff_rho02": 20.0,
+          "power_d020_small": "17%",
+          "power_d035_moderate": "38%",
+          "power_d050_large": "62%",
+          "adequacy": "MARGINAL_HIGH_TYPE_II_ERROR"
+        },
+        {
+          "nominal_N_def": 45,
+          "effective_N_eff_rho02": 30.0,
+          "power_d020_small": "24%",
+          "power_d035_moderate": "53%",
+          "power_d050_large": "80%",
+          "adequacy": "ACCEPTABLE_FOR_LARGE_EFFECTS"
+        },
+        {
+          "nominal_N_def": 60,
+          "effective_N_eff_rho02": 40.0,
+          "power_d020_small": "31%",
+          "power_d035_moderate": "67%",
+          "power_d050_large": "90%",
+          "adequacy": "ROBUST_FOR_MODERATE_EFFECTS"
+        },
+        {
+          "nominal_N_def": 90,
+          "effective_N_eff_rho02": 60.0,
+          "power_d020_small": "43%",
+          "power_d035_moderate": "84%",
+          "power_d050_large": "98%",
+          "adequacy": "EXCELLENT_INSTITUTIONAL_POWER"
+        }
+      ],
+      "scientific_qualification": "These power values are analytical approximations based on Gaussian error assumptions and AR(1) persistence. Real market down-days exhibit fat tails (kurtosis > 5) and jump processes, which may further degrade power. They must NOT be treated as empirical facts."
+    },
+    "owner_decision_gate": {
+      "decision_id": "DEC-04",
+      "status": "PENDING_OWNER_RATIFICATION",
+      "recommendation": "Owner should approve the nominal 252-session horizon with automatic market-dependent extension up to 504 sessions if N_def < 30, while recognizing that 30 observations provides only ~38% power under realistic serial correlation."
+    }
+  }
+}

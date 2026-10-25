@@ -1,0 +1,50 @@
+{
+  "executed_verification_ledger": {
+    "timestamp_utc": "2026-10-25T19:00:00Z",
+    "stage": "V30 Stage 3C",
+    "environment": {
+      "os": "Windows 11 (win32)",
+      "python_version": "3.11.9",
+      "pytest_version": "9.1.1",
+      "working_directory": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-V29B"
+    },
+    "verification_executions": [
+      {
+        "execution_id": "VR-01",
+        "command": "python -c \"import subprocess...\" (Checkpoint and Hash Verification)",
+        "timestamp_utc": "2026-10-25T18:29:53Z",
+        "duration_seconds": 1.10,
+        "exit_code": 0,
+        "expected_result": "archive/v30-stage2h-final-evidence-freeze at ce6b4c21b832044d0ffb45dce2ba949ab867d520, 198 files, 4 protected hashes matched.",
+        "observed_result": "Exact match across branch, HEAD, parent, commit delta, and 4 protected source hashes bit-for-bit.",
+        "status": "PASSED"
+      },
+      {
+        "execution_id": "VR-02",
+        "command": "python scratch/build_deliverables_10_11.py",
+        "timestamp_utc": "2026-10-25T18:35:44Z",
+        "duration_seconds": 0.85,
+        "exit_code": 0,
+        "expected_result": "Generate staging manifest (v30_stage3c_human_archival_staging_manifest.json) and human instructions.",
+        "observed_result": "Both deliverables generated successfully.",
+        "status": "PASSED"
+      },
+      {
+        "execution_id": "VR-03",
+        "command": "pytest research/tests/test_v30_stage3c_governance_and_freeze.py -v",
+        "timestamp_utc": "2026-10-25T18:36:39Z",
+        "duration_seconds": 0.37,
+        "exit_code": 0,
+        "expected_result": "11 offline verification tests passing.",
+        "observed_result": "11 passed in 0.37s (100% pass rate).",
+        "status": "PASSED"
+      }
+    ],
+    "summary": {
+      "total_runs": 3,
+      "failed_runs": 0,
+      "passed_runs": 3,
+      "overall_status": "100_PERCENT_PASSED"
+    }
+  }
+}

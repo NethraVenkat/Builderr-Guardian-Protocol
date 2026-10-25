@@ -1,0 +1,1955 @@
+{
+  "independent_analytical_power": {
+    "timestamp_utc": "2026-10-25T08:30:00Z",
+    "methodology": "Asymptotic Gaussian approximation and finite-sample Bartlett kernel variance scaling",
+    "hurdle_bps": 10.0,
+    "total_scenarios": 216,
+    "key_finding": "At N=30, rho=0.20, std=50bps, eff=15bps, asymptotic power is exactly 11.55%, and finite-sample variance adjusted power is 11.83%. At the null boundary (eff=10bps), asymptotic power is mathematically 5.00%.",
+    "scenarios": [
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.01,
+        "power_finite_pct": 0.01
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 29.14,
+        "power_finite_pct": 29.14
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 70.75,
+        "power_finite_pct": 70.75
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 94.97,
+        "power_finite_pct": 94.97
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.31,
+        "power_finite_pct": 0.31
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 13.63,
+        "power_finite_pct": 13.63
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 29.14,
+        "power_finite_pct": 29.14
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 49.93,
+        "power_finite_pct": 49.93
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 94.97,
+        "power_finite_pct": 94.97
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 1.42,
+        "power_finite_pct": 1.42
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 8.52,
+        "power_finite_pct": 8.52
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 13.63,
+        "power_finite_pct": 13.63
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 20.52,
+        "power_finite_pct": 20.52
+      },
+      {
+        "N": 30,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 49.93,
+        "power_finite_pct": 49.93
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.03,
+        "power_finite_pct": 0.03
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 22.65,
+        "power_finite_pct": 22.84
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 55.73,
+        "power_finite_pct": 56.22
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 85.05,
+        "power_finite_pct": 85.48
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 99.99,
+        "power_finite_pct": 99.99
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.56,
+        "power_finite_pct": 0.55
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 11.55,
+        "power_finite_pct": 11.61
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 22.65,
+        "power_finite_pct": 22.84
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 38.09,
+        "power_finite_pct": 38.45
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 85.05,
+        "power_finite_pct": 85.48
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 1.82,
+        "power_finite_pct": 1.81
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 7.76,
+        "power_finite_pct": 7.79
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 11.55,
+        "power_finite_pct": 11.61
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 16.5,
+        "power_finite_pct": 16.62
+      },
+      {
+        "N": 30,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 38.09,
+        "power_finite_pct": 38.45
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.1,
+        "power_finite_pct": 0.1
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 17.68,
+        "power_finite_pct": 17.98
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 41.66,
+        "power_finite_pct": 42.57
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 69.38,
+        "power_finite_pct": 70.59
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 99.61,
+        "power_finite_pct": 99.68
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.91,
+        "power_finite_pct": 0.88
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 9.92,
+        "power_finite_pct": 10.02
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 17.68,
+        "power_finite_pct": 17.98
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 28.46,
+        "power_finite_pct": 29.06
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 69.38,
+        "power_finite_pct": 70.59
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 2.26,
+        "power_finite_pct": 2.23
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 7.14,
+        "power_finite_pct": 7.18
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 9.92,
+        "power_finite_pct": 10.02
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 13.41,
+        "power_finite_pct": 13.6
+      },
+      {
+        "N": 30,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 28.46,
+        "power_finite_pct": 29.06
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.0,
+        "power_finite_pct": 0.0
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 38.09,
+        "power_finite_pct": 38.09
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 85.05,
+        "power_finite_pct": 85.05
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 99.13,
+        "power_finite_pct": 99.13
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.14,
+        "power_finite_pct": 0.14
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 16.5,
+        "power_finite_pct": 16.5
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 38.09,
+        "power_finite_pct": 38.09
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 64.34,
+        "power_finite_pct": 64.34
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 99.13,
+        "power_finite_pct": 99.13
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 1.03,
+        "power_finite_pct": 1.03
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 9.52,
+        "power_finite_pct": 9.52
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 16.5,
+        "power_finite_pct": 16.5
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 26.15,
+        "power_finite_pct": 26.15
+      },
+      {
+        "N": 45,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 64.34,
+        "power_finite_pct": 64.34
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.01,
+        "power_finite_pct": 0.01
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 29.14,
+        "power_finite_pct": 29.31
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 70.75,
+        "power_finite_pct": 71.1
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 94.97,
+        "power_finite_pct": 95.12
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.31,
+        "power_finite_pct": 0.3
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 13.63,
+        "power_finite_pct": 13.69
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 29.14,
+        "power_finite_pct": 29.31
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 49.93,
+        "power_finite_pct": 50.24
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 94.97,
+        "power_finite_pct": 95.12
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 1.42,
+        "power_finite_pct": 1.41
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 8.52,
+        "power_finite_pct": 8.54
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 13.63,
+        "power_finite_pct": 13.69
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 20.52,
+        "power_finite_pct": 20.63
+      },
+      {
+        "N": 45,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 49.93,
+        "power_finite_pct": 50.24
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.03,
+        "power_finite_pct": 0.03
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 22.17,
+        "power_finite_pct": 22.45
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 54.45,
+        "power_finite_pct": 55.2
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 83.89,
+        "power_finite_pct": 84.58
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 99.99,
+        "power_finite_pct": 99.99
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.58,
+        "power_finite_pct": 0.57
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 11.4,
+        "power_finite_pct": 11.49
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 22.17,
+        "power_finite_pct": 22.45
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 37.17,
+        "power_finite_pct": 37.71
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 83.89,
+        "power_finite_pct": 84.58
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 1.86,
+        "power_finite_pct": 1.84
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 7.7,
+        "power_finite_pct": 7.74
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 11.4,
+        "power_finite_pct": 11.49
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 16.2,
+        "power_finite_pct": 16.38
+      },
+      {
+        "N": 45,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 37.17,
+        "power_finite_pct": 37.71
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.0,
+        "power_finite_pct": 0.0
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 46.19,
+        "power_finite_pct": 46.19
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 92.7,
+        "power_finite_pct": 92.7
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 99.87,
+        "power_finite_pct": 99.87
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.07,
+        "power_finite_pct": 0.07
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 19.21,
+        "power_finite_pct": 19.21
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 46.19,
+        "power_finite_pct": 46.19
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 75.14,
+        "power_finite_pct": 75.14
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 99.87,
+        "power_finite_pct": 99.87
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.78,
+        "power_finite_pct": 0.78
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 10.43,
+        "power_finite_pct": 10.43
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 19.21,
+        "power_finite_pct": 19.21
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 31.46,
+        "power_finite_pct": 31.46
+      },
+      {
+        "N": 60,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 75.14,
+        "power_finite_pct": 75.14
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.0,
+        "power_finite_pct": 0.0
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 35.2,
+        "power_finite_pct": 35.36
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 81.19,
+        "power_finite_pct": 81.43
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 98.42,
+        "power_finite_pct": 98.47
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.18,
+        "power_finite_pct": 0.18
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 15.57,
+        "power_finite_pct": 15.62
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 35.2,
+        "power_finite_pct": 35.36
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 59.97,
+        "power_finite_pct": 60.22
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 98.42,
+        "power_finite_pct": 98.47
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 1.14,
+        "power_finite_pct": 1.13
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 9.2,
+        "power_finite_pct": 9.22
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 15.57,
+        "power_finite_pct": 15.62
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 24.32,
+        "power_finite_pct": 24.42
+      },
+      {
+        "N": 60,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 59.97,
+        "power_finite_pct": 60.22
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.01,
+        "power_finite_pct": 0.01
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 26.41,
+        "power_finite_pct": 26.68
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 64.93,
+        "power_finite_pct": 65.54
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 91.89,
+        "power_finite_pct": 92.25
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.39,
+        "power_finite_pct": 0.38
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 12.76,
+        "power_finite_pct": 12.85
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 26.41,
+        "power_finite_pct": 26.68
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 45.08,
+        "power_finite_pct": 45.57
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 91.89,
+        "power_finite_pct": 92.25
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 1.57,
+        "power_finite_pct": 1.55
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 8.21,
+        "power_finite_pct": 8.24
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 12.76,
+        "power_finite_pct": 12.85
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 18.83,
+        "power_finite_pct": 18.99
+      },
+      {
+        "N": 60,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 45.08,
+        "power_finite_pct": 45.57
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.0,
+        "power_finite_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 59.97,
+        "power_finite_pct": 59.97
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 98.42,
+        "power_finite_pct": 98.42
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.02,
+        "power_finite_pct": 0.02
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 24.32,
+        "power_finite_pct": 24.32
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 59.97,
+        "power_finite_pct": 59.97
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 88.52,
+        "power_finite_pct": 88.52
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.47,
+        "power_finite_pct": 0.47
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 12.09,
+        "power_finite_pct": 12.09
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 24.32,
+        "power_finite_pct": 24.32
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 41.22,
+        "power_finite_pct": 41.22
+      },
+      {
+        "N": 90,
+        "rho": 0.0,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 88.52,
+        "power_finite_pct": 88.52
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.0,
+        "power_finite_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 46.19,
+        "power_finite_pct": 46.33
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 92.7,
+        "power_finite_pct": 92.8
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 99.87,
+        "power_finite_pct": 99.87
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.07,
+        "power_finite_pct": 0.07
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 19.21,
+        "power_finite_pct": 19.26
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 46.19,
+        "power_finite_pct": 46.33
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 75.14,
+        "power_finite_pct": 75.31
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 99.87,
+        "power_finite_pct": 99.87
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.78,
+        "power_finite_pct": 0.77
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 10.43,
+        "power_finite_pct": 10.44
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 19.21,
+        "power_finite_pct": 19.26
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 31.46,
+        "power_finite_pct": 31.55
+      },
+      {
+        "N": 90,
+        "rho": 0.2,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 75.14,
+        "power_finite_pct": 75.31
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.0,
+        "power_finite_pct": 0.0
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 34.36,
+        "power_finite_pct": 34.6
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 79.94,
+        "power_finite_pct": 80.31
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 98.13,
+        "power_finite_pct": 98.22
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 25,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 100.0,
+        "power_finite_pct": 100.0
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 0.19,
+        "power_finite_pct": 0.19
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 15.3,
+        "power_finite_pct": 15.37
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 34.36,
+        "power_finite_pct": 34.6
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 58.64,
+        "power_finite_pct": 59.03
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 50,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 98.13,
+        "power_finite_pct": 98.22
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 0,
+        "scenario_type": "TRUE_NULL_BELOW_HURDLE",
+        "power_asymp_pct": 1.17,
+        "power_finite_pct": 1.16
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 10,
+        "scenario_type": "NULL_BOUNDARY",
+        "power_asymp_pct": 5.0,
+        "power_finite_pct": 5.0
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 15,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 9.1,
+        "power_finite_pct": 9.13
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 20,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 15.3,
+        "power_finite_pct": 15.37
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 25,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 23.78,
+        "power_finite_pct": 23.94
+      },
+      {
+        "N": 90,
+        "rho": 0.4,
+        "std_bps": 100,
+        "effect_bps": 40,
+        "scenario_type": "TRUE_ALTERNATIVE_ABOVE_HURDLE",
+        "power_asymp_pct": 58.64,
+        "power_finite_pct": 59.03
+      }
+    ]
+  }
+}

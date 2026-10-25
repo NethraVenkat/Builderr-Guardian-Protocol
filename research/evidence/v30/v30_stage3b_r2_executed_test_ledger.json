@@ -1,0 +1,72 @@
+{
+  "executed_test_ledger": {
+    "timestamp_utc": "2026-10-25T18:45:00Z",
+    "stage": "V30 Stage 3B-R2",
+    "environment": {
+      "os": "Windows 11 (win32)",
+      "python_version": "3.11.9",
+      "pytest_version": "9.1.1",
+      "numpy_version": "1.26.4",
+      "working_directory": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-V29B"
+    },
+    "test_executions": [
+      {
+        "test_run_id": "RUN-01",
+        "command": "python research/simulations/v30_stage3b_r2_reproducible_joint_calibration.py",
+        "timestamp_utc": "2026-10-25T18:09:36Z",
+        "duration_seconds": 1.25,
+        "exit_code": 0,
+        "purpose": "Standalone simulation smoke test and exact AR(1) variance calculation.",
+        "expected_result": "Exact Var: 123.263889, Asymp Var: 125.000000, Exact Power: 11.6141%, Asymp Power: 11.5529%.",
+        "observed_result": "Exact Var: 123.263889, Asymp Var: 125.000000, Exact Power: 11.6141%, Asymp Power: 11.5529%. Match bit-for-bit.",
+        "status": "PASSED"
+      },
+      {
+        "test_run_id": "RUN-02",
+        "command": "python -c 'from research.simulations.v30_stage3b_r2_reproducible_joint_calibration import run_full_calibration_suite; run_full_calibration_suite()'",
+        "timestamp_utc": "2026-10-25T18:10:46Z",
+        "duration_seconds": 82.68,
+        "exit_code": 0,
+        "purpose": "Full 36-scenario empirical size and power calibration for Joint HAC + Bootstrap test.",
+        "expected_result": "36 scenarios evaluated with M=1000, B=1000; joint rejection rates and Wilson CIs recorded.",
+        "observed_result": "All 36 scenarios completed. N=30 null boundary joint rejection rate 7.70% - 10.80% (distorted).",
+        "status": "PASSED"
+      },
+      {
+        "test_run_id": "RUN-03",
+        "command": "pytest research/tests/test_v30_stage3b_r2_final_corrections.py -v",
+        "timestamp_utc": "2026-10-25T18:20:58Z",
+        "duration_seconds": 0.64,
+        "exit_code": 1,
+        "purpose": "Initial execution of the 12-test Stage 3B-R2 offline verification suite.",
+        "expected_result": "12 tests passing.",
+        "observed_result": "11 passed, 1 failed (test_06_monte_carlo_confidence_intervals).",
+        "failure_diagnostics": {
+          "failed_test": "test_06_monte_carlo_confidence_intervals",
+          "error": "AssertionError: assert 2.1601063852437766e-17 == 0.0",
+          "root_cause": "Floating-point precision rounding in Wilson score lower bound calculation for zero rejections."
+        },
+        "remediation": "Updated assertion in test_06 to use math.isclose(low0, 0.0, abs_tol=1e-12).",
+        "status": "FAILED_DIAGNOSED"
+      },
+      {
+        "test_run_id": "RUN-04",
+        "command": "pytest research/tests/test_v30_stage3b_r2_final_corrections.py -v",
+        "timestamp_utc": "2026-10-25T18:22:08Z",
+        "duration_seconds": 0.46,
+        "exit_code": 0,
+        "purpose": "Verification rerun after remediation of floating point assertion in test_06.",
+        "expected_result": "12 tests passing.",
+        "observed_result": "12 passed in 0.46s (100% pass rate).",
+        "status": "PASSED"
+      }
+    ],
+    "suite_summary": {
+      "total_runs": 4,
+      "final_exit_code": 0,
+      "total_automated_tests": 12,
+      "automated_tests_passing": 12,
+      "automated_tests_failing": 0
+    }
+  }
+}

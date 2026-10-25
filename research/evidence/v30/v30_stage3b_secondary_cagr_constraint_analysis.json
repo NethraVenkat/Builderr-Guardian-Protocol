@@ -1,0 +1,40 @@
+{
+  "secondary_cagr_constraint_analysis": {
+    "timestamp_utc": "2026-10-25T08:09:00Z",
+    "constraint_definition": "\\Delta \\text{CAGR} = \\text{CAGR}_{D2} - \\text{CAGR}_{E0} \\ge -0.0200 \\quad (-200\\text{ basis points annualized})",
+    "mathematical_conventions": {
+      "cagr_formula": "\\text{CAGR}_p = \\left( \\prod_{t=1}^T (1 + R_{p,t}) \\right)^{252 / T} - 1",
+      "annualization_base": "252 trading sessions",
+      "missing_data_treatment": "Non-trading days (weekends, holidays) are excluded from product and count T. Halts are treated as 0% return.",
+      "paired_return_series": "y_t = R_{D2,t} - R_{E0,t} \\quad \\text{for } t = 1, \\dots, T"
+    },
+    "inferential_limitations_under_dependent_returns": {
+      "tracking_error_volatility": "On leveraged ETFs (TQQQ, SOXL, UPRO), tracking differences between cash-diluted D2 and fully invested E0 exhibit standard deviation \\sigma_{\\Delta} \\approx 0.80\\% \\text{ daily} \\approx 12.7\\% \\text{ annualized}.",
+      "standard_error_at_252_sessions": "\\text{SE}(\\Delta \\text{CAGR}) \\approx \\frac{\\sigma_{\\Delta, ann}}{\\sqrt{1}} \\approx 200\\text{--}300\\text{ bps}.",
+      "consequence_of_naive_point_estimate": "A sample point estimate of \\Delta \\widehat{\\text{CAGR}} = -1.80\\% (-180 bps) passes the naive check, yet its two-sided 90% confidence interval spans [-5.7%, +2.1%]. An observer claiming D2 has less than 200 bps drag is drawing a completely unsupported conclusion."
+    },
+    "three_defensible_alternatives": {
+      "alternative_A_operational_guardrail": {
+        "classification": "RECOMMENDED_POLICY_GUARDRAIL",
+        "description": "Treat \\Delta \\text{CAGR} \\ge -200\\text{ bps} strictly as an administrative risk-budget filter. If point estimate falls below -200 bps, D2 is rejected for exceeding owner's insurance cost budget, but passing is NOT described as mathematical proof of non-inferiority.",
+        "pros": "Pragmatic, aligns with human risk tolerance, avoids pretending high statistical confidence exists on a 1-year sample.",
+        "cons": "Does not prove true long-term drag is bounded."
+      },
+      "alternative_B_formal_non_inferiority": {
+        "classification": "FORMAL_HYPOTHESIS_TEST",
+        "description": "Test H0: \\mu_{\\Delta} <= -0.0200 vs H1: \\mu_{\\Delta} > -0.0200 using Newey-West HAC lower 95% confidence bound: CI_{lower, 95%}(\\Delta \\text{CAGR}) > -0.0200.",
+        "pros": "Statistically rigorous, institutional standard.",
+        "cons": "Severely underpowered on T = 252 sessions (power < 10%). Achieving 80% power requires > 1,500 trading sessions (> 6 years)."
+      },
+      "alternative_C_exploratory_reporting": {
+        "classification": "EXPLORATORY_SECONDARY_METRIC",
+        "description": "Report full-period CAGR, Sharpe, Sortino, and Calmar descriptively without applying a pass/fail gate.",
+        "pros": "Zero risk of false rejection.",
+        "cons": "Fails to protect owner against runaway cash drag in prolonged bull markets."
+      }
+    },
+    "owner_governance_recommendation": {
+      "recommended_action": "Adopt Alternative A (Operational Guardrail) with explicit preregistered wording acknowledging that it represents an empirical policy limit, not a formal statistical non-inferiority demonstration."
+    }
+  }
+}

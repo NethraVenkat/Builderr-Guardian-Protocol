@@ -1,0 +1,43 @@
+{
+  "statistical_failure_preservation_record": {
+    "timestamp_utc": "2026-10-25T18:50:00Z",
+    "stage": "V30 Stage 3C",
+    "governance_mandate": "Zero alteration of empirical failures. All statistical shortfalls and simulation limitations are documented transparently as permanent scientific records.",
+    "core_scenario_parameters": {
+      "sample_size_N": 30,
+      "autocorrelation_rho": 0.2,
+      "marginal_std_sigma_bps": 50.0,
+      "true_mean_benefit_mu_bps": 15.0,
+      "proposed_economic_hurdle_bps": 10.0,
+      "nominal_significance_alpha": 0.05
+    },
+    "preserved_numerical_results": {
+      "exact_finite_sample_factor": 1.479167,
+      "exact_effective_sample_size": 20.2817,
+      "asymptotic_effective_sample_size": 20.0,
+      "exact_analytical_power_pct": 11.6141,
+      "asymptotic_analytical_power_pct": 11.5529,
+      "hac_only_null_boundary_rejection_pct": 8.0,
+      "bootstrap_only_null_boundary_rejection_pct": 9.3,
+      "joint_null_boundary_rejection_pct": 7.7,
+      "joint_null_boundary_95_wilson_ci_pct": [
+        6.2,
+        9.52
+      ],
+      "size_calibration_status": "FAILED_SIZE_DISTORTION"
+    },
+    "preservation_of_simulation_code_and_grid": {
+      "script_path": "research/simulations/v30_stage3b_r2_reproducible_joint_calibration.py",
+      "results_path": "research/evidence/v30/v30_stage3b_r2_joint_calibration_results.json",
+      "scenarios_evaluated": 36,
+      "total_synthetic_evaluations": 36000,
+      "total_bootstrap_resamples": 36000000
+    },
+    "scientific_failure_diagnosis": [
+      "1. Small-sample downward variance bias: At N=30, the sample autocovariance estimator underestimates long-run variance.",
+      "2. Stationary block bootstrap compression: With average block length b=4, the stationary bootstrap fails to replicate the full low-frequency spectral density.",
+      "3. Inter-test correlation: HAC and bootstrap test statistics are strongly positively correlated (r > 0.90) on the same sample, causing concurrent spurious rejections.",
+      "4. Generalization caveat: All numerical findings are synthetic simulation results conditional on a stationary AR(1) Gaussian process; they do not represent universal mathematical properties of financial time series."
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "horizon_metadata": {
+    "title": "Guardian Alpha V30 Stage 3A - Evaluation Horizon & Statistical Power Assessment",
+    "timestamp_utc": "2026-10-25T06:45:00Z",
+    "auditor_role": "Scientific Methodology Reviewer"
+  },
+  "horizon_parameters": {
+    "nominal_duration_sessions": 252,
+    "nominal_calendar_duration": "Approximately 1 calendar year (standard NYSE trading schedule)",
+    "minimum_defensive_sessions_floor": 30,
+    "target_defensive_sessions": "45 - 60 sessions",
+    "contingent_extension_limit": 504
+  },
+  "statistical_power_analysis": {
+    "assumptions": {
+      "significance_level_alpha": 0.05,
+      "one_sided_test": true,
+      "standardized_effect_size_cohens_d": [
+        0.2,
+        0.35,
+        0.5
+      ]
+    },
+    "power_table": [
+      {
+        "N_defensive": 20,
+        "power_d_020": 0.18,
+        "power_d_035": 0.38,
+        "power_d_050": 0.62,
+        "assessment": "SEVERELY UNDERPOWERED"
+      },
+      {
+        "N_defensive": 30,
+        "power_d_020": 0.24,
+        "power_d_035": 0.52,
+        "power_d_050": 0.79,
+        "assessment": "MARGINAL POWER (Standard baseline)"
+      },
+      {
+        "N_defensive": 45,
+        "power_d_020": 0.33,
+        "power_d_035": 0.69,
+        "power_d_050": 0.92,
+        "assessment": "ADEQUATE POWER (Recommended target)"
+      },
+      {
+        "N_defensive": 60,
+        "power_d_020": 0.42,
+        "power_d_035": 0.81,
+        "power_d_050": 0.97,
+        "assessment": "ROBUST POWER (>80% for moderate effect)"
+      },
+      {
+        "N_defensive": 90,
+        "power_d_020": 0.56,
+        "power_d_035": 0.94,
+        "power_d_050": 0.99,
+        "assessment": "HIGH POWER"
+      }
+    ],
+    "power_conclusion": "At N=30, the test has only a 52% probability of detecting a moderate shortfall improvement (d=0.35). Achieving >= 45-60 defensive sessions is strongly recommended to guarantee statistical power >= 80%."
+  },
+  "stopping_and_extension_rules": {
+    "fixed_starting_event": "Trading day T_0 following owner execution of cryptographic activation token.",
+    "prohibition_of_optional_stopping": "Continuous interim testing with early stopping on favorable p-values is STRICTLY PROHIBITED (inflates Type I error from 5% to > 20%).",
+    "contingent_extension_protocol": "If at session 252, N_def < 30, the evaluation automatically extends until N_def = 30 or up to a maximum of 504 sessions. If after 504 sessions N_def < 30, the prospective trial is declared INCONCLUSIVE due to persistent low-volatility regime.",
+    "emergency_early_termination_criteria": [
+      "Catastrophic divergence: D2 portfolio drawdown exceeds E0 drawdown by more than 300 bps at any point.",
+      "Critical unrecoverable accounting discrepancy exceeding $1.00 between broker state and independent oracle.",
+      "Persistent market data feed corruption lasting > 3 consecutive trading days."
+    ]
+  },
+  "owner_action_required": {
+    "status": "PENDING_APPROVAL",
+    "decision_ref": "DEC-04",
+    "action": "Owner must approve 252-day baseline horizon, N_def >= 30 floor, and contingent extension to 504 days."
+  }
+}

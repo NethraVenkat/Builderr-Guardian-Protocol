@@ -1,0 +1,61 @@
+{
+  "historical_regression_failure_reconciliation": {
+    "timestamp_utc": "2026-10-25T07:42:00Z",
+    "investigation_scope": "Independent audit of previously failed test suites under Stage 3A environment",
+    "evaluated_suites": [
+      {
+        "test_file": "research/tests/test_v30_stage2h_c_r2_execution_proof.py",
+        "command_executed": "pytest research/tests/test_v30_stage2h_c_r2_execution_proof.py -v",
+        "exit_code": 1,
+        "total_tests": 10,
+        "passed": 8,
+        "failed": 2,
+        "failures_detail": [
+          {
+            "test_name": "test_01_git_checkpoint_and_clean_working_tree",
+            "assertion_error": "HEAD ce6b4c21b832044d0ffb45dce2ba949ab867d520 does not match expected b283ded200c777b130285b0aa56a0b044afbd339",
+            "root_cause_analysis": "TEMPORAL_SNAPSHOT_MISMATCH. The test was written in Stage 2H-C-R2 before the human owner executed the human archival freeze script which created commit ce6b4c21b832044d0ffb45dce2ba949ab867d520 with parent b283ded200c777b130285b0aa56a0b044afbd339. HEAD advancement was an authorized owner action, not a repository corruption."
+          },
+          {
+            "test_name": "test_08_set_based_completeness_unaccounted_zero",
+            "assertion_error": "Unaccounted untracked files on disk: 12 newly created Stage 3A files",
+            "root_cause_analysis": "INVENTORY_TEMPORAL_BOUNDARY. The test asserts that all untracked files on disk must match the Stage 2H-C-R2 staging manifest. Because Stage 3A generated 12 new governance and evidence files that remain intentionally untracked (to obey the absolute prohibition against agent git commits), the set difference is non-empty."
+          }
+        ],
+        "reconciliation_verdict": "NOT_A_PRODUCT_REGRESSION. All functional preflight guards, glob checks, and hash verifications in this suite pass cleanly (8/10)."
+      },
+      {
+        "test_file": "research/tests/test_v30_stage2h_b_governance.py",
+        "command_executed": "python -m pytest research/tests/test_v30_stage2h_b_governance.py -v",
+        "exit_code": 1,
+        "total_tests": 12,
+        "passed": 11,
+        "failed": 1,
+        "failures_detail": [
+          {
+            "test_name": "TestGateACheckpointIntegrity::test_git_checkpoint_immutability",
+            "assertion_error": "HEAD altered! Expected b283ded200c777b130285b0aa56a0b044afbd339, got ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+            "root_cause_analysis": "TEMPORAL_SNAPSHOT_MISMATCH. Hardcoded EXPECTED_HEAD in test class matches pre-freeze commit b283ded... rather than archival commit ce6b4c..."
+          }
+        ],
+        "functional_verification": {
+          "test_protected_source_hashes": "PASSED",
+          "test_initial_state_identity": "PASSED",
+          "test_buy_reservation_and_execution": "PASSED",
+          "test_unsettled_trade_receivables_and_splits": "PASSED",
+          "test_dividend_receivables_and_liabilities": "PASSED",
+          "test_short_sell_and_cash_overdraw_prevention": "PASSED",
+          "test_missing_and_tampered_tokens": "PASSED",
+          "test_nonce_replay_and_expiry": "PASSED",
+          "test_live_trading_triggers_persistent_hard_stop": "PASSED",
+          "test_path_traversal_and_tier3_rejection": "PASSED",
+          "test_sell_first_resolves_cash_dependency": "PASSED"
+        },
+        "reconciliation_verdict": "NOT_A_PRODUCT_REGRESSION. All 11 core financial accounting, Decimal precision, token security, and simulator parity tests PASS 100%. The sole failure is the hardcoded HEAD string."
+      }
+    ],
+    "preservation_policy_compliance": {
+      "action_taken": "Historical test files were PRESERVED UNCHANGED. Neither test was modified to force a false PASS. New Stage 3A/3A-R tests independently verify the valid commit hierarchy (HEAD == ce6b4c..., parent == b283ded...)."
+    }
+  }
+}

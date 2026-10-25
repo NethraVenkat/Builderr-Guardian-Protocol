@@ -1,0 +1,49 @@
+{
+  "horizon_and_stopping_assessment": {
+    "timestamp_utc": "2026-10-25T10:19:00Z",
+    "evaluation_horizon": {
+      "nominal_calendar_sessions": 252,
+      "minimum_causal_defensive_quota": 30,
+      "maximum_contingent_sessions": 504
+    },
+    "sampling_scheme_theoretical_analysis": {
+      "design_type": "INVERSE_SAMPLING_QUOTA_DESIGN",
+      "formal_assessment": "Extending data collection until a fixed quota (N_def = 30) is reached is formally an inverse binomial / negative binomial sampling design over calendar sessions. The stopping time tau = min{t >= 252 : N_def(t) >= 30, t <= 504} is a stopping time adapted to the filtration of macro market regime signals F_{t-1}.",
+      "bias_analysis": "Because the extension rule is blinded to portfolio equity, returns, drawdowns, and shortfall metrics d_t, the stopping decision does NOT induce outcome-dependent optional stopping bias. Under the assumption of stationarity of defensive regime return distributions, sample mean d_bar remains an unbiased estimator of mu_d.",
+      "finite_sample_caution": "If the second year of sampling encounters a fundamentally different macroeconomic regime (e.g. higher interest rates or structural volatility shifts), combining sessions across years assumes distributional invariance."
+    },
+    "taxonomic_stopping_distinctions": [
+      {
+        "category": "Administrative Quota Extension",
+        "condition": "N_def^{causal}(T=252) < 30",
+        "action": "Extend session-by-session until N_def = 30 or T = 504.",
+        "inferential_classification": "Statistically valid quota fulfillment; nominal alpha preserved."
+      },
+      {
+        "category": "Statistical Stopping for Efficacy or Futility",
+        "condition": "Interim p-value < 0.05 or interim p-value > 0.50 at T < 252",
+        "action": "STRICTLY FORBIDDEN.",
+        "inferential_classification": "Optional stopping; causes severe Type I error inflation."
+      },
+      {
+        "category": "Safety Intervention (Circuit Breaker)",
+        "condition": "MaxDrawdown_{D2}(t) > MaxDrawdown_{E0}(t) + 0.0300 (+300 bps)",
+        "action": "Immediate halt and permanent termination.",
+        "inferential_classification": "NON-NEUTRAL INFORMATIVE CENSORING. Formally classified as an experimental failure and candidate rejection."
+      },
+      {
+        "category": "Missing Data & Halts",
+        "condition": "Exchange holidays, unscheduled market closures, incomplete vendor feeds",
+        "action": "Omitted from session count; zero portfolio rebalancing.",
+        "inferential_classification": "Neutral administrative missingness."
+      },
+      {
+        "category": "Irrecoverable Protocol Breach",
+        "condition": "Persistent INCIDENT_LOCK, parameter mutation attempt, unauthorized live trading call",
+        "action": "Immediate emergency freeze requiring cryptographic human intervention.",
+        "inferential_classification": "FATAL PROTOCOL VIOLATION."
+      }
+    ],
+    "owner_governance_verdict": "The horizon and stopping rules are scientifically sound and protect inferential validity against optional stopping. Formal owner sign-off is required under DEC-04."
+  }
+}

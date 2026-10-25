@@ -1,0 +1,84 @@
+{
+  "provider_rights_matrix": {
+    "timestamp_utc": "2026-10-25T10:20:00Z",
+    "disclaimer": "This document represents forensic quantitative research analysis and contractual audit of publicly available vendor terms. It does not constitute formal legal counsel.",
+    "audited_authorities": {
+      "Tiingo": {
+        "url": "https://app.tiingo.com/tos/",
+        "agreement_name": "Tiingo Terms of Use (Section: Data Storage & Derived Products)",
+        "effective_date": "Current published terms (verified 2026)",
+        "exact_language_key_finding": "A Starter Plan or Trial Plan does not permit persistent storage of Derived Products, during the plan or after it ends. On a Starter Plan or Trial Plan, you may calculate Derived Products and hold them only transiently in volatile memory... Company does not provide exceptions under this Section for a Starter Plan or a Power Plan. Only a Start-up, Enterprise, or Institutional account may receive an exception..."
+      },
+      "Massive_Polygon_io": {
+        "url": "https://massive.com/legal/market-data-terms-of-service",
+        "agreement_name": "Massive Market Data Terms of Service",
+        "effective_date": "Current published terms (verified 2026)",
+        "exact_language_key_finding": "Users may not 'Use Market Data for non-display use or to create derivative works (including, without limitation, any index... investment product... settlement value or investment strategy) based on the Market Data unless you are licensed to do so...'"
+      },
+      "Alpaca": {
+        "url": "https://alpaca.markets/disclosures",
+        "agreement_name": "Alpaca Customer Agreement & Market Data Terms (incorporating NYSE/NASDAQ Global Subscriber Agreements)",
+        "effective_date": "Current published terms (verified 2026)",
+        "exact_language_key_finding": "Exchange rules strictly govern real-time exchange data feeds. Caching to create independent historical databases without enterprise redistribution agreements violates SRO policies. Brokerage API natively authorizes simulated paper trading."
+      },
+      "Interactive_Brokers": {
+        "url": "https://www.interactivebrokers.com/en/index.php?f=1564",
+        "agreement_name": "IBKR Market Data & Analytics Subscriber Agreement (Form 1564)",
+        "effective_date": "Current published terms (verified 2026)",
+        "exact_language_key_finding": "Automated algorithmic consumption is classified as Non-Display Use under exchange rules and requires explicit non-display declaration. Inactivity or termination mandates immediate data destruction."
+      }
+    },
+    "artifact_rights_classification": [
+      {
+        "guardian_artifact_category": "Raw Vendor Bar Archives (tiingo_cache/)",
+        "tiingo_starter": "PROHIBITED UNDER PUBLISHED TERMS",
+        "tiingo_power": "CONDITIONAL (active subscription only)",
+        "massive_developer": "PROHIBITED UNDER PUBLISHED TERMS",
+        "alpaca_algotrader": "PROHIBITED UNDER PUBLISHED TERMS",
+        "ibkr_tws": "PROHIBITED UNDER PUBLISHED TERMS",
+        "compliance_action": "Strictly excluded via .gitignore; purgable via script without altering Git history."
+      },
+      {
+        "guardian_artifact_category": "Derived Portfolio Weights & Allocation Signals",
+        "tiingo_starter": "PROHIBITED UNDER PUBLISHED TERMS",
+        "tiingo_power": "CONDITIONAL (requires verified plan addendum)",
+        "massive_developer": "PROHIBITED UNDER PUBLISHED TERMS (requires non-display license)",
+        "alpaca_algotrader": "VERIFIED PERMITTED",
+        "ibkr_tws": "CONDITIONAL (requires non-display declaration)",
+        "compliance_action": "Tracked in private research repo; open-source publication contains code only."
+      },
+      {
+        "guardian_artifact_category": "Execution Journals & Audit Nonces (JSONL)",
+        "tiingo_starter": "PROHIBITED UNDER PUBLISHED TERMS",
+        "tiingo_power": "CONDITIONAL",
+        "massive_developer": "CONDITIONAL",
+        "alpaca_algotrader": "VERIFIED PERMITTED",
+        "ibkr_tws": "VERIFIED PERMITTED",
+        "compliance_action": "Proprietary accounting work product; exempt from source data purge mandates."
+      },
+      {
+        "guardian_artifact_category": "Statistical Test Ledgers & Power Matrices",
+        "tiingo_starter": "PROHIBITED UNDER PUBLISHED TERMS",
+        "tiingo_power": "CONDITIONAL",
+        "massive_developer": "PROHIBITED UNDER PUBLISHED TERMS",
+        "alpaca_algotrader": "VERIFIED PERMITTED",
+        "ibkr_tws": "VERIFIED PERMITTED",
+        "compliance_action": "Pure derived mathematical analytics."
+      },
+      {
+        "guardian_artifact_category": "Public Open-Source Git Commits",
+        "tiingo_starter": "PROHIBITED UNDER PUBLISHED TERMS",
+        "tiingo_power": "PROHIBITED UNDER PUBLISHED TERMS",
+        "massive_developer": "PROHIBITED UNDER PUBLISHED TERMS",
+        "alpaca_algotrader": "PROHIBITED UNDER PUBLISHED TERMS",
+        "ibkr_tws": "PROHIBITED UNDER PUBLISHED TERMS",
+        "compliance_action": "Zero raw vendor bars or real-time quotes may ever be committed to a public Git repository."
+      }
+    ],
+    "owner_decision_status": {
+      "decision_id": "DEC-02",
+      "status": "STRICTLY_BLOCKED",
+      "rationale": "Because Massive default terms explicitly prohibit non-display investment strategy generation, and Tiingo Starter prohibits persistent storage of derived products, DEC-02 cannot be unblocked until the owner executes an authorized subscription tier with verified contractual rights."
+    }
+  }
+}

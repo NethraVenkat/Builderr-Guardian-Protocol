@@ -1,0 +1,87 @@
+{
+  "checklist_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G-R - Owner Authorization Decision Register",
+    "timestamp_utc": "2026-10-24T12:30:00Z",
+    "stage": "Stage 2G-R",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "current_status": "ACTIVATION_STRICTLY_BLOCKED_PENDING_OWNER_SIGN_OFF"
+  },
+  "decisions_required_from_human_owner": [
+    {
+      "decision_id": "DEC-01",
+      "topic": "Selection of Prospective Market Data Feed Provider",
+      "options": ["Tiingo EOD Personal API", "Polygon.io Starter Plan", "Alpaca Markets Paper Data", "Interactive Brokers Client Portal"],
+      "status": "PENDING_OWNER_DECISION",
+      "action_required": "Human owner must choose and contract with a licensed data vendor."
+    },
+    {
+      "decision_id": "DEC-02",
+      "topic": "Approval of Vendor Terms of Service for Private Research",
+      "options": ["Approve internal caching & modeling rights", "Reject and select alternative vendor"],
+      "status": "PENDING_OWNER_DECISION",
+      "action_required": "Human owner must independently verify and accept vendor ToS."
+    },
+    {
+      "decision_id": "DEC-03",
+      "topic": "Formal Approval of Paired Downside Shortfall Primary Endpoint",
+      "specification": "theta_def = E[max(0, -R_E0,t) - max(0, -R_D2,t) | t in T_def] > 0 with alpha=0.05 and CAGR non-inferiority within 2.0%",
+      "status": "PENDING_OWNER_DECISION",
+      "action_required": "Human owner must formally approve the mathematical endpoint and non-inferiority margin."
+    },
+    {
+      "decision_id": "DEC-04",
+      "topic": "Approval of Minimum Observation Horizon and Defensive Sample Size",
+      "specification": "252 trading sessions with at least 30 verified defensive sessions; underpowered outcomes classified as INCONCLUSIVE",
+      "status": "PENDING_OWNER_DECISION",
+      "action_required": "Human owner must approve the sample size and power requirements."
+    },
+    {
+      "decision_id": "DEC-05",
+      "topic": "Approval of Stopping and Circuit Breaker Rules",
+      "specification": "Pause at 20.0% drawdown, immediate halt on any invariant breach or negative cash",
+      "status": "PENDING_OWNER_DECISION",
+      "action_required": "Human owner must approve risk limits and stop-loss criteria."
+    },
+    {
+      "decision_id": "DEC-06",
+      "topic": "Execution of Signed Cryptographic Paper-Activation Token",
+      "specification": "Generate token with owner_name, signed_utc, target_commit=b283ded200c777b130285b0aa56a0b044afbd339, feed_provider",
+      "status": "BLOCKED_PENDING_DECISIONS_1_THROUGH_5",
+      "action_required": "Human owner signs the token payload."
+    }
+  ],
+  "permanently_forbidden_actions": [
+    {
+      "action": "Live Brokerage Capital Deployment",
+      "status": "PERMANENTLY_PROHIBITED",
+      "governance_rule": "Guardian Alpha is in controlled private research. Live orders with real funds are strictly forbidden."
+    },
+    {
+      "action": "Broker Margin Borrowing",
+      "status": "PERMANENTLY_PROHIBITED",
+      "governance_rule": "Gross notional leverage must not exceed 1.00x; negative cash balance is an immediate fatal fault."
+    },
+    {
+      "action": "Accessing Sealed Tier 3 Historical Observations (>= 2022-01-01)",
+      "status": "PERMANENTLY_PROHIBITED",
+      "governance_rule": "Historical out-of-sample data remains permanently sealed to protect future benchmark integrity."
+    },
+    {
+      "action": "Public Redistribution of Proprietary Data or Code",
+      "status": "PERMANENTLY_PROHIBITED",
+      "governance_rule": "Repository remains private and intellectual property protected."
+    },
+    {
+      "action": "Automatic Substitution of Frozen E0 Production Agent",
+      "status": "PERMANENTLY_PROHIBITED",
+      "governance_rule": "E0 (agent.py) remains the frozen baseline. Candidate D2 cannot replace E0 without multi-year verified prospective track record."
+    }
+  ],
+  "certification_summary": {
+    "technical_readiness": "PASS",
+    "legal_data_rights": "CONDITIONAL",
+    "human_authorization": "BLOCKED_PENDING_OWNER_SIGN_OFF",
+    "activation_gate_verdict": "BLOCKED"
+  }
+}

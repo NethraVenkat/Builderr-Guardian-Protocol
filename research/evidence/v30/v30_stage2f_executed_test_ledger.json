@@ -1,0 +1,110 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2F - Actual Executed Test Ledger",
+    "version": "1.0.0",
+    "stage": "Stage 2F",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "execution_mode": "FRESH_FULL_STAGE2F_EXECUTION"
+  },
+  "summary": {
+    "total_pytest_tests_collected": 549,
+    "total_pytest_tests_passed": 549,
+    "total_pytest_tests_failed": 0,
+    "total_pytest_tests_skipped": 0,
+    "v30_dedicated_tests_passed": 149,
+    "stage2f_mathematical_tests_passed": 10,
+    "admission_preview_passed": true,
+    "admission_selfcheck_passed": true,
+    "strategy_selftest_passed": true,
+    "all_suites_verdict": "100%_PASS"
+  },
+  "executed_suites": [
+    {
+      "suite_id": "STAGE2F_MATHEMATICAL_VERIFICATION",
+      "command": "python -m pytest research/tests/test_v30_stage2f_mathematical_verification.py",
+      "exit_code": 0,
+      "measured_runtime_seconds": 0.30,
+      "collected_items": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "tests_breakdown": [
+        "test_target_weights_in_agent_code (PASS)",
+        "test_target_gross_exposure_arithmetic (PASS)",
+        "test_euler_risk_contribution_homogeneity (PASS)",
+        "test_march_2020_drawdown_additive_reconciliation (PASS)",
+        "test_dsr_analytical_test_vector_m1 (PASS)",
+        "test_dsr_m43_independent_trials (PASS)",
+        "test_p4_tier1_mdd_value (PASS)",
+        "test_agent_py_hash (PASS)",
+        "test_v12_candidate_ae_hash (PASS)",
+        "test_universe_json_hash (PASS)"
+      ]
+    },
+    {
+      "suite_id": "V30_DEDICATED_SUITE",
+      "command": "python -m pytest -k v30 research/tests/",
+      "exit_code": 0,
+      "measured_runtime_seconds": 2.99,
+      "collected_items": 549,
+      "deselected_items": 400,
+      "executed_items": 149,
+      "passed": 149,
+      "failed": 0,
+      "skipped": 0,
+      "file_breakdown": {
+        "test_v30_execution_safety.py": 8,
+        "test_v30_stage2a_bg_contract_and_robustness.py": 17,
+        "test_v30_stage2a_f_final_acceptance.py": 13,
+        "test_v30_stage2a_r_remediation.py": 13,
+        "test_v30_stage2b_defensive_research.py": 16,
+        "test_v30_stage2c_volatility_gating.py": 23,
+        "test_v30_stage2d_position_sizing.py": 31,
+        "test_v30_stage2d_r_overlay_and_oracle.py": 18,
+        "test_v30_stage2f_mathematical_verification.py": 10
+      }
+    },
+    {
+      "suite_id": "FULL_RESEARCH_SUITE",
+      "command": "python -m pytest research/tests/ --ignore=research/tests/test_e0_release.py",
+      "exit_code": 0,
+      "measured_runtime_seconds": 118.92,
+      "collected_items": 549,
+      "passed": 549,
+      "failed": 0,
+      "skipped": 0,
+      "status": "PASS"
+    },
+    {
+      "suite_id": "LOCAL_ADMISSION_PREVIEW",
+      "command": "python -X utf8 preview.py",
+      "exit_code": 0,
+      "measured_runtime_seconds": 1.45,
+      "passed": true,
+      "safety_bar_checks": {
+        "runs_clean": "PASS",
+        "no_leverage_breach": "PASS (peak gross 0.94x <= 1.5x)",
+        "no_concentration_breach": "PASS (peak 26%; longest run >= 30% was 0d, limit is 5d)",
+        "no_blow_up": "PASS (worst drawdown 33.5% < 50%)"
+      }
+    },
+    {
+      "suite_id": "ADMISSION_SELFCHECK",
+      "command": "python -X utf8 selfcheck.py",
+      "exit_code": 0,
+      "measured_runtime_seconds": 2.15,
+      "passed": true,
+      "verdict": "agent.py loaded and ran 12 steps cleanly. 4 well-formed orders emitted across the run."
+    },
+    {
+      "suite_id": "STRATEGY_SELFTEST",
+      "command": "python -X utf8 strategy_selftest.py",
+      "exit_code": 0,
+      "measured_runtime_seconds": 1.10,
+      "passed": true,
+      "verdict": "8 strategy checks passed."
+    }
+  ]
+}

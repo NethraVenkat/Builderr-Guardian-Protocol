@@ -1,0 +1,61 @@
+{
+  "protocol_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G-R - Revised Prospective Statistical Protocol",
+    "version": "2.0.0",
+    "stage": "Stage 2G-R",
+    "date": "2026-10-24",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "status": "PROPOSED_PENDING_OWNER_AUTHORIZATION",
+    "activation_status": "BLOCKED_PENDING_HUMAN_SIGN_OFF"
+  },
+  "core_research_question": "Does Candidate D2 (50% defensive cash cushion) improve downside risk resilience during defensive regimes compared to Frozen E0, without inflicting an unacceptable penalty on overall annualized return participation?",
+  "primary_endpoint_specification": {
+    "name": "Paired Defensive Downside Shortfall Reduction",
+    "symbol": "theta_def",
+    "unit": "Daily percentage return shortfall (basis points)",
+    "mathematical_definition": "d_t = max(0, -R_{E0, t}) - max(0, -R_{D2, t}) for all t in T_defensive",
+    "formal_null_hypothesis": "H0: theta_def <= 0 (Candidate D2 provides zero or negative reduction in downside daily shortfall relative to E0 during defensive regimes)",
+    "formal_alternative_hypothesis": "H1: theta_def > 0 (Candidate D2 significantly reduces downside loss magnitude during defensive regimes)",
+    "significance_threshold": "alpha = 0.05 (one-sided)",
+    "estimation_method": "Newey-West Heteroskedasticity and Autocorrelation Consistent (HAC) standard error with lag L = floor(4 * (T_def / 100)^(2/9)), cross-validated with 10,000 stationary block bootstrap resamples"
+  },
+  "non_inferiority_secondary_constraint": {
+    "metric": "Full-Horizon Annualized Return (CAGR) Non-Inferiority",
+    "formal_condition": "CAGR(D2) >= CAGR(E0) - delta_tol",
+    "non_inferiority_margin_delta": "2.00% annualized (200 basis points)",
+    "rationale": "Ensures that downside protection during market stress is not achieved at the cost of catastrophic drag during persistent bull market regimes."
+  },
+  "evaluation_horizon_and_sample_size": {
+    "minimum_prospective_sessions": 252,
+    "minimum_defensive_sessions_required": 30,
+    "underpowered_outcome_policy": "If the forward window experiences fewer than 30 defensive regime trading sessions, the primary endpoint is formally classified as INCONCLUSIVE due to inadequate stress sample size. No promotional decision may be made on underpowered data."
+  },
+  "historical_selection_bias_acknowledgment": {
+    "prospective_trials_count": 1,
+    "historical_candidate_trials_count": 43,
+    "governance_disclosure": "While M=1 strictly governs the prospective forward evaluation hypothesis testing, M=1 DOES NOT erase the extensive historical candidate search (C1-C4, D1-D3, P1-P4, AE variants) through which D2 was originally identified. Prospective evaluation constitutes an independent out-of-sample test of an already optimized candidate, and results must be evaluated with appropriate Bayesian shrinkage reflecting prior selection multiplicity."
+  },
+  "supplementary_metrics": [
+    {
+      "metric": "Downside Semi-Deviation Ratio",
+      "formula": "DSD(D2) / DSD(E0)",
+      "target": "< 1.00"
+    },
+    {
+      "metric": "Realized Peak-to-Trough Drawdown Differential",
+      "formula": "MaxDD(D2) - MaxDD(E0)",
+      "target": "< 0.00"
+    },
+    {
+      "metric": "Deflated Sharpe Ratio (Supplementary Telemetry Only)",
+      "threshold": ">= 0.95",
+      "caveat": "DSR is treated strictly as secondary sanity telemetry, not as a substitute for the primary paired daily shortfall hypothesis."
+    }
+  ],
+  "stopping_and_circuit_breaker_rules": {
+    "drawdown_stop": "If either E0 or D2 experiences a peak-to-trough drawdown exceeding 20.0%, evaluation is paused for mandatory human audit.",
+    "balance_sheet_fault_stop": "Any single invariant breach, negative cash balance, or non-zero margin debt halts evaluation permanently.",
+    "divergence_stop": "If CAGR(D2) falls more than 5.0% below CAGR(E0) at any quarterly review, evaluation is paused for review."
+  }
+}

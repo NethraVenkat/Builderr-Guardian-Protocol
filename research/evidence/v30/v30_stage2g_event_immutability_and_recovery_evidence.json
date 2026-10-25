@@ -1,0 +1,62 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G - Event Immutability & State Recovery Evidence",
+    "version": "1.0.0",
+    "stage": "Stage 2G",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339"
+  },
+  "immutability_and_recovery_audits": [
+    {
+      "audit_id": "IMMUT-01",
+      "test_name": "Point-in-Time Causality & No-Lookahead Invariant",
+      "verification_method": "Truncated market_state slicing (market_state[t] contains bars strictly <= t).",
+      "status": "PASS",
+      "evidence": "Every decision slice is verified to contain zero future dates. SMA and momentum indicators are calculated exclusively from backward-looking rolling windows."
+    },
+    {
+      "audit_id": "IMMUT-02",
+      "test_name": "Execution Event Separation",
+      "verification_method": "Orders emitted at session T close cannot execute at T close; they are queued and execute at open T+1.",
+      "status": "PASS",
+      "evidence": "Verified across ReplayEngine and synthetic runner: all fills take open price of T+1."
+    },
+    {
+      "audit_id": "IMMUT-03",
+      "test_name": "Event Idempotence & Deduplication",
+      "verification_method": "Scenario 17 exercises delivery of identical duplicate bars with same timestamp.",
+      "status": "PASS",
+      "evidence": "Duplicate events are identified and discarded idempotently by timestamp deduplication guard, preventing duplicate trades or double counting."
+    },
+    {
+      "audit_id": "IMMUT-04",
+      "test_name": "Safe Handling of Corrupt Observations",
+      "verification_method": "Scenario 16 exercises injection of negative price bar (open -10, close -10).",
+      "status": "PASS",
+      "evidence": "Sanitization guard drops non-positive price observations; portfolio preserves previous valid close; zero crashes or accounting corruptions."
+    },
+    {
+      "audit_id": "IMMUT-05",
+      "test_name": "Process Interruption and Safe Resumption",
+      "verification_method": "Scenario 15 serializes PortfolioState (cash, positions, cost basis, dividends) to JSON, restarts process, and mark-to-markets resumed state.",
+      "status": "PASS",
+      "evidence": "Resumed portfolio state matches pre-interruption NAV to 1e-9 relative tolerance ($0.00 residual)."
+    },
+    {
+      "audit_id": "IMMUT-06",
+      "test_name": "Revision Event Append-Only Audit Trail",
+      "verification_method": "Scenario 19 simulates an amended corporate action (split ratio revision from 2:1 to 4:1).",
+      "status": "PASS",
+      "evidence": "Historical entries are not silently overwritten; revision is applied as a distinct transaction event preserving historical auditability."
+    },
+    {
+      "audit_id": "IMMUT-07",
+      "test_name": "Simulated Clock Independence & Network Isolation",
+      "verification_method": "Audited all runtime modules for datetime.now(), live sockets, or background network calls.",
+      "status": "PASS",
+      "evidence": "Clock is 100% driven by explicit bar timestamp strings. Zero network calls occur during replay."
+    }
+  ],
+  "certification_verdict": "CERTIFIED_IMMUTABLE_AND_RECOVERABLE"
+}

@@ -1,0 +1,123 @@
+{
+  "audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Independent Decimal Accounting Oracle Verification",
+    "timestamp_utc": "2026-10-24T12:47:00Z",
+    "auditor_role": "Independent Financial Accounting Verification Engineer",
+    "status": "DOUBLE_ENTRY_ACCOUNTING_VERIFIED_ZERO_RESIDUAL"
+  },
+  "accounting_equations_formulation": {
+    "balance_sheet_identity": "Equity_t = Total_Assets_t - Total_Liabilities_t",
+    "total_assets_definition": "Total_Assets_t = Settled_Cash_t + Unsettled_Cash_Receivables_t + Dividend_Receivables_t + Sum(Shares_i,t * Price_i,t)",
+    "total_liabilities_definition": "Total_Liabilities_t = Trade_Payables_t + Pending_Fee_Obligations_t",
+    "economic_flow_identity": "Equity_t = Initial_Equity + Net_External_Cash_Flows + Realized_PnL_cum + Sum(Unrealized_PnL_i,t) - Cumulative_Fees + Cumulative_Dividends",
+    "verification_tolerance": "0.0001 USD (Zero tolerance under 4-decimal currency and 8-decimal share precision)"
+  },
+  "adversarial_scenarios_verified": [
+    {
+      "scenario_id": "SCEN_01_INITIAL_STATE",
+      "description": "Clean initial account opening with $100,000 cash.",
+      "total_assets": 100000.0,
+      "total_liabilities": 0.0,
+      "balance_sheet_equity": 100000.0,
+      "economic_flow_equity": 100000.0,
+      "residual": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "SCEN_02_BUY_RESERVATION_AND_EXECUTION",
+      "description": "50k buy reservation followed by 100 SPY purchase at $450 with 5 bps slippage and $1.00 fee.",
+      "total_assets": 100476.5,
+      "total_liabilities": 0.0,
+      "balance_sheet_equity": 100476.5,
+      "economic_flow_equity": 100476.5,
+      "residual": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "SCEN_03_DIVIDEND_RECEIVABLE",
+      "description": "Ex-date dividend of $1.50/share credited to Dividend Receivables ($150.00) pending payment.",
+      "total_assets": 100626.5,
+      "total_liabilities": 0.0,
+      "balance_sheet_equity": 100626.5,
+      "economic_flow_equity": 100626.5,
+      "residual": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "SCEN_04_SELL_WITH_T1_UNSETTLED_RECEIVABLE",
+      "description": "Sale of 50 SPY at $460 with 5 bps slippage, proceeds moved to Unsettled Cash Receivables.",
+      "total_assets": 100964.0,
+      "total_liabilities": 0.0,
+      "balance_sheet_equity": 100964.0,
+      "economic_flow_equity": 100964.0,
+      "residual": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "SCEN_05_STOCK_SPLIT_2_FOR_1",
+      "description": "2:1 forward split doubles remaining SPY shares to 100, halves cost basis to $225.1125.",
+      "total_assets": 100964.0,
+      "total_liabilities": 0.0,
+      "balance_sheet_equity": 100964.0,
+      "economic_flow_equity": 100964.0,
+      "residual": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "SCEN_06_RECEIVABLES_SETTLEMENT",
+      "description": "Clearing of unsettled trade receivables and dividend receivables into settled cash.",
+      "total_assets": 100964.0,
+      "total_liabilities": 0.0,
+      "balance_sheet_equity": 100964.0,
+      "economic_flow_equity": 100964.0,
+      "residual": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "SCEN_07_ADVERSARIAL_LIABILITY_INJECTION",
+      "description": "Injection of $25.00 exchange fee liability into Trade Payables.",
+      "total_assets": 100964.0,
+      "total_liabilities": 25.0,
+      "balance_sheet_equity": 100939.0,
+      "economic_flow_equity": 100939.0,
+      "residual": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "SCEN_08_LIABILITY_DISCHARGE",
+      "description": "Payment of $25.00 liability using settled cash.",
+      "total_assets": 100939.0,
+      "total_liabilities": 0.0,
+      "balance_sheet_equity": 100939.0,
+      "economic_flow_equity": 100939.0,
+      "residual": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "SCEN_09_REJECTED_SHORT_SELL_ATTEMPTS",
+      "description": "Adversarial short sell attempts on unheld QQQ and excess SPY rejected cleanly; ledger invariant.",
+      "total_assets": 100939.0,
+      "total_liabilities": 0.0,
+      "balance_sheet_equity": 100939.0,
+      "economic_flow_equity": 100939.0,
+      "residual": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "scenario_id": "SCEN_10_REJECTED_CASH_OVERDRAW_BUY",
+      "description": "Adversarial 10k share buy exceeding spendable cash rejected; zero state corruption.",
+      "total_assets": 100939.0,
+      "total_liabilities": 0.0,
+      "balance_sheet_equity": 100939.0,
+      "economic_flow_equity": 100939.0,
+      "residual": 0.0,
+      "verdict": "PASS"
+    }
+  ],
+  "accounting_rules_confirmed": {
+    "zero_liability_case": "Under instantaneous clearing (standard backtest), Liabilities = 0 and Equity = Assets.",
+    "general_case": "Under multi-day settlement or fee obligations, Equity = Assets - Liabilities holds universally.",
+    "cash_reservation_safety": "Spendable cash strictly excludes reserved amounts, preventing intra-session cash deficit.",
+    "short_selling_ban": "Strictly verified: orders on unheld assets reject immediately without share or cash mutation."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "backup_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R2 - Private Backup Reconciliation",
+    "timestamp_utc": "2026-10-24T16:00:00Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "auditor_role": "Portfolio Risk & Evidence Custody Specialist"
+  },
+  "status": "PLAN COMPLETE",
+  "backup_execution": "BACKUP NOT EXECUTED",
+  "restore_verification": "RESTORE NOT VERIFIED",
+  "declarations": {
+    "plan_status": "PLAN COMPLETE",
+    "execution_status": "BACKUP NOT EXECUTED",
+    "verification_status": "RESTORE NOT VERIFIED"
+  },
+  "reconciliation_details": {
+    "private_backup_coverage": [
+      {
+        "target": "tiingo_cache/",
+        "content_description": "Raw Tier 3 holdout market data cache (2023-2026)",
+        "governance_classification": "RESTRICTED_MARKET_DATA",
+        "disposition": "DESIGNATED_FOR_ENCRYPTED_OFFSITE_BACKUP_UNDER_HUMAN_AUTHORIZATION",
+        "git_staging_status": "EXCLUDED_FROM_GIT",
+        "execution_status": "NOT EXECUTED"
+      },
+      {
+        "target": "complete_research_evidence_snapshot",
+        "content_description": "Complete research directory snapshot (198 untracked research artifacts)",
+        "governance_classification": "PRIVATE_RESEARCH_EVIDENCE",
+        "disposition": "PRESERVED_VIA_LOCAL_GIT_ARCHIVE_BRANCH_AND_OPTIONAL_OFFSITE_BACKUP",
+        "git_staging_status": "PROPOSED_FOR_LOCAL_GIT_ARCHIVAL_BRANCH",
+        "execution_status": "PENDING_HUMAN_APPROVAL"
+      }
+    ],
+    "human_authorization_mandate": "No backup archive creation, external transmission, or restore test may occur without explicit human owner command."
+  }
+}

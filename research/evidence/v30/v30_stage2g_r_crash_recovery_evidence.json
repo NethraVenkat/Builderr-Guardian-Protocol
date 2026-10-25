@@ -1,0 +1,14 @@
+{
+  "crash_recovery_audit": "PASS",
+  "valid_snapshot_reconstruction": true,
+  "corrupt_snapshot_rejection": true,
+  "truncated_journal_detection": true,
+  "uncommitted_crash_safety": true,
+  "state_parity": {
+    "cash_agreement": true,
+    "positions_agreement": true,
+    "watermark_agreement": true,
+    "dividends_credited_agreement": true
+  },
+  "snapshot_hash": "1369e206bccfd8a9688c72b40e3335e7dd887eadd02c91e81322c5946c9a1180"
+}

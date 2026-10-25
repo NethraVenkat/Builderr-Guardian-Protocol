@@ -1,0 +1,70 @@
+{
+  "manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R - Artifact Checksum and Provenance Manifest",
+    "timestamp_utc": "2026-10-24T15:30:14.240302+00:00",
+    "auditor_role": "Independent Quantitative Systems Auditor & Digital Evidence Specialist",
+    "total_artifacts": 12
+  },
+  "artifacts": {
+    "research/evidence/v30/v30_stage2h_c_r_artifact_disposition_ledger.json": {
+      "size_bytes": 3580,
+      "sha256_raw": "bf1a54211a1cf9d945680d0115f4ac1f40aba28f080db9fad10fb308a743853b",
+      "sha256_lf": "7295e705afa182f6831f7e8127eebab892518f26b82e09b783454e9c6748ca59"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_chain_of_custody_matrix.json": {
+      "size_bytes": 12372,
+      "sha256_raw": "0f0e56d89450aa5fbb29bffe7b842608f4c86d510db9479ef8c6c8f241a01285",
+      "sha256_lf": "371fa688a1bf05b78ba144826c79d2ac8dd5b309418b28cc4f486d9b604204d4"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_executed_test_ledger.json": {
+      "size_bytes": 2792,
+      "sha256_raw": "1f32f884b381804df8e759fe9cc6e5f4a52beec626911c96d42d6d71bbfc2c8a",
+      "sha256_lf": "1f32f884b381804df8e759fe9cc6e5f4a52beec626911c96d42d6d71bbfc2c8a"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_fresh_workspace_inventory.json": {
+      "size_bytes": 96095,
+      "sha256_raw": "433e79422a605e6de1253ae74e614bb48c6703641313a014e7eea07b6c8bd182",
+      "sha256_lf": "be1ee46a34046f805f36ee754a6e381c24dcc947caf16a66237808f4ec964c62"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_frozen_source_verification.json": {
+      "size_bytes": 1760,
+      "sha256_raw": "8714d45b84e2e777461a56a305af0425d6784d2e4f36acdf57d32be34441a6fa",
+      "sha256_lf": "24b67c69f6f449ca60607ea79065ca31a7a87ee71aa3c36f87bf674b2ef1104a"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_human_powershell_instructions.json": {
+      "size_bytes": 13496,
+      "sha256_raw": "bbe2ede008175c44402e9ae72b171913695963fc929fa41f383748b65af09e23",
+      "sha256_lf": "a7286ef1614a4e39d65d0381919ef7dbbebe886412f786189b741e54783cdd66"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_inventory_comparison.json": {
+      "size_bytes": 1973,
+      "sha256_raw": "8f0777da02fb2c8821d5dd8d58888421e061961e16d8b85d0aec08c8301c8a4b",
+      "sha256_lf": "e134a122de776997546d8ea56fc214797b5c43143d5de9832e42754d0e11f63f"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_omitted_artifact_register.json": {
+      "size_bytes": 64632,
+      "sha256_raw": "dce2517dd545199ee8581229e445f33d6a78f7bef3da2e2598377fac131f5e0c",
+      "sha256_lf": "055376dc2b69b20d979499ddcbf5feea1668f4c15e754e645662478ff8fa6663"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_private_backup_manifest.json": {
+      "size_bytes": 1435,
+      "sha256_raw": "0a548d6bf54b548290d4f9ea29dda72fa686c234fa8ef2310ce2b6e45ade3504",
+      "sha256_lf": "55e2c562f1c226b54899745641bb7f487c8662ed41f50f7a6721016262729caa"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_proposed_git_staging_manifest.json": {
+      "size_bytes": 12969,
+      "sha256_raw": "dd86921bbaefb9b4b29cde9a07ef8a4eef382f7166a11e2585e816f9eb11ab8e",
+      "sha256_lf": "0c64d3a50f1aa4a1927fe909bd850e1656559b1487071faf721f7047ee096ab4"
+    },
+    "research/evidence/v30/v30_stage2h_c_r_reproducibility_completeness.json": {
+      "size_bytes": 1977,
+      "sha256_raw": "92411ea22e1d11c1a8aa79a0b280304d8e4ec60339e0997903bf72310a8ae4db",
+      "sha256_lf": "c25938cb2e81eb18059992dea504e5a80e627d531acfc3ae93615638e9f583ba"
+    },
+    "research/tests/test_v30_stage2h_c_r_manifest_validation.py": {
+      "size_bytes": 6211,
+      "sha256_raw": "b39f7e5c96700f216dc0e136da9401e9bf629b585a1dbf23919b4077d00df29d",
+      "sha256_lf": "b39f7e5c96700f216dc0e136da9401e9bf629b585a1dbf23919b4077d00df29d"
+    }
+  }
+}

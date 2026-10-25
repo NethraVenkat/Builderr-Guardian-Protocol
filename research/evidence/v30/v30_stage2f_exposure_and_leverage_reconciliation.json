@@ -1,0 +1,122 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2F - Exposure and Leverage Reconciliation",
+    "version": "1.0.0",
+    "stage": "Stage 2F",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "strategy_reference": "Frozen E0 (agent.py / v12_candidate_ae.py)"
+  },
+  "executive_reconciliation": {
+    "disputed_claim": "QLD + SSO represents 30% of nominal capital delivering 130% gross exposure.",
+    "formal_status": "EXPLICITLY_RETRACTED_AS_UNSUPPORTED",
+    "authoritative_findings": {
+      "target_qld_nominal_weight": 0.11,
+      "target_sso_nominal_weight": 0.07,
+      "target_combined_overlay_weight": 0.18,
+      "target_single_stock_equities_budget": 0.76,
+      "target_cash_buffer": 0.06,
+      "target_gross_economic_index_exposure": 1.12,
+      "brokerage_margin_borrowing": 0.00,
+      "observed_peak_gross_exposure_tier2": 1.1668,
+      "observed_peak_gross_exposure_tier1": 1.1785,
+      "time_weighted_average_gross_exposure_tier2": 0.9842,
+      "time_weighted_average_gross_exposure_tier1": 0.8924
+    }
+  },
+  "dimensions_of_exposure": {
+    "A_target_allocation_weights": {
+      "formula": "w_target(asset) from agent.decide()",
+      "units": "Fraction of portfolio equity (dimensionless)",
+      "time_basis": "Point-in-time signal generation at market close for next-day open execution",
+      "values": {
+        "QLD": 0.1100,
+        "SSO": 0.0700,
+        "combined_overlay": 0.1800,
+        "single_stocks_equities_total": 0.7600,
+        "single_stock_target_per_stock_N5": 0.1520,
+        "unallocated_target_cash": 0.0600
+      },
+      "code_provenance": "agent.py:228-235",
+      "classification": "TARGET_SPECIFIED_IN_CODE"
+    },
+    "B_actual_portfolio_market_value_weights": {
+      "formula": "(shares_i * close_price_i) / total_equity",
+      "units": "Percentage of marked NAV",
+      "time_basis": "Daily market close across trading timeline",
+      "tier2_empirical": {
+        "overlay_average_active_weight": 0.1784,
+        "overlay_peak_weight": 0.2085,
+        "overlay_trough_weight_active": 0.1422,
+        "single_stocks_average_weight": 0.7621,
+        "cash_average_weight_risk_on": 0.0595
+      },
+      "tier1_empirical": {
+        "overlay_average_active_weight": 0.1772,
+        "overlay_peak_weight": 0.2142,
+        "overlay_trough_weight_active": 0.1388,
+        "single_stocks_average_weight": 0.7588,
+        "cash_average_weight_risk_on": 0.0640
+      },
+      "classification": "OBSERVED_HISTORICAL_HOLDINGS"
+    },
+    "C_embedded_2x_index_equivalent_exposure": {
+      "formula": "sum(w_etf * leverage_multiplier) where multiplier = 2.0",
+      "units": "Notional market index delta as fraction of NAV",
+      "time_basis": "Daily",
+      "target_value": 0.3600,
+      "observed_average_active_tier2": 0.3568,
+      "observed_peak_active_tier2": 0.4170,
+      "observed_average_active_tier1": 0.3544,
+      "observed_peak_active_tier1": 0.4284,
+      "explanation": "Because QLD delivers 2x daily NDX and SSO delivers 2x daily SPX, an 18% nominal allocation provides 36% economic index-equivalent exposure.",
+      "classification": "DERIVED_ECONOMIC_EXPOSURE"
+    },
+    "D_beta_adjusted_factor_equivalent_exposure": {
+      "formula": "sum(w_i * beta_i_to_SPY)",
+      "units": "SPY-equivalent beta loading",
+      "time_basis": "Daily",
+      "assumed_betas": {
+        "single_stock_tech_equities": 1.25,
+        "QLD_NDX_2x": 2.20,
+        "SSO_SPX_2x": 2.00
+      },
+      "target_beta_loading": "0.76 * 1.25 + 0.11 * 2.20 + 0.07 * 2.00 = 0.950 + 0.242 + 0.140 = 1.332",
+      "realized_portfolio_beta_tier2": 1.3400,
+      "realized_portfolio_beta_tier1": 1.2100,
+      "classification": "FACTOR_MODEL_ESTIMATE"
+    },
+    "E_gross_account_market_exposure": {
+      "formula": "(sum(|notional_i| * leverage_multiplier_i)) / total_equity",
+      "units": "Multiple of NAV (ratio)",
+      "target_value": 1.1200,
+      "tier2_peak": 1.1668,
+      "tier1_peak": 1.1785,
+      "tier2_time_weighted_average": 0.9842,
+      "tier1_time_weighted_average": 0.8924,
+      "explanation": "During Risk-On, target gross exposure is 1.12x (0.76 + 0.36). With price drift, it peaks at ~1.17x. During Risk-Off, gross exposure is 1.00x in E0 (or 0.50x in D2).",
+      "classification": "AUDITED_PORTFOLIO_METRIC"
+    },
+    "F_margin_financed_leverage": {
+      "formula": "max(0, -cash) / total_equity",
+      "units": "Dollar value of broker debt",
+      "value": 0.00,
+      "explanation": "Guardian Alpha operates exclusively as a fully paid cash account. Zero broker borrowing, zero margin interest, and zero Reg T leverage are incurred. All daily leverage is internal to the ETF derivative structure.",
+      "classification": "VERIFIED_ACCOUNTING_INVARIANT"
+    },
+    "G_observed_peak_vs_target_vs_twa": {
+      "comparison_table": {
+        "metric": ["Target Gross Exposure", "Observed Peak Tier 2", "Observed Peak Tier 1", "Time-Weighted Avg Tier 2", "Time-Weighted Avg Tier 1"],
+        "reported_in_stage2e": [1.3000, 1.1668, 1.1785, "Not reported", "Not reported"],
+        "reconciled_stage2f": [1.1200, 1.1668, 1.1785, 0.9842, 0.8924],
+        "delta": [-0.1800, 0.0000, 0.0000, "Appended", "Appended"]
+      },
+      "classification": "HARMONIZED_AUDIT_TABLE"
+    },
+    "H_risk_contribution_distinction": {
+      "explanation": "Nominal capital weight (18%), embedded index exposure (36%), and percentage volatility risk contribution (14.6% to 27.5%) represent fundamentally distinct financial concepts. Confusing nominal capital with economic exposure or risk contribution was the root cause of the Stage 2E overstatements.",
+      "classification": "METHODOLOGICAL_BOUNDARY"
+    }
+  }
+}

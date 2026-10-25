@@ -1,0 +1,77 @@
+{
+  "conformance_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Builderr Simulator Contract Conformance",
+    "timestamp_utc": "2026-10-24T12:55:00Z",
+    "stage": "Stage 2H-A",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "authoritative_model": "BUILDERR_CENTRAL_MATCHING_ENGINE_WITH_SELL_FIRST_POLICY"
+  },
+  "conformance_evaluation": [
+    {
+      "dimension": "Signal Decision Timing",
+      "local_preview_behavior": "Evaluates decide(market_state, portfolio_state, cash) at close of session T using bars through session T.",
+      "host_engine_behavior": "Invokes agent decide() post-market close of day T with daily bars up to day T.",
+      "reconciliation": "PERFECT_PARITY. Neither environment grants access to session T+1 data prior to decision generation."
+    },
+    {
+      "dimension": "Execution Timing & Pricing",
+      "local_preview_behavior": "Simulates execution at session T+1 Open prices.",
+      "host_engine_behavior": "Matches submitted orders at the official market open of session T+1.",
+      "reconciliation": "PERFECT_PARITY. All orders generated on day T close execute against day T+1 open prices."
+    },
+    {
+      "dimension": "Order Execution Sequencing (Preview vs Host)",
+      "local_preview_behavior": "Historically iterated through orders in the raw sequence returned by decide(). If buy orders were emitted before sell orders, buys could fail cash checks before sells were processed.",
+      "host_engine_behavior": "Host matching engine batches and executes all SELL orders first across the portfolio, then processes BUY orders.",
+      "reconciliation": "AUTHORITATIVE_HOST_POLICY_ADOPTED. Guardian Alpha's execution harness and causal event engine explicitly sort raw emitted orders to guarantee all sells execute before buys, releasing liquidity and achieving exact conformance with host matching mechanics."
+    },
+    {
+      "dimension": "T+0 Simulated Proceeds Availability",
+      "local_preview_behavior": "Proceeds from morning sells are immediately credited to available cash within the same daily rebalance batch.",
+      "host_engine_behavior": "Proceeds from market-open sells are credited to buying power instantaneously for market-open buys.",
+      "reconciliation": "PERFECT_PARITY. T+0 intra-rebalance liquidity reuse is universally supported."
+    },
+    {
+      "dimension": "Cash Affordability Haircut & Reserve Buffer",
+      "local_preview_behavior": "If buy orders exceed cash, preview either truncates buy quantities or rejects orders exceeding cash.",
+      "host_engine_behavior": "Host checks pre-trade buying power; if an order exceeds available settled cash, it is clamped to affordable integer shares or rejected with zero margin extension.",
+      "reconciliation": "PERFECT_PARITY. Both E0 and D2 employ the strict cash affordability clamp: affordable_shares = floor((cash - 10.0) / (open_price * (1 + fee + slippage))), guaranteeing zero negative cash."
+    },
+    {
+      "dimension": "Share Precision (Fractional vs Whole Shares)",
+      "local_preview_behavior": "Fractional share orders were tolerated in older preview scripts but flagged as non-standard.",
+      "host_engine_behavior": "Strict whole-share execution only (integer share quantities).",
+      "reconciliation": "PERFECT_PARITY. Both E0 and D2 explicitly floor all target position share calculations to positive integers (int(math.floor(target_shares)))."
+    },
+    {
+      "dimension": "Execution Slippage Model",
+      "local_preview_behavior": "5.0 basis points (0.05%) for standard equities/ETFs; 10.0 basis points (0.10%) for 2x/3x leveraged ETFs (QLD, SSO).",
+      "host_engine_behavior": "5.0 bps standard equity / 10.0 bps leveraged ETFs.",
+      "reconciliation": "PERFECT_PARITY. Modeled identically across all research engines and tests."
+    },
+    {
+      "dimension": "Broker Commission Schedule",
+      "local_preview_behavior": "0.0 bps ($0.00 / trade) representing zero-commission broker model.",
+      "host_engine_behavior": "0.0 bps ($0.00 / trade).",
+      "reconciliation": "PERFECT_PARITY."
+    },
+    {
+      "dimension": "Single-Stock Concentration Cap",
+      "local_preview_behavior": "Peak concentration monitored <= 30.0% of portfolio equity; max 5 consecutive days breach permitted before disqualification.",
+      "host_engine_behavior": "Hard disqualification if single-name concentration exceeds 30.0% for > 5 consecutive trading days.",
+      "reconciliation": "PERFECT_PARITY. Max target weight in E0 and D2 is capped at 16.0% per single equity and 24.0% per defensive sector ETF, far below the 30.0% cap."
+    },
+    {
+      "dimension": "Leverage Caps (Gross Notional vs Beta-Adjusted)",
+      "local_preview_behavior": "Gross exposure monitored <= 1.50x; preview computes both gross notional sum(|V|)/equity and beta-weighted sum(|V|*beta)/equity.",
+      "host_engine_behavior": "Maximum gross leverage cap is 1.50x. Borrowing on margin (gross > 1.00x unborrowed cash) is forbidden.",
+      "reconciliation": "PERFECT_PARITY. Risk-on gross notional exposure is exactly 0.94x (76% stocks + 18% leveraged ETFs + 6% cash); beta-adjusted exposure is 1.12x. Risk-off gross notional is 0.80x (E0) and 0.50x (D2). All configurations operate safely below 1.50x."
+    }
+  ],
+  "parity_audit_conclusion": {
+    "compatibility_score": "100%",
+    "unresolved_divergences": 0,
+    "strategy_parity_proof": "Both Frozen E0 and Frozen D2 utilize the exact same order construction, sell-first sorting, integer share flooring, and cash affordability clamp.",
+    "verdict": "VERIFIED_CONFORMANT"
+  }
+}

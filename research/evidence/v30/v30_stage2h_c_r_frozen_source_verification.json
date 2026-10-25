@@ -1,0 +1,40 @@
+{
+  "verification_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R - Frozen Protected Source Verification",
+    "timestamp_utc": "2026-10-24T15:25:21.729828+00:00",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "auditor_role": "Independent Quantitative Systems Auditor",
+    "verdict": "PASS_ALL_HASHES_MATCH_EXACTLY"
+  },
+  "verified_sources": {
+    "agent.py": {
+      "expected_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "actual_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "mode": "RAW_BINARY",
+      "size_bytes": 12952,
+      "status": "BIT_FOR_BIT_MATCH"
+    },
+    "universe.json": {
+      "expected_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "actual_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "mode": "LF_NORMALIZED",
+      "size_bytes": 11486,
+      "status": "BIT_FOR_BIT_MATCH"
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "expected_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "actual_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "mode": "LF_NORMALIZED",
+      "size_bytes": 8459,
+      "status": "BIT_FOR_BIT_MATCH"
+    },
+    "research/strategies/v30_candidate_d2_cash_cushion.py": {
+      "expected_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "actual_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "mode": "RAW_BINARY",
+      "size_bytes": 5496,
+      "status": "BIT_FOR_BIT_MATCH"
+    }
+  }
+}

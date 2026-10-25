@@ -1,0 +1,130 @@
+{
+  "specification_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G - Synthetic Scenario Specifications",
+    "version": "1.0.0",
+    "date": "2026-10-24",
+    "scenarios_count": 20
+  },
+  "scenario_definitions": [
+    {
+      "scenario_id": 1,
+      "name": "Calm uptrend",
+      "description": "Mathematical synthetic regime testing Calm uptrend",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 2,
+      "name": "Abrupt crash",
+      "description": "Mathematical synthetic regime testing Abrupt crash",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 3,
+      "name": "Gradual market decline",
+      "description": "Mathematical synthetic regime testing Gradual market decline",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 4,
+      "name": "V-shaped recovery",
+      "description": "Mathematical synthetic regime testing V-shaped recovery",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 5,
+      "name": "False risk-off signal",
+      "description": "Mathematical synthetic regime testing False risk-off signal",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 6,
+      "name": "High-volatility sideways regime",
+      "description": "Mathematical synthetic regime testing High-volatility sideways regime",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 7,
+      "name": "Overnight adverse gap",
+      "description": "Mathematical synthetic regime testing Overnight adverse gap",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 8,
+      "name": "Liquidity or missing-data interruption",
+      "description": "Mathematical synthetic regime testing Liquidity or missing-data interruption",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 9,
+      "name": "Order rejection",
+      "description": "Mathematical synthetic regime testing Order rejection",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 10,
+      "name": "Partial fill",
+      "description": "Mathematical synthetic regime testing Partial fill",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 11,
+      "name": "Order cancellation",
+      "description": "Mathematical synthetic regime testing Order cancellation",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 12,
+      "name": "Dividend ex-date and payment date",
+      "description": "Mathematical synthetic regime testing Dividend ex-date and payment date",
+      "special_events_count": 1
+    },
+    {
+      "scenario_id": 13,
+      "name": "Stock split",
+      "description": "Mathematical synthetic regime testing Stock split",
+      "special_events_count": 1
+    },
+    {
+      "scenario_id": 14,
+      "name": "Simultaneous sells and buys",
+      "description": "Mathematical synthetic regime testing Simultaneous sells and buys",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 15,
+      "name": "Process interruption and safe resumption",
+      "description": "Mathematical synthetic regime testing Process interruption and safe resumption",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 16,
+      "name": "Invalid/corrupt observation",
+      "description": "Mathematical synthetic regime testing Invalid/corrupt observation",
+      "special_events_count": 1
+    },
+    {
+      "scenario_id": 17,
+      "name": "Duplicate event delivery",
+      "description": "Mathematical synthetic regime testing Duplicate event delivery",
+      "special_events_count": 1
+    },
+    {
+      "scenario_id": 18,
+      "name": "Out-of-order observation delivery",
+      "description": "Mathematical synthetic regime testing Out-of-order observation delivery",
+      "special_events_count": 0
+    },
+    {
+      "scenario_id": 19,
+      "name": "Corporate-action correction event",
+      "description": "Mathematical synthetic regime testing Corporate-action correction event",
+      "special_events_count": 1
+    },
+    {
+      "scenario_id": 20,
+      "name": "Long market-closure interval",
+      "description": "Mathematical synthetic regime testing Long market-closure interval",
+      "special_events_count": 0
+    }
+  ]
+}

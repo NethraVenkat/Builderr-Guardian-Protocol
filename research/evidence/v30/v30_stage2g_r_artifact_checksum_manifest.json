@@ -1,0 +1,128 @@
+{
+  "manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G-R - Remediation Checksum and Artifact Manifest",
+    "timestamp_utc": "2026-10-24T12:35:00Z",
+    "stage": "Stage 2G-R",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "purpose": "Cryptographic Integrity Catalog of Stage 2G-R Remediation Artifacts"
+  },
+  "protected_production_and_frozen_candidates": {
+    "agent.py": {
+      "role": "Official Production Baseline (Frozen E0)",
+      "bytes": 12952,
+      "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "status": "UNTOUCHED_FROZEN"
+    },
+    "universe.json": {
+      "role": "Authorized Universe Configuration",
+      "bytes": 11486,
+      "sha256_raw": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "sha256_normalized_lf": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "status": "UNTOUCHED_FROZEN"
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "role": "Historical Baseline AE Code Reference",
+      "bytes": 8459,
+      "sha256_raw": "406e8b9e8c4145faea764db41d6286b96b26e9b33808233458da584f9f245271",
+      "sha256_normalized_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "status": "UNTOUCHED_FROZEN"
+    },
+    "research/strategies/v30_candidate_d2_cash_cushion.py": {
+      "role": "50% Defensive Cash Comparator (Frozen D2)",
+      "bytes": 5496,
+      "sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "status": "FROZEN_RESEARCH_COMPARATOR"
+    }
+  },
+  "stage2g_r_machine_readable_evidence_artifacts": {
+    "GUARDIAN_ALPHA_V30_STAGE2G_R_FINAL_CORRECTIONS.md": {
+      "role": "Primary Stage 2G-R Remediation & Audit Report",
+      "bytes": 28076,
+      "sha256": "510f0795b901051de8928cf98f8a4e070ae5f935e8e9c1de51c81af08ff40aca"
+    },
+    "research/evidence/v30/v30_stage2g_r_defect_inventory.json": {
+      "gate": "GATE_A",
+      "description": "Comprehensive defect inventory reproducing and classifying issues DEF-2GR-01 through 04",
+      "bytes": 4680,
+      "sha256": "52df44dc71c7a270019029caf5da853926a77fe9a7c98972961d33f6e4e01637"
+    },
+    "research/evidence/v30/v30_stage2g_r_causal_event_specification.json": {
+      "gate": "GATE_B",
+      "description": "Specification of 15 institutional causal event streaming and immutability rules",
+      "bytes": 4371,
+      "sha256": "750b1b178b39f1c6b0d6be982da900ca49f4fda7a1566d250fbe0a5cead7cc8e"
+    },
+    "research/evidence/v30/v30_stage2g_r_event_state_verification.json": {
+      "gate": "GATE_B",
+      "description": "Independent event state verification proving committed prefix immutability under late events",
+      "bytes": 343,
+      "sha256": "1bc7a97823377a03beea1736b9aaf9a74956220a08587a2cd94dda1d5bfdb7e7"
+    },
+    "research/evidence/v30/v30_stage2g_r_crash_recovery_evidence.json": {
+      "gate": "GATE_C",
+      "description": "Crash recovery verification, corrupt snapshot rejection, and truncated journal detection",
+      "bytes": 450,
+      "sha256": "3b2439dd9ff0e13d21668965e201d4f8d8b1860bcdf464440895a8342b8ac43c"
+    },
+    "research/evidence/v30/v30_stage2g_r_revised_statistical_protocol.json": {
+      "gate": "GATE_D",
+      "description": "Revised statistical protocol defining paired downside shortfall, selection bias, and sample size",
+      "bytes": 4018,
+      "sha256": "789059ca5d4a840747d30d0a0e312560054fc419f6cfba26bcc6879cb52a2f85"
+    },
+    "research/evidence/v30/v30_stage2g_r_provider_neutral_data_rights.json": {
+      "gate": "GATE_E",
+      "description": "Provider-neutral data rights checklist across Tiingo, Polygon, Alpaca, and IBKR",
+      "bytes": 5451,
+      "sha256": "6f0e733e610db2adcee4fe98a1741daae786d4c83a6d6aba5c31042e000f4dbe"
+    },
+    "research/evidence/v30/v30_stage2g_r_simulator_contract_parity_matrix.json": {
+      "gate": "GATE_F",
+      "description": "Builderr simulator contract parity matrix and authoritative execution rules",
+      "bytes": 4392,
+      "sha256": "e81ea52495e9c6feaff82eea37994d734aeef5271c8126ccd800cce59e9f9422"
+    },
+    "research/evidence/v30/v30_stage2g_r_activation_security_review.json": {
+      "gate": "GATE_G",
+      "description": "Activation security review, fail-closed enforcement, and network air-gap audit",
+      "bytes": 2014,
+      "sha256": "21f344da5bce82473a0f5c25d8606e56855c0b0cef1cd1b424090727cc6912b1"
+    },
+    "research/evidence/v30/v30_stage2g_r_financial_accounting_check.json": {
+      "gate": "GATE_H",
+      "description": "Independent financial accounting check, balance sheet conservation, and zero debt verification",
+      "bytes": 6299,
+      "sha256": "2aa53c9b0e6e8120f0884446a9c7af60ddb26096d7fd80d951c1a264762394e8"
+    },
+    "research/evidence/v30/v30_stage2g_r_owner_authorization_checklist.json": {
+      "gate": "GATE_J",
+      "description": "Human owner decision register and permanently prohibited action safeguards",
+      "bytes": 4199,
+      "sha256": "6d8204ad85606cddb967dcd3b9c25ddd7181d00346239cb47a804efbd25dcdb9"
+    },
+    "research/evidence/v30/v30_stage2g_r_executed_test_ledger.json": {
+      "gate": "GATE_I",
+      "description": "Complete executed test ledger covering unit, regression, preview, and selftest suites",
+      "bytes": 3562,
+      "sha256": "f84b9f93d76bd7a95322491aadb2b8e66be0628c77bc2cd3d1529b7b68d485d0"
+    }
+  },
+  "stage2g_r_reference_code_modules": {
+    "research/engine/v30_stage2g_r_causal_event_engine.py": {
+      "role": "Deterministic Causal Event Processing and Streaming Reference Engine",
+      "bytes": 20156,
+      "sha256": "ab7e88dbd46f697dd107db807439e45f0eaa9d6fb8feb8b72431a95dea16fc80"
+    },
+    "research/engine/v30_stage2g_r_activation_guard.py": {
+      "role": "Activation Gatekeeper and Air-Gap Network Enforcer",
+      "bytes": 4338,
+      "sha256": "e2b7c9eb9cd30bb6faf9098c0dac1a94d5a88ac2e0ca27a2518cbeb4b6faa336"
+    },
+    "research/tests/test_v30_stage2g_r_remediation.py": {
+      "role": "Dedicated Stage 2G-R Remediation Unit and Adversarial Test Suite",
+      "bytes": 11423,
+      "sha256": "d0b8fbb65334504d0556ddc9603b54a1de4da25a7f3601655f1ce3d6c3909b5f"
+    }
+  }
+}

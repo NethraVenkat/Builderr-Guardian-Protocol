@@ -1,0 +1,40 @@
+{
+  "dependency_manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Research Reproducibility Dependency Manifest",
+    "timestamp_utc": "2026-10-24T14:57:46.478596+00:00",
+    "auditor_role": "Reproducibility Engineer & Financial Systems Architect",
+    "status": "MINIMAL_STANDARD_LIBRARY_REPRODUCIBILITY_CERTIFIED"
+  },
+  "runtime_environment": {
+    "operating_system": "Windows-10-10.0.26300-SP0",
+    "python_implementation": "CPython",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\Manish\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "git_version": "git version 2.46.2.windows.1"
+  },
+  "standard_library_core_dependencies": {
+    "decimal": "High-precision arithmetic (Decimal, ROUND_HALF_UP) for zero-residual accounting.",
+    "hashlib": "Cryptographic integrity hashing (SHA-256) for manifests and checkpoint binding.",
+    "hmac": "Cryptographic HMAC-SHA256 signature verification on activation tokens.",
+    "json": "Deterministic serialization/deserialization for causal events and evidence ledgers.",
+    "math": "Floor operations for integer share truncation (no fractional shares).",
+    "datetime": "Strict UTC ISO-8601 timestamping and temporal sequence ordering.",
+    "os_and_sys": "Process-level guards, canonical path resolution, and exit code control."
+  },
+  "third_party_dependencies": {
+    "pytest": {
+      "version": "9.1.1",
+      "purpose": "Automated regression testing and test discovery."
+    },
+    "numpy": {
+      "version": "2.4.6",
+      "purpose": "Optional numerical acceleration for synthetic matrix operations."
+    }
+  },
+  "dependency_design_philosophy": {
+    "zero_heavy_frameworks": "No pandas, scipy, or heavy ML dependencies required in production agent.py or comparator d2.",
+    "hermetic_reproducibility": "All core algorithms run strictly on pure Python 3.11+ standard library, guaranteeing identical execution across Windows, Linux, and macOS."
+  }
+}

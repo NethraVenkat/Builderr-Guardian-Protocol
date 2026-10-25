@@ -1,0 +1,43 @@
+{
+  "audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Builderr Simulator Parity Assessment",
+    "timestamp_utc": "2026-10-24T12:50:00Z",
+    "auditor_role": "Quantitative Simulation Architect & Execution Engineer",
+    "status": "PARITY_EVALUATED_AUTHORITATIVE_RULES_ESTABLISHED"
+  },
+  "execution_model_comparisons": {
+    "order_sequencing": {
+      "host_simulator_behavior": "Strict Sell-First Pass: All sell orders across the portfolio are executed and cash credited before any buy orders are processed.",
+      "naive_preview_behavior": "List-Order Sequential: Orders processed in raw dictionary/list emission order.",
+      "divergence_mechanism": "If cash is low and emission list places BUY before SELL, naive preview fails the BUY due to lack of cash, whereas host executes SELL first and BUY succeeds.",
+      "authoritative_rule": "Host Sell-First Pass is AUTHORITATIVE. Preview and backtest engines must sort orders (sells first, buys second) to ensure 100% parity."
+    },
+    "decision_and_fill_timing": {
+      "decision_timestamp": "T close (16:00 ET) using causal information available at market close.",
+      "execution_timestamp": "T+1 open (09:30 ET) using opening auction or first bar print.",
+      "authoritative_rule": "Decision at T close, fill at T+1 open. No lookahead."
+    },
+    "cash_affordability_and_clamping": {
+      "whole_share_constraint": "Strict integer truncation: shares = floor(target_dollars / fill_price). Fractional shares rejected.",
+      "cash_clamp_rule": "If buy orders exceed available spendable cash, shares are scaled down to math.floor(spendable_cash / (price * (1 + slippage_bps/10000))).",
+      "margin_prohibition": "Cash balances must remain strictly >= 0.0. Margin borrowing is prohibited."
+    },
+    "transaction_costs": {
+      "slippage_model": "5.0 basis points (0.0005) applied symmetrically: Buy price = mid * 1.0005; Sell price = mid * 0.9995.",
+      "brokerage_fees": "Zero commission assumed for standard US equity brokers; explicit fee per share/trade injectable without violating balance identity."
+    },
+    "settlement_and_proceeds": {
+      "simulator_assumption": "Instantaneous same-day reinvestment: sale proceeds immediately available for buying within the same execution batch.",
+      "real_world_broker_rule": "Under SEC T+1 settlement and broker margin/cash rules, proceeds from sales at open can be reinvested on same day for non-day-trading holds (Reg T / good faith violations apply only if purchased securities are sold before settlement).",
+      "authoritative_rule": "Simulator same-batch reinvestment is aligned with broker good-faith trading rules for long-only portfolios."
+    },
+    "concentration_limits": {
+      "single_asset_cap": "50% of total portfolio equity per position.",
+      "enforcement_mechanism": "Clamped during target weight generation in agent strategy logic."
+    }
+  },
+  "parity_verification_verdict": {
+    "preview_vs_host_parity": "FULL PARITY ACHIEVED when sell-first ordering is enforced.",
+    "remote_submission": "NONE (All tests conducted strictly offline with synthetic and local fixtures)."
+  }
+}

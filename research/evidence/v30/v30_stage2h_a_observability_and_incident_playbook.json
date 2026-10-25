@@ -1,0 +1,102 @@
+{
+  "observability_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Observability Specification & Incident Playbook",
+    "timestamp_utc": "2026-10-24T13:25:00Z",
+    "stage": "Stage 2H-A",
+    "mockup_reference": "research/engine/v30_stage2h_a_dashboard_mockup.html",
+    "nature": "DESIGN_ONLY_SPECIFICATION_NO_ACTIVE_SERVER"
+  },
+  "dashboard_telemetry_fields": [
+    "evaluation_status_badge",
+    "e0_d2_sha256_fingerprints",
+    "current_synthetic_state",
+    "last_verified_event_time",
+    "last_successful_checkpoint",
+    "ledger_reconciliation_residual",
+    "data_freshness_latency_seconds",
+    "missing_bar_counter",
+    "duplicate_event_counter",
+    "late_event_quarantine_counter",
+    "rejected_order_count",
+    "leverage_gross_utilization",
+    "single_stock_concentration_utilization",
+    "regime_indicator_state",
+    "cumulative_strategy_nav_divergence",
+    "defensive_session_counter",
+    "evaluation_sample_progress_pct",
+    "owner_authorization_state",
+    "data_rights_status"
+  ],
+  "incident_response_playbooks": [
+    {
+      "incident_id": "INC-01",
+      "name": "Data Provider Outage (Missing Session EOD Feed)",
+      "severity": "HIGH",
+      "action": "HALT_DECISION_GENERATION. Engine holds current positions unchanged. No synthetic or imputed data may be fabricated. Log MISSING_SESSION_ALERT to journal.",
+      "fail_closed": true
+    },
+    {
+      "incident_id": "INC-02",
+      "name": "Corrupt Observation Delivery (NaN, Negative, or Spurious Spike)",
+      "severity": "MEDIUM",
+      "action": "Quarantine bad bar with reason NONFINITE_OR_NONPOSITIVE_PRICE. Hold previous closing price or omit symbol from rebalance calculations for that single session.",
+      "fail_closed": false
+    },
+    {
+      "incident_id": "INC-03",
+      "name": "Double-Entry Balance Sheet Mismatch (> $0.01 Residual)",
+      "severity": "CRITICAL",
+      "action": "IMMEDIATE_FAIL_CLOSED_HALT. Abort all order execution. Dump diagnostic memory state to audit file. Require manual human reconciliation before resumption.",
+      "fail_closed": true
+    },
+    {
+      "incident_id": "INC-04",
+      "name": "Protected Source Hash Mismatch (agent.py or D2 mutated)",
+      "severity": "CRITICAL",
+      "action": "IMMEDIATE_FATAL_SECURITY_STOP. Refuse to execute. Alert that frozen baseline immutability has been compromised.",
+      "fail_closed": true
+    },
+    {
+      "incident_id": "INC-05",
+      "name": "Unauthorized Forward or Live Activation Attempt",
+      "severity": "CRITICAL",
+      "action": "FAIL_CLOSED_REJECTION. ActivationGatekeeper raises FatalSecurityViolation and logs attempt with timestamp and client caller stack trace.",
+      "fail_closed": true
+    },
+    {
+      "incident_id": "INC-06",
+      "name": "Duplicate Order Dispatch Attempt",
+      "severity": "HIGH",
+      "action": "Reject duplicate order via idempotent order ID registry. Log DUPLICATE_ORDER_REJECTED.",
+      "fail_closed": false
+    },
+    {
+      "incident_id": "INC-07",
+      "name": "Recovery Snapshot Hash Mismatch",
+      "severity": "CRITICAL",
+      "action": "FAIL_CLOSED_ABORT. Refuse to load corrupt snapshot. Require rollback to previous known-good cryptographic checkpoint and journal replay.",
+      "fail_closed": true
+    },
+    {
+      "incident_id": "INC-08",
+      "name": "Data Provider Terms of Service Change",
+      "severity": "HIGH",
+      "action": "Pause ingestion feed. Conduct legal review against private research checklist before resuming.",
+      "fail_closed": true
+    },
+    {
+      "incident_id": "INC-09",
+      "name": "Unscheduled Git Working Directory Mutation",
+      "severity": "CRITICAL",
+      "action": "Block forward runner. Require clean git index prior to session evaluation.",
+      "fail_closed": true
+    },
+    {
+      "incident_id": "INC-10",
+      "name": "Risk Limit Breach (Drawdown > 20% or Concentration > 30%)",
+      "severity": "CRITICAL",
+      "action": "TRIGGER_CIRCUIT_BREAKER. Pause automated evaluation. Generate incident report for mandatory owner review.",
+      "fail_closed": true
+    }
+  ]
+}

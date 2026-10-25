@@ -1,0 +1,229 @@
+{
+  "financial_audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G-R - Independent Financial Accounting Audit",
+    "timestamp_utc": "2026-10-24T12:25:00Z",
+    "verdict": "100%_PASS_CONSERVED"
+  },
+  "frozen_e0_audit": {
+    "initial_cash": 100000.0,
+    "final_nav": 100000.0,
+    "final_cash": 100000.0,
+    "total_trades": 0,
+    "invariant_breaches": 0,
+    "negative_cash_breaches": 0,
+    "margin_debt": 0.0,
+    "daily_records": [
+      {
+        "date": "2026-03-01",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-02",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-03",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-04",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-05",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-06",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-07",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-08",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-09",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-10",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      }
+    ]
+  },
+  "candidate_d2_audit": {
+    "initial_cash": 100000.0,
+    "final_nav": 100000.0,
+    "final_cash": 100000.0,
+    "total_trades": 0,
+    "invariant_breaches": 0,
+    "negative_cash_breaches": 0,
+    "margin_debt": 0.0,
+    "daily_records": [
+      {
+        "date": "2026-03-01",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-02",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-03",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-04",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-05",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-06",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-07",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-08",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-09",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      },
+      {
+        "date": "2026-03-10",
+        "nav": 100000.0,
+        "cash": 100000.0,
+        "trades_filled": 0,
+        "positions_count": 0,
+        "realized_pnl": 0.0,
+        "dividends_credited": 0.0,
+        "invariant_check": "EXACT_CONSERVATION"
+      }
+    ]
+  }
+}

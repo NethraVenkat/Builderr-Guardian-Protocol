@@ -1,0 +1,60 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G - Security and Activation Boundary Audit",
+    "version": "1.0.0",
+    "stage": "Stage 2G",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "audit_type": "CYBERSECURITY_AND_AIR_GAP_BOUNDARY_VERIFICATION"
+  },
+  "boundary_checks": [
+    {
+      "boundary_id": "SEC-01",
+      "check_name": "Broker API & Order Routing Isolation",
+      "status": "AIR_GAPPED (PASS)",
+      "evidence": "Inspected agent.py, v30_candidate_d2_cash_cushion.py, and simulation engines: zero references to FIX protocol, Interactive Brokers TWS/Gateway, Alpaca, Schwab/TD Ameritrade, or Tradier APIs. No network socket connections or order-routing endpoints exist."
+    },
+    {
+      "boundary_id": "SEC-02",
+      "check_name": "Live Market-Data Network Isolation",
+      "status": "AIR_GAPPED (PASS)",
+      "evidence": "Dry-run execution uses exclusively local, in-memory synthetic Python dictionaries. Zero external HTTP requests, websockets, or REST API queries are invoked during dry-run execution."
+    },
+    {
+      "boundary_id": "SEC-03",
+      "check_name": "Sealed Tier 3 Holdout Boundary Enforcement",
+      "status": "SEALED (PASS)",
+      "evidence": "Audited all read operations: zero file open calls, glob operations, or path traversals target market data dated on or after 2022-01-01. Tier 3 remains 100% untouched."
+    },
+    {
+      "boundary_id": "SEC-04",
+      "check_name": "Production Source Immutability",
+      "status": "PROTECTED (PASS)",
+      "evidence": "Verified exact SHA-256 baselines of agent.py (46e6...3ffd), v12_candidate_ae.py (978e...7793), and universe.json (6656...5bdd). File write permissions are strictly controlled."
+    },
+    {
+      "boundary_id": "SEC-05",
+      "check_name": "Historical Evidence Preservation",
+      "status": "PROTECTED (PASS)",
+      "evidence": "All Stage 2G evidence files are authored to distinct paths with unique prefixes. Zero historical reports, manifests, or test logs have been modified, overwritten, or moved."
+    },
+    {
+      "boundary_id": "SEC-06",
+      "check_name": "Scheduler & Autonomous Execution Prohibition",
+      "status": "DISABLED (PASS)",
+      "evidence": "No cron jobs, background task schedulers, Windows Task Scheduler entries, or daemon processes are configured. The system cannot initiate autonomous evaluation without explicit human operator initiation."
+    },
+    {
+      "boundary_id": "SEC-07",
+      "check_name": "External Deployment & Publication Boundary",
+      "status": "PRIVATE (PASS)",
+      "evidence": "Repository is confined to local disk; zero remote git push, package publication, or web service deployment has occurred or is possible."
+    }
+  ],
+  "security_verdict": {
+    "dry_run_isolation": "100%_AIR_GAPPED",
+    "activation_readiness": "SAFE_FOR_FUTURE_AUTHORIZED_ACTIVATION",
+    "current_status": "FROZEN_AND_INACTIVE"
+  }
+}

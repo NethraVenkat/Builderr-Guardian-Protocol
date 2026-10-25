@@ -1,0 +1,94 @@
+{
+  "certification_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Protected Source & Engine Cryptographic Certification",
+    "timestamp_utc": "2026-10-24T14:57:46.458732+00:00",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "git_branch": "research/v29e-final-release-verification",
+    "auditor_role": "Reproducibility Engineer & Independent Quantitative Auditor",
+    "overall_status": "ALL_PROTECTED_SOURCES_100_PERCENT_VERIFIED"
+  },
+  "protected_baseline_sources": {
+    "agent.py": {
+      "description": "Production Baseline Strategy Agent",
+      "normalization": "RAW",
+      "expected_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "actual_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "size_bytes": 12952,
+      "status": "VERIFIED_BIT_FOR_BIT_MATCH"
+    },
+    "universe.json": {
+      "description": "Frozen Tradable Universe Configuration",
+      "normalization": "LF",
+      "expected_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "actual_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "size_bytes": 11486,
+      "status": "VERIFIED_BIT_FOR_BIT_MATCH"
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "description": "Historical Diagnostic Candidate AE",
+      "normalization": "LF",
+      "expected_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "actual_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "size_bytes": 8228,
+      "status": "VERIFIED_BIT_FOR_BIT_MATCH"
+    },
+    "research/strategies/v30_candidate_d2_cash_cushion.py": {
+      "description": "Frozen Research Comparator D2 (50% Defensive Cash Cushion)",
+      "normalization": "RAW",
+      "expected_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "actual_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "size_bytes": 5496,
+      "status": "VERIFIED_BIT_FOR_BIT_MATCH"
+    }
+  },
+  "critical_engines_and_runners": {
+    "research/engine/v30_stage2h_b_decimal_accounting_oracle.py": {
+      "description": "Decimal Double-Entry Accounting Oracle",
+      "size_bytes": 11698,
+      "sha256": "f0c9c1940eecfe938b765cfbf668100f24e5615e8cb764540b77dd06a85e1765",
+      "status": "EXISTS_AND_VERIFIED"
+    },
+    "research/engine/v30_stage2h_b_security_guard.py": {
+      "description": "Hardened Activation Security Guard & Persistent Stop",
+      "size_bytes": 8276,
+      "sha256": "d6ca8ca39c1d6f4c83b5eed623e2a43d5bed3fc571dd961d8b9239d865557987",
+      "status": "EXISTS_AND_VERIFIED"
+    },
+    "research/engine/v30_stage2h_a_hardened_causal_engine.py": {
+      "description": "Hardened Causal Simulation & Event Engine",
+      "size_bytes": 23382,
+      "sha256": "9761ebb2e25b3b0132c295dcb725ec3605010126faaf05aedb1f0d7c41f8996f",
+      "status": "EXISTS_AND_VERIFIED"
+    },
+    "research/engine/v30_sizing_oracle_decimal.py": {
+      "description": "Decimal Position Sizing Oracle",
+      "size_bytes": 8704,
+      "sha256": "4e9026320690c2fb645ea98fff7c0ab7f2995701ccb5154c5b425184ae0371b0",
+      "status": "EXISTS_AND_VERIFIED"
+    },
+    "research/engine/cash_affordability_model.py": {
+      "description": "Whole-Share Cash Affordability & Clamp Model",
+      "size_bytes": 7585,
+      "sha256": "e43d11d67041c5bb46929f16f548c23bcab06bb2e995a114531ddd9b1c7f5604",
+      "status": "EXISTS_AND_VERIFIED"
+    },
+    "preview.py": {
+      "description": "Builderr Local Admission Preview Runner",
+      "size_bytes": 11763,
+      "sha256": "9283f1fbf5aecd3df97ae29fef3c7056837cc8218005013a15b508dd0043f037",
+      "status": "EXISTS_AND_VERIFIED"
+    },
+    "selfcheck.py": {
+      "description": "Builderr Selfcheck Smoke Runner",
+      "size_bytes": 5545,
+      "sha256": "dfb1bb434f44785c74cf78e9cb299bb2d4ab09777c54f48ac06110e57b19811b",
+      "status": "EXISTS_AND_VERIFIED"
+    },
+    "strategy_selftest.py": {
+      "description": "Builderr Strategy Selftest Runner",
+      "size_bytes": 4710,
+      "sha256": "d40ef706e546654f8d3d0c82155a17857e6b9c6e09d7a63053bb0132bed0ebf1",
+      "status": "EXISTS_AND_VERIFIED"
+    }
+  }
+}

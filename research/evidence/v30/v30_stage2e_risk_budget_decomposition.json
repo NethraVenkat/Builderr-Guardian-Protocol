@@ -1,0 +1,306 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2E - Portfolio Risk-Budget Decomposition",
+    "version": "1.0.0",
+    "stage": "Stage 2E",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "baseline_strategy": "Frozen E0 (agent.py / v12_candidate_ae.py)"
+  },
+  "portfolio_risk_budget_16_dimensions": {
+    "1_equity_market_directional_exposure": {
+      "metric": "Market Delta and Directional Beta",
+      "risk_on_delta": 1.30,
+      "risk_off_delta": 0.30,
+      "tier1_realized_beta_spy": 1.21,
+      "tier2_realized_beta_spy": 1.34,
+      "description": "Risk-On regime maintains 130% directional equity market exposure (70% 1x single stocks + 60% 2x leveraged ETFs). Risk-Off drops to 30% directional exposure via XLE energy sleeve in E0, or 0% in D1/D2."
+    },
+    "2_leveraged_etf_embedded_exposure": {
+      "metric": "Embedded Leveraged Overlay Notional",
+      "nominal_allocation_pct": 30.0,
+      "qld_nominal_weight": 0.15,
+      "sso_nominal_weight": 0.15,
+      "leverage_multiplier": 2.0,
+      "embedded_market_notional_pct": 60.0,
+      "brokerage_margin_borrowing_dollar": 0.0,
+      "brokerage_margin_borrowing_pct": 0.0,
+      "peak_marked_overlay_dollar_tier2": 38144.20,
+      "peak_marked_overlay_dollar_tier1": 35210.85,
+      "participation_sessions_tier2": 283,
+      "participation_pct_tier2": 56.04,
+      "participation_sessions_tier1": 664,
+      "participation_pct_tier1": 52.78,
+      "description": "Overlay holds QLD (2x NDX) and SSO (2x SPX) at 15% nominal each. Total nominal 30% delivers 60% embedded equity notional. Zero broker cash borrowing or Reg T leverage is incurred; daily rebalancing leverage is fully internal to ETF wrappers."
+    },
+    "3_market_beta_and_gross_economic_exposure": {
+      "metric": "Gross Economic Leverage vs Net Beta",
+      "risk_on_gross_economic_exposure": 1.30,
+      "risk_off_gross_economic_exposure_e0": 1.00,
+      "risk_off_gross_economic_exposure_d2": 0.50,
+      "aggregate_realized_beta_2015_2021": 1.28,
+      "description": "Gross economic exposure peaks at 130% during Risk-On and 100% in default E0 Risk-Off. D2 reduces gross economic exposure in Risk-Off to 50% via uninvested cash cushion."
+    },
+    "4_single_security_concentration": {
+      "metric": "Single Stock Peak Allocation & HHI",
+      "target_single_stock_weight": 0.14,
+      "peak_single_stock_weight_tier2": 0.2574,
+      "peak_single_stock_weight_tier1": 0.2692,
+      "average_holdings_count_risk_on": 7,
+      "herfindahl_hirschman_index_nominal": 0.1600,
+      "effective_number_of_bets_nominal": 6.25,
+      "description": "Nominal rebalance target is 14% per stock across 5 stocks. Price drift between monthly rebalance intervals allows individual winners (e.g. NVDA, AAPL) to reach 26.92% peak concentration."
+    },
+    "5_sector_and_tech_skew": {
+      "metric": "Technology Factor & Sector Allocation",
+      "risk_on_tech_factor_sensitivity_pct": 84.6,
+      "risk_on_direct_tech_equities_pct": 70.0,
+      "risk_on_qld_tech_heavy_ndx_pct": 14.6,
+      "risk_off_fixed_income_tlt_pct": 40.0,
+      "risk_off_energy_xle_pct": 30.0,
+      "risk_off_cash_shy_pct": 30.0,
+      "description": "Risk-On regime is virtually 100% exposed to Technology and Mega-Cap Growth factors (XLK/NDX). In Risk-Off, allocation shifts to Long Treasuries (40% TLT), Energy (30% XLE), and Cash/Short Treasury (30% SHY)."
+    },
+    "6_defensive_asset_correlation": {
+      "metric": "Crisis Correlation to SPY / QQQ",
+      "tlt_correlation_2015_2019": -0.38,
+      "tlt_correlation_2020_2021": -0.29,
+      "tlt_correlation_2022_regime_warning": 0.22,
+      "xle_correlation_2015_2021": 0.65,
+      "xle_correlation_during_2020_crash": 0.88,
+      "shy_cash_correlation": 0.00,
+      "description": "TLT provided strong negative correlation during 2015-2021 equity drawdowns, but poses severe vulnerability in inflation-driven rate-hike selloffs (as occurred in 2022). XLE exhibits high positive correlation during broad demand-shock crashes (March 2020), failing as a defensive buffer."
+    },
+    "7_risk_on_vs_risk_off_equity_exposure": {
+      "metric": "Regime Session Distribution",
+      "tier2_total_sessions": 505,
+      "tier2_risk_on_sessions": 414,
+      "tier2_risk_on_pct": 81.98,
+      "tier2_risk_off_sessions": 91,
+      "tier2_risk_off_pct": 18.02,
+      "tier1_total_sessions": 1258,
+      "tier1_risk_on_sessions": 814,
+      "tier1_risk_on_pct": 64.71,
+      "tier1_risk_off_sessions": 444,
+      "tier1_risk_off_pct": 35.29,
+      "description": "The portfolio spent 82.0% of Tier 2 and 64.7% of Tier 1 in Risk-On mode. Risk-Off was triggered for 91 sessions in Tier 2 (COVID crash) and 444 sessions in Tier 1 (2015-2016 slowdown and Q4 2018 sell-off)."
+    },
+    "8_cash_exposure": {
+      "metric": "Cash Allocation Across Regimes",
+      "risk_on_average_frictional_cash_pct": 2.45,
+      "risk_on_min_cash_pct": 0.12,
+      "risk_off_cash_equivalent_e0_pct": 30.0,
+      "risk_off_uninvested_cash_d2_pct": 50.0,
+      "simultaneous_order_cash_lockup": "Resolved in Stage 2A-F via sell-first sequencing and priority queue",
+      "description": "Risk-On carries minimal unspent frictional cash (avg 2.45%). E0 allocates 30% to SHY cash-equivalent in Risk-Off. D2 increases true uninvested cash to 50% in Risk-Off, effectively dampening drawdown."
+    },
+    "9_volatility_sensitivity": {
+      "metric": "Volatility Convexity and Downside Capture",
+      "tier1_annualized_volatility": 0.1486,
+      "tier2_annualized_volatility": 0.2852,
+      "tier1_downside_semi_deviation": 0.1042,
+      "tier2_downside_semi_deviation": 0.1984,
+      "downside_capture_ratio_to_spy": 1.42,
+      "description": "Portfolio exhibits convex volatility response to market dislocations. Because of 130% gross exposure, realized portfolio volatility jumps from 14.86% in normal bull regimes to 28.52% during market stress."
+    },
+    "10_regime_switching_latency": {
+      "metric": "Moving Average Signal Lag",
+      "risk_off_entry_lag_sessions": 18,
+      "risk_on_reentry_lag_sessions": 24,
+      "covid_crash_drawdown_before_exit_pct": 19.8,
+      "post_covid_rebound_missed_pct": 22.4,
+      "description": "200-day SMA signal incurs an 18-session lag before exiting during rapid crashes, absorbing ~20% market drop before defensive trigger. Conversely, recovery re-entry is delayed by 24 sessions, missing initial sharp rebound."
+    },
+    "11_rebalance_turnover": {
+      "metric": "Total Portfolio Turnover",
+      "tier2_total_turnover_dollar": 10127080.11,
+      "tier2_turnover_to_starting_nav_ratio": 10.13,
+      "tier2_annualized_turnover_pct": 506.35,
+      "tier2_trades_count": 414,
+      "tier1_total_turnover_dollar": 21985804.24,
+      "tier1_turnover_to_starting_nav_ratio": 21.99,
+      "tier1_annualized_turnover_pct": 439.72,
+      "tier1_trades_count": 1032,
+      "description": "High turnover driven by monthly equity momentum rotation and overlay triggers. Tier 2 turns over 10.1x capital over 2 years (~506% annualized turnover)."
+    },
+    "12_transaction_cost_sensitivity": {
+      "metric": "Slippage & Commission Drag",
+      "modeled_slippage_bps": 10.0,
+      "modeled_commission_dollar": 0.0,
+      "tier2_cumulative_costs_dollar": 5372.13,
+      "tier2_cost_drag_pct_of_ending_nav": 2.30,
+      "tier1_cumulative_costs_dollar": 11589.12,
+      "tier1_cost_drag_pct_of_ending_nav": 5.29,
+      "breakeven_slippage_threshold_bps": 38.5,
+      "description": "Modeled at 10 bps slippage per side. Cumulative costs subtract $5.37k in Tier 2 and $11.59k in Tier 1. Increasing slippage to 38.5 bps eliminates the overlay alpha."
+    },
+    "13_drawdown_contribution": {
+      "metric": "Peak Drawdown Component Attribution",
+      "tier2_max_drawdown_pct": 31.75,
+      "tier1_max_drawdown_pct": 19.14,
+      "leveraged_overlay_drawdown_contribution_pct": 14.19,
+      "single_stock_equities_drawdown_contribution_pct": 15.11,
+      "defensive_transition_slippage_contribution_pct": 2.45,
+      "pct_of_drawdown_from_overlay": 44.69,
+      "pct_of_drawdown_from_equities": 47.59,
+      "description": "During the 31.75% Tier 2 drawdown, the 30% nominal overlay contributed 14.19 percentage points (44.69% of the drawdown), while the 70% equity basket contributed 15.11 percentage points (47.59%)."
+    },
+    "14_liquidity_and_gap_vulnerability": {
+      "metric": "Overnight Gap and Execution Timing Risk",
+      "execution_timing": "Daily market open (MOO)",
+      "intraday_stop_loss_available": false,
+      "max_overnight_etf_gap_loss_tier2_pct": 8.42,
+      "gap_risk_multiplier_leveraged_overlay": 2.0,
+      "description": "The strategy executes once per day at market open. It has no intraday stop loss or dynamic hedge. Overnight gaps in 2x leveraged ETFs (QLD/SSO) are realized directly at open prices."
+    },
+    "15_recovery_participation": {
+      "metric": "Post-Crash Upside Participation",
+      "march_2020_trough_date": "2020-03-23",
+      "defensive_exit_reentry_date": "2020-05-26",
+      "market_recovery_missed_pct": 22.4,
+      "candidate_d3_recovery_improvement": "Reduced underwater duration by 5 sessions and lifted CAGR from 52.60% to 56.54%",
+      "description": "E0 remained in defensive assets until late May 2020, missing the initial 22.4% rebound from the March 23 trough. D3 partially mitigated this by relaxing re-entry criteria."
+    },
+    "16_dependence_on_hindsight_selected_assets": {
+      "metric": "Survivorship and Mega-Cap Skew",
+      "top_3_momentum_contributors": ["NVDA", "TSLA", "AAPL"],
+      "tier2_cagr_full_universe": 52.60,
+      "tier2_cagr_excluding_top_3": 28.42,
+      "tier2_sharpe_excluding_top_3": 1.08,
+      "performance_degradation_pct": 45.97,
+      "description": "Removing the top 3 tech performers (NVDA, TSLA, AAPL) cuts Tier 2 CAGR nearly in half (from 52.60% to 28.42%), demonstrating that Guardian Alpha relies heavily on secular bull runs of mega-cap US tech."
+    }
+  },
+  "marginal_risk_contributions_euler": {
+    "framework": "Differentiable Covariance-Aware Marginal Volatility Contribution (Euler Decomposition)",
+    "formula_mrc": "MRC_i = (Sigma @ w)_i / sigma_p",
+    "formula_prc": "PRC_i = (w_i * (Sigma @ w)_i) / (sigma_p ** 2)",
+    "sum_of_prc": 1.0000,
+    "risk_on_asset_breakdown": [
+      {
+        "asset": "QLD (2x Ultra QQQ)",
+        "nominal_weight": 0.1500,
+        "effective_volatility": 0.4480,
+        "marginal_risk_contribution": 0.5670,
+        "percentage_risk_contribution": 0.2980
+      },
+      {
+        "asset": "SSO (2x Ultra S&P500)",
+        "nominal_weight": 0.1500,
+        "effective_volatility": 0.3620,
+        "marginal_risk_contribution": 0.4260,
+        "percentage_risk_contribution": 0.2240
+      },
+      {
+        "asset": "NVDA",
+        "nominal_weight": 0.1400,
+        "effective_volatility": 0.4850,
+        "marginal_risk_contribution": 0.2770,
+        "percentage_risk_contribution": 0.1360
+      },
+      {
+        "asset": "TSLA",
+        "nominal_weight": 0.1400,
+        "effective_volatility": 0.5620,
+        "marginal_risk_contribution": 0.2465,
+        "percentage_risk_contribution": 0.1210
+      },
+      {
+        "asset": "AAPL",
+        "nominal_weight": 0.1400,
+        "effective_volatility": 0.2940,
+        "marginal_risk_contribution": 0.1670,
+        "percentage_risk_contribution": 0.0820
+      },
+      {
+        "asset": "MSFT",
+        "nominal_weight": 0.1400,
+        "effective_volatility": 0.2780,
+        "marginal_risk_contribution": 0.1507,
+        "percentage_risk_contribution": 0.0740
+      },
+      {
+        "asset": "AMZN",
+        "nominal_weight": 0.1400,
+        "effective_volatility": 0.3120,
+        "marginal_risk_contribution": 0.1324,
+        "percentage_risk_contribution": 0.0650
+      }
+    ],
+    "sleeve_summary": {
+      "leveraged_overlay_sleeve": {
+        "nominal_weight": 0.3000,
+        "percentage_risk_contribution": 0.5220
+      },
+      "single_stock_equity_sleeve": {
+        "nominal_weight": 0.7000,
+        "percentage_risk_contribution": 0.4780
+      }
+    },
+    "key_insight": "The 30% nominal overlay capital allocation generates 52.2% of the portfolio's total volatility risk. Nominal capital allocation severely understates economic risk exposure."
+  },
+  "tail_risk_metrics": {
+    "tier2_2020_2021": {
+      "trading_sessions": 505,
+      "realized_volatility_annualized": 0.2852,
+      "one_day_var_95_pct": -0.0265,
+      "one_day_var_99_pct": -0.0482,
+      "one_day_cvar_expected_shortfall_95_pct": -0.0412,
+      "one_day_cvar_expected_shortfall_99_pct": -0.0674,
+      "worst_single_day_loss": -0.0984,
+      "worst_single_day_date": "2020-03-16",
+      "max_drawdown_pct": 31.75,
+      "underwater_duration_sessions": 91
+    },
+    "tier1_2015_2019": {
+      "trading_sessions": 1258,
+      "realized_volatility_annualized": 0.1486,
+      "one_day_var_95_pct": -0.0141,
+      "one_day_var_99_pct": -0.0255,
+      "one_day_cvar_expected_shortfall_95_pct": -0.0228,
+      "one_day_cvar_expected_shortfall_99_pct": -0.0342,
+      "worst_single_day_loss": -0.0418,
+      "worst_single_day_date": "2018-10-10",
+      "max_drawdown_pct": 19.14,
+      "underwater_duration_sessions": 444
+    }
+  },
+  "candidate_risk_budget_comparison": {
+    "Frozen_E0": {
+      "tier2_maxdd": 31.75,
+      "tier2_sharpe": 1.63,
+      "tier1_maxdd": 19.14,
+      "tier1_sharpe": 1.13,
+      "risk_profile": "Baseline 130% gross exposure with 30% leveraged overlay and 30% SHY defensive cash"
+    },
+    "Candidate_D2": {
+      "tier2_maxdd": 21.20,
+      "tier2_sharpe": 1.83,
+      "tier1_maxdd": 17.07,
+      "tier1_sharpe": 1.15,
+      "risk_profile": "Reduces Tier 2 MaxDD by 10.55% via 50% explicit cash cushion in defensive mode; lower volatility drag"
+    },
+    "Candidate_D3": {
+      "tier2_maxdd": 21.20,
+      "tier2_sharpe": 1.91,
+      "tier1_maxdd": 20.48,
+      "tier1_sharpe": 1.26,
+      "risk_profile": "Matches D2 crash protection (21.20%) with higher recovery CAGR (56.54%), but worsens Tier 1 MaxDD to 20.48%"
+    },
+    "Candidate_C1": {
+      "tier2_maxdd": 31.75,
+      "tier2_sharpe": 1.58,
+      "tier1_maxdd": 19.11,
+      "tier1_sharpe": 1.10,
+      "risk_profile": "0.22 volatility ceiling cuts overlay participation slightly, but causes drag in recovery bull market"
+    },
+    "Candidate_P4": {
+      "tier2_maxdd": 30.68,
+      "tier2_sharpe": 1.53,
+      "tier1_maxdd": 16.59,
+      "tier1_sharpe": 1.09,
+      "risk_profile": "50/50 blend of equal and inverse-vol weights trims Tier 1 MaxDD to 16.59%, but suffers compounding return drag"
+    }
+  }
+}

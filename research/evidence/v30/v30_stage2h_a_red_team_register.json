@@ -1,0 +1,92 @@
+{
+  "red_team_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Independent Adversarial Red-Team Register",
+    "timestamp_utc": "2026-10-24T13:35:00Z",
+    "stage": "Stage 2H-A",
+    "auditor_role": "Adversarial Software Security & Financial Falsification Engineer",
+    "objective": "Aggressively attempt to falsify Stage 2H-A readiness, security, and accounting claims"
+  },
+  "falsification_inquiries": [
+    {
+      "inquiry_id": "RT-01",
+      "attack_vector": "Can a caller bypass ActivationGatekeeper by calling strategy decide() directly?",
+      "falsification_test": "Invoked agent.decide() and d2.decide() directly in an isolated script with mock synthetic bars.",
+      "finding": "agent.decide() is a pure functional calculation. It computes target orders but DOES NOT execute trades or connect to any broker. Order execution requires an execution simulator or broker gateway. The execution engine strictly routes through ActivationGatekeeper, preventing unauthorized execution.",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    },
+    {
+      "inquiry_id": "RT-02",
+      "attack_vector": "Can importing any module in research/ or root initiate an outbound network socket?",
+      "falsification_test": "Imported all modules under AirGapNetworkEnforcer with socket.socket patched to raise FatalSecurityViolation.",
+      "finding": "All imports completed with zero socket calls. Zero outbound HTTP/WebSocket libraries exist in strategy code.",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    },
+    {
+      "inquiry_id": "RT-03",
+      "attack_vector": "Can a malformed or negative price bar create a phantom fill or corrupt cost basis?",
+      "falsification_test": "Injected price bars with open=NaN, close=-50.0, volume=0 into HardenedCausalEventEngine.",
+      "finding": "Engine intercepted invalid bars with QUARANTINED_NONFINITE. Zero orders were generated, zero fills occurred, and cost basis remained unchanged.",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    },
+    {
+      "inquiry_id": "RT-04",
+      "attack_vector": "Can duplicate event submission cause cash to be deducted twice?",
+      "falsification_test": "Injected identical buy-triggering bar 100 consecutive times into the engine.",
+      "finding": "First bar returned ACCEPTED; subsequent 99 bars returned DUPLICATE_IDEMPOTENT. Cash was deducted exactly once upon watermark advancement.",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    },
+    {
+      "inquiry_id": "RT-05",
+      "attack_vector": "Can an out-of-order observation alter committed historical trades or equity curves?",
+      "falsification_test": "Committed session 2026-05-01. Attempted to inject a historical bar for 2026-04-30.",
+      "finding": "Engine immediately quarantined the late event with reason ARRIVED_POST_WATERMARK_COMMITMENT. Fills ledger, cash, and equity for 2026-05-01 were 100% immutable.",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    },
+    {
+      "inquiry_id": "RT-06",
+      "attack_vector": "Can a corrupted snapshot hide an internal balance sheet discrepancy?",
+      "falsification_test": "Modified cash in snapshot JSON and attempted recovery.",
+      "finding": "Cryptographic SHA-256 hash mismatch caused recover_from_snapshot_and_journal to immediately abort with ValueError.",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    },
+    {
+      "inquiry_id": "RT-07",
+      "attack_vector": "Can E0 and D2 accidentally incur different slippage or commission costs?",
+      "falsification_test": "Audited execution code in HardenedCausalEventEngine across both strategies.",
+      "finding": "Both strategies execute through identical matching logic: 5 bps for single equities/sector ETFs, 10 bps for QLD/SSO, 0 bps commission. Zero cost divergence.",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    },
+    {
+      "inquiry_id": "RT-08",
+      "attack_vector": "Can the protocol report a successful outcome without experiencing genuine market stress?",
+      "falsification_test": "Evaluated statistical rule where evaluation window has 0 defensive down days.",
+      "finding": "Underpowered outcome rule strictly classifies the trial as INCONCLUSIVE if fewer than 30 defensive sessions occur, preventing false victory.",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    },
+    {
+      "inquiry_id": "RT-09",
+      "attack_vector": "Can sealed Tier 3 historical data (>= 2022-01-01) be accidentally accessed?",
+      "falsification_test": "Scanned all newly created Stage 2H-A test scripts and engines for references to Tier 3 files or dates >= 2022-01-01 in historical data directories.",
+      "finding": "Zero references. All tests use strictly generated mathematical synthetic data (e.g. 2026 dates with explicit geometric Brownian motion and deterministic pricing).",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    },
+    {
+      "inquiry_id": "RT-10",
+      "attack_vector": "Can any protected source file be silently modified during test runs?",
+      "falsification_test": "Computed SHA-256 checksums of agent.py, universe.json, v12_candidate_ae.py, and v30_candidate_d2_cash_cushion.py before and after full regression.",
+      "finding": "All hashes match canonical expected hashes bit-for-bit.",
+      "vulnerability_detected": false,
+      "verdict": "SECURE"
+    }
+  ],
+  "overall_red_team_verdict": "ZERO_BYPASSES_DETECTED_ALL_DEFENSES_VERIFIED"
+}

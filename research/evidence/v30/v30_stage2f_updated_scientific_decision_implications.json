@@ -1,0 +1,58 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2F - Updated Scientific Decision Implications",
+    "version": "1.0.0",
+    "stage": "Stage 2F",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "governance_mode": "DECISION_ROBUSTNESS_AUDIT"
+  },
+  "candidate_decision_audit": {
+    "Frozen_E0": {
+      "prior_verdict": "RETAIN AS FROZEN BASELINE",
+      "updated_verdict": "RETAIN AS FROZEN BASELINE",
+      "impact_of_corrections": "UNTOUCHED. The correction of overlay target weight (18% vs 30%) and gross exposure (1.12x vs 1.30x) proves that E0's baseline risk exposure is substantially more conservative and disciplined than overstated in Stage 2E commentary.",
+      "evidence_grade": "GRADE_A (Directly verified from frozen agent.py code and reproducible simulation)"
+    },
+    "Execution_Safe_Agent_Final": {
+      "prior_verdict": "RETAIN AS RESEARCH REFERENCE",
+      "updated_verdict": "RETAIN AS RESEARCH REFERENCE",
+      "impact_of_corrections": "UNTOUCHED. Remediation of simultaneous-order queue and balance sheet conservation is 100% orthogonal to asset weights.",
+      "evidence_grade": "GRADE_A (Verified across double-entry oracle and 139 V30 regression tests)"
+    },
+    "Candidate_D2_Cash_Cushion": {
+      "prior_verdict": "RETAIN AS RESEARCH REFERENCE",
+      "updated_verdict": "RETAIN AS RESEARCH REFERENCE (STRONGLY REINFORCED)",
+      "impact_of_corrections": "STRONGLY REINFORCED. Stage 2F's discovery that 74.5% ($29,697.20) of the March 2020 drawdown was caused by collapsing defensive sectors (XLE -54.5%, XLU -35.5%) explains precisely why D2's 50% explicit cash cushion was so remarkably effective (cutting MaxDD from 31.75% to 21.20%). D2 attacked the true economic defect of Guardian Alpha's risk-off sleeve.",
+      "evidence_grade": "GRADE_A (Verified under identical corporate-action replay; zero residual)"
+    },
+    "Candidate_D3_Recovery_Discipline": {
+      "prior_verdict": "INVESTIGATE ONLY WITH NEW INDEPENDENT EVIDENCE",
+      "updated_verdict": "INVESTIGATE ONLY WITH NEW INDEPENDENT EVIDENCE",
+      "impact_of_corrections": "UNTOUCHED. While D3 achieved 56.54% CAGR in Tier 2, its degradation of Tier 1 MaxDD to 20.48% confirms structural fragility outside of swift V-bottom recoveries.",
+      "evidence_grade": "GRADE_B (Mechanistically understood but sample-fragile)"
+    },
+    "Candidates_C1_C2_C3_C4": {
+      "prior_verdict": "C1: INVESTIGATE ONLY; C2, C4: REJECT; C3: INSUFFICIENT EVIDENCE",
+      "updated_verdict": "C1: INVESTIGATE ONLY; C2, C4: REJECT; C3: INSUFFICIENT EVIDENCE",
+      "impact_of_corrections": "UNTOUCHED. Whipsaw churn in C2/C4 and inactivity in C3 remain independently verified defects.",
+      "evidence_grade": "GRADE_A (C2/C4 Churn verified; C3 Inactivity verified)"
+    },
+    "Candidates_P1_P2_P3": {
+      "prior_verdict": "REJECT FOR CURRENT PURPOSE",
+      "updated_verdict": "REJECT FOR CURRENT PURPOSE",
+      "impact_of_corrections": "UNTOUCHED. Sizing by inverse volatility inflicts catastrophic compounding drag (-10% to -11% CAGR in Tier 2) while providing less than 1.1% drawdown reduction.",
+      "evidence_grade": "GRADE_A (Verified across all four sizing variants)"
+    },
+    "Candidate_P4_Blend": {
+      "prior_verdict": "RETAIN AS RESEARCH REFERENCE",
+      "updated_verdict": "RETAIN AS RESEARCH REFERENCE",
+      "impact_of_corrections": "UNTOUCHED. Authoritative Tier 1 MaxDD is 16.22% (reconciled from 16.59% typo). P4 remains the best position-sizing reference, though still trailing E0 on full-cycle Sharpe.",
+      "evidence_grade": "GRADE_A (Simulation output certified at 16.22%)"
+    }
+  },
+  "overall_governance_robustness": {
+    "conclusion": "None of the prior research decisions are overturned. On the contrary, the quantitative corrections substantially strengthen the institutional rationale for promoting Candidate D2 as the primary defensive research reference, and definitively validate the decision to freeze historical backtesting."
+  }
+}

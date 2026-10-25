@@ -1,0 +1,106 @@
+{
+  "owner_package_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Owner Decision & Governance Package",
+    "timestamp_utc": "2026-10-24T13:30:00Z",
+    "stage": "Stage 2H-A",
+    "status": "ALL_DECISIONS_PENDING_OWNER_AUTHORIZATION",
+    "forward_trading_status": "STRICTLY_BLOCKED"
+  },
+  "executive_notice": "No automated agent has authorization to execute market trades, purchase subscriptions, connect to external APIs, or sign tokens. The following 6 decisions are explicitly reserved for the human repository owner.",
+  "decisions": [
+    {
+      "decision_id": "DEC-01",
+      "title": "Select and Authorize Prospective Market-Data Feed Provider",
+      "explanation": "To conduct forward-looking paper evaluation, the system requires clean, daily EOD bars for the 24-ticker universe without accessing sealed historical Tier 3 data.",
+      "available_supported_options": [
+        "Option A: Tiingo Market Data API (Power/Developer Tier, ~$10-$30/mo)",
+        "Option B: Polygon.io (Starter/Developer Plan, ~$29/mo)",
+        "Option C: Alpaca Markets Paper Brokerage API ($0/mo, delayed/IEX data)",
+        "Option D: Interactive Brokers Client Portal API ($0/mo paper account with live funded account)"
+      ],
+      "recommended_default": "Option A (Tiingo EOD Personal API). Justification: Highest reliability for simple daily batch EOD REST queries, native split/dividend adjustment fields, and explicit terms authorizing private quantitative modeling.",
+      "consequences": "Selected provider dictates API client configuration, rate limit handling, and daily ingestion batch timing.",
+      "reversibility": "REVERSIBLE at any time prior to session commitment.",
+      "missing_evidence": "Valid subscriber API key; owner must contract directly with vendor.",
+      "exact_action_required_from_owner": "Sign up for preferred vendor, copy API key to untracked local .env file (NEVER commit to Git).",
+      "status": "PENDING"
+    },
+    {
+      "decision_id": "DEC-02",
+      "title": "Verify Applicable Data License and Local Storage Rights",
+      "explanation": "Legal confirmation that subscriber's chosen plan permits storing raw bars on local disk and computing proprietary weight allocations.",
+      "available_supported_options": [
+        "Option A: Confirm personal/developer private non-commercial modeling terms",
+        "Option B: Request institutional commercial redistribution addendum (only if publishing public website/SaaS)"
+      ],
+      "recommended_default": "Option A. Guardian Alpha is an internal private research repository; developer terms are fully sufficient.",
+      "consequences": "Avoids over-paying for enterprise redistribution rights while ensuring complete copyright compliance.",
+      "reversibility": "REVERSIBLE.",
+      "missing_evidence": "Owner's personal review and acceptance of vendor Terms of Service.",
+      "exact_action_required_from_owner": "Review vendor ToS section on 'Internal Business/Personal Use' and approve.",
+      "status": "PENDING"
+    },
+    {
+      "decision_id": "DEC-03",
+      "title": "Approve Prospective Primary Endpoint and Non-Inferiority Margin",
+      "explanation": "Defines the exact mathematical criterion for testing whether Candidate D2 (50% defensive cash cushion) beats Frozen E0.",
+      "available_supported_options": [
+        "Option A: Paired Defensive Shortfall Reduction theta_def > 0 with CAGR non-inferiority margin delta_tol = 2.0% / year",
+        "Option B: Strict CAGR equality delta_tol = 0.0% (Risk: excessive conservatism, rejects D2 even if drawdown improves massively)",
+        "Option C: Wider non-inferiority margin delta_tol = 4.0% / year"
+      ],
+      "recommended_default": "Option A (2.0% CAGR non-inferiority margin). Justification: Reflects realistic cash drag during persistent bull regimes while demanding meaningful downside shortfall protection in stress regimes.",
+      "consequences": "Binds statistical hypothesis testing for the entire prospective window.",
+      "reversibility": "IRREVERSIBLE once forward evaluation begins (prevents p-hacking).",
+      "missing_evidence": "Formal owner sign-off.",
+      "exact_action_required_from_owner": "Approve or modify the 2.0% non-inferiority tolerance margin.",
+      "status": "PENDING"
+    },
+    {
+      "decision_id": "DEC-04",
+      "title": "Approve Minimum Observation Horizon, Defensive Samples, and Stopping Rules",
+      "explanation": "Specifies sample size adequacy to prevent declaring victory on calm bull market data.",
+      "available_supported_options": [
+        "Option A: 252 sessions (1 year) with minimum 30 defensive sessions; halt at 20% drawdown",
+        "Option B: 126 sessions (6 months) with minimum 15 defensive sessions; halt at 25% drawdown",
+        "Option C: Indefinite evaluation until at least 50 defensive sessions occur"
+      ],
+      "recommended_default": "Option A (252 sessions, min 30 defensive sessions, 20% drawdown circuit breaker).",
+      "consequences": "Guarantees statistical power; if fewer than 30 defensive sessions occur, trial is declared INCONCLUSIVE.",
+      "reversibility": "IRREVERSIBLE once evaluation starts.",
+      "missing_evidence": "Formal owner sign-off.",
+      "exact_action_required_from_owner": "Approve 252-session / 30-defensive-session adequacy rule.",
+      "status": "PENDING"
+    },
+    {
+      "decision_id": "DEC-05",
+      "title": "Approve Operational Observability and Incident Response Procedures",
+      "explanation": "Adopts the 10 incident response playbooks for data outages, corrupt bars, hash mismatches, and risk limit breaches.",
+      "available_supported_options": [
+        "Option A: Adopt proposed 10 fail-closed playbooks (INC-01 through INC-10)",
+        "Option B: Modify specific recovery actions"
+      ],
+      "recommended_default": "Option A. Enforces fail-closed safety on all critical invariants.",
+      "consequences": "System will automatically pause or abort if any balance sheet drift or hash mutation occurs.",
+      "reversibility": "REVERSIBLE.",
+      "missing_evidence": "Formal owner sign-off.",
+      "exact_action_required_from_owner": "Approve incident playbooks.",
+      "status": "PENDING"
+    },
+    {
+      "decision_id": "DEC-06",
+      "title": "Approve Explicit Paper-Only Activation Token",
+      "explanation": "Generation of a cryptographically signed JSON authorization token permitting ActivationGatekeeper to enter OWNER_AUTHORIZED_PAPER mode.",
+      "available_supported_options": [
+        "Option A: Sign token targeting commit b283ded200c777b130285b0aa56a0b044afbd339",
+        "Option B: Leave activation BLOCKED until further notice"
+      ],
+      "recommended_default": "Option B (Leave BLOCKED until Decisions DEC-01 through DEC-05 are formally resolved).",
+      "consequences": "Prevents premature execution.",
+      "reversibility": "REVERSIBLE (Token can be revoked at any time).",
+      "missing_evidence": "Owner's manual token signature.",
+      "exact_action_required_from_owner": "Execute signing utility only when ready to initiate forward paper pilot.",
+      "status": "BLOCKED"
+    }
+  ]
+}

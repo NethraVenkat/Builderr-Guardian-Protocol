@@ -1,0 +1,117 @@
+{
+  "manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G - Cryptographic Checksum and Artifact Manifest",
+    "timestamp_utc": "2026-10-24T11:52:00Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "certification_phase": "STAGE_2G_FORWARD_READINESS_CERTIFICATION",
+    "air_gap_status": "VERIFIED_ISOLATED"
+  },
+  "protected_production_and_frozen_candidates": {
+    "agent.py": {
+      "role": "Official Production Baseline (Frozen E0)",
+      "bytes": 12952,
+      "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "status": "UNTOUCHED_FROZEN"
+    },
+    "universe.json": {
+      "role": "Authorized Universe Configuration",
+      "bytes": 11486,
+      "sha256_raw": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "sha256_normalized_lf": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "status": "UNTOUCHED_FROZEN"
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "role": "Historical Baseline AE Code Reference",
+      "bytes": 8459,
+      "sha256_raw": "406e8b9e8c4145faea764db41d6286b96b26e9b33808233458da584f9f245271",
+      "sha256_normalized_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "status": "UNTOUCHED_FROZEN"
+    },
+    "research/strategies/v30_candidate_d2_cash_cushion.py": {
+      "role": "50% Defensive Cash Comparator (Frozen D2)",
+      "bytes": 5496,
+      "sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "status": "FROZEN_RESEARCH_COMPARATOR"
+    }
+  },
+  "stage2g_machine_readable_evidence_artifacts": {
+    "GUARDIAN_ALPHA_V30_STAGE2G_FORWARD_READINESS_CERTIFICATION.md": {
+      "role": "Primary Stage 2G Forward Readiness Certification Report",
+      "bytes": 27413,
+      "sha256": "b63411a99cff5979cd25cc9d6fcc523258eb608293e2a046e05fe00859ad0e8d"
+    },
+    "research/evidence/v30/v30_stage2g_frozen_comparison_manifest.json": {
+      "gate": "GATE_B",
+      "description": "Frozen E0 and Frozen D2 allocation parameter and interface parity manifest",
+      "bytes": 2548,
+      "sha256": "1b624c211ccb48cf94684fe617d2f28a4338764636481ff0da1bd03d27719ab1"
+    },
+    "research/evidence/v30/v30_stage2g_simulator_contract_compatibility_matrix.json": {
+      "gate": "GATE_C",
+      "description": "Builderr simulator contract compatibility matrix and pre-trade invariant checks",
+      "bytes": 4182,
+      "sha256": "fff08af16f9d79afabe16b70b5a2c3ebad2477bda19e4a292398fb1f27ebf4c4"
+    },
+    "research/evidence/v30/v30_stage2g_synthetic_scenario_specification.json": {
+      "gate": "GATE_D",
+      "description": "Deterministic specifications for 20 synthetic stress and market edge-case scenarios",
+      "bytes": 4315,
+      "sha256": "621f09eec46a604b18c33e2148f2869da5c7c3858bbde4aeee81c75dcb204c6e"
+    },
+    "research/evidence/v30/v30_stage2g_synthetic_dry_run_manifest.json": {
+      "gate": "GATE_D",
+      "description": "Full dry-run paired execution metrics, drawdowns, and invariant outputs across all 20 scenarios",
+      "bytes": 23817,
+      "sha256": "a639db63a51227f11d1cae16b648d878eb0b69f72e7f989a0b1964a6d7e1665f"
+    },
+    "research/evidence/v30/v30_stage2g_financial_accounting_verification.json": {
+      "gate": "GATE_F",
+      "description": "Independent double-entry accounting reconciliation, balance sheet invariant checks, and zero-debt audit",
+      "bytes": 3721,
+      "sha256": "79281f6008f0d1fa3a3756432cba2050e50641253b510408d84b3db36346732f"
+    },
+    "research/evidence/v30/v30_stage2g_event_immutability_and_recovery_evidence.json": {
+      "gate": "GATE_E",
+      "description": "Event immutability, state serialization round-trip, deduplication, and crash recovery evidence",
+      "bytes": 3206,
+      "sha256": "c4da7a305c456c53cfa8c657b741a9d54f9b3292c3f1cfb7a1ae17f98c1b7e5e"
+    },
+    "research/evidence/v30/v30_stage2g_future_data_governance_checklist.json": {
+      "gate": "GATE_G",
+      "description": "Prospective data governance, corporate action timeline policies, and subscription licensing audit",
+      "bytes": 3719,
+      "sha256": "13950265a6c310e711144c5098aaba6225a167cb7da7bab792072862fa35f8b5"
+    },
+    "research/evidence/v30/v30_stage2g_scientific_evaluation_preregistration.json": {
+      "gate": "GATE_H",
+      "description": "Pre-registered protocol, hypothesis testing rules, trial counts (M=1), and stop-loss criteria",
+      "bytes": 3354,
+      "sha256": "05923e05fb95efdfd83e59723aa8fe5b73ce9ba2268f50909e5a918270dd2330"
+    },
+    "research/evidence/v30/v30_stage2g_security_and_activation_boundary_audit.json": {
+      "gate": "GATE_J",
+      "description": "Air-gap verification, credential safety scan, and non-execution boundary certification",
+      "bytes": 3011,
+      "sha256": "83a03c00fd8277d700433455e6e145a469d699d5e50eba8c0164dedaaad6b175"
+    },
+    "research/evidence/v30/v30_stage2g_executed_test_ledger.json": {
+      "gate": "GATE_I",
+      "description": "Comprehensive executed test ledger covering unit, regression, preview, and selftest suites",
+      "bytes": 4045,
+      "sha256": "28bb600ddfecfed28271dcc889b278cc4abc4e455140ba08788e94ad98826959"
+    }
+  },
+  "stage2g_executable_code_modules": {
+    "research/engine/v30_stage2g_synthetic_dry_runner.py": {
+      "role": "Deterministic Synthetic Scenario Generator and Execution Engine",
+      "bytes": 18280,
+      "sha256": "2d79f54d0d37df4b92506d40ba97677961fffbe5f0425e037369e0f8ae3a5da7"
+    },
+    "research/tests/test_v30_stage2g_forward_readiness.py": {
+      "role": "Stage 2G Dedicated Unit & Adversarial Test Suite",
+      "bytes": 13627,
+      "sha256": "18fa6af2d647578c9f99883ecce96b95533584bdb700b1cc465a3ae0b703fec8"
+    }
+  }
+}

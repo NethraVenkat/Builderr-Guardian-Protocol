@@ -1,0 +1,94 @@
+{
+  "audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Adversarial Review & Falsification Register",
+    "timestamp_utc": "2026-10-24T12:56:00Z",
+    "auditor_role": "Adversarial Software Verification Engineer & Quantitative Auditor",
+    "status": "ALL_THIRTEEN_FALSIFICATION_VECTORS_AUDITED"
+  },
+  "falsification_investigations": [
+    {
+      "vector_id": "FALS_01_HIDDEN_NETWORK_ENTRY_POINTS",
+      "test_performed": "Scanned all engine and strategy files for socket, urllib, requests, httpx, aiohttp imports.",
+      "finding": "Zero hidden network calls. In-process monkey-patching prevents Python library egress. Explicit disclosure recorded that Python patching does not block OS subprocesses.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    },
+    {
+      "vector_id": "FALS_02_LEDGER_IMBALANCE_AFTER_INTERRUPTIONS",
+      "test_performed": "Tested DecimalAccountingOracle across 10 adversarial crash, settlement delay, and split scenarios.",
+      "finding": "Equity balance sheet identity (Assets - Liabilities = Flow Equity) holds exactly with 0.0000 residual in all cases.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    },
+    {
+      "vector_id": "FALS_03_DUPLICATE_CASH_CREDITS",
+      "test_performed": "Simulated repeated order fill events and duplicate dividend notifications.",
+      "finding": "Double-crediting is prevented by transaction ID idempotency and explicit state updates.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    },
+    {
+      "vector_id": "FALS_04_INCONSISTENT_PAPER_MODE_ENFORCEMENT",
+      "test_performed": "Injected mode='live' and mode='paper_live' into activation guard.",
+      "finding": "Live mode immediately triggers persistent hard-stop; zero execution allowed.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    },
+    {
+      "vector_id": "FALS_05_INVALID_PROVIDER_RIGHTS_ASSUMPTIONS",
+      "test_performed": "Scrutinized legal terms of Tiingo, Polygon, Alpaca, and IBKR for personal vs commercial redistribution.",
+      "finding": "Stage 2H-A blanket claim was over-generalized. Corrected in Stage 2H-B: personal plans allow internal private modeling only; redistribution is banned. India-based cross-border restrictions on margin/derivatives documented.",
+      "verdict": "DEFECT_FOUND_AND_CORRECTED_IN_GATE_B"
+    },
+    {
+      "vector_id": "FALS_06_UNJUSTIFIED_STATISTICAL_CONFIDENCE",
+      "test_performed": "Evaluated power of N=30 defensive sessions under realistic equity variance (sigma = 80 bps/day, HAC VIF = 1.25).",
+      "finding": "Stage 2H-A claim that N=30 is fully sufficient was over-optimistic. Power for subtle effect (20 bps) is only ~35%; MDE at 80% power is 45.4 bps. N=30 is an asymptotic minimal floor, not a high-power guarantee.",
+      "verdict": "DEFECT_FOUND_AND_CORRECTED_IN_GATE_C"
+    },
+    {
+      "vector_id": "FALS_07_RETROSPECTIVE_DECISION_CHANGES",
+      "test_performed": "Checked whether historical candidate selection altered preregistered hypotheses.",
+      "finding": "Preregistration is frozen and immutable; all 43 prior variants disclosed as historical selection bias.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    },
+    {
+      "vector_id": "FALS_08_STALE_OR_MISSING_DATA_HANDLING",
+      "test_performed": "Simulated missing market bar during daily rebalance.",
+      "finding": "Engine preserves existing position or holds cash without crashing; logs CRITICAL alert.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    },
+    {
+      "vector_id": "FALS_09_FINANCIAL_METRICS_INCONSISTENT_ASSUMPTIONS",
+      "test_performed": "Reconciled CAGR, drawdown, and Sharpe definitions between preview, host, and oracle.",
+      "finding": "Host sell-first sequencing identified as authoritative over naive list ordering.",
+      "verdict": "DEFECT_FOUND_AND_CORRECTED_IN_GATE_F"
+    },
+    {
+      "vector_id": "FALS_10_INCOMPLETE_TEST_PROVENANCE",
+      "test_performed": "Verified exact test IDs, commands, environments, and exit codes for all suites.",
+      "finding": "Full executed test ledger maintained with zero omitted tests.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    },
+    {
+      "vector_id": "FALS_11_OVERWRITTEN_HISTORICAL_EVIDENCE",
+      "test_performed": "Verified git status and file existence of all prior reports from V29E through V30 2H-A.",
+      "finding": "Zero files overwritten or deleted. 84 research artifacts preserved in untracked state.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    },
+    {
+      "vector_id": "FALS_12_UNREPORTED_TEST_FAILURES",
+      "test_performed": "Audited pytest execution history and background task outputs.",
+      "finding": "All executed tests completed with exit code 0; zero concealed failures.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    },
+    {
+      "vector_id": "FALS_13_INCORRECT_SOURCE_HASHES",
+      "test_performed": "Recomputed SHA256 hashes of agent.py, universe.json, v12_candidate_ae.py, v30_candidate_d2_cash_cushion.py.",
+      "finding": "100% bit-for-bit match against baseline values.",
+      "verdict": "FALSIFICATION_REFUTED_PASS"
+    }
+  ],
+  "governance_summary": {
+    "total_falsification_checks": 13,
+    "refuted_passed": 10,
+    "defects_identified_and_corrected": 3,
+    "unresolved_critical_vulnerabilities": 0
+  }
+}

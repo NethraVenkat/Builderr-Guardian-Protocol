@@ -1,0 +1,82 @@
+{
+  "matrix_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G-R - Simulator Contract Parity and Execution Model Matrix",
+    "timestamp_utc": "2026-10-24T12:15:00Z",
+    "stage": "Stage 2G-R",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "authoritative_forward_definition": "BUILDERR_HOST_CONTRACT_WITH_SELL_FIRST_ORDERING"
+  },
+  "simulator_dimensions": [
+    {
+      "dimension": "Decision Timing",
+      "preview_implementation": "Close of session T (bar[ts] <= T)",
+      "host_contract": "Close of session T (all EOD bars delivered at T close)",
+      "parity_status": "IDENTICAL",
+      "authoritative_rule": "Agent evaluates market state strictly at T close; no future session data is accessible."
+    },
+    {
+      "dimension": "Execution Timing",
+      "preview_implementation": "Session T+1 Open price",
+      "host_contract": "Session T+1 Open price",
+      "parity_status": "IDENTICAL",
+      "authoritative_rule": "All orders emitted at T close execute at T+1 Open prices."
+    },
+    {
+      "dimension": "Order Execution Sequencing",
+      "preview_implementation": "Executes in whatever sequence agent emits, or groups sells first depending on harness version",
+      "host_contract": "Centralized matching engine executes all SELL orders before any BUY orders",
+      "parity_status": "DIVERGENCE_RECONCILED",
+      "reconciliation": "Host sell-before-buy ordering is authoritative. Guardian Alpha's causal engine explicitly sorts pending orders so sells precede buys, guaranteeing full simulated cash availability for subsequent buys."
+    },
+    {
+      "dimension": "Simulated Cash Reuse (Settlement Policy)",
+      "preview_implementation": "T+0 instantaneous credit of sell proceeds for buying power within the same morning rebalance",
+      "host_contract": "T+0 cash availability within the daily execution batch",
+      "parity_status": "IDENTICAL",
+      "authoritative_rule": "Sell proceeds at T+1 open are immediately credited to cash before T+1 buy orders are filled."
+    },
+    {
+      "dimension": "Cash Affordability & Negative Balance Clamp",
+      "preview_implementation": "Orders exceeding available cash fail or are clamped to affordable shares",
+      "host_contract": "Strict buying power check; orders exceeding cash buffer are clamped or rejected with zero margin debt",
+      "parity_status": "IDENTICAL",
+      "authoritative_rule": "Buy quantities are strictly clamped: floor((cash - buffer) / (price * (1 + fee + slip))). Cash balance is invariant >= 0.0."
+    },
+    {
+      "dimension": "Fractional Shares",
+      "preview_implementation": "Supports floats if emitted, but recommends integer shares",
+      "host_contract": "Strict integer share allocation (math.floor(quantity))",
+      "parity_status": "CONVERGED_ON_INTEGER",
+      "authoritative_rule": "Both E0 and D2 emit strictly integer share quantities."
+    },
+    {
+      "dimension": "Execution Slippage Model",
+      "preview_implementation": "5 bps for single equities and standard ETFs; 10 bps for 2x/3x leveraged ETFs",
+      "host_contract": "5 bps equity / 10 bps leveraged",
+      "parity_status": "IDENTICAL",
+      "authoritative_rule": "QLD and SSO incur 10 bps slippage; all standard stocks/ETFs incur 5 bps."
+    },
+    {
+      "dimension": "Transaction Commissions",
+      "preview_implementation": "0 bps standard (zero commission broker model)",
+      "host_contract": "0 bps standard ($0.00 commission)",
+      "parity_status": "IDENTICAL",
+      "authoritative_rule": "Commission rate = 0.0 bps."
+    },
+    {
+      "dimension": "Portfolio Concentration Cap",
+      "preview_implementation": "Single stock position value / Total equity <= 30.0% (max 5 consecutive breach days permitted)",
+      "host_contract": "30.0% single-name cap",
+      "parity_status": "IDENTICAL",
+      "authoritative_rule": "No single holding may exceed 30.0% of portfolio equity at rebalance."
+    },
+    {
+      "dimension": "Leverage Cap (Notional vs Beta-Adjusted)",
+      "preview_implementation": "Gross notional leverage <= 1.50x; beta-weighted exposure monitored",
+      "host_contract": "Gross leverage <= 1.50x; no margin borrowing",
+      "parity_status": "IDENTICAL",
+      "authoritative_rule": "Both E0 and D2 target <= 0.94x gross notional exposure, well within the 1.50x cap."
+    }
+  ],
+  "authoritative_compatibility_verdict": "VERIFIED_PASS"
+}

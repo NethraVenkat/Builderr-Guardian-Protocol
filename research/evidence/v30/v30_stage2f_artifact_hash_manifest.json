@@ -1,0 +1,92 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2F - Artifact Hash Manifest",
+    "version": "1.0.0",
+    "stage": "Stage 2F",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339"
+  },
+  "stage2f_artifacts": [
+    {
+      "file_path": "GUARDIAN_ALPHA_V30_STAGE2F_FINAL_CORRECTIONS_AND_FORWARD_PROTOCOL.md",
+      "size_bytes": 33620,
+      "sha256": "1fe3b21c07c52c912c336063b8c4938e39f118e100847c8724ac5b9fc77d2da2",
+      "description": "Primary Stage 2F Forensic Report"
+    },
+    {
+      "file_path": "research/evidence/v30/v30_stage2f_disputed_claim_correction_register.json",
+      "size_bytes": 10855,
+      "sha256": "1d49e9e1022387c169d27d2971188c8f80654ee7eaa60a209cc0ddcba862f284",
+      "description": "Gate A Disputed Claim Correction Register documenting 5 specific items"
+    },
+    {
+      "file_path": "research/evidence/v30/v30_stage2f_exposure_and_leverage_reconciliation.json",
+      "size_bytes": 5785,
+      "sha256": "ebc17ef74010180f4b6b4e2a8114ca0573825706f244e8d39dab6b3a1b43ce4f",
+      "description": "Gate B Exposure and Leverage Reconciliation (18% target, 1.12x gross, 0 debt)"
+    },
+    {
+      "file_path": "research/evidence/v30/v30_stage2f_independent_risk_contribution_verification.json",
+      "size_bytes": 7365,
+      "sha256": "ad25b300f8e279f8a63dadfb5ba936d92b75b812e34875cab7a91ee93a19e3ab",
+      "description": "Gate C Independent Euler Risk Decomposition & Additive March 2020 Drawdown Attribution"
+    },
+    {
+      "file_path": "research/evidence/v30/v30_stage2f_statistical_selection_bias_recalculation.json",
+      "size_bytes": 4585,
+      "sha256": "8f26a487a50ade7e1ac49279cc7cb4aa31986d1605042791a90248db62f760a9",
+      "description": "Gate D Deflated Sharpe Ratio & Harvey-Liu-Zhu Multiple Testing Sensitivity Spectrum"
+    },
+    {
+      "file_path": "research/evidence/v30/v30_stage2f_p4_drawdown_reconciliation.json",
+      "size_bytes": 2734,
+      "sha256": "45c465899bc95848516354ff45adebe6996af207e97427c476bcb5f8a4292c81",
+      "description": "Gate E Candidate P4 Tier 1 Max Drawdown Reconciliation (16.22% vs 16.59% typo)"
+    },
+    {
+      "file_path": "research/evidence/v30/v30_stage2f_updated_scientific_decision_implications.json",
+      "size_bytes": 4090,
+      "sha256": "667ba44a37fe45be766db4a61b908538dd08090f0eb576a01ba4d22010271a5c",
+      "description": "Gate F Cross-Stage Dependency Audit & Reinforced Justification for Candidate D2"
+    },
+    {
+      "file_path": "research/evidence/v30/v30_stage2f_forward_paper_evaluation_protocol.json",
+      "size_bytes": 5907,
+      "sha256": "bc588d2e7fd5c87476e443d4895b7e5fb0dbca62e253a6d2be9e95657549c532",
+      "description": "Gate G Forward-Only Paper-Evaluation Protocol Specification (Frozen E0 vs Candidate D2)"
+    },
+    {
+      "file_path": "research/evidence/v30/v30_stage2f_executed_test_ledger.json",
+      "size_bytes": 3816,
+      "sha256": "393b55f381e0beed9ef13cebf37f64d8eff9f52a61cca1c610aab167b4e5be3b",
+      "description": "Gate H Fresh Executed Test Ledger (549 / 549 Passed)"
+    },
+    {
+      "file_path": "research/tests/test_v30_stage2f_mathematical_verification.py",
+      "size_bytes": 8065,
+      "sha256": "f03839e6bbd2a10dbe95fb4c88decf4a6b5d23a230d47a0aa42819e6808fa5eb",
+      "description": "Stage 2F Adversarial Unit Test Suite (10 unit tests)"
+    }
+  ],
+  "protected_source_baselines": [
+    {
+      "file_path": "agent.py",
+      "normalized_mode": "Exact Binary",
+      "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "status": "UNTOUCHED"
+    },
+    {
+      "file_path": "research/strategies/v12_candidate_ae.py",
+      "normalized_mode": "LF Normalized",
+      "sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "status": "UNTOUCHED"
+    },
+    {
+      "file_path": "universe.json",
+      "normalized_mode": "LF Normalized",
+      "sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "status": "UNTOUCHED"
+    }
+  ]
+}

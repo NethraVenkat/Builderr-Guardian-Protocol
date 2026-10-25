@@ -1,0 +1,96 @@
+{
+  "test_ledger_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Executed Test and Regression Ledger",
+    "timestamp_utc": "2026-10-24T12:53:30Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "python_version": "3.11.9",
+    "pytest_version": "9.1.1",
+    "os_environment": "Windows 11 Enterprise (win32)",
+    "overall_ledger_status": "ALL_TESTS_PASSING_ZERO_REGRESSIONS"
+  },
+  "executed_test_suites": [
+    {
+      "suite_id": "STAGE2H_B_DEDICATED_GOVERNANCE",
+      "command": "python -m pytest research/tests/test_v30_stage2h_b_governance.py -v",
+      "test_file": "research/tests/test_v30_stage2h_b_governance.py",
+      "total_tests": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.29,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "coverage": [
+        "Git checkpoint and 4 protected source hashes",
+        "Double-entry Decimal Accounting Oracle (Equity = Assets - Liabilities == Flow Equity)",
+        "Hardened Security Guard (22-vector, persistent hard-stop across restarts, owner reset)",
+        "Statistical protocol parameters and lag/block calculations",
+        "Host sell-first simulator parity"
+      ]
+    },
+    {
+      "suite_id": "STAGE2H_A_DEDICATED_ADVERSARIAL",
+      "command": "python -m pytest research/tests/test_v30_stage2h_a_adversarial.py -v",
+      "test_file": "research/tests/test_v30_stage2h_a_adversarial.py",
+      "total_tests": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.26,
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "V30_FILTERED_TEST_SUITE",
+      "command": "python -m pytest -k \"v30\" research/tests",
+      "total_tests_selected": 202,
+      "passed": 202,
+      "failed": 0,
+      "skipped": 0,
+      "deselected": 400,
+      "duration_seconds": 38.08,
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "FULL_RESEARCH_REGRESSION_SUITE",
+      "command": "python -m pytest research/tests -q",
+      "total_tests": 602,
+      "passed": 602,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 160.84,
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "HOST_ADMISSION_PREVIEW",
+      "command": "$env:PYTHONIOENCODING=\"utf-8\"; python preview.py",
+      "output_summary": "Runs clean, no leverage breach (0.94x <= 1.5x), no concentration breach (26% <= 30%), no blow-up (33.5% < 50%). VERDICT: Clears admission safety bar.",
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "HOST_SELFCHECK",
+      "command": "$env:PYTHONIOENCODING=\"utf-8\"; python selfcheck.py",
+      "output_summary": "agent.py loaded and ran 12 steps cleanly. 4 well-formed orders emitted across the run.",
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "HOST_STRATEGY_SELFTEST",
+      "command": "$env:PYTHONIOENCODING=\"utf-8\"; python strategy_selftest.py",
+      "output_summary": "8 strategy checks passed cleanly.",
+      "exit_code": 0,
+      "verdict": "PASS"
+    }
+  ],
+  "summary_totals": {
+    "total_regression_tests_executed": 602,
+    "total_passed": 602,
+    "total_failed": 0,
+    "total_skipped": 0,
+    "full_regression_status": "ALL_602_TESTS_PASS"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "stage": "V30_STAGE_2D",
+  "title": "Preregistered Volatility-Aware Position Sizing & Portfolio Risk Experiment Specification",
+  "timestamp_utc": "2026-10-24T08:35:00Z",
+  "governance_status": "LOCKED_PRE_EXECUTION",
+  "prior_research_overlap": {
+    "reference": "research/strategies/candidate_alpha.py (Stage 6)",
+    "description": "Candidate Alpha previously investigated inverse-volatility sizing using formula inv_vols[ticker] = 1.0 / max(v, 0.05) with position caps. Stage 2D formally isolates this sizing mechanism and tests pure (P1), capped-redistributed (P2), smoothed (P3), and blended (P4) variants under authentic corporate-action-adjusted simulation.",
+    "classification": "PREVIOUSLY_EXPLORED_CONCEPT"
+  },
+  "common_parameters": {
+    "vol_window": 20,
+    "annualization_factor": 15.874507866387544,
+    "vol_floor": 0.05,
+    "max_position_cap": 0.25,
+    "base_budget_with_overlay": 0.76,
+    "base_budget_without_overlay": 0.92,
+    "overlay_weights": {
+      "QLD": 0.11,
+      "SSO": 0.07
+    },
+    "defensive_weights": {
+      "XLE": 0.12,
+      "XLP": 0.24,
+      "XLU": 0.24,
+      "XLV": 0.20
+    },
+    "rebalance_cadence_days": 5,
+    "drift_limit": 0.30
+  },
+  "candidates": {
+    "P1": {
+      "name": "Candidate P1: Pure Inverse Volatility",
+      "module_path": "research/strategies/v30_candidate_p1_inverse_vol.py",
+      "formula": "raw_w_i = 1.0 / max(vol20_i, 0.05); w_i = (raw_w_i / sum(raw_w)) * base_budget",
+      "capping_policy": "Unconstrained allocation of base_budget across selected winners (no per-winner cap, standard agent._scale_caps applied only at portfolio level).",
+      "redistribution": "None"
+    },
+    "P2": {
+      "name": "Candidate P2: Capped Inverse Volatility with Capacity Redistribution",
+      "module_path": "research/strategies/v30_candidate_p2_capped_inverse_vol.py",
+      "formula": "Starts with P1 weights. Assets exceeding max_position_cap (0.25) are clamped to 0.25; excess weight is iteratively redistributed to uncapped assets proportional to raw inverse volatility.",
+      "capping_policy": "Strict position cap <= 0.25 per asset.",
+      "redistribution": "Deterministic proportional redistribution. If all assets reach capacity or no capacity remains, excess is retained as cash."
+    },
+    "P3": {
+      "name": "Candidate P3: Smoothed Inverse Volatility",
+      "module_path": "research/strategies/v30_candidate_p3_smoothed_inverse_vol.py",
+      "formula": "smoothed_vol_i = 0.5 * vol20_i(current) + 0.5 * vol20_i(previous_eligible); raw_w_i = 1.0 / max(smoothed_vol_i, 0.05). Capped and redistributed per P2.",
+      "smoothing_parameter": 0.5,
+      "missing_prior_handling": "If previous eligible decision date vol is None, smoothed_vol_i = vol20_i(current)."
+    },
+    "P4": {
+      "name": "Candidate P4: Equal / Inverse-Volatility Blend",
+      "module_path": "research/strategies/v30_candidate_p4_blend_equal_inverse.py",
+      "formula": "w_i = 0.5 * equal_weight_i + 0.5 * inverse_vol_weight_i(P2).",
+      "blend_parameter": 0.5,
+      "description": "50/50 convex combination of E0 equal sizing and P2 capped inverse-volatility sizing."
+    }
+  },
+  "simulation_contract": {
+    "engine": "research.engine.replay.ReplayEngine",
+    "corporate_actions": "research.engine.corporate_actions.CorporateActionRegistry",
+    "payment_date_policy": "IMPUTE_BUSINESS_DAYS_10",
+    "price_semantics": "causal_production",
+    "start_cash": 100000.0,
+    "equity_slippage_bps": 5.0,
+    "leveraged_slippage_bps": 10.0,
+    "commission_bps": 0.0
+  },
+  "acceptance_criteria": {
+    "zero_causality_violations": true,
+    "cash_flow_conservation": true,
+    "no_unheld_short_sales": true,
+    "position_cap_enforcement": 0.25
+  }
+}

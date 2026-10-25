@@ -1,0 +1,64 @@
+{
+  "checkpoint_certification_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Independent Checkpoint Certification Register",
+    "timestamp_utc": "2026-10-24T12:45:00Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "auditor_role": "Principal Quantitative Systems Architect & Research Governance Reviewer"
+  },
+  "protected_source_verification": {
+    "agent.py": {
+      "path": "agent.py",
+      "expected_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "actual_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "bytes": 12952,
+      "status": "EXACT_MATCH_UNTOUCHED"
+    },
+    "universe.json": {
+      "path": "universe.json",
+      "expected_sha256_lf": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "actual_sha256_lf": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "bytes": 11486,
+      "status": "EXACT_MATCH_UNTOUCHED"
+    },
+    "v12_candidate_ae.py": {
+      "path": "research/strategies/v12_candidate_ae.py",
+      "expected_sha256_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "actual_sha256_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "bytes": 8459,
+      "status": "EXACT_MATCH_UNTOUCHED"
+    },
+    "v30_candidate_d2_cash_cushion.py": {
+      "path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+      "expected_sha256_raw": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "actual_sha256_raw": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "bytes": 5496,
+      "status": "EXACT_MATCH_FROZEN"
+    }
+  },
+  "stage2g_r_artifacts_presence_audit": {
+    "GUARDIAN_ALPHA_V30_STAGE2G_R_FINAL_CORRECTIONS.md": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_defect_inventory.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_causal_event_specification.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_event_state_verification.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_crash_recovery_evidence.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_revised_statistical_protocol.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_provider_neutral_data_rights.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_simulator_contract_parity_matrix.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_activation_security_review.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_financial_accounting_check.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_owner_authorization_checklist.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_executed_test_ledger.json": "VERIFIED_PRESENT",
+    "research/evidence/v30/v30_stage2g_r_artifact_checksum_manifest.json": "VERIFIED_PRESENT",
+    "research/engine/v30_stage2g_r_causal_event_engine.py": "VERIFIED_PRESENT",
+    "research/engine/v30_stage2g_r_activation_guard.py": "VERIFIED_PRESENT",
+    "research/tests/test_v30_stage2g_r_remediation.py": "VERIFIED_PRESENT"
+  },
+  "git_working_tree_inspection": {
+    "staged_modifications_count": 0,
+    "tracked_modifications_count": 0,
+    "clean_index_status": "CONFIRMED_CLEAN",
+    "history_mutation_status": "ZERO_MUTATION"
+  },
+  "overall_checkpoint_certification": "CERTIFIED_VALID"
+}

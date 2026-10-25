@@ -1,0 +1,45 @@
+{
+  "test_ledger_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R2 - Executed Test Ledger",
+    "timestamp_utc": "2026-10-24T16:08:00Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "total_test_suites_run": 2,
+    "overall_status": "PASS",
+    "admission_smoke_tests": {
+      "preview_py": {
+        "exit_code": 0,
+        "status": "PASS",
+        "cleared_safety_bar": true
+      },
+      "selfcheck_py": {
+        "exit_code": 0,
+        "status": "PASS",
+        "clean_steps": 12
+      }
+    }
+  },
+  "executed_test_suites": [
+    {
+      "suite_name": "test_v30_stage2h_c_r2_execution_proof.py",
+      "command": "python -m pytest research/tests/test_v30_stage2h_c_r2_execution_proof.py -v",
+      "exit_code": 0,
+      "duration_seconds": 0.63,
+      "status": "PASS",
+      "test_count": 10,
+      "passed": 10,
+      "failed": 0,
+      "stdout_summary": "10 passed in 0.63s"
+    },
+    {
+      "suite_name": "test_v30_stage2h_b_governance.py",
+      "command": "python -m pytest research/tests/test_v30_stage2h_b_governance.py -v",
+      "exit_code": 0,
+      "duration_seconds": 0.22,
+      "status": "PASS",
+      "test_count": 12,
+      "passed": 12,
+      "failed": 0,
+      "stdout_summary": "12 passed in 0.22s"
+    }
+  ]
+}

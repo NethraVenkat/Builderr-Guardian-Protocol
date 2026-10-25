@@ -1,0 +1,1012 @@
+{
+  "omitted_register_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R - Register of Omitted Artifacts from Prior Archival Plan",
+    "timestamp_utc": "2026-10-24T15:25:21.727822+00:00",
+    "total_omitted_artifacts": 142,
+    "auditor_role": "Digital Evidence Preservation Specialist"
+  },
+  "omission_analysis": {
+    "root_markdown_reports_omitted": 34,
+    "strategy_modules_omitted": 14,
+    "engine_modules_omitted": 19,
+    "test_modules_omitted": 11,
+    "evidence_json_omitted": 62,
+    "remediation_mandate": "All omitted items must be assigned verified preservation destinations to prevent silent data loss during owner repository freeze."
+  },
+  "omitted_artifacts": [
+    {
+      "relative_path": ".git",
+      "size_bytes": 84,
+      "sha256": "512d202c37ae7e7ccf074014dba920db75dd2db0edde824274666895b13597b6",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_EXECUTED_TEST_REPORT.md",
+      "size_bytes": 18595,
+      "sha256": "9a3c5302727ef92f234cb366629244c37c8edd8bf726c1c670ff5fcb488b2a63",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_FINAL_GATE_REPORT.md",
+      "size_bytes": 8421,
+      "sha256": "7b74aa6e6c074a51808e4fdc8b5b05a5ca8d83a758e1e5eee4474f48fa5e9b8b",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_N_NOISE_INVENTORY.md",
+      "size_bytes": 69183,
+      "sha256": "7982c3efbca50a0572b156797ee1449d0e1e7bdc13c7a2e0b4d1990b3543b0cb",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_N_NOISE_REDUCTION_PROPOSAL.md",
+      "size_bytes": 14112,
+      "sha256": "6c4cc9026e5ac8f665e60e587b569f1fb896675a69ffa651f0a0c818c1a19b27",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_N_PUBLIC_SNAPSHOT_MINIMIZATION.md",
+      "size_bytes": 14109,
+      "sha256": "926a938c11ce2cc1760b5f3bdd1cdda74c7a8d241589a1f448cc4046f4af869a",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_REFERENCE_AND_PAYLOAD_AUDIT.md",
+      "size_bytes": 4516,
+      "sha256": "b28f6c818b9dd809f857b5f3c4b0404e14c9c87427a9fcf1919d31e53bb0ef20",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_R_DATA_RIGHTS_ASSESSMENT.md",
+      "size_bytes": 5595,
+      "sha256": "63fd9393a88f2fee92fea64ee5114669cdf7c6f6e937a0691ff6b8249a56f26f",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_R_DEPENDENCY_REMEDIATION.md",
+      "size_bytes": 17703,
+      "sha256": "d38f948c12ebc4666d4d6fe5defb933438295ace837d59c10b2c2f51c86cbca2",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_R_FINAL_GATE.md",
+      "size_bytes": 7464,
+      "sha256": "25b46e60adb0a733d0418cc42ecd6e31f681ec59ee2d49a4666e8ddd82d07534",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_R_PUBLIC_HISTORY_RISK_REVIEW.md",
+      "size_bytes": 6126,
+      "sha256": "a4155a34f339ff0da62ced564eacd6f65d3b5f23f6c4d8668b1afc2fb89a03a2",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_R_RELEASE_DOCUMENTATION_REVIEW.md",
+      "size_bytes": 4860,
+      "sha256": "d2b962f6a017547f5b738dd3bebe485bf9ae67f77fc27e27cbb9cefee4de97e4",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_SECURITY_AND_ANCESTRY_AUDIT.md",
+      "size_bytes": 8792,
+      "sha256": "debd12d440808166825229e64952665c800ad20f78f567d9b25640b7d3611db2",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29E_S_SNAPSHOT_RECOVERY_AND_NOISE_CONTROL.md",
+      "size_bytes": 10026,
+      "sha256": "408fc8bcc2a0299117ecf7d3b48464099b4b29e86b332b8777bc2ee2c40c3c74",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29F_EVIDENCE_PRESERVATION.md",
+      "size_bytes": 8410,
+      "sha256": "859a7c48d4427312a10286afe8f43f34b9da144fcc8bb2f869edfbd625cec6db",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29F_FINAL_DECISION.md",
+      "size_bytes": 9190,
+      "sha256": "0f6c3f2a6c441a6789f8735169fc7d88c1c57c46a965980b841d3073621f71dc",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29F_INDEPENDENT_ROOT_DESIGN.md",
+      "size_bytes": 8097,
+      "sha256": "6a317d213782415d47004c1a5f4941b05e72e297902088ecc033e8762171f4e4",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29F_RIGHTS_RESOLUTION.md",
+      "size_bytes": 5956,
+      "sha256": "c98c796aaefa22d86b018f0b48e6484fa601f91c95da4a41cc668880a6ea8685",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29F_SYNTHETIC_FEASIBILITY.md",
+      "size_bytes": 42480,
+      "sha256": "5d849d453baf26b58523e592e0bbef3a58fc1bbc5ec9b8be3250b74ad6a4205b",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29G_A_PRIVATE_ARCHIVAL_CONTINUATION.md",
+      "size_bytes": 7085,
+      "sha256": "ed12a061179532efaf6a3df461d242d9ee422e753e1f10163303d34d66ad24e2",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V29G_A_PRIVATE_ARCHIVAL_VERIFICATION.md",
+      "size_bytes": 5205,
+      "sha256": "5fe97c79f7fa763efa09b03f11ed1a458f2cdfb252f99366bb5985dcda52cdca",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE1_DIAGNOSTIC.md",
+      "size_bytes": 24127,
+      "sha256": "6185e8dece95dd78101bfe065fe8487469a4494609693a20a61cb63a29ab1584",
+      "research_stage": "V30_STAGE1",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2A_BG_CONTRACT_AND_GENERALIZATION.md",
+      "size_bytes": 34542,
+      "sha256": "2dfa9e4e44b0dc4b7187c9a39d6257863ed1804953e170267289e22ad752bd54",
+      "research_stage": "V30_STAGE2A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2A_EXECUTION_SAFETY.md",
+      "size_bytes": 22645,
+      "sha256": "b93a426ac0ccaf5922fb8f4bc86c64b1458d99ccc5b9f30866898c9bb58d78be",
+      "research_stage": "V30_STAGE2A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2A_F_FINAL_ACCEPTANCE.md",
+      "size_bytes": 19100,
+      "sha256": "2284aa04a30041329dd2481f193192f7b59ef5e828242af40baadcdacbedeffa",
+      "research_stage": "V30_STAGE2A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2A_R_INDEPENDENT_REMEDIATION.md",
+      "size_bytes": 30353,
+      "sha256": "f835e6759b6d09c8d13d786a72c6b2c853e697662140f3ad333cfff95ab49324",
+      "research_stage": "V30_STAGE2A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2B_DEFENSIVE_ALLOCATION_RESEARCH.md",
+      "size_bytes": 25934,
+      "sha256": "a6ec32985a4042ccdc5e5b41c5b579f3b80861db15fd41ce979fc4b2ed90d522",
+      "research_stage": "V30_STAGE2B",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2B_R_BASELINE_RECONCILIATION.md",
+      "size_bytes": 24033,
+      "sha256": "a57556cb56ac5c845df866e07e6b06f2578655fd8c2b938e10811c375ac861b4",
+      "research_stage": "V30_STAGE2B",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2C_VOLATILITY_GATING_RESEARCH.md",
+      "size_bytes": 21946,
+      "sha256": "3af3d03542c59e777f1a550e30baf43679212c17ac464f0e9ac49958e3ce1b2a",
+      "research_stage": "V30_STAGE2C",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2D_POSITION_SIZING_RESEARCH.md",
+      "size_bytes": 30349,
+      "sha256": "77b4fc3295a91ec76bf3bfa2a0b4f702e2743d8bdbff276df03d5a6a566364b1",
+      "research_stage": "V30_STAGE2D",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2D_R_OVERLAY_AND_ORACLE_AUDIT.md",
+      "size_bytes": 25570,
+      "sha256": "e06692db73b965b4b619a0f1e96aa5fbb79d7416aa23fa9f431a4544b27efa0f",
+      "research_stage": "V30_STAGE2D",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2E_CROSS_STAGE_EVIDENCE_AND_RISK_BUDGET.md",
+      "size_bytes": 38534,
+      "sha256": "13977c47709cf40dfd654da87644d54fd9acd5fcf1892111a7cee5e145855670",
+      "research_stage": "V30_STAGE2E",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2F_FINAL_CORRECTIONS_AND_FORWARD_PROTOCOL.md",
+      "size_bytes": 33620,
+      "sha256": "1fe3b21c07c52c912c336063b8c4938e39f118e100847c8724ac5b9fc77d2da2",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2G_FORWARD_READINESS_CERTIFICATION.md",
+      "size_bytes": 27413,
+      "sha256": "b63411a99cff5979cd25cc9d6fcc523258eb608293e2a046e05fe00859ad0e8d",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "GUARDIAN_ALPHA_V30_STAGE2G_R_FINAL_CORRECTIONS.md",
+      "size_bytes": 28076,
+      "sha256": "510f0795b901051de8928cf98f8a4e070ae5f935e8e9c1de51c81af08ff40aca",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_broker_accounting_final.py",
+      "size_bytes": 17840,
+      "sha256": "83eebb87dca5e50be9f82de607ed9d6a711bef44be0d665f083a9d9174c82f4a",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_broker_accounting_r.py",
+      "size_bytes": 23976,
+      "sha256": "2337e904f3aedf1b908dbc15d787e43f1aa9804ddbd7ad388aaecc7d21d0d445",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_independent_accounting_oracle.py",
+      "size_bytes": 15682,
+      "sha256": "1894c54a57abb8d1daeae34bc3f0e3bec4d61ed10dee3ef567a06a58160429c8",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_overlay_auditor.py",
+      "size_bytes": 14808,
+      "sha256": "d99d79a8f9c695096ccb182f36854e98cc01a4c6e3b347ad3e75b7168628207d",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_sizing_oracle.py",
+      "size_bytes": 5497,
+      "sha256": "16f8bdae2e5c58df28a8fa5f029f4c342ddb5d14f85b7c16ec0660263df6d008",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2g_r_accounting_verifier.py",
+      "size_bytes": 5254,
+      "sha256": "bd735543c8e2c0620d30d56bd6dc42d40803f410ad4faa14ff0402f164d9878b",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2g_r_activation_guard.py",
+      "size_bytes": 4338,
+      "sha256": "e2b7c9eb9cd30bb6faf9098c0dac1a94d5a88ac2e0ca27a2518cbeb4b6faa336",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2g_r_causal_event_engine.py",
+      "size_bytes": 20156,
+      "sha256": "ab7e88dbd46f697dd107db807439e45f0eaa9d6fb8feb8b72431a95dea16fc80",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2g_r_crash_tester.py",
+      "size_bytes": 5194,
+      "sha256": "f06a99d0c587c611327328e6f211e0108558903efa17cfa662eeedb4cddfab99",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2g_synthetic_dry_runner.py",
+      "size_bytes": 18280,
+      "sha256": "2d79f54d0d37df4b92506d40ba97677961fffbe5f0425e037369e0f8ae3a5da7",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2h_a_accounting_assurance_runner.py",
+      "size_bytes": 6682,
+      "sha256": "cb7e37ae0c61d6d45809da00466a6a7e8d60890433a0f1e4bab2017423a21a9c",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2h_a_audit_runner.py",
+      "size_bytes": 11958,
+      "sha256": "6b83645ab7505e7b695c204a40698950fc6bafc4cc2497e404afcbc9fade50f3",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2h_a_crash_tester.py",
+      "size_bytes": 8999,
+      "sha256": "ae32e7fc2db3cc393e2e7e75f5a76d30d7855ba51b5043482f86ce704a91387b",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2h_a_dashboard_mockup.html",
+      "size_bytes": 5545,
+      "sha256": "e7cc8b894f37f5cd80e34d9fb4d2450b7c1c12f9c4ab57da1b935c1e45d57b32",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2h_a_security_auditor.py",
+      "size_bytes": 5109,
+      "sha256": "aecf0d79920fda9dc3d17f74bf866e097e702faa1edbbbef836d4fbfa9783ea9",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_stage2h_b_dashboard_mockup.html",
+      "size_bytes": 3414,
+      "sha256": "7989544b95cb4468243ca6e8391153f4fae3bfafe25c9a1d7243eefb96528ccf",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_synthetic_stress_scenarios.py",
+      "size_bytes": 13860,
+      "sha256": "646d92cf95fbd0be1cfb0f564406eb4afc403c202298c61addc490bc16c919ce",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_synthetic_stress_scenarios_stage2c.py",
+      "size_bytes": 11031,
+      "sha256": "ed40d3607255d4426425820bcb64d1f65d57a32f9b91fd468eafa429430f65e9",
+      "research_stage": "V30_STAGE2C",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/engine/v30_synthetic_stress_scenarios_stage2d.py",
+      "size_bytes": 11141,
+      "sha256": "4591b46fd71ae246bb263fab2906217d4e70614fc0a85d5e2e26dfc052b9e968",
+      "research_stage": "V30_STAGE2D",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v29b/test_suite_400_classified_inventory.json",
+      "size_bytes": 174263,
+      "sha256": "f34db323811b47cb22324b7d5ec882f4a130ba8d15e8cf5adcd5756d9187b1a2",
+      "research_stage": "V29",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/logs/partial_recovery_test.jsonl",
+      "size_bytes": 833,
+      "sha256": "5a22525a9ab18d463edd045b01556da183d8c90343efdc26f2bed8a9a387ad44",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/logs/stage2g_r_crash_test_journal.jsonl",
+      "size_bytes": 1982,
+      "sha256": "7061058f291571fd5f1b1eade0f8beaf60dc934c8a480563a8bc93c143f64fda",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/logs/stage2g_r_partial_journal.jsonl",
+      "size_bytes": 2017,
+      "sha256": "8561e40d2c3a37ad22fcc03a2cd77541aa544d6e45f53d85755c04dddeb44fa8",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/logs/stage2h_a_recovery_journal.jsonl",
+      "size_bytes": 2312,
+      "sha256": "0dcfba3267eddb89b37b18be8cbd3ac3dea078abcfb3b0762b45f4ee4ae2bb75",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2c_historical_replay_results.json",
+      "size_bytes": 6099,
+      "sha256": "781089bae5596bc2b6cd182147faa57c8a61183d9701d17eeb1f0bd31a8f40ef",
+      "research_stage": "V30_STAGE2C",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2c_preregistration_spec.json",
+      "size_bytes": 7225,
+      "sha256": "40eae12e8f8d4538b5d79b40b20cca4e9be7cfdfc2866b591620e4fc80d37612",
+      "research_stage": "V30_STAGE2C",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2d_historical_replay_results.json",
+      "size_bytes": 6104,
+      "sha256": "27b2d3ab8b9d91571f48a066fa3a23fae719d4181e64b7898f70a192a70b3217",
+      "research_stage": "V30_STAGE2D",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2d_preregistration_spec.json",
+      "size_bytes": 3725,
+      "sha256": "511a32025a4474cfce9920e73e96e61661c40462aea87530e1add5318ef3566e",
+      "research_stage": "V30_STAGE2D",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2d_r_overlay_audit.json",
+      "size_bytes": 6123,
+      "sha256": "262d447bf1f177132bb60bfb5e042a75b1f6cf6b02db6eb21c13ed08df6ee93f",
+      "research_stage": "V30_STAGE2D",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2e_candidate_comparability_matrix.json",
+      "size_bytes": 18475,
+      "sha256": "6ab970bb0b8ecf228f99635a449f25d8457fa8fac228c57e1d9b0d32c1f6b9ac",
+      "research_stage": "V30_STAGE2E",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2e_executed_test_ledger.json",
+      "size_bytes": 4018,
+      "sha256": "a10f2d58d5cfbaf7d93ced42d3d3d2d891d391067cc1ce45e9bcbf71e01ea218",
+      "research_stage": "V30_STAGE2E",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2e_final_research_decision_register.json",
+      "size_bytes": 7879,
+      "sha256": "e6f46c8f227fd30e3d21a2133b4ddafde1b326db94c4b8cdd4d8edee6d663ba7",
+      "research_stage": "V30_STAGE2E",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2e_master_evidence_inventory.json",
+      "size_bytes": 21806,
+      "sha256": "6d23fd355c491f099ac38dd70f8d1a0dda9a2407671ef06078313117e145c8e8",
+      "research_stage": "V30_STAGE2E",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2e_risk_budget_decomposition.json",
+      "size_bytes": 14692,
+      "sha256": "db88e0c092ec2b8a9ca881d7f353b66cf7127999028cc75d838fa66f262eac07",
+      "research_stage": "V30_STAGE2E",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2e_validation_contamination_register.json",
+      "size_bytes": 5495,
+      "sha256": "a32f98f2b5469912a4dc6966848d115ae53b91405bc0275632281ceeabd97c69",
+      "research_stage": "V30_STAGE2E",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2f_artifact_hash_manifest.json",
+      "size_bytes": 4102,
+      "sha256": "938f31b0597c0fe258d56b6ca0a708f88ed9c5097915777c57d53a2e5fb6d5e8",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2f_disputed_claim_correction_register.json",
+      "size_bytes": 10855,
+      "sha256": "1d49e9e1022387c169d27d2971188c8f80654ee7eaa60a209cc0ddcba862f284",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2f_executed_test_ledger.json",
+      "size_bytes": 3816,
+      "sha256": "393b55f381e0beed9ef13cebf37f64d8eff9f52a61cca1c610aab167b4e5be3b",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2f_exposure_and_leverage_reconciliation.json",
+      "size_bytes": 5785,
+      "sha256": "ebc17ef74010180f4b6b4e2a8114ca0573825706f244e8d39dab6b3a1b43ce4f",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2f_forward_paper_evaluation_protocol.json",
+      "size_bytes": 5907,
+      "sha256": "bc588d2e7fd5c87476e443d4895b7e5fb0dbca62e253a6d2be9e95657549c532",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2f_independent_risk_contribution_verification.json",
+      "size_bytes": 7365,
+      "sha256": "ad25b300f8e279f8a63dadfb5ba936d92b75b812e34875cab7a91ee93a19e3ab",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2f_p4_drawdown_reconciliation.json",
+      "size_bytes": 2734,
+      "sha256": "45c465899bc95848516354ff45adebe6996af207e97427c476bcb5f8a4292c81",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2f_statistical_selection_bias_recalculation.json",
+      "size_bytes": 4585,
+      "sha256": "8f26a487a50ade7e1ac49279cc7cb4aa31986d1605042791a90248db62f760a9",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2f_updated_scientific_decision_implications.json",
+      "size_bytes": 4090,
+      "sha256": "667ba44a37fe45be766db4a61b908538dd08090f0eb576a01ba4d22010271a5c",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_artifact_checksum_manifest.json",
+      "size_bytes": 5789,
+      "sha256": "e6ca152f55de61d382243a81b75a11dfa6747fefeca52d11b845ddc2d807e9bd",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_event_immutability_and_recovery_evidence.json",
+      "size_bytes": 3206,
+      "sha256": "c4da7a305c456c53cfa8c657b741a9d54f9b3292c3f1cfb7a1ae17f98c1b7e5e",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_executed_test_ledger.json",
+      "size_bytes": 4045,
+      "sha256": "28bb600ddfecfed28271dcc889b278cc4abc4e455140ba08788e94ad98826959",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_financial_accounting_verification.json",
+      "size_bytes": 3721,
+      "sha256": "79281f6008f0d1fa3a3756432cba2050e50641253b510408d84b3db36346732f",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_frozen_comparison_manifest.json",
+      "size_bytes": 2548,
+      "sha256": "1b624c211ccb48cf94684fe617d2f28a4338764636481ff0da1bd03d27719ab1",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_future_data_governance_checklist.json",
+      "size_bytes": 3719,
+      "sha256": "13950265a6c310e711144c5098aaba6225a167cb7da7bab792072862fa35f8b5",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_activation_security_review.json",
+      "size_bytes": 2014,
+      "sha256": "21f344da5bce82473a0f5c25d8606e56855c0b0cef1cd1b424090727cc6912b1",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_artifact_checksum_manifest.json",
+      "size_bytes": 6241,
+      "sha256": "2022268831409d47bd7e81a20997bd7386c95c3c3080d9bbb95e85e96650e900",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_causal_event_specification.json",
+      "size_bytes": 4371,
+      "sha256": "750b1b178b39f1c6b0d6be982da900ca49f4fda7a1566d250fbe0a5cead7cc8e",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_crash_recovery_evidence.json",
+      "size_bytes": 450,
+      "sha256": "3b2439dd9ff0e13d21668965e201d4f8d8b1860bcdf464440895a8342b8ac43c",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_defect_inventory.json",
+      "size_bytes": 4680,
+      "sha256": "52df44dc71c7a270019029caf5da853926a77fe9a7c98972961d33f6e4e01637",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_event_state_verification.json",
+      "size_bytes": 343,
+      "sha256": "1bc7a97823377a03beea1736b9aaf9a74956220a08587a2cd94dda1d5bfdb7e7",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_executed_test_ledger.json",
+      "size_bytes": 3562,
+      "sha256": "f84b9f93d76bd7a95322491aadb2b8e66be0628c77bc2cd3d1529b7b68d485d0",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_financial_accounting_check.json",
+      "size_bytes": 6299,
+      "sha256": "2aa53c9b0e6e8120f0884446a9c7af60ddb26096d7fd80d951c1a264762394e8",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_owner_authorization_checklist.json",
+      "size_bytes": 4199,
+      "sha256": "6d8204ad85606cddb967dcd3b9c25ddd7181d00346239cb47a804efbd25dcdb9",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_provider_neutral_data_rights.json",
+      "size_bytes": 5451,
+      "sha256": "6f0e733e610db2adcee4fe98a1741daae786d4c83a6d6aba5c31042e000f4dbe",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_revised_statistical_protocol.json",
+      "size_bytes": 4018,
+      "sha256": "789059ca5d4a840747d30d0a0e312560054fc419f6cfba26bcc6879cb52a2f85",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_r_simulator_contract_parity_matrix.json",
+      "size_bytes": 4392,
+      "sha256": "e81ea52495e9c6feaff82eea37994d734aeef5271c8126ccd800cce59e9f9422",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_scientific_evaluation_preregistration.json",
+      "size_bytes": 3354,
+      "sha256": "05923e05fb95efdfd83e59723aa8fe5b73ce9ba2268f50909e5a918270dd2330",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_security_and_activation_boundary_audit.json",
+      "size_bytes": 3011,
+      "sha256": "83a03c00fd8277d700433455e6e145a469d699d5e50eba8c0164dedaaad6b175",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_simulator_contract_compatibility_matrix.json",
+      "size_bytes": 4182,
+      "sha256": "fff08af16f9d79afabe16b70b5a2c3ebad2477bda19e4a292398fb1f27ebf4c4",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_synthetic_dry_run_manifest.json",
+      "size_bytes": 23817,
+      "sha256": "a639db63a51227f11d1cae16b648d878eb0b69f72e7f989a0b1964a6d7e1665f",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2g_synthetic_scenario_specification.json",
+      "size_bytes": 4315,
+      "sha256": "621f09eec46a604b18c33e2148f2869da5c7c3858bbde4aeee81c75dcb204c6e",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_activation_security_audit.json",
+      "size_bytes": 1963,
+      "sha256": "3585329ce75183ced28cab8ebf7fa4d2b4e3cf9eda127218be7fb321402a7db3",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_artifact_checksum_manifest.json",
+      "size_bytes": 6003,
+      "sha256": "37140e7175c02ae06c0c18e86d43fadf9d4623d83364bd6ffd994924288ed975",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_causal_event_hardening_audit.json",
+      "size_bytes": 4123,
+      "sha256": "b01a0b886080dbede44e0668f2182ea64189fb175d5fd836caf2af57948b30a5",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_checkpoint_certification.json",
+      "size_bytes": 3516,
+      "sha256": "6c836b7568e07afd0d7d4307e6a739d5832eba4b0e5db759031d73c789c81c63",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_crash_recovery_reliability.json",
+      "size_bytes": 3744,
+      "sha256": "6825975f390a6b589f848e6907eb4e0eb94f58924c3dac38438d193e2743d8b1",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_data_provenance_schema.json",
+      "size_bytes": 4940,
+      "sha256": "d7f5e3b6849edd5fe629293210c304fe5f6de48491e90903f4685eb231d78db9",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_executed_test_ledger.json",
+      "size_bytes": 3919,
+      "sha256": "95af2d73f039a532663c75c6a5c4e73dcfbea456b0a7b0af64367c6de3afc992",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_financial_accounting_assurance.json",
+      "size_bytes": 8458,
+      "sha256": "0294f344dd97cb189dec35b521f62c95c8d8c2d377eaf733905a75ff526d2098",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_observability_and_incident_playbook.json",
+      "size_bytes": 4102,
+      "sha256": "8ec830ebf969fcae7d1635837730f27b51a035ee79555830e83e271023d9d04b",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_owner_decision_package.json",
+      "size_bytes": 7154,
+      "sha256": "e254c40b336acb281991ce4a39bb2eb7148c1de377152825e2e9255174696498",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_provider_due_diligence_matrix.json",
+      "size_bytes": 9917,
+      "sha256": "17f47a50281708da5c4a3195736544acc90627bc6685354ed1f195eea286947d",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_red_team_register.json",
+      "size_bytes": 5550,
+      "sha256": "caca8ebbf18fb9b8a7ee52b36ecf7d413a420c6e0f3f6a98849af34bfb41fe9f",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_scientific_protocol_review.json",
+      "size_bytes": 3971,
+      "sha256": "54b3ef1cf63acba56b090105148ddd8f54347ee6a10d480cd00f09ab00f343a2",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/evidence/v30/v30_stage2h_a_simulator_contract_conformance.json",
+      "size_bytes": 5606,
+      "sha256": "bd9907c13a56bf61f2ca6496febf2e769f3699ac3b325caf27bc60fdd3b31459",
+      "research_stage": "V30_STAGE2H_A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_c1_tight_vol_gate.py",
+      "size_bytes": 5492,
+      "sha256": "c9423c7b459f72e3e73bcbf0b0ba9cc7dc1067f4982925f1126cd203438ff3d0",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_c2_vol_acceleration.py",
+      "size_bytes": 6328,
+      "sha256": "c8d3949f8d2a7c5610eacf44c13551a2bdb1c73b2d0a9c4064b4a893391ba798",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_c3_vol_persistence.py",
+      "size_bytes": 7517,
+      "sha256": "d0e2b8c00ea837891369377420770c203740eb1c8838c93a5886ac34f6558427",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_c4_combined_gates.py",
+      "size_bytes": 6445,
+      "sha256": "25c90d7969b20b761d0d4d062ae80c981e90d07d3117e0c035fd3d39f99dfff0",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_d1_energy_exit.py",
+      "size_bytes": 5461,
+      "sha256": "fb90ef20bd5523a2cda21a54a1af13fa766e6983f4077a432595fde862819014",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+      "size_bytes": 5496,
+      "sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_d3_recovery_discipline.py",
+      "size_bytes": 6950,
+      "sha256": "f5629690e77bcce9f37ad57bd04a4d7a9b6d37770012b2cac05909f253abc09e",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_p1_inverse_vol.py",
+      "size_bytes": 5612,
+      "sha256": "0f7875140cff89ea2f6e8f5319b3272cf62770d6546c66762765c20521187b65",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_p2_capped_inverse_vol.py",
+      "size_bytes": 7129,
+      "sha256": "370b465eeffb41fa860ebdd557f34c1434e0e0754d32f74ed2bcf53780162f5a",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_p3_smoothed_inverse_vol.py",
+      "size_bytes": 7627,
+      "sha256": "20235faf8fb96d70acf0a464c96beff6d1019462f4cc30b2a4c77bcd75785ad0",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_candidate_p4_blend_equal_inverse.py",
+      "size_bytes": 7507,
+      "sha256": "495bbf65690e6fe4661d93f309ebeaf250fa8a06b1c967ba181cffb3d47b883d",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_execution_safe_agent.py",
+      "size_bytes": 4066,
+      "sha256": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_execution_safe_agent_final.py",
+      "size_bytes": 7687,
+      "sha256": "aaacaa8780f14df0b8ae5fb51fef1182f9b13cf9405b63e916119ad9c448b377",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/strategies/v30_execution_safe_agent_r.py",
+      "size_bytes": 8591,
+      "sha256": "143616dfd2a4da224a8f735d4cc472180b55715aec46b60538b7fa953382316f",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_execution_safety.py",
+      "size_bytes": 13005,
+      "sha256": "c6121c8184082df6eae740eeff0a176186d1d2dd7d1eeae2df0e6d0df08f1429",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2a_bg_contract_and_robustness.py",
+      "size_bytes": 21757,
+      "sha256": "f10d75fc2dfe805fd2d97d1608e260399fd7eaafcb95442b85dd376fd33ffb97",
+      "research_stage": "V30_STAGE2A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2a_f_final_acceptance.py",
+      "size_bytes": 14264,
+      "sha256": "7e32181b26c6bd447a321ca7619c45cd0f3c9af3c5dcd0408a35d1b5b3875f65",
+      "research_stage": "V30_STAGE2A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2a_r_remediation.py",
+      "size_bytes": 17074,
+      "sha256": "0b4d67f4dab3ba3e84740bb3ad6b3aa0c48f4d0ee603c2ea28b8d155e95b9cb5",
+      "research_stage": "V30_STAGE2A",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2b_defensive_research.py",
+      "size_bytes": 18322,
+      "sha256": "928cfa2349083489f6c8efe6c345d3dc0cb9dc5e1b53872491772da7e1a77d07",
+      "research_stage": "V30_STAGE2B",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2c_volatility_gating.py",
+      "size_bytes": 17518,
+      "sha256": "39b03ded84875c49c3b2762ed7652b6c0426ef7e40b9a457767f13d08aaa8a09",
+      "research_stage": "V30_STAGE2C",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2d_position_sizing.py",
+      "size_bytes": 16885,
+      "sha256": "9a54b5b200ddaac85830fb4393e7d69dc1aaf3babce010aca21ee6d6af06661c",
+      "research_stage": "V30_STAGE2D",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2d_r_overlay_and_oracle.py",
+      "size_bytes": 13226,
+      "sha256": "7659452bd2dd310c3075a1a0eaa048842159a70f13a1e88496ade36ec3bfc456",
+      "research_stage": "V30_STAGE2D",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2f_mathematical_verification.py",
+      "size_bytes": 8065,
+      "sha256": "f03839e6bbd2a10dbe95fb4c88decf4a6b5d23a230d47a0aa42819e6808fa5eb",
+      "research_stage": "V30_STAGE2F",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2g_forward_readiness.py",
+      "size_bytes": 13627,
+      "sha256": "18fa6af2d647578c9f99883ecce96b95533584bdb700b1cc465a3ae0b703fec8",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "research/tests/test_v30_stage2g_r_remediation.py",
+      "size_bytes": 11423,
+      "sha256": "d0b8fbb65334504d0556ddc9603b54a1de4da25a7f3601655f1ce3d6c3909b5f",
+      "research_stage": "V30_STAGE2G",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    },
+    {
+      "relative_path": "scratch/hypotheses_results.json",
+      "size_bytes": 8130,
+      "sha256": "5f5481a0eee110985476f1637442bf77b589df1737bd1b820edb8e332d7111ce",
+      "research_stage": "EARLIER_STAGE",
+      "omission_impact": "CRITICAL_EVIDENCE_LOSS_IF_NOT_ARCHIVED: Represents historical milestone, candidate strategy, or raw experimental ledger required for end-to-end research reproducibility."
+    }
+  ]
+}

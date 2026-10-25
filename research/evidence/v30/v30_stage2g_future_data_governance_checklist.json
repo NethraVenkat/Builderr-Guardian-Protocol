@@ -1,0 +1,73 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G - Future Data-Governance Checklist",
+    "version": "1.0.0",
+    "stage": "Stage 2G",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339"
+  },
+  "checklist_items": [
+    {
+      "item_id": "GOV-01",
+      "requirement": "Lawful and Authorized Data Source",
+      "status": "REQUIRES_OWNER_AUTHORIZATION",
+      "specification": "Prospective forward evaluation requires an explicit, legally compliant institutional market data subscription (e.g. Tiingo Commercial/Institutional API, Polygon.io, or Direct Brokerage Feed). No automated scraping or unauthorized redistribution is permitted.",
+      "readiness_verdict": "CONDITIONAL (Pending human repository owner vendor procurement)"
+    },
+    {
+      "item_id": "GOV-02",
+      "requirement": "Explicit Separation from Sealed Tier 3",
+      "status": "CERTIFIED_SEALED",
+      "specification": "Tier 3 historical observations (2022-01-01 to Present) remain permanently quarantined and sealed. Forward prospective evaluation must begin on an explicit future calendar date T_0 and must not draw from historical Tier 3 archives.",
+      "readiness_verdict": "PASS"
+    },
+    {
+      "item_id": "GOV-03",
+      "requirement": "Exchange-Local and UTC Timestamp Standards",
+      "status": "COMPLIANT",
+      "specification": "All incoming market observations must record both UTC ISO-8601 timestamps and US Eastern (EST/EDT) market-session identifiers to prevent DST or calendar misalignment.",
+      "readiness_verdict": "PASS"
+    },
+    {
+      "item_id": "GOV-04",
+      "requirement": "Data Completeness & Sanity Verification",
+      "status": "COMPLIANT",
+      "specification": "Automated pre-flight validation on incoming daily bar files: checks for non-null OHLCV, high >= max(open, close), low <= min(open, close), positive prices, and volume >= 0.",
+      "readiness_verdict": "PASS"
+    },
+    {
+      "item_id": "GOV-05",
+      "requirement": "Corporate Action Ex-Date & Settlement Policy",
+      "status": "COMPLIANT",
+      "specification": "Dividends and splits ingested exclusively from official exchange notices with 10-business-day settlement imputation. Retroactive adjustments recorded via append-only revision records.",
+      "readiness_verdict": "PASS"
+    },
+    {
+      "item_id": "GOV-06",
+      "requirement": "Append-Only Cryptographic Audit Manifests",
+      "status": "COMPLIANT",
+      "specification": "Daily prospective bar files and trade logs are hashed with SHA-256 and committed to an append-only JSONL event journal to guarantee tamper-proof reproducibility.",
+      "readiness_verdict": "PASS"
+    },
+    {
+      "item_id": "GOV-07",
+      "requirement": "Deterministic Replay Capability",
+      "status": "COMPLIANT",
+      "specification": "The system must be capable of rebuilding the exact daily portfolio state, cash balance, and NAV curve from scratch by replaying the prospective event journal.",
+      "readiness_verdict": "PASS"
+    },
+    {
+      "item_id": "GOV-08",
+      "requirement": "Publication & Intellectual Property Boundaries",
+      "status": "COMPLIANT",
+      "specification": "All forward paper evaluation evidence remains private to the workspace. No public release, web deployment, or external transmission without explicit human owner consent.",
+      "readiness_verdict": "PASS"
+    }
+  ],
+  "governance_summary": {
+    "technical_governance_status": "READY",
+    "legal_data_rights_status": "CONDITIONAL (Human repository owner must procure authorized commercial feed before activation)",
+    "overall_readiness": "CONDITIONAL_PASS"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "security_audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Activation Security & Fail-Closed Audit",
+    "timestamp_utc": "2026-10-24T13:20:00Z",
+    "total_security_checks": 6,
+    "passed_checks": 6,
+    "failed_checks": 0,
+    "overall_status": "ALL_SECURITY_CHECKS_PASSED_FAIL_CLOSED"
+  },
+  "audited_checks": [
+    {
+      "test_id": "SEC-01",
+      "description": "Paper mode requested with missing token",
+      "expected": "BLOCKED",
+      "passed": true,
+      "detail": "BLOCKED: Missing mandatory signed Owner Authorization Token."
+    },
+    {
+      "test_id": "SEC-02",
+      "description": "Paper mode requested with forged signature hash",
+      "expected": "BLOCKED",
+      "passed": true,
+      "detail": "BLOCKED: Token cryptographic signature mismatch!"
+    },
+    {
+      "test_id": "SEC-03",
+      "description": "Paper mode requested with token referencing wrong commit hash",
+      "expected": "BLOCKED",
+      "passed": true,
+      "detail": "BLOCKED: Token commit wrong_commit_0000000000000000000000000000000000000000 != Authorized b283ded200c777b130285b0aa56a0b044afbd339"
+    },
+    {
+      "test_id": "SEC-04",
+      "description": "Live trading mode unconditionally rejected with FatalSecurityViolation",
+      "expected": "FATAL_SECURITY_VIOLATION",
+      "passed": true,
+      "detail": "FatalSecurityViolation raised successfully"
+    },
+    {
+      "test_id": "SEC-05",
+      "description": "AirGapNetworkEnforcer blocks external socket creation",
+      "expected": "SOCKET_CREATION_BLOCKED",
+      "passed": true,
+      "detail": "Socket blocked by air-gap enforcer"
+    },
+    {
+      "test_id": "SEC-06",
+      "description": "Malformed token missing mandatory keys",
+      "expected": "BLOCKED",
+      "passed": true,
+      "detail": "BLOCKED: Malformed token. Missing keys: {'target_commit', 'feed_provider', 'signed_utc', 'target_branch'}"
+    }
+  ]
+}

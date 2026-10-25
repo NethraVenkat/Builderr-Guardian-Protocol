@@ -1,0 +1,314 @@
+{
+  "assurance_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Independent Financial Risk and Accounting Assurance",
+    "timestamp_utc": "2026-10-24T13:10:00Z",
+    "conservation_status": "EXACT_DOUBLE_ENTRY_CONSERVATION_ZERO_RESIDUAL"
+  },
+  "frozen_e0": {
+    "initial_cash": 100000.0,
+    "final_nav": 100000.0,
+    "final_cash": 100000.0,
+    "max_residual": 0.0,
+    "margin_debt_breaches": 0,
+    "negative_cash_breaches": 0,
+    "daily_records": [
+      {
+        "date": "2026-06-01",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-02",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-03",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-04",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-05",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-08",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-09",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-10",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-11",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-12",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-15",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      }
+    ]
+  },
+  "candidate_d2": {
+    "initial_cash": 100000.0,
+    "final_nav": 100000.0,
+    "final_cash": 100000.0,
+    "max_residual": 0.0,
+    "margin_debt_breaches": 0,
+    "negative_cash_breaches": 0,
+    "daily_records": [
+      {
+        "date": "2026-06-01",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-02",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-03",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-04",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-05",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-08",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-09",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-10",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-11",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-12",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      },
+      {
+        "date": "2026-06-15",
+        "engine_nav": 100000.0,
+        "oracle_nav": 100000.0,
+        "residual": 0.0,
+        "cash": 100000.0,
+        "realized_pnl": 0.0,
+        "unrealized_pnl": 0,
+        "dividends_credited": 0.0,
+        "positions_count": 0,
+        "margin_debt": 0.0
+      }
+    ]
+  },
+  "risk_on_parity_verification": {
+    "equity_weight": 0.76,
+    "overlay_weight": 0.18,
+    "cash_buffer_weight": 0.06,
+    "parity_status": "100%_BIT_FOR_BIT_IDENTICAL_IN_RISK_ON"
+  },
+  "risk_off_divergence_verification": {
+    "frozen_e0_defensive_weights": {
+      "XLP": 0.24,
+      "XLU": 0.24,
+      "XLV": 0.2,
+      "XLE": 0.12,
+      "CASH": 0.2
+    },
+    "candidate_d2_defensive_weights": {
+      "XLP": 0.18,
+      "XLU": 0.18,
+      "XLV": 0.14,
+      "XLE": 0.0,
+      "CASH": 0.5
+    },
+    "divergence_status": "FROZEN_AND_DISTINCT_50_PCT_CASH_CUSHION"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Market-Data Provider Rights & Contractual Due Diligence Matrix",
+    "timestamp_utc": "2026-10-24T12:43:00Z",
+    "auditor_role": "Market-Data Licensing Specialist & Quantitative Systems Auditor",
+    "status": "PROVIDER_AUDIT_COMPLETE_ACTIVATION_BLOCKED"
+  },
+  "providers": {
+    "tiingo": {
+      "legal_entity": "Tiingo, Inc. (Delaware)",
+      "official_terms_url": "https://www.tiingo.com/about/terms",
+      "api_documentation_url": "https://api.tiingo.com/documentation/general/overview",
+      "subscription_tier_examined": "Starter / Power (Individual / Personal)",
+      "non_professional_eligibility": "Permitted for individual natural persons acting solely for personal non-commercial investment research.",
+      "binding_contract_language_summary": "Grants a limited, personal, revocable, non-exclusive license to access data. Explicit clause: 'You may not redistribute the data in any form.'",
+      "automated_research_permission": "PERMITTED via documented REST and WebSocket APIs within tier rate limits.",
+      "local_storage_and_caching": "PERMITTED for individual internal strategy modeling and offline backtesting. Commercial database mirror prohibited.",
+      "derived_data_retention": "PERMITTED for internal risk metrics, portfolio weights, and signals provided raw quotes are not reverse-engineered.",
+      "redistribution_ban": "STRICTLY PROHIBITED without commercial redistribution addendum.",
+      "corporate_actions_coverage": "Comprehensive split-adjusted and dividend-adjusted end-of-day series available.",
+      "india_residency_restrictions": "NONE documented for pure data subscription. Accessible globally via standard payment methods.",
+      "unverified_contractual_clauses": {
+        "post_termination_raw_data_retention": "UNKNOWN (standard terms require deletion of proprietary feeds upon termination).",
+        "exchange_pass_through_audit_thresholds": "UNKNOWN"
+      },
+      "overall_suitability_assessment": "HIGH for prospective E0/D2 daily bar input, pending owner plan selection."
+    },
+    "polygon_io": {
+      "legal_entity": "Polygon.io, Inc. / Massive Data, Inc. (Delaware)",
+      "official_terms_url": "https://polygon.io/terms (and https://massive.com/terms)",
+      "subscription_tier_examined": "Developer / Starter ($29/mo - $79/mo)",
+      "non_professional_eligibility": "Individual plan users must certify non-professional status under CTA/UTP definitions.",
+      "binding_contract_language_summary": "Permitted use is restricted to personal, non-commercial development and personal trading. Redistribution triggers commercial licensing.",
+      "automated_research_permission": "PERMITTED via official REST and streaming endpoints.",
+      "local_storage_and_caching": "PERMITTED for internal algorithmic evaluation. Construction of independent historical data redistribution products prohibited.",
+      "derived_data_retention": "PERMITTED for proprietary algorithm output.",
+      "redistribution_ban": "STRICTLY PROHIBITED to any third party or public dashboard.",
+      "corporate_actions_coverage": "Reference ticker events API provides stock splits and cash dividends.",
+      "india_residency_restrictions": "NONE for data API subscriptions.",
+      "unverified_contractual_clauses": {
+        "historical_tick_data_caching_limits": "UNKNOWN (flat file vs API query storage rights differentiation).",
+        "individual_exchange_audit_indemnification": "UNKNOWN"
+      },
+      "overall_suitability_assessment": "HIGH for EOD and minute bars; requires developer subscription."
+    },
+    "alpaca": {
+      "legal_entity": "AlpacaDB, Inc. (Data/Tech API) & Alpaca Securities LLC (Broker-Dealer, FINRA/SIPC)",
+      "official_terms_url": "https://alpaca.markets/terms-and-conditions",
+      "subscription_tier_examined": "Basic (Free, IEX) / Unlimited ($9/mo, SIP)",
+      "non_professional_eligibility": "Retail algorithmic traders qualify as non-professional; requires NASDAQ/NYSE subscriber agreement acceptance.",
+      "binding_contract_language_summary": "Market data license is non-exclusive, non-transferable, and strictly for personal use in algorithmic trading decisions.",
+      "automated_research_permission": "PERMITTED via native REST/WebSocket SDKs.",
+      "local_storage_and_caching": "PERMITTED for personal execution engine decision-making; redistribution or warehousing prohibited.",
+      "derived_data_retention": "PERMITTED for personal trading execution signals.",
+      "redistribution_ban": "STRICTLY PROHIBITED under Broker API / Market Data Display agreements.",
+      "corporate_actions_coverage": "Adjusted bars available; standalone deep corporate action history is limited in basic tier.",
+      "india_residency_restrictions": "CRITICAL REGULATORY CONSTRAINT: While data API is technically accessible, opening a funded live trading account from India with Alpaca Securities LLC is subject to RBI LRS compliance and partner arrangements. RBI LRS prohibits margin trading and foreign derivative trading abroad.",
+      "unverified_contractual_clauses": {
+        "pure_paper_simulated_account_eligibility_for_india": "PERMITTED (no real funds or cross-border remittance involved).",
+        "historical_corporate_action_audit_trail": "UNKNOWN"
+      },
+      "overall_suitability_assessment": "SUITABLE for paper evaluation; live execution from India requires strict LRS compliance."
+    },
+    "interactive_brokers": {
+      "legal_entity": "Interactive Brokers LLC (US Broker-Dealer) / Interactive Brokers India Pvt. Ltd.",
+      "official_terms_url": "https://www.interactivebrokers.com/en/general/terms-of-use.php (Form 4001 Market Data Agreement)",
+      "subscription_tier_examined": "Client Portal / TWS API Non-Professional Bundles",
+      "non_professional_eligibility": "Must complete Form 4001 non-professional questionnaire; requires active funded account.",
+      "binding_contract_language_summary": "Customer may use market data solely for Customer own internal investment purposes. Redistribution or sharing across accounts is prohibited.",
+      "automated_research_permission": "PERMITTED via TWS API, IB Gateway, or Client Portal API.",
+      "local_storage_and_caching": "RESTRICTED: Real-time tick caching strictly regulated by exchanges. Historical EOD bars for personal modeling permitted.",
+      "derived_data_retention": "PERMITTED for personal trading decisions.",
+      "redistribution_ban": "STRICTLY ENFORCED under exchange audit penalties.",
+      "corporate_actions_coverage": "EXCELLENT: Full corporate action, dividend, and split handling built into TWS data model.",
+      "india_residency_restrictions": "CRITICAL REGULATORY CONSTRAINT: Indian residents trading US markets via IBKR LLC must route funds through RBI LRS (max $250,000 USD/fiscal year). Strict FEMA prohibition on day-trading on margin, short selling, and leveraged derivatives overseas.",
+      "unverified_contractual_clauses": {
+        "offline_caching_duration_limits_for_historical_bars": "UNKNOWN",
+        "exchange_fee_waiver_thresholds_for_paper_accounts": "UNKNOWN (typically requires minimum equity or commissions in live parent account)."
+      },
+      "overall_suitability_assessment": "HIGH for institutional execution fidelity; complex onboarding and Indian regulatory constraints apply."
+    }
+  },
+  "governance_mandate": {
+    "automated_activation": "PROHIBITED",
+    "owner_action_required": "Owner must review terms, select one provider (DEC-01), and execute appropriate subscriber agreement (DEC-02)."
+  }
+}

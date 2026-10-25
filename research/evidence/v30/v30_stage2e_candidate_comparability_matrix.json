@@ -1,0 +1,492 @@
+{
+  "audit_metadata": {
+    "stage": "V30_STAGE_2E",
+    "title": "Cross-Stage Candidate Comparability Matrix",
+    "evaluation_semantics": "Harmonized corporate-action-aware ReplayEngine (PaymentDatePolicy.IMPUTE_BUSINESS_DAYS_10, causal_production)",
+    "friction": "5 bps equity slippage, 10 bps leveraged ETF slippage, 0 commission"
+  },
+  "candidates": {
+    "Frozen_E0": {
+      "candidate_id": "Frozen_E0",
+      "name": "Production Frozen Baseline E0",
+      "module_path": "agent.py",
+      "family": "BASELINE",
+      "isolated_change": "Authoritative production baseline: equal-weighted top 5 momentum winners (budget 0.76 or 0.92), 18% leveraged overlay (QLD 0.11, SSO 0.07 when vol < 0.28), defensive sleeve (XLE 0.12, XLP 0.24, XLU 0.24, XLV 0.20 when risk-off).",
+      "comparator": "N/A (Reference Standard)",
+      "risk_on_or_off_effect": "Both (Full system baseline)",
+      "tier1": {
+        "end_nav": 218989.4,
+        "cagr": 0.17,
+        "mdd": 0.1914,
+        "sharpe": 1.13,
+        "sortino": 1.06,
+        "calmar": 0.89,
+        "ann_vol": 0.1486,
+        "underwater_days": 444,
+        "trades": 1032,
+        "turnover": 21985804.24,
+        "trans_costs": 11589.12,
+        "overlay_fills": 95,
+        "overlay_holding_days": 664,
+        "overlay_participation_pct": 52.78
+      },
+      "tier2": {
+        "end_nav": 233249.64,
+        "cagr": 0.526,
+        "mdd": 0.3175,
+        "sharpe": 1.63,
+        "sortino": 1.51,
+        "calmar": 1.66,
+        "ann_vol": 0.2853,
+        "underwater_days": 91,
+        "trades": 414,
+        "turnover": 10127080.11,
+        "trans_costs": 5372.13,
+        "overlay_fills": 38,
+        "overlay_holding_days": 283,
+        "overlay_participation_pct": 56.04
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1465,
+        "moderate_selloff": -0.0336,
+        "vol_spike": -0.1577,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "100% compliant across all basic contract tests.",
+      "statistical_limitations": "High drawdown in Tier 2 COVID crash (31.75%); concentration in high-beta tech momentum.",
+      "verdict": "RETAIN AS FROZEN BASELINE"
+    },
+    "Execution_Safe_Agent_Final": {
+      "candidate_id": "Execution_Safe_Agent_Final",
+      "name": "Execution-Safe Broker Settlement Agent",
+      "module_path": "research/strategies/v30_execution_safe_agent_final.py",
+      "family": "EXECUTION_REMEDIATION",
+      "isolated_change": "Calculates pre-trade buying power with immediate sell settlement credit and dynamic liquidity buffer, preventing Scenario 4 simultaneous order drops.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Execution-layer invariant enforcement (neutral to strategy signals).",
+      "tier1": {
+        "end_nav": 218989.4,
+        "cagr": 0.17,
+        "mdd": 0.1914,
+        "sharpe": 1.13,
+        "trades": 1032,
+        "turnover": 21985804.24,
+        "trans_costs": 11589.12
+      },
+      "tier2": {
+        "end_nav": 233249.64,
+        "cagr": 0.526,
+        "mdd": 0.3175,
+        "sharpe": 1.63,
+        "trades": 414,
+        "turnover": 10127080.11,
+        "trans_costs": 5372.13
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1465,
+        "moderate_selloff": -0.0336,
+        "vol_spike": -0.1577,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Eliminates 100% of order drop rejections in Scenario 4 without altering fills.",
+      "statistical_limitations": "Execution harness correction; does not alter macro strategy returns.",
+      "verdict": "RETAIN AS RESEARCH REFERENCE"
+    },
+    "Candidate_D1": {
+      "candidate_id": "Candidate_D1",
+      "name": "Defensive Energy Exit",
+      "module_path": "research/strategies/v30_candidate_d1_energy_exit.py",
+      "family": "DEFENSIVE_ALLOCATION",
+      "isolated_change": "Removes XLE (0.12) from defensive basket; reallocates proportionally to XLP (0.28), XLU (0.28), XLV (0.24) with 0.20 cash.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Risk-off defensive sleeve only.",
+      "tier1": {
+        "end_nav": 218751.22,
+        "cagr": 0.1698,
+        "mdd": 0.1746,
+        "sharpe": 1.16,
+        "trades": 982,
+        "turnover": 21061911.93,
+        "trans_costs": 11121.03
+      },
+      "tier2": {
+        "end_nav": 224719.67,
+        "cagr": 0.4979,
+        "mdd": 0.2575,
+        "sharpe": 1.64,
+        "trades": 405,
+        "turnover": 9819666.63,
+        "trans_costs": 5212.14
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1465,
+        "moderate_selloff": -0.0336,
+        "vol_spike": -0.142,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Improves defensive drawdown in oil market crashes.",
+      "statistical_limitations": "Underperforms in inflationary or commodity-driven recoveries.",
+      "verdict": "REJECT FOR CURRENT PURPOSE"
+    },
+    "Candidate_D2": {
+      "candidate_id": "Candidate_D2",
+      "name": "Defensive 50% Cash Cushion",
+      "module_path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+      "family": "DEFENSIVE_ALLOCATION",
+      "isolated_change": "Increases risk-off cash reserve from 20% to 50%; reduces defensive equities proportionally (XLE 0.075, XLP 0.15, XLU 0.15, XLV 0.125).",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Risk-off defensive sleeve only.",
+      "tier1": {
+        "end_nav": 211037.71,
+        "cagr": 0.1614,
+        "mdd": 0.1707,
+        "sharpe": 1.15,
+        "trades": 967,
+        "turnover": 19403957.07,
+        "trans_costs": 10281.06
+      },
+      "tier2": {
+        "end_nav": 235569.09,
+        "cagr": 0.5335,
+        "mdd": 0.212,
+        "sharpe": 1.83,
+        "trades": 399,
+        "turnover": 9822011.12,
+        "trans_costs": 5227.77
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1465,
+        "moderate_selloff": -0.021,
+        "vol_spike": -0.089,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Reduces Tier 2 MaxDD from 31.75% to 21.20% (-10.55% reduction).",
+      "statistical_limitations": "Mild return drag in Tier 1 ( vs ) due to holding uninvested cash during mild pullbacks.",
+      "verdict": "RETAIN AS RESEARCH REFERENCE"
+    },
+    "Candidate_D3": {
+      "candidate_id": "Candidate_D3",
+      "name": "Defensive Recovery Discipline",
+      "module_path": "research/strategies/v30_candidate_d3_recovery_discipline.py",
+      "family": "DEFENSIVE_ALLOCATION",
+      "isolated_change": "Combines D2 50% cash cushion with an accelerated risk-on re-entry rule when QQQ crosses back above its 20-day SMA.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Risk-off exit and re-entry timing.",
+      "tier1": {
+        "end_nav": 223242.93,
+        "cagr": 0.1745,
+        "mdd": 0.2048,
+        "sharpe": 1.26,
+        "trades": 1046,
+        "turnover": 21508455.41,
+        "trans_costs": 11436.97
+      },
+      "tier2": {
+        "end_nav": 245473.61,
+        "cagr": 0.5654,
+        "mdd": 0.212,
+        "sharpe": 1.91,
+        "trades": 399,
+        "turnover": 9880881.93,
+        "trans_costs": 5263.73
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1465,
+        "moderate_selloff": -0.021,
+        "vol_spike": -0.089,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Captures rapid V-shaped recoveries while cutting Tier 2 MaxDD to 21.20%.",
+      "statistical_limitations": "Worsens Tier 1 MaxDD (20.48% vs 19.14% E0) due to whipsaws in false breakout regimes.",
+      "verdict": "INVESTIGATE ONLY WITH NEW INDEPENDENT EVIDENCE"
+    },
+    "Candidate_C1": {
+      "candidate_id": "Candidate_C1",
+      "name": "Tight Volatility Gate (0.22 Threshold)",
+      "module_path": "research/strategies/v30_candidate_c1_tight_vol_gate.py",
+      "family": "VOLATILITY_GATING",
+      "isolated_change": "Lowers QQQ realized volatility ceiling for leveraged overlay from 0.28 to 0.22.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Leveraged overlay activation filter.",
+      "tier1": {
+        "end_nav": 214111.41,
+        "cagr": 0.1648,
+        "mdd": 0.1911,
+        "sharpe": 1.1,
+        "trades": 1032,
+        "turnover": 22014262.36,
+        "trans_costs": 11599.33
+      },
+      "tier2": {
+        "end_nav": 237293.02,
+        "cagr": 0.5391,
+        "mdd": 0.3175,
+        "sharpe": 1.67,
+        "trades": 423,
+        "turnover": 10363397.56,
+        "trans_costs": 5465.41
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1465,
+        "moderate_selloff": -0.0336,
+        "vol_spike": -0.1577,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Deactivates overlay earlier ahead of mild volatility expansions.",
+      "statistical_limitations": "Trades off 52 bps annual return in Tier 1 for +131 bps in Tier 2; mixed regime sensitivity.",
+      "verdict": "INVESTIGATE ONLY WITH NEW INDEPENDENT EVIDENCE"
+    },
+    "Candidate_C2": {
+      "candidate_id": "Candidate_C2",
+      "name": "Volatility Acceleration Ratio (sigma5 / sigma20 <= 1.25)",
+      "module_path": "research/strategies/v30_candidate_c2_vol_acceleration.py",
+      "family": "VOLATILITY_GATING",
+      "isolated_change": "Adds short-term acceleration gate requiring sigma5 / sigma20 <= 1.25 to maintain overlay.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Leveraged overlay deactivation trigger.",
+      "tier1": {
+        "end_nav": 200064.39,
+        "cagr": 0.149,
+        "mdd": 0.1746,
+        "sharpe": 1.01,
+        "trades": 1187,
+        "turnover": 22440194.24,
+        "trans_costs": 12100.77
+      },
+      "tier2": {
+        "end_nav": 208682.08,
+        "cagr": 0.4435,
+        "mdd": 0.335,
+        "sharpe": 1.43,
+        "trades": 466,
+        "turnover": 9656297.52,
+        "trans_costs": 5172.44
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1465,
+        "moderate_selloff": -0.0336,
+        "vol_spike": -0.1577,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Severe whipsaw churn: liquidates overlay at the start of sharp upward market rebounds.",
+      "statistical_limitations": "Devastating alpha drag: collapses Tier 2 ending NAV by ,567.56.",
+      "verdict": "REJECT FOR CURRENT PURPOSE"
+    },
+    "Candidate_C3": {
+      "candidate_id": "Candidate_C3",
+      "name": "Volatility Persistence Confirmation (2 Sessions)",
+      "module_path": "research/strategies/v30_candidate_c3_vol_persistence.py",
+      "family": "VOLATILITY_GATING",
+      "isolated_change": "Requires 2 consecutive sessions of sigma > 0.28 before deactivating overlay.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Leveraged overlay deactivation delay.",
+      "tier1": {
+        "end_nav": 218989.4,
+        "cagr": 0.17,
+        "mdd": 0.1914,
+        "sharpe": 1.13,
+        "trades": 1032,
+        "turnover": 21985804.24,
+        "trans_costs": 11589.12
+      },
+      "tier2": {
+        "end_nav": 233249.64,
+        "cagr": 0.526,
+        "mdd": 0.3175,
+        "sharpe": 1.63,
+        "trades": 414,
+        "turnover": 10127080.11,
+        "trans_costs": 5372.13
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1465,
+        "moderate_selloff": -0.0336,
+        "vol_spike": -0.1577,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Economically inactive in sample periods: transient 1-day spikes without trend breakdown did not occur.",
+      "statistical_limitations": "100.000% redundant with Frozen E0 across 1,763 evaluated sessions.",
+      "verdict": "REJECT FOR CURRENT PURPOSE"
+    },
+    "Candidate_C4": {
+      "candidate_id": "Candidate_C4",
+      "name": "Combined Volatility Gates (C1 + C2)",
+      "module_path": "research/strategies/v30_candidate_c4_combined_gates.py",
+      "family": "VOLATILITY_GATING",
+      "isolated_change": "Combines tight 0.22 threshold with acceleration ratio <= 1.25.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Compound overlay gating.",
+      "tier1": {
+        "end_nav": 198707.25,
+        "cagr": 0.1475,
+        "mdd": 0.1744,
+        "sharpe": 1.0,
+        "trades": 1187,
+        "turnover": 22422523.71,
+        "trans_costs": 12090.03
+      },
+      "tier2": {
+        "end_nav": 206516.1,
+        "cagr": 0.436,
+        "mdd": 0.335,
+        "sharpe": 1.42,
+        "trades": 484,
+        "turnover": 9603917.1,
+        "trans_costs": 5174.55
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1465,
+        "moderate_selloff": -0.0336,
+        "vol_spike": -0.1577,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Severe compound drag: inherits all pathology of C2.",
+      "statistical_limitations": "Worst performing volatility candidate across both tiers.",
+      "verdict": "REJECT FOR CURRENT PURPOSE"
+    },
+    "Candidate_P1": {
+      "candidate_id": "Candidate_P1",
+      "name": "Pure Inverse-Volatility Sizing",
+      "module_path": "research/strategies/v30_candidate_p1_inverse_vol.py",
+      "family": "POSITION_SIZING",
+      "isolated_change": "Unconstrained risk-on allocation inversely proportional to 20-day realized volatility.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Risk-on winner weighting.",
+      "tier1": {
+        "end_nav": 172213.68,
+        "cagr": 0.115,
+        "mdd": 0.1458,
+        "sharpe": 0.88,
+        "trades": 1218,
+        "turnover": 20336987.6,
+        "trans_costs": 10689.68
+      },
+      "tier2": {
+        "end_nav": 199025.33,
+        "cagr": 0.4098,
+        "mdd": 0.3159,
+        "sharpe": 1.44,
+        "trades": 481,
+        "turnover": 9356612.32,
+        "trans_costs": 4918.61
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1222,
+        "moderate_selloff": -0.035,
+        "vol_spike": -0.1475,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Reduces Tier 1 MaxDD to 14.58% but severely underweights tech momentum winners.",
+      "statistical_limitations": "Massive return drag in Tier 2 (-11.62% CAGR, - NAV).",
+      "verdict": "REJECT FOR CURRENT PURPOSE"
+    },
+    "Candidate_P2": {
+      "candidate_id": "Candidate_P2",
+      "name": "Capped Inverse-Volatility with Redistribution",
+      "module_path": "research/strategies/v30_candidate_p2_capped_inverse_vol.py",
+      "family": "POSITION_SIZING",
+      "isolated_change": "Clamps inverse-vol weights at 0.24 cap and iteratively redistributes excess capacity.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Risk-on winner weighting.",
+      "tier1": {
+        "end_nav": 180325.82,
+        "cagr": 0.1254,
+        "mdd": 0.1559,
+        "sharpe": 0.92,
+        "trades": 1212,
+        "turnover": 21572944.83,
+        "trans_costs": 11322.5
+      },
+      "tier2": {
+        "end_nav": 203259.14,
+        "cagr": 0.4247,
+        "mdd": 0.3158,
+        "sharpe": 1.47,
+        "trades": 483,
+        "turnover": 9640891.59,
+        "trans_costs": 5064.62
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1242,
+        "moderate_selloff": -0.0379,
+        "vol_spike": -0.1524,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Enforces single-asset cap; slightly improves Tier 2 CAGR to 42.47%.",
+      "statistical_limitations": "Still suffers major drag relative to E0 ( vs ).",
+      "verdict": "REJECT FOR CURRENT PURPOSE"
+    },
+    "Candidate_P3": {
+      "candidate_id": "Candidate_P3",
+      "name": "Smoothed Inverse-Volatility (alpha = 0.5)",
+      "module_path": "research/strategies/v30_candidate_p3_smoothed_inverse_vol.py",
+      "family": "POSITION_SIZING",
+      "isolated_change": "Applies 2-period moving-average smoothing filter to 20-day volatility before capping.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Risk-on winner weighting.",
+      "tier1": {
+        "end_nav": 177501.28,
+        "cagr": 0.1218,
+        "mdd": 0.1763,
+        "sharpe": 0.89,
+        "trades": 1214,
+        "turnover": 21234408.13,
+        "trans_costs": 11145.26
+      },
+      "tier2": {
+        "end_nav": 209400.62,
+        "cagr": 0.446,
+        "mdd": 0.3163,
+        "sharpe": 1.52,
+        "trades": 443,
+        "turnover": 9157266.09,
+        "trans_costs": 4794.92
+      },
+      "preview_results": {
+        "calm_uptrend": 0.116,
+        "moderate_selloff": -0.0508,
+        "vol_spike": -0.1524,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Reduces trade churn in synthetic stress; improves Tier 2 CAGR to 44.60%.",
+      "statistical_limitations": "Fails to outperform E0; introduces lag during regime transitions.",
+      "verdict": "REJECT FOR CURRENT PURPOSE"
+    },
+    "Candidate_P4": {
+      "candidate_id": "Candidate_P4",
+      "name": "Equal / Inverse-Volatility Blend (50/50)",
+      "module_path": "research/strategies/v30_candidate_p4_blend_equal_inverse.py",
+      "family": "POSITION_SIZING",
+      "isolated_change": "50/50 convex combination of E0 equal sizing and P2 capped inverse-volatility sizing.",
+      "comparator": "Frozen E0",
+      "risk_on_or_off_effect": "Risk-on winner weighting.",
+      "tier1": {
+        "end_nav": 193524.33,
+        "cagr": 0.1414,
+        "mdd": 0.1622,
+        "sharpe": 1.0,
+        "trades": 1151,
+        "turnover": 21001206.04,
+        "trans_costs": 11053.85
+      },
+      "tier2": {
+        "end_nav": 211591.67,
+        "cagr": 0.4535,
+        "mdd": 0.3157,
+        "sharpe": 1.51,
+        "trades": 460,
+        "turnover": 9865512.22,
+        "trans_costs": 5248.67
+      },
+      "preview_results": {
+        "calm_uptrend": 0.1344,
+        "moderate_selloff": -0.0334,
+        "vol_spike": -0.1549,
+        "verdict": "PASS"
+      },
+      "synthetic_outcomes": "Balanced compromise between drawdown dampening and momentum capture.",
+      "statistical_limitations": "Still underperforms E0 on Sharpe across full market cycles (1.51 vs 1.63 in Tier 2; 1.00 vs 1.13 in Tier 1).",
+      "verdict": "RETAIN AS RESEARCH REFERENCE"
+    }
+  }
+}

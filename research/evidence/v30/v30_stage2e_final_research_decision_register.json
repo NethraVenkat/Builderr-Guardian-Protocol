@@ -1,0 +1,147 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2E - Final Research Decision Register",
+    "version": "1.0.0",
+    "stage": "Stage 2E",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "decision_type": "RESEARCH_GOVERNANCE_AUDIT"
+  },
+  "candidate_classifications": {
+    "Frozen_E0": {
+      "formal_verdict": "RETAIN AS FROZEN BASELINE",
+      "tier2_cagr": 52.60,
+      "tier2_maxdd": 31.75,
+      "tier2_sharpe": 1.63,
+      "tier1_cagr": 17.00,
+      "tier1_maxdd": 19.14,
+      "tier1_sharpe": 1.13,
+      "justification": "Production reference implementation. Validated across full corporate-action replay; zero regressions in core engine."
+    },
+    "Execution_Safe_Agent_Final": {
+      "formal_verdict": "RETAIN AS RESEARCH REFERENCE",
+      "justification": "Provides deterministic cash affordability, sell-first execution sequencing, and double-entry balance sheet conservation without altering strategy economics."
+    },
+    "Candidate_D1_Energy_Exit": {
+      "formal_verdict": "REJECT FOR CURRENT PURPOSE",
+      "tier2_cagr": 49.79,
+      "tier2_maxdd": 25.75,
+      "tier2_sharpe": 1.64,
+      "tier1_cagr": 16.98,
+      "tier1_maxdd": 17.46,
+      "tier1_sharpe": 1.16,
+      "justification": "Marginal drawdown reduction does not offset loss of diversification; fails to provide superior risk-adjusted profile to D2."
+    },
+    "Candidate_D2_Cash_Cushion": {
+      "formal_verdict": "RETAIN AS RESEARCH REFERENCE",
+      "tier2_cagr": 53.35,
+      "tier2_maxdd": 21.20,
+      "tier2_sharpe": 1.83,
+      "tier1_cagr": 16.14,
+      "tier1_maxdd": 17.07,
+      "tier1_sharpe": 1.15,
+      "justification": "Strongest risk-mitigation candidate. Reduces Tier 2 MaxDD by 10.55 percentage points (from 31.75% to 21.20%) via 50% explicit cash cushion in defensive mode, with minimal Tier 1 return drag."
+    },
+    "Candidate_D3_Recovery_Discipline": {
+      "formal_verdict": "INVESTIGATE ONLY WITH NEW INDEPENDENT EVIDENCE",
+      "tier2_cagr": 56.54,
+      "tier2_maxdd": 21.20,
+      "tier2_sharpe": 1.91,
+      "tier1_cagr": 17.45,
+      "tier1_maxdd": 20.48,
+      "tier1_sharpe": 1.26,
+      "justification": "High recovery returns on Tier 2, but degrades Tier 1 MaxDD relative to baseline E0. Requires out-of-sample stress verification."
+    },
+    "Candidate_C1_Tight_Vol_Gate": {
+      "formal_verdict": "INVESTIGATE ONLY WITH NEW INDEPENDENT EVIDENCE",
+      "tier2_cagr": 50.81,
+      "tier2_maxdd": 31.75,
+      "tier2_sharpe": 1.58,
+      "tier1_cagr": 16.48,
+      "tier1_maxdd": 19.11,
+      "tier1_sharpe": 1.10,
+      "justification": "Cuts overlay participation prematurely during bull pullbacks; lacks consistent regime separation."
+    },
+    "Candidate_C2_Vol_Acceleration": {
+      "formal_verdict": "REJECT FOR CURRENT PURPOSE",
+      "tier2_cagr": 35.33,
+      "tier2_maxdd": 25.59,
+      "tier2_sharpe": 1.29,
+      "tier1_cagr": 14.90,
+      "tier1_maxdd": 17.46,
+      "tier1_sharpe": 1.01,
+      "justification": "Severe whipsaw churn, elevated transaction costs, and substantial return drag across both Tier 1 and Tier 2."
+    },
+    "Candidate_C3_Vol_Persistence": {
+      "formal_verdict": "INSUFFICIENT EVIDENCE",
+      "tier2_cagr": 52.60,
+      "tier2_maxdd": 31.75,
+      "tier2_sharpe": 1.63,
+      "tier1_cagr": 17.00,
+      "tier1_maxdd": 19.14,
+      "tier1_sharpe": 1.13,
+      "justification": "Completely economically inactive in historical data; zero state transitions triggered on SPY."
+    },
+    "Candidate_C4_Combined_Gates": {
+      "formal_verdict": "REJECT FOR CURRENT PURPOSE",
+      "tier2_cagr": 35.33,
+      "tier2_maxdd": 25.59,
+      "tier2_sharpe": 1.29,
+      "tier1_cagr": 14.90,
+      "tier1_maxdd": 17.46,
+      "tier1_sharpe": 1.01,
+      "justification": "Inherits severe churn penalties from C2; multi-parameter complexity without alpha justification."
+    },
+    "Candidate_P1_Inverse_Vol": {
+      "formal_verdict": "REJECT FOR CURRENT PURPOSE",
+      "tier2_cagr": 41.08,
+      "tier2_maxdd": 30.65,
+      "tier2_sharpe": 1.45,
+      "tier1_cagr": 11.48,
+      "tier1_maxdd": 16.48,
+      "tier1_sharpe": 0.88,
+      "justification": "Extreme compounding drag (drops Tier 2 CAGR by 11.52% and Tier 1 CAGR by 5.52%) with negligible crash protection."
+    },
+    "Candidate_P2_Capped_Inverse_Vol": {
+      "formal_verdict": "REJECT FOR CURRENT PURPOSE",
+      "tier2_cagr": 42.57,
+      "tier2_maxdd": 30.65,
+      "tier2_sharpe": 1.48,
+      "tier1_cagr": 12.51,
+      "tier1_maxdd": 16.49,
+      "tier1_sharpe": 0.94,
+      "justification": "Fails to resolve compounding drag; penalizes high-momentum leaders."
+    },
+    "Candidate_P3_Smoothed_Inverse_Vol": {
+      "formal_verdict": "REJECT FOR CURRENT PURPOSE",
+      "tier2_cagr": 44.71,
+      "tier2_maxdd": 30.67,
+      "tier2_sharpe": 1.50,
+      "tier1_cagr": 12.15,
+      "tier1_maxdd": 16.51,
+      "tier1_sharpe": 0.91,
+      "justification": "EWMA smoothing introduces lag; fails to improve Sharpe or drawdown meaningfully."
+    },
+    "Candidate_P4_Blend_Equal_Inverse": {
+      "formal_verdict": "RETAIN AS RESEARCH REFERENCE",
+      "tier2_cagr": 45.46,
+      "tier2_maxdd": 30.68,
+      "tier2_sharpe": 1.53,
+      "tier1_cagr": 14.12,
+      "tier1_maxdd": 16.59,
+      "tier1_sharpe": 1.09,
+      "justification": "Most balanced position-sizing candidate, achieving 16.59% MaxDD in Tier 1. Retained as reference for risk-budgeting studies."
+    }
+  },
+  "formal_governance_answers": {
+    "1_strongest_supported_weakness_in_e0": "The 130% gross economic exposure during Risk-On (70% tech momentum + 60% embedded 2x leveraged ETFs) combined with an 18-session moving average lag creates severe left-tail vulnerability during sudden market dislocations (31.75% Tier 2 MaxDD). In addition, positive correlation of the defensive XLE sleeve during commodity/demand crashes exacerbates drawdowns.",
+    "2_conclusively_corrected": "Three major structural items: (1) Cash-affordability and execution safety resolved via sell-first sequencing and double-entry broker accounting (Stage 2A-F); (2) Historical financial baseline reconciled to 0.00 residual by modeling corporate actions (Stage 2B-R); (3) Overlay measurement integrity verified, proving overlay was fully operational (283 holding days in Tier 2) and the '0% overlay' claim was purely a reporting artifact (Stage 2D-R).",
+    "3_unjustified_for_promotion": "Candidates D1, C1, C2, C4, P1, P2, P3 did not justify promotion due to either heavy churn, excessive return drag, or negligible drawdown reduction.",
+    "4_ideas_deserving_further_investigation": "Candidate D2 (50% explicit cash cushion in Risk-Off) which cleanly cuts Tier 2 MaxDD from 31.75% to 21.20% with minimal drag, and Candidate D3 (recovery discipline) for faster post-crash upside capture.",
+    "5_risks_untestable_on_authorized_data": "Regime changes where long bonds (TLT) crash simultaneously with equities (e.g. 2022 inflation shock), intraday flash crashes, and overnight gap events in 2x leveraged ETFs.",
+    "6_reliable_path_to_validation": "Forward paper simulation or strictly governed single-shot verification on sealed Tier 3 data (>= 2022-01-01) AFTER freezing a candidate. Historical backtesting on Tier 1/2 is fully exhausted and statistically contaminated.",
+    "7_justification_to_reopen_rejected_candidates": "Reopening volatility gates would require proven predictive power of leading volatility indicators without churn. Reopening inverse-vol sizing would require proof of CVaR reduction exceeding compounding drag.",
+    "8_recommended_focus_next_stage": "Research closure and risk-budget monitoring. Transition candidate D2 to forward paper simulation protocol while keeping production agent frozen. Zero further historical parameter tuning on Tier 1/2."
+  }
+}

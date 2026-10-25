@@ -1,0 +1,91 @@
+{
+  "plan_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Human-Only Git Preservation & Archival Plan",
+    "timestamp_utc": "2026-10-24T15:00:24.204867+00:00",
+    "author_role": "Independent Research Governance Officer & Evidence Preservation Specialist",
+    "agent_constraint": "ZERO AGENT GIT MUTATIONS. All commands are instructions for human owner execution only.",
+    "execution_status": "PENDING_HUMAN_OWNER_EXECUTION"
+  },
+  "preservation_principles": [
+    "No broad 'git add -A' or 'git add .': broad additions risk staging ignored caches, secrets, or temporary files.",
+    "Explicit file-level additions: Stage only verified public-safe markdown reports, strategy candidates, engine oracles, and evidence ledgers.",
+    "Strict exclusion of sealed Tier 3: tiingo_cache/ must remain ignored in .gitignore and never committed.",
+    "Zero data loss: All untracked research evidence remains intact on disk.",
+    "No remote push: Push is strictly unauthorized; archival is local to the repository."
+  ],
+  "file_classification_summary": {
+    "tracked_files": 271,
+    "untracked_research_artifacts": 162,
+    "oversized_files_greater_than_1mb": 0,
+    "ignored_directories": 10,
+    "sealed_tier3_cache": "tiingo_cache/ (STRICTLY EXCLUDED FROM GIT)",
+    "mock_secrets_paths": [
+      "GUARDIAN_ALPHA_V29A_EVIDENCE_INVENTORY.md",
+      "GUARDIAN_ALPHA_V29B_EXECUTION_VERIFICATION_REPORT.md",
+      "GUARDIAN_ALPHA_V29C_PUBLIC_REPRODUCIBILITY_PLAN.md",
+      "v30_stage2h_a_security_auditor.py"
+    ]
+  },
+  "human_executable_powershell_steps": [
+    {
+      "step_number": 1,
+      "title": "Pre-Action Sanity Verification",
+      "powershell_command": "git status; git rev-parse HEAD",
+      "expected_pre_condition": "HEAD must be b283ded200c777b130285b0aa56a0b044afbd339 on branch research/v29e-final-release-verification with 0 tracked modifications.",
+      "expected_post_condition": "Confirmation of clean index."
+    },
+    {
+      "step_number": 2,
+      "title": "Create Dedicated Human Archival Branch",
+      "powershell_command": "git checkout -b archive/v30-stage2h-final-evidence-freeze",
+      "expected_pre_condition": "On branch research/v29e-final-release-verification at commit b283ded200c777b130285b0aa56a0b044afbd339.",
+      "expected_post_condition": "Switched to new branch 'archive/v30-stage2h-final-evidence-freeze'. Protected release branch remains untouched."
+    },
+    {
+      "step_number": 3,
+      "title": "Stage Core Stage 2H Primary Deliverables & Reports",
+      "powershell_command": "git add GUARDIAN_ALPHA_V30_STAGE2H_A_EXTENDED_READINESS_AND_OWNER_APPROVAL.md GUARDIAN_ALPHA_V30_STAGE2H_B_FINAL_GOVERNANCE_CORRECTIONS.md GUARDIAN_ALPHA_V30_STAGE2H_C_FINAL_FREEZE_AND_OWNER_HANDOVER.md",
+      "expected_pre_condition": "Reports untracked.",
+      "expected_post_condition": "3 markdown files staged in git index."
+    },
+    {
+      "step_number": 4,
+      "title": "Stage Verified Stage 2H Engine & Oracle Modules",
+      "powershell_command": "git add research/engine/v30_stage2h_a_hardened_causal_engine.py research/engine/v30_stage2h_b_decimal_accounting_oracle.py research/engine/v30_stage2h_b_security_guard.py research/engine/v30_sizing_oracle_decimal.py research/engine/cash_affordability_model.py",
+      "expected_pre_condition": "Engine files untracked.",
+      "expected_post_condition": "5 engine files staged in git index."
+    },
+    {
+      "step_number": 5,
+      "title": "Stage Dedicated Stage 2H Test Suites",
+      "powershell_command": "git add research/tests/test_v30_stage2h_a_adversarial.py research/tests/test_v30_stage2h_b_governance.py",
+      "expected_pre_condition": "Test files untracked.",
+      "expected_post_condition": "2 test files staged in git index."
+    },
+    {
+      "step_number": 6,
+      "title": "Stage Stage 2H Evidence Manifests and Ledgers",
+      "powershell_command": "git add research/evidence/v30/v30_stage2h_b_*.json research/evidence/v30/v30_stage2h_c_*.json",
+      "expected_pre_condition": "Stage 2H-B and 2H-C evidence json files untracked.",
+      "expected_post_condition": "Evidence files staged. Note: tiingo_cache remains un-staged."
+    },
+    {
+      "step_number": 7,
+      "title": "Verify Staged Index Integrity",
+      "powershell_command": "git status --short",
+      "expected_pre_condition": "Files staged in previous steps.",
+      "expected_post_condition": "All staged entries start with 'A '. Zero entries from tiingo_cache/."
+    },
+    {
+      "step_number": 8,
+      "title": "Execute Human Frozen Checkpoint Commit",
+      "powershell_command": "git commit -m 'chore(v30-freeze): owner archival freeze of stage 2h evidence, accounting oracles, and governance ledgers'",
+      "expected_pre_condition": "Staged changes verified.",
+      "expected_post_condition": "Commit created on branch archive/v30-stage2h-final-evidence-freeze. Zero remote push."
+    }
+  ],
+  "verification_and_recovery_checklist": {
+    "abort_procedure": "If any unexpected file appears staged (especially from tiingo_cache), run 'git reset' immediately to clear the index.",
+    "branch_safety": "The production verification branch research/v29e-final-release-verification is never mutated because human work occurs on a new archival branch."
+  }
+}

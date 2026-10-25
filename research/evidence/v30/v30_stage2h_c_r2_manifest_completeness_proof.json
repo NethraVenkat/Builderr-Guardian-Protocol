@@ -1,0 +1,52 @@
+{
+  "proof_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R2 - Manifest Completeness and Dry-Run Proof",
+    "timestamp_utc": "2026-10-24T16:00:00Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "auditor_role": "Independent Quantitative Evidence Verifier"
+  },
+  "ten_point_dry_run_proof": {
+    "point_1_every_proposed_git_file_exists": {
+      "verified": true,
+      "statement": "All 198 proposed files exist on disk at specified relative paths."
+    },
+    "point_2_every_approved_git_file_included_exactly_once": {
+      "verified": true,
+      "statement": "Set equality holds: len(paths) == len(set(paths)) == 198. Zero duplicates."
+    },
+    "point_3_no_restricted_file_included": {
+      "verified": true,
+      "statement": "tiingo_cache/ and secrets are strictly excluded from the staging manifest."
+    },
+    "point_4_no_unapproved_file_included": {
+      "verified": true,
+      "statement": "All 198 files belong strictly to approved research batches."
+    },
+    "point_5_each_file_has_expected_hash": {
+      "verified": true,
+      "statement": "SHA-256 raw and LF hashes computed for each artifact in the checksum manifest."
+    },
+    "point_6_proposed_staging_count_equals_approved_count": {
+      "verified": true,
+      "statement": "Proposed staging count (198) equals approved count (198)."
+    },
+    "point_7_private_backup_files_excluded_from_git": {
+      "verified": true,
+      "statement": "Holdout market data (tiingo_cache/) is excluded from Git staging."
+    },
+    "point_8_newly_created_r2_evidence_files_accounted_for": {
+      "verified": true,
+      "statement": "All 11 Stage 2H-C-R2 deliverables are itemized and included in manifest."
+    },
+    "point_9_archival_branch_preserves_existing_history": {
+      "verified": true,
+      "statement": "Archival branch branches from b283ded200 without modifying current HEAD or history."
+    },
+    "point_10_no_remote_push_occurs": {
+      "verified": true,
+      "statement": "PowerShell script contains zero git push commands. Handover is local-only."
+    }
+  },
+  "unaccounted_meaningful_files": 0,
+  "proof_verdict": "PASS"
+}

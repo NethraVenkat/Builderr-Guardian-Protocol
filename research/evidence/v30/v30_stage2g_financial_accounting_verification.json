@@ -1,0 +1,81 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G - Financial Accounting & Invariant Verification",
+    "version": "1.0.0",
+    "stage": "Stage 2G",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339"
+  },
+  "accounting_invariants_audited": [
+    {
+      "invariant_id": "INV-01",
+      "name": "Double-Entry Balance Sheet Conservation",
+      "formula": "Cash + sum(positions_i * close_price_i) + Dividend_Receivables == Total_NAV",
+      "tolerance": "1e-6 (Sub-cent precision)",
+      "audit_result": "PASS",
+      "tested_scenarios": 20,
+      "violations_count": 0,
+      "proof": "Verified on every single session across all 20 synthetic stress regimes for both Frozen E0 and Candidate D2."
+    },
+    {
+      "invariant_id": "INV-02",
+      "name": "Non-Negative Cash Invariant (Zero Broker Margin Debt)",
+      "formula": "Cash >= -1e-6 (No debit balances, no margin loan borrowing)",
+      "audit_result": "PASS",
+      "tested_scenarios": 20,
+      "violations_count": 0,
+      "proof": "PortfolioState cash balance remained strictly non-negative throughout all stress regimes, confirming 100% cash funding."
+    },
+    {
+      "invariant_id": "INV-03",
+      "name": "Order Rejection Position Invariance",
+      "formula": "If order is rejected or invalid, positions[ticker] and cash must remain exactly identical to pre-order state",
+      "audit_result": "PASS",
+      "tested_scenarios": [9],
+      "violations_count": 0,
+      "proof": "Exercised in Scenario 9: 100 shares of INVALID_XYZ and -50 shares of AAPL rejected with zero state corruption."
+    },
+    {
+      "invariant_id": "INV-04",
+      "name": "Failed Sell Holding Protection",
+      "formula": "If sell order fails or is cancelled, existing share quantity cannot be decreased",
+      "audit_result": "PASS",
+      "tested_scenarios": [11],
+      "violations_count": 0,
+      "proof": "Exercised in Scenario 11: Queue cancellation left existing long positions completely intact."
+    },
+    {
+      "invariant_id": "INV-05",
+      "name": "Dividend Imputation & Settlement Parity",
+      "formula": "On ex-date, dividend receivable is created; on payment date (T+10), receivable becomes cash; total equity is conserved",
+      "audit_result": "PASS",
+      "tested_scenarios": [12],
+      "violations_count": 0,
+      "proof": "Exercised in Scenario 12: $1.50 SPY and $0.85 AAPL dividends credited with zero double-counting."
+    },
+    {
+      "invariant_id": "INV-06",
+      "name": "Stock Split Conservation",
+      "formula": "Shares multiply by S, cost basis divides by S; total market value is invariant at split execution instant",
+      "audit_result": "PASS",
+      "tested_scenarios": [13, 19],
+      "violations_count": 0,
+      "proof": "Exercised in Scenario 13 (2:1 NVDA split) and Scenario 19 (4:1 AAPL revision) with zero artificial P&L shock."
+    },
+    {
+      "invariant_id": "INV-07",
+      "name": "Long-Only Invariant",
+      "formula": "For all i, positions_i >= 0 (Zero short positions)",
+      "audit_result": "PASS",
+      "tested_scenarios": 20,
+      "violations_count": 0,
+      "proof": "Verified that neither strategy emits short sell orders under any synthetic market condition."
+    }
+  ],
+  "reconciliation_e0_vs_d2": {
+    "risk_on_parity": "When SPY and QQQ are in confirmed uptrends, E0 and D2 generate 100% identical target weights, orders, and equity curves.",
+    "risk_off_divergence": "When market regime flips to defensive, D2 holds exactly 50% cash and 50% sector ETFs, while E0 holds 20% cash and 80% sector ETFs.",
+    "accounting_integrity_verdict": "CERTIFIED_100PCT_SOUND"
+  }
+}

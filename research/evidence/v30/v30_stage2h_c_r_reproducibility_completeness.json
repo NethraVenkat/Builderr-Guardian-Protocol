@@ -1,0 +1,32 @@
+{
+  "assessment_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R - Reproducibility Completeness Assessment",
+    "timestamp_utc": "2026-10-24T15:27:14.057245+00:00",
+    "auditor_role": "Scientific Reproducibility Engineer & Systems Architect",
+    "verdict": "HERMETIC_SOFTWARE_REPRODUCIBILITY_CERTIFIED"
+  },
+  "reproducibility_classifications": {
+    "REPRODUCIBLE_WITH_PERMITTED_FILES": [
+      "All unit and adversarial regression tests (602 research tests).",
+      "Double-entry Decimal accounting oracle identity verification (Equity = Assets - Liabilities == Flow Equity).",
+      "Activation boundary guards and persistent disk-lock restart survival.",
+      "Synthetic causal simulation stress scenarios and crash-recovery verification.",
+      "Host Builderr admission preview (preview.py), selfcheck (selfcheck.py), and strategy selftest (strategy_selftest.py)."
+    ],
+    "REPRODUCIBLE_ONLY_WITH_AUTHORIZED_PRIVATE_DATA": [
+      "Historical replay backtests covering 2018-2021 (Tier 1 & Tier 2) requiring pre-2022 historical price fixtures.",
+      "Historical baseline reconciliation between Stage 1 ($233k) and Stage 2B ($135k) corporate-action adjusted series."
+    ],
+    "NOT_INDEPENDENTLY_REPRODUCIBLE": [
+      "Unsealed Tier 3 prospective market observations (dates >= 2022-01-01) which remain strictly sealed to prevent lookahead contamination.",
+      "Live broker execution or live exchange order routing (permanently prohibited by protocol)."
+    ],
+    "INSUFFICIENT_EVIDENCE": []
+  },
+  "reproducibility_requirements": {
+    "python_runtime": "Python 3.11+ (tested on Python 3.11.9 64-bit).",
+    "standard_library_isolation": "Zero third-party packages required for agent.py, comparator d2, or Decimal accounting oracles.",
+    "test_runner": "pytest >= 9.0 (tested with pytest 9.1.1).",
+    "cross_platform_guarantee": "Windows, Linux, and macOS supported without compilation or binary extensions."
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G - Frozen Comparison Manifest",
+    "version": "1.0.0",
+    "stage": "Stage 2G",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "status": "FROZEN_FOR_FORWARD_EVALUATION"
+  },
+  "frozen_strategies": {
+    "frozen_e0_baseline": {
+      "strategy_id": "FROZEN_E0",
+      "role": "OFFICIAL_PRODUCTION_BASELINE",
+      "module_path": "agent.py",
+      "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "reference_candidate_path": "research/strategies/v12_candidate_ae.py",
+      "reference_candidate_lf_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "risk_off_defensive_weights": {
+        "XLP": 0.24,
+        "XLU": 0.24,
+        "XLV": 0.20,
+        "XLE": 0.12,
+        "unallocated_cash": 0.20
+      }
+    },
+    "frozen_d2_comparator": {
+      "strategy_id": "CANDIDATE_D2",
+      "role": "RESEARCH_COMPARATOR_50PCT_CASH",
+      "module_path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+      "sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "risk_off_defensive_weights": {
+        "XLP": 0.18,
+        "XLU": 0.18,
+        "XLV": 0.14,
+        "XLE": 0.00,
+        "unallocated_cash": 0.50
+      }
+    }
+  },
+  "shared_environment": {
+    "universe_file": "universe.json",
+    "universe_lf_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+    "universe_size": 1000,
+    "simulation_engine": "research/engine/replay.py (ReplayEngine)",
+    "starting_cash": 100000.00,
+    "modeled_slippage_bps": 10.0,
+    "modeled_commission_dollar": 0.00,
+    "execution_timing": "Next-day Market-On-Open (09:30:00 EST)",
+    "order_sequencing": "Deterministic Sell-First Sequencing (sells executed before buys)",
+    "corporate_action_policy": "IMPUTE_BUSINESS_DAYS_10_AND_SPLIT_RATIO",
+    "risk_limits": {
+      "max_gross_leverage": 1.50,
+      "max_single_stock_concentration": 0.30,
+      "max_concentration_streak_days": 5,
+      "catastrophic_drawdown_limit": 0.50
+    }
+  },
+  "prospective_endpoints": {
+    "primary_endpoint": "Realized Maximum Drawdown under market stress (D2 MDD reduction >= 5.0% vs E0 during market decline >= 10%)",
+    "secondary_endpoints": ["Sharpe Ratio Parity (within 0.10)", "Calmar Ratio Superiority", "Annualized Turnover Ratio", "Downside Semi-Deviation"],
+    "minimum_horizon_trading_days": 252
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "backup_specification_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Private Evidence Offline Backup Specification",
+    "timestamp_utc": "2026-10-24T15:00:24.206310+00:00",
+    "auditor_role": "Evidence Preservation Specialist",
+    "status": "HUMAN_BACKUP_PROCEDURE_SPECIFIED"
+  },
+  "backup_scope": {
+    "included_directories": [
+      "research/evidence/v30/",
+      "research/engine/",
+      "research/strategies/",
+      "research/tests/"
+    ],
+    "included_root_deliverables": [
+      "GUARDIAN_ALPHA_V30_STAGE2H_*.md",
+      "GUARDIAN_ALPHA_V30_STAGE2G_*.md",
+      "GUARDIAN_ALPHA_V30_STAGE2F_*.md"
+    ],
+    "strictly_excluded_paths": [
+      "tiingo_cache/",
+      ".git/",
+      ".pytest_cache/",
+      "**/__pycache__/"
+    ]
+  },
+  "recommended_offline_backup_command": {
+    "description": "Human owner can create a timestamped, compressed offline archive of research evidence using PowerShell Compress-Archive or robocopy without touching Git:",
+    "powershell_command": "Compress-Archive -Path research\\evidence\\v30\\*, GUARDIAN_ALPHA_V30_STAGE2H_*.md -DestinationPath C:\\Users\\Manish\\Downloads\\Guardian_Alpha_V30_Stage2H_Frozen_Evidence_Backup.zip"
+  },
+  "provenance_and_timestamp_preservation": "Zip archiving preserves relative folder hierarchy, file modification timestamps, and exact SHA-256 integrity without risking repository pollution."
+}

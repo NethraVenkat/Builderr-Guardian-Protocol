@@ -1,0 +1,103 @@
+{
+  "register_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Cross-Stage Evidence Consistency & Forensic Reconciliation Register",
+    "timestamp_utc": "2026-10-24T14:58:20.573162+00:00",
+    "auditor_role": "Principal Quantitative Research Auditor & Governance Reviewer",
+    "status": "APPEND_ONLY_CORRECTION_HISTORY_RECONCILED",
+    "methodology": "Strict forensic distinction between historical backtest replays and synthetic software-verification tests."
+  },
+  "eleven_key_forensic_reconciliations": [
+    {
+      "issue_id": "REC_01_CORPORATE_ACTION_OMISSION",
+      "stages_affected": "Stage 1, Stage 2A, Stage 2B",
+      "original_defect": "Historical replays initially omitted explicit cash dividend adjustments and stock splits, causing artificial price gaps and cash distortion.",
+      "correction_stage": "Stage 2B-R (Baseline Reconciliation)",
+      "corrective_action": "Implemented split-adjusted and dividend-adjusted price series; verified ex-date pricing conventions.",
+      "final_status": "RECONCILED_VERIFIED"
+    },
+    {
+      "issue_id": "REC_02_OVERLAY_TRACE_REPORTING_DEFECT",
+      "stages_affected": "Stage 2D",
+      "original_defect": "Candidate overlays (P1-P4) reported flawed overlay weight traces where cash cushion was misattributed to overlay scaling.",
+      "correction_stage": "Stage 2D-R (Overlay & Sizing Oracle Audit)",
+      "corrective_action": "Constructed independent sizing oracle (v30_sizing_oracle.py) to decouple cash cushion from position sizing.",
+      "final_status": "RECONCILED_VERIFIED"
+    },
+    {
+      "issue_id": "REC_03_INCORRECT_LEVERAGED_OVERLAY_EXPOSURE_CLAIM",
+      "stages_affected": "Stage 2D, Stage 2E",
+      "original_defect": "Preliminary documentation claimed Candidate P4 achieved 1.5x leveraged exposure without borrowing or cash deficits.",
+      "correction_stage": "Stage 2F (Final Quantitative Corrections)",
+      "corrective_action": "Mathematical audit proved gross exposure never exceeded 1.0x in cash-account simulation; claim of synthetic leverage formally retracted.",
+      "final_status": "RETRACTED_AND_CORRECTED"
+    },
+    {
+      "issue_id": "REC_04_VOLATILITY_RISK_ATTRIBUTION_RETRACTION",
+      "stages_affected": "Stage 2C",
+      "original_defect": "Candidate C1-C4 volatility gates claimed structural downside risk reduction across historical windows.",
+      "correction_stage": "Stage 2E, Stage 2F",
+      "corrective_action": "Demonstrated that volatility gates suffered severe whipsaw losses during 2018 false alarms, eroding CAGR. Strategy promotion blocked.",
+      "final_status": "RETRACTED_AND_BLOCKED"
+    },
+    {
+      "issue_id": "REC_05_MARCH_2020_DRAWDOWN_ATTRIBUTION_CORRECTION",
+      "stages_affected": "Stage 2E",
+      "original_defect": "Initial analysis attributed March 2020 COVID drawdown reduction primarily to volatility trigger speed.",
+      "correction_stage": "Stage 2F",
+      "corrective_action": "Factor decomposition proved drawdown reduction was driven by pre-existing defensive cash allocation (D2 cushion) rather than reactive intraday volatility switching.",
+      "final_status": "RECONCILED_VERIFIED"
+    },
+    {
+      "issue_id": "REC_06_P4_MAXDD_UNDERSTATEMENT_CORRECTION",
+      "stages_affected": "Stage 2D",
+      "original_defect": "Reported MaxDD for Candidate P4 was understated (-12.8% vs actual -18.4%) due to non-standard intraday interpolation.",
+      "correction_stage": "Stage 2F",
+      "corrective_action": "Standardized close-to-close and high-to-low daily equity peak-to-trough calculations; corrected official MaxDD ledger.",
+      "final_status": "RECONCILED_VERIFIED"
+    },
+    {
+      "issue_id": "REC_07_MULTIPLE_TESTING_AND_DSR_INTERPRETATION",
+      "stages_affected": "Stage 2E, Stage 2F, Stage 2H-B",
+      "original_defect": "Historical backtests presented nominal Sharpe ratios without disclosing multiple hypothesis testing penalty.",
+      "correction_stage": "Stage 2F, Stage 2H-B",
+      "corrective_action": "Disclosed that at least 43 historical variants were evaluated (M >= 43). Deflated Sharpe Ratio (DSR) and Harvey-Liu-Zhu hair-cuts prove historical t-stats are inflated, mandating prospective evaluation.",
+      "final_status": "DISCLOSED_AND_METHODOLOGICALLY_RESOLVED"
+    },
+    {
+      "issue_id": "REC_08_SIMULATOR_EXECUTION_ORDER_DIVERGENCE",
+      "stages_affected": "Stage 2G, Stage 2H-A",
+      "original_defect": "Preview scripts iterated in raw emitted list order (causing buy failures when buys preceded sells), while Builderr host simulator used sell-first pass.",
+      "correction_stage": "Stage 2H-B, Stage 2H-C",
+      "corrective_action": "Host sell-first pass established as AUTHORITATIVE; order sorting enforced to guarantee 100% parity.",
+      "final_status": "RECONCILED_VERIFIED"
+    },
+    {
+      "issue_id": "REC_09_EVENT_IMMUTABILITY_CORRECTIONS",
+      "stages_affected": "Stage 2G",
+      "original_defect": "Event logs were initially mutable dictionary arrays vulnerable to state manipulation or missing timestamps.",
+      "correction_stage": "Stage 2G-R, Stage 2H-A",
+      "corrective_action": "Implemented HMAC-chained append-only event journals with strict monotonic sequencing and tamper detection.",
+      "final_status": "RECONCILED_VERIFIED"
+    },
+    {
+      "issue_id": "REC_10_FINANCIAL_ACCOUNTING_GENERALIZATION",
+      "stages_affected": "Stage 2H-A",
+      "original_defect": "Accounting equation was formulated as NAV = Cash + Holdings + Receivables, implicitly assuming zero liabilities.",
+      "correction_stage": "Stage 2H-B",
+      "corrective_action": "Generalized to institutional balance-sheet identity Equity = Assets - Liabilities; verified against Economic Flow Equity with Decimal oracle across 10 adversarial scenarios ($0.0000 residual).",
+      "final_status": "RECONCILED_VERIFIED"
+    },
+    {
+      "issue_id": "REC_11_STATISTICAL_SAMPLING_LIMITATIONS",
+      "stages_affected": "Stage 2H-A",
+      "original_defect": "Claimed 30 defensive sessions was fully sufficient for conclusive prospective validation.",
+      "correction_stage": "Stage 2H-B, Stage 2H-C",
+      "corrective_action": "Rigorous sensitivity modeling revealed N=30 yields only ~35% power under realistic variance (sigma = 80 bps/day); recommended contingent horizon extension to N >= 45-60. Clarified that 200 bps CAGR margin is an economic budget cap, not a hypothesis test.",
+      "final_status": "RECONCILED_VERIFIED"
+    }
+  ],
+  "historical_vs_synthetic_distinction": {
+    "historical_replays": "Run on historical market data (Tier 1 & Tier 2, 2018-2021). Suffer from lookahead risk and selection bias (M >= 43). Cannot prove future alpha.",
+    "synthetic_software_verification": "Run on deterministic synthetic price vectors and simulated execution events. Validates software correctness, accounting invariants, and crash safety. Does not make market profitability claims."
+  }
+}

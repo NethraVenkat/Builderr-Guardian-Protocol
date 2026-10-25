@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GuardianAlphaDailyEvidenceRecord",
+  "description": "Comprehensive JSON schema governing daily prospective evaluation evidence records, provenance tracking, and cryptographic integrity.",
+  "type": "object",
+  "required": [
+    "session_date",
+    "provider_metadata",
+    "source_integrity",
+    "market_observations",
+    "causal_decision_record",
+    "execution_fills",
+    "financial_balance_sheet",
+    "cryptographic_manifest"
+  ],
+  "properties": {
+    "session_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Trading session date YYYY-MM-DD"
+    },
+    "provider_metadata": {
+      "type": "object",
+      "required": ["provider_id", "feed_version", "license_type", "ingestion_timestamp_utc"],
+      "properties": {
+        "provider_id": { "type": "string", "enum": ["TIINGO_EOD", "POLYGON_IO", "ALPACA_MARKET_DATA", "IBKR_TWS_EOD", "SYNTHETIC_TEST"] },
+        "feed_version": { "type": "string" },
+        "license_type": { "type": "string", "enum": ["PERSONAL_DEVELOPER_RESEARCH", "INTERNAL_PROPRIETARY", "SYNTHETIC_AIR_GAPPED"] },
+        "ingestion_timestamp_utc": { "type": "string", "format": "date-time" }
+      }
+    },
+    "source_integrity": {
+      "type": "object",
+      "required": ["agent_e0_sha256", "candidate_d2_sha256", "engine_sha256", "git_head_commit"],
+      "properties": {
+        "agent_e0_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "candidate_d2_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "engine_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "git_head_commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" }
+      }
+    },
+    "market_observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["event_id", "ticker", "exchange_ts", "open", "high", "low", "close", "volume", "payload_hash"],
+        "properties": {
+          "event_id": { "type": "string" },
+          "ticker": { "type": "string" },
+          "exchange_ts": { "type": "string" },
+          "open": { "type": "number", "minimum": 0.0001 },
+          "high": { "type": "number", "minimum": 0.0001 },
+          "low": { "type": "number", "minimum": 0.0001 },
+          "close": { "type": "number", "minimum": 0.0001 },
+          "volume": { "type": "number", "minimum": 0.0 },
+          "split_factor": { "type": "number", "default": 1.0 },
+          "div_cash": { "type": "number", "default": 0.0 },
+          "payload_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "data_quality_flags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "causal_decision_record": {
+      "type": "object",
+      "required": ["decision_id", "strategy_evaluated", "regime_detected", "raw_orders_emitted", "input_event_hashes"],
+      "properties": {
+        "decision_id": { "type": "string" },
+        "strategy_evaluated": { "type": "string" },
+        "regime_detected": { "type": "string", "enum": ["RISK_ON", "DEFENSIVE"] },
+        "raw_orders_emitted": { "type": "array" },
+        "input_event_hashes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "execution_fills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fill_id", "ticker", "side", "shares", "exec_price", "slippage_bps", "notional", "commission"],
+        "properties": {
+          "fill_id": { "type": "string" },
+          "ticker": { "type": "string" },
+          "side": { "type": "string", "enum": ["buy", "sell"] },
+          "shares": { "type": "integer", "minimum": 1 },
+          "exec_price": { "type": "number", "minimum": 0.0001 },
+          "slippage_bps": { "type": "number" },
+          "notional": { "type": "number", "minimum": 0.0 },
+          "commission": { "type": "number", "default": 0.0 }
+        }
+      }
+    },
+    "financial_balance_sheet": {
+      "type": "object",
+      "required": ["cash_balance", "positions_value", "dividend_receivables", "total_equity", "realized_pnl", "unrealized_pnl", "reconciliation_residual"],
+      "properties": {
+        "cash_balance": { "type": "number", "minimum": 0.0 },
+        "positions_value": { "type": "number", "minimum": 0.0 },
+        "dividend_receivables": { "type": "number", "minimum": 0.0 },
+        "total_equity": { "type": "number", "minimum": 0.0 },
+        "realized_pnl": { "type": "number" },
+        "unrealized_pnl": { "type": "number" },
+        "reconciliation_residual": { "type": "number", "maximum": 0.0001 }
+      }
+    },
+    "cryptographic_manifest": {
+      "type": "object",
+      "required": ["daily_record_hash", "previous_record_hash"],
+      "properties": {
+        "daily_record_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "previous_record_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    }
+  }
+}

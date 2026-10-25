@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guardian Alpha V30 Stage 2H-A — Operational Dashboard [DEMONSTRATION ONLY]</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0d1117; color: #c9d1d9; margin: 0; padding: 24px; }
+    .banner { background: #b08800; color: #000; font-weight: bold; text-align: center; padding: 12px; border-radius: 6px; margin-bottom: 24px; font-size: 14px; letter-spacing: 0.5px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 16px; }
+    .card h3 { margin-top: 0; font-size: 13px; text-transform: uppercase; color: #8b949e; letter-spacing: 0.5px; }
+    .metric { font-size: 26px; font-weight: 600; color: #58a6ff; margin: 8px 0; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+    .badge-pass { background: #238636; color: #fff; }
+    .badge-warn { background: #9e6a03; color: #fff; }
+    .badge-blocked { background: #da3633; color: #fff; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12px; }
+    th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #21262d; }
+    th { color: #8b949e; font-weight: 600; }
+    .footer { margin-top: 32px; font-size: 11px; color: #8b949e; text-align: center; border-top: 1px solid #30363d; padding-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    ⚠️ DEMONSTRATION ONLY — OFFLINE SYNTHETIC AIR-GAPPED SPECIFICATION — NOT CONNECTED TO LIVE TRADING ⚠️
+  </div>
+
+  <header style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px;">
+    <div>
+      <h1 style="margin: 0; font-size: 22px; color: #f0f6fc;">Guardian Alpha V30 — Forward Paper Pilot Observability Dashboard</h1>
+      <p style="margin: 4px 0 0 0; color: #8b949e; font-size: 13px;">Branch: <code>research/v29e-final-release-verification</code> | Commit: <code>b283ded200c777b130285b0aa56a0b044afbd339</code></p>
+    </div>
+    <div>
+      <span class="badge badge-blocked">FORWARD ACTIVATION BLOCKED</span>
+      <span class="badge badge-pass">AIR-GAP ACTIVE</span>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Primary Hypothesis Status</h3>
+      <div class="metric">θ_def: +4.2 bps/d</div>
+      <p style="font-size: 12px; color: #8b949e;">Defensive Downside Shortfall Reduction (Synthetic Mock)</p>
+      <span class="badge badge-warn">Progress: 18 / 30 Sessions</span>
+    </div>
+
+    <div class="card">
+      <h3>Portfolio Net Asset Value</h3>
+      <div class="metric">$104,215.80</div>
+      <p style="font-size: 12px; color: #8b949e;">Frozen E0: $103,450.20 | D2 Delta: +$765.60</p>
+      <span class="badge badge-pass">Reconciliation Residual: $0.00</span>
+    </div>
+
+    <div class="card">
+      <h3>Defensive Regime Counter</h3>
+      <div class="metric">18 Sessions</div>
+      <p style="font-size: 12px; color: #8b949e;">Min Target: 30 Sessions (Adequacy: 60.0%)</p>
+      <span class="badge badge-warn">Underpowered Horizon</span>
+    </div>
+
+    <div class="card">
+      <h3>Activation & Authorization</h3>
+      <div class="metric" style="color: #f85149;">BLOCKED</div>
+      <p style="font-size: 12px; color: #8b949e;">Owner Authorization Token: None (Pending DEC-06)</p>
+      <span class="badge badge-blocked">Fail-Closed Inactive</span>
+    </div>
+  </div>
+
+  <div class="grid" style="grid-template-columns: 2fr 1fr;">
+    <div class="card">
+      <h3>Strategy Parity & Exposure Telemetry</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Strategy Target</th>
+            <th>Equities</th>
+            <th>Overlays</th>
+            <th>Defensive Sectors</th>
+            <th>Cash Cushion</th>
+            <th>Gross Notional</th>
+            <th>Margin Debt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Frozen E0 (Baseline)</strong></td>
+            <td>76.0%</td>
+            <td>18.0% (QLD, SSO)</td>
+            <td>80.0% (Defensive)</td>
+            <td>6% (On) / 20% (Off)</td>
+            <td>0.94x</td>
+            <td>$0.00</td>
+          </tr>
+          <tr>
+            <td><strong>Candidate D2 (Comparator)</strong></td>
+            <td>76.0%</td>
+            <td>18.0% (QLD, SSO)</td>
+            <td>50.0% (XLP, XLU, XLV)</td>
+            <td>6% (On) / 50% (Off)</td>
+            <td>0.94x / 0.50x</td>
+            <td>$0.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Event Stream Health</h3>
+      <table>
+        <tbody>
+          <tr><td>Events Processed:</td><td><strong>1,450 (Synthetic)</strong></td></tr>
+          <tr><td>Duplicate Idempotent:</td><td><strong>14 deduplicated</strong></td></tr>
+          <tr><td>Late Quarantined:</td><td><strong>2 isolated</strong></td></tr>
+          <tr><td>Conflicting Quarantined:</td><td><strong>0 detected</strong></td></tr>
+          <tr><td>Nonfinite Cleaned:</td><td><strong>1 sanitized</strong></td></tr>
+          <tr><td>Watermark Date:</td><td><strong>2026-06-15</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer">
+    Guardian Alpha Protocol V30 Stage 2H-A — Static Design-Only Observability Specification — Zero Live Connectivity
+  </div>
+
+</body>
+</html>

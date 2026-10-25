@@ -1,0 +1,52 @@
+{
+  "protocol_review_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Prospective Scientific Protocol & Statistical Audit",
+    "timestamp_utc": "2026-10-24T13:15:00Z",
+    "stage": "Stage 2H-A",
+    "status": "SCIENTIFICALLY_RIGOROUS_PENDING_OWNER_FORMAL_APPROVAL"
+  },
+  "methodological_dimensions": [
+    {
+      "dimension": "Primary Research Question",
+      "specification": "Does Candidate D2 (50% defensive cash cushion) significantly reduce downside daily shortfall during defensive market regimes compared to Frozen E0, without degrading annualized return by more than 2.0% across the full observation window?",
+      "audit_assessment": "VALID. Focusses on genuine economic resilience rather than unconstrained backtest curve-fitting."
+    },
+    {
+      "dimension": "Regime Definition & Anti-Retrospective Lock",
+      "specification": "Defensive sessions are defined ex-ante on session T close strictly via agent.py's causal regime indicators (SPY closing below 200-day SMA or negative momentum). No retrospective reclassification of past regimes is permitted.",
+      "audit_assessment": "CAUSALLY_RIGOROUS. Prevents post-hoc regime cherry-picking."
+    },
+    {
+      "dimension": "Primary Endpoint Arithmetic",
+      "specification": "theta_def = E[max(0, -R_{E0, t}) - max(0, -R_{D2, t}) | t in T_def]. Positive theta_def indicates that E0 lost more money than D2 during defensive down days.",
+      "audit_assessment": "SUPERIOR_TO_RAW_MDD. Unlike single-point cumulative MDD, daily shortfall provides independent cross-sectional and temporal observations, enabling defensible inference."
+    },
+    {
+      "dimension": "Serial Correlation & Clustering Treatment",
+      "specification": "Defensive days occur in clusters (volatility clustering). Variance is estimated using Newey-West HAC standard errors with lag L = floor(4 * (T_def / 100)^(2/9)). In addition, 10,000 stationary block bootstrap resamples (Politis & White data-driven block length) are computed to construct robust empirical confidence intervals.",
+      "audit_assessment": "INSTITUTIONAL_STANDARD. Accurately addresses autocorrelation."
+    },
+    {
+      "dimension": "Secondary Non-Inferiority Gate",
+      "specification": "CAGR(D2) >= CAGR(E0) - 2.00% annualized. Tested under a hierarchical testing procedure: only if the primary shortfall reduction is statistically significant (p < 0.05) is the non-inferiority gate formally evaluated.",
+      "audit_assessment": "PREVENTS_ALPHA_DESTRUCTION. Protects family-wise error rate without alpha inflation."
+    },
+    {
+      "dimension": "Underpowered Outcome Policy",
+      "specification": "If the forward 252-session window contains fewer than 30 defensive sessions (< 30), the trial is classified as INCONCLUSIVE. No promotional claim or strategy substitution may be approved on an underpowered sample.",
+      "audit_assessment": "PREVENTS_FALSE_PROMOTION. Eliminates survivor bias from persistent bull regimes."
+    },
+    {
+      "dimension": "Historical Selection Bias Governance",
+      "specification": "Prospective multiplicity is strictly M=1. However, protocol explicitly documents that D2 was identified following at least 43 historical strategy trials (C1-C4, D1-D3, P1-P4, AE variants) in private research. This historical search multiplicity must be disclosed in all publication or investor presentations.",
+      "audit_assessment": "ETHICALLY_AND_STATISTICALLY_HONEST. Eliminates p-hacking disguise."
+    },
+    {
+      "dimension": "Owner Discretion & Value Judgments",
+      "specification": "Selection of the exact 200 bps non-inferiority margin and the 252-session horizon constitutes a business risk preference that only the human repository owner may approve.",
+      "decision_reference": "DEC-03 and DEC-04 remain PENDING owner sign-off.",
+      "audit_assessment": "PROPERLY_DELEGATED_TO_OWNER."
+    }
+  ],
+  "overall_protocol_verdict": "SCIENTIFICALLY_VALID_PENDING_OWNER_AUTHORIZATION"
+}

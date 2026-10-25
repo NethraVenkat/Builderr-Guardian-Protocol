@@ -1,0 +1,58 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G - Scientific Evaluation Preregistration",
+    "version": "1.0.0",
+    "stage": "Stage 2G",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "status": "PREREGISTERED_LOCKED_SPECIFICATION"
+  },
+  "preregistered_evaluation_design": {
+    "evaluation_type": "PROSPECTIVE_PAIRED_FORWARD_PAPER_EVALUATION",
+    "baseline_strategy": "Frozen E0 (agent.py)",
+    "comparator_strategy": "Candidate D2 (research/strategies/v30_candidate_d2_cash_cushion.py)",
+    "primary_endpoint": {
+      "metric": "Realized Maximum Drawdown (MDD) during market stress",
+      "formal_hypothesis": "H1: MDD(Candidate D2) <= MDD(Frozen E0) - 0.0500 conditional on benchmark SPY experiencing a peak-to-trough drawdown >= 10.0%.",
+      "null_hypothesis": "H0: MDD(Candidate D2) > MDD(Frozen E0) - 0.0500",
+      "test_type": "One-sided paired hypothesis test with bootstrap confidence interval"
+    },
+    "secondary_endpoints": [
+      {
+        "metric": "Sharpe Ratio Non-Inferiority",
+        "formal_hypothesis": "H1: Sharpe(D2) >= Sharpe(E0) - 0.1000",
+        "margin": 0.10
+      },
+      {
+        "metric": "Calmar Ratio Superiority",
+        "formal_hypothesis": "H1: Calmar(D2) > Calmar(E0)"
+      },
+      {
+        "metric": "Annualized Turnover Control",
+        "formal_hypothesis": "H1: Annualized_Turnover(D2) <= Annualized_Turnover(E0)"
+      },
+      {
+        "metric": "Downside Semi-Deviation Reduction",
+        "formal_hypothesis": "H1: Downside_Dev(D2) < Downside_Dev(E0)"
+      }
+    ],
+    "sample_size_and_horizon": {
+      "minimum_calendar_days": 365,
+      "minimum_trading_sessions": 252,
+      "stress_adequacy_condition": "At least 1 market drawdown >= 10.0% in benchmark SPY must occur during the evaluation window to evaluate the primary endpoint.",
+      "underpowered_outcome_rule": "If the 252-session prospective window experiences only calm bull markets (SPY max drawdown < 10%), the drawdown superiority test is formally declared INCONCLUSIVE due to lack of market stress, preventing false certification."
+    },
+    "statistical_inference_framework": {
+      "paired_difference_series": "delta_R_t = R_D2,t - R_E0,t",
+      "standard_error_estimation": "Newey-West Heteroskedasticity and Autocorrelation Consistent (HAC) estimator with lag L = floor(4 * (T / 100)^(2/9))",
+      "interim_monitoring_control": "If interim quarterly reviews are conducted at 63, 126, 189, and 252 sessions, an O'Brien-Fleming alpha-spending boundary is applied to preserve family-wise error rate alpha = 0.05 (critical z-values: 4.048, 2.862, 2.337, 2.024).",
+      "peeking_policy": "NO hyperparameter adjustment or code modification is permitted based on interim reviews."
+    },
+    "stopping_and_escalation_criteria": {
+      "catastrophic_safety_stop": "If either strategy breaches 40.0% peak-to-trough drawdown, evaluation is paused for immediate human audit.",
+      "balance_sheet_fault_stop": "Any invariant breach halts evaluation instantly.",
+      "live_transition_prohibition": "A successful forward paper evaluation does NOT constitute authorization for live capital trading. Human repository owner review and broker risk clearance remain strictly required."
+    }
+  }
+}

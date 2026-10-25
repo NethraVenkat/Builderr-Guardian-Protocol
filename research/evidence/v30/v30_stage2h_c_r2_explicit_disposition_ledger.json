@@ -1,0 +1,85 @@
+{
+  "disposition_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R2 - Complete Explicit Artifact Disposition Ledger",
+    "timestamp_utc": "2026-10-24T16:00:00Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "total_items_classified": 471,
+    "unaccounted_meaningful_files": 0,
+    "auditor_role": "Digital Evidence Preservation Specialist"
+  },
+  "allowed_disposition_taxonomy": {
+    "A. ALREADY_TRACKED_IN_GIT": "Pre-existing tracked repository files at commit b283ded200c777b130285b0aa56a0b044afbd339.",
+    "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT": "New research reports, strategy candidates, accounting models, test suites, and forensic evidence ledgers approved for private archival freeze on branch archive/v30-stage2h-final-evidence-freeze.",
+    "C. REQUIRES_ENCRYPTED_PRIVATE_BACKUP": "Artifacts designated for private encrypted off-site backup under owner custody.",
+    "D. REGENERABLE_BUT_PRESERVE_PROVENANCE": "Ephemeral test run artifacts regenerable from code (e.g., scratch/hypotheses_results.json).",
+    "E. RESTRICTED_DO_NOT_ACCESS": "Proprietary holdout data (tiingo_cache/) and any credential stores; strictly excluded from Git staging.",
+    "F. OWNER_CLASSIFICATION_REQUIRED": "Items requiring human decision before archival disposition (currently 0 items pending)."
+  },
+  "dispositions_summary": [
+    {
+      "category": "TRACKED_CORE_SOURCE_AND_HISTORICAL",
+      "count": 271,
+      "disposition": "A. ALREADY_TRACKED_IN_GIT",
+      "justification": "Already version-controlled in Git history up to HEAD commit b283ded200."
+    },
+    {
+      "category": "UNTRACKED_RESEARCH_REPORTS_AND_DELIVERABLES",
+      "count": 39,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Primary forensic research deliverables across V29E-V30 R2; essential for complete research continuity."
+    },
+    {
+      "category": "UNTRACKED_STRATEGY_CANDIDATES",
+      "count": 14,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Strategy candidate implementations (C1-C4, D1-D3, P1-P4, Safe Agents) documenting research evolution."
+    },
+    {
+      "category": "UNTRACKED_ENGINE_ORACLES_AND_RUNNERS",
+      "count": 24,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Simulation oracles, accounting models, and security boundary guards; essential for reproducibility."
+    },
+    {
+      "category": "UNTRACKED_TEST_SUITES",
+      "count": 15,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Automated pytest verification suites certifying mathematical, execution, and archival manifest safety."
+    },
+    {
+      "category": "UNTRACKED_EVIDENCE_JSON_LEDGERS_AND_LOGS",
+      "count": 105,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Machine-readable ledgers, matrices, parameter preregistrations, and forensic logs."
+    },
+    {
+      "category": "UNTRACKED_HUMAN_ARCHIVAL_SCRIPTS",
+      "count": 1,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Zero-glob PowerShell archival script prepared for owner manual execution."
+    },
+    {
+      "category": "SEALED_TIER3_HOLDOUT_CACHE",
+      "count": 1,
+      "disposition": "E. RESTRICTED_DO_NOT_ACCESS",
+      "justification": "tiingo_cache/ contains post-2022 holdout data; must remain sealed and excluded from Git."
+    },
+    {
+      "category": "EPHEMERAL_SCRATCH_RESULTS",
+      "count": 1,
+      "disposition": "D. REGENERABLE_BUT_PRESERVE_PROVENANCE",
+      "justification": "scratch/hypotheses_results.json is an ephemeral run cache regenerable from source."
+    }
+  ],
+  "set_based_reconciliation_proof": {
+    "tracked_files_count": 271,
+    "proposed_git_archival_count": 198,
+    "restricted_tier3_count": 1,
+    "regenerable_cache_count": 1,
+    "owner_classification_count": 0,
+    "total_classified_items": 471,
+    "unaccounted_meaningful_files": 0,
+    "proof_statement": "Tracked (271) + Proposed Git (198) + Restricted (1) + Regenerable (1) = 471. Total porcelain untracked (198) == Proposed Git (198). Zero unaccounted files."
+  }
+}

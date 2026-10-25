@@ -1,0 +1,106 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2F - Forward-Only Paper-Evaluation Protocol Specification",
+    "version": "1.0.0",
+    "stage": "Stage 2F",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "document_type": "PROSPECTIVE_EVALUATION_DESIGN_SPECIFICATION",
+    "execution_status": "DESIGN_ONLY_NO_LIVE_CONNECTOR_CREATED"
+  },
+  "protocol_specification": {
+    "A_strategy_freeze": {
+      "strategy_1_production_baseline": {
+        "identifier": "FROZEN_E0",
+        "file_path": "agent.py",
+        "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+        "reference_candidate_path": "research/strategies/v12_candidate_ae.py",
+        "reference_candidate_lf_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793"
+      },
+      "strategy_2_defensive_candidate": {
+        "identifier": "CANDIDATE_D2_CASH_CUSHION",
+        "file_path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+        "sha256": "5a04212720d20dcfb6770ba5ec3c88086a9f448c4ea7fc625c28f0ee04f32a67"
+      },
+      "universe_definition": {
+        "file_path": "universe.json",
+        "lf_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+        "size": 1000
+      },
+      "shared_simulation_contract": {
+        "initial_paper_capital": 100000.00,
+        "modeled_slippage_bps": 10.0,
+        "commission_dollar_per_trade": 0.00,
+        "execution_timing": "Next-day Market-On-Open (MOO) at 09:30:00 EST",
+        "corporate_action_policy": "IMPUTE_BUSINESS_DAYS_10_AND_SPLIT_RATIO",
+        "parameter_modification_policy": "STRICT_FREEZE (Zero hyperparameter tuning permitted after prospective start)"
+      }
+    },
+    "B_prospective_data_governance": {
+      "activation_condition": "Explicit human repository owner approval; Prospective calendar start date T_0",
+      "prohibited_actions": [
+        "No access, reading, or processing of sealed Tier 3 observations (>= 2022-01-01)",
+        "No retrospective replacement or deletion of recorded prospective market data",
+        "No lookahead peeking or intraday order submission"
+      ],
+      "data_feed_specifications": {
+        "required_fields": ["ts", "open", "high", "low", "close", "volume", "div_cash", "split_factor"],
+        "calendar_rules": "Strict adherence to official NYSE holiday and early-close schedule",
+        "missing_bar_handling": "If ticker bar is absent, carry forward previous close; omit new rebalancing orders in that symbol until valid bar arrives",
+        "immutability": "Daily incoming bar payload hashed with SHA-256 and committed to append-only daily audit log"
+      }
+    },
+    "C_paired_comparison_design": {
+      "daily_tracking_metrics": [
+        "Paired Daily NAV and Portfolio Returns (E0 vs D2)",
+        "Daily Component Holdings (Shares and Marked Dollar Value)",
+        "Cash Allocation (Dollar and % of NAV)",
+        "Gross Economic Exposure (Sum of 1x Equities + 2x Leveraged ETFs)",
+        "Active Regime State (Risk-On vs Risk-Off Defensive)",
+        "Order Generation & Fulfillment Ledger (Accepted, Filled, Rejected, Partial)",
+        "Realized Transaction Costs and Slippage Paid",
+        "Peak-to-Trough Drawdown and Underwater Duration",
+        "Daily Data-Quality and Corporate-Action Flags"
+      ]
+    },
+    "D_scientific_analysis_and_endpoints": {
+      "preregistered_primary_endpoints": [
+        {
+          "name": "Drawdown Reduction Efficacy",
+          "metric": "Realized Maximum Drawdown (MDD)",
+          "hypothesis": "Candidate D2 reduces Maximum Drawdown by >= 5.0 percentage points relative to Frozen E0 during market stress periods (where benchmark SPY suffers >= 10% decline)."
+        },
+        {
+          "name": "Full-Cycle Risk-Adjusted Return",
+          "metric": "Realized Sharpe Ratio",
+          "hypothesis": "Candidate D2 maintains a prospective Sharpe ratio within 0.10 of Frozen E0, while achieving a higher Calmar ratio (CAGR / MDD)."
+        }
+      ],
+      "preregistered_secondary_endpoints": [
+        "Realized Portfolio Turnover (Annualized $ Turnover / NAV)",
+        "Downside Semi-Deviation and Sortino Ratio",
+        "Regime-Switching Transition Lag and Transition Drag",
+        "Left-Tail Conditional Value-at-Risk (95% Daily CVaR)"
+      ],
+      "statistical_hypothesis_testing": {
+        "method": "Paired difference test on daily returns delta_t = R_D2,t - R_E0,t",
+        "standard_error_adjustment": "Newey-West Heteroskedasticity and Autocorrelation Consistent (HAC) standard errors with lag L = floor(4 * (T/100)^(2/9))",
+        "minimum_sample_requirement": "Minimum 252 prospective trading days (1 full calendar year) containing at least one market drawdown >= 10% before formal inference"
+      }
+    },
+    "E_operational_safety_and_boundaries": {
+      "live_capital_exposure": 0.00,
+      "real_order_routing": "DISABLED_AND_FORBIDDEN",
+      "broker_api_credentials": "NONE_CONFIGURED",
+      "margin_or_borrowing_facility": "NONE (Pure paper cash simulation)",
+      "autonomous_execution": "DISABLED (Human-initiated run script only)",
+      "labeling": "ALL OUTPUTS EXPLICITLY LABELED AS 'PROSPECTIVE RESEARCH SIMULATION — NON-EXECUTABLE'"
+    },
+    "F_research_governance_and_auditability": {
+      "audit_ledger_format": "Append-only JSON Lines (JSONL) with cryptographic SHA-256 chain",
+      "rollback_and_error_escalation": "Any missing data or accounting invariant violation immediately halts prospective stepping and alerts researcher; zero silent state repairs",
+      "publication_and_promotion_gate": "Candidate D2 may only be considered for production promotion if it successfully clears all preregistered endpoints on the full prospective sample AND passes an independent peer audit."
+    }
+  }
+}

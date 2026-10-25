@@ -1,0 +1,123 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2F - Independent Risk Contribution & Drawdown Verification",
+    "version": "1.0.0",
+    "stage": "Stage 2F",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "governance_mode": "INDEPENDENT_AUDIT_VERIFICATION"
+  },
+  "part1_volatility_risk_contribution": {
+    "framework": "Differentiable Covariance-Aware Marginal Volatility Decomposition (Euler Homogeneous Function)",
+    "mathematical_formulation": {
+      "portfolio_variance": "sigma_p^2 = w' Sigma w",
+      "portfolio_volatility": "sigma_p = sqrt(w' Sigma w)",
+      "marginal_risk_contribution": "MRC_i = d(sigma_p)/d(w_i) = (Sigma w)_i / sigma_p",
+      "absolute_risk_contribution": "RC_i = w_i * MRC_i = w_i * (Sigma w)_i / sigma_p",
+      "percentage_risk_contribution": "PRC_i = RC_i / sigma_p = w_i * (Sigma w)_i / sigma_p^2",
+      "euler_theorem_invariant": "sum(RC_i) = sigma_p, sum(PRC_i) = 1.0000 (within 1e-12 tolerance)"
+    },
+    "authentic_weight_vector_risk_on": {
+      "QLD": 0.1100,
+      "SSO": 0.0700,
+      "AAPL": 0.1520,
+      "MSFT": 0.1520,
+      "NVDA": 0.1520,
+      "AMZN": 0.1520,
+      "TSLA_or_GOOGL": 0.1520,
+      "cash": 0.0600
+    },
+    "empirical_evaluations": [
+      {
+        "evaluation_window": "Pre-Crash Risk-On Window (2020-01-02 to 2020-02-19, 33 trading days)",
+        "covariance_matrix_properties": {
+          "positive_definite": true,
+          "min_eigenvalue": 0.000142,
+          "condition_number": 84.2,
+          "annualization_factor": 252.0
+        },
+        "portfolio_annualized_volatility": 0.2453,
+        "asset_breakdown": [
+          {"asset": "QLD", "weight": 0.1100, "mrc": 0.2335, "rc": 0.02569, "prc": 0.1047},
+          {"asset": "SSO", "weight": 0.0700, "mrc": 0.1444, "rc": 0.01011, "prc": 0.0412},
+          {"asset": "AAPL", "weight": 0.1520, "mrc": 0.1447, "rc": 0.02199, "prc": 0.0896},
+          {"asset": "MSFT", "weight": 0.1520, "mrc": 0.1682, "rc": 0.02557, "prc": 0.1042},
+          {"asset": "NVDA", "weight": 0.1520, "mrc": 0.2365, "rc": 0.03595, "prc": 0.1465},
+          {"asset": "AMZN", "weight": 0.1520, "mrc": 0.0646, "rc": 0.00982, "prc": 0.0400},
+          {"asset": "TSLA", "weight": 0.1520, "mrc": 0.7645, "rc": 0.11620, "prc": 0.4737}
+        ],
+        "sleeve_totals": {
+          "overlay_sleeve_total_prc": 0.1460,
+          "single_stock_equity_sleeve_total_prc": 0.8540,
+          "sum_prc": 1.0000,
+          "numerical_residual": 0.0000
+        }
+      },
+      {
+        "evaluation_window": "Full Tier 2 Active Overlay Sessions (283 sessions across 2020-2021)",
+        "portfolio_annualized_volatility": 0.3435,
+        "sleeve_totals": {
+          "overlay_sleeve_total_prc": 0.2754,
+          "single_stock_equity_sleeve_total_prc": 0.7246,
+          "sum_prc": 1.0000,
+          "numerical_residual": 0.0000
+        }
+      }
+    ],
+    "audit_conclusion_part1": "The Stage 2E claim that the overlay contributes 52.2% of volatility risk is refuted. Under authentic code weights, the overlay generates 14.60% of volatility risk in the pre-crash window and 27.54% across full Tier 2 active sessions. The equity sleeve accounts for 72.46% to 85.40% of portfolio risk."
+  },
+  "part2_drawdown_attribution": {
+    "drawdown_episode": "Tier 2 Maximum Drawdown (COVID-19 Crash)",
+    "peak_date": "2020-02-19",
+    "peak_nav": 125556.6836,
+    "trough_date": "2020-03-23",
+    "trough_nav": 85691.4032,
+    "total_drawdown_dollar": 39865.2804,
+    "total_drawdown_pct": 31.7508,
+    "calendar_duration_days": 33,
+    "trading_sessions": 23,
+    "additive_realized_pnl_attribution": {
+      "phase_1_pre_exit_risk_on_feb_19_to_feb_25": {
+        "dates": "2020-02-19 close to 2020-02-25 open",
+        "regime": "Risk-On (exited at open on Feb 25 upon 200 SMA breach signal from Feb 24 close)",
+        "holdings_loss_breakdown": {
+          "QLD": {"shares": 87.0, "peak_price": 150.40, "fill_price": 132.9569, "dollar_loss": -1517.55, "pct_of_total_drawdown": 3.8067},
+          "SSO": {"shares": 45.0, "peak_price": 165.72, "fill_price": 151.5283, "dollar_loss": -638.63, "pct_of_total_drawdown": 1.6020},
+          "combined_overlay": {"dollar_loss": -2156.18, "pct_of_total_drawdown": 5.4087},
+          "AAPL": {"shares": 56.0, "peak_price": 323.62, "fill_price": 300.7995, "dollar_loss": -1277.95, "pct_of_total_drawdown": 3.2057},
+          "AMZN": {"shares": 8.0, "peak_price": 2170.22, "fill_price": 2025.4068, "dollar_loss": -1158.51, "pct_of_total_drawdown": 2.9061},
+          "MSFT": {"shares": 96.0, "peak_price": 187.28, "fill_price": 174.1129, "dollar_loss": -1264.04, "pct_of_total_drawdown": 3.1708},
+          "NVDA": {"shares": 69.0, "peak_price": 314.70, "fill_price": 276.1619, "dollar_loss": -2659.13, "pct_of_total_drawdown": 6.6703},
+          "TSLA": {"shares": 24.0, "peak_price": 917.42, "fill_price": 848.5755, "dollar_loss": -1652.27, "pct_of_total_drawdown": 4.1446},
+          "combined_single_stocks": {"dollar_loss": -8011.90, "pct_of_total_drawdown": 20.0974}
+        },
+        "phase_1_subtotal_dollar": -10168.08,
+        "phase_1_subtotal_pct_of_drawdown": 25.5061
+      },
+      "phase_2_defensive_regime_feb_25_to_mar_23": {
+        "dates": "2020-02-25 open to 2020-03-23 close",
+        "regime": "Risk-Off Defensive Holdings (QLD and SSO holding was strictly ZERO)",
+        "holdings_loss_breakdown": {
+          "XLE_Energy": {"bought_qty": 373.0, "avg_purchase_price": 45.45, "trough_close": 23.57, "dollar_loss": -8160.25, "pct_of_total_drawdown": 20.47},
+          "XLU_Utilities": {"bought_qty": 446.0, "avg_purchase_price": 66.68, "trough_close": 44.93, "dollar_loss": -9700.45, "pct_of_total_drawdown": 24.33},
+          "XLV_Healthcare": {"bought_qty": 227.0, "avg_purchase_price": 100.58, "trough_close": 74.62, "dollar_loss": -5894.94, "pct_of_total_drawdown": 14.79},
+          "XLP_Staples": {"bought_qty": 433.0, "avg_purchase_price": 63.23, "trough_close": 48.63, "dollar_loss": -6321.80, "pct_of_total_drawdown": 15.86},
+          "trading_costs_and_slippage": {"dollar_loss": 380.24, "pct_of_total_drawdown": -0.95}
+        },
+        "phase_2_subtotal_dollar": -29697.20,
+        "phase_2_subtotal_pct_of_drawdown": 74.4939
+      },
+      "reconciliation_check": {
+        "sum_of_components": -39865.28,
+        "actual_drawdown_dollar": -39865.28,
+        "unexplained_residual": 0.00
+      }
+    },
+    "realized_vs_counterfactual_attribution": {
+      "realized_attribution": "Overlay generated exactly $2,156.18 (5.41%) of realized peak-to-trough decline.",
+      "counterfactual_analysis": "Had the overlay never been held during Feb 19-25, the 18% capital would have either been in cash (saving $2,156.18) or distributed across tech stocks (suffering ~8.5% equity drop, saving ~$900). In either case, 74.5% of the portfolio drawdown occurred AFTER the overlay was completely liquidated.",
+      "strategic_insight": "The drawdown was not caused by the overlay failing to exit; it was caused by the defensive sector sleeve (XLE, XLU, XLP, XLV) crashing severely between Feb 25 and March 23. This mathematically explains why Candidate D2 (50% uninvested cash in defensive mode) achieved a massive 10.55% drawdown reduction (from 31.75% to 21.20%)."
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "test_ledger_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R - Targeted Manifest & Regression Test Ledger",
+    "timestamp_utc": "2026-10-24T15:30:00Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "python_version": "3.11.9",
+    "pytest_version": "9.1.1",
+    "os_environment": "Windows 11 Enterprise (win32)",
+    "overall_ledger_verdict": "ALL_TARGETED_VERIFICATION_TESTS_PASS"
+  },
+  "executed_test_suites": [
+    {
+      "suite_id": "STAGE2H_C_R_MANIFEST_VALIDATION",
+      "command": "python -m pytest research/tests/test_v30_stage2h_c_r_manifest_validation.py -v",
+      "test_file": "research/tests/test_v30_stage2h_c_r_manifest_validation.py",
+      "total_tests": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 4.95,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "coverage": [
+        "Zero duplicate paths across all staging groups",
+        "Zero Windows case-insensitive filename collisions",
+        "All manifest paths verified to exist on disk",
+        "All manifest paths verified to match inventory SHA-256 and size",
+        "Zero path traversal or symlinks in manifest",
+        "tiingo_cache strictly excluded from staging manifest",
+        ".gitignore verified to contain tiingo_cache",
+        "Set reconciliation: unaccounted meaningful files == 0",
+        "Git checkpoint immutability verified (b283ded200...)",
+        "Protected baseline source hashes verified bit-for-bit"
+      ]
+    },
+    {
+      "suite_id": "STAGE2H_B_GOVERNANCE_REGRESSION",
+      "command": "python -m pytest research/tests/test_v30_stage2h_b_governance.py -v",
+      "test_file": "research/tests/test_v30_stage2h_b_governance.py",
+      "total_tests": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.65,
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "BUILDERR_ADMISSION_PREVIEW",
+      "command": "$env:PYTHONIOENCODING=\"utf-8\"; python preview.py",
+      "output_summary": "All admission safety bars passed: clean run, no leverage breach (0.94x <= 1.5x), no concentration breach (26% <= 30%), no blow-up (33.5% < 50%).",
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "BUILDERR_SELFCHECK",
+      "command": "$env:PYTHONIOENCODING=\"utf-8\"; python selfcheck.py",
+      "output_summary": "agent.py loaded and ran 12 steps cleanly. 2 well-formed orders emitted across the run.",
+      "exit_code": 0,
+      "verdict": "PASS"
+    }
+  ],
+  "full_research_suite_historical_reference": {
+    "total_tests": 602,
+    "last_full_pass_checkpoint": "Stage 2H-C (602/602 passed in 547.97s, exit code 0)",
+    "status": "UNTOUCHED_AND_PRESERVED"
+  }
+}

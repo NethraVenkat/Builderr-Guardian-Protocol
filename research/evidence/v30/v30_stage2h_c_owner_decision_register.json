@@ -1,0 +1,111 @@
+{
+  "register_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Final Owner Decision Register & Handover Package",
+    "timestamp_utc": "2026-10-24T15:11:44.612487+00:00",
+    "auditor_role": "Independent Research Governance Officer",
+    "activation_status": "BLOCKED_PENDING_EXPLICIT_OWNER_AUTHORIZATION",
+    "overall_status": "ALL_SIX_DECISIONS_PENDING_OWNER_RATIFICATION"
+  },
+  "owner_decisions": {
+    "DEC-01": {
+      "decision_id": "DEC-01",
+      "title": "Select Prospective Market-Data Provider",
+      "status": "PENDING",
+      "current_proposal": "Tiingo Starter/Power plan for pure daily EOD bar data; OR Alpaca Unlimited plan for paper-order execution mocking.",
+      "supporting_evidence": "v30_stage2h_c_provider_decision_matrix.json confirms personal plans permit internal private algorithm modeling; pure data avoids Indian cross-border remittance complexity.",
+      "alternatives": [
+        "Option A: Tiingo API (Recommended for pure data; $0-$30/mo; excellent split/dividend coverage)",
+        "Option B: Polygon.io / Massive Developer Plan ($29-$79/mo; CTA/UTP consolidated feed)",
+        "Option C: Alpaca Market Data ($9/mo; native paper execution)",
+        "Option D: Interactive Brokers TWS API (~$4.50/mo; complex LRS compliance)"
+      ],
+      "risks": "Vendor API downtime, rate limits, or potential exchange fee rule changes.",
+      "consequences": "Selected provider dictates data ingestion adapter interface.",
+      "dependencies": "Requires human owner to register account and obtain personal API key.",
+      "required_owner_action": "Owner reviews provider terms and selects one provider.",
+      "approval_scope": "Data provider selection only. Does not grant execution authority."
+    },
+    "DEC-02": {
+      "decision_id": "DEC-02",
+      "title": "Approve Provider Rights and Retention Terms",
+      "status": "PENDING",
+      "current_proposal": "Personal Non-Professional Subscriber Declaration with local caching restricted to single-user internal modeling; zero redistribution.",
+      "supporting_evidence": "All evaluated vendor agreements strictly ban public redistribution or multi-user display under personal plans.",
+      "alternatives": [
+        "Option A: Personal Non-Professional Agreement (Permitted for private internal research; zero external redistribution)",
+        "Option B: Commercial Redistribution License (Required if outputs or charts are published publicly)"
+      ],
+      "risks": "Exchange reclassification if owner trades on behalf of an institution or commercial entity.",
+      "consequences": "Binds research to local single-user machine; forbids public website or dashboard deployment.",
+      "dependencies": "Owner must qualify as Non-Professional under NYSE/NASDAQ/CTA rules.",
+      "required_owner_action": "Owner signs Non-Professional declaration during vendor signup.",
+      "approval_scope": "Legal licensing compliance for data storage and derived metrics."
+    },
+    "DEC-03": {
+      "decision_id": "DEC-03",
+      "title": "Approve Primary Scientific Endpoint & Return-Cost Tolerance",
+      "status": "PENDING",
+      "current_proposal": "Primary endpoint theta_def > 0 (paired downside shortfall reduction on defensive sessions) with secondary CAGR tolerance of -200 bps (D2 CAGR >= E0 CAGR - 2.0%).",
+      "supporting_evidence": "v30_stage2h_c_scientific_evaluation_proposal.json provides full mathematical derivation and HAC variance formulas.",
+      "alternatives": [
+        "Option A: theta_def > 0 with -200 bps annual CAGR margin (Recommended; reflects balanced insurance budget)",
+        "Option B: Defensive Sortino ratio superiority",
+        "Option C: Zero return drag tolerance (0 bps; requires D2 to never lag E0 in any regime)"
+      ],
+      "risks": "In a runaway bull market, D2's 50% cash cushion may lag E0 by more than 200 bps.",
+      "consequences": "Locks the primary statistical test prior to prospective data collection.",
+      "dependencies": "Requires owner concurrence with the 200 bps annual insurance cost budget.",
+      "required_owner_action": "Owner ratifies theta_def formula and 200 bps return cost tolerance.",
+      "approval_scope": "Scientific hypothesis preregistration."
+    },
+    "DEC-04": {
+      "decision_id": "DEC-04",
+      "title": "Approve Evaluation Horizon, Defensive Sample Size & Stopping Criteria",
+      "status": "PENDING",
+      "current_proposal": "252 prospective trading sessions horizon with minimum N_def = 30 sessions floor, with recommended contingent extension to N_def >= 45-60 if volatility is subdued; early stopping if D2 drawdown underperforms E0 by > 300 bps.",
+      "supporting_evidence": "Power sensitivity in Gate E shows N=30 yields ~35% power for small effects; N>=45-60 achieves >80% power.",
+      "alternatives": [
+        "Option A: 252 sessions with N_def >= 30 floor and contingent extension (Recommended)",
+        "Option B: Fixed 504 sessions (2 calendar years)",
+        "Option C: Sequential Probability Ratio Test (SPRT) with continuous early stopping"
+      ],
+      "risks": "Prolonged low-volatility bull market may delay reaching N_def >= 30 defensive sessions.",
+      "consequences": "Determines total elapsed time before conclusive scientific verdict can be rendered.",
+      "dependencies": "Owner willingness to commit to a 1-year prospective observation window.",
+      "required_owner_action": "Owner approves evaluation duration, extension policy, and stopping boundaries.",
+      "approval_scope": "Sample size governance and early termination policy."
+    },
+    "DEC-05": {
+      "decision_id": "DEC-05",
+      "title": "Approve Monitoring, Incident Response & Evidence Retention",
+      "status": "PENDING",
+      "current_proposal": "4-tier incident severity taxonomy (INFORMATIONAL, WARNING, CRITICAL, HARD STOP) with disk-persisted hard-stop lock requiring manual owner reset key.",
+      "supporting_evidence": "v30_stage2h_c_governance_and_incident_checklist.json verifies restart-persistent fail-closed behavior.",
+      "alternatives": [
+        "Option A: 4-tier taxonomy with persistent disk lock (Recommended)",
+        "Option B: Volatile memory-only logging"
+      ],
+      "risks": "Hard-stop requires manual human intervention to clear after severe incidents.",
+      "consequences": "Guarantees that operational or accounting anomalies cannot be bypassed by process restarts.",
+      "dependencies": "Owner retention of the emergency manual reset key.",
+      "required_owner_action": "Owner reviews and ratifies incident severity thresholds and persistent lock policy.",
+      "approval_scope": "Site reliability and operational risk controls."
+    },
+    "DEC-06": {
+      "decision_id": "DEC-06",
+      "title": "Separately Authorize Forward PAPER-ONLY Evaluation",
+      "status": "BLOCKED",
+      "current_proposal": "Maintain frozen research state. Prospective paper evaluation remains strictly BLOCKED until DEC-01 through DEC-05 are formally resolved by owner.",
+      "supporting_evidence": "All architectural, testing, accounting, and security prerequisites are satisfied (602/602 tests pass); activation is blocked purely by lack of human authorization.",
+      "alternatives": [
+        "Option A: Maintain Frozen Research State (Recommended until owner resolves DEC-01 through DEC-05)",
+        "Option B: Issue Signed HMAC Token for Paper-Only Simulation (Requires owner secret key)"
+      ],
+      "risks": "Premature activation before provider or scientific endpoints are formally locked.",
+      "consequences": "Guarantees zero unauthorized execution or simulation drift.",
+      "dependencies": "Requires human owner to generate cryptographic HMAC token. NO TOKEN GENERATED BY AGENT.",
+      "required_owner_action": "Owner generates signed token ONLY when ready to begin prospective evaluation.",
+      "approval_scope": "Execution authorization for paper simulation only (Live trading permanently banned)."
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - 20 Adversarial Edge Cases Audit",
+    "timestamp_utc": "2026-10-24T13:00:00Z",
+    "total_cases": 20,
+    "passed_cases": 20,
+    "failed_cases": 0,
+    "overall_status": "20_OF_20_PASSED"
+  },
+  "cases": [
+    {
+      "case_id": 1,
+      "name": "Duplicate Identical Event",
+      "expected": "DUPLICATE_IDEMPOTENT",
+      "actual": "DUPLICATE_IDEMPOTENT",
+      "pass": true
+    },
+    {
+      "case_id": 2,
+      "name": "Duplicate ID with Conflicting Payload",
+      "expected": "QUARANTINED_CONFLICT",
+      "actual": "QUARANTINED_CONFLICT",
+      "pass": true
+    },
+    {
+      "case_id": 3,
+      "name": "Late Event Behind Committed Watermark",
+      "expected": "QUARANTINED_LATE",
+      "actual": "QUARANTINED_LATE",
+      "pass": true
+    },
+    {
+      "case_id": 4,
+      "name": "Out-of-Order Uncommitted Event",
+      "expected": "ACCEPTED",
+      "actual": "ACCEPTED",
+      "pass": true
+    },
+    {
+      "case_id": 5,
+      "name": "Event Exactly at Watermark Boundary",
+      "expected": "QUARANTINED_LATE",
+      "actual": "QUARANTINED_LATE",
+      "pass": true
+    },
+    {
+      "case_id": 6,
+      "name": "Differing UTC Offsets Normalization",
+      "expected": "2026-04-02",
+      "actual": "2026-04-02",
+      "pass": true
+    },
+    {
+      "case_id": 7,
+      "name": "Daylight-Saving Transition",
+      "expected": "2026-03-09",
+      "actual": "2026-03-09",
+      "pass": true
+    },
+    {
+      "case_id": 8,
+      "name": "Non-Trading-Day Weekend Observation",
+      "expected": "QUARANTINED_NON_TRADING_DAY",
+      "actual": "QUARANTINED_NON_TRADING_DAY",
+      "pass": true
+    },
+    {
+      "case_id": 9,
+      "name": "Clock Skew Handling",
+      "expected": "ACCEPTED",
+      "actual": "ACCEPTED",
+      "pass": true
+    },
+    {
+      "case_id": 10,
+      "name": "Missing Sequence Identifier Imputation",
+      "expected": "Starts with evt_NVDA_2026-04-02",
+      "actual": "evt_NVDA_2026-04-02_5fec6484141e",
+      "pass": true
+    },
+    {
+      "case_id": 11,
+      "name": "Nonfinite Price (NaN) Quarantine",
+      "expected": "QUARANTINED_NONFINITE",
+      "actual": "QUARANTINED_NONFINITE",
+      "pass": true
+    },
+    {
+      "case_id": 12,
+      "name": "Negative Order Quantity Protection",
+      "expected": "REJECTED_ZERO_FILL",
+      "actual": "REJECTED_ZERO_FILL",
+      "pass": true
+    },
+    {
+      "case_id": 13,
+      "name": "Unauthorized Ticker Quarantine",
+      "expected": "QUARANTINED_UNAUTHORIZED_TICKER",
+      "actual": "QUARANTINED_UNAUTHORIZED_TICKER",
+      "pass": true
+    },
+    {
+      "case_id": 14,
+      "name": "Empty Event Payload Quarantine",
+      "expected": "QUARANTINED_EMPTY_PAYLOAD",
+      "actual": "QUARANTINED_EMPTY_PAYLOAD",
+      "pass": true
+    },
+    {
+      "case_id": 15,
+      "name": "Large Burst Deterministic Ingestion",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true
+    },
+    {
+      "case_id": 16,
+      "name": "Interrupted Journal Append Detection",
+      "expected": "TRUNCATED_LINE_DETECTED",
+      "actual": "TRUNCATED_LINE_DETECTED",
+      "pass": true
+    },
+    {
+      "case_id": 17,
+      "name": "Corrupted Snapshot Cryptographic Rejection",
+      "expected": "VALUE_ERROR_RAISED",
+      "actual": "VALUE_ERROR_RAISED",
+      "pass": true
+    },
+    {
+      "case_id": 18,
+      "name": "Journal Truncation Safe Recovery",
+      "expected": "RECOVERABLE_TO_LAST_VALID",
+      "actual": "RECOVERABLE_TO_LAST_VALID",
+      "pass": true
+    },
+    {
+      "case_id": 19,
+      "name": "Concurrent Duplicate Delivery Protection",
+      "expected": "DUPLICATE_IDEMPOTENT",
+      "actual": "DUPLICATE_IDEMPOTENT",
+      "pass": true
+    },
+    {
+      "case_id": 20,
+      "name": "Revision to Committed Price (Zero Retroactive Orders)",
+      "expected": "REVISION_ACCEPTED_ZERO_FILLS",
+      "actual": "REVISION_ACCEPTED_ZERO_FILLS",
+      "pass": true
+    }
+  ]
+}

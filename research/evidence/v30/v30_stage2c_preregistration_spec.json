@@ -1,0 +1,116 @@
+{
+  "stage": "V30_STAGE_2C",
+  "title": "Preregistered Volatility Gating & Leveraged Exposure Risk Experiment Specification",
+  "timestamp_utc": "2026-10-24T07:55:00Z",
+  "governance_status": "LOCKED_PRE_EXECUTION",
+  "historical_linkage": {
+    "prior_research": "Stage 6 / candidate_alpha.py previously investigated an overlay threshold of 0.22 alongside inverse-volatility weighting. Candidate C1 tests the fixed 0.22 overlay gate in isolation within the production architecture, and is classified as previously explored in concept rather than de novo discovery."
+  },
+  "common_contract": {
+    "engine": "research.engine.replay.ReplayEngine",
+    "corporate_actions": "research.engine.corporate_actions.CorporateActionRegistry",
+    "payment_date_policy": "IMPUTE_BUSINESS_DAYS_10",
+    "price_semantics": "causal_production",
+    "execution_timing": "Signals at close T, fills at open T+1",
+    "initial_capital": 100000.0,
+    "equity_slippage_bps": 5.0,
+    "leveraged_slippage_bps": 10.0,
+    "commission_bps": 0.0,
+    "data_provenance": {
+      "tier1_cache": "tiingo_cache/tier1_bars.json",
+      "tier1_sha256": "dfbf29725434d267305e54678574769c0c2fead0c8f9d5ca73c38d5fd203245f",
+      "tier2_cache": "tiingo_cache/tier2_bars.json",
+      "tier2_sha256": "9f8811ec80302e69bde84badd01703dd620ace1202f2e182aa7c7559c300dd4d"
+    },
+    "general_risk_on_contract": {
+      "rule": "spy[-1] > spy_sma50 and qqq[-1] > qqq_sma50 and qqq_vol20 < 0.35",
+      "risk_off_weights": {
+        "XLE": 0.12,
+        "XLP": 0.24,
+        "XLU": 0.24,
+        "XLV": 0.20
+      }
+    },
+    "leverage_overlay_assets": {
+      "QLD": 0.11,
+      "SSO": 0.07,
+      "total_overlay_weight": 0.18
+    }
+  },
+  "candidates": {
+    "C1": {
+      "name": "Candidate C1: Tightened Leverage-Volatility Gate",
+      "module_path": "research/strategies/v30_candidate_c1_tight_vol_gate.py",
+      "hypothesis": "Restricting the 2x leveraged ETF overlay to calm market regimes defined by QQQ 20-day realized volatility < 0.22 (versus baseline 0.28) eliminates leveraged exposure during transitionary volatility spikes, reducing maximum drawdown without incurring excessive drag during sustained bull trends.",
+      "parameters": {
+        "qqq_vol20_threshold": 0.22,
+        "baseline_vol20_threshold": 0.28
+      },
+      "algorithm": "Overlay allowed iff: qqq_sma20 > qqq_sma50 and qqq_mom20 > 0.0 and qqq_vol20 < 0.22 and QLD in universe and SSO in universe."
+    },
+    "C2": {
+      "name": "Candidate C2: Volatility-Acceleration Gate",
+      "module_path": "research/strategies/v30_candidate_c2_vol_acceleration.py",
+      "hypothesis": "An abrupt acceleration in short-term volatility (sigma_5 / sigma_20 > 1.25) reliably flags volatility shocks before the 20-day trailing metric reflects the stress. Blocking the leveraged overlay under volatility expansion preserves capital ahead of cascading sell-offs.",
+      "parameters": {
+        "short_window": 5,
+        "long_window": 20,
+        "ratio_threshold": 1.25,
+        "baseline_vol20_threshold": 0.28,
+        "zero_denominator_epsilon": 1e-6
+      },
+      "annualization_definition": "Both sigma_5 and sigma_20 are calculated using standard realized volatility with sqrt(252) annualization: pstdev(rets) * sqrt(252). The ratio sigma_5 / sigma_20 is identical to unannualized pstdev(rets_5) / pstdev(rets_20).",
+      "zero_denominator_handling": "If sigma_20 <= 1e-6 or sigma_20 is None or sigma_5 is None: ratio is undefined; overlay condition evaluates to False.",
+      "algorithm": "Overlay allowed iff: baseline overlay conditions hold (including qqq_vol20 < 0.28) AND sigma_5 / sigma_20 <= 1.25."
+    },
+    "C3": {
+      "name": "Candidate C3: Volatility-Persistence Gate",
+      "module_path": "research/strategies/v30_candidate_c3_vol_persistence.py",
+      "hypothesis": "Single-session volatility spikes above the 0.28 overlay threshold frequently represent transient noise that causes premature overlay liquidation and churn costs. Requiring 2 consecutive sessions of adverse volatility (qqq_vol20 >= 0.28) before deactivating the overlay reduces whipsaw and friction, while preserving emergency exits if the broader strategy triggers risk-off.",
+      "parameters": {
+        "confirmation_sessions": 2,
+        "vol20_threshold": 0.28,
+        "emergency_exit_threshold": 0.35
+      },
+      "algorithm_specification": {
+        "entry": "Overlay activation requires current session to fully satisfy baseline overlay rules: qqq_sma20 > qqq_sma50, qqq_mom20 > 0.0, qqq_vol20 < 0.28.",
+        "maintenance": "When overlay is currently active: if qqq_vol20 >= 0.28, increment adverse_counter. Deactivate overlay ONLY when adverse_counter >= 2.",
+        "emergency_exit": "If general market goes risk-off (spy < spy_sma50 or qqq < qqq_sma50 or qqq_vol20 >= 0.35): IMMEDIATE FULL EXIT of overlay and risk-on portfolio, transitioning instantly to defensive sleeve without waiting for persistence counter.",
+        "non_volatility_exit": "If QQQ trend fails (sma20 <= sma50 or mom20 <= 0.0): immediate deactivation of overlay.",
+        "missing_data": "If QQQ bar is missing, adverse_counter resets to 0 and overlay evaluates to False."
+      }
+    },
+    "C4": {
+      "name": "Candidate C4: Prespecified Combined Gate (C1 + C2)",
+      "module_path": "research/strategies/v30_candidate_c4_combined_gates.py",
+      "hypothesis": "Jointly enforcing a tightened volatility ceiling (sigma_20 < 0.22) AND an acceleration barrier (sigma_5 / sigma_20 <= 1.25) creates an orthogonal defense against both elevated baseline volatility and rapid volatility explosions, providing maximal drawdown suppression for leveraged exposure.",
+      "parameters": {
+        "qqq_vol20_threshold": 0.22,
+        "ratio_threshold": 1.25,
+        "zero_denominator_epsilon": 1e-6
+      },
+      "algorithm": "Overlay allowed iff: qqq_sma20 > qqq_sma50 and qqq_mom20 > 0.0 and qqq_vol20 < 0.22 and (sigma_5 / sigma_20 <= 1.25)."
+    }
+  },
+  "synthetic_stress_scenarios": [
+    "1. Abrupt volatility explosion (20% to 80% overnight)",
+    "2. Slow volatility increase (0.5% vol drift per session over 30 sessions)",
+    "3. High-volatility sideways market (choppy +/-3% range with vol ~0.30)",
+    "4. False short-term volatility spike (single day outlier that rapidly mean-reverts)",
+    "5. V-shaped recovery (sharp 15% drop over 3 days followed by immediate recovery)",
+    "6. Persistent low-volatility uptrend (calm 0.12 vol bull market)",
+    "7. Leveraged ETF gap against the position (overnight -8% gap in QLD/SSO)",
+    "8. Volatility ratio denominator near zero (flat price series with sigma_20 < 1e-6)",
+    "9. Missing QQQ observations (intermittent None or missing bar records)",
+    "10. Alternating calm and stressed sessions (whipsaw across the 0.28 threshold)",
+    "11. Overnight gap beyond modeled slippage (extreme -12% index gap)",
+    "12. Conflicting risk-on and risk-off conditions (QQQ uptrend with SPY breakdown)"
+  ],
+  "acceptance_criteria": {
+    "minimum_sharpe_tier2": 1.50,
+    "maximum_drawdown_tier2_threshold": 0.32,
+    "causality_violations_allowed": 0,
+    "cash_flow_accounting_residuals_allowed": 0.0,
+    "unheld_short_sales_allowed": 0
+  }
+}

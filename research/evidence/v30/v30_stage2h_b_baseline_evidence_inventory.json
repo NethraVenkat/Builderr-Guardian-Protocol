@@ -1,0 +1,86 @@
+{
+  "audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Verified Baseline Evidence Inventory",
+    "timestamp_utc": "2026-10-24T12:41:15.218659+00:00",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "git_branch": "research/v29e-final-release-verification",
+    "auditor_role": "Independent Quantitative Research Auditor & Governance Reviewer"
+  },
+  "audit_duration_clarification": {
+    "stage2h_a_nominal_budget": "360 minutes (planned work budget in prompt)",
+    "stage2h_a_measured_duration_minutes": 52.4,
+    "stage2h_a_duration_claim_verdict": "CORRECTED_FROM_NOMINAL_BUDGET",
+    "stage2h_b_measured_start_utc": "2026-10-24T12:39:40Z",
+    "note": "Audit durations are based strictly on real measured wall-clock timestamps rather than unspent nominal prompt budgets."
+  },
+  "protected_source_files": {
+    "agent.py": {
+      "expected_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "actual_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "status": "VERIFIED"
+    },
+    "universe.json": {
+      "expected_sha256_lf": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "actual_sha256_lf": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "status": "VERIFIED"
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "expected_sha256_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "actual_sha256_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "status": "VERIFIED"
+    },
+    "research/strategies/v30_candidate_d2_cash_cushion.py": {
+      "expected_sha256_raw": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "actual_sha256_raw": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "status": "VERIFIED"
+    }
+  },
+  "working_tree_classification": {
+    "tracked_files_modified": 0,
+    "untracked_files_count": 84,
+    "ignored_directories_count": 10,
+    "clean_git_index_clarification": "Tracked repository files are 100% clean and unmodified. 84 research deliverables, candidates, tests, and evidence records exist as untracked files from Stages 29E-30 to preserve historical research evidence."
+  },
+  "recheck_of_stage2h_a_claims": {
+    "git_checkpoint_immutability": {
+      "claim": "HEAD commit b283ded200c777b130285b0aa56a0b044afbd339 unchanged",
+      "classification": "VERIFIED",
+      "evidence": "git rev-parse HEAD confirmed match"
+    },
+    "frozen_comparator_hashes": {
+      "claim": "agent.py, v12_candidate_ae.py, universe.json, v30_candidate_d2 match baselines",
+      "classification": "VERIFIED",
+      "evidence": "SHA256 calculations match bit-for-bit"
+    },
+    "executed_test_results": {
+      "claim": "590/590 full research tests passed, 14 2H-A tests passed",
+      "classification": "SUPPORTED BY RAW EVIDENCE",
+      "evidence": "Test runner logs and exit code 0 recorded in v30_stage2h_a_executed_test_ledger.json"
+    },
+    "financial_accounting_invariance": {
+      "claim": "NAV = Cash + Marked Holdings + Receivables with zero residual",
+      "classification": "SUPPORTED BY RAW EVIDENCE",
+      "evidence": "Verified under instantaneous settlement. However, general balance-sheet identity requires explicit liabilities subtraction: Equity = Assets - Liabilities."
+    },
+    "crash_recovery_resilience": {
+      "claim": "Crash tester injected 10 failure points and verified state recovery",
+      "classification": "SUPPORTED BY RAW EVIDENCE",
+      "evidence": "Logs in v30_stage2h_a_crash_recovery_reliability.json"
+    },
+    "provider_contract_rights": {
+      "claim": "Personal/developer tiers legally permit private quantitative modeling and caching",
+      "classification": "SUMMARY ONLY",
+      "evidence": "Based on service marketing overviews. Lacked exact legal contract clause citations and cross-border / exchange entitlement verification."
+    },
+    "statistical_protocol_power": {
+      "claim": "30 defensive observations sufficient to test downside shortfall reduction",
+      "classification": "SUMMARY ONLY",
+      "evidence": "Power was not evaluated under realistic clustered return variance (sigma 15-25%); MDE and HAC lag selection required formal sensitivity modeling."
+    },
+    "owner_decision_governance": {
+      "claim": "Decisions DEC-01 through DEC-06 are documented and remain pending human sign-off",
+      "classification": "VERIFIED",
+      "evidence": "v30_stage2h_a_owner_decision_package.json records all 6 decisions in PENDING state."
+    }
+  }
+}

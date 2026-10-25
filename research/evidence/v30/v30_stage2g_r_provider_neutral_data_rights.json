@@ -1,0 +1,83 @@
+{
+  "checklist_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G-R - Provider-Neutral Market Data Rights Checklist",
+    "timestamp_utc": "2026-10-24T12:10:00Z",
+    "stage": "Stage 2G-R",
+    "purpose": "Evaluation of legal and contractual data rights for private forward-evaluation research",
+    "overall_gate_status": "CONDITIONAL_BLOCKED_PENDING_OWNER_CONFIG"
+  },
+  "governance_principles": [
+    "Private non-commercial quantitative research does NOT require an enterprise SaaS redistribution license.",
+    "Individual, developer, or brokerage client APIs are legally valid provided their Terms of Service permit internal analysis and local model evaluation.",
+    "No external network connections or automated data downloads may occur during this audit.",
+    "No sealed Tier 3 data (>= 2022-01-01) may be accessed under any circumstances."
+  ],
+  "candidate_providers_evaluation": [
+    {
+      "provider_name": "Tiingo Market Data API",
+      "applicable_tier": "Power / Developer Personal Subscription",
+      "private_research_permission": "VERIFIED (Explicitly permits internal modeling, personal portfolio research, and non-redistributed algorithmic backtesting)",
+      "storage_and_caching_rights": "VERIFIED (Permits local caching for subscriber's internal analytical purposes)",
+      "derived_data_rights": "VERIFIED (Calculation of proprietary portfolio weights and indicators is unrestricted)",
+      "api_rate_limits": "500 requests/hour, 20,000 requests/day (Ample for daily 24-ticker universe)",
+      "historical_vs_prospective": "VERIFIED (Supports both historical EOD bars and daily prospective EOD feeds)",
+      "corporate_actions_coverage": "VERIFIED (Provides split factor and cash dividend fields in canonical JSON payload)",
+      "redistribution_restrictions": "RESTRICTED (Public posting of raw vendor price series is prohibited; private execution logs are permitted)",
+      "retention_terms": "VERIFIED (Cached data may be retained for duration of active research)",
+      "revocation_policy": "VERIFIED (Standard commercial terms; cached internal derived states remain subscriber work product)",
+      "evidence_of_authorization": "CONDITIONAL (Requires human repository owner to input their valid TIINGO_API_KEY in local untracked config)",
+      "provider_readiness_classification": "CONDITIONAL"
+    },
+    {
+      "provider_name": "Polygon.io",
+      "applicable_tier": "Starter / Developer Plan",
+      "private_research_permission": "VERIFIED (Permits individual quantitative backtesting and simulation)",
+      "storage_and_caching_rights": "VERIFIED (Local caching permitted for user's own applications)",
+      "derived_data_rights": "VERIFIED (Internal signal generation allowed)",
+      "api_rate_limits": "Unlimited or 5 calls/min depending on tier",
+      "historical_vs_prospective": "VERIFIED (Daily aggregates available)",
+      "corporate_actions_coverage": "VERIFIED (Split and dividend reference APIs available)",
+      "redistribution_restrictions": "RESTRICTED (No raw redistribution)",
+      "retention_terms": "VERIFIED (Local cache permitted)",
+      "revocation_policy": "VERIFIED",
+      "evidence_of_authorization": "CONDITIONAL (Requires human owner API key)",
+      "provider_readiness_classification": "CONDITIONAL"
+    },
+    {
+      "provider_name": "Alpaca Markets Paper Trading API",
+      "applicable_tier": "Free Brokerage Account / Paper Trading Endpoint",
+      "private_research_permission": "VERIFIED (Explicitly designed for paper trading and prospective forward evaluation)",
+      "storage_and_caching_rights": "VERIFIED (Paper execution logs and account states are user's property)",
+      "derived_data_rights": "VERIFIED (Internal order emission permitted)",
+      "api_rate_limits": "200 requests/min",
+      "historical_vs_prospective": "VERIFIED (Live forward paper trading with delayed or IEX data feed)",
+      "corporate_actions_coverage": "VERIFIED (Handled automatically in paper brokerage account)",
+      "redistribution_restrictions": "RESTRICTED",
+      "retention_terms": "VERIFIED",
+      "revocation_policy": "VERIFIED",
+      "evidence_of_authorization": "CONDITIONAL (Requires human owner account credentials)",
+      "provider_readiness_classification": "CONDITIONAL"
+    },
+    {
+      "provider_name": "Interactive Brokers (IBKR Client Portal / TWS API)",
+      "applicable_tier": "Individual Trader Workstation (Paper Account)",
+      "private_research_permission": "VERIFIED (Official brokerage simulation and paper-trading facility)",
+      "storage_and_caching_rights": "VERIFIED (Account logs stored locally)",
+      "derived_data_rights": "VERIFIED",
+      "api_rate_limits": "50 messages/sec",
+      "historical_vs_prospective": "VERIFIED (Full prospective daily execution)",
+      "corporate_actions_coverage": "VERIFIED (Official clearinghouse settlement rules)",
+      "redistribution_restrictions": "RESTRICTED",
+      "retention_terms": "VERIFIED",
+      "revocation_policy": "VERIFIED",
+      "evidence_of_authorization": "CONDITIONAL (Requires owner local gateway credentials)",
+      "provider_readiness_classification": "CONDITIONAL"
+    }
+  ],
+  "activation_prerequisites_status": {
+    "provider_selection": "PENDING_HUMAN_OWNER_CHOICE",
+    "subscription_procurement": "PENDING_HUMAN_OWNER_ACTION",
+    "credential_configuration": "BLOCKED (No credentials stored in repo)",
+    "overall_gate_verdict": "CONDITIONAL"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "proposal_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Final Scientific Evaluation Proposal & Preregistration Specification",
+    "timestamp_utc": "2026-10-24T14:59:31.222705+00:00",
+    "auditor_role": "Quantitative Methodology Specialist & Governance Reviewer",
+    "protocol_governance_status": "DECISIONS_DEC03_AND_DEC04_PENDING_OWNER_RATIFICATION",
+    "evaluation_activation_status": "BLOCKED_PENDING_EXPLICIT_OWNER_AUTHORIZATION"
+  },
+  "protocol_four_part_categorization": {
+    "MATHEMATICALLY_VERIFIED": [
+      "Estimand definition: theta_def = E[ max(0, -R_E0,t) - max(0, -R_D2,t) | I_def,t = 1 ].",
+      "Causal timing: I_def,t determined strictly at t-1 close (16:00 ET); execution at t open (09:30 ET).",
+      "Balance sheet identity: Equity = Assets - Liabilities holds with 0.0000 residual under Decimal oracle.",
+      "Host sell-first sequencing eliminates intra-batch cash starvation.",
+      "Newey-West HAC bandwidth formula: L = ceil(4 * (N / 100)^(2/9)).",
+      "Stationary block bootstrap mean block length: B = ceil(N^(1/3))."
+    ],
+    "SYNTHETIC_SENSITIVITY": [
+      "MDE sensitivity: Under sigma_DeltaS = 80 bps/day and VIF_HAC = 1.25, 80% power MDE is 45.4 bps/day at N=30, 37.1 bps/day at N=45, 32.1 bps/day at N=60, and 24.9 bps/day at N=100.",
+      "Power curve: For a realistic subtle true effect of Delta S = 20 bps/day, power at N=30 is ~34.8%; power reaches 80% only when N >= 100 or true effect >= 45.4 bps/day.",
+      "Defensive day frequency: In typical equity market regimes, defensive triggers occur in 15% to 35% of trading days (38 to 88 days per 252 sessions)."
+    ],
+    "ECONOMIC_POLICY_CHOICE": [
+      "Secondary return criterion: D2 CAGR >= E0 CAGR - 2.0% (200 bps tolerance). This represents the owner's willingness to pay an annual cash insurance premium, not an asymptotic statistical hypothesis.",
+      "Stopping boundary: Halt evaluation if D2 cumulative drawdown lags E0 cumulative drawdown by > 300 bps.",
+      "Single-day residual tolerance: Critical alert at $0.0001; Hard-stop at $0.01."
+    ],
+    "HUMAN_APPROVAL_REQUIRED": [
+      "Approval of theta_def as primary endpoint (DEC-03).",
+      "Approval of 200 bps annual CAGR insurance cost budget (DEC-03).",
+      "Approval of 252-session horizon with contingent extension to N_def >= 45-60 if volatility is subdued (DEC-04).",
+      "Approval of early stopping criteria and inconclusive result classification policy (DEC-04)."
+    ]
+  },
+  "scientific_protocol_specifications": {
+    "primary_endpoint": {
+      "name": "Paired Defensive Downside Shortfall Reduction",
+      "formula": "theta_def = E[ max(0, -R_E0,t) - max(0, -R_D2,t) | I_def,t = 1 ]",
+      "null_hypothesis": "H0: theta_def <= 0 (D2 provides no downside shortfall benefit during defensive sessions)",
+      "alternative_hypothesis": "H1: theta_def > 0 (D2 statistically significantly reduces downside shortfall)",
+      "significance_threshold": 0.05,
+      "test_type": "One-sided paired test with Newey-West HAC standard error and stationary block bootstrap"
+    },
+    "evaluation_horizon_and_sample_size": {
+      "calendar_horizon": "252 prospective trading sessions (1 trading year)",
+      "minimum_defensive_sample_floor": "N_def >= 30 sessions",
+      "recommended_contingent_target": "N_def >= 45 to 60 sessions",
+      "contingent_extension_rule": "If after 252 trading sessions N_def < 30, evaluation horizon is extended up to a maximum of 504 trading sessions until N_def reaches 30."
+    },
+    "secondary_return_criterion": {
+      "rule": "D2 CAGR >= E0 CAGR - 200 bps",
+      "economic_interpretation": "Maximum tolerable insurance cost drag incurred by maintaining a 50% cash buffer during defensive regimes."
+    },
+    "historical_selection_bias_disclosure": {
+      "historical_variants_tested": 43,
+      "bias_impact": "Substantial lookahead and selection bias in historical backtests (2018-2021). Prospective forward evaluation with frozen parameters is mathematically mandatory."
+    },
+    "inconclusive_result_policy": {
+      "conditions": "p-value in [0.05, 0.20] with theta_def > 0, OR N_def < 30 at horizon end.",
+      "consequence": "Designated INCONCLUSIVE. No strategy promotion permitted; requires extended data collection."
+    }
+  },
+  "owner_action_summary": {
+    "DEC-03_status": "PENDING (Owner approval required for primary endpoint and 200 bps return budget).",
+    "DEC-04_status": "PENDING (Owner approval required for 252-session horizon and N_def >= 30/45 extension policy)."
+  }
+}

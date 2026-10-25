@@ -1,0 +1,97 @@
+{
+  "test_ledger_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G - Executed Test and Regression Ledger",
+    "timestamp_utc": "2026-10-24T11:51:30Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "python_version": "3.11.9",
+    "pytest_version": "9.1.1",
+    "os_environment": "Windows 11 Enterprise (win32)",
+    "overall_ledger_status": "ALL_TESTS_PASSING_ZERO_REGRESSIONS"
+  },
+  "executed_test_suites": [
+    {
+      "suite_id": "STAGE2G_UNIT_ADVERSARIAL",
+      "command": "python -m pytest research/tests/test_v30_stage2g_forward_readiness.py -v",
+      "test_file": "research/tests/test_v30_stage2g_forward_readiness.py",
+      "total_tests": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 3.59,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "test_classes": [
+        "TestGateAProtocolCompleteness (2 tests: git_checkpoint, prerequisite_reports)",
+        "TestGateBFrozenManifestImmutability (2 tests: sha256_hashes, allocation_parity)",
+        "TestGateCSimulatorContractParity (1 test: cash_buffer_and_no_margin_debt)",
+        "TestGateDSyntheticDryRunExecution (2 tests: 20_scenarios_suite, scenario_2_drawdown)",
+        "TestGateEEventImmutabilityAndRecovery (2 tests: serialization_roundtrip, interruption_resumption)",
+        "TestGateFFinancialAccountingInvariants (1 test: balance_sheet_conservation)",
+        "TestGateJSecurityAndAirGapBoundary (2 tests: no_live_credentials, no_daemons_or_sockets)"
+      ]
+    },
+    {
+      "suite_id": "ALL_V30_DEDICATED_SUITES",
+      "command": "python -m pytest -k v30 research/tests/ -v",
+      "total_tests_selected": 161,
+      "passed": 161,
+      "failed": 0,
+      "deselected": 400,
+      "duration_seconds": 16.55,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "included_test_files": [
+        "research/tests/test_v30_execution_safety.py",
+        "research/tests/test_v30_stage2a_bg_contract_and_robustness.py",
+        "research/tests/test_v30_stage2a_f_final_acceptance.py",
+        "research/tests/test_v30_stage2a_r_remediation.py",
+        "research/tests/test_v30_stage2b_defensive_research.py",
+        "research/tests/test_v30_stage2c_volatility_gating.py",
+        "research/tests/test_v30_stage2d_position_sizing.py",
+        "research/tests/test_v30_stage2d_r_overlay_and_oracle.py",
+        "research/tests/test_v30_stage2f_mathematical_verification.py",
+        "research/tests/test_v30_stage2g_forward_readiness.py"
+      ]
+    },
+    {
+      "suite_id": "FULL_RESEARCH_TEST_SUITE",
+      "command": "python -m pytest research/tests/ --ignore=research/tests/test_e0_release.py -q",
+      "total_tests": 561,
+      "passed": 561,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 249.07,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "scope_notes": "Comprehensive regression across all historical V1 through V30 research test modules"
+    },
+    {
+      "suite_id": "STANDALONE_BUILDERR_PREVIEW",
+      "command": "python -X utf8 preview.py",
+      "exit_code": 0,
+      "verdict": "PASS",
+      "console_output_summary": "All 3 sample windows executed clean. Safety bar: peak gross 0.94x <= 1.5x, max concentration 26% <= 30%, max drawdown 33.5% < 50%. Verdict: PASS (ready for organizer review)."
+    },
+    {
+      "suite_id": "STANDALONE_SELFCHECK",
+      "command": "python -X utf8 selfcheck.py",
+      "exit_code": 0,
+      "verdict": "PASS",
+      "console_output_summary": "agent.py loaded and ran 12 steps cleanly. 5 well-formed orders emitted across the run."
+    },
+    {
+      "suite_id": "STANDALONE_STRATEGY_SELFTEST",
+      "command": "python -X utf8 strategy_selftest.py",
+      "exit_code": 0,
+      "verdict": "PASS",
+      "console_output_summary": "8 strategy checks passed."
+    }
+  ],
+  "regression_analysis": {
+    "regressions_detected": 0,
+    "broken_invariants": 0,
+    "reconciliation_discrepancies": 0,
+    "confidence_level": "INSTITUTIONAL_GRADE_DETERMINISTIC"
+  }
+}

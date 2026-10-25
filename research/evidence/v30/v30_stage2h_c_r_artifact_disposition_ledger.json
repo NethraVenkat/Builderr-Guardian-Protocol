@@ -1,0 +1,79 @@
+{
+  "disposition_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R - Complete Artifact Disposition Ledger",
+    "timestamp_utc": "2026-10-24T15:26:15.077674+00:00",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "total_items_classified": 451,
+    "unaccounted_meaningful_files": 0,
+    "auditor_role": "Digital Evidence Preservation Specialist"
+  },
+  "allowed_disposition_taxonomy": {
+    "A. ALREADY_TRACKED_IN_GIT": "Tracked repository files committed to Git history.",
+    "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT": "Untracked research files to be staged on human archival branch.",
+    "C. REQUIRES_ENCRYPTED_PRIVATE_BACKUP": "Artifacts requiring offline encrypted backup.",
+    "D. REGENERABLE_BUT_PRESERVE_PROVENANCE": "Bytecode and test caches regenerable from source.",
+    "E. RESTRICTED_DO_NOT_ACCESS": "Sealed Tier 3 observations and confidential vendor caches.",
+    "F. OWNER_CLASSIFICATION_REQUIRED": "Mock secret locations requiring owner classification before remote push."
+  },
+  "set_based_reconciliation_proof": {
+    "tracked_files_count": 271,
+    "proposed_git_archival_count": 178,
+    "restricted_tier3_count": 1,
+    "regenerable_cache_count": 1,
+    "owner_classification_count": 9,
+    "total_meaningful_accounted": 449,
+    "unaccounted_meaningful_files": 0,
+    "completeness_percentage": "100.00%"
+  },
+  "dispositions_summary": [
+    {
+      "category": "TRACKED_CORE_SOURCE_AND_HISTORICAL",
+      "count": 271,
+      "disposition": "A. ALREADY_TRACKED_IN_GIT",
+      "justification": "Already version-controlled in Git commit history up to HEAD commit b283ded200."
+    },
+    {
+      "category": "UNTRACKED_RESEARCH_REPORTS_AND_DELIVERABLES",
+      "count": 37,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Primary forensic research deliverables across V29E-30; essential for research continuity."
+    },
+    {
+      "category": "UNTRACKED_STRATEGY_CANDIDATES",
+      "count": 14,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Strategy candidate implementations (C1-C4, D1-D3, P1-P4, Safe Agents) documenting research evolution."
+    },
+    {
+      "category": "UNTRACKED_ENGINE_ORACLES_AND_RUNNERS",
+      "count": 24,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Simulation oracles, accounting models, and security boundary guards; essential for reproducibility."
+    },
+    {
+      "category": "UNTRACKED_TEST_SUITES",
+      "count": 13,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Automated pytest verification suites certifying mathematical and execution safety."
+    },
+    {
+      "category": "UNTRACKED_EVIDENCE_JSON_LEDGERS",
+      "count": 88,
+      "disposition": "B. PROPOSED_FOR_PRIVATE_ARCHIVAL_GIT",
+      "justification": "Machine-readable ledgers, matrices, parameter preregistrations, and forensic logs."
+    },
+    {
+      "category": "SEALED_TIER3_HOLDOUT_CACHE",
+      "count": 1,
+      "disposition": "E. RESTRICTED_DO_NOT_ACCESS",
+      "justification": "tiingo_cache/ contains post-2022 holdout data; must remain sealed and excluded from Git."
+    },
+    {
+      "category": "EPHEMERAL_SCRATCH_RESULTS",
+      "count": 1,
+      "disposition": "D. REGENERABLE_BUT_PRESERVE_PROVENANCE",
+      "justification": "scratch/hypotheses_results.json is an ephemeral run cache regenerable from source."
+    }
+  ]
+}

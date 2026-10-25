@@ -1,0 +1,87 @@
+{
+  "specification_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G-R - Causal Event Handling and Immutability Specification",
+    "timestamp_utc": "2026-10-24T12:05:00Z",
+    "reference_module": "research/engine/v30_stage2g_r_causal_event_engine.py",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "purpose": "Institutional Causal Streaming and Event-Driven Ingestion Protocol"
+  },
+  "fifteen_institutional_causal_rules": [
+    {
+      "rule_id": "CR-01",
+      "name": "Unique Stable Event Identifiers",
+      "specification": "Every market event (bar, dividend, split, corporate revision) possesses a globally unique, deterministic identifier: evt_{ticker}_{exchange_ts}_{payload_hash[:12]}."
+    },
+    {
+      "rule_id": "CR-02",
+      "name": "Exchange-Effective Timestamp",
+      "specification": "Every event explicitly declares the exchange date/time when market transactions occurred (exchange_ts)."
+    },
+    {
+      "rule_id": "CR-03",
+      "name": "Ingestion / Received Timestamp",
+      "specification": "Every event records the wall-clock received timestamp (received_ts) to measure latency and out-of-order arrival."
+    },
+    {
+      "rule_id": "CR-04",
+      "name": "Deterministic Event Processing",
+      "specification": "Events processed in the same order yield identical internal state transitions and portfolio valuations without non-deterministic side effects."
+    },
+    {
+      "rule_id": "CR-05",
+      "name": "Append-Only Event Journaling",
+      "specification": "Inbound accepted events are appended to an immutable JSONL log. Existing log records are never modified, rewritten, or truncated in place."
+    },
+    {
+      "rule_id": "CR-06",
+      "name": "Idempotent Event Deduplication",
+      "specification": "Resubmission of an already accepted event (matching event_id and payload_hash) returns DUPLICATE_IDEMPOTENT with zero mutation of portfolio state."
+    },
+    {
+      "rule_id": "CR-07",
+      "name": "Conflicting Payload Quarantine",
+      "specification": "Submission of an event with an existing event_id but mismatched payload_hash is immediately quarantined as QUARANTINED_CONFLICT without modifying accepted state."
+    },
+    {
+      "rule_id": "CR-08",
+      "name": "Committed Watermark Protection",
+      "specification": "The engine maintains a strictly monotonic committed_watermark_date. Late market observations with exchange_ts <= committed_watermark_date cannot rewrite past decisions or trigger retroactive trades."
+    },
+    {
+      "rule_id": "CR-09",
+      "name": "Watermark Buffering and Late Quarantine",
+      "specification": "Events with exchange_ts > watermark are buffered until the watermark advances; events with exchange_ts <= watermark are quarantined with reason ARRIVED_POST_WATERMARK_COMMITMENT."
+    },
+    {
+      "rule_id": "CR-10",
+      "name": "Explicit Revision Records",
+      "specification": "Exchange or data provider restatements generate explicit REVISION events pointing to parent_event_id. Revisions are recorded for auditability but cannot execute retroactive fills."
+    },
+    {
+      "rule_id": "CR-11",
+      "name": "Decision Provenance Tracking",
+      "specification": "Every decision and fill explicitly records input_event_ids and market payload hashes present at the exact moment of execution."
+    },
+    {
+      "rule_id": "CR-12",
+      "name": "Immutable Fill Ledger",
+      "specification": "Simulated and confirmed fills are stored as frozen, immutable records (ImmutableFill) with permanent execution prices, slippage, and PnL."
+    },
+    {
+      "rule_id": "CR-13",
+      "name": "Anti-Retroactive Execution Barrier",
+      "specification": "No late event, revision, or restatement can retroactively execute orders against past market days."
+    },
+    {
+      "rule_id": "CR-14",
+      "name": "Deterministic Crash Recovery",
+      "specification": "Engine state can be fully reconstructed from any verified cryptographic snapshot combined with sequential replay of the append-only journal."
+    },
+    {
+      "rule_id": "CR-15",
+      "name": "Zero Silent History Sorting",
+      "specification": "Chronological sorting is strictly confined to uncommitted buffers before decision generation. Once a day is committed, the historical sequence is locked."
+    }
+  ]
+}

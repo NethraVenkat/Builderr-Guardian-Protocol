@@ -1,0 +1,65 @@
+{
+  "manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Artifact Checksum and Provenance Manifest",
+    "timestamp_utc": "2026-10-24T15:12:02.398747+00:00",
+    "auditor_role": "Independent Quantitative Systems Auditor & Reproducibility Specialist",
+    "total_artifacts": 11
+  },
+  "artifacts": {
+    "research/evidence/v30/v30_stage2h_c_complete_workspace_inventory.json": {
+      "size_bytes": 98691,
+      "sha256_raw": "e5b88df580f8968c27272494b45c7c519002f5401091b9f8508b853a7058fcd5",
+      "sha256_lf": "2e4f99c2791c1e60b2e62b3ef323855ae4d200095fd53dc11beb801f4000d3f5"
+    },
+    "research/evidence/v30/v30_stage2h_c_cross_stage_consistency_register.json": {
+      "size_bytes": 7024,
+      "sha256_raw": "eab93c80ae0aa5f457af8882951b5626b45d70b3ed16a8086353f00b95adb8ba",
+      "sha256_lf": "3526c97c14f06a2fe450d47928795ffa8045cae24f29e2801fb236102907fc69"
+    },
+    "research/evidence/v30/v30_stage2h_c_final_executed_test_ledger.json": {
+      "size_bytes": 2959,
+      "sha256_raw": "bd591a04dd29d64f7e8f515ddb9e887b43628eae4504512e8b6ada4a1c92cae7",
+      "sha256_lf": "bd591a04dd29d64f7e8f515ddb9e887b43628eae4504512e8b6ada4a1c92cae7"
+    },
+    "research/evidence/v30/v30_stage2h_c_governance_and_incident_checklist.json": {
+      "size_bytes": 4817,
+      "sha256_raw": "9ee88c12fb230be965bdc3ecf19b3dae411a231836730508b3fae32fbc978e01",
+      "sha256_lf": "921e01afd94eae648c86b9f94c29b5a25158b8ec9b8f09e70ffbfcf13ba398e4"
+    },
+    "research/evidence/v30/v30_stage2h_c_human_git_preservation_plan.json": {
+      "size_bytes": 5361,
+      "sha256_raw": "c7b04689c43da6d444d93efb8ce87fcaf564bf3c0d4807ac35ead387cd9fbe6e",
+      "sha256_lf": "9080a42d680fb74653c0fde9c42c8b5e816580f8d69c63038be5be366b2e8522"
+    },
+    "research/evidence/v30/v30_stage2h_c_owner_decision_register.json": {
+      "size_bytes": 8093,
+      "sha256_raw": "047a0b642656582c32435a01761cf3f7b838d3818af1234f2ff1016c9fdd5b4c",
+      "sha256_lf": "da571ce06f2949197d948deb6fa172193da3d9a60ef0175c926d7bfe42438949"
+    },
+    "research/evidence/v30/v30_stage2h_c_private_backup_specification.json": {
+      "size_bytes": 1423,
+      "sha256_raw": "99a7c492e8215d52daafdbbce47509875eb318c2140c24d68f49916d5cf1fea9",
+      "sha256_lf": "5321c868461fa75636503896bee7ce288a576f28cc1ad84216f33e57d104fcf8"
+    },
+    "research/evidence/v30/v30_stage2h_c_protected_source_certification.json": {
+      "size_bytes": 4343,
+      "sha256_raw": "26aa8f356d20dc98a86f76cc4e204962fff66e2d86c7296bd736c9c0e81e8173",
+      "sha256_lf": "542e999e9cd5ece7ec3eb4f22fa7153254c633a5933e193740cd403eedc1ab68"
+    },
+    "research/evidence/v30/v30_stage2h_c_provider_decision_matrix.json": {
+      "size_bytes": 8084,
+      "sha256_raw": "fc80e1f625580450301d97eea04750cef68bb80713ddfe375842bed05503a3b1",
+      "sha256_lf": "7f5d503b477904323e13eee876ef406c323eedbd91df3a508dcf87c0774d3ab5"
+    },
+    "research/evidence/v30/v30_stage2h_c_reproducibility_dependency_manifest.json": {
+      "size_bytes": 2176,
+      "sha256_raw": "1af3f83074d6bc2ef1a9c4a9d16a56375a0c7ae92d3ffaddfacafa85509edc21",
+      "sha256_lf": "283914f7a718568a8b398467e5b6230bd1c8e3db54deb962b9d4844e8abd49af"
+    },
+    "research/evidence/v30/v30_stage2h_c_scientific_evaluation_proposal.json": {
+      "size_bytes": 4608,
+      "sha256_raw": "634b378623017cb2c59b42ab8e6b11cdb48ba667e4658664538641b25622d587",
+      "sha256_lf": "db9c5546692829f8e1f7fc700d8c8bafe6f34dc93e8aa65997d209d56d69e9d9"
+    }
+  }
+}

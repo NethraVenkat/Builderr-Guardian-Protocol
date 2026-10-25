@@ -1,0 +1,98 @@
+{
+  "checklist_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Activation Security & Incident Governance Checklist",
+    "timestamp_utc": "2026-10-24T14:59:54.015063+00:00",
+    "auditor_role": "Cybersecurity Reviewer & Site Reliability Engineer",
+    "status": "INCIDENT_GOVERNANCE_AUDITED_ACTIVATION_BLOCKED",
+    "hard_stop_persistence_mechanism": "DISK_PERSISTED_FAIL_CLOSED_STATE"
+  },
+  "activation_guard_verifications": [
+    {
+      "control": "Missing Token Rejection",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Rejects None or empty authorization token immediately."
+    },
+    {
+      "control": "Invalid Signature Rejection",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "HMAC-SHA256 constant-time digest comparison blocks tampered tokens."
+    },
+    {
+      "control": "Expiry Verification",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Tokens past expiry_utc timestamp rejected immediately."
+    },
+    {
+      "control": "Revocation Blacklist",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Owner revoked token_ids blocked unconditionally."
+    },
+    {
+      "control": "Source-Hash Binding",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Exact binding to agent.py (46e68dc9...) and universe.json (66563b61...)."
+    },
+    {
+      "control": "Provider Binding",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Token strictly binds approved provider string."
+    },
+    {
+      "control": "Execution-Mode Binding",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Mode == 'live' immediately triggers persistent hard-stop. Only 'paper_simulated' permitted."
+    },
+    {
+      "control": "Risk-Limit Binding",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Max gross leverage <= 1.0x, max single-position <= 50% immutable."
+    },
+    {
+      "control": "Replay Protection",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Cryptographic nonce cache blocks duplicate token reuse."
+    },
+    {
+      "control": "Restart-Persistent Hard Stop",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Hard stop writes .v30_stage2h_b_hard_stop_state.json to disk; survives process restart until manual owner reset."
+    },
+    {
+      "control": "Event Journal HMAC Chaining",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "Monotonic sequence numbers and rolling HMACs block retroactive event tampering."
+    },
+    {
+      "control": "Directory Traversal & Tier 3 Guard",
+      "status": "VERIFIED_FAIL_CLOSED",
+      "detail": "os.path.realpath resolves canonical paths; blocks traversal outside workspace and any tiingo_cache observation >= 2022-01-01."
+    }
+  ],
+  "network_isolation_boundary_disclosure": {
+    "python_socket_interception": "Blocks in-process socket.connect calls from Python standard and third-party libraries (requests, urllib, httpx).",
+    "os_subprocess_limitation": "Monkey-patching does NOT guarantee kernel-level network isolation against spawned OS binaries (curl, powershell).",
+    "production_recommendation": "For true forward evaluation isolation, owner must configure OS-level firewall rules or run inside an air-gapped container."
+  },
+  "incident_response_four_tier_taxonomy": {
+    "INFORMATIONAL": {
+      "events": "Normal causal rebalances, opening fill confirmations, 0.0000 cash residual reconciliations.",
+      "response": "Logged to append-only immutable audit trail; zero operator action required."
+    },
+    "WARNING": {
+      "events": "Execution slippage 10-25 bps, data provider latency 1-5 min, upcoming corporate action within 3 days, rate limit usage > 80%.",
+      "response": "Operator warning emitted; recorded in diagnostic journal; execution continues."
+    },
+    "CRITICAL": {
+      "events": "Cash residual $0.0001-$0.01, single-day drawdown > 3%, data provider timeout after 3 retries, stale data > 15 min, late event arrival.",
+      "response": "Quarantine affected event; freeze pending rebalances; same-day operator investigation required."
+    },
+    "HARD_STOP": {
+      "events": "Unauthorized activation, protected source hash mismatch, balance-sheet residual > $0.01, negative cash balance, Tier 3 access attempt, D2 drawdown lagging E0 by > 300 bps.",
+      "response": "Immediate process halt; persistent disk lock written; zero orders emitted; requires manual owner override key to reset."
+    }
+  },
+  "owner_governance_decisions": {
+    "DEC-05_status": "PENDING (Owner review and ratification of 4-tier incident response playbook and persistent disk lock policy).",
+    "DEC-06_status": "BLOCKED (Separate explicit owner authorization required for prospective paper evaluation; zero tokens generated)."
+  }
+}

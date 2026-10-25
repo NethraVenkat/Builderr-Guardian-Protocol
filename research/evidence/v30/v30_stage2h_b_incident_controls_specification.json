@@ -1,0 +1,76 @@
+{
+  "audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Observability & Incident Controls Specification",
+    "timestamp_utc": "2026-10-24T12:52:00Z",
+    "auditor_role": "Site Reliability Reviewer & Risk Governance Officer",
+    "status": "INCIDENT_CONTROLS_HARDENED_WITH_PERSISTENT_STOP"
+  },
+  "alert_severity_taxonomy": {
+    "INFORMATIONAL": {
+      "definition": "Normal operational events, heartbeats, and rebalance audit trails. No operational action required.",
+      "conditions": [
+        "Daily causal rebalance completed at T close.",
+        "Opening fill confirmation at T+1 open.",
+        "Settled cash reconciliation with 0.0000 residual.",
+        "Daily paired shortfall metric Delta S_t recorded."
+      ],
+      "action": "Logged to append-only immutable audit log."
+    },
+    "WARNING": {
+      "definition": "Anomalous event within tolerable bounds. Automated retry or operator notification; execution continues.",
+      "conditions": [
+        "Execution slippage between 10 bps and 25 bps.",
+        "Market data feed delay > 1 minute but < 5 minutes.",
+        "Upcoming corporate action announced within 3 days.",
+        "Portfolio tracking error divergence > 150 bps annualized.",
+        "Data provider rate limit usage > 80% of tier quota."
+      ],
+      "action": "Emit operator warning alert; record diagnostic in incident journal."
+    },
+    "CRITICAL": {
+      "definition": "Material anomaly threatening evaluation integrity or financial bounds. Requires same-day operator investigation.",
+      "conditions": [
+        "Cash residual between $0.0001 and $0.01.",
+        "Single-day strategy drawdown > 3.0%.",
+        "Data provider query timeout after 3 exponential backoff retries.",
+        "Market data stale (> 15 minutes past market close).",
+        "Late event arrival after decision window closure (quarantined).",
+        "D2 cumulative drawdown exceeds E0 cumulative drawdown by > 200 bps."
+      ],
+      "action": "Quarantine affected event; freeze pending rebalances; notify operator."
+    },
+    "HARD_STOP": {
+      "definition": "Severe integrity, security, or accounting breach. Halts execution immediately and writes persistent state file to disk. Survives process restarts; cannot be cleared without explicit owner override key.",
+      "conditions": [
+        "Unauthorized activation attempt or missing cryptographic token.",
+        "Protected source hash mismatch (agent.py, universe.json, comparator).",
+        "Balance sheet identity violation: |Assets - Liabilities - Equity| > $0.01.",
+        "Negative cash balance detected (cash < 0.00).",
+        "Directory traversal or sealed Tier 3 observation access attempt.",
+        "Corrupt checkpoint or event journal HMAC verification failure.",
+        "Data license expiration or legal redistribution revocation.",
+        "D2 cumulative drawdown underperforms E0 by > 300 bps (evaluation failure gate)."
+      ],
+      "persistence_mechanism": "State written to .v30_stage2h_b_hard_stop_state.json. Engine startup unconditionally fails closed until manual execution of clear_hard_stop_manual() by owner.",
+      "action": "Immediate halt; zero order emission; persistent disk lock; emergency owner notification."
+    }
+  },
+  "fifteen_alert_coverage_matrix": [
+    {"event": "Cash-accounting residuals", "assigned_severity": "HARD_STOP (if > $0.01) / CRITICAL (if > $0.0001)"},
+    {"event": "Missing observations", "assigned_severity": "CRITICAL"},
+    {"event": "Stale observations", "assigned_severity": "CRITICAL"},
+    {"event": "Late-event quarantine", "assigned_severity": "WARNING"},
+    {"event": "Duplicate events", "assigned_severity": "WARNING"},
+    {"event": "Invalid fills", "assigned_severity": "CRITICAL"},
+    {"event": "Risk-limit breach", "assigned_severity": "HARD_STOP"},
+    {"event": "Unauthorized activation", "assigned_severity": "HARD_STOP"},
+    {"event": "Source-hash mismatch", "assigned_severity": "HARD_STOP"},
+    {"event": "Corrupt checkpoints", "assigned_severity": "HARD_STOP"},
+    {"event": "Data-license expiry", "assigned_severity": "HARD_STOP"},
+    {"event": "Provider unavailability", "assigned_severity": "CRITICAL"},
+    {"event": "E0/D2 comparison integrity", "assigned_severity": "CRITICAL"},
+    {"event": "Insufficient defensive observations", "assigned_severity": "WARNING"},
+    {"event": "Evaluation stop conditions", "assigned_severity": "HARD_STOP"}
+  ],
+  "monitoring_server_policy": "NO RUNNING WEBSERVER DEPLOYED. Monitoring is provided via static versioned HTML dashboard mockup and local JSON telemetry."
+}

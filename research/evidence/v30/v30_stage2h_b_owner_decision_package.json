@@ -1,0 +1,105 @@
+{
+  "governance_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Owner Decision Package & Governance Checklist",
+    "timestamp_utc": "2026-10-24T12:54:00Z",
+    "auditor_role": "Independent Research Governance Officer",
+    "activation_status": "BLOCKED_PENDING_EXPLICIT_OWNER_AUTHORIZATION",
+    "overall_decision_status": "ALL_SIX_DECISIONS_PENDING"
+  },
+  "owner_decisions": {
+    "DEC-01": {
+      "decision_id": "DEC-01",
+      "title": "Select Future Market-Data Provider",
+      "status": "PENDING",
+      "supported_options": [
+        {"option_id": "A", "name": "Tiingo API (Starter / Power Plan)", "cost": "$0 - $30/mo", "coverage": "EOD adjusted bars + corporate actions"},
+        {"option_id": "B", "name": "Polygon.io / Massive (Developer Plan)", "cost": "$29 - $79/mo", "coverage": "Real-time and historical US stocks"},
+        {"option_id": "C", "name": "Alpaca Market Data (Unlimited Plan)", "cost": "$9/mo", "coverage": "SIP consolidated market feed"},
+        {"option_id": "D", "name": "Interactive Brokers TWS API", "cost": "~$4.50/mo non-pro bundle", "coverage": "Institutional broker-direct feed"}
+      ],
+      "recommended_default": "Option A (Tiingo Starter/Power) for simplicity and robust split/dividend adjustments, OR Option C (Alpaca) if paper broker order mock is prioritized.",
+      "evidence": "v30_stage2h_b_provider_rights_matrix.json confirms personal non-commercial licenses permit private algorithmic modeling.",
+      "unresolved_conditions": "Owner must select one provider and enter their own personal subscription credentials. No credentials currently exist in workspace.",
+      "risks": "Third-party API downtime, rate limiting, or potential exchange policy changes.",
+      "reversibility": "HIGH: Provider adapter is fully decoupled via provider-neutral interface.",
+      "exact_owner_action": "Owner reviews provider terms, selects provider, and registers personal non-professional account."
+    },
+    "DEC-02": {
+      "decision_id": "DEC-02",
+      "title": "Verify Exact License, Storage, and Research Rights",
+      "status": "PENDING",
+      "supported_options": [
+        {"option_id": "A", "name": "Personal Non-Professional Research License (Local Cache Only)", "description": "Strict single-user private modeling. No external dashboard or redistribution."},
+        {"option_id": "B", "name": "Commercial Redistribution License", "description": "Required if model outputs or quotes are ever broadcast externally."}
+      ],
+      "recommended_default": "Option A (Personal Non-Professional License), as Guardian Alpha is private proprietary research.",
+      "evidence": "Contractual due diligence in Gate B confirms personal plans forbid redistribution but permit private model evaluation.",
+      "unresolved_conditions": "Owner must confirm they qualify as Non-Professional under NYSE/NASDAQ/CTA definitions.",
+      "risks": "Exchange audit reclassification if account is operated on behalf of an investment fund.",
+      "reversibility": "HIGH: Upgradable to commercial tier at any time.",
+      "exact_owner_action": "Owner signs non-professional subscriber declaration during data vendor registration."
+    },
+    "DEC-03": {
+      "decision_id": "DEC-03",
+      "title": "Approve Paired Primary Endpoint & Return Trade-off",
+      "status": "PENDING",
+      "supported_options": [
+        {"option_id": "A", "name": "Standard Paired Downside Shortfall (theta_def > 0) with -200 bps CAGR Margin", "description": "Preregistered primary test: D2 must reduce downside shortfall on defensive days without lagging E0 annual CAGR by > 2.0%."},
+        {"option_id": "B", "name": "Defensive Sortino Ratio Superiority", "description": "Alternative ratio-based target."},
+        {"option_id": "C", "name": "Strict Zero Return Drag Tolerance (0 bps)", "description": "Requires D2 to match or beat E0 in all market environments."}
+      ],
+      "recommended_default": "Option A: Statistically well-formulated and reflects realistic insurance premium trade-off.",
+      "evidence": "Mathematical derivation in v30_stage2h_b_statistical_protocol_audit.json.",
+      "unresolved_conditions": "Owner must formally approve the 200 bps annual insurance cost budget.",
+      "risks": "In strong bull markets, cash drag of D2 may exceed 200 bps.",
+      "reversibility": "LOW: Endpoint cannot be altered after prospective evaluation begins without invalidating preregistration.",
+      "exact_owner_action": "Owner approves theta_def formula and 200 bps budget before prospective evaluation launch."
+    },
+    "DEC-04": {
+      "decision_id": "DEC-04",
+      "title": "Approve Evaluation Horizon, Minimum Defensive Sample, & Stopping Policy",
+      "status": "PENDING",
+      "supported_options": [
+        {"option_id": "A", "name": "252 Trading Sessions Horizon with Minimum N_def = 30 Sessions", "description": "If N_def < 30 at T=252, extend evaluation until N_def reaches 30 (or max 504 sessions)."},
+        {"option_id": "B", "name": "Fixed 504 Sessions (2-Year Horizon)", "description": "Higher statistical power (80% MDE = 32 bps), but delays decision."},
+        {"option_id": "C", "name": "Dynamic Sequential Probability Ratio Test (SPRT)", "description": "Continuous early stopping boundaries."}
+      ],
+      "recommended_default": "Option A: Balanced duration with rigorous contingent extension safeguard.",
+      "evidence": "Power and MDE calculations in Gate C showing N=30 is minimal floor; N>=45 provides superior precision.",
+      "unresolved_conditions": "Owner confirmation of willing waiting period (1 calendar year).",
+      "risks": "Prolonged low-volatility bull market may yield few defensive days.",
+      "reversibility": "MEDIUM: Horizon extensions must be planned in advance to avoid p-hacking.",
+      "exact_owner_action": "Owner approves 252-session horizon with N_def >= 30 contingent extension."
+    },
+    "DEC-05": {
+      "decision_id": "DEC-05",
+      "title": "Approve Monitoring, Incident Response, & Evidence Retention",
+      "status": "PENDING",
+      "supported_options": [
+        {"option_id": "A", "name": "Hardened 4-Tier Severity Playbook with Persistent Disk Hard-Stop", "description": "INFORMATIONAL, WARNING, CRITICAL, HARD STOP. Persistent lock survives process restarts."},
+        {"option_id": "B", "name": "Basic Logging Only", "description": "Console output without persistent locks."}
+      ],
+      "recommended_default": "Option A: Critical for operational safety and auditability.",
+      "evidence": "Gate G specification and v30_stage2h_b_security_guard.py persistent lock implementation.",
+      "unresolved_conditions": "Owner review of manual reset key requirement.",
+      "risks": "Hard-stop requires owner manual action to clear after severe incidents.",
+      "reversibility": "HIGH: Playbook thresholds can be tuned prior to activation.",
+      "exact_owner_action": "Owner reviews and ratifies incident severity taxonomy and persistent lock policy."
+    },
+    "DEC-06": {
+      "decision_id": "DEC-06",
+      "title": "Separately Authorize Paper-Only Prospective Activation",
+      "status": "BLOCKED",
+      "supported_options": [
+        {"option_id": "A", "name": "Authorize Paper-Only Evaluation (Zero Live Orders)", "description": "Requires explicit signed owner token. Engine executes strictly in paper simulation."},
+        {"option_id": "B", "name": "Maintain Current Frozen Research State (No Activation)", "description": "Default safe posture."}
+      ],
+      "recommended_default": "Option B until DEC-01 through DEC-05 are resolved by the owner.",
+      "evidence": "All architectural, accounting, and security prerequisites are satisfied; activation is blocked purely by lack of human authorization.",
+      "unresolved_conditions": "Requires human owner signature and token generation. NO TOKEN GENERATED IN THIS STAGE.",
+      "risks": "Premature activation before provider and endpoint decisions are locked.",
+      "reversibility": "HIGH: Paper evaluation can be halted instantly without financial capital risk.",
+      "exact_owner_action": "Owner generates signed HMAC authorization token when ready to begin prospective evaluation."
+    }
+  }
+}

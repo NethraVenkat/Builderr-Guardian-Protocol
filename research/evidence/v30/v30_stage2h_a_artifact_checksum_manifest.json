@@ -1,0 +1,141 @@
+{
+  "manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Master Cryptographic Checksum and Artifact Manifest",
+    "timestamp_utc": "2026-10-24T12:28:00Z",
+    "stage": "Stage 2H-A",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "purpose": "Cryptographic Integrity Manifest of Stage 2H-A Autonomous Audit Deliverables"
+  },
+  "protected_production_and_frozen_candidates": {
+    "agent.py": {
+      "role": "Official Production Baseline (Frozen E0)",
+      "bytes": 12952,
+      "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "status": "UNTOUCHED_FROZEN"
+    },
+    "universe.json": {
+      "role": "Authorized Universe Configuration",
+      "bytes": 11486,
+      "sha256_raw": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "sha256_normalized_lf": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "status": "UNTOUCHED_FROZEN"
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "role": "Historical Baseline AE Code Reference",
+      "bytes": 8459,
+      "sha256_raw": "406e8b9e8c4145faea764db41d6286b96b26e9b33808233458da584f9f245271",
+      "sha256_normalized_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "status": "UNTOUCHED_FROZEN"
+    },
+    "research/strategies/v30_candidate_d2_cash_cushion.py": {
+      "role": "50% Defensive Cash Comparator (Frozen D2)",
+      "bytes": 5496,
+      "sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "status": "FROZEN_RESEARCH_COMPARATOR"
+    }
+  },
+  "stage2h_a_machine_readable_evidence_artifacts": {
+    "GUARDIAN_ALPHA_V30_STAGE2H_A_EXTENDED_READINESS_AND_OWNER_APPROVAL.md": {
+      "role": "Primary Stage 2H-A Readiness Audit & Owner Approval Package",
+      "bytes": 30762,
+      "sha256": "26a68947ed54f05f0b8ba37985cceec96b4ba8b3fd61e0b16a731ed7dc687a65"
+    },
+    "research/evidence/v30/v30_stage2h_a_checkpoint_certification.json": {
+      "gate": "GATE_A",
+      "bytes": 3516,
+      "sha256": "6c836b7568e07afd0d7d4307e6a739d5832eba4b0e5db759031d73c789c81c63"
+    },
+    "research/evidence/v30/v30_stage2h_a_provider_due_diligence_matrix.json": {
+      "gate": "GATE_B",
+      "bytes": 9917,
+      "sha256": "17f47a50281708da5c4a3195736544acc90627bc6685354ed1f195eea286947d"
+    },
+    "research/evidence/v30/v30_stage2h_a_simulator_contract_conformance.json": {
+      "gate": "GATE_C",
+      "bytes": 5606,
+      "sha256": "bd9907c13a56bf61f2ca6496febf2e769f3699ac3b325caf27bc60fdd3b31459"
+    },
+    "research/evidence/v30/v30_stage2h_a_causal_event_hardening_audit.json": {
+      "gate": "GATE_D",
+      "bytes": 4123,
+      "sha256": "b01a0b886080dbede44e0668f2182ea64189fb175d5fd836caf2af57948b30a5"
+    },
+    "research/evidence/v30/v30_stage2h_a_crash_recovery_reliability.json": {
+      "gate": "GATE_E",
+      "bytes": 3744,
+      "sha256": "6825975f390a6b589f848e6907eb4e0eb94f58924c3dac38438d193e2743d8b1"
+    },
+    "research/evidence/v30/v30_stage2h_a_financial_accounting_assurance.json": {
+      "gate": "GATE_F",
+      "bytes": 8458,
+      "sha256": "0294f344dd97cb189dec35b521f62c95c8d8c2d377eaf733905a75ff526d2098"
+    },
+    "research/evidence/v30/v30_stage2h_a_scientific_protocol_review.json": {
+      "gate": "GATE_G",
+      "bytes": 3971,
+      "sha256": "54b3ef1cf63acba56b090105148ddd8f54347ee6a10d480cd00f09ab00f343a2"
+    },
+    "research/evidence/v30/v30_stage2h_a_activation_security_audit.json": {
+      "gate": "GATE_H",
+      "bytes": 1963,
+      "sha256": "3585329ce75183ced28cab8ebf7fa4d2b4e3cf9eda127218be7fb321402a7db3"
+    },
+    "research/engine/v30_stage2h_a_dashboard_mockup.html": {
+      "gate": "GATE_I",
+      "bytes": 5545,
+      "sha256": "e7cc8b894f37f5cd80e34d9fb4d2450b7c1c12f9c4ab57da1b935c1e45d57b32"
+    },
+    "research/evidence/v30/v30_stage2h_a_observability_and_incident_playbook.json": {
+      "gate": "GATE_I",
+      "bytes": 4102,
+      "sha256": "8ec830ebf969fcae7d1635837730f27b51a035ee79555830e83e271023d9d04b"
+    },
+    "research/evidence/v30/v30_stage2h_a_data_provenance_schema.json": {
+      "gate": "GATE_J",
+      "bytes": 4940,
+      "sha256": "d7f5e3b6849edd5fe629293210c304fe5f6de48491e90903f4685eb231d78db9"
+    },
+    "research/evidence/v30/v30_stage2h_a_owner_decision_package.json": {
+      "gate": "GATE_M",
+      "bytes": 7154,
+      "sha256": "e254c40b336acb281991ce4a39bb2eb7148c1de377152825e2e9255174696498"
+    },
+    "research/evidence/v30/v30_stage2h_a_red_team_register.json": {
+      "gate": "GATE_N",
+      "bytes": 5550,
+      "sha256": "caca8ebbf18fb9b8a7ee52b36ecf7d413a420c6e0f3f6a98849af34bfb41fe9f"
+    },
+    "research/evidence/v30/v30_stage2h_a_executed_test_ledger.json": {
+      "gate": "GATE_L",
+      "bytes": 3919,
+      "sha256": "95af2d73f039a532663c75c6a5c4e73dcfbea456b0a7b0af64367c6de3afc992"
+    }
+  },
+  "stage2h_a_executable_reference_modules": {
+    "research/engine/v30_stage2h_a_hardened_causal_engine.py": {
+      "bytes": 23382,
+      "sha256": "9761ebb2e25b3b0132c295dcb725ec3605010126faaf05aedb1f0d7c41f8996f"
+    },
+    "research/engine/v30_stage2h_a_audit_runner.py": {
+      "bytes": 11958,
+      "sha256": "6b83645ab7505e7b695c204a40698950fc6bafc4cc2497e404afcbc9fade50f3"
+    },
+    "research/engine/v30_stage2h_a_crash_tester.py": {
+      "bytes": 8999,
+      "sha256": "ae32e7fc2db3cc393e2e7e75f5a76d30d7855ba51b5043482f86ce704a91387b"
+    },
+    "research/engine/v30_stage2h_a_accounting_assurance_runner.py": {
+      "bytes": 6682,
+      "sha256": "cb7e37ae0c61d6d45809da00466a6a7e8d60890433a0f1e4bab2017423a21a9c"
+    },
+    "research/engine/v30_stage2h_a_security_auditor.py": {
+      "bytes": 5109,
+      "sha256": "aecf0d79920fda9dc3d17f74bf866e097e702faa1edbbbef836d4fbfa9783ea9"
+    },
+    "research/tests/test_v30_stage2h_a_adversarial.py": {
+      "bytes": 8973,
+      "sha256": "3c587c7e6e99281e5fc417df6339b8cad7552aa07a59d25891a265abad8da6cf"
+    }
+  }
+}

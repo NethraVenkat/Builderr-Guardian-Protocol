@@ -1,0 +1,106 @@
+{
+  "test_ledger_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Executed Test and Regression Ledger",
+    "timestamp_utc": "2026-10-24T12:26:30Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "python_version": "3.11.9",
+    "pytest_version": "9.1.1",
+    "os_environment": "Windows 11 Enterprise (win32)",
+    "overall_ledger_status": "ALL_TESTS_PASSING_ZERO_REGRESSIONS"
+  },
+  "executed_test_suites": [
+    {
+      "suite_id": "STAGE2H_A_DEDICATED_ADVERSARIAL",
+      "command": "python -m pytest research/tests/test_v30_stage2h_a_adversarial.py -v",
+      "test_file": "research/tests/test_v30_stage2h_a_adversarial.py",
+      "total_tests": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.20,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "test_classes": [
+        "TestGateACheckpointIntegrity (2 tests: git_checkpoint, protected_hashes)",
+        "TestGateDHardenedCausalEngine (5 tests: nonfinite_price, unauthorized_ticker, weekend_observation, empty_payload, utc_offset_norm)",
+        "TestGateECrashRecoveryReliability (2 tests: snapshot_corruption_rejection, exact_state_parity)",
+        "TestGateFFinancialAssuranceAndParity (2 tests: e0_d2_parity, balance_sheet_exact_conservation)",
+        "TestGateHActivationSecurityFailClosed (3 tests: live_trading_prohibited, paper_fails_closed, airgap_enforcer)"
+      ]
+    },
+    {
+      "suite_id": "STAGE2G_R_REMEDIATION",
+      "command": "python -m pytest research/tests/test_v30_stage2g_r_remediation.py -v",
+      "test_file": "research/tests/test_v30_stage2g_r_remediation.py",
+      "total_tests": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.38,
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "STAGE2G_READINESS",
+      "command": "python -m pytest research/tests/test_v30_stage2g_forward_readiness.py -v",
+      "test_file": "research/tests/test_v30_stage2g_forward_readiness.py",
+      "total_tests": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 5.60,
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "ALL_V30_DEDICATED_SUITES",
+      "command": "python -m pytest -k v30 research/tests/ -q",
+      "total_tests_selected": 190,
+      "passed": 190,
+      "failed": 0,
+      "deselected": 400,
+      "duration_seconds": 9.71,
+      "exit_code": 0,
+      "verdict": "PASS"
+    },
+    {
+      "suite_id": "FULL_RESEARCH_TEST_SUITE",
+      "command": "python -m pytest research/tests/ --ignore=research/tests/test_e0_release.py -q",
+      "total_tests": 590,
+      "passed": 590,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 160.19,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "scope_notes": "Comprehensive 590-test regression covering V1 through V30 research modules"
+    },
+    {
+      "suite_id": "STANDALONE_BUILDERR_PREVIEW",
+      "command": "python -X utf8 preview.py",
+      "exit_code": 0,
+      "verdict": "PASS",
+      "console_output_summary": "All 3 sample windows executed clean. Peak gross 0.94x <= 1.5x, max conc 26%, max DD 33.5%. Safety bar cleared."
+    },
+    {
+      "suite_id": "STANDALONE_SELFCHECK",
+      "command": "python -X utf8 selfcheck.py",
+      "exit_code": 0,
+      "verdict": "PASS",
+      "console_output_summary": "agent.py loaded and ran 12 steps cleanly. 5 well-formed orders emitted across the run."
+    },
+    {
+      "suite_id": "STANDALONE_STRATEGY_SELFTEST",
+      "command": "python -X utf8 strategy_selftest.py",
+      "exit_code": 0,
+      "verdict": "PASS",
+      "console_output_summary": "8 strategy checks passed cleanly."
+    }
+  ],
+  "regression_analysis": {
+    "regressions_detected": 0,
+    "broken_invariants": 0,
+    "confidence_level": "INSTITUTIONAL_DETERMINISTIC_100_PCT"
+  }
+}

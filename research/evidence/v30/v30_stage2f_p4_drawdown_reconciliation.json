@@ -1,0 +1,62 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2F - Candidate P4 Drawdown Metric Reconciliation",
+    "version": "1.0.0",
+    "stage": "Stage 2F",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "candidate": "Candidate P4 (Equal/Inverse-Volatility Blend 50/50)"
+  },
+  "discrepancy_identification": {
+    "stage2d_reported_value": 0.1622,
+    "stage2d_display_text": "16.22%",
+    "stage2e_narrative_value": 0.1659,
+    "stage2e_display_text": "16.59%",
+    "stage2e_matrix_stored_value": 0.1622,
+    "apparent_delta": "+0.37 percentage points"
+  },
+  "provenance_and_evidence_audit": {
+    "primary_simulation_log": "research/evidence/v30/v30_stage2d_historical_replay_results.json",
+    "primary_json_entry": {
+      "tier1_results": {
+        "Candidate P4": {
+          "end_nav": 193524.32814110105,
+          "total_ret": 0.9352432814110106,
+          "cagr": 0.14140109685943947,
+          "mdd": 0.16219585678117304,
+          "sharpe": 0.9998867754938733,
+          "sortino": 0.9406560370420658,
+          "calmar": 0.8717922756854124,
+          "ann_vol": 0.1414170321477741,
+          "underwater_days": 381,
+          "trades": 1151,
+          "turnover": 21001206.04351624,
+          "trans_costs": 11053.847141503125
+        }
+      }
+    },
+    "master_comparability_matrix_entry": {
+      "source_file": "research/evidence/v30/v30_stage2e_candidate_comparability_matrix.json",
+      "recorded_mdd": 0.1622
+    },
+    "simulation_parameters": {
+      "evaluation_tier": "Tier 1 (In-Sample)",
+      "date_range": "2015-01-02 to 2019-12-31",
+      "trading_sessions": 1258,
+      "starting_capital": 100000.0,
+      "corporate_actions": "CorporateActionRegistry (10-day business day dividend imputation + split ratio)",
+      "price_semantics": "causal_production",
+      "drawdown_basis": "Daily closing equity curve mark-to-market"
+    }
+  },
+  "root_cause_analysis": {
+    "finding": "The true, verified simulation result for Candidate P4 Tier 1 Max Drawdown is 16.22% (0.16219585678117304). Both the original Stage 2D simulation output and the Stage 2E machine-readable comparability matrix hold 16.22%. The value 16.59% appeared exclusively in the Stage 2E report prose and the Stage 2E risk-budget narrative register due to a clerical transcription typo.",
+    "classification": "CLERICAL_TRANSCRIPTION_DEFECT"
+  },
+  "reconciliation_verdict": {
+    "authoritative_metric": "16.22% (0.16219585678117304)",
+    "correction_action": "Retract 16.59% narrative transcription error; certify 16.22% as the authoritative metric across all registers.",
+    "status": "RECONCILED_AND_CERTIFIED"
+  }
+}

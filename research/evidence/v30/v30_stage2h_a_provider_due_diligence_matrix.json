@@ -1,0 +1,136 @@
+{
+  "matrix_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-A - Market-Data Provider Due Diligence Matrix",
+    "timestamp_utc": "2026-10-24T12:50:00Z",
+    "stage": "Stage 2H-A",
+    "purpose": "Comprehensive institutional due diligence of candidate market-data providers for forward paper evaluation",
+    "overall_gate_status": "CONDITIONAL_BLOCKED_PENDING_OWNER_CHOICE"
+  },
+  "authorized_universe_coverage_check": {
+    "target_universe_count": 24,
+    "tickers": [
+      "SPY", "QQQ", "DIA", "IWM",
+      "XLK", "XLF", "XLE", "XLV", "XLI", "XLY", "XLP", "XLU", "XLRE", "XLC", "SMH",
+      "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "TSLA",
+      "QLD", "SSO"
+    ],
+    "leveraged_etfs_included": ["QLD", "SSO"],
+    "asset_class": "US Equities & Regulated ETFs listed on NASDAQ / NYSE Arca"
+  },
+  "providers": [
+    {
+      "provider_name": "Tiingo Market Data API",
+      "commercial_entity": "Tiingo, Inc. (Reston, VA, USA)",
+      "evaluated_tier": "Power / Developer Personal Subscription ($10-$30/month)",
+      "coverage": {
+        "universe_support": "VERIFIED (Full coverage of all 24 tickers including QLD and SSO)",
+        "daily_ohlcv": "VERIFIED (Provides Open, High, Low, Close, Volume for all US equities/ETFs)",
+        "timestamp_semantics": "VERIFIED (Official market close 16:00:00 EST / 20:00:00 or 21:00:00 UTC depending on DST; EOD delivered by 17:30 EST)",
+        "corporate_actions": "VERIFIED (Explicit divCash, splitFactor, adjOpen, adjClose fields returned with daily bars)",
+        "data_adjustment_conventions": "VERIFIED (Provides both raw unadjusted and corporate-action-adjusted series side by side)"
+      },
+      "contractual_and_legal_rights": {
+        "internal_research_rights": "VERIFIED (Terms explicitly authorize private quantitative modeling, strategy backtesting, and internal simulation)",
+        "local_storage_and_caching": "VERIFIED (Permits local caching on subscriber's private disk for subscriber's own analytical workflows)",
+        "derived_data_rights": "VERIFIED (Proprietary weight vectors, signals, and simulated execution logs belong entirely to subscriber)",
+        "automated_research_usage": "VERIFIED (REST API designed for programmatic script execution and scheduled cron ingestion)",
+        "redistribution_restrictions": "RESTRICTED (Public commercial redistribution, reselling, or public display of raw vendor price ticks is strictly prohibited; personal private use is permitted)",
+        "evidence_retention": "VERIFIED (Audit logs containing derived simulation metrics and anonymized price points may be retained indefinitely)"
+      },
+      "technical_and_operational_specifications": {
+        "rate_limits": "500 requests/hour, 20,000 requests/day, 50 concurrent connections (Ample for daily batch of 24 tickers)",
+        "credential_type": "API Token (Bearer / Header format: Authorization: Token <api_key>)",
+        "india_account_eligibility": "VERIFIED (Global credit/debit card billing supported; Indian resident individual subscriptions widely permitted without local broker entity)",
+        "outage_and_revocation_policy": "VERIFIED (Standard SaaS SLA; cached historical states remain valid work product on termination)"
+      },
+      "recommendation_assessment": "STRONGEST_CANDIDATE_FOR_BATCH_EOD"
+    },
+    {
+      "provider_name": "Polygon.io (Massive Data / Polygon Technology)",
+      "commercial_entity": "Polygon.io, Inc. / Massive Data Inc. (Atlanta, GA, USA)",
+      "evaluated_tier": "Starter / Developer Plan ($29-$79/month)",
+      "coverage": {
+        "universe_support": "VERIFIED (Complete US equity tape coverage including leveraged ETFs QLD, SSO)",
+        "daily_ohlcv": "VERIFIED (Aggregates endpoint v2/aggs/ticker/{ticker}/prev)",
+        "timestamp_semantics": "VERIFIED (Millisecond Unix timestamps; unambiguous UTC alignment)",
+        "corporate_actions": "VERIFIED (Dedicated reference endpoints for splits and dividends: /v3/reference/splits, /v3/reference/dividends)",
+        "data_adjustment_conventions": "VERIFIED (Supports 'adjusted=true/false' parameter in aggregate queries)"
+      },
+      "contractual_and_legal_rights": {
+        "internal_research_rights": "VERIFIED (Personal and commercial internal development permitted under standard developer terms)",
+        "local_storage_and_caching": "VERIFIED (Temporary and persistent internal caching for analytics permitted)",
+        "derived_data_rights": "VERIFIED (Derived analytical signals and performance metrics freely retainable)",
+        "automated_research_usage": "VERIFIED (Comprehensive REST and WebSocket APIs)",
+        "redistribution_restrictions": "RESTRICTED (No raw price tape rebroadcast without enterprise redistribution addendum)",
+        "evidence_retention": "VERIFIED (Research output retention permitted)"
+      },
+      "technical_and_operational_specifications": {
+        "rate_limits": "5 calls/min on free tier; unlimited calls/min on paid Starter tier",
+        "credential_type": "API Key (query parameter apiKey=<key> or header Authorization: Bearer <key>)",
+        "india_account_eligibility": "VERIFIED (International card processing via Stripe supported)",
+        "outage_and_revocation_policy": "VERIFIED (High availability cloud infrastructure; status page public)"
+      },
+      "recommendation_assessment": "EXCELLENT_ALTERNATIVE_API"
+    },
+    {
+      "provider_name": "Alpaca Markets Paper Trading API",
+      "commercial_entity": "Alpaca Securities LLC / AlpacaDB, Inc. (San Mateo, CA, USA)",
+      "evaluated_tier": "Free Brokerage Account / Paper Trading Endpoint ($0/month)",
+      "coverage": {
+        "universe_support": "VERIFIED (All 24 tickers tradeable in paper brokerage simulator)",
+        "daily_ohlcv": "VERIFIED (Alpaca Market Data API v2 provides daily bars from IEX / SIP)",
+        "timestamp_semantics": "VERIFIED (RFC-3339 UTC timestamps)",
+        "corporate_actions": "VERIFIED (Handled natively by paper broker ledger; cash dividends credited to account)",
+        "data_adjustment_conventions": "VERIFIED (Standard SIP raw and adjusted feed)"
+      },
+      "contractual_and_legal_rights": {
+        "internal_research_rights": "VERIFIED (Explicitly created for paper evaluation, strategy backtesting, and automated model testing)",
+        "local_storage_and_caching": "VERIFIED (Paper execution fills and portfolio account states belong to user)",
+        "derived_data_rights": "VERIFIED (Full ownership of generated trading signals)",
+        "automated_research_usage": "VERIFIED (Python SDK and REST API built specifically for algorithmic trading)",
+        "redistribution_restrictions": "RESTRICTED (Paper trading data is for internal simulation only)",
+        "evidence_retention": "VERIFIED (Execution logs and order IDs retainable indefinitely)"
+      },
+      "technical_and_operational_specifications": {
+        "rate_limits": "200 calls/min across market data and trading endpoints",
+        "credential_type": "Key Pair (APCA-API-KEY-ID and APCA-API-SECRET-KEY)",
+        "india_account_eligibility": "CONDITIONAL (Indian residents can open Alpaca brokerage accounts, but requires passport KYC and LRS compliance for live funding; paper-only accounts may be restricted depending on regional regulatory onboarding rules)",
+        "outage_and_revocation_policy": "VERIFIED (Maintenance windows announced; paper environment isolated from live clearing)"
+      },
+      "recommendation_assessment": "TOP_CHOICE_FOR_MOCK_BROKER_SIMULATION"
+    },
+    {
+      "provider_name": "Interactive Brokers (IBKR Client Portal / TWS API)",
+      "commercial_entity": "Interactive Brokers LLC (Greenwich, CT, USA / Mumbai, India)",
+      "evaluated_tier": "Individual Brokerage Account (Paper Trading Mode)",
+      "coverage": {
+        "universe_support": "VERIFIED (Universal coverage of all US equities, sector ETFs, and leveraged ETFs)",
+        "daily_ohlcv": "VERIFIED (Historical data request via reqHistoricalData)",
+        "timestamp_semantics": "VERIFIED (Strict exchange local time YYYYMMDD hh:mm:ss EST)",
+        "corporate_actions": "VERIFIED (Full clearinghouse corporate action processing)",
+        "data_adjustment_conventions": "VERIFIED (Adjusted for splits and dividends or unadjusted options)"
+      },
+      "contractual_and_legal_rights": {
+        "internal_research_rights": "VERIFIED (Account holders have unlimited rights to run paper trading simulations)",
+        "local_storage_and_caching": "VERIFIED (Account logs stored locally on user machine)",
+        "derived_data_rights": "VERIFIED",
+        "automated_research_usage": "VERIFIED (ib_insync / official TWS API)",
+        "redistribution_restrictions": "RESTRICTED (Exchange market data agreements prohibit public redistribution)",
+        "evidence_retention": "VERIFIED"
+      },
+      "technical_and_operational_specifications": {
+        "rate_limits": "50 messages/sec (High throughput gateway)",
+        "credential_type": "Local Gateway Session / Paper Account Login",
+        "india_account_eligibility": "VERIFIED (Interactive Brokers India Pvt. Ltd. operates domestically in India with full SEBI / RBI compliance; global trading account accessible under RBI Liberalised Remittance Scheme)",
+        "outage_and_revocation_policy": "VERIFIED (Daily server reset at 23:45 EST)"
+      },
+      "recommendation_assessment": "HIGHEST_INSTITUTIONAL_FIDELITY_FOR_DIRECT_BROKER_PAPER_TRADING"
+    }
+  ],
+  "human_decision_requirements": {
+    "decision_id": "DEC-01",
+    "description": "Owner must select either a Data-Only API (Tiingo or Polygon) paired with local causal simulator, or a Broker-Paper API (Alpaca or IBKR).",
+    "default_recommendation": "Tiingo EOD Personal API for local air-gapped evaluation due to clean corporate action handling and simplicity of EOD daily batch execution.",
+    "status": "PENDING_OWNER_CHOICE"
+  }
+}

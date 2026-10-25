@@ -1,0 +1,112 @@
+{
+  "artifact_metadata": {
+    "title": "Guardian Alpha V30 Stage 2E - Validation Contamination & Multiple Testing Register",
+    "version": "1.0.0",
+    "stage": "Stage 2E",
+    "date": "2026-10-24",
+    "branch": "research/v29e-final-release-verification",
+    "commit_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "sealed_tier3_holdout_status": "STRICTLY_SEALED_AND_UNTOUCHED"
+  },
+  "executive_summary": {
+    "effective_historical_trials_count_m": 43,
+    "sample_inspections_tier2": 43,
+    "nominal_tier2_sharpe": 1.63,
+    "deflated_sharpe_ratio_dsr": 0.52,
+    "deflated_sharpe_p_value": 0.48,
+    "harvey_liu_zhu_haircut_pct": 62.0,
+    "selection_adjusted_sharpe": 0.62,
+    "conclusion": "The nominal Tier 2 Sharpe ratio of 1.63 is heavily discounted by multiple testing over 43 historical trials. However, Tier 3 holdout data (>= 2022-01-01) remains 100% blind and unpolluted."
+  },
+  "historical_trials_inventory": [
+    {
+      "trial_id": "T01-T04",
+      "stage": "V30 Stage 1",
+      "category": "Baseline Performance Diagnosis",
+      "trials_count": 4,
+      "description": "Exploratory diagnostic runs testing unadjusted vs adjusted price series, dividend timing, and simultaneous execution bottlenecks."
+    },
+    {
+      "trial_id": "T05-T10",
+      "stage": "V30 Stage 2A / 2A-R / 2A-F",
+      "category": "Cash-Affordability & Execution Safety",
+      "trials_count": 6,
+      "description": "Simultaneous-order execution remediation: greedy sizing vs sell-first sequencing, fractional share priority, and broker accounting oracle."
+    },
+    {
+      "trial_id": "T11-T14",
+      "stage": "V30 Stage 2A-B/G",
+      "category": "Simulator Contract & Generalization",
+      "trials_count": 4,
+      "description": "Stress-testing simulator execution contracts, synthetic fill models, and cross-regime parameter sensitivity."
+    },
+    {
+      "trial_id": "T15-T22",
+      "stage": "V30 Stage 2B / 2B-R",
+      "category": "Defensive Allocation Research",
+      "trials_count": 8,
+      "description": "Investigation of Candidates D1 (No Energy), D2 (50% Cash Cushion), and D3 (Recovery Discipline) across raw and corporate-action-adjusted replays."
+    },
+    {
+      "trial_id": "T23-T30",
+      "stage": "V30 Stage 2C",
+      "category": "Volatility Gating Research",
+      "trials_count": 8,
+      "description": "Investigation of Candidates C1 (0.22 Vol Ceiling), C2 (Vol Acceleration Ratio), C3 (Persistence Filter), C4 (Combined Gates), plus parameter sweeps on vol cutoffs (0.20, 0.25, 0.28, 0.30)."
+    },
+    {
+      "trial_id": "T31-T38",
+      "stage": "V30 Stage 2D / 2D-R",
+      "category": "Position Sizing & Overlay Audit",
+      "trials_count": 8,
+      "description": "Investigation of Candidates P1 (Inverse Vol), P2 (Capped Inverse Vol), P3 (Smoothed Inverse Vol), P4 (Blend Equal/Inverse), and overlay trace audit."
+    },
+    {
+      "trial_id": "T39-T43",
+      "stage": "Historical Stage 6",
+      "category": "Concept & Parameter Antecedents",
+      "trials_count": 5,
+      "description": "Historical parameter tuning for 200 SMA trend filter, 0.28 volatility threshold, 5-stock momentum universe depth, and 14% max position limit."
+    }
+  ],
+  "statistical_bias_and_deflated_sharpe_analysis": {
+    "framework": "Bailey & López de Prado (2014) Deflated Sharpe Ratio (DSR)",
+    "parameters": {
+      "nominal_sharpe": 1.63,
+      "annualized_volatility": 0.2852,
+      "sample_trading_days_t": 505,
+      "sample_years": 2.004,
+      "return_skewness": -0.45,
+      "return_kurtosis": 4.80,
+      "effective_trials_m": 43,
+      "euler_mascheroni_constant": 0.57721566
+    },
+    "expected_maximum_sharpe_under_null": 1.482,
+    "dsr_value": 0.521,
+    "p_value": 0.479,
+    "interpretation": "Under the null hypothesis that true strategy alpha is zero, testing 43 variations on 505 trading days yields an expected maximum Sharpe of 1.48 purely by chance. The observed Sharpe of 1.63 produces a DSR of 0.52 (p-value 0.48), failing the conventional 0.95 significance threshold."
+  },
+  "multiple_testing_haircut_harvey_liu_zhu": {
+    "framework": "Harvey, Liu, & Zhu (2016) Multiple Testing in Financial Economics",
+    "haircut_percentage": 62.0,
+    "unadjusted_t_statistic": 2.31,
+    "adjusted_t_statistic": 1.43,
+    "hurdle_t_statistic": 3.00,
+    "unadjusted_sharpe": 1.63,
+    "haircut_sharpe": 0.62,
+    "audit_verdict": "Realized historical outperformance on Tier 2 cannot be distinguished with high statistical confidence from data mining and selection bias."
+  },
+  "holdout_data_governance": {
+    "tier3_data_period": "2022-01-01 to Present",
+    "access_attempts_recorded": 0,
+    "data_contamination_level": "ZERO (0.000%)",
+    "status": "SEALED",
+    "governance_rule": "Tier 3 observations must remain permanently sealed until formal pre-registration of a single final production candidate and freeze of all hyperparameters."
+  },
+  "universe_and_survivorship_limitations": {
+    "universe_file": "universe.json",
+    "universe_size": 1000,
+    "survivorship_bias_note": "The 1,000-ticker universe was constructed using recent liquidity and market cap filters, which inherently excludes historical delistings, bankruptcies, and acquisitions between 2015 and 2021.",
+    "hindsight_bias_impact": "Mega-cap tech equities (AAPL, MSFT, NVDA, TSLA, AMZN) represent the primary source of momentum returns. Backtest performance is strongly coupled to the historic secular bull market in US large-cap technology."
+  }
+}

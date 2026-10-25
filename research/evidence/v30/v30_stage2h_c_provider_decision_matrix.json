@@ -1,0 +1,99 @@
+{
+  "matrix_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C - Owner Market-Data Provider Decision Matrix",
+    "timestamp_utc": "2026-10-24T14:59:04.009780+00:00",
+    "auditor_role": "Market-Data Licensing Specialist & Systems Auditor",
+    "governance_status": "DECISIONS_DEC01_AND_DEC02_PENDING_OWNER_ACTION",
+    "provider_activation_status": "BLOCKED_NO_CREDENTIALS_CONFIGURED"
+  },
+  "provider_comparisons": {
+    "tiingo": {
+      "provider_name": "Tiingo, Inc.",
+      "legal_entity": "Tiingo, Inc. (Delaware)",
+      "official_url": "https://www.tiingo.com/about/terms",
+      "evaluated_tier": "Starter ($0/mo) / Power ($10-$30/mo) Individual Plan",
+      "private_research_permissions": "EXPLICITLY PERMITTED for personal, non-commercial research and algorithmic modeling.",
+      "storage_and_caching_conditions": "Permitted locally for internal strategy backtesting. Bulk database redistribution or re-hosting strictly prohibited.",
+      "derived_data_rights": "Permitted to retain proprietary trading signals, risk indicators, and performance metrics.",
+      "automated_simulation_conditions": "Full programmatic access via documented REST and WebSocket APIs within rate limits.",
+      "corporate_action_availability": "EXCELLENT: Historical split-adjusted and dividend-adjusted EOD bars natively provided.",
+      "pricing_reliability": "HIGH: Transparent published retail pricing.",
+      "data_quality": "High-fidelity institutional aggregation for US equities.",
+      "india_resident_eligibility": "FULLY ACCESSIBLE: Pure data subscription payable via global credit card; zero RBI LRS banking friction.",
+      "important_restrictions": "Redistribution, public charts, or sharing with third parties without commercial license strictly prohibited.",
+      "contractual_evidence": "Tiingo Terms of Service (Section on Personal Accounts: 'You may not redistribute the data in any form.')",
+      "unverified_assumptions": [
+        "Post-termination raw data purge requirement enforcement scope (UNKNOWN).",
+        "Exchange audit rights over local cache persistence (UNKNOWN)."
+      ],
+      "auditor_recommendation": "RECOMMENDED for E0/D2 prospective daily evaluation due to pure-data nature, zero Indian regulatory friction, and robust split/dividend adjustments."
+    },
+    "polygon_io": {
+      "provider_name": "Polygon.io / Massive Data",
+      "legal_entity": "Polygon.io, Inc. / Massive Data, Inc. (Delaware)",
+      "official_url": "https://polygon.io/terms",
+      "evaluated_tier": "Developer ($29/mo) / Starter ($79/mo) Plan",
+      "private_research_permissions": "PERMITTED for internal software development and personal quantitative analysis.",
+      "storage_and_caching_conditions": "Permitted for application development and backtesting. Cannot be used to build a secondary data distribution product.",
+      "derived_data_rights": "Permitted for internal proprietary model outputs.",
+      "automated_simulation_conditions": "High-throughput REST and WebSocket streaming APIs.",
+      "corporate_action_availability": "GOOD: Reference ticker events API covers stock splits and cash dividends.",
+      "pricing_reliability": "HIGH: Flat monthly subscription fee.",
+      "data_quality": "Direct exchange feeds (CTA/UTP consolidated tape).",
+      "india_resident_eligibility": "FULLY ACCESSIBLE: Pure data subscription payable via standard payment methods.",
+      "important_restrictions": "Absolute ban on public dissemination, redistribution, or multi-user display.",
+      "contractual_evidence": "Polygon.io Terms of Service (Permitted Use restricted to single-user internal development).",
+      "unverified_assumptions": [
+        "Historical tick data caching boundaries vs flat-file downloads (UNKNOWN).",
+        "Exchange indemnification thresholds for personal developer tiers (UNKNOWN)."
+      ],
+      "auditor_recommendation": "SUITABLE alternative if tick-level or intraday prospective minute bars are required."
+    },
+    "alpaca": {
+      "provider_name": "AlpacaDB & Alpaca Securities",
+      "legal_entity": "AlpacaDB, Inc. (Tech API) & Alpaca Securities LLC (Broker-Dealer, FINRA/SIPC)",
+      "official_url": "https://alpaca.markets/terms-and-conditions",
+      "evaluated_tier": "Basic (Free IEX) / Unlimited ($9/mo SIP)",
+      "private_research_permissions": "PERMITTED for retail algorithmic traders for execution decision-making.",
+      "storage_and_caching_conditions": "Local caching permitted for order generation; raw data warehousing prohibited.",
+      "derived_data_rights": "Permitted for trade decision logic.",
+      "automated_simulation_conditions": "Integrated paper-trading simulator with live broker parity.",
+      "corporate_action_availability": "MODERATE: Pre-adjusted bars available; standalone deep corporate action history is limited.",
+      "pricing_reliability": "HIGH: Low monthly cost.",
+      "data_quality": "IEX only on Free tier; consolidated SIP on Unlimited tier.",
+      "india_resident_eligibility": "RESTRICTED / REGULATED: While pure paper API is accessible, live account onboarding for Indian residents requires partner broker integration. Under RBI LRS, foreign remittances cannot be used for margin trading or foreign leveraged derivatives.",
+      "important_restrictions": "Market data cannot be redistributed. Non-professional subscriber agreement required.",
+      "contractual_evidence": "Alpaca Market Data Agreement and NASDAQ OMX / NYSE Subscriber Agreements.",
+      "unverified_assumptions": [
+        "Pure paper account lifespan without funded live account link (UNKNOWN).",
+        "Historical corporate action adjustment precision on rare events (UNKNOWN)."
+      ],
+      "auditor_recommendation": "SUITABLE for paper-order execution mocking; live execution from India requires strict LRS compliance."
+    },
+    "interactive_brokers": {
+      "provider_name": "Interactive Brokers (IBKR)",
+      "legal_entity": "Interactive Brokers LLC (US Broker-Dealer) / Interactive Brokers India Pvt. Ltd.",
+      "official_url": "https://www.interactivebrokers.com (Form 4001 Market Data Agreement)",
+      "evaluated_tier": "Client Portal / TWS API Non-Professional Bundles (~$4.50/mo)",
+      "private_research_permissions": "PERMITTED for account holder's personal investment purposes.",
+      "storage_and_caching_conditions": "HEAVILY RESTRICTED: Real-time tick caching restricted by exchanges. EOD bars permitted.",
+      "derived_data_rights": "Permitted for internal investment decisions.",
+      "automated_simulation_conditions": "TWS API / IB Gateway paper-trading mode.",
+      "corporate_action_availability": "EXCELLENT: Institutional-grade dividend, split, and corporate action integration.",
+      "pricing_reliability": "HIGH: Standard exchange pass-through fees.",
+      "data_quality": "Direct exchange institutional quality.",
+      "india_resident_eligibility": "RESTRICTED / COMPLEX: Indian residents must fund US accounts via RBI LRS ($250k/yr limit). Strict FEMA prohibition on day-trading on margin, short selling, and leveraged derivatives overseas.",
+      "important_restrictions": "Redistribution strictly banned under exchange audit penalties. Active account required.",
+      "contractual_evidence": "IBKR Form 4001 Market Data and Analytics Subscriber Agreement.",
+      "unverified_assumptions": [
+        "Offline caching duration limits on historical daily bars (UNKNOWN).",
+        "Exchange fee waiver rules for paper-only accounts without live commission volume (UNKNOWN)."
+      ],
+      "auditor_recommendation": "HIGH FIDELITY for institutional execution, but involves complex LRS compliance for Indian residents."
+    }
+  },
+  "owner_action_summary": {
+    "DEC-01_status": "PENDING (Owner must select provider: Tiingo recommended for pure data; Alpaca recommended for paper order mock).",
+    "DEC-02_status": "PENDING (Owner must sign non-professional subscriber declaration during personal vendor onboarding)."
+  }
+}

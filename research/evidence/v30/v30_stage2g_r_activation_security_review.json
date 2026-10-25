@@ -1,0 +1,41 @@
+{
+  "security_review_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G-R - Activation Security and Air-Gap Audit Review",
+    "timestamp_utc": "2026-10-24T12:20:00Z",
+    "stage": "Stage 2G-R",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "overall_security_verdict": "SECURE_AIR_GAPPED_PASS"
+  },
+  "security_dimensions_audited": [
+    {
+      "dimension": "Outbound Network Isolation",
+      "check": "Zero HTTP/WebSocket/Socket calls in strategy source code (agent.py, v30_candidate_d2_cash_cushion.py)",
+      "result": "PASS",
+      "findings": "Zero network libraries imported. Active runtime socket interception (AirGapNetworkEnforcer) blocks socket creation."
+    },
+    {
+      "dimension": "Autonomous Schedulers and Daemons",
+      "check": "Zero threading, multiprocessing, schedule, celery, or cron triggers in agent code",
+      "result": "PASS",
+      "findings": "Zero autonomous background processes. Agent runs strictly as a synchronous functional callback."
+    },
+    {
+      "dimension": "Live Brokerage Credentials",
+      "check": "No hardcoded live API keys (Alpaca, IBKR, Binance, Coinbase, Schwab) in repository files",
+      "result": "PASS",
+      "findings": "All source files are clean of active operational credentials."
+    },
+    {
+      "dimension": "Sealed Tier 3 Observation Protection",
+      "check": "Zero access, reads, hashes, or imports of historical market data dated >= 2022-01-01",
+      "result": "PASS",
+      "findings": "All dry-run and causal engine evaluations strictly utilize deterministic mathematical synthetic series."
+    },
+    {
+      "dimension": "Activation Gatekeeper Fail-Closed Enforcement",
+      "check": "Unauthorized attempts to trigger paper trading without signed owner token fail closed",
+      "result": "PASS",
+      "findings": "ActivationGatekeeper successfully rejects missing, corrupted, or unauthenticated paper activation tokens. Live trading is unconditionally blocked with FatalSecurityViolation."
+    }
+  ]
+}

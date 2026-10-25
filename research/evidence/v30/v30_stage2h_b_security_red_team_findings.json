@@ -1,0 +1,168 @@
+{
+  "audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Activation Security Red-Team Findings Register",
+    "timestamp_utc": "2026-10-24T12:48:00Z",
+    "auditor_role": "Cybersecurity Reviewer & Adversarial Software Tester",
+    "status": "ALL_22_ATTACK_VECTORS_EVALUATED_AND_CONTAINED"
+  },
+  "attack_vector_evaluations": [
+    {
+      "vector_id": "ATK_01_MISSING_APPROVAL_TOKEN",
+      "attack_scenario": "Engine started with token=None.",
+      "mitigation_mechanism": "Stage2HBSecurityGuard.validate_activation_token rejects missing token.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_02_INVALID_SIGNATURE",
+      "attack_scenario": "Token payload altered without recomputing HMAC-SHA256 signature.",
+      "mitigation_mechanism": "Constant-time HMAC verification fails.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_03_EXPIRED_TOKEN",
+      "attack_scenario": "Token with expiry_utc in the past submitted.",
+      "mitigation_mechanism": "Timestamp comparison against current UTC time rejects token.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_04_ALTERED_STRATEGY_HASH",
+      "attack_scenario": "Token specifies arbitrary strategy hash or modified agent.py.",
+      "mitigation_mechanism": "Exact match required against frozen SHA256 (46e68dc93fdf...).",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_05_ALTERED_EXECUTION_ENGINE_HASH",
+      "attack_scenario": "Execution engine source replaced or patched.",
+      "mitigation_mechanism": "Integrity manifest validation before activation.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_06_ALTERED_UNIVERSE",
+      "attack_scenario": "Universe file modified to trade unapproved tickers.",
+      "mitigation_mechanism": "Universe SHA256 checked against frozen hash (66563b613c0b...).",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_07_ALTERED_PROVIDER",
+      "attack_scenario": "Token specifies unapproved data vendor.",
+      "mitigation_mechanism": "Token payload binds exact provider identity checked against approval.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_08_ALTERED_EVALUATION_HORIZON",
+      "attack_scenario": "Token attempts to run for infinite or unauthorized duration.",
+      "mitigation_mechanism": "max_horizon_days bounded to <= 252 sessions in token contract.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_09_REVOKED_APPROVAL",
+      "attack_scenario": "Owner revokes token by adding token_id to revocation blacklist.",
+      "mitigation_mechanism": "Revocation list checked on every invocation.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_10_TOKEN_REPLAY",
+      "attack_scenario": "Old recorded valid token resubmitted.",
+      "mitigation_mechanism": "Cryptographic nonce cache rejects duplicate nonces.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_11_INCORRECT_PAPER_LIVE_MODE",
+      "attack_scenario": "Token requests mode='live' or real order execution.",
+      "mitigation_mechanism": "Triggers immediate persistent hard-stop; live trading unconditionally banned.",
+      "result": "BLOCKED_HARD_STOP_PERSISTED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_12_UNEXPECTED_PROCESS_RESTART",
+      "attack_scenario": "Process is restarted after a critical failure or hard-stop to clear memory flags.",
+      "mitigation_mechanism": "Hard-stop state is written to disk (.v30_stage2h_b_hard_stop_state.json) and inspected on startup before any execution.",
+      "result": "BLOCKED_PERSISTENT_ACROSS_RESTARTS",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_13_IMPORT_TIME_NETWORK_SIDE_EFFECTS",
+      "attack_scenario": "Module import triggers background HTTP telemetry or licensing check.",
+      "mitigation_mechanism": "Audit of all modules confirms zero top-level network calls.",
+      "result": "BLOCKED_NO_IMPORT_SIDE_EFFECTS",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_14_INDIRECT_HTTP_CLIENT_CALLS",
+      "attack_scenario": "Higher-level libraries (requests, urllib3) attempt connection.",
+      "mitigation_mechanism": "Socket interception intercepts underlying socket.socket.connect.",
+      "result": "BLOCKED_AT_SOCKET_LAYER",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_15_SOCKET_BYPASSES",
+      "attack_scenario": "Custom socket creation or raw protocol sockets.",
+      "mitigation_mechanism": "Mocked test confirms failure. Explicit disclosure: Python monkey-patching does NOT guarantee OS kernel isolation.",
+      "result": "CONTAINED_WITH_EXPLICIT_LIMITATION_DISCLOSURE",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_16_SUBPROCESS_NETWORK_ATTEMPTS",
+      "attack_scenario": "Subprocess (curl, powershell) spawned to fetch external data.",
+      "mitigation_mechanism": "Subprocess execution audited and forbidden in runtime scripts. Kernel firewall recommended for live deployment.",
+      "result": "AUDITED_NO_SUBPROCESS_NETWORKING_IN_ENGINE",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_17_FILE_PATH_TRAVERSAL",
+      "attack_scenario": "Path traversal ../../windows/system32 passed to data loader.",
+      "mitigation_mechanism": "os.path.realpath resolves canonical path; rejects paths outside workspace root with hard-stop.",
+      "result": "BLOCKED_HARD_STOP_PERSISTED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_18_RESTRICTED_DIRECTORY_READS",
+      "attack_scenario": "Reading sensitive local user files or ssh keys.",
+      "mitigation_mechanism": "Canonical workspace jail confines all reads.",
+      "result": "BLOCKED_WORKSPACE_JAILED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_19_TIER3_PATH_REFERENCES",
+      "attack_scenario": "Accessing tiingo_cache/ observations dated >= 2022-01-01.",
+      "mitigation_mechanism": "Exact string inspection on canonical path rejects any Tier 3 date references (2022+, tier3).",
+      "result": "BLOCKED_TIER3_SEAL_PRESERVED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_20_CORRUPT_EVENT_JOURNAL",
+      "attack_scenario": "Event log tampered with or truncated.",
+      "mitigation_mechanism": "HMAC chain verification on event log detects tampering and halts execution.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_21_STALE_CHECKPOINT",
+      "attack_scenario": "Loading outdated state checkpoint after newer events logged.",
+      "mitigation_mechanism": "Strict monotonic sequence numbering rejects regressive checkpoints.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "ATK_22_CHANGED_RISK_LIMITS",
+      "attack_scenario": "Altering maximum position concentration or leverage in runtime memory.",
+      "mitigation_mechanism": "Frozen configuration dataclass with hash verification.",
+      "result": "BLOCKED_FAIL_CLOSED",
+      "verdict": "PASS"
+    }
+  ],
+  "kernel_level_isolation_disclosure": {
+    "limitation": "Monkey-patching Python socket.socket is an effective in-process control for pure Python code, but cannot prevent external OS binaries or child processes from accessing network interfaces.",
+    "production_requirement": "For live forward evaluation, owner must enforce OS-level sandbox (e.g. Docker container without outbound gateway, or Windows Defender Firewall rule blocking python.exe outbound connections)."
+  }
+}

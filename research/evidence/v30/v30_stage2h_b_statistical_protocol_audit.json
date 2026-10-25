@@ -1,0 +1,60 @@
+{
+  "audit_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Scientific Evaluation Protocol Audit & Statistical Sensitivity Register",
+    "timestamp_utc": "2026-10-24T12:45:00Z",
+    "auditor_role": "Independent Quantitative Methodology Auditor & Statistical Reviewer",
+    "status": "PROTOCOL_AUDIT_COMPLETE_GOVERNANCE_PENDING"
+  },
+  "protocol_specification": {
+    "comparators": {
+      "baseline_E0": "Production baseline agent (frozen commit b283ded200, hash 46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd)",
+      "candidate_D2": "50% Defensive Cash Cushion comparator (frozen raw hash 5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215)"
+    },
+    "primary_endpoint": {
+      "name": "Paired Defensive Downside Shortfall Reduction",
+      "symbolic_definition": "theta_def = E[ max(0, -R_E0,t) - max(0, -R_D2,t) | I_def,t = 1 ]",
+      "shortfall_metric": "Delta S_t = S(R_E0,t) - S(R_D2,t), where S(R) = max(0, -R)",
+      "causal_timestamping": "I_def,t is determined strictly at day t-1 close (16:00 ET) when D2 signals defensive cash allocation (w_cash = 0.50). Execution occurs at day t open (09:30 ET). Return R_t is computed from session t open to close or close to close."
+    },
+    "statistical_hypotheses": {
+      "null_hypothesis_H0": "theta_def <= 0 (D2 provides no downside shortfall reduction during defensive sessions)",
+      "alternative_hypothesis_H1": "theta_def > 0 (D2 statistically significantly reduces downside shortfall)",
+      "significance_level": 0.05,
+      "test_type": "One-sided paired test with Newey-West HAC standard error and stationary block bootstrap"
+    }
+  },
+  "sixteen_point_methodological_audit": {
+    "01_paired_return_definition": "VERIFIED: Delta S_t strictly penalizes downside losses. Positive return days yield S(R) = 0 for both.",
+    "02_defensive_session_timestamp": "VERIFIED: Causal indicator computed at t-1 close, eliminating lookahead bias.",
+    "03_fixed_hypothesis_preregistration": "VERIFIED: Hypotheses and endpoints fixed prior to any prospective observation collection.",
+    "04_serial_dependence_and_clustering": "AUDITED: Downside market shocks cluster in regimes (volatility clustering). Observations are not i.i.d.",
+    "05_hac_lag_selection": "AUDITED: Newey-West lag bandwidth L = ceil(4 * (N / 100)^(2/9)). For N = 30 to 60, L = 3 to 4 lags.",
+    "06_bootstrap_block_size": "AUDITED: Stationary block bootstrap with mean block length B = ceil(N^(1/3)) ~ 3 to 4 days.",
+    "07_minimum_detectable_effect": "CALCULATED: Under sigma_DeltaS = 80 bps/day and HAC inflation VIF = 1.25, MDE = 45.4 bps/day for N = 30, and 32.1 bps/day for N = 60 at 80% power.",
+    "08_statistical_power_under_realistic_variance": "CALCULATED: For a realistic true effect of Delta S = 20 bps/day, power at N = 30 is ~35%. Power reaches 80% only if true effect >= 45.4 bps/day or sample size expands to N >= 100.",
+    "09_sufficiency_of_30_defensive_sessions": "FINDING: 30 sessions is an asymptotic minimum floor for central limit theorem validity, but provides low power for subtle effects. Extension to N >= 45 is recommended if volatility is subdued.",
+    "10_adequacy_of_252_session_horizon": "AUDITED: 252 trading sessions typically contain 35-85 defensive days in average markets. However, in a strong bull market, defensive days may fall below 30, requiring a contingent horizon extension.",
+    "11_economic_justification_of_200bps_cagr_margin": "FINDING: Secondary criterion (D2 CAGR >= E0 CAGR - 2.0%) is an economic insurance premium budget constraint, not a statistically separable hypothesis, because annual return tracking error (300-500 bps) exceeds 200 bps.",
+    "12_multiple_interim_looks_control": "AUDITED: Formal hypothesis testing must occur only at final sample completion. Interim looks are strictly restricted to risk-stopping gates, preventing alpha-spending inflation.",
+    "13_missing_data_and_corporate_actions": "AUDITED: Missing bars result in zero rebalance for that asset; splits/dividends adjusted using ex-date open prices.",
+    "14_treatment_of_zero_downside_returns": "AUDITED: Up days during defensive mode produce Delta S = 0, correctly penalizing false alarms as zero shortfall savings.",
+    "15_early_stopping_and_risk_triggers": "AUDITED: Hard-stop triggered if D2 underperforms E0 cumulative drawdown by > 300 bps or single-day residual > $0.01.",
+    "16_inconclusive_result_reporting": "AUDITED: Results with p in [0.05, 0.20] or N_def < 30 are designated INCONCLUSIVE; no automatic promotion allowed."
+  },
+  "historical_selection_bias_disclosure": {
+    "total_historical_variants_screened": 43,
+    "historical_variants_breakdown": {
+      "stage1_v12_diagnostics": 1,
+      "stage2a_bg_and_variants": 8,
+      "stage2b_defensive_cushions": 4,
+      "stage2c_volatility_gates": 8,
+      "stage2d_sizing_oracles": 8,
+      "stage2e_consolidated_grid": 14
+    },
+    "haircut_implication": "Historical t-statistics suffer from selection bias (Harvey-Liu-Zhu 2016). Prospective forward evaluation with zero parameter tuning is mathematically required to confirm efficacy."
+  },
+  "governance_status": {
+    "protocol_approval": "PENDING (Requires owner sign-off under DEC-03 and DEC-04)",
+    "prospective_activation": "BLOCKED"
+  }
+}

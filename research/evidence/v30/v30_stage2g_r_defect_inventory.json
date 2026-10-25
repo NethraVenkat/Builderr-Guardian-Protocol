@@ -1,0 +1,60 @@
+{
+  "defect_inventory_metadata": {
+    "title": "Guardian Alpha V30 Stage 2G-R - Defect and Vulnerability Inventory",
+    "timestamp_utc": "2026-10-24T12:00:00Z",
+    "audit_phase": "STAGE_2G_R_INDEPENDENT_AUDIT",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "branch": "research/v29e-final-release-verification",
+    "auditor_role": "Principal Quantitative Systems & Adversarial Regression Auditor"
+  },
+  "defects_evaluated": [
+    {
+      "issue_id": "DEF-2GR-01",
+      "category": "EVENT_ORDERING_AND_CAUSAL_IMMUTABILITY",
+      "title": "Absence of Streaming Causal Event Handling and Silent Batch Re-sorting",
+      "description": "In Stage 2G dry runner, synthetic bars were collected and pre-processed in batch before simulation. In Scenario 18, out-of-order injection was omitted. In a prospective streaming or real-time context, if an observation arrives late (exchange_ts < current_watermark), pre-sorting the bar stream retroactively mutates past market states presented to decide(), violating causal immutability.",
+      "classification": "CONFIRMED_DEFECT",
+      "reproduction_evidence": "Inspection of research/engine/v30_stage2g_synthetic_dry_runner.py lines 242-255 demonstrates batch preprocessing ('sanitized_bars[sym] = clean_list') and lack of late-event watermark buffering in streaming ingestion.",
+      "remediation_gate": "GATE_B",
+      "remediation_status": "REMEDIATED_IN_STAGE_2G_R"
+    },
+    {
+      "issue_id": "DEF-2GR-02",
+      "category": "STATISTICAL_PROTOCOL_AND_SELECTION_BIAS",
+      "title": "Unqualified M=1 Prospective Claim and Over-Reliance on Path-Dependent MDD",
+      "description": "Stage 2G preregistration declared M=1 without qualifying that Candidate D2 was selected after testing >= 43 historical strategy candidates (C1-C4, D1-D3, P1-P4, etc.), creating unacknowledged selection bias. Furthermore, relying on single-value end-of-period MDD as the primary hypothesis test lacks statistical power and fails to model paired daily downside shortfall with proper serial correlation adjustments.",
+      "classification": "CONFIRMED_DEFECT",
+      "reproduction_evidence": "Stage 2G report Section 9 and v30_stage2g_scientific_evaluation_preregistration.json line 50 state 'M=1, zero hyperparameter tuning' without documenting historical candidate selection bias. Primary endpoint was specified as raw full-window MDD delta without daily paired shortfall decomposition.",
+      "remediation_gate": "GATE_D",
+      "remediation_status": "REMEDIATED_IN_STAGE_2G_R"
+    },
+    {
+      "issue_id": "DEF-2GR-03",
+      "category": "DATA_RIGHTS_AND_GOVERNANCE",
+      "title": "Over-Restrictive Requirement for Institutional License in Private Research",
+      "description": "Stage 2G certification report stated that activation strictly requires human repository owner procurement of an 'institutional market data subscription'. Under copyright and terms of service jurisprudence, personal/developer-tier subscriptions from authorized providers (e.g. Tiingo Personal, Alpaca Paper/Market Data, Polygon Starter, Interactive Brokers) legally permit private internal research, non-commercial simulation, and local quantitative analysis.",
+      "classification": "DOCUMENTATION_DEFECT",
+      "reproduction_evidence": "Stage 2G report Section 1 and Section 8 stated activation requires 'procurement of an authorized institutional market data subscription'. A provider-neutral classification distinguishes private research rights from commercial SaaS redistribution rights.",
+      "remediation_gate": "GATE_E",
+      "remediation_status": "REMEDIATED_IN_STAGE_2G_R"
+    },
+    {
+      "issue_id": "DEF-2GR-04",
+      "category": "ACTIVATION_SAFETY_AND_SECURITY_CONTROLS",
+      "title": "Absence of Cryptographic Fail-Closed Activation Gatekeeper",
+      "description": "While strategy code is air-gapped and lacks network/broker code, the repository lacked an explicit programmatically enforced gatekeeper to distinguish OFFLINE_SYNTHETIC mode from prospective paper evaluation, allowing accidental execution if external feeds were introduced without signed human authorization.",
+      "classification": "CONTRACT_AMBIGUITY",
+      "reproduction_evidence": "Repository contains no active gatekeeper verifying a signed Owner Authorization Token prior to executing forward-looking paper runners.",
+      "remediation_gate": "GATE_G",
+      "remediation_status": "REMEDIATED_IN_STAGE_2G_R"
+    }
+  ],
+  "classification_summary": {
+    "total_issues_evaluated": 4,
+    "confirmed_defects": 2,
+    "documentation_defects": 1,
+    "contract_ambiguities": 1,
+    "not_reproduced": 0,
+    "insufficient_evidence": 0
+  }
+}

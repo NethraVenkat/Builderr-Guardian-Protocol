@@ -1,0 +1,80 @@
+{
+  "manifest_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-B - Artifact Checksum and Provenance Manifest",
+    "timestamp_utc": "2026-10-24T12:53:53.669723+00:00",
+    "auditor_role": "Independent Quantitative Systems Auditor",
+    "total_artifacts": 14
+  },
+  "artifacts": {
+    "research/engine/v30_stage2h_b_dashboard_mockup.html": {
+      "bytes": 3414,
+      "sha256_raw": "7989544b95cb4468243ca6e8391153f4fae3bfafe25c9a1d7243eefb96528ccf",
+      "sha256_lf": "7989544b95cb4468243ca6e8391153f4fae3bfafe25c9a1d7243eefb96528ccf"
+    },
+    "research/engine/v30_stage2h_b_decimal_accounting_oracle.py": {
+      "bytes": 11698,
+      "sha256_raw": "f0c9c1940eecfe938b765cfbf668100f24e5615e8cb764540b77dd06a85e1765",
+      "sha256_lf": "f0c9c1940eecfe938b765cfbf668100f24e5615e8cb764540b77dd06a85e1765"
+    },
+    "research/engine/v30_stage2h_b_security_guard.py": {
+      "bytes": 8276,
+      "sha256_raw": "d6ca8ca39c1d6f4c83b5eed623e2a43d5bed3fc571dd961d8b9239d865557987",
+      "sha256_lf": "d6ca8ca39c1d6f4c83b5eed623e2a43d5bed3fc571dd961d8b9239d865557987"
+    },
+    "research/evidence/v30/v30_stage2h_b_accounting_oracle_verification.json": {
+      "bytes": 5185,
+      "sha256_raw": "5918c8e9c8eb05e75a42655fe598a1b33e62519e6959c8a9c16e933a80459e9b",
+      "sha256_lf": "5918c8e9c8eb05e75a42655fe598a1b33e62519e6959c8a9c16e933a80459e9b"
+    },
+    "research/evidence/v30/v30_stage2h_b_adversarial_review.json": {
+      "bytes": 5273,
+      "sha256_raw": "b2766cdd88706b50af8199676550747872d0825d2a8093cfbfca79e13e5d0407",
+      "sha256_lf": "b2766cdd88706b50af8199676550747872d0825d2a8093cfbfca79e13e5d0407"
+    },
+    "research/evidence/v30/v30_stage2h_b_baseline_evidence_inventory.json": {
+      "bytes": 4695,
+      "sha256_raw": "0275590172a73d6eb8d6d0cba39bd9ec8256a4e3ec92446067f188ea0e93d0e3",
+      "sha256_lf": "02be35a2a295969ec9e9a150215e539161051aaa8afda6dfc4c002a40dd4d084"
+    },
+    "research/evidence/v30/v30_stage2h_b_executed_test_ledger.json": {
+      "bytes": 3343,
+      "sha256_raw": "007c02379ad626e07f6d94ea2c02b080809e422f0252d7070ca4b490676e1981",
+      "sha256_lf": "007c02379ad626e07f6d94ea2c02b080809e422f0252d7070ca4b490676e1981"
+    },
+    "research/evidence/v30/v30_stage2h_b_incident_controls_specification.json": {
+      "bytes": 4602,
+      "sha256_raw": "165acbceda8aebdf35bca21358fda4b4ff2c669618a87848c0250ba4cae08d7f",
+      "sha256_lf": "165acbceda8aebdf35bca21358fda4b4ff2c669618a87848c0250ba4cae08d7f"
+    },
+    "research/evidence/v30/v30_stage2h_b_owner_decision_package.json": {
+      "bytes": 8209,
+      "sha256_raw": "d2471bd214447c231e730f6ff9d84e20bf9a4293a6c223f5362099d13ccd657c",
+      "sha256_lf": "d2471bd214447c231e730f6ff9d84e20bf9a4293a6c223f5362099d13ccd657c"
+    },
+    "research/evidence/v30/v30_stage2h_b_provider_rights_matrix.json": {
+      "bytes": 7615,
+      "sha256_raw": "56db6bb0abf2c6f5006d227855c470b79248c0eabcf45d599117e0ff059be415",
+      "sha256_lf": "56db6bb0abf2c6f5006d227855c470b79248c0eabcf45d599117e0ff059be415"
+    },
+    "research/evidence/v30/v30_stage2h_b_security_red_team_findings.json": {
+      "bytes": 7840,
+      "sha256_raw": "e44ffee3d4695b2c97a43355a0354ce944960229957865fe8f8db1084e646f2a",
+      "sha256_lf": "e44ffee3d4695b2c97a43355a0354ce944960229957865fe8f8db1084e646f2a"
+    },
+    "research/evidence/v30/v30_stage2h_b_simulator_parity_assessment.json": {
+      "bytes": 3147,
+      "sha256_raw": "726d1cde7877f1d4685fdc31db5350d32b18c573c764270e3d98662637303288",
+      "sha256_lf": "726d1cde7877f1d4685fdc31db5350d32b18c573c764270e3d98662637303288"
+    },
+    "research/evidence/v30/v30_stage2h_b_statistical_protocol_audit.json": {
+      "bytes": 5292,
+      "sha256_raw": "6d883ab2939982d555fc3701dd4783ad9c7f443d4c228a2e0578f2a57ea6a3dd",
+      "sha256_lf": "6d883ab2939982d555fc3701dd4783ad9c7f443d4c228a2e0578f2a57ea6a3dd"
+    },
+    "research/tests/test_v30_stage2h_b_governance.py": {
+      "bytes": 10179,
+      "sha256_raw": "4194773894e84fb60587385d6eb6e96934853bece2dadcc90b8bbd783cc374c3",
+      "sha256_lf": "4194773894e84fb60587385d6eb6e96934853bece2dadcc90b8bbd783cc374c3"
+    }
+  }
+}

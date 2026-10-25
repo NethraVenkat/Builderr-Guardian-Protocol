@@ -1,0 +1,32 @@
+{
+  "backup_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R - Private Backup Specification & Offline Procedure",
+    "timestamp_utc": "2026-10-24T15:26:15.080670+00:00",
+    "auditor_role": "Digital Evidence Preservation Specialist",
+    "status": "HUMAN_OFFLINE_BACKUP_PROCEDURE_CERTIFIED"
+  },
+  "private_backup_scope": {
+    "included_paths": [
+      "research/evidence/v30/",
+      "research/engine/",
+      "research/strategies/",
+      "research/tests/",
+      "*.md"
+    ],
+    "strictly_excluded_paths": [
+      "tiingo_cache/",
+      ".git/",
+      ".pytest_cache/",
+      "**/__pycache__/"
+    ]
+  },
+  "human_powershell_offline_backup_command": {
+    "command": "Compress-Archive -Path research\\evidence\\v30\\*, research\\engine\\*, research\\strategies\\*, research\\tests\\*, *.md -DestinationPath C:\\Users\\Manish\\Downloads\\Guardian_Alpha_V30_Lossless_Research_Backup.zip",
+    "integrity_verification": "Get-FileHash -Algorithm SHA256 C:\\Users\\Manish\\Downloads\\Guardian_Alpha_V30_Lossless_Research_Backup.zip"
+  },
+  "backup_properties": {
+    "preservation_fidelity": "Full directory hierarchy, file contents, and modification timestamps preserved.",
+    "sealed_isolation": "tiingo_cache/ is explicitly excluded, preventing accidental leakage of Tier 3 holdout observations.",
+    "offline_nature": "Zero cloud or network upload; purely local to owner machine."
+  }
+}

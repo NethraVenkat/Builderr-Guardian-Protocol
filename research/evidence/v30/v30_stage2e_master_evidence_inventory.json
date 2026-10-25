@@ -1,0 +1,416 @@
+{
+  "audit_metadata": {
+    "stage": "V30_STAGE_2E",
+    "title": "Master Evidence Inventory and Cross-Stage Consolidation",
+    "timestamp_utc": "2026-10-24T10:55:00Z",
+    "workspace": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-V29B",
+    "branch": "research/v29e-final-release-verification",
+    "head_commit": "b283ded200c777b130285b0aa56a0b044afbd339"
+  },
+  "stages": {
+    "V30_STAGE_1": {
+      "stage_id": "V30_STAGE_1",
+      "title": "Performance Diagnosis and Baseline Characterization",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE1_DIAGNOSTIC.md",
+      "report_sha256": "6185e8dece95dd78101bfe065fe8487469a4494609693a20a61cb63a29ab1584",
+      "source_modules": [
+        "agent.py",
+        "baseline.py"
+      ],
+      "source_hashes": {
+        "agent.py": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+        "baseline.py": "eb19b0e31d44961f804cb663abd03e1750a5f86da344eacc7b83a90e3b2cca6d"
+      },
+      "hypothesis": "Frozen E0 performance is constrained by cash affordability bottlenecks and simultaneous order drops during volatile rebalances.",
+      "dataset_provenance": "Tiingo authentic daily bars (cached in tiingo_cache/)",
+      "evaluation_dates": {
+        "tier2": [
+          "2020-01-02",
+          "2021-12-31"
+        ],
+        "tier1": [
+          "2015-01-02",
+          "2019-12-31"
+        ]
+      },
+      "corporate_action_settings": "Unadjusted in initial diagnosis; identified as requiring formal corporate action accounting in Stage 2B-R.",
+      "simulator_version": "ReplayEngine (causal_production)",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF, 0 bps commission",
+      "raw_results_path": "scratch/baseline_check.py",
+      "test_count": 0,
+      "recorded_failures": [
+        "Scenario 4 simultaneous order cash drop (Order #297 dropped, causing Order #330 unheld position sell rejection)."
+      ],
+      "unresolved_limitations": "Initial diagnostic did not separate presentation artifacts from simulation execution ledger.",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 3,
+      "reliability_label": "SUPPORTED_BY_SUMMARY_REPORT_AND_SUBSEQUENT_CONFIRMATION"
+    },
+    "V30_STAGE_2A": {
+      "stage_id": "V30_STAGE_2A",
+      "title": "Cash-Affordability and Order-Execution Correctness",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE2A_EXECUTION_SAFETY.md",
+      "report_sha256": "b93a426ac0ccaf5922fb8f4bc86c64b1458d99ccc5b9f30866898c9bb58d78be",
+      "source_modules": [
+        "research/engine/cash_affordability_model.py",
+        "research/strategies/v30_execution_safe_agent.py"
+      ],
+      "source_hashes": {
+        "cash_affordability_model.py": "e43d11d67041c5bb46929f16f548c23bcab06bb2e995a114531ddd9b1c7f5604",
+        "v30_execution_safe_agent.py": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6"
+      },
+      "hypothesis": "Pre-trade cash haircut model eliminates Order #297 and #330 rejections by preventing order submissions exceeding settled cash.",
+      "dataset_provenance": "Tiingo cached bars",
+      "evaluation_dates": {
+        "tier2": [
+          "2020-01-02",
+          "2021-12-31"
+        ]
+      },
+      "corporate_action_settings": "Standard ReplayEngine",
+      "simulator_version": "ReplayEngine",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF",
+      "raw_results_path": "research/tests/test_v30_execution_safety.py",
+      "test_count": 8,
+      "recorded_failures": [
+        "Broker cash borrowing model in Stage 2A used overly conservative haircuts that reduced buying power."
+      ],
+      "unresolved_limitations": "Required broker settlement reconciliation (addressed in Stage 2A-R).",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 2,
+      "reliability_label": "SUPPORTED_BY_RAW_EXECUTION_EVIDENCE"
+    },
+    "V30_STAGE_2A_R": {
+      "stage_id": "V30_STAGE_2A_R",
+      "title": "Independent Order Execution & Broker Cash Remediation",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE2A_R_INDEPENDENT_REMEDIATION.md",
+      "report_sha256": "f835e6759b6d09c8d13d786a72c6b2c853e697662140f3ad333cfff95ab49324",
+      "source_modules": [
+        "research/engine/v30_broker_accounting_r.py",
+        "research/strategies/v30_execution_safe_agent_r.py"
+      ],
+      "source_hashes": {
+        "v30_broker_accounting_r.py": "2337e904f3aedf1b908dbc15d787e43f1aa9804ddbd7ad388aaecc7d21d0d445",
+        "v30_execution_safe_agent_r.py": "143616dfd2a4da224a8f735d4cc472180b55715aec46b60538b7fa953382316f"
+      },
+      "hypothesis": "Remediating cash settlement to credit sell proceeds immediately for same-day rebalance purchases resolves artificial cash deficits.",
+      "dataset_provenance": "Tiingo cached bars",
+      "evaluation_dates": {
+        "tier2": [
+          "2020-01-02",
+          "2021-12-31"
+        ]
+      },
+      "corporate_action_settings": "Standard ReplayEngine",
+      "simulator_version": "ReplayEngine",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF",
+      "raw_results_path": "research/tests/test_v30_stage2a_r_remediation.py",
+      "test_count": 13,
+      "recorded_failures": [],
+      "unresolved_limitations": "Required final double-entry reconciliation across all 6 scenario 4 events.",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 2,
+      "reliability_label": "SUPPORTED_BY_RAW_EXECUTION_EVIDENCE"
+    },
+    "V30_STAGE_2A_F": {
+      "stage_id": "V30_STAGE_2A_F",
+      "title": "Final Independent Correction & Acceptance Gate",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE2A_F_FINAL_ACCEPTANCE.md",
+      "report_sha256": "2284aa04a30041329dd2481f193192f7b59ef5e828242af40baadcdacbedeffa",
+      "source_modules": [
+        "research/engine/v30_independent_accounting_oracle.py",
+        "research/engine/v30_broker_accounting_final.py",
+        "research/strategies/v30_execution_safe_agent_final.py"
+      ],
+      "source_hashes": {
+        "v30_independent_accounting_oracle.py": "1894c54a57abb8d1daeae34bc3f0e3bec4d61ed10dee3ef567a06a58160429c8",
+        "v30_broker_accounting_final.py": "83eebb87dca5e50be9f82de607ed9d6a711bef44be0d665f083a9d9174c82f4a",
+        "v30_execution_safe_agent_final.py": "aaacaa8780f14df0b8ae5fb51fef1182f9b13cf9405b63e916119ad9c448b377"
+      },
+      "hypothesis": "Formal counterfactual proof that Order #297 dropped buy was both necessary and sufficient to cause Order #330 unheld sell rejection.",
+      "dataset_provenance": "Tiingo cached bars + v29b_method_a_order_event_trace.json",
+      "evaluation_dates": {
+        "tier2": [
+          "2020-01-02",
+          "2021-12-31"
+        ]
+      },
+      "corporate_action_settings": "Standard ReplayEngine",
+      "simulator_version": "ReplayEngine",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF",
+      "raw_results_path": "research/tests/test_v30_stage2a_f_final_acceptance.py",
+      "test_count": 13,
+      "recorded_failures": [],
+      "unresolved_limitations": "None. Execution safety successfully certified.",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 1,
+      "reliability_label": "DIRECTLY_INDEPENDENTLY_REPRODUCED"
+    },
+    "V30_STAGE_2A_BG": {
+      "stage_id": "V30_STAGE_2A_BG",
+      "title": "Simulator Contract Verification & Statistical Generalization",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE2A_BG_CONTRACT_AND_GENERALIZATION.md",
+      "report_sha256": "2dfa9e4e44b0dc4b7187c9a39d6257863ed1804953e170267289e22ad752bd54",
+      "source_modules": [
+        "research/engine/v30_synthetic_stress_scenarios.py"
+      ],
+      "source_hashes": {
+        "v30_synthetic_stress_scenarios.py": "646d92cf95fbd0be1cfb0f564406eb4afc403c202298c61addc490bc16c919ce"
+      },
+      "hypothesis": "Auditing simulator contract across 16 adversarial synthetic scenarios verifies absence of order execution anomalies.",
+      "dataset_provenance": "Deterministic synthetic market state generator",
+      "evaluation_dates": {
+        "synthetic": [
+          "2021-01-01",
+          "2021-03-31"
+        ]
+      },
+      "corporate_action_settings": "Synthetic splits/dividends",
+      "simulator_version": "ReplayEngine",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF",
+      "raw_results_path": "research/tests/test_v30_stage2a_bg_contract_and_robustness.py",
+      "test_count": 17,
+      "recorded_failures": [],
+      "unresolved_limitations": "Identified statistical sample-size limitations of Tier 2 evaluation.",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 1,
+      "reliability_label": "DIRECTLY_INDEPENDENTLY_REPRODUCED"
+    },
+    "V30_STAGE_2B": {
+      "stage_id": "V30_STAGE_2B",
+      "title": "Defensive Allocation and Drawdown Research",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE2B_DEFENSIVE_ALLOCATION_RESEARCH.md",
+      "report_sha256": "a6ec32985a4042ccdc5e5b41c5b579f3b80861db15fd41ce979fc4b2ed90d522",
+      "source_modules": [
+        "research/strategies/v30_candidate_d1_energy_exit.py",
+        "research/strategies/v30_candidate_d2_cash_cushion.py",
+        "research/strategies/v30_candidate_d3_recovery_discipline.py"
+      ],
+      "source_hashes": {
+        "v30_candidate_d1_energy_exit.py": "fb90ef20bd5523a2cda21a54a1af13fa766e6983f4077a432595fde862819014",
+        "v30_candidate_d2_cash_cushion.py": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+        "v30_candidate_d3_recovery_discipline.py": "f5629690e77bcce9f37ad57bd04a4d7a9b6d37770012b2cac05909f253abc09e"
+      },
+      "hypothesis": "Modifying defensive sleeve weights (D1 energy removal, D2 50% cash cushion, D3 recovery discipline) reduces portfolio maximum drawdown during market stress.",
+      "dataset_provenance": "Tiingo cached bars",
+      "evaluation_dates": {
+        "tier2": [
+          "2020-01-02",
+          "2021-12-31"
+        ],
+        "tier1": [
+          "2015-01-02",
+          "2019-12-31"
+        ]
+      },
+      "corporate_action_settings": "CRITICAL DEFECT: Initial script omitted CorporateActionRegistry, resulting in artificial NAV collapse (,868.24 vs authentic ,249.64).",
+      "simulator_version": "ReplayEngine",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF",
+      "raw_results_path": "research/tests/test_v30_stage2b_defensive_research.py",
+      "test_count": 16,
+      "recorded_failures": [
+        "Corporate actions omitted in diagnostic runner script, causing 75%-80% artificial drops on split dates."
+      ],
+      "unresolved_limitations": "Required baseline reconciliation in Stage 2B-R.",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 5,
+      "reliability_label": "CONTRADICTED_AND_RECONCILED_IN_STAGE_2B_R"
+    },
+    "V30_STAGE_2B_R": {
+      "stage_id": "V30_STAGE_2B_R",
+      "title": "Baseline Reconciliation and Corporate-Action Evidence Audit",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE2B_R_BASELINE_RECONCILIATION.md",
+      "report_sha256": "a57556cb56ac5c845df866e07e6b06f2578655fd8c2b938e10811c375ac861b4",
+      "source_modules": [
+        "research/engine/corporate_actions.py",
+        "research/engine/replay.py"
+      ],
+      "source_hashes": {
+        "corporate_actions.py": "8ff528cebb5391ac8d03d18139f55dd85496502cd637a49341ac9dc8164238fd",
+        "replay.py": "c482d1fb8808c7ea95fcfb9a27957399520c702179b0b294c900a4eeda33ee84"
+      },
+      "hypothesis": "Restoring CorporateActionRegistry with 10-business-day dividend settlement lag fully reconciles the ,381.40 gap in Tier 2 and ,104.63 in Tier 1.",
+      "dataset_provenance": "Tiingo authentic bars (tier1_bars.json, tier2_bars.json)",
+      "evaluation_dates": {
+        "tier2": [
+          "2020-01-02",
+          "2021-12-31"
+        ],
+        "tier1": [
+          "2015-01-02",
+          "2019-12-31"
+        ]
+      },
+      "corporate_action_settings": "CorporateActionRegistry(payment_date_policy=PaymentDatePolicy.IMPUTE_BUSINESS_DAYS_10)",
+      "simulator_version": "ReplayEngine (causal_production)",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF",
+      "raw_results_path": "scratch/run_stage2b_r_reconciliation.py",
+      "test_count": 16,
+      "recorded_failures": [],
+      "unresolved_limitations": "Certified baseline established: Tier 2 ending NAV ,249.64, Tier 1 ending NAV ,989.40.",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 1,
+      "reliability_label": "DIRECTLY_INDEPENDENTLY_REPRODUCED"
+    },
+    "V30_STAGE_2C": {
+      "stage_id": "V30_STAGE_2C",
+      "title": "Volatility Gating and Leveraged Exposure Risk Research",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE2C_VOLATILITY_GATING_RESEARCH.md",
+      "report_sha256": "3af3d03542c59e777f1a550e30baf43679212c17ac464f0e9ac49958e3ce1b2a",
+      "source_modules": [
+        "research/strategies/v30_candidate_c1_tight_vol_gate.py",
+        "research/strategies/v30_candidate_c2_vol_acceleration.py",
+        "research/strategies/v30_candidate_c3_vol_persistence.py",
+        "research/strategies/v30_candidate_c4_combined_gates.py",
+        "research/engine/v30_synthetic_stress_scenarios_stage2c.py"
+      ],
+      "source_hashes": {
+        "v30_candidate_c1_tight_vol_gate.py": "c9423c7b459f72e3e73bcbf0b0ba9cc7dc1067f4982925f1126cd203438ff3d0",
+        "v30_candidate_c2_vol_acceleration.py": "c8d3949f8d2a7c5610eacf44c13551a2bdb1c73b2d0a9c4064b4a893391ba798",
+        "v30_candidate_c3_vol_persistence.py": "d0e2b8c00ea837891369377420770c203740eb1c8838c93a5886ac34f6558427",
+        "v30_candidate_c4_combined_gates.py": "25c90d7969b20b761d0d4d062ae80c981e90d07d3117e0c035fd3d39f99dfff0",
+        "v30_synthetic_stress_scenarios_stage2c.py": "ed40d3607255d4426425820bcb64d1f65d57a32f9b91fd468eafa429430f65e9"
+      },
+      "hypothesis": "Causally computed volatility gating (tight 0.22 gate, acceleration ratio, persistence confirmation) prevents drawdowns without churn.",
+      "dataset_provenance": "Tiingo cached bars (tier1_bars.json, tier2_bars.json)",
+      "evaluation_dates": {
+        "tier2": [
+          "2020-01-02",
+          "2021-12-31"
+        ],
+        "tier1": [
+          "2015-01-02",
+          "2019-12-31"
+        ]
+      },
+      "corporate_action_settings": "CorporateActionRegistry(payment_date_policy=PaymentDatePolicy.IMPUTE_BUSINESS_DAYS_10)",
+      "simulator_version": "ReplayEngine (causal_production)",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF",
+      "raw_results_path": "research/evidence/v30/v30_stage2c_historical_replay_results.json",
+      "test_count": 23,
+      "recorded_failures": [
+        "C2 and C4 exhibited severe acceleration ratio churn, collapsing ending NAV by  in Tier 2."
+      ],
+      "unresolved_limitations": "C1 showed modest upside in Tier 2 ( vs ) but suffered slight drag in Tier 1 ( vs ).",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 1,
+      "reliability_label": "DIRECTLY_INDEPENDENTLY_REPRODUCED"
+    },
+    "V30_STAGE_2D": {
+      "stage_id": "V30_STAGE_2D",
+      "title": "Volatility-Aware Position Sizing & Portfolio Risk Research",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE2D_POSITION_SIZING_RESEARCH.md",
+      "report_sha256": "77b4fc3295a91ec76bf3bfa2a0b4f702e2743d8bdbff276df03d5a6a566364b1",
+      "source_modules": [
+        "research/strategies/v30_candidate_p1_inverse_vol.py",
+        "research/strategies/v30_candidate_p2_capped_inverse_vol.py",
+        "research/strategies/v30_candidate_p3_smoothed_inverse_vol.py",
+        "research/strategies/v30_candidate_p4_blend_equal_inverse.py",
+        "research/engine/v30_sizing_oracle.py",
+        "research/engine/v30_synthetic_stress_scenarios_stage2d.py"
+      ],
+      "source_hashes": {
+        "v30_candidate_p1_inverse_vol.py": "0f7875140cff89ea2f6e8f5319b3272cf62770d6546c66762765c20521187b65",
+        "v30_candidate_p2_capped_inverse_vol.py": "370b465eeffb41fa860ebdd557f34c1434e0e0754d32f74ed2bcf53780162f5a",
+        "v30_candidate_p3_smoothed_inverse_vol.py": "20235faf8fb96d70acf0a464c96beff6d1019462f4cc30b2a4c77bcd75785ad0",
+        "v30_candidate_p4_blend_equal_inverse.py": "495bbf65690e6fe4661d93f309ebeaf250fa8a06b1c967ba181cffb3d47b883d",
+        "v30_sizing_oracle.py": "16f8bdae2e5c58df28a8fa5f029f4c342ddb5d14f85b7c16ec0660263df6d008",
+        "v30_synthetic_stress_scenarios_stage2d.py": "4591b46fd71ae246bb263fab2906217d4e70614fc0a85d5e2e26dfc052b9e968"
+      },
+      "hypothesis": "Allocating risk-on winner weights inversely to trailing 20-day volatility reduces portfolio variance and high-beta drawdown.",
+      "dataset_provenance": "Tiingo cached bars (tier1_bars.json, tier2_bars.json)",
+      "evaluation_dates": {
+        "tier2": [
+          "2020-01-02",
+          "2021-12-31"
+        ],
+        "tier1": [
+          "2015-01-02",
+          "2019-12-31"
+        ]
+      },
+      "corporate_action_settings": "CorporateActionRegistry(payment_date_policy=PaymentDatePolicy.IMPUTE_BUSINESS_DAYS_10)",
+      "simulator_version": "ReplayEngine (causal_production)",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF",
+      "raw_results_path": "research/evidence/v30/v30_stage2d_historical_replay_results.json",
+      "test_count": 31,
+      "recorded_failures": [
+        "Summary table displayed Overlay Sessions = 0 due to traces key omission in runner script."
+      ],
+      "unresolved_limitations": "Inverse volatility underweighted top momentum winners, dragging Tier 2 CAGR by 7.2% to 11.6%.",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 2,
+      "reliability_label": "SUPPORTED_BY_RAW_EXECUTION_EVIDENCE_REMEDIATED_IN_STAGE_2D_R"
+    },
+    "V30_STAGE_2D_R": {
+      "stage_id": "V30_STAGE_2D_R",
+      "title": "Overlay Measurement Integrity & Independent Sizing-Oracle Audit",
+      "report_path": "GUARDIAN_ALPHA_V30_STAGE2D_R_OVERLAY_AND_ORACLE_AUDIT.md",
+      "report_sha256": "e06692db73b965b4b619a0f1e96aa5fbb79d7416aa23fa9f431a4544b27efa0f",
+      "source_modules": [
+        "research/engine/v30_sizing_oracle_decimal.py",
+        "research/engine/v30_overlay_auditor.py",
+        "research/tests/test_v30_stage2d_r_overlay_and_oracle.py"
+      ],
+      "source_hashes": {
+        "v30_sizing_oracle_decimal.py": "4e9026320690c2fb645ea98fff7c0ab7f2995701ccb5154c5b425184ae0371b0",
+        "v30_overlay_auditor.py": "d99d79a8f9c695096ccb182f36854e98cc01a4c6e3b347ad3e75b7168628207d",
+        "test_v30_stage2d_r_overlay_and_oracle.py": "7659452bd2dd310c3075a1a0eaa048842159a70f13a1e88496ade36ec3bfc456"
+      },
+      "hypothesis": "Remediating trace key omission and position type mismatch proves overlay was active (56% Tier 2, 53% Tier 1) with zero change to NAV.",
+      "dataset_provenance": "Tiingo cached bars (tier1_bars.json, tier2_bars.json)",
+      "evaluation_dates": {
+        "tier2": [
+          "2020-01-02",
+          "2021-12-31"
+        ],
+        "tier1": [
+          "2015-01-02",
+          "2019-12-31"
+        ]
+      },
+      "corporate_action_settings": "CorporateActionRegistry(payment_date_policy=PaymentDatePolicy.IMPUTE_BUSINESS_DAYS_10)",
+      "simulator_version": "ReplayEngine (causal_production)",
+      "slippage_and_costs": "5 bps equity, 10 bps leveraged ETF",
+      "raw_results_path": "research/evidence/v30/v30_stage2d_r_overlay_audit.json",
+      "test_count": 18,
+      "recorded_failures": [],
+      "unresolved_limitations": "Certified overlay parity across all candidates; Decimal sizing oracle proved exact mathematical independence.",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 1,
+      "reliability_label": "DIRECTLY_INDEPENDENTLY_REPRODUCED"
+    },
+    "STAGE_6_HISTORICAL": {
+      "stage_id": "STAGE_6_HISTORICAL",
+      "title": "Historical Multi-Candidate Exploration (Candidate Alpha)",
+      "report_path": "research/strategies/candidate_alpha.py",
+      "report_sha256": "1bb1d5f23a9bc9514dd7da83e4c67d483377954c96b1f9dc96b871eae7479007",
+      "source_modules": [
+        "research/strategies/candidate_alpha.py"
+      ],
+      "source_hashes": {
+        "candidate_alpha.py": "1bb1d5f23a9bc9514dd7da83e4c67d483377954c96b1f9dc96b871eae7479007"
+      },
+      "hypothesis": "Initial exploration of inverse-volatility weighting and volatility ceilings in early research iteration.",
+      "dataset_provenance": "Historical Tiingo evaluation",
+      "evaluation_dates": {
+        "historical": [
+          "2020-01-01",
+          "2021-12-31"
+        ]
+      },
+      "corporate_action_settings": "Legacy simulation",
+      "simulator_version": "Legacy builderr harness",
+      "slippage_and_costs": "Variable",
+      "raw_results_path": "research/evidence/asset_universe_matrix.json",
+      "test_count": 0,
+      "recorded_failures": [
+        "Rejected in Stage 6 due to momentum compounding drag; reintroduced in Stage 2D as isolated test."
+      ],
+      "unresolved_limitations": "Prior exploration documented as part of preregistration overlap audit.",
+      "git_checkpoint": "b283ded200c777b130285b0aa56a0b044afbd339",
+      "reliability_tier": 2,
+      "reliability_label": "SUPPORTED_BY_RAW_EXECUTION_EVIDENCE"
+    }
+  }
+}

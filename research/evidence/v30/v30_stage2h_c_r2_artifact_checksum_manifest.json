@@ -1,0 +1,65 @@
+{
+  "checksum_metadata": {
+    "title": "Guardian Alpha V30 Stage 2H-C-R2 - Artifact Checksum Manifest",
+    "timestamp_utc": "2026-10-24T16:08:00Z",
+    "git_head": "b283ded200c777b130285b0aa56a0b044afbd339",
+    "total_artifacts": 11
+  },
+  "artifacts": {
+    "GUARDIAN_ALPHA_V30_STAGE2H_C_R2_ARCHIVE_EXECUTION_PROOF.md": {
+      "size_bytes": 16662,
+      "raw_sha256": "c649aef061bf2b1a152b4d4230dd2584e15c16920b375de23a6b3c1685a8ebec",
+      "lf_sha256": "c649aef061bf2b1a152b4d4230dd2584e15c16920b375de23a6b3c1685a8ebec"
+    },
+    "research/evidence/v30/v30_stage2h_c_r2_corrected_inventory.json": {
+      "size_bytes": 14385,
+      "raw_sha256": "87151def238a172715680d53395ffc8585e6e96f5cf61f41f4b682c7939d4ca7",
+      "lf_sha256": "c4f870ed64dd0af8697a2f5ffed5824c029184149438415650ce6e3b6fb34815"
+    },
+    "research/evidence/v30/v30_stage2h_c_r2_corrected_staging_manifest.json": {
+      "size_bytes": 30889,
+      "raw_sha256": "57c6614f0b79d1b693c98ef50e49758ad4a978910de0a0f9b0e7273c8b33d868",
+      "lf_sha256": "0301eb191e20af738c38bcc854056e1edf6cc0ab9c2c6d44c8c1c24b2a6c93d4"
+    },
+    "research/evidence/v30/v30_stage2h_c_r2_executed_test_ledger.json": {
+      "size_bytes": 1313,
+      "raw_sha256": "47f5d384ba1d08b2da25ea3b0496893de26b3879fb9e8de6afc3ea766452cdd9",
+      "lf_sha256": "7e5b77186bf2ab02763d9efc94ad2159f95ecdd74fc68fd0f141fcd7f49b1263"
+    },
+    "research/evidence/v30/v30_stage2h_c_r2_explicit_disposition_ledger.json": {
+      "size_bytes": 4307,
+      "raw_sha256": "d0a729aaa1bdcb26d7adcb2e9fdb1a52b953cfa1533642e4848b07831ceb9429",
+      "lf_sha256": "2e2cd533ecec148582fd06f837768913bfc4356eeea966580eedaea674c67505"
+    },
+    "research/evidence/v30/v30_stage2h_c_r2_human_powershell_instructions.json": {
+      "size_bytes": 15345,
+      "raw_sha256": "7306a336d2380c1a45daba335049f28fe6504c4c426009c7eda0235ee6d56022",
+      "lf_sha256": "02000b204e1f7007bd4bf80673e7a255b255f7513d9eb21f5c4e0037f408ed67"
+    },
+    "research/evidence/v30/v30_stage2h_c_r2_manifest_completeness_proof.json": {
+      "size_bytes": 2198,
+      "raw_sha256": "88ea7ca74812ef2bedc1ecc446d79b26b207659215a0203f166aadeb2577d477",
+      "lf_sha256": "ee7287d6e78d9ddc2e8e3eab475da71434bd792b50eb5c1ade300fedba76dc94"
+    },
+    "research/evidence/v30/v30_stage2h_c_r2_private_backup_reconciliation.json": {
+      "size_bytes": 1675,
+      "raw_sha256": "d7e2102045126d7727cfc2e3ed21f41a8f8084ab1d9fabe17eadd29a2ea62567",
+      "lf_sha256": "db95a9b1d33b031abdc636f69f6a655d60188cc93eedcf886bd972beb90acb7a"
+    },
+    "research/scripts/v30_stage2h_c_r2_human_archival_script.ps1": {
+      "size_bytes": 33784,
+      "raw_sha256": "48c8f96eb2148c8708c1f581a82823c821f53b4db5195676244e81807c80357b",
+      "lf_sha256": "83932e214921a5fea6675d155c56213f12f10085a3644f5db934056d97700fdc"
+    },
+    "research/tests/test_v30_stage2h_c_r2_execution_proof.py": {
+      "size_bytes": 8517,
+      "raw_sha256": "c614bd349ee66541c37b48d56fcdd120ad52384db6932c0eb9c0bf150593bfe5",
+      "lf_sha256": "1fe010ab694fcf72635d556593f5b178918e78d131f6675d79a5b13dbab4bc8f"
+    }
+  },
+  "self_checksum": {
+    "size_bytes": 3153,
+    "raw_sha256": "a5aa88b7f5dc154c808924b7d11f2e26bf63b6f8f977ec1a7ba43dedf9015297",
+    "lf_sha256": "87cff8699033e240b12da96259261bd5475f3a41d2c302788c5f22f07dc29ad4"
+  }
+}

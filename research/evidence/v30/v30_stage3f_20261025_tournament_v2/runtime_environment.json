@@ -1,0 +1,11 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Manish\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": "standard library only",
+  "network": "no network calls or broker libraries; restricted strategy importer",
+  "isolation": "fresh module graph per candidate and scenario; no shared strategy objects",
+  "sandbox_limit": "restricted Python loader is defense in depth, not a hostile-code OS sandbox",
+  "configuration_sha256": "21094c762236bd65684da5639594c21c68060dfbea5d9824ea12c2099dad7ce7",
+  "harness_sha256": "4fd645917bfb0e8f9074999f2159df360386f273758d8960ef398732ec656b20"
+}

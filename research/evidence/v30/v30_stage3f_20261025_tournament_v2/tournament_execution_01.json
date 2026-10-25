@@ -1,0 +1,7 @@
+{
+    "start_utc":  "2026-10-25T15:12:53.0432749Z",
+    "command":  "python -B research/simulations/v30_stage3f_20261025_tournament.py run",
+    "elapsed_seconds":  1681.5472461,
+    "end_utc":  "2026-10-25T15:40:54.6530085Z",
+    "exit_code":  0
+}

@@ -1,0 +1,213 @@
+{
+  "candidate": "C009",
+  "label": "example_sector_rotation.py:decide",
+  "source_sha256": "922aa2fcfb9c8077eb2abc152b0f7a09a6f89138ef64a6428561d06ed9e4901f",
+  "dataset": "long_cycle_310601",
+  "dataset_sha256": "efdbc6ef620274f39b63b135b6ae74e19efa698168f42fe1c71daf0c31e33980",
+  "classification": "SYNTHETIC",
+  "mode": "base",
+  "seed": 310601,
+  "start_session": "2000-11-06",
+  "end_session": "2002-10-10",
+  "actual_sessions": 504,
+  "status": "EXECUTED SUCCESSFULLY",
+  "errors": [],
+  "elapsed_seconds": 1.5648249000005308,
+  "exit_code": 0,
+  "metrics": {
+    "final_equity": 235280.3269932757,
+    "total_return": 1.3528032699327568,
+    "cagr": 0.5338850250044025,
+    "average_daily_return": 0.001719766505592207,
+    "monthly_returns": {
+      "2000-11": {
+        "return_": 0.02273586471843836,
+        "sessions": 19,
+        "partial_calendar_month": true
+      },
+      "2000-12": {
+        "return_": 0.02527725045635898,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2001-01": {
+        "return_": 0.045175680863790424,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-02": {
+        "return_": 0.028609038274594933,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2001-03": {
+        "return_": 0.015590679951340114,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2001-04": {
+        "return_": 0.051391244939613,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2001-05": {
+        "return_": -0.0465349675771366,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-06": {
+        "return_": -0.020212626210873053,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2001-07": {
+        "return_": -0.029174542461985253,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2001-08": {
+        "return_": -0.01654982939026728,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-09": {
+        "return_": -0.005486885474772607,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2001-10": {
+        "return_": -0.00808925199161803,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-11": {
+        "return_": 0.005521233923777125,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2001-12": {
+        "return_": -0.002961736755027089,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2002-01": {
+        "return_": -0.007911009501194166,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2002-02": {
+        "return_": 0.0080392424661202,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2002-03": {
+        "return_": 0.04274581764281371,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2002-04": {
+        "return_": 0.034602302018982734,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2002-05": {
+        "return_": 0.11430099195601784,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2002-06": {
+        "return_": 0.15458351001355153,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2002-07": {
+        "return_": 0.1254537764239545,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2002-08": {
+        "return_": 0.13309083446056524,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2002-09": {
+        "return_": 0.18418681788605284,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2002-10": {
+        "return_": 0.05711286959759776,
+        "sessions": 8,
+        "partial_calendar_month": true
+      }
+    },
+    "max_drawdown": 0.12832632835558622,
+    "peak_gross_exposure": 0.9853733136485133,
+    "peak_beta_exposure": 0.9853733136485133,
+    "worst_day": -0.019784660127430964,
+    "realized_volatility": 0.1024061732579105,
+    "var95_loss": 0.007689739641006832,
+    "expected_shortfall95_loss": 0.01133997929231578,
+    "max_underwater_sessions": 280,
+    "completed_recovery_durations": [
+      2,
+      1,
+      1,
+      1,
+      3,
+      13,
+      2,
+      2,
+      3,
+      4,
+      6,
+      1,
+      9,
+      27,
+      3,
+      1,
+      1,
+      1,
+      280,
+      1,
+      1,
+      2,
+      1,
+      3,
+      1,
+      1,
+      4,
+      6,
+      1,
+      1,
+      1,
+      2,
+      1,
+      1
+    ],
+    "unrecovered_at_end": true,
+    "sharpe": 4.231982756720764,
+    "sortino": 8.278066659085164,
+    "calmar": 4.160370142633803,
+    "exposure_adjusted_total_return": 1.5672048738709305,
+    "average_exposure": 0.8631949099235439,
+    "trades": 125,
+    "turnover": 32.164451601339444,
+    "fees": 0.0,
+    "slippage": 1608.1989871954609,
+    "rejected_orders": 6,
+    "invalid_signals": 0,
+    "missing_observations": 0,
+    "execution_latency": null,
+    "mean_cash_fraction": 0.13680509007645608,
+    "sessions": 504
+  },
+  "violations": {
+    "invalid_orders": 0
+  },
+  "compliance": "PASS",
+  "maximum_decision_seconds": 0.0020655000043916516,
+  "command": "python -B research/simulations/v30_stage3f_20261025_tournament.py run --candidate C009",
+  "complete": true,
+  "latency": "decision wall time measured; exchange latency not modeled"
+}

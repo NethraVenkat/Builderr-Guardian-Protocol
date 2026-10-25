@@ -1,0 +1,75 @@
+{
+  "exploratory_protocol_specification": {
+    "timestamp_utc": "2026-10-25T19:15:00Z",
+    "stage": "V30 Stage 3D",
+    "protocol_title": "Guardian Alpha V30 Exploratory Prospective Research Protocol",
+    "scientific_mandate": "Non-confirmatory prospective observational evaluation of frozen strategy candidates E0 and D2. Strictly prohibits unearned confirmatory statistical superiority claims or live strategy promotion based on uncalibrated p-values.",
+    "research_objective": "Quantify real-world prospective downside protection, tracking differences, cash drag, and execution fidelity between frozen E0 and D2 across future market regimes without modifying strategy parameters or optimizing historical rules.",
+    "frozen_comparators": {
+      "E0_baseline": {
+        "file_path": "research/strategies/v12_candidate_ae.py",
+        "sha256_lf": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+        "strategy_type": "Momentum Sector Rotation (100% equity across all regimes)"
+      },
+      "D2_candidate": {
+        "file_path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+        "sha256_raw": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+        "strategy_type": "Defensive Cash Cushion (50% defensive basket XLP/XLU/XLV, 50% cash during risk-off regimes)"
+      }
+    },
+    "causal_eligibility_and_information_boundary": {
+      "causal_eligibility_rule": "I_{def,T}^{causal} = 1 iff S_{T-1} == DEFENSIVE",
+      "decision_timing": "Executed strictly on Date T-1 Close data (available after 16:00:00 ET); orders placed in pending queue.",
+      "execution_timing": "Orders executed at Session T Open (09:30:00 ET) via open_on(ticker, date).",
+      "evaluated_holding_period": "Session T (marked to market at Session T Close).",
+      "collider_bias_prohibition": "Conditioning causal eligibility on same-day negative market returns (R_{m,T} < 0) is strictly barred from the primary protocol to eliminate post-treatment collider conditioning."
+    },
+    "metrics_framework": {
+      "primary_descriptive_metric": {
+        "formula": "d_t = max(0, -R_{E0,t}) - max(0, -R_{D2,t}) for t where I_{def,t}^{causal} == 1",
+        "role": "Descriptive paired downside shortfall difference. Positive values indicate D2 reduced downside loss relative to E0."
+      },
+      "secondary_outcomes": [
+        "Cumulative total return: R_{E0,cum} and R_{D2,cum} over full horizon",
+        "CAGR difference: Delta CAGR = CAGR(D2) - CAGR(E0)",
+        "Maximum Peak-to-Trough Drawdown (MDD) for E0 and D2",
+        "Annualized Realized Volatility: sigma(E0) and sigma(D2)",
+        "Realized Exposure: mean invested equity weight over time",
+        "Cash-drag decomposition: performance drag during risk-off sessions where market rallies",
+        "Turnover & Transaction Costs: trade frequency, gross turnover, modeled 5 bps slippage"
+      ],
+      "uncertainty_reporting_policy": "All standard errors and confidence intervals (e.g. Wilson score, stationary bootstrap distributions) are reported strictly as descriptive indicators of sample spread, NEVER as confirmatory hypothesis test proofs."
+    },
+    "unapproved_historical_proposals": {
+      "economic_hurdle_10bps": {
+        "status": "UNAPPROVED_PROPOSAL",
+        "clarification": "The 10-bps daily economic hurdle remains an unratified historical proposal; it serves only as an illustrative benchmark in exploratory reports."
+      },
+      "cagr_guardrail_200bps": {
+        "status": "UNAPPROVED_PROPOSAL",
+        "clarification": "The -200 bps Delta CAGR guardrail is an unapproved risk suggestion, not an operational veto rule."
+      },
+      "evaluation_horizon_252_sessions": {
+        "status": "UNAPPROVED_PROPOSAL",
+        "clarification": "The 252-session horizon is an unapproved planning budget."
+      },
+      "maximum_horizon_504_sessions": {
+        "status": "UNAPPROVED_PROPOSAL",
+        "clarification": "The 504-session administrative ceiling is an unapproved planning ceiling."
+      }
+    },
+    "operational_policies": {
+      "observation_timestamps": "Log exchange bar timestamp, local receive timestamp, decide() execution duration, and order fill timestamp.",
+      "missing_data_policy": "If bar data is missing for <= 2 bars, hold prior positions; if missing >= 3 bars, trigger automated state quarantine and flag session as MISSING_DATA.",
+      "corporate_action_handling": "Stock splits adjust historical pricing; cash dividends credit account cash balance without auto-reinvestment.",
+      "slippage_accounting": "Model 5 bps (0.0005) slippage for standard equity ETFs; 10 bps (0.0010) for leveraged ETFs.",
+      "safety_stops": "Automated circuit breaker trips if single-day slippage > 50 bps, 3 missing bars, or weight drift > 2%; logged as INFORMATIVE_CENSORING.",
+      "stopping_rules": "Zero interim optional stopping. No early termination upon favorable interim outcomes. No retrospective parameter tuning."
+    },
+    "tripartite_governance_separation": {
+      "observation": "Transparent, lossless recording of daily market prices, order fills, cash balances, and regime states.",
+      "inference": "Descriptive statistical summarization of observed sample distributions and empirical confidence bands.",
+      "strategy_promotion": "Confirmatory deployment to live capital. STRICTLY PROHIBITED under this exploratory protocol. Reusing the Stage 3B-R2 joint HAC/bootstrap rule (which failed nominal size calibration at 7.7% - 10.8% rejection) as a promotional gate is prohibited."
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "scratch_history": [
+    {
+      "path": "scratch/test_hypotheses.py",
+      "commit": "54d867a78200b04c629d43a74882324e392fc358",
+      "same_lf_as_worktree": true
+    },
+    {
+      "path": "scratch/test_hypotheses_part2.py",
+      "commit": "54d867a78200b04c629d43a74882324e392fc358",
+      "same_lf_as_worktree": true
+    },
+    {
+      "path": "scratch/counterfactual_rebalancing.py",
+      "commit": "cc82d0e092438f7e53ebe30d7f78c40c57c4dbab",
+      "same_lf_as_worktree": true
+    },
+    {
+      "path": "scratch/test_candidates_a_to_f.py",
+      "commit": "cc82d0e092438f7e53ebe30d7f78c40c57c4dbab",
+      "same_lf_as_worktree": true
+    }
+  ],
+  "renames": [
+    "soham_agent.py -> momentum_v1.py",
+    "soham_agent_v2.py -> ai_momentum.py"
+  ],
+  "third_party_contestant_names_not_Guardian_versions": [
+    "aarya_agent.py",
+    "ajai_agent.py",
+    "aksham_agent.py",
+    "arnav_agent.py",
+    "balaji_agent.py",
+    "darshan_agent.py",
+    "deepika_agent.py",
+    "dev_agent.py",
+    "harsimran_agent.py",
+    "krunal_agent.py",
+    "meet_agent.py",
+    "mohit_agent.py",
+    "nagarjuna_agent.py",
+    "navika_agent.py",
+    "om_agent.py",
+    "opu_agent.py",
+    "raam_agent.py",
+    "rishchith_agent.py",
+    "robert_agent.py",
+    "rohan_agent.py",
+    "rohit_agent.py",
+    "sankeerth_agent.py",
+    "sham_agent.py",
+    "shivkumar_agent.py",
+    "shyam_agent.py",
+    "siddu_agent.py",
+    "sumegh_agent.py",
+    "tanishq_agent.py",
+    "vishwas_agent.py",
+    "yog_agent.py",
+    "yuva_agent.py",
+    "zaid_agent.py"
+  ],
+  "third_party_sources_loaded": false,
+  "coverage": "reachable local Git references, current strategy directory, starter/reference strategies, four preserved scratch implementation files",
+  "limitations": [
+    "unreachable Git objects/reflogs not traversed",
+    "external historical temp snapshots not re-read; V29E publication snapshots are documentary aliases only",
+    "43 effective-trial ledger is not reconstructible into 43 frozen independent agents; unspecified threshold/halflife sweeps not invented"
+  ],
+  "superseded_discovery": "v30_stage3f_20261025_tournament: 67 entries; preserved; v2 adds renamed historical source before any tournament run"
+}

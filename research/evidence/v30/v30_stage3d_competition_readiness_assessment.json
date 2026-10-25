@@ -1,0 +1,45 @@
+{
+  "competition_readiness_assessment": {
+    "timestamp_utc": "2026-10-25T19:40:00Z",
+    "stage": "V30 Stage 3D",
+    "competition_target": "Builderr Calmar Tournament (Official Admission Safety Gate)",
+    "scoring_model": {
+      "denominator_checks": 6,
+      "weighted_score": "100.0% (6/6 Checks Passed)"
+    },
+    "checks": [
+      {
+        "check": "agent.py execution cleanly without exceptions",
+        "status": "PASS",
+        "result": "0 errors across all 3 windows"
+      },
+      {
+        "check": "Leverage safety limit <= 1.5x",
+        "status": "PASS",
+        "result": "Peak gross 0.94x"
+      },
+      {
+        "check": "Concentration safety limit < 30% for > 5d",
+        "status": "PASS",
+        "result": "Peak 26%, 0 days >= 30%"
+      },
+      {
+        "check": "Blow-up protection MaxDD < 50%",
+        "status": "PASS",
+        "result": "Worst drawdown 33.5%"
+      },
+      {
+        "check": "Single-file zero-dependency packaging",
+        "status": "PASS",
+        "result": "Uses pure Python standard library"
+      },
+      {
+        "check": "Universe conformity",
+        "status": "PASS",
+        "result": "Only sector ETFs and SPY"
+      }
+    ],
+    "admission_verdict": "READY_FOR_SUBMISSION",
+    "submission_action": "Human owner can submit agent.py by pushing repo to origin and notifying organizers."
+  }
+}

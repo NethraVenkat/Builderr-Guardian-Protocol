@@ -1,0 +1,115 @@
+{
+  "stage": "V30_STAGE_3E",
+  "checkpoint_head": "4540ee49dac29e4599fbbeb96bbcffd2dafd6705",
+  "total_artifacts": 18,
+  "artifacts": [
+    {
+      "path": "GUARDIAN_ALPHA_V30_STAGE3E_COMPETITION_CERTIFICATION_AND_GOVERNANCE_RECONCILIATION.md",
+      "byte_count": 28943,
+      "sha256_raw": "47a4b97a3be9ebec611ad47ea44383cfeffb3a0bdb09d9998090068cfc9b44ab",
+      "sha256_lf": "47a4b97a3be9ebec611ad47ea44383cfeffb3a0bdb09d9998090068cfc9b44ab"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_adversarial_fixture_results.json",
+      "byte_count": 4198,
+      "sha256_raw": "e747499c44379971584fc435d67f24b5dcc577bf3869cf58ff52fbe7dafd4aed",
+      "sha256_lf": "e747499c44379971584fc435d67f24b5dcc577bf3869cf58ff52fbe7dafd4aed"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_artifact_inventory.json",
+      "byte_count": 6871,
+      "sha256_raw": "22444e9959b6ce4aec74880223911f07476487a70d98cf3e2ac8ac92eaba59f5",
+      "sha256_lf": "2701f6c55ca0cc327600831df1250848045db866d9b47993c38677e87d89e8fc"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_canonical_governance_crosswalk.json",
+      "byte_count": 7337,
+      "sha256_raw": "84c85a31c4b023d4ab04293dc07c621a133a7347de7e9c27dd6403d3d526f082",
+      "sha256_lf": "84c85a31c4b023d4ab04293dc07c621a133a7347de7e9c27dd6403d3d526f082"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_checkpoint_certification.json",
+      "byte_count": 2386,
+      "sha256_raw": "9ee68e5fc75858812c6a35951bfc76bf08e48d94f8e718414ed5ef2022f0d1ce",
+      "sha256_lf": "9ee68e5fc75858812c6a35951bfc76bf08e48d94f8e718414ed5ef2022f0d1ce"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_competition_authority_register.json",
+      "byte_count": 9381,
+      "sha256_raw": "9d1122e2222c1588dce8c54020abb5dbda32fd39418359fb92aecb0b502463b7",
+      "sha256_lf": "9d1122e2222c1588dce8c54020abb5dbda32fd39418359fb92aecb0b502463b7"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_completion_metric_methodology.json",
+      "byte_count": 2774,
+      "sha256_raw": "8d8b649b3317660b2270ada9c6f29695d0546e98bfb1d95d6cbd0f19297db02c",
+      "sha256_lf": "8d8b649b3317660b2270ada9c6f29695d0546e98bfb1d95d6cbd0f19297db02c"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_executed_test_ledger.json",
+      "byte_count": 3431,
+      "sha256_raw": "772005a44409d4cbf21bb089751f7b3dab798166be640a072d7ae6c46a358a33",
+      "sha256_lf": "772005a44409d4cbf21bb089751f7b3dab798166be640a072d7ae6c46a358a33"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_human_only_archival_staging_proposal.json",
+      "byte_count": 4280,
+      "sha256_raw": "90e90dae000c610e81f6a865999b311f9d8e5392fa514a3494916e642f7f78b9",
+      "sha256_lf": "90e90dae000c610e81f6a865999b311f9d8e5392fa514a3494916e642f7f78b9"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_offline_competition_test_results.json",
+      "byte_count": 2361,
+      "sha256_raw": "3c80a61ac6e7e67c267f22e1d1e1c1caced3f9923223d24af00d5df7937ab499",
+      "sha256_lf": "3c80a61ac6e7e67c267f22e1d1e1c1caced3f9923223d24af00d5df7937ab499"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_stage3d_preservation_inventory.json",
+      "byte_count": 8654,
+      "sha256_raw": "d1524275ec5e72b1014349a33a8a91fe6a20c6a1a7e59e5001fb066ce314d5b6",
+      "sha256_lf": "4099f47d5d94e37398638607cedee0315406df4e976b45aeec86a46ce0298354"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_submission_evidence_classification.json",
+      "byte_count": 3033,
+      "sha256_raw": "846e00896282fc2982442f92b95ccac030f95ec4243b62fc39670921ab742ebe",
+      "sha256_lf": "846e00896282fc2982442f92b95ccac030f95ec4243b62fc39670921ab742ebe"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_submission_package_contract_verification.json",
+      "byte_count": 2764,
+      "sha256_raw": "9daa14e6ba23ea476f2197648ee3458c8c7440a9acbf09b439ce3505d73c1d3c",
+      "sha256_lf": "9daa14e6ba23ea476f2197648ee3458c8c7440a9acbf09b439ce3505d73c1d3c"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_track_a_competition_requirements_matrix.json",
+      "byte_count": 10207,
+      "sha256_raw": "167526487b9522b6a2e6bb240a178c26059fae2e74a4de0de97de874ab1bd42f",
+      "sha256_lf": "167526487b9522b6a2e6bb240a178c26059fae2e74a4de0de97de874ab1bd42f"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_track_b_prospective_requirements_matrix.json",
+      "byte_count": 7867,
+      "sha256_raw": "65230e2f947f2fdb00638017495e318c36de512f6410ee03c260d0ca002f80e5",
+      "sha256_lf": "65230e2f947f2fdb00638017495e318c36de512f6410ee03c260d0ca002f80e5"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3e_warmup_and_evaluation_timeline_correction.json",
+      "byte_count": 4055,
+      "sha256_raw": "ff9385c6cdca5a65f74e2015942a4cab6b5b5372a15edac30b476522b4daa7e3",
+      "sha256_lf": "ff9385c6cdca5a65f74e2015942a4cab6b5b5372a15edac30b476522b4daa7e3"
+    },
+    {
+      "path": "research/tests/test_v30_stage3e_competition_adversarial.py",
+      "byte_count": 8950,
+      "sha256_raw": "164585c70a7e32f5094d416eb05da1985ca16ab397e80c7d5cf774ffc44633ad",
+      "sha256_lf": "164585c70a7e32f5094d416eb05da1985ca16ab397e80c7d5cf774ffc44633ad"
+    },
+    {
+      "path": "research/tests/test_v30_stage3e_competition_certification.py",
+      "byte_count": 7934,
+      "sha256_raw": "3e0552b6ed1e9e364b2683560cc033e3cfa4c45a35266b51c5c429c2bbb50618",
+      "sha256_lf": "3e0552b6ed1e9e364b2683560cc033e3cfa4c45a35266b51c5c429c2bbb50618"
+    }
+  ]
+}

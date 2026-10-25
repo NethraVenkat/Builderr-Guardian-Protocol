@@ -1,0 +1,74 @@
+{
+  "stage": "V30_STAGE_3E",
+  "artifact_type": "SUBMISSION_PACKAGE_CONTRACT_VERIFICATION",
+  "generated_at": "2026-10-25T19:57:00+05:30",
+  "submission_package_files": [
+    {
+      "path": "agent.py",
+      "required_location": "repository root",
+      "exists": true,
+      "raw_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "lf_sha256": "9c43d78903c723f538354c0032bc977da09db6ee0e02544ec26456f9ba7b4cb7",
+      "status": "VERIFIED_MATCH"
+    },
+    {
+      "path": "universe.json",
+      "required_location": "repository root",
+      "exists": true,
+      "raw_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "lf_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "status": "VERIFIED_MATCH"
+    },
+    {
+      "path": "requirements.txt",
+      "required_location": "repository root",
+      "exists": true,
+      "raw_sha256": "74fa770ae4f884aee676b744d930feea4e7fae0252dc8b21c43fc2c53aee25e5",
+      "lf_sha256": "74fa770ae4f884aee676b744d930feea4e7fae0252dc8b21c43fc2c53aee25e5",
+      "content": "# No third-party packages required by agent.py.\n",
+      "role": "OPTIONAL_NO_OP",
+      "status": "VERIFIED_PRESENT"
+    }
+  ],
+  "agent_interface_audit": {
+    "entrypoint_name": "decide",
+    "signature": "(market_state: dict, portfolio_state: dict, cash: float) -> list[dict]",
+    "ast_imported_modules": [
+      "__future__",
+      "math",
+      "statistics",
+      "typing"
+    ],
+    "third_party_dependencies_count": 0,
+    "network_access_calls": [],
+    "embedded_secrets_count": 0,
+    "absolute_filesystem_paths_count": 0,
+    "research_module_dependencies_count": 0,
+    "tier3_cache_references_count": 0,
+    "status": "FULLY_COMPLIANT"
+  },
+  "universe_json_audit": {
+    "total_tickers": 1000,
+    "unique_tickers": 1000,
+    "contains_anchor_etfs": {
+      "SPY": true,
+      "QQQ": true,
+      "IWM": true,
+      "DIA": true
+    },
+    "contains_leveraged_etfs": {
+      "TQQQ": true,
+      "SOXL": true,
+      "QLD": true,
+      "SSO": true
+    },
+    "status": "FULLY_COMPLIANT"
+  },
+  "requirements_txt_role_investigation": {
+    "verdict": "The Builderr platform contract allows submissions with zero third-party packages. requirements.txt is present at repository root containing '# No third-party packages required by agent.py.', confirming that agent.py runs in pure Python standard library mode. Two files (agent.py and universe.json) contain all trading logic and data boundaries, while requirements.txt explicitly signals zero package dependencies.",
+    "is_prohibited": false,
+    "is_mandatory": false,
+    "is_optional_recommended": true
+  },
+  "overall_submission_package_verdict": "VERIFIED_READY_FOR_HUMAN_SUBMISSION"
+}

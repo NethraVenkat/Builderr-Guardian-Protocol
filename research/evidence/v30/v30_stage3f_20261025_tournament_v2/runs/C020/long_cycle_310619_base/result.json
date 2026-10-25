@@ -1,0 +1,203 @@
+{
+  "candidate": "C020",
+  "label": "research/strategies/v11_candidates.py:CandidateA_AdaptiveRebalance",
+  "source_sha256": "017a89dfcb7b8f5370d6829c5f81a97138fdcd7fe12ef051065d8011418ae02d",
+  "dataset": "long_cycle_310619",
+  "dataset_sha256": "707a6d3d88c329dcd720f0495009d6b8e375e76e28a75761b0873d1d84037a76",
+  "classification": "SYNTHETIC",
+  "mode": "base",
+  "seed": 310619,
+  "start_session": "2000-11-06",
+  "end_session": "2002-10-10",
+  "actual_sessions": 504,
+  "status": "EXECUTED SUCCESSFULLY",
+  "errors": [],
+  "elapsed_seconds": 5.420638399999007,
+  "exit_code": 0,
+  "metrics": {
+    "final_equity": 241551.00868543336,
+    "total_return": 1.4155100868543338,
+    "cagr": 0.554191135882049,
+    "average_daily_return": 0.0017798869190800487,
+    "monthly_returns": {
+      "2000-11": {
+        "return_": 0.029080168366311332,
+        "sessions": 19,
+        "partial_calendar_month": true
+      },
+      "2000-12": {
+        "return_": 0.03802183538923676,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2001-01": {
+        "return_": 0.029052998833274835,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-02": {
+        "return_": -0.02536529200938953,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2001-03": {
+        "return_": -0.01481094965960883,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2001-04": {
+        "return_": -0.008484912526356969,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2001-05": {
+        "return_": 0.0010846693977510924,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-06": {
+        "return_": -0.025936091738586464,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2001-07": {
+        "return_": -0.02146257610796143,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2001-08": {
+        "return_": -0.017788462596920684,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-09": {
+        "return_": -0.025204407768468218,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2001-10": {
+        "return_": -0.02639670971249186,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-11": {
+        "return_": 0.022063235919619117,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2001-12": {
+        "return_": 0.009276982882830742,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2002-01": {
+        "return_": -0.05498134918695252,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2002-02": {
+        "return_": 0.0069675213652824475,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2002-03": {
+        "return_": -0.016275886842213483,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2002-04": {
+        "return_": 0.07170169244749403,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2002-05": {
+        "return_": 0.18948844881513205,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2002-06": {
+        "return_": 0.19322571931966026,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2002-07": {
+        "return_": 0.19716046590797043,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2002-08": {
+        "return_": 0.14156126455429985,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2002-09": {
+        "return_": 0.20052851255290816,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2002-10": {
+        "return_": 0.0767631852637014,
+        "sessions": 8,
+        "partial_calendar_month": true
+      }
+    },
+    "max_drawdown": 0.20257561336028584,
+    "peak_gross_exposure": 0.9547649976153869,
+    "peak_beta_exposure": 1.158893360970346,
+    "worst_day": -0.02788118746692303,
+    "realized_volatility": 0.12033044403985317,
+    "var95_loss": 0.007840080054783094,
+    "expected_shortfall95_loss": 0.013094840975663836,
+    "max_underwater_sessions": 356,
+    "completed_recovery_durations": [
+      12,
+      1,
+      1,
+      16,
+      1,
+      1,
+      1,
+      356,
+      1,
+      1,
+      2,
+      1,
+      1,
+      1,
+      2,
+      3,
+      1,
+      1,
+      1,
+      1,
+      3,
+      1,
+      1,
+      1
+    ],
+    "unrecovered_at_end": true,
+    "sharpe": 3.7274981172646524,
+    "sortino": 7.384515328424067,
+    "calmar": 2.7357248322699443,
+    "exposure_adjusted_total_return": 1.689048441422472,
+    "average_exposure": 0.8380518001379691,
+    "trades": 194,
+    "turnover": 30.260034804409063,
+    "fees": 0.0,
+    "slippage": 1563.5832578701659,
+    "rejected_orders": 0,
+    "invalid_signals": 0,
+    "missing_observations": 0,
+    "execution_latency": null,
+    "mean_cash_fraction": 0.1619481998620309,
+    "sessions": 504
+  },
+  "violations": {
+    "invalid_orders": 0
+  },
+  "compliance": "PASS",
+  "maximum_decision_seconds": 0.045785799993609544,
+  "command": "python -B research/simulations/v30_stage3f_20261025_tournament.py run --candidate C020",
+  "complete": true,
+  "latency": "decision wall time measured; exchange latency not modeled"
+}

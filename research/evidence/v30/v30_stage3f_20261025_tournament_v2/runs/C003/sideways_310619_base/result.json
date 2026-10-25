@@ -1,0 +1,88 @@
+{
+  "candidate": "C003",
+  "label": "agent.py:decide @f5f0e4d4",
+  "source_sha256": "5d9212db038f6fb4f67bc4ac81d0f8846eaee817776596aad2823b3eb45443e4",
+  "dataset": "sideways_310619",
+  "dataset_sha256": "afcafa99c93b4c094189d6b0884d585ee9ef64f1c709cde739f0c321a58a5c68",
+  "classification": "SYNTHETIC",
+  "mode": "base",
+  "seed": 310619,
+  "start_session": "2000-11-06",
+  "end_session": "2001-04-30",
+  "actual_sessions": 126,
+  "status": "EXECUTED SUCCESSFULLY",
+  "errors": [],
+  "elapsed_seconds": 0.13075360000220826,
+  "exit_code": 0,
+  "metrics": {
+    "final_equity": 100000.0,
+    "total_return": 0.0,
+    "cagr": null,
+    "average_daily_return": 0.0,
+    "monthly_returns": {
+      "2000-11": {
+        "return_": 0.0,
+        "sessions": 19,
+        "partial_calendar_month": true
+      },
+      "2000-12": {
+        "return_": 0.0,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2001-01": {
+        "return_": 0.0,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-02": {
+        "return_": 0.0,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2001-03": {
+        "return_": 0.0,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2001-04": {
+        "return_": 0.0,
+        "sessions": 21,
+        "partial_calendar_month": true
+      }
+    },
+    "max_drawdown": 0,
+    "peak_gross_exposure": 0.0,
+    "peak_beta_exposure": 0.0,
+    "worst_day": 0.0,
+    "realized_volatility": 0.0,
+    "var95_loss": -0.0,
+    "expected_shortfall95_loss": -0.0,
+    "max_underwater_sessions": 0,
+    "completed_recovery_durations": [],
+    "unrecovered_at_end": false,
+    "sharpe": null,
+    "sortino": null,
+    "calmar": null,
+    "exposure_adjusted_total_return": null,
+    "average_exposure": 0.0,
+    "trades": 0,
+    "turnover": 0.0,
+    "fees": 0,
+    "slippage": 0,
+    "rejected_orders": 0,
+    "invalid_signals": 0,
+    "missing_observations": 0,
+    "execution_latency": null,
+    "mean_cash_fraction": 1.0,
+    "sessions": 126
+  },
+  "violations": {
+    "invalid_orders": 0
+  },
+  "compliance": "PASS",
+  "maximum_decision_seconds": 6.070000381441787e-05,
+  "command": "python -B research/simulations/v30_stage3f_20261025_tournament.py run --candidate C003",
+  "complete": true,
+  "latency": "decision wall time measured; exchange latency not modeled"
+}

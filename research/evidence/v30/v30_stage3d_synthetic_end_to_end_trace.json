@@ -1,0 +1,121 @@
+{
+  "synthetic_end_to_end_trace": {
+    "timestamp_utc": "2026-10-25T19:25:00Z",
+    "stage": "V30 Stage 3D",
+    "harness_path": "research/simulations/v30_stage3d_offline_end_to_end_harness.py",
+    "seed": 20261025,
+    "results": {
+      "simulation_summary": {
+        "total_calendar_days": 280,
+        "warmup_days": 220,
+        "eval_days": 60,
+        "start_cash": 100000.0,
+        "final_equity": 113709.38,
+        "total_trades": 125,
+        "max_drawdown_pct": 17.4,
+        "catastrophic_dd_tripped": false
+      },
+      "operational_checks": {
+        "warmup_220_completed": true,
+        "eval_60_completed": true,
+        "t_minus_1_causality_enforced": true,
+        "t_open_fills_enforced": true,
+        "missing_bar_handled": true,
+        "delayed_observation_buffered": false,
+        "weekend_closure_respected": true,
+        "corporate_split_adjusted": true,
+        "idempotency_verified": true,
+        "restart_state_reproduced": true,
+        "catastrophic_dd_detector_verified": true
+      },
+      "sample_trades": [
+        {
+          "date": "2025-03-12",
+          "ticker": "XLP",
+          "side": "buy",
+          "fill_px": 102.25069979999999,
+          "qty": 176.0,
+          "cost": 17996.1231648
+        },
+        {
+          "date": "2025-03-12",
+          "ticker": "XLU",
+          "side": "buy",
+          "fill_px": 90.80147805,
+          "qty": 198.0,
+          "cost": 17978.6926539
+        },
+        {
+          "date": "2025-03-12",
+          "ticker": "XLV",
+          "side": "buy",
+          "fill_px": 103.96255529999999,
+          "qty": 134.0,
+          "cost": 13930.982410199998
+        },
+        {
+          "date": "2025-03-27",
+          "ticker": "XLP",
+          "side": "sell",
+          "fill_px": 96.5692912,
+          "qty": 176.0,
+          "proceeds": 16996.1952512
+        },
+        {
+          "date": "2025-03-27",
+          "ticker": "XLU",
+          "side": "sell",
+          "fill_px": 85.28453640000001,
+          "qty": 198.0,
+          "proceeds": 16886.338207200002
+        },
+        {
+          "date": "2025-03-27",
+          "ticker": "XLV",
+          "side": "sell",
+          "fill_px": 102.82925965000001,
+          "qty": 134.0,
+          "proceeds": 13779.1207931
+        },
+        {
+          "date": "2025-03-27",
+          "ticker": "DIA",
+          "side": "buy",
+          "fill_px": 104.5772625,
+          "qty": 142.0,
+          "cost": 14849.971275
+        },
+        {
+          "date": "2025-03-27",
+          "ticker": "MSFT",
+          "side": "buy",
+          "fill_px": 111.23238839999999,
+          "qty": 133.0,
+          "cost": 14793.9076572
+        },
+        {
+          "date": "2025-03-27",
+          "ticker": "NVDA",
+          "side": "buy",
+          "fill_px": 138.34163625,
+          "qty": 107.0,
+          "cost": 14802.55507875
+        },
+        {
+          "date": "2025-03-27",
+          "ticker": "QLD",
+          "side": "buy",
+          "fill_px": 108.29281934999999,
+          "qty": 99.0,
+          "cost": 10720.989115649998
+        }
+      ],
+      "final_positions": {
+        "QLD": 113.0,
+        "QQQ": 178.0,
+        "SSO": 81.0,
+        "XLY": 236.0
+      }
+    }
+  }
+}

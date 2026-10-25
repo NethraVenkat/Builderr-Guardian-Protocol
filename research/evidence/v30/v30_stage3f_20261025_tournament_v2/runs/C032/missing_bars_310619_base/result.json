@@ -1,0 +1,98 @@
+{
+  "candidate": "C032",
+  "label": "research/strategies/v30_candidate_d2_cash_cushion.py:decide",
+  "source_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+  "dataset": "missing_bars_310619",
+  "dataset_sha256": "8dc4c78b449f8e1d54b432e6e0a474baf47374355a9cffa3c6417afcb3497f76",
+  "classification": "SYNTHETIC",
+  "mode": "base",
+  "seed": 310619,
+  "start_session": "2000-11-06",
+  "end_session": "2001-04-30",
+  "actual_sessions": 126,
+  "status": "EXECUTED SUCCESSFULLY",
+  "errors": [],
+  "elapsed_seconds": 0.37868470000103116,
+  "exit_code": 0,
+  "metrics": {
+    "final_equity": 102141.98882176285,
+    "total_return": 0.021419888217628413,
+    "cagr": null,
+    "average_daily_return": 0.00018133757709772158,
+    "monthly_returns": {
+      "2000-11": {
+        "return_": 0.0022555755602386984,
+        "sessions": 19,
+        "partial_calendar_month": true
+      },
+      "2000-12": {
+        "return_": 0.037203214253738626,
+        "sessions": 21,
+        "partial_calendar_month": true
+      },
+      "2001-01": {
+        "return_": 0.0037666349491383144,
+        "sessions": 23,
+        "partial_calendar_month": true
+      },
+      "2001-02": {
+        "return_": 0.0019862552696587876,
+        "sessions": 20,
+        "partial_calendar_month": true
+      },
+      "2001-03": {
+        "return_": 0.004678618912043797,
+        "sessions": 22,
+        "partial_calendar_month": true
+      },
+      "2001-04": {
+        "return_": -0.027610422630282128,
+        "sessions": 21,
+        "partial_calendar_month": true
+      }
+    },
+    "max_drawdown": 0.04590716244811166,
+    "peak_gross_exposure": 0.9477278904644983,
+    "peak_beta_exposure": 1.1350995491312303,
+    "worst_day": -0.014022745856040797,
+    "realized_volatility": 0.0817749592877824,
+    "var95_loss": 0.009602110534992936,
+    "expected_shortfall95_loss": 0.01165991018834849,
+    "max_underwater_sessions": 74,
+    "completed_recovery_durations": [
+      4,
+      10,
+      2,
+      1,
+      4,
+      4,
+      1,
+      9,
+      3
+    ],
+    "unrecovered_at_end": true,
+    "sharpe": 0.5588149456340142,
+    "sortino": 0.90478094196014,
+    "calmar": null,
+    "exposure_adjusted_total_return": 0.03421475325355044,
+    "average_exposure": 0.6260424577343894,
+    "trades": 60,
+    "turnover": 9.272459861905693,
+    "fees": 0.0,
+    "slippage": 500.5919963492791,
+    "rejected_orders": 0,
+    "invalid_signals": 0,
+    "missing_observations": 49,
+    "execution_latency": null,
+    "mean_cash_fraction": 0.3739575422656106,
+    "sessions": 126
+  },
+  "violations": {
+    "invalid_orders": 0
+  },
+  "compliance": "PASS",
+  "maximum_decision_seconds": 0.006305900002189446,
+  "command": "python -B research/simulations/v30_stage3f_20261025_tournament.py run --candidate C032",
+  "complete": true,
+  "latency": "decision wall time measured; exchange latency not modeled"
+}

@@ -1,0 +1,77 @@
+{
+  "prospective_readiness_assessment": {
+    "timestamp_utc": "2026-10-25T19:40:00Z",
+    "stage": "V30 Stage 3D",
+    "prospective_target": "Longer-Term Prospective Exploratory Evaluation (Frozen E0 vs D2)",
+    "scoring_model": {
+      "denominator_dimensions": 8,
+      "weights": {
+        "protocol_specification": 0.15,
+        "contract_parity": 0.15,
+        "offline_simulation_harness": 0.15,
+        "risk_and_incident_architecture": 0.15,
+        "data_rights_and_licensing": 0.15,
+        "live_feed_network_profiling": 0.1,
+        "owner_formal_preregistration": 0.1,
+        "activation_safety_lock": 0.05
+      },
+      "weighted_completion_pct": 72.5
+    },
+    "dimensions": [
+      {
+        "dimension": "Protocol Specification",
+        "status": "PASS",
+        "completion_pct": 100.0,
+        "notes": "Exploratory protocol fully specified; unapproved proposals flagged."
+      },
+      {
+        "dimension": "Contract Parity",
+        "status": "PASS",
+        "completion_pct": 100.0,
+        "notes": "11/12 dimensions reproduced or matched by specification."
+      },
+      {
+        "dimension": "Offline Simulation Harness",
+        "status": "PASS",
+        "completion_pct": 100.0,
+        "notes": "220-warmup and 60-eval synthetic test passing."
+      },
+      {
+        "dimension": "Risk and Incident Architecture",
+        "status": "PASS",
+        "completion_pct": 100.0,
+        "notes": "Fail-closed tripwires and failure injection verified."
+      },
+      {
+        "dimension": "Data Rights and Licensing",
+        "status": "BLOCKED",
+        "completion_pct": 20.0,
+        "notes": "DEC-02 strictly blocked pending commercial addenda."
+      },
+      {
+        "dimension": "Live Feed Network Profiling",
+        "status": "BLOCKED",
+        "completion_pct": 0.0,
+        "notes": "Physical socket latency unmeasured without live feed."
+      },
+      {
+        "dimension": "Owner Formal Preregistration",
+        "status": "PENDING",
+        "completion_pct": 50.0,
+        "notes": "Draft prepared; requires human owner signature."
+      },
+      {
+        "dimension": "Activation Safety Lock",
+        "status": "PASS",
+        "completion_pct": 100.0,
+        "notes": "DEC-06 locked permanently."
+      }
+    ],
+    "readiness_verdict": "CONDITIONALLY_READY_OFFLINE_BLOCKED_OPERATIONALLY",
+    "blocking_prerequisites": [
+      "1. Owner execution of DEC-02 commercial licensing addenda.",
+      "2. Authorization of physical network socket profiling (DEC-05.B).",
+      "3. Formal human signature on exploratory preregistration draft (DEC-03)."
+    ]
+  }
+}

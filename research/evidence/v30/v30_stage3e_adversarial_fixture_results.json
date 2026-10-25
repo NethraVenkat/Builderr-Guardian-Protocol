@@ -1,0 +1,115 @@
+{
+  "stage": "V30_STAGE_3E",
+  "artifact_type": "ADVERSARIAL_FIXTURE_RESULTS",
+  "generated_at": "2026-10-25T19:59:00+05:30",
+  "test_suite": "research/tests/test_v30_stage3e_competition_adversarial.py",
+  "test_runner": "pytest 9.1.1",
+  "duration_seconds": 0.27,
+  "exit_code": 0,
+  "fixtures_evaluated": [
+    {
+      "fixture_id": "FIX-01",
+      "name": "Empty history",
+      "scenario": "market_state = {} and tickers with [] bars",
+      "observed_behavior": "Returns [] cleanly, zero unhandled exceptions",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-02",
+      "name": "Insufficient warmup",
+      "scenario": "market_state contains only 5 historical bars",
+      "observed_behavior": "Returns [] cleanly, moving average signals safely skipped",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-03",
+      "name": "Missing anchor ticker",
+      "scenario": "SPY omitted from market_state",
+      "observed_behavior": "Returns [] cleanly, regime filter detects missing anchor and defaults to defensive cash",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-04",
+      "name": "Duplicate ticker in positions",
+      "scenario": "portfolio_state contains multiple position entries for identical ticker",
+      "observed_behavior": "Emits well-formed order list without crash",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-05",
+      "name": "Invalid OHLC",
+      "scenario": "Bar with high < low and negative close",
+      "observed_behavior": "Corrupted ticker excluded from rebalancing, zero unhandled exceptions",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-06",
+      "name": "Negative or zero prices",
+      "scenario": "Bar and last_prices set to 0.0",
+      "observed_behavior": "Zero division avoided, returns valid order list",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-07",
+      "name": "NaN and infinite values",
+      "scenario": "Bar prices set to float('nan'), float('inf'), float('-inf')",
+      "observed_behavior": "Safely handled, all generated order quantities are finite",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-08",
+      "name": "Corporate-action adjustment discontinuity",
+      "scenario": "50% overnight price drop simulating 2:1 stock split",
+      "observed_behavior": "Rebalance orders generated within concentration caps, no oversized buys",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-09",
+      "name": "Large open gaps",
+      "scenario": "+25% gap up, -20% gap down",
+      "observed_behavior": "Orders emitted cleanly, leverage caps maintained",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-10",
+      "name": "Flat-price market",
+      "scenario": "220 bars with identical open=high=low=close=100.0",
+      "observed_behavior": "Emits bounded orders (0 orders generated due to zero trend/volatility divergence)",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-11",
+      "name": "Sharp downturn",
+      "scenario": "Severe multi-week decline with negative trend and elevated volatility",
+      "observed_behavior": "Defensive regime triggered; SPY and QQQ below 50-day SMA, aggressive equity buys disabled",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-12",
+      "name": "Recovery after drawdown",
+      "scenario": "Strong upward trend following market bottom",
+      "observed_behavior": "Rebalances into momentum leaders as trend filters clear",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-13",
+      "name": "Repeated agent invocation",
+      "scenario": "100 consecutive invocations on same input",
+      "observed_behavior": "100/100 outputs bit-for-bit identical, zero state leakage, zero memory accumulation",
+      "status": "PASS"
+    },
+    {
+      "fixture_id": "FIX-14",
+      "name": "Restart from historical state",
+      "scenario": "Invocation on deep-copied market and portfolio state",
+      "observed_behavior": "Deterministic bit-level equality between runs",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "total_fixtures": 14,
+    "passed": 14,
+    "failed": 0,
+    "adversarial_robustness_verdict": "COMPLIANT_AND_ROBUST"
+  }
+}

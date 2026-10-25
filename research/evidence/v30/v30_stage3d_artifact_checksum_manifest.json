@@ -1,0 +1,103 @@
+{
+  "stage": "V30_STAGE_3D",
+  "checkpoint_head": "4540ee49dac29e4599fbbeb96bbcffd2dafd6705",
+  "total_artifacts": 16,
+  "artifacts": [
+    {
+      "path": "GUARDIAN_ALPHA_V30_STAGE3D_EXPLORATORY_AND_OPERATIONAL_READINESS.md",
+      "byte_count": 21646,
+      "sha256_raw": "10f517972076e00ce81297a3bc0dbd5770108056d00b4dfd1c95008b5b6c8a8e",
+      "sha256_lf": "10f517972076e00ce81297a3bc0dbd5770108056d00b4dfd1c95008b5b6c8a8e"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_canonical_decision_register.json",
+      "byte_count": 2093,
+      "sha256_raw": "ae72844af62015229e77e490b505a95dd35c89592b64e4173b07ddee172716c4",
+      "sha256_lf": "3c9146d722df4470204629944398a05aa840df1ddb402f8ac113451255f68a03"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_checkpoint_certification.json",
+      "byte_count": 1503,
+      "sha256_raw": "84fc829fcd1a76e4236e4a84874e4c449c26560e10f4057753347aa5a9304dda",
+      "sha256_lf": "0cdc705b3f43329308b2a0864e8424c3f54f4e820024357f53e439757258f3f7"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_competition_readiness_assessment.json",
+      "byte_count": 1406,
+      "sha256_raw": "dd14c687b93fa666488c8e31cb1d6035a94eccec97f797c2c6f7ca8953a24505",
+      "sha256_lf": "13b4b1877e8f812d74d881c268aecbb4ae87887cb92c98942140e32da4b12c99"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_data_rights_and_provenance_matrix.json",
+      "byte_count": 3950,
+      "sha256_raw": "8840a459d527e30f706d63788c5247b7a649daebf80a082f1f202efaa629588e",
+      "sha256_lf": "1422bd29c277485ac22451c0a88a445feb92d8e66ef9b20e67ecbadd661516f0"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_executed_test_ledger.json",
+      "byte_count": 9177,
+      "sha256_raw": "5f43699364f13ea94ccf74027cfecfb8dd9ea2c45eb5288059e71edd328fa1a8",
+      "sha256_lf": "5f43699364f13ea94ccf74027cfecfb8dd9ea2c45eb5288059e71edd328fa1a8"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_execution_contract_parity_matrix.json",
+      "byte_count": 6613,
+      "sha256_raw": "fd18c8f86e2c6c261fc37bcb5cc9fd1268162d0ca183f9e71d80efd9b5e25c52",
+      "sha256_lf": "add6cc25c5e56f8087792c4a6f0728d6e93670b7766e3b579679b403d1d49a2e"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_exploratory_protocol_specification.json",
+      "byte_count": 5644,
+      "sha256_raw": "630f7904d5fc511727c7e849a69884631bf523ca44bc6b3437d9653efc00b5a5",
+      "sha256_lf": "da93c7783e72951599dbc97fde506db3404b299c2dfe553c9f7c79ab69d6c13a"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_failure_injection_results.json",
+      "byte_count": 2315,
+      "sha256_raw": "1f73fb4be0582b43c22eae4ff08d194e835dc98d452227f181d38d72c4d8bfa5",
+      "sha256_lf": "f237db7c180cc0f7cabe71a381d2ab7d4331d682c9cd93e562481e73d637b080"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_project_requirements_traceability.json",
+      "byte_count": 4684,
+      "sha256_raw": "80b323bce9b875194522d6fd4eec903792d9c3e29aaf498710ab7cef0624f300",
+      "sha256_lf": "c880355d9a1337f44d60292a25440bfa125f916f8917b12e1cfe1deb96973a1d"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_prospective_readiness_assessment.json",
+      "byte_count": 2691,
+      "sha256_raw": "ab72ec94e413f70e0f175b5511647e2f055827894ee9775b85f36f8ee28c6209",
+      "sha256_lf": "9a3d363b3dafdf195f7e61cec70b34e7888ce0e5229d4cb95510c1fda3eeffb1"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_risk_and_incident_architecture.json",
+      "byte_count": 2988,
+      "sha256_raw": "29a7ef2c4743743900c3270d9db1f05cc4213138f51d3e0908137e5021745eb0",
+      "sha256_lf": "e9bb7c0f142ac8ad5d37acc5d4ecf238861a1228ee90f909b6dc3b52921e0bcd"
+    },
+    {
+      "path": "research/evidence/v30/v30_stage3d_synthetic_end_to_end_trace.json",
+      "byte_count": 3337,
+      "sha256_raw": "be499ef1396ca3283919c9618e20972ac4d9c4ab93d254da187d8633193a3abc",
+      "sha256_lf": "c9bcb596dac5184c351dc40accce708c1bd62d1af254e3dc17b7844f7ad24720"
+    },
+    {
+      "path": "research/simulations/v30_stage3d_failure_injection_harness.py",
+      "byte_count": 6896,
+      "sha256_raw": "8151240130667b46dd967d12090430fb2cbc7ecd9d7623221abfcfd9fa231100",
+      "sha256_lf": "8151240130667b46dd967d12090430fb2cbc7ecd9d7623221abfcfd9fa231100"
+    },
+    {
+      "path": "research/simulations/v30_stage3d_offline_end_to_end_harness.py",
+      "byte_count": 10996,
+      "sha256_raw": "db8df2f65fd48b1a879d4806e8ed68f44fd50353c4d41bbfb7e62cae30478983",
+      "sha256_lf": "db8df2f65fd48b1a879d4806e8ed68f44fd50353c4d41bbfb7e62cae30478983"
+    },
+    {
+      "path": "research/tests/test_v30_stage3d_operational_readiness.py",
+      "byte_count": 10071,
+      "sha256_raw": "5f5a3dc02af0ad0afd752176381e893d5b270866097df22ffe85bd76ea5541ca",
+      "sha256_lf": "5f5a3dc02af0ad0afd752176381e893d5b270866097df22ffe85bd76ea5541ca"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "stage": "V30_STAGE_3E",
+  "artifact_type": "CHECKPOINT_CERTIFICATION",
+  "generated_at": "2026-10-25T19:55:00+05:30",
+  "repository": {
+    "path": "C:\\Users\\Manish\\Downloads\\Guardian-Alpha-V29B",
+    "branch": "archive/v30-stage2h-final-evidence-freeze",
+    "head_commit": "4540ee49dac29e4599fbbeb96bbcffd2dafd6705",
+    "parent_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "parent_commit_file_count": 469,
+    "head_commit_delta_file_count": 87,
+    "status": "MATCH"
+  },
+  "working_tree_cleanliness": {
+    "staged_changes_count": 0,
+    "modified_tracked_files_count": 0,
+    "status": "CLEAN"
+  },
+  "protected_source_file_hashes": [
+    {
+      "file": "agent.py",
+      "expected_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "actual_raw_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "actual_lf_sha256": "9c43d78903c723f538354c0032bc977da09db6ee0e02544ec26456f9ba7b4cb7",
+      "status": "MATCH"
+    },
+    {
+      "file": "universe.json",
+      "expected_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "actual_raw_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "actual_lf_sha256": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "status": "MATCH"
+    },
+    {
+      "file": "research/strategies/v12_candidate_ae.py",
+      "expected_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "actual_raw_sha256": "0ba1a774a16174a72d1f4ba4019bfb8b2ba7ae17c91d84a56a6be97bbbc5594b",
+      "actual_lf_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "status": "MATCH"
+    },
+    {
+      "file": "research/strategies/v30_candidate_d2_cash_cushion.py",
+      "expected_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "actual_raw_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "actual_lf_sha256": "e2a4be6ce4546555b2d7cbdd96f8c7b80a61c31276a6cf384ea8d4ba9f40822e",
+      "status": "MATCH"
+    }
+  ],
+  "tier3_holdout_isolation": {
+    "directory": "tiingo_cache/",
+    "git_tracking": "UNTRACKED",
+    "files_inspected_count": 0,
+    "files_hashed_count": 0,
+    "forward_leakage_status": "ZERO_LEAKAGE"
+  },
+  "overall_checkpoint_status": "CERTIFIED_VALID"
+}

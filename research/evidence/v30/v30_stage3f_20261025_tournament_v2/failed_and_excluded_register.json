@@ -1,0 +1,14 @@
+{
+  "failed_candidate_entries": [],
+  "failed_runs": [],
+  "blocked_data_tracks": [
+    "real Tier1/Tier2",
+    "sealed Tier3",
+    "public fixture rights unresolved"
+  ],
+  "not_verified_trials": [
+    "unnamed Stage6/Stage2C cutoff and Stage2D halflife sweeps without distinct frozen execution configuration"
+  ],
+  "excluded_from_primary_ranking": "noncompliant runs remain visible but unranked; duplicate wrapper marked",
+  "injected_test_failures": "test_24 intentionally raises ValueError twice and verifies FAILED classification; not a harness test failure"
+}

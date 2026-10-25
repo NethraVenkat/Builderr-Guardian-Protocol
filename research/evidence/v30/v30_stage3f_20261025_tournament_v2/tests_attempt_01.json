@@ -1,0 +1,12 @@
+{
+  "attempt": "01",
+  "command": "python -B research/tests/test_v30_stage3f_20261025_tournament.py 01",
+  "tests": 31,
+  "failures": [],
+  "errors": [],
+  "elapsed_seconds": 7.501921700000821,
+  "exit_code": 0,
+  "passed": 31,
+  "harness_sha256": "4fd645917bfb0e8f9074999f2159df360386f273758d8960ef398732ec656b20",
+  "test_sha256": "07d915f7509278c47b53e516a828a0cd757cbbfc03db70766bc864d8175ed9de"
+}

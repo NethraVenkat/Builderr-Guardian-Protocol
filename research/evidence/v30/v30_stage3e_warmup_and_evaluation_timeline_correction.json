@@ -1,0 +1,60 @@
+{
+  "stage": "V30_STAGE_3E",
+  "artifact_type": "WARMUP_AND_EVALUATION_TIMELINE_CORRECTION",
+  "generated_at": "2026-10-25T20:02:00+05:30",
+  "investigation_of_stage3d_claim": {
+    "original_claim": "Stage 3D stated that future research requires 220 consecutive days of live warmup logging followed by 60 days of prespecified exploratory evaluation.",
+    "audit_verdict": "CONCEPTUAL_CONFLATION_IDENTIFIED_AND_CORRECTED",
+    "root_cause": "Stage 3D conflated the concept of 'historical market bar warmup' with 'prospective calendar waiting time'."
+  },
+  "authoritative_breakdown": {
+    "warmup_definition": {
+      "exact_meaning": "220 historical daily market bars (trading sessions)",
+      "calendar_days": "Approximately 10 to 11 calendar months of historical market data",
+      "purpose": "Provides sufficient lookback history so that trailing technical indicators (e.g., 50-day SMA, 60-day momentum, 200-day trend filters) can be computed accurately from the very first decision tick (tick 1).",
+      "how_supplied_in_competition": "Supplied AUTOMATICALLY by the competition evaluation platform (preview.py or live_runner.py) in the market_state dictionary at tick 1. Competitors do NOT wait 220 calendar days.",
+      "how_supplied_in_prospective_research": "Retrieved via a single batch API call for historical EOD daily bars (e.g. from Tiingo or Alpaca) on initialization. Requires zero live observation days to seed."
+    },
+    "evaluation_horizon_definition": {
+      "competition_evaluation": {
+        "nature": "Fixed live forward-scoring challenge window",
+        "dates": "July 7, 2026 to November 9, 2026 (US market open to close)",
+        "total_sessions": "Approximately 88 trading sessions",
+        "scoring_rule": "Forward percentage return calculated from each entrant's official ENTRY date through November 9, 2026. Prior history is dropped on revision."
+      },
+      "local_admission_preview": {
+        "nature": "Offline diagnostic smoke test across 3 public sample market windows",
+        "windows": "calm_uptrend (~252 bars), moderate_selloff (~252 bars), vol_spike_snapback (~252 bars)",
+        "purpose": "Gating safety check (leverage <= 1.5x, concentration <= 30%, max drawdown < 50%). Does not count toward leaderboard ranking."
+      },
+      "prospective_exploratory_research_study": {
+        "nature": "Separately prespecified observational study (Track B)",
+        "proposed_horizon": "60 prospective trading sessions (formulated in Stage 3B as a heuristic evaluation window; power analysis showed 60 sessions provides only ~20.3% power for delta SR=0.20; 252 sessions required for 80% power)",
+        "governance_status": "Awaits human owner decision DEC-04 approval. Not bound to competition challenge dates."
+      }
+    }
+  },
+  "reconciliation_summary": [
+    {
+      "dimension": "Warmup Data",
+      "competition_track": "220 historical daily bars pre-loaded by platform at tick 1",
+      "prospective_track": "220 historical daily bars pre-loaded via historical batch query at startup"
+    },
+    {
+      "dimension": "Initial Signal Generation",
+      "competition_track": "Occurs on tick 1 using pre-loaded 220 historical bars",
+      "prospective_track": "Occurs on tick 1 using pre-loaded 220 historical bars"
+    },
+    {
+      "dimension": "Evaluation Start Date",
+      "competition_track": "First market session after admission receipt is processed by platform",
+      "prospective_track": "First live observation session after observer daemon deployment"
+    },
+    {
+      "dimension": "Evaluation Duration",
+      "competition_track": "Through November 9, 2026 (round closing date)",
+      "prospective_track": "Prespecified 60 to 252 sessions as approved under DEC-04"
+    }
+  ],
+  "unresolved_ambiguity_preserved": "The competition live runner's fallback variable EVAL_DAYS = 60 is documented in source comments as '(history sizing only) trailing window used when fetching bars'. It does not constrain the length of the live scoring window, which runs until November 9, 2026."
+}

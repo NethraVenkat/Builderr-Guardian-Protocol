@@ -1,0 +1,50 @@
+{
+  "canonical_decision_register": {
+    "timestamp_utc": "2026-10-25T19:40:00Z",
+    "stage": "V30 Stage 3D",
+    "decisions": [
+      {
+        "decision_id": "DEC-01",
+        "title": "Market Data Provider Selection",
+        "status": "PENDING",
+        "offline_research_permitted": true,
+        "recommendation": "Tiingo Power (/mo) for offline daily bar research; Alpaca AlgoTrader Plus (/mo) for paper order routing."
+      },
+      {
+        "decision_id": "DEC-02",
+        "title": "Market Data Licensing and Rights",
+        "status": "STRICTLY_BLOCKED",
+        "offline_research_permitted": true,
+        "recommendation": "REMAINS STRICTLY BLOCKED. Commercial non-display addenda and data purge architecture required."
+      },
+      {
+        "decision_id": "DEC-03",
+        "title": "Statistical Endpoint and Inferential Protocol",
+        "status": "EXPLORATORY_ONLY_RECOMMENDED_PENDING_APPROVAL",
+        "offline_research_permitted": true,
+        "recommendation": "Exploratory observational comparison endorsed; confirmatory superiority rejected due to small-sample size distortion."
+      },
+      {
+        "decision_id": "DEC-04",
+        "title": "Evaluation Horizon and Stopping Rules",
+        "status": "PENDING",
+        "offline_research_permitted": true,
+        "recommendation": "Inverse sampling quota design (minimum N_def >= 30, baseline 252 sessions, maximum 504 sessions)."
+      },
+      {
+        "decision_id": "DEC-05",
+        "title": "Monitoring and Incident Governance",
+        "status": "CONDITIONAL",
+        "offline_research_permitted": true,
+        "recommendation": "Automated circuit breaker tripwires verified offline; physical latency benchmark pending authorization."
+      },
+      {
+        "decision_id": "DEC-06",
+        "title": "Activation Authority",
+        "status": "STRICTLY_BLOCKED",
+        "offline_research_permitted": false,
+        "recommendation": "PERMANENT SAFETY BARRIER. Prospective live and paper execution remain strictly unauthorized."
+      }
+    ]
+  }
+}

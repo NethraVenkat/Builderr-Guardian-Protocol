@@ -1,0 +1,54 @@
+{
+  "risk_and_incident_architecture": {
+    "timestamp_utc": "2026-10-25T19:30:00Z",
+    "stage": "V30 Stage 3D",
+    "architecture_policy": "Fail-closed production risk management. All operational components must default to holding existing positions or halting execution upon boundary violations.",
+    "operational_components": {
+      "persistent_incident_lock": {
+        "classification": "EXISTING_AND_TESTED",
+        "implementation": "HardenedCausalEventEngine state quarantine and HALT_EXECUTION lockfile.",
+        "behavior": "Halts event ingestion and prevents order dispatch upon critical error."
+      },
+      "idempotent_decision_journal": {
+        "classification": "EXISTING_AND_TESTED",
+        "implementation": "Deterministic SHA-256 event hashing and duplicate registration cache.",
+        "behavior": "Re-submitting duplicate market bars or decisions produces identical state without double-counting."
+      },
+      "data_staleness_detector": {
+        "classification": "EXISTING_AND_TESTED",
+        "implementation": "Committed watermark tracking in HardenedCausalEventEngine.",
+        "behavior": "Observations timestamped behind committed watermark are quarantined as QUARANTINED_LATE."
+      },
+      "duplicate_order_prevention": {
+        "classification": "EXISTING_AND_TESTED",
+        "implementation": "Pending order queue deduplication based on ticker and trading date.",
+        "behavior": "Rejects contradictory orders submitted on the same trading date."
+      },
+      "position_reconciliation": {
+        "classification": "PROPOSED",
+        "implementation": "Daily sync between local cash/positions ledger and broker execution journal.",
+        "behavior": "Discrepancies > 0.5% trigger warning; discrepancies > 2% trigger execution lock."
+      },
+      "partial_fill_handling": {
+        "classification": "PROPOSED",
+        "implementation": "Broker partial execution tracker that updates average cost and cancels unfilled tails.",
+        "behavior": "Ensures cash balance reflects actual broker execution without phantom position inflation."
+      },
+      "calendar_anomalies_and_closures": {
+        "classification": "EXISTING_AND_TESTED",
+        "implementation": "is_us_market_weekend() and US equity holiday calendar checks.",
+        "behavior": "Quarantines weekend and holiday observations."
+      },
+      "circuit_breakers": {
+        "classification": "EXISTING_AND_TESTED",
+        "implementation": "Tripwire checks: single-day slippage > 50 bps, 3 missing bars, drawdown > 50%.",
+        "behavior": "Suspends evaluation and records episode as INFORMATIVE_CENSORING."
+      },
+      "human_operator_override": {
+        "classification": "EXISTING_AND_TESTED",
+        "implementation": "Manual override file that can force liquidation to cash or lock engine state.",
+        "behavior": "Human owner maintains ultimate operational control."
+      }
+    }
+  }
+}

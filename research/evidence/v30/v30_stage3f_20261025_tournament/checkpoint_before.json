@@ -1,0 +1,36 @@
+{
+  "branch": "archive/v30-stage2h-final-evidence-freeze",
+  "head": "4540ee49dac29e4599fbbeb96bbcffd2dafd6705",
+  "parent": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+  "tracked_status": "",
+  "hashes": {
+    "agent.py": {
+      "mode": "raw",
+      "expected": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "actual": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "match": true
+    },
+    "universe.json": {
+      "mode": "lf",
+      "expected": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "actual": "66563b613c0bd760759afb23ebb95c59385cfbcfb1b05569e392cb4b683cb5dd",
+      "match": true
+    },
+    "research/strategies/v12_candidate_ae.py": {
+      "mode": "lf",
+      "expected": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "actual": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+      "match": true
+    },
+    "research/strategies/v30_candidate_d2_cash_cushion.py": {
+      "mode": "raw",
+      "expected": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "actual": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+      "match": true
+    }
+  },
+  "archive_deltas": {
+    "HEAD": "87 files changed, 25734 insertions(+)",
+    "HEAD^": "198 files changed, 42394 insertions(+)"
+  }
+}

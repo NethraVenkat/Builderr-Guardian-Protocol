@@ -1,0 +1,107 @@
+{
+  "project_requirements_traceability": {
+    "timestamp_utc": "2026-10-25T19:40:00Z",
+    "stage": "V30 Stage 3D",
+    "evaluation_framework": "Evaluation of Guardian Alpha across 14 canonical system requirements.",
+    "requirements": [
+      {
+        "req_id": "REQ-01",
+        "name": "Competition Entry Contract",
+        "description": "agent.py implements decide(market_state, portfolio_state, cash) with pure standard library.",
+        "status": "PASS",
+        "evidence": "agent.py verified, clears preview.py admission checks in ~1.2s."
+      },
+      {
+        "req_id": "REQ-02",
+        "name": "Frozen Universe Isolation",
+        "description": "Trades only approved sector ETFs in universe.json (10 sector ETFs + SPY).",
+        "status": "PASS",
+        "evidence": "universe.json LF hash matched; agent.py restricts orders to RISK_CANDIDATES."
+      },
+      {
+        "req_id": "REQ-03",
+        "name": "Warmup Processing",
+        "description": "Successfully processes 200+ historical bars without crashing or buffer overflows.",
+        "status": "PASS",
+        "evidence": "Synthetic harness verified 220-bar warmup sequence cleanly."
+      },
+      {
+        "req_id": "REQ-04",
+        "name": "Evaluation Horizon Management",
+        "description": "Maintains state across 60-day evaluation window without memory leakage or state drift.",
+        "status": "PASS",
+        "evidence": "Synthetic harness verified 60-day evaluation window with 125 executed trades."
+      },
+      {
+        "req_id": "REQ-05",
+        "name": "Allowed Data Integrity",
+        "description": "Uses only provided daily OHLCV bars; zero unauthorized web lookups or LLM queries.",
+        "status": "PASS",
+        "evidence": "agent.py has zero network imports, zero LLM dependencies."
+      },
+      {
+        "req_id": "REQ-06",
+        "name": "Causal Chronology & Information Boundary",
+        "description": "Decides on T-1 close; executes at T open. No lookahead leakage.",
+        "status": "PASS",
+        "evidence": "preview.py and HardenedCausalEventEngine enforce T-1 close -> T open order fills."
+      },
+      {
+        "req_id": "REQ-07",
+        "name": "Gross Leverage Cap (1.5x)",
+        "description": "Gross beta-adjusted exposure / equity must not exceed 1.50x.",
+        "status": "PASS",
+        "evidence": "preview.py verifies peak gross leverage of 0.94x <= 1.50x."
+      },
+      {
+        "req_id": "REQ-08",
+        "name": "Position Concentration Breach Gate (<30%)",
+        "description": "No single position >= 30% for > 5 consecutive days.",
+        "status": "PASS",
+        "evidence": "preview.py verifies peak concentration 26%, 0 days >= 30%."
+      },
+      {
+        "req_id": "REQ-09",
+        "name": "Catastrophic Drawdown Protection (<50%)",
+        "description": "Maximum peak-to-trough drawdown must remain below 50.0%.",
+        "status": "PASS",
+        "evidence": "preview.py verifies worst drawdown 33.5% < 50.0%."
+      },
+      {
+        "req_id": "REQ-10",
+        "name": "Portfolio Cash Accounting",
+        "description": "Long-only, non-negative cash, accurate transaction cost modeling.",
+        "status": "PASS",
+        "evidence": "Affordance checks prevent negative cash; 5 bps slippage accounted."
+      },
+      {
+        "req_id": "REQ-11",
+        "name": "Statistical Evaluation Protocol",
+        "description": "Rigorous statistical methodology for comparing strategies.",
+        "status": "PARTIAL",
+        "evidence": "Confirmatory joint test failed small-sample size calibration; exploratory protocol fully specified."
+      },
+      {
+        "req_id": "REQ-12",
+        "name": "Scientific Reproducibility",
+        "description": "Cryptographic hashes, deterministic seeds, full evidence trail.",
+        "status": "PASS",
+        "evidence": "87 committed files, SHA-256 manifests, reproducible random seeds across all tests."
+      },
+      {
+        "req_id": "REQ-13",
+        "name": "Provider Rights & Licensing",
+        "description": "Contractual entitlement for prospective market-data storage and non-display trading.",
+        "status": "BLOCKED",
+        "evidence": "DEC-02 strictly blocked; commercial non-display addenda pending owner action."
+      },
+      {
+        "req_id": "REQ-14",
+        "name": "Activation Governance",
+        "description": "Formal separation of research from prospective trading execution.",
+        "status": "PASS",
+        "evidence": "DEC-06 permanently strictly blocked; zero autonomous activation authority."
+      }
+    ]
+  }
+}

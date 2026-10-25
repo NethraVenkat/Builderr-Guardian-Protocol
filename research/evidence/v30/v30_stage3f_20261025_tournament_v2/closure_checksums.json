@@ -1,0 +1,11 @@
+{
+  "self_excluded": true,
+  "base_manifest": {
+    "path": "research\\evidence\\v30\\v30_stage3f_20261025_tournament_v2\\artifact_checksums.json",
+    "sha256": "e3c362f49883ed174e9c23fabb909acdce8f9f5c66ab5fc7742df30940956e59"
+  },
+  "final_receipt": {
+    "path": "research\\evidence\\v30\\v30_stage3f_20261025_tournament_v2\\final_audit_receipt.json",
+    "sha256": "28e1c5a8bb584a55a817749ac1c24d968d7a132af3563d5a08e30fa0a2c5cb62"
+  }
+}

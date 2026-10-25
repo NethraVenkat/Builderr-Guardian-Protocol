@@ -1,0 +1,121 @@
+{
+  "stage": "V30_STAGE_3E",
+  "artifact_type": "CANONICAL_GOVERNANCE_CROSSWALK",
+  "generated_at": "2026-10-25T20:01:00+05:30",
+  "canonical_decision_definitions": {
+    "DEC-01": "Market Data Provider Selection",
+    "DEC-02": "Market Data Licensing and Rights",
+    "DEC-03": "Statistical Endpoint and Inferential Protocol",
+    "DEC-04": "Evaluation Horizon and Stopping Rules",
+    "DEC-05": "Monitoring and Incident Governance",
+    "DEC-06": "Activation Authority"
+  },
+  "stage_by_stage_crosswalk": [
+    {
+      "stage": "Stage 3A",
+      "artifact": "research/evidence/v30/v30_stage3a_owner_decision_register.json",
+      "decisions": {
+        "DEC-01": {"title": "Select Prospective Market-Data Provider", "status": "PENDING"},
+        "DEC-02": {"title": "Authorize Market-Data Licensing Strategy", "status": "PENDING"},
+        "DEC-03": {"title": "Ratify Prospective Statistical Protocol", "status": "PENDING"},
+        "DEC-04": {"title": "Approve Prospective Evaluation Horizon and Stopping Rules", "status": "PENDING"},
+        "DEC-05": {"title": "Authorize Prospective Monitoring and Incident Governance", "status": "PENDING"},
+        "DEC-06": {"title": "Prospective Activation Authority", "status": "STRICTLY_BLOCKED"}
+      }
+    },
+    {
+      "stage": "Stage 3B",
+      "artifact": "research/evidence/v30/v30_stage3b_updated_decision_register.json",
+      "decisions": {
+        "DEC-01": {"title": "Market-Data Provider Selection", "status": "PENDING_OWNER_SELECTION"},
+        "DEC-02": {"title": "Market-Data Licensing Strategy", "status": "PENDING_LEGAL_RATIFICATION"},
+        "DEC-03": {"title": "Statistical Protocol and Inferential Standard", "status": "PENDING_OWNER_RATIFICATION"},
+        "DEC-04": {"title": "Prospective Horizon and Stopping Rules", "status": "PENDING_OWNER_APPROVAL"},
+        "DEC-05": {"title": "Incident Response and Dynamic Monitoring", "status": "PENDING_OWNER_AUTHORIZATION"},
+        "DEC-06": {"title": "Prospective Activation Authority", "status": "STRICTLY_BLOCKED"}
+      }
+    },
+    {
+      "stage": "Stage 3B-R",
+      "artifact": "research/evidence/v30/v30_stage3b_r_updated_decision_register.json",
+      "decisions": {
+        "DEC-01": {"title": "Market-Data Provider Selection", "status": "PENDING_OWNER_SELECTION"},
+        "DEC-02": {"title": "Market-Data Licensing and Rights", "status": "BLOCKED_PENDING_COMMERCIAL_AGREEMENT"},
+        "DEC-03": {"title": "Statistical Protocol and Inferential Standard", "status": "CALIBRATION_FAILED_EXPLORATORY_PROPOSED"},
+        "DEC-04": {"title": "Prospective Horizon and Stopping Rules", "status": "PENDING_OWNER_RATIFICATION"},
+        "DEC-05": {"title": "Operational Risk and Incident Response", "status": "CONDITIONAL_ON_MONITORING_SETUP"},
+        "DEC-06": {"title": "Prospective Activation Authority", "status": "STRICTLY_BLOCKED"}
+      }
+    },
+    {
+      "stage": "Stage 3C",
+      "artifact": "research/evidence/v30/v30_stage3c_canonical_owner_decision_register.json",
+      "decisions": {
+        "DEC-01": {"title": "Market Data Provider Selection", "status": "PENDING_OWNER_SELECTION"},
+        "DEC-02": {"title": "Market Data Licensing and Rights", "status": "STRICTLY_BLOCKED"},
+        "DEC-03": {"title": "Statistical Endpoint and Inferential Protocol", "status": "EXPLORATORY_ONLY_RECOMMENDED"},
+        "DEC-04": {"title": "Evaluation Horizon and Stopping Rules", "status": "PENDING_OWNER_RATIFICATION"},
+        "DEC-05": {"title": "Monitoring and Incident Governance", "status": "CONDITIONAL_APPROVAL_RECOMMENDED"},
+        "DEC-06": {"title": "Activation Authority", "status": "STRICTLY_BLOCKED"}
+      }
+    },
+    {
+      "stage": "Stage 3D (Evidence JSON)",
+      "artifact": "research/evidence/v30/v30_stage3d_canonical_decision_register.json",
+      "decisions": {
+        "DEC-01": {"title": "Market Data Provider Selection", "status": "PENDING"},
+        "DEC-02": {"title": "Market Data Licensing and Rights", "status": "STRICTLY_BLOCKED"},
+        "DEC-03": {"title": "Statistical Endpoint and Inferential Protocol", "status": "EXPLORATORY_ONLY_RECOMMENDED_PENDING_APPROVAL"},
+        "DEC-04": {"title": "Evaluation Horizon and Stopping Rules", "status": "PENDING"},
+        "DEC-05": {"title": "Monitoring and Incident Governance", "status": "CONDITIONAL"},
+        "DEC-06": {"title": "Activation Authority", "status": "STRICTLY_BLOCKED"}
+      }
+    },
+    {
+      "stage": "Stage 3D (Markdown Report Table 7.4 - Inconsistency Documented)",
+      "artifact": "GUARDIAN_ALPHA_V30_STAGE3D_EXPLORATORY_AND_OPERATIONAL_READINESS.md",
+      "discrepancy_explanation": "Table 7.4 in the Stage 3D markdown report erroneously relabeled the decision titles (e.g. DEC-01 as 'Strategy Selection', DEC-03 as 'Exploratory Protocol Adoption', DEC-04 as 'Execution Contract Parity Model', DEC-05 as 'Production Readiness Approval'). This was a descriptive reporting drift; the underlying evidence JSON retained canonical definitions. This drift is preserved as historical evidence, and Stage 3E formally re-establishes the canonical cross-stage taxonomy.",
+      "reported_labels": {
+        "DEC-01": "Strategy Selection",
+        "DEC-02": "Data Rights & Commercial Licensing Approval",
+        "DEC-03": "Exploratory Protocol Adoption",
+        "DEC-04": "Execution Contract Parity Model & Slippage Calibration Adoption",
+        "DEC-05": "Production Readiness Approval",
+        "DEC-06": "Prospective Trading Activation"
+      }
+    }
+  ],
+  "restored_stage3e_statuses": {
+    "DEC-01": {
+      "title": "Market Data Provider Selection",
+      "status": "PENDING",
+      "rationale": "Tiingo Power ($30/mo) recommended for daily EOD bar research; Alpaca AlgoTrader Plus ($9/mo) for simulated paper routing. Awaits owner selection."
+    },
+    "DEC-02": {
+      "title": "Market Data Licensing and Rights",
+      "status": "BLOCKED",
+      "rationale": "Commercial non-display redistribution rights and automated data-purge architecture unresolved. Commercial deployment legally blocked."
+    },
+    "DEC-03": {
+      "title": "Statistical Endpoint and Inferential Protocol",
+      "status": "EXPLORATORY-ONLY PROPOSED, OWNER APPROVAL PENDING",
+      "rationale": "Confirmatory statistical superiority testing formally abandoned due to small-sample size distortion (p=0.17 at alpha=0.05). Prespecified exploratory protocol proposed."
+    },
+    "DEC-04": {
+      "title": "Evaluation Horizon and Stopping Rules",
+      "status": "PENDING",
+      "rationale": "Inverse sampling quota design (minimum N_def >= 30, baseline 252 sessions, maximum 504 sessions) awaits owner signature."
+    },
+    "DEC-05": {
+      "title": "Monitoring and Incident Governance",
+      "status": "CONDITIONAL",
+      "rationale": "Automated fail-closed quarantines and circuit breakers verified offline; physical network latency profiling (DEC-05.B) pending hardware access."
+    },
+    "DEC-06": {
+      "title": "Activation Authority",
+      "status": "STRICTLY BLOCKED",
+      "rationale": "Permanent institutional safety barrier. Live capital deployment, real broker execution, and autonomous order generation are strictly forbidden."
+    }
+  },
+  "milestone_demarcation": "Competition submission certification is a separate project milestone (Track A), NOT a replacement meaning for any DEC identifier."
+}

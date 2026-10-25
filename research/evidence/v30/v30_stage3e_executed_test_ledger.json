@@ -1,0 +1,87 @@
+{
+  "stage": "V30_STAGE_3E",
+  "artifact_type": "EXECUTED_TEST_LEDGER",
+  "checkpoint_head": "4540ee49dac29e4599fbbeb96bbcffd2dafd6705",
+  "generated_at": "2026-10-25T20:08:00+05:30",
+  "execution_environment": {
+    "os": "Windows_NT 10.0.26100",
+    "python_version": "3.11.9",
+    "pytest_version": "9.1.1",
+    "git_branch": "archive/v30-stage2h-final-evidence-freeze"
+  },
+  "summary": {
+    "total_test_suites_executed": 6,
+    "total_checks_or_scenarios_evaluated": 54,
+    "total_passed": 54,
+    "total_failed": 0,
+    "overall_status": "ALL_TESTS_PASSED"
+  },
+  "executions": [
+    {
+      "test_suite_id": "TS-01-SELFCHECK",
+      "command": "python -X utf8 selfcheck.py",
+      "purpose": "Verify agent.py loads cleanly, runs 12 steps on synthetic bars, and emits well-formed orders",
+      "target_file": "selfcheck.py",
+      "exit_code": 0,
+      "duration_seconds": 0.6235,
+      "passed_count": 4,
+      "failed_count": 0,
+      "details": "12 steps executed, 4 orders emitted, secret scan clean in agent.py"
+    },
+    {
+      "test_suite_id": "TS-02-PREVIEW",
+      "command": "python -X utf8 preview.py",
+      "purpose": "Verify Builderr local admission safety bar across 3 public sample market windows",
+      "target_file": "preview.py",
+      "exit_code": 0,
+      "duration_seconds": 0.4755,
+      "passed_count": 6,
+      "failed_count": 0,
+      "details": "All 3 sample regimes completed; leverage 0.94x <= 1.5x; concentration 26% <= 30%; max DD 33.5% < 50%"
+    },
+    {
+      "test_suite_id": "TS-03-STRATEGY-SELFTEST",
+      "command": "python -X utf8 strategy_selftest.py",
+      "purpose": "Verify strategy-level contract, cap, and regime checks",
+      "target_file": "strategy_selftest.py",
+      "exit_code": 0,
+      "duration_seconds": 0.1395,
+      "passed_count": 8,
+      "failed_count": 0,
+      "details": "8 checks passed including fast decision latency (3.7ms)"
+    },
+    {
+      "test_suite_id": "TS-04-ADVERSARIAL-FIXTURES",
+      "command": "pytest research/tests/test_v30_stage3e_competition_adversarial.py -v",
+      "purpose": "Stress test agent.py against 14 adversarial synthetic inputs and market dislocations",
+      "target_file": "research/tests/test_v30_stage3e_competition_adversarial.py",
+      "exit_code": 0,
+      "duration_seconds": 0.27,
+      "passed_count": 14,
+      "failed_count": 0,
+      "details": "14/14 adversarial fixtures passed cleanly"
+    },
+    {
+      "test_suite_id": "TS-05-CERTIFICATION-SUITE",
+      "command": "pytest research/tests/test_v30_stage3e_competition_certification.py -v",
+      "purpose": "Certify checkpoint ancestry, protected hashes, zero tracked modifications, and governance reconciliation",
+      "target_file": "research/tests/test_v30_stage3e_competition_certification.py",
+      "exit_code": 0,
+      "duration_seconds": 0.74,
+      "passed_count": 10,
+      "failed_count": 0,
+      "details": "10/10 certification tests passed"
+    },
+    {
+      "test_suite_id": "TS-06-STAGE3D-REGRESSION",
+      "command": "pytest research/tests/test_v30_stage3d_operational_readiness.py -v",
+      "purpose": "Regression test ensuring Stage 3D invariants remain 100% intact",
+      "target_file": "research/tests/test_v30_stage3d_operational_readiness.py",
+      "exit_code": 0,
+      "duration_seconds": 0.40,
+      "passed_count": 12,
+      "failed_count": 0,
+      "details": "12/12 Stage 3D regression checks passed"
+    }
+  ]
+}

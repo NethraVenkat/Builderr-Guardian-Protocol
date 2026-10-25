@@ -1,0 +1,552 @@
+[
+  {
+    "path": "agent.py",
+    "commit": "WORKTREE",
+    "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "agent.py",
+    "commit": "da94c01b29f6ef924b774e323a3a26b86fe21106",
+    "sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "agent.py",
+    "commit": "0f8a0bb262ffecf089418302526d64a658470a9d",
+    "sha256": "af20692da88d23df55b75670b3c7aacaeb54005c7d2d0511dfb32100dc905b0c",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "agent.py",
+    "commit": "f5f0e4d48f61621567bd5b922631a2d872ac6a0f",
+    "sha256": "5d9212db038f6fb4f67bc4ac81d0f8846eaee817776596aad2823b3eb45443e4",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "ai_momentum.py",
+    "commit": "WORKTREE",
+    "sha256": "42b2cb44fdfbaade9e9ca60a3ba508932f31ce3e0a2c6cff7d61a4aaacaa6fcd",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "ai_momentum.py",
+    "commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "sha256": "2c95233d4e124396b089b9729375a7cadbbb3ff741a59e64d449a86ee6382cbf",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "ai_momentum.py",
+    "commit": "c7fddd33ec700e54305af64da7d8e559267e9f6a",
+    "sha256": "f39c5ad45c8605899e91b890087ed2bfc36c963876234946d6da38ee8ba82da7",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "baseline.py",
+    "commit": "WORKTREE",
+    "sha256": "eb19b0e31d44961f804cb663abd03e1750a5f86da344eacc7b83a90e3b2cca6d",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "baseline.py",
+    "commit": "2817b34a692bc8cdb1f01b4b254799e9e4d264e8",
+    "sha256": "813f27dd58578b44a859378b8aa9acabbb3beffa6402d39d7ef57d48a419aefa",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "baseline.py",
+    "commit": "f5f0e4d48f61621567bd5b922631a2d872ac6a0f",
+    "sha256": "f16de592b501981e4ca2191ee5642ec9715edfb749492e9721e8e830ddce811a",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "drawdown_momentum.py",
+    "commit": "WORKTREE",
+    "sha256": "ec69adbe1bfcb881157e14eca0b0358a0133d008e4a60732c9301022a6aa5498",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "drawdown_momentum.py",
+    "commit": "aaffde487fb43c686237ec375a10b9940ba9c864",
+    "sha256": "f43bc69af64257490529c8d6065275cbf071d189b0fb7858ce94d9790d0cb12a",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "example_sector_rotation.py",
+    "commit": "WORKTREE",
+    "sha256": "922aa2fcfb9c8077eb2abc152b0f7a09a6f89138ef64a6428561d06ed9e4901f",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "example_sector_rotation.py",
+    "commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "sha256": "fc7a620dda458e034924d06a6fbd117dfe598169adb74a6691c2d3164e42f27a",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "example_sector_rotation.py",
+    "commit": "8857f3edcf2d450c894f4201ce242545d566f14e",
+    "sha256": "eabe4b656de941c02af21925bd0d5046bdb3a50202089791545bdc3d8e5769cb",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "example_vol_target.py",
+    "commit": "WORKTREE",
+    "sha256": "934d15636b7c7e0d3d9a708d0e24b83fa8383281d56a700ec2d25b8d9a723b49",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "example_vol_target.py",
+    "commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "sha256": "ea2fae36f6e24a481750471e29dd68aff9099d4a4e8a5cb8e6b5ecb58a12cc61",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "example_vol_target.py",
+    "commit": "8857f3edcf2d450c894f4201ce242545d566f14e",
+    "sha256": "5d60563377dfb42d34650c3da4a570357b9790fd64644d301b1c5dd01c3bdd42",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "house_barbell_realasset.py",
+    "commit": "WORKTREE",
+    "sha256": "52a59d2aef92e6ed95a629f81718a893a74fd3c6127cbdf24ef9b3716d255310",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "house_barbell_realasset.py",
+    "commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "sha256": "17dfd34cb63d7ff11eb5bf26743b383ca16198c3cc73f843e2c8ca493a421424",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "house_barbell_realasset.py",
+    "commit": "245e0fb8eafb6a590c8cff6e36028ca83450127c",
+    "sha256": "b16eb6840704e3e98767c9690a9b44fc97d919375c6cd6fb6705ec5ebcf8b6c7",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "momentum_v1.py",
+    "commit": "WORKTREE",
+    "sha256": "40622061d4b84c15420aa998c1d6185d3887d0509314319c37cda36239c73158",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "momentum_v1.py",
+    "commit": "c7fddd33ec700e54305af64da7d8e559267e9f6a",
+    "sha256": "c411abb37370a257b8bd4a09b1f9850ed66696b30c5e7acbdb9ea0ccc67f51db",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "qqq_benchmark.py",
+    "commit": "WORKTREE",
+    "sha256": "1049b7840bd39bcc8e55d26dbf3e588f3cb190a7c43a1b8a52e15eb3b1f692f5",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "qqq_benchmark.py",
+    "commit": "245e0fb8eafb6a590c8cff6e36028ca83450127c",
+    "sha256": "abf21ad81f9a091e5a9178e854861a19ce06635a97cb8960f642cc76c03dda2d",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/candidate_alpha.py",
+    "commit": "WORKTREE",
+    "sha256": "1bb1d5f23a9bc9514dd7da83e4c67d483377954c96b1f9dc96b871eae7479007",
+    "entries": [
+      "AdaptiveRiskParityCandidate"
+    ]
+  },
+  {
+    "path": "research/strategies/candidate_alpha.py",
+    "commit": "82343368dca7cba165c43a4362359ead844cb364",
+    "sha256": "8cd03d00ecfca49c83f88faaad28afa16e6f86df82cb7a261d135d847ae3137a",
+    "entries": [
+      "AdaptiveRiskParityCandidate"
+    ]
+  },
+  {
+    "path": "research/strategies/loss_reduction_candidates.py",
+    "commit": "WORKTREE",
+    "sha256": "e72b0f6630ae849387568ead2c3f4b45b64446d99bb42cc5d119eff325c022be",
+    "entries": [
+      "FastExitDeRiskingCandidate",
+      "IntegratedLossReductionCandidate"
+    ]
+  },
+  {
+    "path": "research/strategies/loss_reduction_candidates.py",
+    "commit": "700276f2c876899c2cfc3cb6ac1293b55ec9631a",
+    "sha256": "4553a89c48fd965ae6acbae40dc0df3e9a08bd7944b33388bbf4293302025d0c",
+    "entries": [
+      "FastExitDeRiskingCandidate",
+      "IntegratedLossReductionCandidate"
+    ]
+  },
+  {
+    "path": "research/strategies/v11_candidates.py",
+    "commit": "WORKTREE",
+    "sha256": "017a89dfcb7b8f5370d6829c5f81a97138fdcd7fe12ef051065d8011418ae02d",
+    "entries": [
+      "CandidateA_AdaptiveRebalance",
+      "CandidateB_EmergencyDeRisking",
+      "CandidateC_SectorRiskBudgeting",
+      "CandidateD_RecoveryParticipation",
+      "CandidateE_CostAwareRebalancing",
+      "CandidateF_IntegratedRiskControl"
+    ]
+  },
+  {
+    "path": "research/strategies/v11_candidates.py",
+    "commit": "cc82d0e092438f7e53ebe30d7f78c40c57c4dbab",
+    "sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entries": [
+      "CandidateA_AdaptiveRebalance",
+      "CandidateB_EmergencyDeRisking",
+      "CandidateC_SectorRiskBudgeting",
+      "CandidateD_RecoveryParticipation",
+      "CandidateE_CostAwareRebalancing",
+      "CandidateF_IntegratedRiskControl"
+    ]
+  },
+  {
+    "path": "research/strategies/v12_candidate_ae.py",
+    "commit": "WORKTREE",
+    "sha256": "406e8b9e8c4145faea764db41d6286b96b26e9b33808233458da584f9f245271",
+    "entries": [
+      "CandidateAE_Combined"
+    ]
+  },
+  {
+    "path": "research/strategies/v12_candidate_ae.py",
+    "commit": "9aaa943e95de06ac8eaaf96af8df4cd8db37327a",
+    "sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+    "entries": [
+      "CandidateAE_Combined"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_c1_tight_vol_gate.py",
+    "commit": "WORKTREE",
+    "sha256": "c9423c7b459f72e3e73bcbf0b0ba9cc7dc1067f4982925f1126cd203438ff3d0",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_c1_tight_vol_gate.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "c9423c7b459f72e3e73bcbf0b0ba9cc7dc1067f4982925f1126cd203438ff3d0",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_c2_vol_acceleration.py",
+    "commit": "WORKTREE",
+    "sha256": "c8d3949f8d2a7c5610eacf44c13551a2bdb1c73b2d0a9c4064b4a893391ba798",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_c2_vol_acceleration.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "c8d3949f8d2a7c5610eacf44c13551a2bdb1c73b2d0a9c4064b4a893391ba798",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_c3_vol_persistence.py",
+    "commit": "WORKTREE",
+    "sha256": "d0e2b8c00ea837891369377420770c203740eb1c8838c93a5886ac34f6558427",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_c3_vol_persistence.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "d0e2b8c00ea837891369377420770c203740eb1c8838c93a5886ac34f6558427",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_c4_combined_gates.py",
+    "commit": "WORKTREE",
+    "sha256": "25c90d7969b20b761d0d4d062ae80c981e90d07d3117e0c035fd3d39f99dfff0",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_c4_combined_gates.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "25c90d7969b20b761d0d4d062ae80c981e90d07d3117e0c035fd3d39f99dfff0",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_d1_energy_exit.py",
+    "commit": "WORKTREE",
+    "sha256": "fb90ef20bd5523a2cda21a54a1af13fa766e6983f4077a432595fde862819014",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_d1_energy_exit.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "fb90ef20bd5523a2cda21a54a1af13fa766e6983f4077a432595fde862819014",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+    "commit": "WORKTREE",
+    "sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_d3_recovery_discipline.py",
+    "commit": "WORKTREE",
+    "sha256": "f5629690e77bcce9f37ad57bd04a4d7a9b6d37770012b2cac05909f253abc09e",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_d3_recovery_discipline.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "f5629690e77bcce9f37ad57bd04a4d7a9b6d37770012b2cac05909f253abc09e",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_p1_inverse_vol.py",
+    "commit": "WORKTREE",
+    "sha256": "0f7875140cff89ea2f6e8f5319b3272cf62770d6546c66762765c20521187b65",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_p1_inverse_vol.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "0f7875140cff89ea2f6e8f5319b3272cf62770d6546c66762765c20521187b65",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_p2_capped_inverse_vol.py",
+    "commit": "WORKTREE",
+    "sha256": "370b465eeffb41fa860ebdd557f34c1434e0e0754d32f74ed2bcf53780162f5a",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_p2_capped_inverse_vol.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "370b465eeffb41fa860ebdd557f34c1434e0e0754d32f74ed2bcf53780162f5a",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_p3_smoothed_inverse_vol.py",
+    "commit": "WORKTREE",
+    "sha256": "20235faf8fb96d70acf0a464c96beff6d1019462f4cc30b2a4c77bcd75785ad0",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_p3_smoothed_inverse_vol.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "20235faf8fb96d70acf0a464c96beff6d1019462f4cc30b2a4c77bcd75785ad0",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_p4_blend_equal_inverse.py",
+    "commit": "WORKTREE",
+    "sha256": "495bbf65690e6fe4661d93f309ebeaf250fa8a06b1c967ba181cffb3d47b883d",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_candidate_p4_blend_equal_inverse.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "495bbf65690e6fe4661d93f309ebeaf250fa8a06b1c967ba181cffb3d47b883d",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_execution_safe_agent.py",
+    "commit": "WORKTREE",
+    "sha256": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6",
+    "entries": [
+      "V30ExecutionSafeAgent",
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_execution_safe_agent.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6",
+    "entries": [
+      "V30ExecutionSafeAgent",
+      "decide"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_execution_safe_agent_final.py",
+    "commit": "WORKTREE",
+    "sha256": "aaacaa8780f14df0b8ae5fb51fef1182f9b13cf9405b63e916119ad9c448b377",
+    "entries": [
+      "V30ExecutionSafeAgentFinal"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_execution_safe_agent_final.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "aaacaa8780f14df0b8ae5fb51fef1182f9b13cf9405b63e916119ad9c448b377",
+    "entries": [
+      "V30ExecutionSafeAgentFinal"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_execution_safe_agent_r.py",
+    "commit": "WORKTREE",
+    "sha256": "143616dfd2a4da224a8f735d4cc472180b55715aec46b60538b7fa953382316f",
+    "entries": [
+      "V30ExecutionSafeAgentR"
+    ]
+  },
+  {
+    "path": "research/strategies/v30_execution_safe_agent_r.py",
+    "commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "sha256": "143616dfd2a4da224a8f735d4cc472180b55715aec46b60538b7fa953382316f",
+    "entries": [
+      "V30ExecutionSafeAgentR"
+    ]
+  },
+  {
+    "path": "seed_dual_momentum.py",
+    "commit": "WORKTREE",
+    "sha256": "7844dc0b492ed09fe0ed122e0b83bc6c12d946f885ce26d12fc7d783c8f2a29f",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "seed_dual_momentum.py",
+    "commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "sha256": "00b0b2485179370e43d6c5adb96627c3896a3e402171bff49648a40cb3216d3f",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "seed_dual_momentum.py",
+    "commit": "33d40c9f86e8aa2a4e020093cb5d71c6df1f45f5",
+    "sha256": "749af760642237e88c6fed6bb3f6672d7a383605f47909d59abe9f64a8ea0420",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "soham_agent.py",
+    "commit": "f5f0e4d48f61621567bd5b922631a2d872ac6a0f",
+    "sha256": "c411abb37370a257b8bd4a09b1f9850ed66696b30c5e7acbdb9ea0ccc67f51db",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "soham_agent_v2.py",
+    "commit": "33d40c9f86e8aa2a4e020093cb5d71c6df1f45f5",
+    "sha256": "f39c5ad45c8605899e91b890087ed2bfc36c963876234946d6da38ee8ba82da7",
+    "entries": [
+      "decide"
+    ]
+  },
+  {
+    "path": "soham_agent_v2.py",
+    "commit": "f5f0e4d48f61621567bd5b922631a2d872ac6a0f",
+    "sha256": "9f208cd07a57d0fb444d99bd1c13fcae4ebb8b7764e060f52cfa69a2bcb3c65e",
+    "entries": [
+      "decide"
+    ]
+  }
+]

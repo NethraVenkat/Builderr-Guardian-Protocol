@@ -1,0 +1,16 @@
+{
+  "distinct_source_entry_parameter_graph_keys": 68,
+  "distinct_raw_source_files": 41,
+  "exact_duplicate_reference_count": 37,
+  "proven_default_wrapper_alias": {
+    "candidates": [
+      "C038",
+      "C039"
+    ],
+    "same_metrics_all_base_runs": true,
+    "reason": "module decide delegates to singleton default V30ExecutionSafeAgent; same constructor and arguments"
+  },
+  "implementation_upper_bound_after_wrapper_alias": 67,
+  "semantic_uniqueness": "NOT VERIFIED for all remaining pairs; comment/format differences and behaviorally inactive rules may remain",
+  "no_double_weighting": "leaderboards retain entries for accounting, but aliases are explicitly marked; no aggregate vote or universal score"
+}

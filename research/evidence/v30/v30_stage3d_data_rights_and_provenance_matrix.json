@@ -1,0 +1,70 @@
+{
+  "data_rights_and_provenance_matrix": {
+    "timestamp_utc": "2026-10-25T19:35:00Z",
+    "stage": "V30 Stage 3D",
+    "governance_mandate": "DEC-02 REMAINS STRICTLY BLOCKED. Zero unverified vendor permissions assumed.",
+    "audit_summary": "Systematically maps all research and prospective execution outputs to their underlying data sources, licensing dependencies, and retention boundaries.",
+    "outputs_provenance_mapping": [
+      {
+        "output_name": "Synthetic Calibration Matrices (Stages 3B, 3B-R, 3B-R2)",
+        "input_source_type": "PSEUDO_RANDOM_GENERATOR",
+        "is_vendor_derived": false,
+        "retention_requirement": "PERMANENT",
+        "license_dependency": "NONE",
+        "permissible_storage_status": "VERIFIED_PERMITTED",
+        "evidence_needed_from_owner": "None",
+        "purge_or_quarantine_rules": "Exempt from vendor purge covenants."
+      },
+      {
+        "output_name": "Historical Backtest Performance (Stages 1 - 2H)",
+        "input_source_type": "BUILDERR_SAMPLE_REGIMES_GZ",
+        "is_vendor_derived": true,
+        "retention_requirement": "PERMANENT_RESEARCH_RECORD",
+        "license_dependency": "BUILDERR_COMPETITION_RULES",
+        "permissible_storage_status": "VERIFIED_PERMITTED",
+        "evidence_needed_from_owner": "None (included in official public competition preview package)",
+        "purge_or_quarantine_rules": "Retained as competition baseline evidence."
+      },
+      {
+        "output_name": "Prospective Daily Bar Cache (Future Evaluation)",
+        "input_source_type": "EXTERNAL_VENDOR_API (Tiingo / Alpaca)",
+        "is_vendor_derived": true,
+        "retention_requirement": "TEMPORARY_SESSION_CACHE",
+        "license_dependency": "VENDOR_COMMERCIAL_TERMS",
+        "permissible_storage_status": "CONDITIONAL",
+        "evidence_needed_from_owner": "Executed Tiingo Power subscription receipt or Alpaca Brokerage API Developer Agreement.",
+        "purge_or_quarantine_rules": "Mandatory local purge upon subscription termination or contract cancellation."
+      },
+      {
+        "output_name": "Derived Daily Strategy Returns & Shortfall Differences (d_t)",
+        "input_source_type": "COMPUTED_TRANSFORMATION_OF_PRICES",
+        "is_vendor_derived": true,
+        "retention_requirement": "PERMANENT_RESEARCH_RECORD",
+        "license_dependency": "VENDOR_DERIVED_DATA_COVENANTS",
+        "permissible_storage_status": "CONDITIONAL",
+        "evidence_needed_from_owner": "Written confirmation from vendor that internal mathematical transformations (returns, volatilities) do not constitute licensed redistribution.",
+        "purge_or_quarantine_rules": "If vendor enforces strict derived product bans (e.g. Tiingo Starter, Massive Developer), derived returns must be purged upon subscription end."
+      },
+      {
+        "output_name": "Strategy Target Weights & Execution Orders",
+        "input_source_type": "INTERNAL_QUANT_ALGORITHM",
+        "is_vendor_derived": false,
+        "retention_requirement": "PERMANENT_PROPRIETARY_IP",
+        "license_dependency": "NONE",
+        "permissible_storage_status": "VERIFIED_PERMITTED",
+        "evidence_needed_from_owner": "None",
+        "purge_or_quarantine_rules": "Proprietary IP of Guardian Alpha repository owner; free from third-party vendor claims."
+      },
+      {
+        "output_name": "Broker Trade Confirmations & Execution Journals",
+        "input_source_type": "BROKER_API_RESPONSES",
+        "is_vendor_derived": false,
+        "retention_requirement": "REGULATORY_AUDIT_TRAIL (7+ YEARS)",
+        "license_dependency": "BROKER_CLIENT_AGREEMENT",
+        "permissible_storage_status": "VERIFIED_PERMITTED",
+        "evidence_needed_from_owner": "Broker account agreement on file.",
+        "purge_or_quarantine_rules": "Brokerage trade logs cannot be purged; mandated by securities regulations."
+      }
+    ]
+  }
+}

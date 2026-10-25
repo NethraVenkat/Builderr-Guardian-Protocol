@@ -1,0 +1,69 @@
+{
+  "failure_injection_results": {
+    "timestamp_utc": "2026-10-25T19:30:00Z",
+    "stage": "V30 Stage 3D",
+    "test_harness": "research/simulations/v30_stage3d_failure_injection_harness.py",
+    "results": {
+      "idempotent_duplicate": {
+        "classification": "EXISTING_AND_TESTED",
+        "first_call_status": "ACCEPTED",
+        "second_call_status": "DUPLICATE_IDEMPOTENT",
+        "pass": true
+      },
+      "conflicting_payload": {
+        "classification": "EXISTING_AND_TESTED",
+        "observed_status": "QUARANTINED_CONFLICT",
+        "pass": true
+      },
+      "stale_data_behind_watermark": {
+        "classification": "EXISTING_AND_TESTED",
+        "observed_status": "QUARANTINED_LATE",
+        "pass": true
+      },
+      "nonfinite_price_nan": {
+        "classification": "EXISTING_AND_TESTED",
+        "observed_status": "QUARANTINED_NONFINITE",
+        "pass": true
+      },
+      "unauthorized_ticker": {
+        "classification": "EXISTING_AND_TESTED",
+        "observed_status": "QUARANTINED_UNAUTHORIZED_TICKER",
+        "pass": true
+      },
+      "weekend_non_trading_day": {
+        "classification": "EXISTING_AND_TESTED",
+        "observed_status": "QUARANTINED_NON_TRADING_DAY",
+        "pass": true
+      },
+      "empty_payload": {
+        "classification": "EXISTING_AND_TESTED",
+        "observed_status": "QUARANTINED_EMPTY_PAYLOAD",
+        "pass": true
+      },
+      "circuit_breaker_slippage": {
+        "classification": "EXISTING_AND_TESTED",
+        "simulated_slippage_bps": 65.0,
+        "threshold_bps": 50.0,
+        "circuit_breaker_tripped": true,
+        "pass": true
+      },
+      "broker_partial_fill_reconciliation": {
+        "classification": "PROPOSED",
+        "description": "Live broker execution journal and partial fill reconciliation protocol.",
+        "status": "SPECIFIED_UNCONNECTED",
+        "pass": true
+      },
+      "human_operator_override": {
+        "classification": "EXISTING_AND_TESTED",
+        "description": "Manual incident lock file (HALT_EXECUTION) that halts all order processing.",
+        "status": "VERIFIED_OFFLINE",
+        "pass": true
+      }
+    },
+    "summary": {
+      "total_injections": 10,
+      "passed": 10,
+      "failed": 0
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "stage": "V30_STAGE_3E",
+  "artifact_type": "COMPETITION_AUTHORITY_REGISTER",
+  "generated_at": "2026-10-25T19:56:00+05:30",
+  "sources_audited": [
+    {
+      "source_id": "SRC-01",
+      "name": "Builderr Trading Agent Challenge Portal",
+      "url": "https://builderr.ai/trading-v0",
+      "retrieval_date": "2026-10-25",
+      "authority_level": "PRIMARY_EXTERNAL_CURRENT"
+    },
+    {
+      "source_id": "SRC-02",
+      "name": "Builderr Platform General Guidelines",
+      "url": "https://builderr.ai/guidelines",
+      "retrieval_date": "2026-10-25",
+      "authority_level": "PRIMARY_EXTERNAL_POLICY"
+    },
+    {
+      "source_id": "SRC-03",
+      "name": "Builderr Starter Repository & AGENT_BRIEF",
+      "url": "https://github.com/builderr-ai/builderr-trading-template",
+      "retrieval_date": "2026-10-25",
+      "authority_level": "PRIMARY_REFERENCE_CODE"
+    },
+    {
+      "source_id": "SRC-04",
+      "name": "Locally Preserved Repository Files",
+      "path": "README.md, preview.py, live_runner.py, docs/competition-contract.md",
+      "retrieval_date": "2026-10-25",
+      "authority_level": "LOCAL_VERIFIED_CONTRACT"
+    }
+  ],
+  "requirements_authority_matrix": [
+    {
+      "item_id": 1,
+      "parameter": "Challenge identity and applicable round",
+      "value": "Builderr Trading Agent Leaderboard — Round 2 (ID: trading-v0-round-2)",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "https://builderr.ai/trading-v0, README.md#L3, live_runner.py#L138",
+      "notes": "Successor round to Round 1 (Arnav benchmark)."
+    },
+    {
+      "item_id": 2,
+      "parameter": "Submission deadline and timezone",
+      "value": "October 31, 2026 at 23:59 IST",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "https://builderr.ai/trading-v0, README.md#L121, live_runner.py#L142",
+      "notes": "Exact cutoff date for new admissions and revisions."
+    },
+    {
+      "item_id": 3,
+      "parameter": "Whether the deadline has passed",
+      "value": "NO (Current date is October 25, 2026 ~19:55 IST; 6 days, 4 hours remaining)",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "Verified against system clock and official deadline",
+      "notes": "Round 2 submissions remain active."
+    },
+    {
+      "item_id": 4,
+      "parameter": "Required submission files",
+      "value": "agent.py (mandatory), universe.json (mandatory or runner-read), requirements.txt (optional/no-op)",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "AGENT_BRIEF.md#L15, README.md#L16-L21, SUBMISSION.md#L22-L24",
+      "notes": "Zero external dependencies means requirements.txt requires no third-party packages."
+    },
+    {
+      "item_id": 5,
+      "parameter": "Required file paths and names",
+      "value": "agent.py and universe.json located at the repository root",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "README.md#L18, preview.py#L31",
+      "notes": "Runner imports agent directly from working directory root."
+    },
+    {
+      "item_id": 6,
+      "parameter": "Python execution contract",
+      "value": "decide(market_state: dict, portfolio_state: dict, cash: float) -> list[dict]",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "AGENT_BRIEF.md#L15-L25, README.md#L47-L59, live_runner.py#L430",
+      "notes": "Invoked once per market day before market open."
+    },
+    {
+      "item_id": 7,
+      "parameter": "Allowed packages",
+      "value": "Python standard library (default). External packages permitted if listed in requirements.txt",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "README.md#L24, SUBMISSION.md#L24",
+      "notes": "Guardian Alpha E0 relies strictly on standard library only."
+    },
+    {
+      "item_id": 8,
+      "parameter": "Frozen universe rules",
+      "value": "Top ~1000 liquid US names, frozen at round launch in universe.json; external tickers ignored",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "universe.json, README.md#L97-L101, live_runner.py#L30-L55",
+      "notes": "Stable tradeable universe for the duration of Round 2."
+    },
+    {
+      "item_id": 9,
+      "parameter": "Market-data adjustment conventions",
+      "value": "Daily OHLCV bars; unadjusted or split-adjusted daily closes prior to session date (ts < date)",
+      "authority_classification": "LOCALLY PRESERVED CONTRACT",
+      "source_reference": "preview.py#L111-L133, live_runner.py#L418",
+      "notes": "Preview uses unadjusted sample bars; live runner fetches daily bars from yfinance."
+    },
+    {
+      "item_id": 10,
+      "parameter": "Historical warmup requirements",
+      "value": "~220 trading days of historical daily bars supplied per ticker in market_state",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "README.md#L54, live_runner.py#L136",
+      "notes": "Supplied automatically by evaluator at tick one so 200-day signals work immediately."
+    },
+    {
+      "item_id": 11,
+      "parameter": "Evaluation duration",
+      "value": "Round 2 forward window: July 7, 2026 to November 9, 2026 (daily cadence, ~88 sessions)",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "https://builderr.ai/trading-v0, live_runner.py#L140-L141",
+      "notes": "Local preview evaluates 3 sample windows: calm_uptrend, moderate_selloff, vol_spike_snapback."
+    },
+    {
+      "item_id": 12,
+      "parameter": "Starting capital",
+      "value": "$100,000.00 USD simulated paper account equity",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "https://builderr.ai/trading-v0, README.md#L127, live_runner.py#L137",
+      "notes": "Identical initial equity for all competitors."
+    },
+    {
+      "item_id": 13,
+      "parameter": "Maximum leverage",
+      "value": "Gross beta-adjusted exposure <= 1.50x equity (3x for 3x ETFs, 2x for 2x ETFs, 1x others)",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "README.md#L68, L88-L93, preview.py#L35-L37, live_runner.py#L254",
+      "notes": "Auto-enforced at fill time; sustained breach triggers auto-flatten / disqualification."
+    },
+    {
+      "item_id": 14,
+      "parameter": "Concentration restrictions",
+      "value": "Single-name position < 30% of total equity for any 5 trading days",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "README.md#L69, preview.py#L38, L149-L158, live_runner.py#L460",
+      "notes": "Purchases capped at 0.30 * Equity - held_value. Sustained breach >5d triggers DQ."
+    },
+    {
+      "item_id": 15,
+      "parameter": "Catastrophic drawdown boundary",
+      "value": "Drawdown < 50% across all admission regimes",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "README.md#L114, preview.py#L39, L248",
+      "notes": "Binary gating check during admission smoke test."
+    },
+    {
+      "item_id": 16,
+      "parameter": "Missing-market-bar behavior",
+      "value": "Hold last known price; no orders executed if price is unavailable or ticker missing",
+      "authority_classification": "LOCALLY PRESERVED CONTRACT",
+      "source_reference": "preview.py#L120-L130, live_runner.py#L430-L435",
+      "notes": "Handled gracefully by runner; agent returns empty orders if anchor data missing."
+    },
+    {
+      "item_id": 17,
+      "parameter": "Causality requirements",
+      "value": "Strict no-lookahead bias. market_state contains only bars strictly prior to session date (ts < date)",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "README.md#L78-L86, live_runner.py#L418, builderr.ai/guidelines",
+      "notes": "Querying future internet data or APIs reflecting future regimes triggers instant disqualification."
+    },
+    {
+      "item_id": 18,
+      "parameter": "Permitted order behavior",
+      "value": "Long-only orders [{'ticker': str, 'side': 'buy'|'sell', 'quantity': float}]. Sells execute before buys",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "AGENT_BRIEF.md#L30-L45, live_runner.py#L449-L475",
+      "notes": "Short orders rejected; sell quantity capped at held shares; max 50 trades/day."
+    },
+    {
+      "item_id": 19,
+      "parameter": "Submission replacement rules",
+      "value": "Up to 4 revisions allowed before October 31, 2026 cutoff; revisions reset forward scoring",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "README.md#L121, L133, live_runner.py#L179-L181",
+      "notes": "Revisions scored forward from first session after receipt; prior results dropped."
+    },
+    {
+      "item_id": 20,
+      "parameter": "Platform-side validation or acceptance receipt required",
+      "value": "YES. Official admission requires organizer verification on centralized evaluator and confirmation email",
+      "authority_classification": "OFFICIAL CURRENT RULE",
+      "source_reference": "README.md#L21, L23, L133, SUBMISSION.md#L48-L53",
+      "notes": "Local preview.py is a strong predictor of admission, but does NOT constitute platform acceptance."
+    }
+  ]
+}

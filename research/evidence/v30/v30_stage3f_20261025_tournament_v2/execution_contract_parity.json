@@ -1,0 +1,134 @@
+{
+  "overall": "PARTIAL",
+  "authority": "locally preserved sources only; no current web or hidden evaluator access",
+  "rules": [
+    {
+      "rule": "Interface",
+      "implementation": "decide(market_state, portfolio_state, cash)",
+      "source": "AGENT_BRIEF.md; live_runner.py:418-437",
+      "status": "MATCH"
+    },
+    {
+      "rule": "Universe",
+      "implementation": "frozen 1000 identifiers; 30 strategy-referenced identifiers have synthetic observations; all other symbols unavailable equally",
+      "source": "universe.json; configuration_preregistered.json",
+      "status": "PARTIAL universe coverage"
+    },
+    {
+      "rule": "Capital",
+      "implementation": "$100,000; long only, no margin cash",
+      "source": "live_runner.py:137,449-485",
+      "status": "MATCH"
+    },
+    {
+      "rule": "Warmup",
+      "implementation": "220 prior bars maximum supplied, including 220 initial bars per observed symbol",
+      "source": "README.md; live_runner.py:136",
+      "status": "documented window; runner passes growing history"
+    },
+    {
+      "rule": "Decision/fill",
+      "implementation": "prior completed bars; next session opening fill",
+      "source": "live_runner.py:418-454",
+      "status": "MATCH on common domain"
+    },
+    {
+      "rule": "Preview distinction",
+      "implementation": "preview starts cash-only on first evaluated day, then fills pending orders; scoring runner decides before first scored open",
+      "source": "preview.py:run_regime; live_runner.py:run_bot",
+      "status": "explicit difference"
+    },
+    {
+      "rule": "Prices to strategy",
+      "implementation": "prior closes only; current opens never in strategy input",
+      "source": "live_runner.py:418-425",
+      "status": "MATCH"
+    },
+    {
+      "rule": "Fees",
+      "implementation": "zero explicit commission in base; 5bp plain/10bp leveraged slippage; adverse direction",
+      "source": "live_runner.py:251-252,451-485",
+      "status": "MATCH base"
+    },
+    {
+      "rule": "Sell order",
+      "implementation": "stable sells before buys; oversells clipped to held shares",
+      "source": "live_runner.py:449-485",
+      "status": "MATCH"
+    },
+    {
+      "rule": "Buy limits",
+      "implementation": "cash, 30% fill notional concentration room and beta-adjusted 1.5x room",
+      "source": "live_runner.py:455-471",
+      "status": "MATCH base; close drift recorded separately"
+    },
+    {
+      "rule": "Orders/trades",
+      "implementation": "100 proposed orders; 50 actual fills maximum per day",
+      "source": "live_runner.py:255; AGENT_BRIEF.md:48",
+      "status": "PARTIAL: runner lacks 50-fill clamp; published rule enforced here"
+    },
+    {
+      "rule": "Concentration",
+      "implementation": ">=30% for >5 consecutive close marks is a breach",
+      "source": "preview.py:149-158",
+      "status": "local-code interpretation; prose has inconsistent inequalities"
+    },
+    {
+      "rule": "Drawdown",
+      "implementation": "initial cash included in peak; >=50% flagged, not retrospectively suppressed",
+      "source": "preview.py:_max_drawdown/main",
+      "status": "PARTIAL: fixes initial-peak omission and retains complete failed path"
+    },
+    {
+      "rule": "Missing bars",
+      "implementation": "reject if no current open; carry last known close for existing positions",
+      "source": "local source uses zero for missing marks despite Stage 3E carry claim",
+      "status": "RESEARCH CORRECTION, not exact parity"
+    },
+    {
+      "rule": "Corporate actions",
+      "implementation": "split shares and historical signal scale on ex-date; dividend entitlement receivable and cash at pay date",
+      "source": "local runner has no action implementation",
+      "status": "RESEARCH EXTENSION; parity UNKNOWN"
+    },
+    {
+      "rule": "Timeout",
+      "implementation": "measure each decision; discard orders if >5 seconds after return",
+      "source": "AGENT_BRIEF.md",
+      "status": "PARTIAL: no preemptive timeout; measured decisions reported"
+    },
+    {
+      "rule": "Holding period",
+      "implementation": "daily batch; no intraday fill timestamps; no exchange latency model",
+      "source": "AGENT_BRIEF.md",
+      "status": "NOT VERIFIED intraday 60-second enforcement"
+    },
+    {
+      "rule": "Valuation",
+      "implementation": "cash plus closing position value plus dividend receivables; stale marks retained",
+      "source": "source arithmetic plus explicit research extensions",
+      "status": "PARTIAL overall"
+    },
+    {
+      "rule": "Benchmark",
+      "implementation": "current baseline.py, four ETF equal initial allocations under same engine (C006); QQQ benchmark also runs as candidate",
+      "source": "baseline.py; inventory.json",
+      "status": "MATCH equal conditions"
+    },
+    {
+      "rule": "Scoring",
+      "implementation": "compliant forward percentage return is the locally documented objective; synthetic runs cannot establish official score",
+      "source": "docs/competition-contract.md section 5",
+      "status": "official unseen evaluator parity NOT VERIFIED"
+    }
+  ],
+  "source_hashes": {
+    "live_runner.py": "57375968644d8bd5536ce094510c18c1e57a49cf0f02d3f20a03acb19464b422",
+    "preview.py": "9283f1fbf5aecd3df97ae29fef3c7056837cc8218005013a15b508dd0043f037",
+    "docs/competition-contract.md": "9a033a9e7b029c0fbf8e1ac92365e6b7e3b4efd759ec3e2ea835a25135c91bfd",
+    "AGENT_BRIEF.md": "c0d8eb979e0626536e7e7969a62c7173e12a19c5e47d86084da6a315ad160360",
+    "README.md": "1c61f6777afafe903620096a175f12ddbab0c90a5ce455707cd1befd65017f1a"
+  },
+  "preflight_parity_test": "test_28: E0 first 20 synthetic bull sessions matches local runner curve to cents and trade count; not proof of all-case parity"
+}

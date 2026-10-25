@@ -1,0 +1,317 @@
+[
+  {
+    "source_path": "agent.py",
+    "git_commit": "da94c01b29f6ef924b774e323a3a26b86fe21106",
+    "source_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C001"
+  },
+  {
+    "source_path": "ai_momentum.py",
+    "git_commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "source_sha256": "2c95233d4e124396b089b9729375a7cadbbb3ff741a59e64d449a86ee6382cbf",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C004"
+  },
+  {
+    "source_path": "baseline.py",
+    "git_commit": "2817b34a692bc8cdb1f01b4b254799e9e4d264e8",
+    "source_sha256": "813f27dd58578b44a859378b8aa9acabbb3beffa6402d39d7ef57d48a419aefa",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C006"
+  },
+  {
+    "source_path": "drawdown_momentum.py",
+    "git_commit": "aaffde487fb43c686237ec375a10b9940ba9c864",
+    "source_sha256": "f43bc69af64257490529c8d6065275cbf071d189b0fb7858ce94d9790d0cb12a",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C008"
+  },
+  {
+    "source_path": "example_sector_rotation.py",
+    "git_commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "source_sha256": "fc7a620dda458e034924d06a6fbd117dfe598169adb74a6691c2d3164e42f27a",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C009"
+  },
+  {
+    "source_path": "example_vol_target.py",
+    "git_commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "source_sha256": "ea2fae36f6e24a481750471e29dd68aff9099d4a4e8a5cb8e6b5ecb58a12cc61",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C011"
+  },
+  {
+    "source_path": "house_barbell_realasset.py",
+    "git_commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "source_sha256": "17dfd34cb63d7ff11eb5bf26743b383ca16198c3cc73f843e2c8ca493a421424",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C013"
+  },
+  {
+    "source_path": "momentum_v1.py",
+    "git_commit": "c7fddd33ec700e54305af64da7d8e559267e9f6a",
+    "source_sha256": "c411abb37370a257b8bd4a09b1f9850ed66696b30c5e7acbdb9ea0ccc67f51db",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C015"
+  },
+  {
+    "source_path": "qqq_benchmark.py",
+    "git_commit": "245e0fb8eafb6a590c8cff6e36028ca83450127c",
+    "source_sha256": "abf21ad81f9a091e5a9178e854861a19ce06635a97cb8960f642cc76c03dda2d",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C016"
+  },
+  {
+    "source_path": "research/strategies/candidate_alpha.py",
+    "git_commit": "82343368dca7cba165c43a4362359ead844cb364",
+    "source_sha256": "8cd03d00ecfca49c83f88faaad28afa16e6f86df82cb7a261d135d847ae3137a",
+    "entry": "AdaptiveRiskParityCandidate",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C017"
+  },
+  {
+    "source_path": "research/strategies/loss_reduction_candidates.py",
+    "git_commit": "700276f2c876899c2cfc3cb6ac1293b55ec9631a",
+    "source_sha256": "4553a89c48fd965ae6acbae40dc0df3e9a08bd7944b33388bbf4293302025d0c",
+    "entry": "FastExitDeRiskingCandidate",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C018"
+  },
+  {
+    "source_path": "research/strategies/loss_reduction_candidates.py",
+    "git_commit": "700276f2c876899c2cfc3cb6ac1293b55ec9631a",
+    "source_sha256": "4553a89c48fd965ae6acbae40dc0df3e9a08bd7944b33388bbf4293302025d0c",
+    "entry": "IntegratedLossReductionCandidate",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C019"
+  },
+  {
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "cc82d0e092438f7e53ebe30d7f78c40c57c4dbab",
+    "source_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateA_AdaptiveRebalance",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C020"
+  },
+  {
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "cc82d0e092438f7e53ebe30d7f78c40c57c4dbab",
+    "source_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateB_EmergencyDeRisking",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C021"
+  },
+  {
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "cc82d0e092438f7e53ebe30d7f78c40c57c4dbab",
+    "source_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateC_SectorRiskBudgeting",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C022"
+  },
+  {
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "cc82d0e092438f7e53ebe30d7f78c40c57c4dbab",
+    "source_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateD_RecoveryParticipation",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C023"
+  },
+  {
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "cc82d0e092438f7e53ebe30d7f78c40c57c4dbab",
+    "source_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateE_CostAwareRebalancing",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C024"
+  },
+  {
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "cc82d0e092438f7e53ebe30d7f78c40c57c4dbab",
+    "source_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateF_IntegratedRiskControl",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C025"
+  },
+  {
+    "source_path": "research/strategies/v12_candidate_ae.py",
+    "git_commit": "9aaa943e95de06ac8eaaf96af8df4cd8db37327a",
+    "source_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+    "entry": "CandidateAE_Combined",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C026"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_c1_tight_vol_gate.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "c9423c7b459f72e3e73bcbf0b0ba9cc7dc1067f4982925f1126cd203438ff3d0",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C027"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_c2_vol_acceleration.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "c8d3949f8d2a7c5610eacf44c13551a2bdb1c73b2d0a9c4064b4a893391ba798",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C028"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_c3_vol_persistence.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "d0e2b8c00ea837891369377420770c203740eb1c8838c93a5886ac34f6558427",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C029"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_c4_combined_gates.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "25c90d7969b20b761d0d4d062ae80c981e90d07d3117e0c035fd3d39f99dfff0",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C030"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_d1_energy_exit.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "fb90ef20bd5523a2cda21a54a1af13fa766e6983f4077a432595fde862819014",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C031"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C032"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_d3_recovery_discipline.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "f5629690e77bcce9f37ad57bd04a4d7a9b6d37770012b2cac05909f253abc09e",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C033"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_p1_inverse_vol.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "0f7875140cff89ea2f6e8f5319b3272cf62770d6546c66762765c20521187b65",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C034"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_p2_capped_inverse_vol.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "370b465eeffb41fa860ebdd557f34c1434e0e0754d32f74ed2bcf53780162f5a",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C035"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_p3_smoothed_inverse_vol.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "20235faf8fb96d70acf0a464c96beff6d1019462f4cc30b2a4c77bcd75785ad0",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C036"
+  },
+  {
+    "source_path": "research/strategies/v30_candidate_p4_blend_equal_inverse.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "495bbf65690e6fe4661d93f309ebeaf250fa8a06b1c967ba181cffb3d47b883d",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C037"
+  },
+  {
+    "source_path": "research/strategies/v30_execution_safe_agent.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6",
+    "entry": "V30ExecutionSafeAgent",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C038"
+  },
+  {
+    "source_path": "research/strategies/v30_execution_safe_agent.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C039"
+  },
+  {
+    "source_path": "research/strategies/v30_execution_safe_agent_final.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "aaacaa8780f14df0b8ae5fb51fef1182f9b13cf9405b63e916119ad9c448b377",
+    "entry": "V30ExecutionSafeAgentFinal",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C040"
+  },
+  {
+    "source_path": "research/strategies/v30_execution_safe_agent_r.py",
+    "git_commit": "ce6b4c21b832044d0ffb45dce2ba949ab867d520",
+    "source_sha256": "143616dfd2a4da224a8f735d4cc472180b55715aec46b60538b7fa953382316f",
+    "entry": "V30ExecutionSafeAgentR",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C041"
+  },
+  {
+    "source_path": "seed_dual_momentum.py",
+    "git_commit": "3fbf1dd27f753b4b24045c103f6362038aa0fae2",
+    "source_sha256": "00b0b2485179370e43d6c5adb96627c3896a3e402171bff49648a40cb3216d3f",
+    "entry": "decide",
+    "kwargs": {},
+    "args": [],
+    "duplicate_of": "C042"
+  }
+]

@@ -1,0 +1,2163 @@
+[
+  {
+    "id": "C001",
+    "label": "agent.py:decide",
+    "family": "agent",
+    "source_path": "agent.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+    "lf_sha256": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return a list of long-only buy/sell orders.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "math",
+      "statistics",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C002",
+    "label": "agent.py:decide @0f8a0bb2",
+    "family": "agent",
+    "source_path": "agent.py",
+    "git_commit": "0f8a0bb262ffecf089418302526d64a658470a9d",
+    "source_sha256": "af20692da88d23df55b75670b3c7aacaeb54005c7d2d0511dfb32100dc905b0c",
+    "lf_sha256": "af20692da88d23df55b75670b3c7aacaeb54005c7d2d0511dfb32100dc905b0c",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return a list of long-only buy/sell orders.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "math",
+      "statistics",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C003",
+    "label": "agent.py:decide @f5f0e4d4",
+    "family": "agent",
+    "source_path": "agent.py",
+    "git_commit": "f5f0e4d48f61621567bd5b922631a2d872ac6a0f",
+    "source_sha256": "5d9212db038f6fb4f67bc4ac81d0f8846eaee817776596aad2823b3eb45443e4",
+    "lf_sha256": "5d9212db038f6fb4f67bc4ac81d0f8846eaee817776596aad2823b3eb45443e4",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return list of orders. Each order is a dict with keys: ticker, side, quantity.\n\nOrder shape:\n    {\"ticker\": \"SPY\", \"side\": \"buy\", \"quantity\": 10}\n    {\"ticker\": \"TQQQ\", \"side\": \"sell\", \"quantity\": 50}\n\nmarket_state shape:\n    {\n        \"SPY\":  [{\"ts\": \"2024-08-05T13:30:00+00:00\", \"open\": 540.2, \"high\": 540.5,\n                  \"low\": 540.1, \"close\": 540.3, \"volume\": 12345.0}, ...],\n        \"QQQ\":  [...],\n        ...\n    }\n\nportfolio_state shape:\n    {\n        \"cash\": 87532.10,\n        \"positions\": [\n            {\"ticker\": \"SPY\", \"quantity\": 22.0, \"avg_cost\": 548.75},\n        ],\n        \"last_prices\": {\"SPY\": 551.20, \"QQQ\": 463.10},\n    }\n\nReturn [] to do nothing this tick.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C004",
+    "label": "ai_momentum.py:decide",
+    "family": "ai_momentum",
+    "source_path": "ai_momentum.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "42b2cb44fdfbaade9e9ca60a3ba508932f31ce3e0a2c6cff7d61a4aaacaa6fcd",
+    "lf_sha256": "2c95233d4e124396b089b9729375a7cadbbb3ff741a59e64d449a86ee6382cbf",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Soham-Style AI Basket v2 \u2014 adds three signal-driven defenses.\n\nWhat changed vs v1:\n1. **Trend filter on TQQQ.** Only hold when 20-day SMA > 50-day SMA on QQQ.\n   Saves us from holding 3x leveraged tech into a rate-regime down-grind.\n2. **Defensive ballast.** Adds XLP (consumer staples) + XLU (utilities) at\n   20% combined. Cuts portfolio beta, reduces drawdown in trend-down regimes.\n3. **Vol-aware sizing.** When realized 20-day vol on QQQ > annualized 30%,\n   halve the leveraged TQQQ allocation. Saves us from blow-ups in Aug-2024-style\n   vol shocks.\n\nTarget beta-adjusted (in calm regime):\n  0.20(1) + 0.15(1) + 0.10(1) + 0.10(1) + 0.10(1) + 0.10(1) + 0.10(3) + 0.10(1) + 0.10(1)\n  = 0.20 + 0.15 + 0.10 + 0.10 + 0.10 + 0.10 + 0.30 + 0.10 + 0.10 = 1.25x\n\nIn stressed regime (TQQQ off): drops to ~0.95x. Well under 1.5x cap.\n\nRebalance: monthly (every 21 trading days * 390 min/day / tick interval). For\n30-min ticks that's 21*390/30 = 273 ticks between rebalances.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C005",
+    "label": "ai_momentum.py:decide @c7fddd33",
+    "family": "ai_momentum",
+    "source_path": "ai_momentum.py",
+    "git_commit": "c7fddd33ec700e54305af64da7d8e559267e9f6a",
+    "source_sha256": "f39c5ad45c8605899e91b890087ed2bfc36c963876234946d6da38ee8ba82da7",
+    "lf_sha256": "f39c5ad45c8605899e91b890087ed2bfc36c963876234946d6da38ee8ba82da7",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "af20692da88d23df55b75670b3c7aacaeb54005c7d2d0511dfb32100dc905b0c"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Soham-Style AI Basket v2 \u2014 adds three signal-driven defenses.\n\nWhat changed vs v1:\n1. **Trend filter on TQQQ.** Only hold when 20-day SMA > 50-day SMA on QQQ.\n   Saves us from holding 3x leveraged tech into a rate-regime down-grind.\n2. **Defensive ballast.** Adds XLP (consumer staples) + XLU (utilities) at\n   20% combined. Cuts portfolio beta, reduces drawdown in trend-down regimes.\n3. **Vol-aware sizing.** When realized 20-day vol on QQQ > annualized 30%,\n   halve the leveraged TQQQ allocation. Saves us from blow-ups in Aug-2024-style\n   vol shocks.\n\nTarget beta-adjusted (in calm regime):\n  0.20(1) + 0.15(1) + 0.10(1) + 0.10(1) + 0.10(1) + 0.10(1) + 0.10(3) + 0.10(1) + 0.10(1)\n  = 0.20 + 0.15 + 0.10 + 0.10 + 0.10 + 0.10 + 0.30 + 0.10 + 0.10 = 1.25x\n\nIn stressed regime (TQQQ off): drops to ~0.95x. Well under 1.5x cap.\n\nRebalance: monthly (every 21 trading days * 390 min/day / tick interval). For\n30-min ticks that's 21*390/30 = 273 ticks between rebalances.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C006",
+    "label": "baseline.py:decide",
+    "family": "baseline",
+    "source_path": "baseline.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "eb19b0e31d44961f804cb663abd03e1750a5f86da344eacc7b83a90e3b2cca6d",
+    "lf_sha256": "813f27dd58578b44a859378b8aa9acabbb3beffa6402d39d7ef57d48a419aefa",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Baseline strategy: equal-weight buy-and-hold of 4 broad ETFs, then hold.\n\nThis is the simplest thing that actually gets ADMITTED \u2014 your 5-minute first\nsubmission. Rename it to agent.py, run `python preview.py`, see it clear the\nsafety bar, and submit. Then iterate to actually compete.\n\nWhy 4 names at 25% each, not 2 at 50%? The concentration cap is <30% per ticker.\nTwo equal-weight names = 50% each = an instant breach. Four = 25% each = clean.\nThat single rule is the most common reason a naive bot gets rejected \u2014 run\npreview.py and you'll watch a 2-name version fail and this one pass.\n\nThis buys and holds, so it will score poorly on Calmar in the live test (no\nrisk-off, no rotation). See https://builderr.ai/start for the strategy families\nthat actually win \u2014 then tweak this into one of them.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C007",
+    "label": "baseline.py:decide @f5f0e4d4",
+    "family": "baseline",
+    "source_path": "baseline.py",
+    "git_commit": "f5f0e4d48f61621567bd5b922631a2d872ac6a0f",
+    "source_sha256": "f16de592b501981e4ca2191ee5642ec9715edfb749492e9721e8e830ddce811a",
+    "lf_sha256": "f16de592b501981e4ca2191ee5642ec9715edfb749492e9721e8e830ddce811a",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "5d9212db038f6fb4f67bc4ac81d0f8846eaee817776596aad2823b3eb45443e4"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Baseline strategy: equal-weight buy-and-hold of SPY + QQQ on the first tick.\n\nThis is the reference any submission has to beat to qualify as \"interesting.\"\n~50% in SPY, ~50% in QQQ, then hold. No leverage, no rebalance.\n\nTo use as your starting point: rename to agent.py and tweak.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C008",
+    "label": "drawdown_momentum.py:decide",
+    "family": "drawdown_momentum",
+    "source_path": "drawdown_momentum.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "ec69adbe1bfcb881157e14eca0b0358a0133d008e4a60732c9301022a6aa5498",
+    "lf_sha256": "f43bc69af64257490529c8d6065275cbf071d189b0fb7858ce94d9790d0cb12a",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "House reference bot \u2014 \"Drawdown-First Vol-Managed Momentum\" (the bar to beat).\n\nBuilt for one number: 30-day forward Calmar = annualized return / max drawdown.\nBecause max drawdown is the *denominator*, protecting it beats chasing return.\nSo the whole design is: be fully invested only in calm uptrends, and de-risk\nhard and fast the instant stress shows up.\n\nWhat it combines (all standard, deliberately un-fancy so the held-out rerun\ncan't punish curve-fitting):\n  1. Time-series momentum gate (Moskowitz/Ooi/Pedersen) \u2014 only take risk when\n     SPY and QQQ are above their 100-day trend.\n  2. Volatility targeting (Moreira\u2013Muir, \"Volatility-Managed Portfolios\") \u2014\n     scale total exposure inversely to market vol, so a vol spike auto-cuts size.\n  3. Cross-sectional momentum (Jegadeesh\u2013Titman) \u2014 hold the strongest names.\n  4. Risk-parity-lite \u2014 size the held names by inverse volatility, not equal $,\n     so no single name dominates the drawdown.\n  5. A FAST crash brake that overrides the (laggy) trend gate: a sharp multi-day\n     drop or a vol explosion flattens us to mostly cash the same day.\n\nDeliberately NO leveraged ETFs. Over a 30-day Calmar window, 2x/3x funds add far\nmore to the denominator (drawdown, vol decay) than to the numerator. Long-only,\nstdlib only, no network, no LLM, no API keys. Every name capped at 18% (well\nunder the 30% rule); gross never exceeds 1.0x (well under the 1.5x cap).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C009",
+    "label": "example_sector_rotation.py:decide",
+    "family": "example_sector_rotation",
+    "source_path": "example_sector_rotation.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "922aa2fcfb9c8077eb2abc152b0f7a09a6f89138ef64a6428561d06ed9e4901f",
+    "lf_sha256": "fc7a620dda458e034924d06a6fbd117dfe598169adb74a6691c2d3164e42f27a",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Reference bot \u2014 Sector Momentum Rotation (Faber-style).\n\nBuilt purely from public best practices (Meb Faber sector rotation + SMA risk-off\nfilter \u2014 the most-documented retail systematic strategy). A cold-start builder\ncould write this from a weekend of reading.\n\nRule, rebalanced ~weekly:\n  1. MARKET FILTER: if SPY is below its 50-day SMA \u2192 risk-off (staples + cash).\n  2. Otherwise rank the 11 sector ETFs by 60-day total return; hold the top 4\n     equal-weight (~24% each, safely under the 30% concentration cap).\nNo leverage \u2192 ~1.0x beta-adjusted exposure.\n\nPublic sources this is based on: Faber's \"A Quantitative Approach to Tactical\nAsset Allocation\", StockCharts sector-rotation model, Quantpedia sector momentum.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C010",
+    "label": "example_sector_rotation.py:decide @8857f3ed",
+    "family": "example_sector_rotation",
+    "source_path": "example_sector_rotation.py",
+    "git_commit": "8857f3edcf2d450c894f4201ce242545d566f14e",
+    "source_sha256": "eabe4b656de941c02af21925bd0d5046bdb3a50202089791545bdc3d8e5769cb",
+    "lf_sha256": "eabe4b656de941c02af21925bd0d5046bdb3a50202089791545bdc3d8e5769cb",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "5d9212db038f6fb4f67bc4ac81d0f8846eaee817776596aad2823b3eb45443e4"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Reference bot \u2014 Sector Momentum Rotation (Faber-style).\n\nBuilt purely from public best practices (Meb Faber sector rotation + SMA risk-off\nfilter \u2014 the most-documented retail systematic strategy). A cold-start builder\ncould write this from a weekend of reading.\n\nRule, rebalanced ~weekly:\n  1. MARKET FILTER: if SPY is below its 50-day SMA \u2192 risk-off (staples + cash).\n  2. Otherwise rank the 11 sector ETFs by 60-day total return; hold the top 4\n     equal-weight (~24% each, safely under the 30% concentration cap).\nNo leverage \u2192 ~1.0x beta-adjusted exposure.\n\nPublic sources this is based on: Faber's \"A Quantitative Approach to Tactical\nAsset Allocation\", StockCharts sector-rotation model, Quantpedia sector momentum.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C011",
+    "label": "example_vol_target.py:decide",
+    "family": "example_vol_target",
+    "source_path": "example_vol_target.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "934d15636b7c7e0d3d9a708d0e24b83fa8383281d56a700ec2d25b8d9a723b49",
+    "lf_sha256": "ea2fae36f6e24a481750471e29dd68aff9099d4a4e8a5cb8e6b5ecb58a12cc61",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Reference bot \u2014 Volatility-Targeted Trend (a different family from rotation).\n\nBuilt from public best practices (inverse-volatility position sizing + a 50-day\nSMA risk-off switch \u2014 both heavily documented; see Man Group / Concretum on\nvol-targeting, Faber on SMA risk-off).\n\nRule, rebalanced ~weekly:\n  1. Always considers a core risk basket (SPY, QQQ, SMH, XLK, XLV).\n  2. Weight each name INVERSELY to its 20-day realized volatility \u2014 calmer names\n     get more capital (raises risk-adjusted return). Each capped at 28% (< 30%).\n  3. RISK-OFF: if SPY < its 50-day SMA, scale total exposure down to ~30%\n     (the rest sits in cash) \u2014 the single biggest drawdown reducer.\nNo leverage.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C012",
+    "label": "example_vol_target.py:decide @8857f3ed",
+    "family": "example_vol_target",
+    "source_path": "example_vol_target.py",
+    "git_commit": "8857f3edcf2d450c894f4201ce242545d566f14e",
+    "source_sha256": "5d60563377dfb42d34650c3da4a570357b9790fd64644d301b1c5dd01c3bdd42",
+    "lf_sha256": "5d60563377dfb42d34650c3da4a570357b9790fd64644d301b1c5dd01c3bdd42",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "5d9212db038f6fb4f67bc4ac81d0f8846eaee817776596aad2823b3eb45443e4"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Reference bot \u2014 Volatility-Targeted Trend (a different family from rotation).\n\nBuilt from public best practices (inverse-volatility position sizing + a 50-day\nSMA risk-off switch \u2014 both heavily documented; see Man Group / Concretum on\nvol-targeting, Faber on SMA risk-off).\n\nRule, rebalanced ~weekly:\n  1. Always considers a core risk basket (SPY, QQQ, SMH, XLK, XLV).\n  2. Weight each name INVERSELY to its 20-day realized volatility \u2014 calmer names\n     get more capital (raises risk-adjusted return). Each capped at 28% (< 30%).\n  3. RISK-OFF: if SPY < its 50-day SMA, scale total exposure down to ~30%\n     (the rest sits in cash) \u2014 the single biggest drawdown reducer.\nNo leverage.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C013",
+    "label": "house_barbell_realasset.py:decide",
+    "family": "house_barbell_realasset",
+    "source_path": "house_barbell_realasset.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "52a59d2aef92e6ed95a629f81718a893a74fd3c6127cbdf24ef9b3716d255310",
+    "lf_sha256": "17dfd34cb63d7ff11eb5bf26743b383ca16198c3cc73f843e2c8ca493a421424",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "House reference bot \u2014 Real-Asset Barbell (Soham's portfolio, as a daily rule).\n\nNOT an entrant. Label if ever shown: \"house \u00b7 the bar to beat\". This bot is a\ntranslation of Soham's actual fund book into a single decide() function:\n\n  - A permanent CASH FLOOR                 \u2192 his ~42% money-market buffer (dry powder).\n  - An AI/tech GROWTH CORE when the trend  \u2192 Franklin Technology, Allianz Global AI,\n    is up, sized by volatility               BGF World Technology (his growth engine).\n  - A REAL-ASSET HEDGE sleeve (gold /      \u2192 BGF World Gold, World Mining, World Energy\n    energy / miners) BOUGHT in risk-off,     (his actual diversifiers) \u2014 most losing\n    not just a flat run to cash.             board bots only had cash, or nothing.\n\nWhy it's a differentiator, not another momentum basket:\n  - The existing reference bots (vol-target, dual-momentum, ai-basket) either sit in\n    a tech/sector core and scale DOWN to cash in a downtrend, or rotate to\n    staples/utilities. None of them BUY a gold+energy hedge when tech rolls over.\n  - On the live June board the losers stayed long tech into the correction\n    (opu -6%, robert -9%, mohit -8%, siddu -9%). The edge that mirrors Soham's book\n    AND survived that window is: hard risk-off switch + a real-asset ballast that can\n    rise while tech falls, on top of a standing cash reserve.\n\nThe rules it stays inside (auto-enforced by the sandbox):\n  - Long only, no leverage (all 1x ETFs \u2192 gross ~1.0x, well under the 1.5x cap).\n  - Every sleeve capped < 30% per name (barbell of 3-4 names each \u2248 18-24%).\n  - Daily decisions, weekly-ish rebalance, <= 50 trades/day, <5s runtime.\n\nRanking note: the live board sorts by RETURN over each bot's forward window (not\nCalmar, despite the older brief copy). Drawdown discipline still matters \u2014 it's how\nyou clear admission and how you avoid giving back the return in the June-style dip \u2014\nbut the target is \"make money without a deep hole\", which is exactly the barbell.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C014",
+    "label": "house_barbell_realasset.py:decide @245e0fb8",
+    "family": "house_barbell_realasset",
+    "source_path": "house_barbell_realasset.py",
+    "git_commit": "245e0fb8eafb6a590c8cff6e36028ca83450127c",
+    "source_sha256": "b16eb6840704e3e98767c9690a9b44fc97d919375c6cd6fb6705ec5ebcf8b6c7",
+    "lf_sha256": "b16eb6840704e3e98767c9690a9b44fc97d919375c6cd6fb6705ec5ebcf8b6c7",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "af20692da88d23df55b75670b3c7aacaeb54005c7d2d0511dfb32100dc905b0c"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "House reference bot \u2014 Real-Asset Barbell (Soham's portfolio, as a daily rule).\n\nNOT an entrant. Label if ever shown: \"house \u00b7 the bar to beat\". This bot is a\ntranslation of Soham's actual fund book into a single decide() function:\n\n  - A permanent CASH FLOOR                 \u2192 his ~42% money-market buffer (dry powder).\n  - An AI/tech GROWTH CORE when the trend  \u2192 Franklin Technology, Allianz Global AI,\n    is up, sized by volatility               BGF World Technology (his growth engine).\n  - A REAL-ASSET HEDGE sleeve (gold /      \u2192 BGF World Gold, World Mining, World Energy\n    energy / miners) BOUGHT in risk-off,     (his actual diversifiers) \u2014 most losing\n    not just a flat run to cash.             board bots only had cash, or nothing.\n\nWhy it's a differentiator, not another momentum basket:\n  - The existing reference bots (vol-target, dual-momentum, ai-basket) either sit in\n    a tech/sector core and scale DOWN to cash in a downtrend, or rotate to\n    staples/utilities. None of them BUY a gold+energy hedge when tech rolls over.\n  - On the live June board the losers stayed long tech into the correction\n    (opu -6%, robert -9%, mohit -8%, siddu -9%). The edge that mirrors Soham's book\n    AND survived that window is: hard risk-off switch + a real-asset ballast that can\n    rise while tech falls, on top of a standing cash reserve.\n\nThe rules it stays inside (auto-enforced by the sandbox):\n  - Long only, no leverage (all 1x ETFs \u2192 gross ~1.0x, well under the 1.5x cap).\n  - Every sleeve capped < 30% per name (barbell of 3-4 names each \u2248 18-24%).\n  - Daily decisions, weekly-ish rebalance, <= 50 trades/day, <5s runtime.\n\nRanking note: the live board sorts by RETURN over each bot's forward window (not\nCalmar, despite the older brief copy). Drawdown discipline still matters \u2014 it's how\nyou clear admission and how you avoid giving back the return in the June-style dip \u2014\nbut the target is \"make money without a deep hole\", which is exactly the barbell.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C015",
+    "label": "momentum_v1.py:decide",
+    "family": "momentum_v1",
+    "source_path": "momentum_v1.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "40622061d4b84c15420aa998c1d6185d3887d0509314319c37cda36239c73158",
+    "lf_sha256": "c411abb37370a257b8bd4a09b1f9850ed66696b30c5e7acbdb9ea0ccc67f51db",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Soham-Style AI Basket \u2014 first dogfood.\n\nInspired by Soham's portfolio-assistant skill: AI Industrial Stack tilt\n(Brian BWB) + TQQQ conviction. Buy on first tick, hold. No timing, no\nsignal \u2014 pure thematic exposure. Tests whether Phase A correctly filters\nnaive bold bets.\n\nBeta-adjusted gross:\n  0.25(1) + 0.20(1) + 0.15(1) + 0.10(1)*3 + 0.10(1) + 0.10(1) + 0.10(3)\n  = 0.25 + 0.20 + 0.15 + 0.30 + 0.10 + 0.10 + 0.30\n  = 1.40x  (just under the 1.5x cap)\n\nConcentration: max single position 25% (QQQ) \u2014 under 30% cap.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C016",
+    "label": "qqq_benchmark.py:decide",
+    "family": "qqq_benchmark",
+    "source_path": "qqq_benchmark.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "1049b7840bd39bcc8e55d26dbf3e588f3cb190a7c43a1b8a52e15eb3b1f692f5",
+    "lf_sha256": "abf21ad81f9a091e5a9178e854861a19ce06635a97cb8960f642cc76c03dda2d",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "QQQ buy-and-hold \u2014 the market benchmark (\"the bar to beat\").\n\nBuys the Nasdaq-100 ETF (QQQ) with the full account on the first scored day and\nholds it, untouched, for the whole round. This is the passive market return: if a\nstrategy can't beat simply holding the index, it isn't really adding anything.\n\nIt is a BENCHMARK LINE, not a prize competitor \u2014 shown on the board as the bar to\nclear, the same way the RambleFix line works on the speech-to-text board. Scored\nby the exact same fill model as every bot (buys at the open + slippage, marks to\nthe close), so the number is honest, not hand-set.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C017",
+    "label": "research/strategies/candidate_alpha.py:AdaptiveRiskParityCandidate",
+    "family": "candidate_alpha",
+    "source_path": "research/strategies/candidate_alpha.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "1bb1d5f23a9bc9514dd7da83e4c67d483377954c96b1f9dc96b871eae7479007",
+    "lf_sha256": "8cd03d00ecfca49c83f88faaad28afa16e6f86df82cb7a261d135d847ae3137a",
+    "entry": "AdaptiveRiskParityCandidate",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Research strategy candidate for controlled optimization evaluation.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C018",
+    "label": "research/strategies/loss_reduction_candidates.py:FastExitDeRiskingCandidate",
+    "family": "loss_reduction_candidates",
+    "source_path": "research/strategies/loss_reduction_candidates.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "e72b0f6630ae849387568ead2c3f4b45b64446d99bb42cc5d119eff325c022be",
+    "lf_sha256": "4553a89c48fd965ae6acbae40dc0df3e9a08bd7944b33388bbf4293302025d0c",
+    "entry": "FastExitDeRiskingCandidate",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate Family 3/4: Fast Emergency Exit on Market Breakdown + Drawdown Guard.\n\nResearch Hypothesis:\n  E0 suffers 78.6% of its drawdown in the first 5 days of a crash because of the rigid\n  5-day rebalance cadence. By allowing an emergency risk-off liquidation whenever 2-day\n  SPY drop exceeds 3.0% or 20-day realized volatility spikes above 0.38, tail losses can\n  be truncated immediately without waiting for the 5-day clock.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C019",
+    "label": "research/strategies/loss_reduction_candidates.py:IntegratedLossReductionCandidate",
+    "family": "loss_reduction_candidates",
+    "source_path": "research/strategies/loss_reduction_candidates.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "e72b0f6630ae849387568ead2c3f4b45b64446d99bb42cc5d119eff325c022be",
+    "lf_sha256": "4553a89c48fd965ae6acbae40dc0df3e9a08bd7944b33388bbf4293302025d0c",
+    "entry": "IntegratedLossReductionCandidate",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate Family 1, 3, 4, 8: Integrated Adaptive Risk Parity with Snapback & Fast Exit.\n\nFeatures:\n1. Fast emergency exit on 2-day market drop > 3.0%.\n2. Realized volatility-weighted allocation across momentum winners.\n3. Excludes pro-cyclical XLE from defensive basket during bear regimes.\n4. Recovery re-entry mechanism: allows scaled re-entry when QQQ breaks above SMA20 even if\n   50-day SMA is not yet reclaimed.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C020",
+    "label": "research/strategies/v11_candidates.py:CandidateA_AdaptiveRebalance",
+    "family": "v11_candidates",
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "017a89dfcb7b8f5370d6829c5f81a97138fdcd7fe12ef051065d8011418ae02d",
+    "lf_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateA_AdaptiveRebalance",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate A: Adaptive Rebalancing (5-day cadence with -3% shock exit).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C021",
+    "label": "research/strategies/v11_candidates.py:CandidateB_EmergencyDeRisking",
+    "family": "v11_candidates",
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "017a89dfcb7b8f5370d6829c5f81a97138fdcd7fe12ef051065d8011418ae02d",
+    "lf_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateB_EmergencyDeRisking",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate B: Emergency De-Risking (Drawdown Budget Multiplier).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C022",
+    "label": "research/strategies/v11_candidates.py:CandidateC_SectorRiskBudgeting",
+    "family": "v11_candidates",
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "017a89dfcb7b8f5370d6829c5f81a97138fdcd7fe12ef051065d8011418ae02d",
+    "lf_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateC_SectorRiskBudgeting",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate C: Sector Risk Budgeting (20% max single weight, dynamic XLE trend filter).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C023",
+    "label": "research/strategies/v11_candidates.py:CandidateD_RecoveryParticipation",
+    "family": "v11_candidates",
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "017a89dfcb7b8f5370d6829c5f81a97138fdcd7fe12ef051065d8011418ae02d",
+    "lf_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateD_RecoveryParticipation",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate D: Recovery Participation (Fast Re-Entry via QQQ > SMA20).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C024",
+    "label": "research/strategies/v11_candidates.py:CandidateE_CostAwareRebalancing",
+    "family": "v11_candidates",
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "017a89dfcb7b8f5370d6829c5f81a97138fdcd7fe12ef051065d8011418ae02d",
+    "lf_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateE_CostAwareRebalancing",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate E: Cost-Aware Turnover Buffer (suppresses trades under 3% equity delta).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C025",
+    "label": "research/strategies/v11_candidates.py:CandidateF_IntegratedRiskControl",
+    "family": "v11_candidates",
+    "source_path": "research/strategies/v11_candidates.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "017a89dfcb7b8f5370d6829c5f81a97138fdcd7fe12ef051065d8011418ae02d",
+    "lf_sha256": "a3f45b6986b34e98029b6837b013849ebfefe441650c5d0ae6cffea4d85bafeb",
+    "entry": "CandidateF_IntegratedRiskControl",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate F: Integrated Risk Control (Shock Exit + Dynamic XLE + DD Multiplier + Recovery Participation).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C026",
+    "label": "research/strategies/v12_candidate_ae.py:CandidateAE_Combined",
+    "family": "v12_candidate_ae",
+    "source_path": "research/strategies/v12_candidate_ae.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "406e8b9e8c4145faea764db41d6286b96b26e9b33808233458da584f9f245271",
+    "lf_sha256": "978edf7aabc5387af5c8b1fa6a59e152cd6b82bf80fdbfa306b8a6202f187793",
+    "entry": "CandidateAE_Combined",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Stage B2-C Candidate: Adaptive Emergency Exit + Cost-Aware Rebalancing Buffer.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C027",
+    "label": "research/strategies/v30_candidate_c1_tight_vol_gate.py:decide",
+    "family": "v30_candidate_c1_tight_vol_gate",
+    "source_path": "research/strategies/v30_candidate_c1_tight_vol_gate.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "c9423c7b459f72e3e73bcbf0b0ba9cc7dc1067f4982925f1126cd203438ff3d0",
+    "lf_sha256": "c9423c7b459f72e3e73bcbf0b0ba9cc7dc1067f4982925f1126cd203438ff3d0",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return long-only buy/sell orders adhering to Candidate C1 rules.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C028",
+    "label": "research/strategies/v30_candidate_c2_vol_acceleration.py:decide",
+    "family": "v30_candidate_c2_vol_acceleration",
+    "source_path": "research/strategies/v30_candidate_c2_vol_acceleration.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "c8d3949f8d2a7c5610eacf44c13551a2bdb1c73b2d0a9c4064b4a893391ba798",
+    "lf_sha256": "c8d3949f8d2a7c5610eacf44c13551a2bdb1c73b2d0a9c4064b4a893391ba798",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return long-only buy/sell orders adhering to Candidate C2 rules.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C029",
+    "label": "research/strategies/v30_candidate_c3_vol_persistence.py:decide",
+    "family": "v30_candidate_c3_vol_persistence",
+    "source_path": "research/strategies/v30_candidate_c3_vol_persistence.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "d0e2b8c00ea837891369377420770c203740eb1c8838c93a5886ac34f6558427",
+    "lf_sha256": "d0e2b8c00ea837891369377420770c203740eb1c8838c93a5886ac34f6558427",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return long-only buy/sell orders adhering to Candidate C3 rules.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C030",
+    "label": "research/strategies/v30_candidate_c4_combined_gates.py:decide",
+    "family": "v30_candidate_c4_combined_gates",
+    "source_path": "research/strategies/v30_candidate_c4_combined_gates.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "25c90d7969b20b761d0d4d062ae80c981e90d07d3117e0c035fd3d39f99dfff0",
+    "lf_sha256": "25c90d7969b20b761d0d4d062ae80c981e90d07d3117e0c035fd3d39f99dfff0",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return long-only buy/sell orders adhering to Candidate C4 rules.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C031",
+    "label": "research/strategies/v30_candidate_d1_energy_exit.py:decide",
+    "family": "v30_candidate_d1_energy_exit",
+    "source_path": "research/strategies/v30_candidate_d1_energy_exit.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "fb90ef20bd5523a2cda21a54a1af13fa766e6983f4077a432595fde862819014",
+    "lf_sha256": "fb90ef20bd5523a2cda21a54a1af13fa766e6983f4077a432595fde862819014",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Builderr competition contract entrypoint for Candidate D1.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C032",
+    "label": "research/strategies/v30_candidate_d2_cash_cushion.py:decide",
+    "family": "v30_candidate_d2_cash_cushion",
+    "source_path": "research/strategies/v30_candidate_d2_cash_cushion.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+    "lf_sha256": "5a04215a909664681a4378ef3d06d7c33f6afc5ed1306bfe42ed37c2518f8215",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Builderr competition contract entrypoint for Candidate D2.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C033",
+    "label": "research/strategies/v30_candidate_d3_recovery_discipline.py:decide",
+    "family": "v30_candidate_d3_recovery_discipline",
+    "source_path": "research/strategies/v30_candidate_d3_recovery_discipline.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "f5629690e77bcce9f37ad57bd04a4d7a9b6d37770012b2cac05909f253abc09e",
+    "lf_sha256": "f5629690e77bcce9f37ad57bd04a4d7a9b6d37770012b2cac05909f253abc09e",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Builderr competition contract entrypoint for Candidate D3.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C034",
+    "label": "research/strategies/v30_candidate_p1_inverse_vol.py:decide",
+    "family": "v30_candidate_p1_inverse_vol",
+    "source_path": "research/strategies/v30_candidate_p1_inverse_vol.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "0f7875140cff89ea2f6e8f5319b3272cf62770d6546c66762765c20521187b65",
+    "lf_sha256": "0f7875140cff89ea2f6e8f5319b3272cf62770d6546c66762765c20521187b65",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return long-only buy/sell orders adhering to Candidate P1 rules.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C035",
+    "label": "research/strategies/v30_candidate_p2_capped_inverse_vol.py:decide",
+    "family": "v30_candidate_p2_capped_inverse_vol",
+    "source_path": "research/strategies/v30_candidate_p2_capped_inverse_vol.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "370b465eeffb41fa860ebdd557f34c1434e0e0754d32f74ed2bcf53780162f5a",
+    "lf_sha256": "370b465eeffb41fa860ebdd557f34c1434e0e0754d32f74ed2bcf53780162f5a",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return long-only buy/sell orders adhering to Candidate P2 rules.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C036",
+    "label": "research/strategies/v30_candidate_p3_smoothed_inverse_vol.py:decide",
+    "family": "v30_candidate_p3_smoothed_inverse_vol",
+    "source_path": "research/strategies/v30_candidate_p3_smoothed_inverse_vol.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "20235faf8fb96d70acf0a464c96beff6d1019462f4cc30b2a4c77bcd75785ad0",
+    "lf_sha256": "20235faf8fb96d70acf0a464c96beff6d1019462f4cc30b2a4c77bcd75785ad0",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return long-only buy/sell orders adhering to Candidate P3 rules.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C037",
+    "label": "research/strategies/v30_candidate_p4_blend_equal_inverse.py:decide",
+    "family": "v30_candidate_p4_blend_equal_inverse",
+    "source_path": "research/strategies/v30_candidate_p4_blend_equal_inverse.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "495bbf65690e6fe4661d93f309ebeaf250fa8a06b1c967ba181cffb3d47b883d",
+    "lf_sha256": "495bbf65690e6fe4661d93f309ebeaf250fa8a06b1c967ba181cffb3d47b883d",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Return long-only buy/sell orders adhering to Candidate P4 rules.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C038",
+    "label": "research/strategies/v30_execution_safe_agent.py:V30ExecutionSafeAgent",
+    "family": "v30_execution_safe_agent",
+    "source_path": "research/strategies/v30_execution_safe_agent.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6",
+    "lf_sha256": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6",
+    "entry": "V30ExecutionSafeAgent",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "research.engine.cash_affordability_model": "e43d11d67041c5bb46929f16f548c23bcab06bb2e995a114531ddd9b1c7f5604"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Experimental Candidate: Frozen E0 signals with Conservative Cash-Affordability Execution.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "research.engine.cash_affordability_model",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C039",
+    "label": "research/strategies/v30_execution_safe_agent.py:decide",
+    "family": "v30_execution_safe_agent",
+    "source_path": "research/strategies/v30_execution_safe_agent.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6",
+    "lf_sha256": "b2660488740275a0931129e39d4638ac8bbcfe092bd7060959ccaf8d72186fb6",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "research.engine.cash_affordability_model": "e43d11d67041c5bb46929f16f548c23bcab06bb2e995a114531ddd9b1c7f5604"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Builderr competition contract entrypoint for V30 Execution-Safe Agent.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "research.engine.cash_affordability_model",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C040",
+    "label": "research/strategies/v30_execution_safe_agent_final.py:V30ExecutionSafeAgentFinal",
+    "family": "v30_execution_safe_agent_final",
+    "source_path": "research/strategies/v30_execution_safe_agent_final.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "aaacaa8780f14df0b8ae5fb51fef1182f9b13cf9405b63e916119ad9c448b377",
+    "lf_sha256": "aaacaa8780f14df0b8ae5fb51fef1182f9b13cf9405b63e916119ad9c448b377",
+    "entry": "V30ExecutionSafeAgentFinal",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "research.engine.v30_broker_accounting_final": "83eebb87dca5e50be9f82de607ed9d6a711bef44be0d665f083a9d9174c82f4a"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Final institutional execution-safe agent conforming to Stage 2A-F acceptance standards.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "math",
+      "research.engine.v30_broker_accounting_final",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C041",
+    "label": "research/strategies/v30_execution_safe_agent_r.py:V30ExecutionSafeAgentR",
+    "family": "v30_execution_safe_agent_r",
+    "source_path": "research/strategies/v30_execution_safe_agent_r.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "143616dfd2a4da224a8f735d4cc472180b55715aec46b60538b7fa953382316f",
+    "lf_sha256": "143616dfd2a4da224a8f735d4cc472180b55715aec46b60538b7fa953382316f",
+    "entry": "V30ExecutionSafeAgentR",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd",
+      "research.engine.v30_broker_accounting_r": "2337e904f3aedf1b908dbc15d787e43f1aa9804ddbd7ad388aaecc7d21d0d445"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Remediated execution-safe agent conforming to Gate B and Gate C institutional standards.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "agent",
+      "copy",
+      "math",
+      "research.engine.v30_broker_accounting_r",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C042",
+    "label": "seed_dual_momentum.py:decide",
+    "family": "seed_dual_momentum",
+    "source_path": "seed_dual_momentum.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "7844dc0b492ed09fe0ed122e0b83bc6c12d946f885ce26d12fc7d783c8f2a29f",
+    "lf_sha256": "00b0b2485179370e43d6c5adb96627c3896a3e402171bff49648a40cb3216d3f",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Seed bot \u2014 Defensive Dual-Momentum (builderr house reference bot).\n\nClassic dual-momentum, Antonacci-style. Distinct from the AI-basket seed:\nno leverage, cross-sectional sector rotation, hard defensive gate.\n\nLogic (rebalanced ~monthly):\n  1. ABSOLUTE momentum gate: only hold risk assets if SPY's trailing ~60-day\n     return is positive. If SPY is in a downtrend, the gate is OFF.\n  2. RELATIVE momentum (gate ON): rank the sector ETFs by trailing ~60-day\n     return, hold the top 3 equal-weight.\n  3. DEFENSIVE (gate OFF): rotate to XLP + XLU equal-weight (staples + utilities).\n\nWhy it should clear Phase A:\n  - SVB 2023: sectors recover post-shock \u2192 relative momentum catches the bounce.\n  - Q4 2022 rate downtrend: gate goes OFF \u2192 defensive rotation limits drawdown.\n  - Aug 2024 vol spike: gate flickers but defensive ballast caps the damage.\n\nNo leverage \u2192 beta-adjusted exposure ~1.0x, well under the 1.5x cap.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C043",
+    "label": "seed_dual_momentum.py:decide @33d40c9f",
+    "family": "seed_dual_momentum",
+    "source_path": "seed_dual_momentum.py",
+    "git_commit": "33d40c9f86e8aa2a4e020093cb5d71c6df1f45f5",
+    "source_sha256": "749af760642237e88c6fed6bb3f6672d7a383605f47909d59abe9f64a8ea0420",
+    "lf_sha256": "749af760642237e88c6fed6bb3f6672d7a383605f47909d59abe9f64a8ea0420",
+    "entry": "decide",
+    "kind": "function",
+    "kwargs": {},
+    "args": [],
+    "extract": false,
+    "dependency_sources": {
+      "agent": "5d9212db038f6fb4f67bc4ac81d0f8846eaee817776596aad2823b3eb45443e4"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Seed bot \u2014 Defensive Dual-Momentum (builderr house reference bot).\n\nClassic dual-momentum, Antonacci-style. Distinct from the AI-basket seed:\nno leverage, cross-sectional sector rotation, hard defensive gate.\n\nLogic (rebalanced ~monthly):\n  1. ABSOLUTE momentum gate: only hold risk assets if SPY's trailing ~60-day\n     return is positive. If SPY is in a downtrend, the gate is OFF.\n  2. RELATIVE momentum (gate ON): rank the sector ETFs by trailing ~60-day\n     return, hold the top 3 equal-weight.\n  3. DEFENSIVE (gate OFF): rotate to XLP + XLU equal-weight (staples + utilities).\n\nWhy it should clear Phase A:\n  - SVB 2023: sectors recover post-shock \u2192 relative momentum catches the bounce.\n  - Q4 2022 rate downtrend: gate goes OFF \u2192 defensive rotation limits drawdown.\n  - Aug 2024 vol spike: gate flickers but defensive ballast caps the damage.\n\nNo leverage \u2192 beta-adjusted exposure ~1.0x, well under the 1.5x cap.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "__future__",
+      "statistics"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C044",
+    "label": "make_h1_decide[0.02]",
+    "family": "test_hypotheses",
+    "source_path": "scratch/test_hypotheses.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "67fbd18e90f206c890b42c35040d7fcc165ff7cafbeae897d4e2111be92c4499",
+    "lf_sha256": "0f765f6368afc3dc4eff4d24d097b36fbbe6af80e2ae8f6c607f75bcaee286d3",
+    "entry": "make_h1_decide",
+    "kind": "factory",
+    "kwargs": {},
+    "args": [
+      0.02
+    ],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Hypothesis Testing Framework for Stage 2A Master Optimization.\n\nTests H1 through H8 against all 3 public regimes:\nH1: Smarter rebalancing (min_trade buffer: 0.015 -> 0.020, 0.025, 0.030)\nH2: Risk-adaptive position sizing (inverse vol weighting of top assets)\nH3: Faster risk detection (20d vs 50d trend filter)\nH4: Improved market re-entry (snapback detection via short momentum)\nH5: Defensive signal selection (purge XLE from defensive basket -> pure cash/XLP/XLV)\nH6: Turnover-aware order generation (skip rebalancing if targets unchanged)\nH7: Sector diversification (cap single sector at 2 assets)\nH8: Runtime optimization (pre-parsed closes)\n\nMaintains identical fill rules, slippage, exposure caps, and decision cadence.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "copy",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "statistics",
+      "sys",
+      "time"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C045",
+    "label": "make_h1_decide[0.025]",
+    "family": "test_hypotheses",
+    "source_path": "scratch/test_hypotheses.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "67fbd18e90f206c890b42c35040d7fcc165ff7cafbeae897d4e2111be92c4499",
+    "lf_sha256": "0f765f6368afc3dc4eff4d24d097b36fbbe6af80e2ae8f6c607f75bcaee286d3",
+    "entry": "make_h1_decide",
+    "kind": "factory",
+    "kwargs": {},
+    "args": [
+      0.025
+    ],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Hypothesis Testing Framework for Stage 2A Master Optimization.\n\nTests H1 through H8 against all 3 public regimes:\nH1: Smarter rebalancing (min_trade buffer: 0.015 -> 0.020, 0.025, 0.030)\nH2: Risk-adaptive position sizing (inverse vol weighting of top assets)\nH3: Faster risk detection (20d vs 50d trend filter)\nH4: Improved market re-entry (snapback detection via short momentum)\nH5: Defensive signal selection (purge XLE from defensive basket -> pure cash/XLP/XLV)\nH6: Turnover-aware order generation (skip rebalancing if targets unchanged)\nH7: Sector diversification (cap single sector at 2 assets)\nH8: Runtime optimization (pre-parsed closes)\n\nMaintains identical fill rules, slippage, exposure caps, and decision cadence.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "copy",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "statistics",
+      "sys",
+      "time"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C046",
+    "label": "make_h1_decide[0.03]",
+    "family": "test_hypotheses",
+    "source_path": "scratch/test_hypotheses.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "67fbd18e90f206c890b42c35040d7fcc165ff7cafbeae897d4e2111be92c4499",
+    "lf_sha256": "0f765f6368afc3dc4eff4d24d097b36fbbe6af80e2ae8f6c607f75bcaee286d3",
+    "entry": "make_h1_decide",
+    "kind": "factory",
+    "kwargs": {},
+    "args": [
+      0.03
+    ],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Hypothesis Testing Framework for Stage 2A Master Optimization.\n\nTests H1 through H8 against all 3 public regimes:\nH1: Smarter rebalancing (min_trade buffer: 0.015 -> 0.020, 0.025, 0.030)\nH2: Risk-adaptive position sizing (inverse vol weighting of top assets)\nH3: Faster risk detection (20d vs 50d trend filter)\nH4: Improved market re-entry (snapback detection via short momentum)\nH5: Defensive signal selection (purge XLE from defensive basket -> pure cash/XLP/XLV)\nH6: Turnover-aware order generation (skip rebalancing if targets unchanged)\nH7: Sector diversification (cap single sector at 2 assets)\nH8: Runtime optimization (pre-parsed closes)\n\nMaintains identical fill rules, slippage, exposure caps, and decision cadence.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "copy",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "statistics",
+      "sys",
+      "time"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C047",
+    "label": "make_h5_decide['no_xle']",
+    "family": "test_hypotheses",
+    "source_path": "scratch/test_hypotheses.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "67fbd18e90f206c890b42c35040d7fcc165ff7cafbeae897d4e2111be92c4499",
+    "lf_sha256": "0f765f6368afc3dc4eff4d24d097b36fbbe6af80e2ae8f6c607f75bcaee286d3",
+    "entry": "make_h5_decide",
+    "kind": "factory",
+    "kwargs": {},
+    "args": [
+      "no_xle"
+    ],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Hypothesis Testing Framework for Stage 2A Master Optimization.\n\nTests H1 through H8 against all 3 public regimes:\nH1: Smarter rebalancing (min_trade buffer: 0.015 -> 0.020, 0.025, 0.030)\nH2: Risk-adaptive position sizing (inverse vol weighting of top assets)\nH3: Faster risk detection (20d vs 50d trend filter)\nH4: Improved market re-entry (snapback detection via short momentum)\nH5: Defensive signal selection (purge XLE from defensive basket -> pure cash/XLP/XLV)\nH6: Turnover-aware order generation (skip rebalancing if targets unchanged)\nH7: Sector diversification (cap single sector at 2 assets)\nH8: Runtime optimization (pre-parsed closes)\n\nMaintains identical fill rules, slippage, exposure caps, and decision cadence.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "copy",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "statistics",
+      "sys",
+      "time"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C048",
+    "label": "make_h5_decide['conservative']",
+    "family": "test_hypotheses",
+    "source_path": "scratch/test_hypotheses.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "67fbd18e90f206c890b42c35040d7fcc165ff7cafbeae897d4e2111be92c4499",
+    "lf_sha256": "0f765f6368afc3dc4eff4d24d097b36fbbe6af80e2ae8f6c607f75bcaee286d3",
+    "entry": "make_h5_decide",
+    "kind": "factory",
+    "kwargs": {},
+    "args": [
+      "conservative"
+    ],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Hypothesis Testing Framework for Stage 2A Master Optimization.\n\nTests H1 through H8 against all 3 public regimes:\nH1: Smarter rebalancing (min_trade buffer: 0.015 -> 0.020, 0.025, 0.030)\nH2: Risk-adaptive position sizing (inverse vol weighting of top assets)\nH3: Faster risk detection (20d vs 50d trend filter)\nH4: Improved market re-entry (snapback detection via short momentum)\nH5: Defensive signal selection (purge XLE from defensive basket -> pure cash/XLP/XLV)\nH6: Turnover-aware order generation (skip rebalancing if targets unchanged)\nH7: Sector diversification (cap single sector at 2 assets)\nH8: Runtime optimization (pre-parsed closes)\n\nMaintains identical fill rules, slippage, exposure caps, and decision cadence.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "copy",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "statistics",
+      "sys",
+      "time"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C049",
+    "label": "make_h2_decide[]",
+    "family": "test_hypotheses_part2",
+    "source_path": "scratch/test_hypotheses_part2.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "a3849549c2b02178815666ac4909ac4d366b3ea70903cee21b84b4f7d0b11e78",
+    "lf_sha256": "b7191ce8948041ad038968f6e51ce64a7e7143b48b25201434c2fefcf1366a09",
+    "entry": "make_h2_decide",
+    "kind": "factory",
+    "kwargs": {},
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Hypothesis Testing Part 2: H2 (Risk-Adaptive Sizing), H3 (Trend Speed), H4 (Re-entry).\n\nTests:\n- H2: Inverse-volatility weighting across top momentum winners.\n- H3: 20-day vs 50-day trend detection for risk-on / risk-off.\n- H4: Staged re-entry when SPY/QQQ 10-day momentum > 0 even if below SMA50.\n- H6: Turnover-aware rebalancing (only rebalance if target set changes or drift > 10%).\n- H7: Diversified candidate basket (limit max tech allocation).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "pathlib",
+      "preview",
+      "statistics",
+      "sys",
+      "time"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C050",
+    "label": "make_h3_decide[]",
+    "family": "test_hypotheses_part2",
+    "source_path": "scratch/test_hypotheses_part2.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "a3849549c2b02178815666ac4909ac4d366b3ea70903cee21b84b4f7d0b11e78",
+    "lf_sha256": "b7191ce8948041ad038968f6e51ce64a7e7143b48b25201434c2fefcf1366a09",
+    "entry": "make_h3_decide",
+    "kind": "factory",
+    "kwargs": {},
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Hypothesis Testing Part 2: H2 (Risk-Adaptive Sizing), H3 (Trend Speed), H4 (Re-entry).\n\nTests:\n- H2: Inverse-volatility weighting across top momentum winners.\n- H3: 20-day vs 50-day trend detection for risk-on / risk-off.\n- H4: Staged re-entry when SPY/QQQ 10-day momentum > 0 even if below SMA50.\n- H6: Turnover-aware rebalancing (only rebalance if target set changes or drift > 10%).\n- H7: Diversified candidate basket (limit max tech allocation).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "pathlib",
+      "preview",
+      "statistics",
+      "sys",
+      "time"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C051",
+    "label": "make_h4_decide[]",
+    "family": "test_hypotheses_part2",
+    "source_path": "scratch/test_hypotheses_part2.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "a3849549c2b02178815666ac4909ac4d366b3ea70903cee21b84b4f7d0b11e78",
+    "lf_sha256": "b7191ce8948041ad038968f6e51ce64a7e7143b48b25201434c2fefcf1366a09",
+    "entry": "make_h4_decide",
+    "kind": "factory",
+    "kwargs": {},
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Hypothesis Testing Part 2: H2 (Risk-Adaptive Sizing), H3 (Trend Speed), H4 (Re-entry).\n\nTests:\n- H2: Inverse-volatility weighting across top momentum winners.\n- H3: 20-day vs 50-day trend detection for risk-on / risk-off.\n- H4: Staged re-entry when SPY/QQQ 10-day momentum > 0 even if below SMA50.\n- H6: Turnover-aware rebalancing (only rebalance if target set changes or drift > 10%).\n- H7: Diversified candidate basket (limit max tech allocation).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "pathlib",
+      "preview",
+      "statistics",
+      "sys",
+      "time"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C052",
+    "label": "Baseline_Cadence_5",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 5
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C053",
+    "label": "Cadence_3",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 3
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C054",
+    "label": "Cadence_2",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 2
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C055",
+    "label": "Cadence_1_Daily",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 1
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C056",
+    "label": "FastExit_Drop_3pct",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 5,
+      "emergency_drop": -0.03
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C057",
+    "label": "FastExit_Drop_2pct",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 5,
+      "emergency_drop": -0.02
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C058",
+    "label": "VolTrigger_35",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 5,
+      "vol_trigger": 0.35
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C059",
+    "label": "No_XLE_Cadence_5",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 5,
+      "exclude_xle": true
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C060",
+    "label": "SectorCap_20pct",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 5,
+      "sector_cap": 0.2
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C061",
+    "label": "Integrated_FastExit_NoXLE",
+    "family": "counterfactual_rebalancing",
+    "source_path": "scratch/counterfactual_rebalancing.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "b1fcf4bf5d32d26bff339b5a4fab1afbbc4cec9c471c8c2d8b70b22981bfb26a",
+    "lf_sha256": "4e0f19ee7c2ba1488b121c228c4c0e14cfd12f9d1592dd8d7bc6229bbb2324ef",
+    "entry": "ParameterizedCadenceAgent",
+    "kind": "class",
+    "kwargs": {
+      "cadence_days": 5,
+      "emergency_drop": -0.03,
+      "exclude_xle": true
+    },
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Agent that runs E0 logic but with configurable cadence and optional triggers.",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "gzip",
+      "json",
+      "os",
+      "pathlib",
+      "preview",
+      "sys"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C062",
+    "label": "scratch/test_candidates_a_to_f.py:CandidateA_AdaptiveRebalance",
+    "family": "test_candidates_a_to_f",
+    "source_path": "scratch/test_candidates_a_to_f.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "8edd5a2649cac1f1e6f0bba579a62b28d62163aa9878447fda4f630edca13e0d",
+    "lf_sha256": "42b17889ed35c408cd608f441f2682b8197db363f7951f9d322ef765bfdbb0d5",
+    "entry": "CandidateA_AdaptiveRebalance",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate A: Adaptive Rebalancing (5-day cadence with -3% shock exit).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "os",
+      "research.engine.provider",
+      "research.engine.replay",
+      "sys",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C063",
+    "label": "scratch/test_candidates_a_to_f.py:CandidateB_EmergencyDeRisking",
+    "family": "test_candidates_a_to_f",
+    "source_path": "scratch/test_candidates_a_to_f.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "8edd5a2649cac1f1e6f0bba579a62b28d62163aa9878447fda4f630edca13e0d",
+    "lf_sha256": "42b17889ed35c408cd608f441f2682b8197db363f7951f9d322ef765bfdbb0d5",
+    "entry": "CandidateB_EmergencyDeRisking",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate B: Emergency De-Risking (Drawdown Budget Multiplier).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "os",
+      "research.engine.provider",
+      "research.engine.replay",
+      "sys",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C064",
+    "label": "scratch/test_candidates_a_to_f.py:CandidateC_SectorRiskBudgeting",
+    "family": "test_candidates_a_to_f",
+    "source_path": "scratch/test_candidates_a_to_f.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "8edd5a2649cac1f1e6f0bba579a62b28d62163aa9878447fda4f630edca13e0d",
+    "lf_sha256": "42b17889ed35c408cd608f441f2682b8197db363f7951f9d322ef765bfdbb0d5",
+    "entry": "CandidateC_SectorRiskBudgeting",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate C: Sector Risk Budgeting (20% max single weight, dynamic XLE trend filter).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "os",
+      "research.engine.provider",
+      "research.engine.replay",
+      "sys",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C065",
+    "label": "scratch/test_candidates_a_to_f.py:CandidateD_RecoveryParticipation",
+    "family": "test_candidates_a_to_f",
+    "source_path": "scratch/test_candidates_a_to_f.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "8edd5a2649cac1f1e6f0bba579a62b28d62163aa9878447fda4f630edca13e0d",
+    "lf_sha256": "42b17889ed35c408cd608f441f2682b8197db363f7951f9d322ef765bfdbb0d5",
+    "entry": "CandidateD_RecoveryParticipation",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate D: Recovery Participation (Fast Re-Entry via QQQ > SMA20).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "os",
+      "research.engine.provider",
+      "research.engine.replay",
+      "sys",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C066",
+    "label": "scratch/test_candidates_a_to_f.py:CandidateE_CostAwareRebalancing",
+    "family": "test_candidates_a_to_f",
+    "source_path": "scratch/test_candidates_a_to_f.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "8edd5a2649cac1f1e6f0bba579a62b28d62163aa9878447fda4f630edca13e0d",
+    "lf_sha256": "42b17889ed35c408cd608f441f2682b8197db363f7951f9d322ef765bfdbb0d5",
+    "entry": "CandidateE_CostAwareRebalancing",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate E: Cost-Aware Turnover Buffer (suppresses trades under 3% equity delta).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "os",
+      "research.engine.provider",
+      "research.engine.replay",
+      "sys",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  },
+  {
+    "id": "C067",
+    "label": "scratch/test_candidates_a_to_f.py:CandidateF_IntegratedRiskControl",
+    "family": "test_candidates_a_to_f",
+    "source_path": "scratch/test_candidates_a_to_f.py",
+    "git_commit": "WORKTREE",
+    "source_sha256": "8edd5a2649cac1f1e6f0bba579a62b28d62163aa9878447fda4f630edca13e0d",
+    "lf_sha256": "42b17889ed35c408cd608f441f2682b8197db363f7951f9d322ef765bfdbb0d5",
+    "entry": "CandidateF_IntegratedRiskControl",
+    "kind": "class",
+    "kwargs": {},
+    "args": [],
+    "extract": true,
+    "dependency_sources": {
+      "agent": "46e68dc93fdfb10f1eecfa832673ac4626c1b93627272d89b0d06a054cb13ffd"
+    },
+    "creation_stage": "from filename/source docstring; commit supplies historical context",
+    "objective": "Candidate F: Integrated Risk Control (Shock Exit + Dynamic XLE + DD Multiplier + Recovery Participation).",
+    "execution_interface": "decide(market_state, portfolio_state, cash); class/factory bound without parameter changes",
+    "dependencies": [
+      "agent",
+      "os",
+      "research.engine.provider",
+      "research.engine.replay",
+      "sys",
+      "typing"
+    ],
+    "historical_evaluation_status": "preserved source; historical PASS not inherited",
+    "genuine_source": true,
+    "runnable_without_source_modification": true,
+    "eligibility": "ELIGIBLE_PENDING_EXECUTION",
+    "logical_equivalence": "not proved; see exact duplicate register"
+  }
+]

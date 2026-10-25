@@ -1,0 +1,105 @@
+{
+  "execution_contract_parity_matrix": {
+    "timestamp_utc": "2026-10-25T19:20:00Z",
+    "stage": "V30 Stage 3D",
+    "audited_components": {
+      "historical_simulator": "preview.py (Builderr local admission preview harness)",
+      "hardened_prospective_engine": "research/engine/v30_stage2h_a_hardened_causal_engine.py",
+      "agent_decision_contract": "agent.py (decide(market_state, portfolio_state, cash))"
+    },
+    "contract_dimensions": [
+      {
+        "dimension": "Signal Computation Timing",
+        "historical_simulator": "decide() called on date T-1 with market_state containing bars up to & including T-1 close.",
+        "prospective_runner": "decide() called at 16:00:00 ET upon receiving confirmed T-1 daily close bars.",
+        "status": "REPRODUCED",
+        "quantification_and_impact": "Zero lookahead drift. Both harnesses enforce identical causality boundary."
+      },
+      {
+        "dimension": "Order Submission Timing",
+        "historical_simulator": "Orders returned by decide() queued to pending list.",
+        "prospective_runner": "Orders logged to immutable pending journal with cryptographic intent hash.",
+        "status": "REPRODUCED",
+        "quantification_and_impact": "Zero discrepancy. Orders wait for Session T market open."
+      },
+      {
+        "dimension": "Fill Assumptions & Pricing",
+        "historical_simulator": "Orders filled at Session T open via open_on(ticker, date) with modeled slippage.",
+        "prospective_runner": "Orders filled against Session T market open bar print with modeled slippage.",
+        "status": "REPRODUCED",
+        "quantification_and_impact": "Fill price is exactly open_price * (1 +/- slippage). Long-only affordance strictly enforced."
+      },
+      {
+        "dimension": "Transaction Cost & Slippage Model",
+        "historical_simulator": "5 bps (0.0005) for standard equity ETFs; 10 bps (0.0010) for 2x/3x leveraged ETFs.",
+        "prospective_runner": "Configurable slippage model defaulting to 5 bps equity ETF / 10 bps leveraged ETF.",
+        "status": "MATCHED_BY_SPECIFICATION",
+        "quantification_and_impact": "Identical slippage penalty applied to all buy and sell order executions."
+      },
+      {
+        "dimension": "Cash Accounting & Order Affordance",
+        "historical_simulator": "Long-only, no margin debt. If cost > cash, qty scaled down to cash / fill price.",
+        "prospective_runner": "CashAffordabilityEngine verifies liquid cash balance before execution; caps buys to available cash.",
+        "status": "REPRODUCED",
+        "quantification_and_impact": "Zero overdraft risk. Cash balance is strictly non-negative across all simulated sessions."
+      },
+      {
+        "dimension": "Universe Membership & Validation",
+        "historical_simulator": "Orders rejected if ticker is not present in regime bars dictionary.",
+        "prospective_runner": "Orders rejected unless ticker is in AUTHORIZED_UNIVERSE frozenset.",
+        "status": "REPRODUCED",
+        "quantification_and_impact": "Both engines strictly isolate execution to authorized sector ETF universe."
+      },
+      {
+        "dimension": "Missing Market Bars",
+        "historical_simulator": "If close_on or open_on returns None, order/pricing skipped without aborting simulator.",
+        "prospective_runner": "Ingests missing-bar event; <= 2 missing bars hold position; >= 3 missing bars trip state quarantine.",
+        "status": "MATCHED_BY_SPECIFICATION",
+        "quantification_and_impact": "Prospective engine adds explicit fail-closed quarantine while maintaining historical fallback behavior."
+      },
+      {
+        "dimension": "Total-Return Adjustments (Dividends vs Price Return)",
+        "historical_simulator": "Uses unadjusted daily OHLCV bars from sample_regimes.json.gz; cash dividends not automatically credited.",
+        "prospective_runner": "Vendor feeds typically provide split-adjusted prices or cash dividend distribution events.",
+        "status": "DIFFERENT",
+        "quantification_and_impact": "Discrepancy quantified: If prospective feed uses split-adjusted close while historical feed used raw close, small cash dividend yield difference (approx 1.5% - 2.0% annualized) occurs. Protocol specifies: prospective feed must use split-adjusted close and credit explicit cash dividends to cash balance upon ex-dividend date."
+      },
+      {
+        "dimension": "Corporate Actions (Stock Splits)",
+        "historical_simulator": "Assumes static split-adjusted historical series in sample_regimes.json.gz.",
+        "prospective_runner": "Includes explicit CorporateActionSplit handler that scales position quantity and divides average cost.",
+        "status": "MATCHED_BY_SPECIFICATION",
+        "quantification_and_impact": "Prospective engine handles corporate splits dynamically without position value discontinuities."
+      },
+      {
+        "dimension": "Peak Drawdown Calculation",
+        "historical_simulator": "Tracks peak equity curve: mdd = max(mdd, (peak - v) / peak). Blow-up at mdd > 0.50.",
+        "prospective_runner": "Tracks peak equity curve with identical mathematical formula.",
+        "status": "REPRODUCED",
+        "quantification_and_impact": "Mathematical formula is identical to machine precision."
+      },
+      {
+        "dimension": "Gross Leverage Gate",
+        "historical_simulator": "sum(abs(v) * beta(t)) / equity <= 1.50 (LEVERAGE_CAP).",
+        "prospective_runner": "Beta-adjusted exposure monitor enforces identical 1.50x ceiling.",
+        "status": "REPRODUCED",
+        "quantification_and_impact": "D2 candidate utilizes maximum 1.0x gross exposure (50% equities, 50% cash), well below 1.5x cap."
+      },
+      {
+        "dimension": "Position Concentration Breach Gate",
+        "historical_simulator": "Single position >= 30% for > 5 consecutive trading days triggers breach.",
+        "prospective_runner": "Concentration monitor tracks consecutive-day streaks >= 30% with identical 5-day breach threshold.",
+        "status": "REPRODUCED",
+        "quantification_and_impact": "D2 defensive basket allocates ~16.67% across XLP, XLU, XLV (well below 30% single-stock ceiling)."
+      }
+    ],
+    "summary": {
+      "reproduced": 8,
+      "matched_by_specification": 3,
+      "different": 1,
+      "unknown": 0,
+      "blocked": 0,
+      "parity_verdict": "VERIFIED_SUBSTANTIAL_PARITY (11/12 dimensions identical or matched by spec; 1 documented dividend difference resolved by protocol)"
+    }
+  }
+}

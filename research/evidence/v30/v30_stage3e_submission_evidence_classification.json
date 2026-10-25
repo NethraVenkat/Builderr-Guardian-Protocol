@@ -1,0 +1,57 @@
+{
+  "stage": "V30_STAGE_3E",
+  "artifact_type": "SUBMISSION_EVIDENCE_CLASSIFICATION",
+  "generated_at": "2026-10-25T20:00:00+05:30",
+  "local_records_searched": [
+    {
+      "record_file": "leaderboard.json",
+      "findings": "Generated 2026-10-19T15:53:54Z. Lists 'manish' in bots[24]: equity $99,750.26, pnl -$249.74, return -0.25%, trades 4, days 1, since 2026-10-19."
+    },
+    {
+      "record_file": "private_results.json",
+      "findings": "Contains persisted record for 'manish' matching leaderboard.json."
+    },
+    {
+      "record_file": "live_runner.py",
+      "findings": "Contains PRIVATE_FIELD entry ('manish_agent.py', 'manish', 'round 2 · entrant') and ENTRY['manish'] = '2026-10-19'."
+    },
+    {
+      "record_file": "SUBMISSION.md",
+      "findings": "Details Stage 10 publication handoff for commit 9fb6033d0cd023e0d997b0d914db5ce963b959fb on branch release/e0-stage10. Confirms submission is CONDITIONAL upon human owner transmission."
+    }
+  ],
+  "classification_status_evaluation": {
+    "PACKAGE_VERIFIED_LOCALLY": {
+      "status": "CONFIRMED_TRUE",
+      "evidence": "agent.py and universe.json pass all 6 preview.py checks, selfcheck.py, strategy_selftest.py, and 14 adversarial fixtures."
+    },
+    "PLATFORM_ACCEPTED": {
+      "status": "HISTORICAL_RECORD_ONLY",
+      "evidence": "Platform previously accepted 'manish' on 2026-10-19 (1 scored session). However, the CURRENT repository commit (4540ee49) has NOT been submitted or evaluated by the platform."
+    },
+    "SUBMISSION_EVIDENCE_MISSING": {
+      "status": "CONFIRMED_FOR_CURRENT_CHECKPOINT",
+      "evidence": "No platform acceptance receipt or organizer confirmation email exists in the repository for commit 4540ee49."
+    },
+    "SUBMISSION_REJECTED": {
+      "status": "CONFIRMED_FALSE",
+      "evidence": "Zero evidence of submission rejection. Local safety checks and admission rules are 100% compliant."
+    },
+    "DEADLINE_PASSED": {
+      "status": "CONFIRMED_FALSE",
+      "evidence": "Official Round 2 deadline is October 31, 2026 at 23:59 IST. Current date is October 25, 2026 (6 days remaining)."
+    },
+    "NOT_VERIFIED": {
+      "status": "CONFIRMED_FOR_EXTERNAL_PLATFORM_RUN",
+      "evidence": "Platform-side execution and live forward scoring of commit 4540ee49 cannot be verified without external human submission."
+    }
+  },
+  "lifecycle_state_demarcation": {
+    "engineering_readiness": "100.0% (Code, contracts, and safety caps verified)",
+    "submission_package_readiness": "100.0% (Files packaged, hashes verified, zero external dependencies)",
+    "submission_completed": "NOT COMPLETED (Requires human owner to email repository URL to submit@builderr.ai)",
+    "competition_eligibility": "ELIGIBLE (Round 2 open through Oct 31; up to 4 revisions permitted; 1 revision consumed historically)",
+    "prospective_research_readiness": "CONDITIONALLY READY / BLOCKED (Track B is governed separately by DEC-01 to DEC-06)"
+  },
+  "overall_verdict": "PACKAGE_VERIFIED_LOCALLY_SUBMISSION_PENDING_HUMAN_ACTION"
+}

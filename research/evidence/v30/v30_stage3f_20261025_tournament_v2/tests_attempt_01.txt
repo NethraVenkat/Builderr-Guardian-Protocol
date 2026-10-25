@@ -1,0 +1,36 @@
+test_01_equal_initial_cash (__main__.Controls.test_01_equal_initial_cash) ... ok
+test_02_identical_input_data (__main__.Controls.test_02_identical_input_data) ... ok
+test_03_equal_timing (__main__.Controls.test_03_equal_timing) ... ok
+test_04_no_future_information (__main__.Controls.test_04_no_future_information) ... ok
+test_05_identical_fees (__main__.Controls.test_05_identical_fees) ... ok
+test_06_identical_slippage (__main__.Controls.test_06_identical_slippage) ... ok
+test_07_corporate_action_conservation (__main__.Controls.test_07_corporate_action_conservation) ... ok
+test_08_cash_conservation (__main__.Controls.test_08_cash_conservation) ... ok
+test_09_independent_state (__main__.Controls.test_09_independent_state) ... ok
+test_10_deterministic_replay (__main__.Controls.test_10_deterministic_replay) ... ok
+test_11_missing_bar (__main__.Controls.test_11_missing_bar) ... ok
+test_12_invalid_orders (__main__.Controls.test_12_invalid_orders) ... ok
+test_13_concentration_limit (__main__.Controls.test_13_concentration_limit) ... ok
+test_14_leverage_limit (__main__.Controls.test_14_leverage_limit) ... ok
+test_15_drawdown_initial_equity (__main__.Controls.test_15_drawdown_initial_equity) ... ok
+test_16_journal_reconciliation (__main__.Controls.test_16_journal_reconciliation) ... ok
+test_17_source_consistency (__main__.Controls.test_17_source_consistency) ... ok
+test_18_tier3_boundary (__main__.Controls.test_18_tier3_boundary) ... ok
+test_19_credential_io_denied (__main__.Controls.test_19_credential_io_denied) ... ok
+test_20_broker_network_denied (__main__.Controls.test_20_broker_network_denied) ... ok
+test_21_frozen_integrity (__main__.Controls.test_21_frozen_integrity) ... ok
+test_22_no_git_mutations (__main__.Controls.test_22_no_git_mutations) ... ok
+test_23_complete_source_loading (__main__.Controls.test_23_complete_source_loading) ... ok
+test_24_failure_capture (__main__.Controls.test_24_failure_capture) ... ok
+test_25_metric_recomputation (__main__.Controls.test_25_metric_recomputation) ... ok
+test_26_zero_variance_na (__main__.Controls.test_26_zero_variance_na) ... ok
+test_27_sell_before_buy_and_limit (__main__.Controls.test_27_sell_before_buy_and_limit) ... ok
+test_28_local_runner_parity_on_common_domain (__main__.Controls.test_28_local_runner_parity_on_common_domain) ... ok
+test_29_synthetic_reproduction (__main__.Controls.test_29_synthetic_reproduction) ... ok
+test_30_market_input_immutable (__main__.Controls.test_30_market_input_immutable) ... ok
+test_31_scratch_ast_exact (__main__.Controls.test_31_scratch_ast_exact) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 7.501s
+
+OK

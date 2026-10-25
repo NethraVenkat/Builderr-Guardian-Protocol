@@ -1,0 +1,15 @@
+{
+  "start_epoch": 1792940962.8894346,
+  "start_utc": "2026-10-25T15:09:23.185347+00:00",
+  "maximum_minutes": 360,
+  "allocation_minutes": {
+    "discovery": 45,
+    "contract_data": 40,
+    "harness": 75,
+    "tournament": 70,
+    "stress": 50,
+    "verification": 40,
+    "reporting": 40
+  },
+  "note": "Budget begins at machine-recorded preparation; earlier read-only inspection time is separately disclosed."
+}

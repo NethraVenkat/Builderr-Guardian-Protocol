@@ -1,0 +1,26 @@
+{
+  "candidate_entries": 68,
+  "implementation_upper_bound_after_proven_wrapper_alias": 67,
+  "unique_semantics_not_proved": true,
+  "duplicate_references": 37,
+  "source_files": 41,
+  "fully_successful_candidates": 68,
+  "failed_candidates": 0,
+  "base_simulations": 2176,
+  "sensitivity_simulations": 12,
+  "total_simulations": 2188,
+  "total_scored_sessions": 331632,
+  "run_statuses": {
+    "EXECUTED SUCCESSFULLY": 2188
+  },
+  "measured_tournament_seconds": 1681.5472461,
+  "sum_simulation_seconds": 1318.170541700063,
+  "independent_verification_seconds": 1080.9286365000007,
+  "measured_preparation_to_report_seconds": 2588.814744234085,
+  "earlier_read_only_inspection": "not covered by the preparation timer; no precise full-turn duration claimed",
+  "maximum_planned_minutes": 360,
+  "test_failures": [],
+  "test_errors": [],
+  "all_preserved": true,
+  "preserved_files": 334
+}

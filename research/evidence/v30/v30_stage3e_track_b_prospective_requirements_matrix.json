@@ -1,0 +1,158 @@
+{
+  "stage": "V30_STAGE_3E",
+  "project_track": "TRACK_B_PROSPECTIVE_EXPLORATORY_RESEARCH",
+  "generated_at": "2026-10-25T20:04:00+05:30",
+  "requirements_count": 13,
+  "summary": {
+    "passed_count": 7,
+    "pending_count": 3,
+    "conditional_count": 1,
+    "blocked_count": 2,
+    "qualitative_readiness_status": "CONDITIONALLY_READY_STRICTLY_BLOCKED_ON_LEGAL_AND_SIGNATURES"
+  },
+  "requirements": [
+    {
+      "req_id": "REQ-B01",
+      "exact_requirement": "Frozen strategy candidate baseline (Candidate E0 and Candidate D2 frozen without mutation)",
+      "source_reference": "Stage 2H-Final Evidence Freeze",
+      "criticality": "CRITICAL",
+      "weight": 10.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_checkpoint_certification.json",
+      "executed_verification": "pytest test_v30_stage3e_competition_certification.py::test_02_protected_source_file_hashes",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-B02",
+      "exact_requirement": "Prespecified exploratory evaluation protocol (60-day horizon, Benjamini-Hochberg FDR, non-confirmatory)",
+      "source_reference": "research/evidence/v30/v30_stage3d_exploratory_protocol_specification.json",
+      "criticality": "HIGH",
+      "weight": 10.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3d_exploratory_protocol_specification.json",
+      "executed_verification": "Protocol certified in Stage 3D; confirmatory claims formally abandoned",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-B03",
+      "exact_requirement": "Execution contract parity model (12 dimensions mapped; split-adjusted closes + cash dividend credits)",
+      "source_reference": "research/evidence/v30/v30_stage3d_execution_contract_parity_matrix.json",
+      "criticality": "HIGH",
+      "weight": 10.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3d_execution_contract_parity_matrix.json",
+      "executed_verification": "Parity audit certified: 8 reproduced, 3 matched by spec, 1 resolved",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-B04",
+      "exact_requirement": "Synthetic end-to-end simulation harness (280 days, stock splits, missing bars, crash recovery)",
+      "source_reference": "research/simulations/v30_stage3d_offline_end_to_end_harness.py",
+      "criticality": "HIGH",
+      "weight": 10.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3d_synthetic_end_to_end_trace.json",
+      "executed_verification": "Executed harness: 125 trades, $113,709.38 final equity, zero state divergence on restart",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-B05",
+      "exact_requirement": "Fail-closed risk and incident architecture (7 ingestion anomaly categories quarantined, circuit breakers)",
+      "source_reference": "research/simulations/v30_stage3d_failure_injection_harness.py",
+      "criticality": "CRITICAL",
+      "weight": 10.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3d_failure_injection_results.json",
+      "executed_verification": "Executed failure injection harness: 7/7 quarantined, 50 bps slippage tripped",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-B06",
+      "exact_requirement": "Partial fill and volume participation model (10% ADV cap with quadratic slippage penalty)",
+      "source_reference": "research/evidence/v30/v30_stage3d_risk_and_incident_architecture.json",
+      "criticality": "MEDIUM",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3d_risk_and_incident_architecture.json",
+      "executed_verification": "Model formulated and tested in Stage 3D simulation",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-B07",
+      "exact_requirement": "Emergency human operator override interface (emergency_halt() and force cash liquidation)",
+      "source_reference": "research/evidence/v30/v30_stage3d_risk_and_incident_architecture.json",
+      "criticality": "CRITICAL",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3d_failure_injection_results.json",
+      "executed_verification": "Operator halt tested and verified in Stage 3D failure injection harness",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-B08",
+      "exact_requirement": "DEC-01: Market Data Provider Selection approved by repository owner",
+      "source_reference": "DEC-01 Decision Register",
+      "criticality": "HIGH",
+      "weight": 8.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_canonical_governance_crosswalk.json",
+      "executed_verification": "Audited register: Tiingo Power recommended for EOD bars, Alpaca for paper execution",
+      "status": "PENDING",
+      "remaining_action": "Repository owner must select provider"
+    },
+    {
+      "req_id": "REQ-B09",
+      "exact_requirement": "DEC-02: Commercial market-data licensing agreements executed with vendor",
+      "source_reference": "DEC-02 Decision Register",
+      "criticality": "CRITICAL",
+      "weight": 10.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3d_data_rights_and_provenance_matrix.json",
+      "executed_verification": "Audited terms of service: non-display commercial redistribution rights unresolved",
+      "status": "STRICTLY_BLOCKED",
+      "remaining_action": "Execute commercial vendor contract or obtain explicit platform data exemption"
+    },
+    {
+      "req_id": "REQ-B10",
+      "exact_requirement": "DEC-03: Statistical protocol and exploratory standard formally signed by owner",
+      "source_reference": "DEC-03 Decision Register",
+      "criticality": "HIGH",
+      "weight": 7.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_canonical_governance_crosswalk.json",
+      "executed_verification": "Audited register: awaiting owner formal signature",
+      "status": "PENDING",
+      "remaining_action": "Repository owner must sign DEC-03"
+    },
+    {
+      "req_id": "REQ-B11",
+      "exact_requirement": "DEC-04: Evaluation horizon and stopping rules formally signed by owner",
+      "source_reference": "DEC-04 Decision Register",
+      "criticality": "HIGH",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_canonical_governance_crosswalk.json",
+      "executed_verification": "Audited register: awaiting owner formal signature",
+      "status": "PENDING",
+      "remaining_action": "Repository owner must sign DEC-04"
+    },
+    {
+      "req_id": "REQ-B12",
+      "exact_requirement": "DEC-05.B: Physical network latency and NTP clock synchronization profiling on production hardware",
+      "source_reference": "DEC-05 Decision Register",
+      "criticality": "HIGH",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3d_risk_and_incident_architecture.json",
+      "executed_verification": "Hardware latency profiling pending physical gateway deployment",
+      "status": "CONDITIONAL",
+      "remaining_action": "Deploy daemon to dedicated server and measure round-trip socket timing"
+    },
+    {
+      "req_id": "REQ-B13",
+      "exact_requirement": "DEC-06: Activation authority permanently blocked against live capital deployment",
+      "source_reference": "DEC-06 Decision Register",
+      "criticality": "CRITICAL",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_canonical_governance_crosswalk.json",
+      "executed_verification": "pytest test_v30_stage3e_competition_certification.py::test_08_canonical_governance_reconciliation",
+      "status": "STRICTLY_BLOCKED",
+      "remaining_action": "Permanent safety barrier; live trading remains strictly unauthorized"
+    }
+  ]
+}

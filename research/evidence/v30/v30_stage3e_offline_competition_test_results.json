@@ -1,0 +1,78 @@
+{
+  "stage": "V30_STAGE_3E",
+  "artifact_type": "OFFLINE_COMPETITION_TEST_RESULTS",
+  "generated_at": "2026-10-25T19:58:00+05:30",
+  "test_executions": [
+    {
+      "test_id": "TEST-PREVIEW",
+      "command": "python -X utf8 preview.py",
+      "exit_code": 0,
+      "duration_seconds": 0.4755,
+      "verdict": "PASS",
+      "sample_windows_metrics": [
+        {
+          "window": "calm_uptrend",
+          "return_pct": 14.65,
+          "max_drawdown_pct": 3.57,
+          "sharpe": 4.18,
+          "calmar": 19.99,
+          "trades": 38
+        },
+        {
+          "window": "moderate_selloff",
+          "return_pct": -3.36,
+          "max_drawdown_pct": 6.13,
+          "sharpe": -2.53,
+          "calmar": -3.96,
+          "trades": 17
+        },
+        {
+          "window": "vol_spike_snapback",
+          "return_pct": -15.77,
+          "max_drawdown_pct": 33.46,
+          "sharpe": -1.30,
+          "calmar": -1.73,
+          "trades": 21
+        }
+      ],
+      "safety_bar_checks": [
+        {"check": "runs clean, no errors", "status": "PASS"},
+        {"check": "no leverage breach (peak gross 0.94x <= 1.5x)", "status": "PASS"},
+        {"check": "no concentration breach (peak 26%, longest run >= 30% was 0d, limit is 5d)", "status": "PASS"},
+        {"check": "no blow-up (worst drawdown 33.5% < 50%)", "status": "PASS"}
+      ]
+    },
+    {
+      "test_id": "TEST-SELFCHECK",
+      "command": "python -X utf8 selfcheck.py",
+      "exit_code": 0,
+      "duration_seconds": 0.6235,
+      "verdict": "PASS",
+      "details": "agent.py loaded and ran 12 steps cleanly. 4 well-formed orders emitted across the run."
+    },
+    {
+      "test_id": "TEST-STRATEGY-SELFTEST",
+      "command": "python -X utf8 strategy_selftest.py",
+      "exit_code": 0,
+      "duration_seconds": 0.1395,
+      "verdict": "PASS",
+      "details": "8 strategy unit checks passed (momentum, trend, volatility, caps, turnover)."
+    },
+    {
+      "test_id": "TEST-CERTIFICATION-PYTEST",
+      "command": "pytest research/tests/test_v30_stage3e_competition_certification.py -v",
+      "exit_code": 0,
+      "duration_seconds": 0.74,
+      "verdict": "PASS",
+      "passed_count": 10,
+      "failed_count": 0
+    }
+  ],
+  "summary": {
+    "total_suites": 4,
+    "total_checks": 28,
+    "passed": 28,
+    "failed": 0,
+    "overall_status": "ALL_TESTS_PASSED"
+  }
+}

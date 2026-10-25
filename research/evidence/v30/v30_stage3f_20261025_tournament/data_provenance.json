@@ -1,0 +1,30 @@
+{
+  "used": "new Stage 3F generator only",
+  "classification": "SYNTHETIC",
+  "authorization": "explicit Stage 3F user request for synthetic scenarios",
+  "prior_optimization": "none of these observations existed before preparation; scenarios are engineering designs, not holdout market validation",
+  "market_data_loaded": false,
+  "licensing": "no vendor observations or estimated vendor statistics used; no claim to grant a distribution license",
+  "blocked": [
+    {
+      "data": "Tier 1/Tier 2 Tiingo",
+      "reason": "all tiingo_cache contents prohibited; Tier 2 additionally reused development sample"
+    },
+    {
+      "data": "Tier 3",
+      "reason": "sealed; no availability inspection"
+    },
+    {
+      "data": "sample_regimes.json.gz",
+      "reason": "V29F UNKNOWN source/derived rights conflicts with Stage 3D assertion; not opened, hashed or decompressed"
+    }
+  ],
+  "evidence": [
+    "GUARDIAN_ALPHA_V29F_RIGHTS_RESOLUTION.md",
+    "research/evidence/v30/v30_stage3d_data_rights_and_provenance_matrix.json",
+    "GUARDIAN_ALPHA_V30_STAGE2E_CROSS_STAGE_EVIDENCE_AND_RISK_BUDGET.md section 8.1"
+  ],
+  "43_trials": "includes accounting, raw/adjusted, cutoff and halflife sweeps; not a source count",
+  "V29_V29E": "archive/publication snapshots, not new decision implementations unless source hash differs",
+  "missing_parameter_trials": "unrecoverable exact sweep factories are NOT VERIFIED; no reconstructed equivalent created"
+}

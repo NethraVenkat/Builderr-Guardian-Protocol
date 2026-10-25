@@ -1,0 +1,214 @@
+{
+  "stage": "V30_STAGE_3E",
+  "project_track": "TRACK_A_BUILDERR_COMPETITION_SUBMISSION",
+  "generated_at": "2026-10-25T20:03:00+05:30",
+  "requirements_count": 18,
+  "summary": {
+    "passed_count": 17,
+    "pending_count": 1,
+    "failed_count": 0,
+    "blocked_count": 0,
+    "engineering_readiness_pct": 100.0,
+    "overall_lifecycle_status": "PACKAGE_LOCALLY_CERTIFIED_PLATFORM_SUBMISSION_PENDING"
+  },
+  "requirements": [
+    {
+      "req_id": "REQ-A01",
+      "exact_requirement": "Agent must implement decide(market_state, portfolio_state, cash) -> list[dict] in agent.py at repository root",
+      "source_reference": "AGENT_BRIEF.md#L15-L25, README.md#L47-L59",
+      "criticality": "CRITICAL",
+      "weight": 10.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_submission_package_contract_verification.json",
+      "executed_verification": "pytest test_v30_stage3e_competition_certification.py::test_05_agent_entrypoint_signature",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A02",
+      "exact_requirement": "Output orders must conform to schema [{'ticker': str, 'side': 'buy'|'sell', 'quantity': float|int}]",
+      "source_reference": "AGENT_BRIEF.md#L30-L35, selfcheck.py#L97-L103",
+      "criticality": "CRITICAL",
+      "weight": 8.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_adversarial_fixture_results.json",
+      "executed_verification": "python -X utf8 selfcheck.py; pytest test_v30_stage3e_competition_adversarial.py",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A03",
+      "exact_requirement": "Long-only trading directionality (no short positions; sells capped at held shares)",
+      "source_reference": "AGENT_BRIEF.md#L45, live_runner.py#L445, L478",
+      "criticality": "CRITICAL",
+      "weight": 8.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_offline_competition_test_results.json",
+      "executed_verification": "preview.py execution across 3 regimes; verified zero short sells",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A04",
+      "exact_requirement": "Gross beta-adjusted exposure must remain <= 1.50x equity",
+      "source_reference": "README.md#L68, preview.py#L37",
+      "criticality": "CRITICAL",
+      "weight": 8.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_offline_competition_test_results.json",
+      "executed_verification": "preview.py safety bar check: observed peak 0.94x <= 1.50x",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A05",
+      "exact_requirement": "Leveraged ETF multipliers enforced (3x for TQQQ, SOXL, UPRO; 2x for QLD, SSO; 1x equities)",
+      "source_reference": "README.md#L88-L93, preview.py#L35-L36",
+      "criticality": "HIGH",
+      "weight": 6.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_competition_authority_register.json",
+      "executed_verification": "pytest test_v30_stage3e_competition_certification.py",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A06",
+      "exact_requirement": "Single-name position concentration must remain < 30% equity for any 5 consecutive trading days",
+      "source_reference": "README.md#L69, preview.py#L38",
+      "criticality": "CRITICAL",
+      "weight": 8.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_offline_competition_test_results.json",
+      "executed_verification": "preview.py safety bar check: observed peak 26%, 0 breach days <= 5d",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A07",
+      "exact_requirement": "Catastrophic drawdown must remain strictly < 50% across all admission regimes",
+      "source_reference": "README.md#L114, preview.py#L39, L248",
+      "criticality": "CRITICAL",
+      "weight": 8.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_offline_competition_test_results.json",
+      "executed_verification": "preview.py safety bar check: worst drawdown 33.5% < 50.0%",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A08",
+      "exact_requirement": "Decision runtime per call must remain <= 5.0 seconds",
+      "source_reference": "AGENT_BRIEF.md#L50, README.md#L72",
+      "criticality": "HIGH",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_offline_competition_test_results.json",
+      "executed_verification": "python strategy_selftest.py; observed max runtime 0.0037s (1350x safety margin)",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A09",
+      "exact_requirement": "Daily trade rate must remain <= 50 executed trades/day",
+      "source_reference": "AGENT_BRIEF.md#L48, agent.py#L293",
+      "criticality": "MEDIUM",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_adversarial_fixture_results.json",
+      "executed_verification": "agent.py caps proposed orders at [:45]; observed max orders per call is 5 <= 50",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A10",
+      "exact_requirement": "Minimum position holding period >= 60 seconds",
+      "source_reference": "AGENT_BRIEF.md#L49, README.md#L71",
+      "criticality": "LOW",
+      "weight": 3.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_competition_authority_register.json",
+      "executed_verification": "Inherently satisfied by daily decision cadence (positions held overnight >= 86,400s >> 60s)",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A11",
+      "exact_requirement": "Trading universe restricted to 1000 names defined in universe.json",
+      "source_reference": "universe.json, AGENT_BRIEF.md#L56-L61",
+      "criticality": "HIGH",
+      "weight": 6.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_submission_package_contract_verification.json",
+      "executed_verification": "pytest test_v30_stage3e_competition_certification.py::test_07_universe_json_specification",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A12",
+      "exact_requirement": "Strict no-lookahead bias (no querying future regime data)",
+      "source_reference": "README.md#L78-L86, builderr.ai/guidelines",
+      "criticality": "CRITICAL",
+      "weight": 8.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_submission_package_contract_verification.json",
+      "executed_verification": "AST and text scan of agent.py confirms zero network calls, zero external APIs",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A13",
+      "exact_requirement": "Standard library execution (zero third-party dependencies for agent.py)",
+      "source_reference": "README.md#L24, SUBMISSION.md#L24",
+      "criticality": "HIGH",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_submission_package_contract_verification.json",
+      "executed_verification": "pytest test_v30_stage3e_competition_certification.py::test_06_agent_standard_library_only",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A14",
+      "exact_requirement": "Zero hardcoded API secrets, tokens, or private credentials in submission code",
+      "source_reference": "README.md#L27, selfcheck.py#L26-L59",
+      "criticality": "CRITICAL",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_submission_package_contract_verification.json",
+      "executed_verification": "selfcheck.py and regex scanner verify zero secrets in agent.py and universe.json",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A15",
+      "exact_requirement": "Admission preview passes cleanly with exit code 0",
+      "source_reference": "README.md#L18-L23, preview.py",
+      "criticality": "HIGH",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_offline_competition_test_results.json",
+      "executed_verification": "python -X utf8 preview.py exited with code 0 and printed clean PASS verdict",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A16",
+      "exact_requirement": "Submission received prior to October 31, 2026 23:59 IST deadline",
+      "source_reference": "https://builderr.ai/trading-v0, README.md#L121",
+      "criticality": "CRITICAL",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_competition_authority_register.json",
+      "executed_verification": "Verified current time is October 25, 2026 (6 days before cutoff)",
+      "status": "PASS",
+      "remaining_action": "Awaits human owner transmission prior to cutoff"
+    },
+    {
+      "req_id": "REQ-A17",
+      "exact_requirement": "Submission package files (agent.py, universe.json) match frozen protected hashes",
+      "source_reference": "SUBMISSION.md#L22-L24, Checkpoint Certification",
+      "criticality": "CRITICAL",
+      "weight": 5.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_checkpoint_certification.json",
+      "executed_verification": "pytest test_v30_stage3e_competition_certification.py::test_02_protected_source_file_hashes",
+      "status": "PASS",
+      "remaining_action": "None"
+    },
+    {
+      "req_id": "REQ-A18",
+      "exact_requirement": "Platform-side validation confirmation receipt for current commit 4540ee49",
+      "source_reference": "README.md#L21, SUBMISSION.md#L48-L53",
+      "criticality": "CRITICAL",
+      "weight": 0.0,
+      "evidence_artifact": "research/evidence/v30/v30_stage3e_submission_evidence_classification.json",
+      "executed_verification": "Searched local records; prior admission on 2026-10-19 recorded, but commit 4540ee49 has not been submitted",
+      "status": "NOT VERIFIED / PENDING HUMAN SUBMISSION",
+      "remaining_action": "Human repository owner must email repo link to submit@builderr.ai to obtain receipt"
+    }
+  ]
+}

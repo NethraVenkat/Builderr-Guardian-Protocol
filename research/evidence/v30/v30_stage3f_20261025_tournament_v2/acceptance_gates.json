@@ -1,0 +1,86 @@
+[
+  {
+    "gate": "A",
+    "name": "Protected Git checkpoint",
+    "status": "PASS",
+    "basis": "branch, HEAD, parent and protected hashes match before and after"
+  },
+  {
+    "gate": "B",
+    "name": "Strategy inventory completeness",
+    "status": "PARTIAL",
+    "basis": "68 preserved executable entries covered; unreachable objects and undocumented sweeps cannot be certified exhaustive"
+  },
+  {
+    "gate": "C",
+    "name": "Data eligibility",
+    "status": "PASS",
+    "basis": "new synthetic observations only; real historical comparison BLOCKED"
+  },
+  {
+    "gate": "D",
+    "name": "Competition contract parity",
+    "status": "PARTIAL",
+    "basis": "common-domain parity tested; explicit timing/window, missing-bar, action, order-limit and risk differences"
+  },
+  {
+    "gate": "E",
+    "name": "Simulator correctness",
+    "status": "PASS",
+    "basis": "31 executed controls plus independent journal reconstruction; limited to modeled cases"
+  },
+  {
+    "gate": "F",
+    "name": "Equal-condition execution",
+    "status": "PASS",
+    "basis": "same dataset hashes, starting equity, input windows and engine rules across all entries"
+  },
+  {
+    "gate": "G",
+    "name": "All eligible strategies attempted",
+    "status": "PASS",
+    "basis": "68 entries x 32 base fixtures; sensitivity E0/D2 only"
+  },
+  {
+    "gate": "H",
+    "name": "Performance metric accuracy",
+    "status": "PASS",
+    "basis": "independent Decimal reconstruction of all journals and leaderboard inputs"
+  },
+  {
+    "gate": "I",
+    "name": "Stress-test execution",
+    "status": "PASS",
+    "basis": "15 named stress families x 2 seeds x 68 entries; 2 long-cycle paths separately"
+  },
+  {
+    "gate": "J",
+    "name": "Independent E0/D2 comparison",
+    "status": "PARTIAL",
+    "basis": "paired executed descriptive comparison and independent accounting; no independent market sample or external reviewer"
+  },
+  {
+    "gate": "K",
+    "name": "Compliance and risk verification",
+    "status": "PASS",
+    "basis": "breaches explicitly retained; PASS here means verified classification, not every candidate compliant"
+  },
+  {
+    "gate": "L",
+    "name": "Reproducibility and preservation",
+    "status": "PASS",
+    "basis": "new artifacts only; source snapshots, raw journals, measured runs, checksums"
+  },
+  {
+    "gate": "M",
+    "name": "Zero unauthorized Git/external actions",
+    "status": "PASS",
+    "basis": "read-only Git; no broker, provider, credential, holdout or external network actions"
+  },
+  {
+    "gate": "N",
+    "name": "Scientific integrity",
+    "status": "PASS",
+    "basis": "synthetic/descriptive labels; no official score, significance, universal winner or promotion"
+  }
+]
